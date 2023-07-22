@@ -1,0 +1,179 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+<!--ROLLOVERS
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_findObj(n, d) { //v3.0
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+<!-- BEGIN RELATIVE MENU SCRIPT
+var maxLength = 10;
+
+<!-- INITIAL OPTIONS FOR SECONDARY MENU
+siteopt = new Array;
+siteopt[0] = "Fan Support";
+siteopt[1] = "Fan Facts";
+siteopt[2] = "Hunter Quality";
+siteopt[3] = "Selecting a Hunter Fan";
+siteopt[4] = "Browse by Blade Size";
+siteopt[5] = "Browse by Category";
+siteopt[6] = "Browse Fan Accessories";
+
+var trueLength = siteopt.length;
+var lst = siteopt.length;
+
+<!-- URLS CORRESPONDING TO INITIAL SECONDARY MENU OPTIONS
+url = new Array;
+url[0] = "https://web.archive.org/web/20040613230320/http://www.hunterfan.com/support/fans_faq.html";
+url[1] = "https://web.archive.org/web/20040613230320/http://www.hunterfan.com/advantage/fans_facts.html";
+url[2] = "https://web.archive.org/web/20040613230320/http://www.hunterfan.com/advantage/fans_quality.html";
+url[3] = "https://web.archive.org/web/20040613230320/http://www.hunterfan.com/advantage/fans_selecting.html";
+url[4] = "https://web.archive.org/web/20040613230320/http://www.hunterfan.com/showroom/fans_size.html";
+url[5] = "https://web.archive.org/web/20040613230320/http://www.hunterfan.com/showroom/fans_category.html";
+url[6] = "https://web.archive.org/web/20040613230320/http://www.hunterfan.com/showroom/fans_accessories.html";
+
+<!-- PERMANENT PRIMARY MENU OPTIONS
+catopt = new Array;
+catopt[0] = "Ceiling Fans";
+catopt[1] = "Humidifiers";
+catopt[2] = "Air Purifiers";
+catopt[3] = "Thermostats";
+
+<!-- SET NEW ARRAYS FOR CHANGING SECONDARY MENU OPTIONS
+function changeMenu(){
+siteopt.length = 0;menuNum = document.SelectMenu.SelectPrimary.selectedIndex;
+        if (menuNum == null) return;          if (menuNum == 0)         {               
+           siteopt = new Array;        
+	siteopt[0] = new Option("Fan Support");
+        siteopt[1] = new Option("Fan Facts");
+        siteopt[2] = new Option("Hunter Quality");
+        siteopt[3] = new Option("Selecting a Hunter Fan");
+        siteopt[4] = new Option("Browse by Blade Size");
+        siteopt[5] = new Option("Browse by Category");
+	siteopt[6] = new Option("Browse Fan Accessories");         
+	   url = new Array;
+        url[0] = "https://web.archive.org/web/20040613230320/http://www.hunterfan.com/support/fans_faq.html";
+        url[1] = "https://web.archive.org/web/20040613230320/http://www.hunterfan.com/advantage/fans_facts.html";        
+	url[2] = "https://web.archive.org/web/20040613230320/http://www.hunterfan.com/advantage/fans_quality.html";
+        url[3] = "https://web.archive.org/web/20040613230320/http://www.hunterfan.com/advantage/fans_selecting.html";        
+	url[4] = "https://web.archive.org/web/20040613230320/http://www.hunterfan.com/showroom/fans_size.html";
+	url[5] = "https://web.archive.org/web/20040613230320/http://www.hunterfan.com/showroom/fans_category.html";
+	url[6] = "https://web.archive.org/web/20040613230320/http://www.hunterfan.com/showroom/fans_accessories.html";
+        }        
+	   if (menuNum == 1)         
+	   {        
+	   siteopt = new Array;
+        siteopt[0] = new Option("Humidifier Support");
+        siteopt[1] = new Option("Humidifier Facts");
+        siteopt[2] = new Option("Compare Features");
+        siteopt[3] = new Option("Browse All Models");        
+	   url = new Array;
+        url[0] = "https://web.archive.org/web/20040613230320/http://www.hunterfan.com/support/humid_faq.html";
+        url[1] = "https://web.archive.org/web/20040613230320/http://www.hunterfan.com/advantage/humidifiers.html";        
+	url[2] = "https://web.archive.org/web/20040613230320/http://www.hunterfan.com/advantage/humid_features.html";
+	url[3] = "https://web.archive.org/web/20040613230320/http://www.hunterfan.com/showroom/humid_results.tmpl";
+        }        
+	   if (menuNum == 2)         
+	   {        
+	   siteopt = new Array;
+        siteopt[0] = new Option("Air Purifier Support");
+        siteopt[1] = new Option("Air Purifier Facts");
+        siteopt[2] = new Option("Compare Features");
+        siteopt[3] = new Option("Browse All Models");        
+	   url = new Array;
+        url[0] = "https://web.archive.org/web/20040613230320/http://www.hunterfan.com/support/pure_faq.html";
+        url[1] = "https://web.archive.org/web/20040613230320/http://www.hunterfan.com/advantage/purifiers.html";        
+	url[2] = "https://web.archive.org/web/20040613230320/http://www.hunterfan.com/advantage/pure_features.html";
+	url[3] = "https://web.archive.org/web/20040613230320/http://www.hunterfan.com/showroom/pure_results.tmpl";
+        }
+        if (menuNum == 3)         
+	   {        
+	   siteopt = new Array;
+	siteopt[0] = new Option("Thermostat Support");
+        siteopt[1] = new Option("Thermostat Facts");
+        siteopt[2] = new Option("Programmable Facts");
+        siteopt[3] = new Option("Digital Facts");
+        siteopt[4] = new Option("Mechanical Facts");
+        siteopt[5] = new Option("Compare Features");
+        siteopt[6] = new Option("Browse Programmable");
+        siteopt[7] = new Option("Browse Digital");
+        siteopt[8] = new Option("Browse Mechanical");
+           url = new Array;        
+	url[0] = "https://web.archive.org/web/20040613230320/http://www.hunterfan.com/support/thermo_faq.html";
+        url[1] = "https://web.archive.org/web/20040613230320/http://www.hunterfan.com/advantage/thermostats.html"; 
+        url[2] = "https://web.archive.org/web/20040613230320/http://www.hunterfan.com/advantage/thermo_prog.html";
+        url[3] = "https://web.archive.org/web/20040613230320/http://www.hunterfan.com/advantage/thermo_dig.html";
+        url[4] = "https://web.archive.org/web/20040613230320/http://www.hunterfan.com/advantage/thermo_mech.html";
+        url[5] = "https://web.archive.org/web/20040613230320/http://www.hunterfan.com/advantage/thermo_features.html";
+        url[6] = "https://web.archive.org/web/20040613230320/http://www.hunterfan.com/showroom/thermo_prog_results.tmpl";
+        url[7] = "https://web.archive.org/web/20040613230320/http://www.hunterfan.com/showroom/thermo_dig_results.tmpl";
+        url[8] = "https://web.archive.org/web/20040613230320/http://www.hunterfan.com/showroom/thermo_mech_results.tmpl";        
+
+<!-- RUN FOR TOTAL NUMBER OF NEWLY CREATED OPTION OBJECTS AND DELETE OLD OPTIONS
+        }tot = siteopt.length;        
+		for (i = lst; i > 0; i--) 
+        	{ document.SelectMenu.SelectSecondary.options[i] = null; }
+        	for (i = 0; i < tot; i++)
+        	{ document.SelectMenu.SelectSecondary.options[i] = siteopt[i]; }
+        document.SelectMenu.SelectSecondary.options[0].selected = true;
+lst = siteopt.length;}
+
+<!-- GO TO SELECTED PAGE
+function changePage() {
+menuNum = document.SelectMenu.SelectPrimary.selectedIndex;
+        if (menuNum == null){alert("Please select a category from the menu.");return;}
+        else        {
+        i = document.SelectMenu.SelectSecondary.selectedIndex;
+        window.location.href = url[i];        
+	   }}
+
+//-->
+
+}
+/*
+     FILE ARCHIVED ON 23:03:20 Jun 13, 2004 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 04:29:22 May 05, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 63.437
+  exclusion.robots: 0.12
+  exclusion.robots.policy: 0.105
+  cdx.remote: 0.125
+  esindex: 0.014
+  LoadShardBlock: 41.346 (3)
+  PetaboxLoader3.datanode: 54.443 (4)
+  load_resource: 62.576
+  PetaboxLoader3.resolve: 28.256
+*/

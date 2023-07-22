@@ -1,0 +1,247 @@
+
+if (!("thrive_pv" in window)) {
+  
+window.thrive_pv = function() {
+  window.thrive = { "preview_url" : ( ("thrive" in window && "preview_url" in window.thrive) ? window.thrive.preview_url : null ) }
+
+  window.thrive.performance = {}
+  window.thrive.performance.uieRun = (new Date()).getTime();
+
+  ( function () {
+    var b64_digits = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_'
+    this.i_to_b64 = function(i) {
+      var b64 = ''
+      while (i>0) {
+        b64 = b64_digits[i%64]+b64
+        i = Math.floor(i/64)
+      }
+      return b64
+    }
+    this.urlsafe_b64_encode = function(object) {
+      return btoa( unescape( encodeURIComponent( JSON.stringify(object) ) ) ).replace(/\+/g,'-').replace(/\//g,'_').replace(/\=+$/,'')
+    }
+    this.trim_attributes = function(object) {
+      Object.keys(object).forEach(function(a){ if (typeof(object[a]) == "string") { object[a] = object[a].substring(0, 255) } })
+      return object
+    }
+    this.generate_uuid = function(msec) {
+      var b = ''
+      for (var i=0; i<33; i++) { b += String.fromCharCode(Math.floor((Math.random()) * 256)) }
+      return ('AAAAAAAAAAAA'+this.i_to_b64(msec)).slice(-12) +
+        ('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'+this.urlsafe_b64_encode(b)).slice(-44)
+    }
+    this.get_query_param = function(key) {
+      var vars = window.location.search.substring(1).split('&')
+      for (var i=0; i<vars.length; i++) {
+        var pair = vars[i].split('=')
+        if (decodeURIComponent(pair[0]) == key) {
+          return decodeURIComponent(pair[1])
+        }
+      }
+    }
+    this.get_fragment_param = function(key) {
+      var vars = window.location.hash.substring(2).split('&')
+      for (var i=0; i<vars.length; i++) {
+        var pair = vars[i].split('=')
+        if (decodeURIComponent(pair[0]) == key) {
+          return decodeURIComponent(pair[1])
+        }
+      }
+    }
+    this.get_cookie = function(key) {
+      var match
+      if ( match = ( new RegExp('(?:^|; )'+encodeURIComponent(key)+'=([^;]*)') ).exec(document.cookie) ) {
+        return decodeURIComponent(match[1])
+      }
+    }
+    this.set_cookie = function(key, value, domain, expiration) {
+      document.cookie = encodeURIComponent(key)+'='+encodeURIComponent(value)+'; path=/;' +
+        (domain ? (' domain='+encodeURIComponent(domain)+';') : '') +
+        (expiration ? (' expires='+expiration+';') : '') +
+        'Secure; SameSite=Lax;'
+      return this.get_cookie(key)
+    }
+    this.get_top_cookieable_domain = function () {
+      var key = "d039c01de1fa6f87"
+      var top_cookieable_domain = null
+      var try_domain = '..' + document.domain
+      while ( try_domain.match(/^\.[^\.]*\./) ) {
+        try_domain = try_domain.replace(/^\.[^\.]*/, '')
+        if ( this.set_cookie(key, '1', try_domain) ) {
+          top_cookieable_domain = try_domain
+        }
+        document.cookie = encodeURIComponent(key)+'=; path=/;'+
+          ' domain='+encodeURIComponent(try_domain)+';'+
+          ' expires=Thu, 01 Jan 1970 00:00:00 GMT;'
+      }
+      return top_cookieable_domain
+    }
+
+    this.add_script = function(src, async) {
+      var new_node = document.createElement('script')
+      new_node.src = src
+      new_node.async = async
+      var selector = "script[src^=\\/\\/integrate\\.thrive\\.today], script[src^=\\/\\/gte\\.thrive\\.today]"
+      var uie_spawned_script_tags = document.querySelectorAll(selector)
+      var insertion_location
+      if (uie_spawned_script_tags.length>0) {
+        insertion_location = uie_spawned_script_tags[uie_spawned_script_tags.length-1]
+        insertion_location.parentNode.insertBefore(new_node, insertion_location.nextSibling)
+      } else {
+        document.querySelector('head').appendChild(new_node)
+      }
+    }
+
+    // patch for past tracking glitch: if there's an fp_uuid that might be on the full domain, move it to top_cookieable_domain
+    if (this.get_cookie("va6uyAb") && '.'+document.domain != this.get_top_cookieable_domain()) {
+      this.set_cookie("va6uyAb", this.get_cookie("va6uyAb"), this.get_top_cookieable_domain(), 'Wed, 01 Jan 2070 00:00:00 GMT')
+      this.set_cookie("va6uyAb", ''                                               , '.'+document.domain             , 'Thu, 01 Jan 1970 00:00:00 GMT')
+    }
+
+    if ( !this.get_cookie("va6uyAb") ) {
+      this.set_cookie(
+        "va6uyAb",
+        "AAAAAYfLrd4PRa66mDA0Dcy15YZYed2drAOVqFZYv6r35DzWKGqoDzeO",
+        this.get_top_cookieable_domain(),
+        'Wed, 01 Jan 2070 00:00:00 GMT'
+      )
+    }
+
+    this.pv_uuid = this.generate_uuid( this.pv_msec = (new Date).getTime() )
+    var effective_url_b64 = this.urlsafe_b64_encode( this.effective_url = window.thrive.preview_url || window.location.href )
+    this.new_nodes = {}
+    this.observers = {}
+    this.functions = {}
+    this.gte_queue = []
+
+    this.ga_ready = false
+    this.ga_queue = []
+
+    this.ga_send = function( action, label ) {
+      window.ga( function() {
+        var trackers_complete = {}
+        window.ga.getAll().forEach( t => {
+          if ( !trackers_complete[ t.get('trackingId').toLowerCase() ] ) {
+            t.send( 'event', 'Thrive', action, label, { 'nonInteraction': 1 } )
+            trackers_complete[ t.get('trackingId').toLowerCase() ] = true
+          }
+        } )
+      } )
+    }
+
+    this.ga = function( action, label ) {
+      if ( this.ga_ready ) {
+        this.ga_send( action, label )
+      } else {
+        this.ga_queue.push( { action: action, label: label } )     
+      }
+    }
+
+    this.periodic_check_ga_ready = function( next_wait ) {
+      if ( typeof window.ga == 'function' ) {
+        this.ga_ready = true
+        while ( this.ga_queue.length > 0 ) {
+          e = this.ga_queue.shift()
+          this.ga_send( e['action'], e['label'] )
+        }
+      } else if ( next_wait < 20000 ) {
+        setTimeout( function() { window.thrive.periodic_check_ga_ready( next_wait*1.5 ) }, next_wait )
+      }
+    }
+    this.periodic_check_ga_ready( 100 )
+    
+    this.trigger_ga = function( gte_class_name, gte_object ) {
+      this.ga_prefix = "["+gte_object["tsckind"]+"] [" + this.token + "] "
+      var ga_offer_kind
+      switch (gte_object["offer_type"]) {
+        case 'coupon': ga_offer_kind='Coupon'; break
+        case 'other':  ga_offer_kind='Deal';   break
+        case 'rebate': ga_offer_kind='Rebate'; break
+        default:       ga_offer_kind='';       break
+      }
+      if (parseInt(gte_object["in_store"])==1) {
+        ga_offer_kind = 'In-Store ' + ga_offer_kind
+      }
+      
+      if ( gte_class_name=='pageview' && ( gte_object["tsc_available"] != null && gte_object["tsc_available"] != '' ) && ( gte_object["tsckind"]=='dbtsc' || gte_object["tsckind"]=='cctsc' ) ) {
+        this.ga(                                                                                                         this.ga_prefix + "Available", ''                     )
+      }
+      if ( gte_class_name=='pageview' && gte_object["ab"] != '' ) {
+        this.ga(                                                                                                         "AB Segmentation", gte_object["ab"] )
+      }
+      if ( gte_class_name=='tsc' ) {
+        if ( gte_object["caveat"]=='auto' ) {
+          this.ga(                                                                                                       this.ga_prefix + "Auto View", gte_object["category"] )
+        } else {
+          this.ga(                                                                                                       this.ga_prefix + "View"     , gte_object["category"] )
+        }
+      } else if ( gte_class_name=='offer_engagement' ) {
+        this.ga_offer = gte_object["name"]+"("+gte_object["offer_id"]+")"
+        if ( gte_object["kind"] == 'social_engage'       && gte_object["social_type"]      == 'sms'          ) { this.ga(this.ga_prefix + "SMS Show/Hide Form ("     + gte_object["tsckind"] +        ")"           , this.ga_offer ) }
+        if ( gte_object["kind"] == 'social_execute'      && gte_object["social_type"]      == 'sms'          ) { this.ga(this.ga_prefix + "SMS Share ("              + gte_object["tsckind"] +        ")"           , this.ga_offer ) }
+        if ( gte_object["kind"] == 'social_engage'       && gte_object["social_type"]      == 'email'        ) { this.ga(this.ga_prefix + "Email Show/Hide Form ("   + gte_object["tsckind"] +        ")"           , this.ga_offer ) }
+        if ( gte_object["kind"] == 'social_execute'      && gte_object["social_type"]      == 'email'        ) { this.ga(this.ga_prefix + "Email Share ("            + gte_object["tsckind"] +        ")"           , this.ga_offer ) }
+        if ( gte_object["kind"] == 'social_execute'      && gte_object["social_type"]      == 'fb'           ) { this.ga(this.ga_prefix + "Facebook Share ("         + gte_object["tsckind"] +        ")"           , this.ga_offer ) }
+        if ( gte_object["kind"] == 'social_execute'      && gte_object["social_type"]      == 'twitter'      ) { this.ga(this.ga_prefix + "Twitter Share ("          + gte_object["tsckind"] +        ")"           , this.ga_offer ) }
+        if ( gte_object["kind"] == 'social_execute'      && gte_object["social_type"]      == 'apple_wallet' ) { this.ga(this.ga_prefix + "Apple Wallet Click ("     + gte_object["tsckind"] +        ")"           , this.ga_offer ) }
+        if ( gte_object["kind"] == 'instore_engage'      && gte_object["instore_type"]     == 'sms'          ) { this.ga(this.ga_prefix + "SMS Show/Hide Form ("     + ga_offer_kind         + " Reveal)"           , this.ga_offer ) }
+        if ( gte_object["kind"] == 'instore_execute'     && gte_object["instore_type"]     == 'sms'          ) { this.ga(this.ga_prefix + "SMS Share ("              + ga_offer_kind         + " Reveal)"           , this.ga_offer ) }
+        if ( gte_object["kind"] == 'instore_engage'      && gte_object["instore_type"]     == 'email'        ) { this.ga(this.ga_prefix + "Email Show/Hide Form ("   + ga_offer_kind         + " Reveal)"           , this.ga_offer ) }
+        if ( gte_object["kind"] == 'instore_execute'     && gte_object["instore_type"]     == 'email'        ) { this.ga(this.ga_prefix + "Email Share ("            + ga_offer_kind         + " Reveal)"           , this.ga_offer ) }
+        if ( gte_object["kind"] == 'instore_execute'     && gte_object["instore_type"]     == 'apple_wallet' ) { this.ga(this.ga_prefix + "Apple Wallet Click ("     + ga_offer_kind         + " Reveal)"           , this.ga_offer ) }
+        if ( gte_object["kind"] == 'instore_execute'     && gte_object["instore_type"]     == 'print'        ) { this.ga(this.ga_prefix + "Print Click ("            + ga_offer_kind         + " Reveal)"           , this.ga_offer ) }
+        if ( gte_object["kind"] == 'instore_execute'     && gte_object["instore_type"]     == 'view'         ) { this.ga(this.ga_prefix + "InStore CTA Button Click ("+ga_offer_kind         + " Reveal)"           , this.ga_offer ) }
+        if ( gte_object["kind"] == 'verification_engage' && gte_object["is_data_required"] == 1              ) { this.ga(this.ga_prefix                              + ga_offer_kind         + " Captcha/Data Entry", this.ga_offer ) }
+        if ( gte_object["kind"] == 'verification_pass'   && gte_object["is_data_required"] == 1              ) { this.ga(this.ga_prefix + "Data Submit Click ("      + ga_offer_kind         + " Reveal)"           , this.ga_offer ) }
+        if ( gte_object["kind"] == 'copy_code'                                                               ) { this.ga(this.ga_prefix + "Coupon Code Copy ("       + ga_offer_kind         + " Reveal)"           , this.ga_offer ) }
+        if ( gte_object["kind"] == 'click_code'                                                              ) { this.ga(this.ga_prefix + "Coupon Code Manual ("     + ga_offer_kind         + " Reveal)"           , this.ga_offer ) }
+        if ( gte_object["kind"] == 'navigate'                                                                ) { this.ga(this.ga_prefix + "CTA Button Click ("       + ga_offer_kind         + " Reveal)"           , this.ga_offer ) }
+        if ( gte_object["kind"] == 'apply_code'                                                              ) { this.ga(this.ga_prefix + "CTA Apply Click ("        + ga_offer_kind         + " Reveal)"           , this.ga_offer ) }
+        if ( gte_object["kind"] == 'details'                                                                 ) { this.ga(this.ga_prefix + "Details Click ("          + ga_offer_kind         + " Reveal)"           , this.ga_offer ) }
+      }
+    }
+
+    this.gte = function( gte_class_name, gte_object ) {
+      gte_object = this.trim_attributes(gte_object)
+      if ( gte_class_name != 'pageview' ) {
+        gte_object["uuid"]                   = this.generate_uuid( gte_object["msec"] = (new Date).getTime() )
+        gte_object["pv_uuid"]                = this.pv_uuid
+      }
+
+      gte_object["fp_uuid"]                  = this.get_cookie("va6uyAb")
+
+      if ( ["txn", "checkout", "cart"].indexOf(gte_class_name) >= 0 ) { //superclass
+        gte_object["gte_class_name"]         = "cart"
+        gte_object["status"]                 = gte_class_name
+        gte_object["txn_id"]                 = gte_object["id"]      
+      } else if ( gte_class_name == 'product' ) {
+        gte_object["gte_class_name"]         = gte_class_name
+        gte_object["txn_id"]                 = gte_object["id"]      
+      } else {
+        gte_object["gte_class_name"]         = gte_class_name
+      }
+      delete gte_object["id"]
+      this.gte_queue.push( gte_object )
+      if ( gte_class_name=='tsc' ) {
+        this.tsc_uuid = gte_object["uuid"]
+      }
+      this.trigger_ga( gte_class_name, gte_object )
+    }
+    this.gte_send = function() { 
+      if ('site' in this) {
+        this.gte_queue.forEach(function(gte_object) {
+          (function(){
+            gte_object["site"] = this.site
+            this.add_script( ( "//gte.thrive.today/" + this.urlsafe_b64_encode( gte_object ) + '/gte.js' ), 1 )
+          }).call( window.thrive )
+        } )
+        this.gte_queue = []
+      }
+    }
+
+    this.add_script("//integrate.thrive.today/"+this.pv_uuid+'/'+effective_url_b64+'/dtam.js?fp_uuid='+this.get_cookie("va6uyAb"), 0)
+  } ).call( window.thrive )
+}
+
+window.thrive_pv()
+}

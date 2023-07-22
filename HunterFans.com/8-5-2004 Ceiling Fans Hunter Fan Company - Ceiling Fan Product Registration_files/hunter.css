@@ -1,0 +1,61 @@
+ 
+	regheader			= for a page title or headings without needing a graphic
+	
+	qbody 				= question body, question choices, basic small black text type
+	qlist		 		= question text, bold colored text
+	qlistnum			= question numbers
+	qlistsub			= question text, plain colored text for descriptive text in question. like "check all that apply" 
+	qlink				= privacy link, and any link that needs to be in the body of the survey
+	
+	qspace 				= allows for an increase or decrease in space between questions
+	whitespace			= allows for an increase or decrease in whitespace between the survey and the privacy statement
+	
+	concernstext		= text at the bottom of the privacy policy that allows feedback to the privacy and webmaster e-mail boxes
+	concernstextlink	= for the links in the concerns text
+	
+	sweepsbody			= rules page text and any description of rules at the top of a reg card
+	sweepslink			= link to the rules page
+	
+	indexlink			= links to registration cards on en index page.
+
+ 
+{  }
+.regheader 			{	font-size : 16px;	font-family : Verdana, Arial, Helvetica, sans-serif;	color : #003333;	font-weight : bold;	text-decoration : none;}
+ 
+.qbody 				{	font-size : 10px;	font-family : Verdana, Arial, Helvetica, sans-serif;	color : #000000;	font-weight : normal;	text-decoration : none;; line-height: 15px}
+.qlist 				{	font-size : 10px;	font-family : Verdana, Arial, Helvetica, sans-serif;	color : #000000;	font-weight : bold;	text-decoration : none;}
+.qlistnum 			{	font-size : 10px;	font-family : Verdana, Arial, Helvetica, sans-serif;	color : #000000;	font-weight : bold;	text-decoration : none;}
+.qlistsub 			{ 	font-size : 10px;	font-family : Verdana, Arial, Helvetica, sans-serif;	color : #000000;	font-weight : normal;	text-decoration : none;}
+.qlink 				{	font-size : 11px;	font-family : Verdana, Arial, Helvetica, sans-serif;	color : #9b5547;	font-weight : normal;	text-decoration: underline;}
+
+.qspace 				{	line-height: 20px}
+.whitespace 			{	line-height: 1200px}
+
+.concernstext			{	font-size : 10px;	font-family : Verdana, Arial, Helvetica, sans-serif;	color : #990000;	font-weight : bold;	text-decoration : none;}
+.concernstextlink 		{	font-size : 10px;	font-family : Verdana, Arial, Helvetica, sans-serif;	color : #000000;	font-weight : bold; 	text-decoration : underline;}
+
+.sweepsbody			{	font-size : 10px;	font-family : Verdana, Arial, Helvetica, sans-serif;	color : #000000; 	font-weight : normal;	text-decoration : none;; line-height: 15px}
+.sweepslink 			{	font-size : 10px;	font-family : Verdana, Arial, Helvetica, sans-serif;	color : #003399;	font-weight : normal;	text-decoration : underline;}
+
+.indexlink 			{ 	font-size : 12px;	font-family : Verdana, Arial, Helvetica, sans-serif;	color : #9b5547; 	font-weight : bold;	text-decoration : underline;}.qtablehead { font-size : 10px; font-family : Verdana, Arial, Helvetica, sans-serif; color : #000000; font-weight : bold; text-decoration : none; ; line-height: 15px; text-align: center}
+.rows {  font-family: Verdana, Arial, Helvetica, sans-serif; clip:   rect(   ); background-color: #000000}
+.concernsblue {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; color: #0000CC; text-decoration: none}
+.questspace {  line-height: 1px}
+.qlistLG { font-size : 12px; font-family : Verdana, Arial, Helvetica, sans-serif; color : #000000; font-weight : bold; text-decoration : none; }
+.qbodyLG { font-size : 12px; font-family : Verdana, Arial, Helvetica, sans-serif; color : #000000; font-weight : normal; text-decoration : none;; line-height: 15px }
+.qbodyRED {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; font-style: normal; font-weight: bold; color: #CC0000}
+.star	{	
+	font-size : 0px;	
+	font-family : Verdana, Arial, Helvetica, sans-serif;	
+	color : #ffffff; 
+	text-decoration : none;	
+	font-weight : normal;
+}
+	
+.emailStar{	
+	font-size : 0px;	
+	font-family : Verdana, Arial, Helvetica, sans-serif;	
+	color : #ffffff; 
+	text-decoration : none;	
+	font-weight : normal;
+}
