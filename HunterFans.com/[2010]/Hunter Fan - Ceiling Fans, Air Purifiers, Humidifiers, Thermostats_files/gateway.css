@@ -1,0 +1,59 @@
+.jcarousel-skin .jcarousel-clip-horizontal {width:478px; height:258px;}
+.jcarousel-skin .jcarousel-item {width:478px; height:258px;}
+#manualcarousel {float:left; margin:0px;  padding:0px 2px 0px 0px; border:none; width:478px; height:258px;}
+#manualcarousel-prev,
+#manualcarousel-next {position:absolute; top:113px; z-index:10; height:34px; width:35px;}
+#manualcarousel-prev {left:61px; background:url(https://web.archive.org/web/20110131184817im_/http://s7d5.scene7.com/is/image/HunterFan/site_carousel_prev?wid=35&hei=68&fmt=png-alpha) no-repeat 0px 0px;}
+#manualcarousel-next {left:382px; background:url(https://web.archive.org/web/20110131184817im_/http://s7d5.scene7.com/is/image/HunterFan/site_carousel_next?wid=35&hei=68&fmt=png-alpha) no-repeat 0px 0px;}
+#manualcarousel-prev:hover,
+#manualcarousel-next:hover {background-position:0px -34px;}
+.flip-panel {width:156px; height:258px; float:left; position:relative; cursor:pointer; margin:0px 0px 0px 4px;}
+.front {position:absolute; left:0; top:0; width:100%; height:100%;z-index: 0;}
+/*.back {display:none;}*/
+.back {z-index: 0;}
+.link-list {position:absolute; width:143px; height:146px; padding:112px 0px 0px 13px;}
+.link-list a {color:#FFF; text-decoration:none; font-size:12px; width:auto; padding:0px 15px 4px 0px; background:url(https://web.archive.org/web/20110131184817im_/http://s7d5.scene7.com/is/image/HunterFan/gateway%5Flink%5Fbg?wid=4&hei=6&fmt=png-alpha) no-repeat right;}
+.link-list a:hover {text-decoration:underline;}
+
+/**
+ * This <div> element is wrapped by jCarousel around the list
+ * and has the classname "jcarousel-container".
+ */
+.jcarousel-container {position:relative;}
+.jcarousel-clip {z-index:2; padding:0; margin:0; overflow:hidden; position:relative;}
+.jcarousel-list {z-index:1; overflow:hidden; position:relative; top:0; left:0; margin:0; padding:0;}
+.jcarousel-list li,
+.jcarousel-item {float:left; list-style:none;
+    /* No width/height causes infinite loops. */
+    width: 75px;
+    height: 75px;
+}
+
+/**
+ * The buttons are added dynamically by jCarousel before
+ * the <ul> list (inside the <div> described above) and
+ * have the classnames "jcarousel-next" and "jcarousel-prev".
+ */
+.jcarousel-next {z-index:3; display:none;}
+.jcarousel-prev {z-index:3; display:none;}
+
+/*
+     FILE ARCHIVED ON 18:48:17 Jan 31, 2011 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 08:59:45 Jul 17, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 148.433
+  exclusion.robots: 0.195
+  exclusion.robots.policy: 0.184
+  cdx.remote: 0.083
+  esindex: 0.009
+  LoadShardBlock: 54.004 (3)
+  PetaboxLoader3.datanode: 60.403 (4)
+  load_resource: 116.824
+  PetaboxLoader3.resolve: 74.243
+*/

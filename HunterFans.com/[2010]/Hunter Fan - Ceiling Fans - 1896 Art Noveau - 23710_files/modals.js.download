@@ -1,0 +1,279 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+//for testing modals
+$(document).ready(function() {
+	//openModal('thanks');
+	//openModal('keep-updated');
+	//openModal('signup');
+});
+
+var currentModal = null;
+
+function bindModalKeys() {
+	$('html, body').bind('keypress', function(e) {
+		var code = (e.keyCode ? e.keyCode : e.which);
+		 if(code == 27) { //escape keycode
+		   closeTopMostModal();
+		 }
+	});
+}
+function unbindModalKeys() {
+	$('html, body').unbind('keypress');
+}
+
+function openModal(modalId, setFormVals) {
+	var modal;
+	$(".modal-" + modalId).each(function(){
+	  modal = this;
+    });
+	
+	modal.modalId = modalId;
+	modal.style.display = "block";
+	
+	modal.dimmer = document.createElement("div");
+	modal.dimmer.className = "modal-bg";
+	insertAfter(modal.dimmer, modal);
+	
+	if (currentModal) {
+		modal.parentModal = currentModal;
+		modal.dimmer.style.zIndex = String(eval(Number(modal.parentModal.style.zIndex)+1));
+		modal.style.zIndex = String(eval(Number(modal.dimmer.style.zIndex)+1));
+	} else {
+		modal.parentModal = null;
+		modal.dimmer.style.zIndex = "99";
+		modal.style.zIndex = "100";
+	}
+	
+	window.onresize = positionModals;
+	
+	if(is_IE() == 6) {
+		//hide select boxes in the content area since IE6 renders them on top of EVERYTHING
+		$("#content select").css({'visibility' : 'hidden'});
+		
+		if (currentModal) {
+			$(".modal-" + currentModal.modalId + " select").css({'visibility' : 'hidden'});
+		}
+		
+		//since IE6 doesn't understand position: fixed we must manually keep the modal's position correct using position: absolute
+		modal.dimmer.style.position = modal.style.position = "absolute";
+		window.onscroll = window.onresize;
+	}
+	
+	currentModal = modal;
+	
+	positionModals();
+	if (modal.parentModal) {
+		unbindModalKeys();
+	}
+	bindModalKeys();
+}
+
+function closeTopMostModal() {
+    currentModal.style.display = "none";
+    currentModal.dimmer.style.display = "none";
+	
+	if (!currentModal.parentModal) {
+		window.onresize = null;
+		if (is_IE() == 6) {
+			window.onscroll = null;
+			//show select boxes in the content area since IE6 renders them on top of EVERYTHING and we hid them before
+			$("#content select").css({'visibility' : 'visible'});
+		}
+		unbindModalKeys();
+	} else {
+		if (is_IE() == 6) {
+			$(".modal-"+currentModal.parentModal.modalId+" select").css({'visibility' : 'visible'});
+		}	
+	}
+	currentModal = currentModal.parentModal;
+}
+
+function sizeModal(modal) {
+	if (!modal.origWidth) {
+		//modal.origWidth = modal.offsetWidth;
+		modal.origHeight = modal.offsetHeight;
+	}
+	
+	/*modal.maxWidth = getViewportWidth() - 150;
+	if (modal.offsetWidth > modal.maxWidth) {
+		modal.style.width = modal.maxWidth + "px";
+	} else {
+		modal.style.width = modal.origWidth + "px";
+	}*/
+	modal.maxHeight = getViewportHeight() - 100;
+	if (modal.offsetHeight > modal.maxHeight) {
+		modal.style.height = modal.maxHeight + "px";
+		//automatically size inner div so scroll bar is used correctly if it is necessary
+		$("#"+modal.id+" .modal-inner").css({'height' : eval(modal.maxHeight-52)+'px'});
+	} else {
+		//modal.style.height = modal.origHeight + "px";
+	}
+}
+
+function positionModal(modal) {
+	//sizeModal(modal);//not sure how to handle dynamically sized modals just yet...so modals too tall will extend outside viewport at this point
+	modal._x = Math.floor((getViewportWidth() - modal.offsetWidth)/2);
+	modal._y = Math.floor((getViewportHeight() - modal.offsetHeight)/2);
+	
+	if (is_IE() == 6) {
+		//since IE6 doesn't understand position: fixed we must manually set the modal's y position based on the current vertical scroll position
+		modal._y += f_scrollTop();
+		//force background to fill entire screen, not sure why this is needed
+		modal.dimmer.style.width = getViewportWidth()+"px";
+		modal.dimmer.style.height = eval(getPageSizeWithScroll()+72)+"px";	
+	}
+	modal.style.left = modal._x + "px";
+	modal.style.top = modal._y + "px";
+}
+
+function positionModals() {
+	positionModal(currentModal);
+	var loopModal = currentModal;
+	
+	while (loopModal.parentModal) {
+		positionModal(loopModal.parentModal);
+		if (loopModal.parentModal) {
+			loopModal = loopModal.parentModal;
+		} else {
+			loopModal.parentModal = null;
+		}
+	}
+}
+
+//util and browser functions
+function insertAfter(newChild, refChild) { 
+	refChild.parentNode.insertBefore(newChild,refChild.nextSibling); 
+}
+
+function is_FF() {
+	var ua = navigator.userAgent.toLowerCase();
+	if (ua.indexOf("firefox") != -1) {
+		return true;
+	} else {
+		return false;
+	}
+}
+function is_IE() {
+	var ua = navigator.userAgent.toLowerCase();
+	var ieStringPos = ua.indexOf("msie ");
+	if (ieStringPos != -1) {
+		return Number(ua.charAt(ieStringPos+5));
+	} else {
+		return 0;
+	}
+}
+
+
+function getViewportWidth() {
+    var myWidth = 0;
+    if (typeof(window.innerWidth) == 'number') {
+        //Non-IE
+        myWidth = window.innerWidth;
+    } else if (document.documentElement && document.documentElement.clientWidth) {
+        //IE 6+ in 'standards compliant mode'
+        myWidth = document.documentElement.clientWidth;
+    } else if (document.body && document.body.clientWidth) {
+        //IE 4 compatible
+        myWidth = document.body.clientWidth;
+    }
+    return myWidth;
+}
+
+function getViewportHeight() {
+    var myHeight = 0;
+    if (typeof(window.innerHeight) == 'number') {
+        //Non-IE
+        myHeight = window.innerHeight;
+    } else if (document.documentElement && document.documentElement.clientHeight) {
+        //IE 6+ in 'standards compliant mode'
+        myHeight = document.documentElement.clientHeight;
+    } else if (document.body && document.body.clientHeight) {
+        //IE 4 compatible
+        myHeight = document.body.clientHeight;
+    }
+    return myHeight;
+}
+
+function getPageSizeWithScroll(){
+	if (window.innerHeight && window.scrollMaxY) {// Firefox
+		yWithScroll = window.innerHeight + window.scrollMaxY;
+		xWithScroll = window.innerWidth + window.scrollMaxX;
+	} else if (document.body.scrollHeight > document.body.offsetHeight){ // all but Explorer Mac
+		yWithScroll = document.body.scrollHeight;
+		xWithScroll = document.body.scrollWidth;
+	} else { // works in Explorer 6 Strict, Mozilla (not FF) and Safari
+		yWithScroll = document.body.offsetHeight;
+		xWithScroll = document.body.offsetWidth;
+  	}
+	return yWithScroll;
+}
+
+
+
+
+function f_clientWidth() {
+	return f_filterResults (
+		window.innerWidth ? window.innerWidth : 0,
+		document.documentElement ? document.documentElement.clientWidth : 0,
+		document.body ? document.body.clientWidth : 0
+	);
+}
+function f_clientHeight() {
+	return f_filterResults (
+		window.innerHeight ? window.innerHeight : 0,
+		document.documentElement ? document.documentElement.clientHeight : 0,
+		document.body ? document.body.clientHeight : 0
+	);
+}
+function f_scrollLeft() {
+	return f_filterResults (
+		window.pageXOffset ? window.pageXOffset : 0,
+		document.documentElement ? document.documentElement.scrollLeft : 0,
+		document.body ? document.body.scrollLeft : 0
+	);
+}
+function f_scrollTop() {
+	return f_filterResults (
+		window.pageYOffset ? window.pageYOffset : 0,
+		document.documentElement ? document.documentElement.scrollTop : 0,
+		document.body ? document.body.scrollTop : 0
+	);
+}
+function f_filterResults(n_win, n_docel, n_body) {
+	var n_result = n_win ? n_win : 0;
+	if (n_docel && (!n_result || (n_result > n_docel)))
+		n_result = n_docel;
+	return n_body && (!n_result || (n_result > n_body)) ? n_body : n_result;
+}
+
+}
+/*
+     FILE ARCHIVED ON 18:48:28 Jan 31, 2011 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 08:53:50 Jul 17, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 80.204
+  exclusion.robots: 0.084
+  exclusion.robots.policy: 0.074
+  RedisCDXSource: 20.632
+  esindex: 0.007
+  LoadShardBlock: 41.413 (3)
+  PetaboxLoader3.datanode: 60.05 (4)
+  load_resource: 136.674
+  PetaboxLoader3.resolve: 112.79
+*/

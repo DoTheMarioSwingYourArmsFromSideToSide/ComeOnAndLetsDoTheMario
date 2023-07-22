@@ -1,0 +1,221 @@
+
+.nav-tagline {font-size:14px; font-weight:bold;}
+.smaller {font-family:Arial, Helvetica, sans-serif; font-size:11px; line-height:12px;}
+
+.modal .model-number {font-weight:normal; font-size:11px; font-family:Tahoma, Geneva, sans-serif;}
+
+/* ------- guided sale rollovers -------
+.air_purifier{width: 732px; height: 54px; background: url(https://web.archive.org/web/20110131184750im_/http://s7d5.scene7.com/is/image/HunterFan/subgateway%5FguidedPromo%5FairPurifiers?$subgateway%5FguidedPromo$) no-repeat;}
+.air_purifier:hover{width: 732px; height: 54px; background: url(https://web.archive.org/web/20110131184750im_/http://s7d5.scene7.com/is/image/HunterFan/subgateway%5FguidedPromo%5FairPurifiers%5Frollover?$subgateway%5FguidedPromo$) no-repeat;}
+.bath_fans{width: 732px; height: 54px; background: url(https://web.archive.org/web/20110131184750im_/http://s7d5.scene7.com/is/image/HunterFan/subgateway%5FguidedPromo%5FbathroomFans?$subgateway%5FguidedPromo$) no-repeat;}
+.bath_fans:hover{width: 732px; height: 54px; background: url(https://web.archive.org/web/20110131184750im_/http://s7d5.scene7.com/is/image/HunterFan/subgateway%5FguidedPromo%5FbathroomFans%5Frollover?$subgateway%5FguidedPromo$) no-repeat;}
+.ceiling_fans{width: 732px; height: 54px; background: url(https://web.archive.org/web/20110131184750im_/http://s7d5.scene7.com/is/image/HunterFan/subgateway%5FguidedPromo%5FceilingFans?$subgateway%5FguidedPromo$) no-repeat;}
+.ceiling_fans:hover{width: 732px; height: 54px; background: url(https://web.archive.org/web/20110131184750im_/http://s7d5.scene7.com/is/image/HunterFan/subgateway%5FguidedPromo%5FceilingFans%5Frollover?$subgateway%5FguidedPromo$) no-repeat;}
+.humidifiers{width: 732px; height: 54px; background: url(https://web.archive.org/web/20110131184750im_/http://s7d5.scene7.com/is/image/HunterFan/subgateway%5FguidedPromo%5Fhumidifiers?$subgateway%5FguidedPromo$) no-repeat;}
+.humidifiers:hover{width: 732px; height: 54px; background: url(https://web.archive.org/web/20110131184750im_/http://s7d5.scene7.com/is/image/HunterFan/subgateway%5FguidedPromo%5Fhumidifiers%5Frollover?$subgateway%5FguidedPromo$) no-repeat;}
+.portable_fans{width: 732px; height: 54px; background: url(https://web.archive.org/web/20110131184750im_/http://s7d5.scene7.com/is/image/HunterFan/subgateway%5FguidedPromo%5FportableFans?$subgateway%5FguidedPromo$) no-repeat;}
+.portable_fans:hover{width: 732px; height: 54px; background: url(https://web.archive.org/web/20110131184750im_/http://s7d5.scene7.com/is/image/HunterFan/subgateway%5FguidedPromo%5FportableFans%5Frollover?$subgateway%5FguidedPromo$) no-repeat;}
+.thermostats{width: 732px; height: 54px; background: url(https://web.archive.org/web/20110131184750im_/http://s7d5.scene7.com/is/image/HunterFan/subgateway%5FguidedPromo%5Fthermostats?$subgateway%5FguidedPromo$) no-repeat;}
+.thermostats:hover{width: 732px; height: 54px; background: url(https://web.archive.org/web/20110131184750im_/http://s7d5.scene7.com/is/image/HunterFan/subgateway%5FguidedPromo%5Fthermostats%5Frollover?$subgateway%5FguidedPromo$) no-repeat;}
+*/
+
+/* FORMS */
+#content-shell input,
+#content-shell select {font-family:Arial, Helvetica, sans-serif; font-size:12px;}
+
+#content-shell a.highlight:hover {text-decoration:none;}
+
+#content-shell .link-list a {text-decoration:underline;}
+#content-shell .link-list a:hover {text-decoration:underline;}
+#content-shell .model-number {font-weight:normal; font-size:11px; font-family:Tahoma, Geneva, sans-serif;}
+#content-shell .price {font-family:Arial, Helvetica, sans-serif; font-weight:bold; font-size:20px; line-height:35px; }
+#content-shell .available-at {}
+#content-shell .review-links a {font-size:11px;}
+
+#content-shell .tile-list .tile-list-title {font-size:14px; font-weight:bold; line-height:14px;}
+#content-shell .tile-list .tile-list-title-on-sale {font-size:14px; font-weight:bold; line-height:12px; font-family:Arial,Helvetica,sans-serif;}
+#content-shell .tile-list .tile-list-price {}
+#content-shell .tile-list .on-sale {font-size:12px; font-weight:bold; line-height:12px; font-family:Arial,Helvetica,sans-serif;}
+#content-shell .tile-list a {text-decoration:none;}
+#content-shell .tile-list a:hover .tile-list-title {text-decoration:underline;}
+#content-shell .tile-list a:hover .tile-list-price {text-decoration:none;}
+
+/*PRODUCT REGISTRATION FORMS*/
+#content input,
+#content select,
+#content textarea { font-family: Arial, Helvetica, sans-serif;  font-size: 12px; }
+
+
+body {font-family: Arial, Helvetica, sans-serif; font-size:12px; line-height:17px;}
+
+#main-nav a {text-decoration:none; font-size:12px;}
+#main-nav a:hover {text-decoration:underline;}
+#main-nav a.highlight {font-weight:bold;}
+
+#header {font-family:Arial, Helvetica, sans-serif; font-size:11px;}
+#header #user-cart a {text-decoration:none;}
+#header #user-cart a:hover {text-decoration:underline;}
+#header #search-input {font-family:Arial, Helvetica, sans-serif; font-size:11px;}
+#header #user-welcome a {text-decoration:none;}
+#header #user-welcome a:hover {text-decoration:underline;}
+
+#content-shell #sub-nav li a {font-family:Arial, Helvetica, sans-serif; font-weight:bold; font-size:12px; text-decoration:none; line-height:13px;}
+#content-shell #sub-nav li a:hover {text-decoration:underline;}
+#content-shell #sub-nav li a.selected:hover {text-decoration:none;}
+
+#content-shell.has-selector-bar #selector-bar ul li ul li {font-family:Arial, Helvetica, sans-serif; font-size:11px;}
+#content-shell.has-selector-bar #content #subgateway-intro ul#subgateway-cols li li a {font-family:Arial, Helvetica, sans-serif; font-size:11px; text-decoration:underline;}
+#content-shell.has-selector-bar #content #subgateway-intro ul#subgateway-cols li li a:hover {text-decoration:underline;}
+#content-shell.has-selector-bar #content #subgateway-intro ul#subgateway-3-cols li li a {font-family:Arial, Helvetica, sans-serif; font-size:11px; text-decoration:underline;}
+#content-shell.has-selector-bar #content #subgateway-intro ul#subgateway-3-cols li li a:hover {text-decoration:underline;}
+
+div#control-bar-guided #select-all-guided label:hover {text-decoration:underline;}
+div#control-bar-guided #reset-all-guided label:hover {text-decoration:underline;}
+
+div.product.type1 #energy-info .energy-stats ul li div {font-size:11px; line-height:12px;}
+div.product.type1 #energy-info .energy-summary p {font-size:11px; line-height:12px;}
+
+.product-list .page-chooser input {font-size:12px; font-family:Arial, Helvetica, sans-serif;}
+.product-list .tile-list .tile-list-price .price-was {font-size:10px;}
+.product-list .tile-list .clearance-highlight {font-size:12px; line-height:12px;}
+.tile-list a:hover h3 {text-decoration:underline;}
+
+#content-shell div.find-a-dealer ul.location-list div.links a {text-decoration:none;}
+#content-shell div.find-a-dealer ul.location-list div.links a:hover {text-decoration:underline;}
+
+/* ------------- search results -------------- */
+#content-shell div#content.search-results .manuals .tile-list a {text-decoration:underline;}
+#content-shell div#content.search-results .manuals .tile-list .model-number {font-size:11px;}
+
+/* ------------- 5 min install --------------- */
+#content-shell div#install-step-div {font-family:Arial, Helvetica, sans-serif; font-size: 12px;}
+#content-shell div#install-title-div {font-family:Arial, Helvetica, sans-serif; font-size: 37px;}
+#content-shell div#install-home-title-div {font-family:Arial, Helvetica, sans-serif; font-size: 18px; font-weight:bold;}
+#content-shell div#install-title-col1-div {font-family:Arial, Helvetica, sans-serif; font-size: 18px; font-weight:bold;}
+#content-shell div#install-table-col1-div {font-family:Tahoma, Geneva, sans-serif; font-size: 12px;}
+#content-shell div#install-table-col1-div2 {font-family:Tahoma, Geneva, sans-serif; font-size: 12px;}
+#content-shell div#install-title-col2-div {font-family:Arial, Helvetica, sans-serif; font-size: 18px; font-weight:bold;}
+#content-shell div#install-table-col2-div {font-family:Tahoma, Geneva, sans-serif; font-size: 12px;}
+#content-shell div#install-table-col2-div2 {font-family:Tahoma, Geneva, sans-serif; font-size: 12px;}
+#content-shell div#install-page3-title-col1-div {font-family:Arial, Helvetica, sans-serif; font-size: 18px; font-weight:bold;}
+#content-shell div#install-page3-table-col1-div {font-family:Tahoma, Geneva, sans-serif; font-size: 12px;}
+#content-shell div#install-page3-title-col2-div {font-family:Arial, Helvetica, sans-serif; font-size: 18px; font-weight:bold;}
+#content-shell div#install-page3-table-col2-div {font-family:Tahoma, Geneva, sans-serif; font-size: 12px;}
+#content-shell div#install-page4-heading2 {font-family:Arial, Helvetica, sans-serif; font-size: 18px; font-weight:bold;}
+#content-shell div#install-page5-table-col1-system-type-image-header input {font-family:Arial, Helvetica, sans-serif; font-size: 17px; font-weight:bold;}
+#content-shell div#install-page5-imgSystemType-div {}
+#content-shell div#install-page5-title-col1-div {font-family:Arial, Helvetica, sans-serif; font-size: 18px; font-weight:bold;}
+#content-shell div#install-page5-table-col1-div {font-family:Tahoma, Geneva, sans-serif; font-size: 12px;}
+#content-shell div#install-page5-title-col2-div {font-family:Arial, Helvetica, sans-serif; font-size: 18px; font-weight:bold;}
+#content-shell div#install-page5-title2-col2-div {font-family:Arial, Helvetica, sans-serif; font-size: 18px; font-weight:bold;}
+#content-shell div#install-page5-table-col2-div {font-family:Tahoma, Geneva, sans-serif; font-size: 12px;}
+#content-shell div#install-step5-top-col1-div {font-family:Tahoma, Geneva, sans-serif; font-size: 12px;}
+#content-shell div#install-page7-title-col2-div {font-family:Arial, Helvetica, sans-serif; font-size: 18px; font-weight:bold;}
+#content-shell div#install-page7-title2-col2-div {font-family:Arial, Helvetica, sans-serif; font-size: 18px; font-weight:bold;}
+#content-shell div#install-table-strong-type-div {font-family:Arial, Helvetica, sans-serif; font-size: 18px; font-weight:bold;}
+#content-shell div#install-table-strong-size14-div {font-family:Arial, Helvetica, sans-serif; font-size: 14px; font-weight:bold;}
+#content-shell div#install-table-normal-type-div {font-family:Tahoma, Geneva, sans-serif; font-size: 12px;}
+#content-shell div#install-table-normal-tip-div {font-family:Tahoma, Geneva, sans-serif; font-size: 12px;}
+
+
+
+/* ------ new five minute thermostats ------ */
+#content-shell div#new-five-minute-install-title-div { font-family:Arial, Helvetica, sans-serif; font-size: 37px; font-weight:bold; }
+#content-shell div#subHeading-div { font-style:italic; font-weight: bold; font-family:Arial, Helvetica, sans-serif; font-size: 14px; }
+#content-shell div#sub1-div { font-family:Arial, Helvetica, sans-serif; font-size: 20px; font-weight:bold; }
+#content-shell div#sub2-div { font-family:Arial, Helvetica, sans-serif; font-size: 20px; font-weight:bold; }
+#content-shell div#sub3-div { font-family:Arial, Helvetica, sans-serif; font-size: 20px; font-weight:bold; }
+#content-shell div#sub4-div { font-family:Arial, Helvetica, sans-serif; font-size: 20px; font-weight:bold; }
+#content-shell div#new-table-home-tbl1-div {font-family:Tahoma, Geneva, sans-serif; font-size: 14px;}
+#content-shell div#new-table-home-tbl2-div {font-family:Tahoma, Geneva, sans-serif; font-size: 14px;}
+#content-shell div#price-model-div {font-family:Tahoma, Geneva, sans-serif; font-size: 12px;}
+#content-shell div#quick-start-main-header { font-family:Arial, Helvetica, sans-serif; font-size: 32px; font-weight:bold; }
+#content-shell div#quick-start-label {font-family:Arial, Helvetica, sans-serif; font-size: 12px; }
+
+/* --------------- holiday gifts ---------------------- */
+#content-shell div#holiday-savings { font-family:Arial, Helvetica, sans-serif; font-size: 17px; font-weight:bold; font-style:italic  }
+#content-shell div#holiday-categories-under50-txt { font-family:Arial, Helvetica, sans-serif; font-size: 17px; }
+#content-shell div#holiday-categories-under100-txt { font-family:Arial, Helvetica, sans-serif; font-size: 17px; }
+#content-shell div#holiday-categories-for-him-txt { font-family:Arial, Helvetica, sans-serif; font-size: 17px; }
+#content-shell div#holiday-categories-for-her-txt { font-family:Arial, Helvetica, sans-serif; font-size: 17px; }
+#content-shell div#holiday-categories-DIY-txt { font-family:Arial, Helvetica, sans-serif; font-size: 17px; }
+#content-shell div#holiday-categories-healthy-txt { font-family:Arial, Helvetica, sans-serif; font-size: 17px; }
+#content-shell div#holiday-categories-energy-saver-txt { font-family:Arial, Helvetica, sans-serif; font-size: 17px; }
+#content-shell div#holiday-categories-kids-txt { font-family:Arial, Helvetica, sans-serif; font-size: 17px; }
+#content-shell div#holiday-categories-view-all-txt { font-family:Arial, Helvetica, sans-serif; font-size: 17px; }
+
+/* ------------- shopping cart -------------- */
+#content-shell div#content.cart div.total .price {font-size:24px; font-weight:bold;}
+
+/* ------------- mini cart -------------- */
+.modal-bg .modal.mini-cart div.total .price {font-size:24px; font-weight:bold;}
+
+/* ------------- my account - order detail ------------- */
+#content-shell div.order-detail .order-details .order-summary div.total .amount {font-size:16px;}
+#content-shell div.order-detail .order .addresses div{line-height:16px;}
+
+/* ------------- news and press ------------- */
+/*#content-shell div.news-press .article.featured p {font-size:14px; line-height:18px;}
+#content-shell div.news-press .article.featured h3 a {text-decoration:none;}
+*/
+
+#content-shell div.news-press .featured-article a.read-more {text-decoration:underline;}
+#content-shell div.news-press .featured-article a.read-more:hover {text-decoration:none;}
+#content-shell div.news-press .article a.read-more {text-decoration:underline;}
+#content-shell div.news-press .article a.read-more:hover {text-decoration:none;}
+
+/* ------------- contact ------------- */
+#content-shell div.contact div.form-container.primary .form-column label {line-height:13px;}
+
+#footer a {font-family:Tahoma, Geneva, sans-serif; font-size:11px; text-decoration:none;}
+#footer a:hover {text-decoration:underline;}
+#footer input {font-family:Arial, Helvetica, sans-serif; font-size:11px;}
+
+#sub-footer div.description {font-family:Tahoma, Geneva, sans-serif; font-size:11px;}
+#sub-footer div.copyright {font-family:Tahoma, Geneva, sans-serif; font-size:11px;}
+
+#breadcrumbs {font-family:Tahoma, Geneva, sans-serif; font-size:11px;}
+#breadcrumbs a {text-decoration:none;}
+#breadcrumbs a:hover {font-family:Tahoma, Geneva, sans-serif; font-size:11px; text-decoration:underline;}
+
+#print-link {font-family:Tahoma, Geneva, sans-serif; font-size:11px;}
+#print-link a {text-decoration:none;}
+#print-link a:hover {font-family:Tahoma, Geneva, sans-serif; font-size:11px; text-decoration:underline;}
+
+
+h1 {font-size:34px; font-weight:bold; line-height:36px;}
+h2 {font-size:20px; font-weight:bold; line-height:20px;}
+h3 {font-size:18px; font-weight:bold; line-height:18px;}
+h4 {font-size:16px; font-weight:bold; line-height:16px;}
+h5 {font-size:14px; font-weight:bold; line-height:14px;}
+h6 {font-size:12px; font-weight:bold; line-height:12px;}
+
+a {text-decoration:underline;}
+a:hover {text-decoration:underline;}
+
+blockquote {font-weight:bold;}
+
+table tr th {font-weight:normal; text-align:left;}
+
+
+
+/*
+     FILE ARCHIVED ON 18:47:50 Jan 31, 2011 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 08:53:50 Jul 17, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 96.698
+  exclusion.robots: 0.09
+  exclusion.robots.policy: 0.079
+  cdx.remote: 0.057
+  esindex: 0.027
+  LoadShardBlock: 62.511 (3)
+  PetaboxLoader3.datanode: 64.65 (4)
+  load_resource: 118.869
+  PetaboxLoader3.resolve: 81.019
+*/

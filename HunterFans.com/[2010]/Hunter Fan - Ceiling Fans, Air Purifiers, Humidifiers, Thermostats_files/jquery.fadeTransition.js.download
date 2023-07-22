@@ -1,0 +1,67 @@
+﻿var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+(function($) {
+    $.fn.fadeTransition = function(options) {
+        var options = $.extend({ pauseTime: 5000, transitionTime: 2000 }, options);
+
+        Trans = function(obj) {
+            var timer = null;
+            var current = 0;
+            var els = $("> *", obj).css("display", "none").css("left", "0").css("top", "0").css("position", "absolute");
+            $(obj).css("position", "relative");
+            $(els[current]).css("display", "block");
+
+            function transition() {
+                var next = (current + 1) % els.length | 0;
+                $(els[current]).fadeOut(options.transitionTime);
+                $(els[next]).fadeIn(options.transitionTime);
+                current = next;
+                cue();
+            };
+
+            function cue() {
+                if ($("> *", obj).length < 2) return false;
+                if (timer) clearTimeout(timer);
+                timer = setTimeout(transition, options.pauseTime);
+            };
+
+            cue();
+        };
+
+        return this.each(function() {
+            var t = new Trans(this);
+        });
+    }
+})(jQuery);
+
+
+}
+/*
+     FILE ARCHIVED ON 18:47:44 Jan 31, 2011 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 08:59:46 Jul 17, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 108.571
+  exclusion.robots: 0.076
+  exclusion.robots.policy: 0.065
+  cdx.remote: 0.057
+  esindex: 0.01
+  LoadShardBlock: 72.382 (3)
+  PetaboxLoader3.datanode: 84.691 (4)
+  load_resource: 18.361
+*/

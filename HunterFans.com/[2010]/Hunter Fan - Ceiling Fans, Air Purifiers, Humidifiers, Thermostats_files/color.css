@@ -1,0 +1,250 @@
+
+.nav-tagline {color:#54b948;}
+
+/* FORMS */ 
+input,
+textarea,
+select {border-color:#48382f; color:#000;}
+
+input,
+select,
+textarea {
+	color: #000000;
+	border-color: #48382f;
+}
+
+/*PRODUCT REGISTRATION FORMS*/
+
+#product-registration small { color: #9c9c9c; }
+#product-registration .product-details,
+#product-registration .personal-details,
+#product-registration .contact-information { border-color: #e1dcc8 !important; }
+#product-registration .product-reg-header .product-details .upc input { color: #a7a7a7; }
+
+#content-shell .highlight, 
+.modal .highlight {color:#54b948;}
+#content-shell .lowlight {color:#7e7e7e;}
+#content-shell .disabledbtn {color:#000000; text-decoration:none; cursor:pointer; }
+#content-shell .model-number {color:#54b948;}
+#content-shell .on-sale {color:#53ba47;}
+#content-shell .price {color:#0e0804;}
+#content-shell .available-at {color:#838383;}
+#content-shell .review-links a {color:#474747;}
+
+.modal .model-number {color:#54b948;}
+.modal a {color:#1b1b1b;}
+.modal a:hover {color:#54b948;}
+
+body {background-color:#010206; color:#474747;}
+
+h1 {color:#0e0804;}
+h2 {color:#4a382c;}
+h3 {color:#1a1a1a;}
+h4 {color:#48382f;}
+h5 {color:#1b1b1b;}
+h6 {color:#2a2a2a;}
+
+#header {color:#bdb07e;}
+#header #user-cart {color:#fff; background-color:#48382f;}
+#header #user-cart span {background-color:#48382f;}
+#header #user-cart span a#cartItems{color:#fff;}
+#header #user-cart a {color:#bdb07e;}
+#header #user-cart a:hover {color:#fff;}
+#header #search-input {background-color:#bdb07e; border-color:#685449;}
+#header #user-welcome a {color:#bdb07e;}
+
+#main-nav a {color:#000;}
+#main-nav a:hover {color:#54b948;}
+#main-nav a.highlight {color:#54b948;}
+
+#content-shell #sub-nav li a {color:#0e0804; border-left-color:#fff;}
+#content-shell #sub-nav li a.selected {color:#54b948;}
+#content-shell #sub-nav li a:hover {/*color:#54b948;*/}
+
+#content-shell {background-color:#fff;}
+#content-shell blockquote {color:#48382f;}
+
+#content-shell a {color:#1b1b1b;}
+#content-shell a:hover {color:#54b948;}
+
+#content-shell a.highlight {color:#54b948;}
+#content-shell a.highlight:hover {color:#54b948;}
+#content-shell a.disabledbtn:hover {color:#000000;}
+
+
+#content-shell.has-selector-bar #selector-bar {border-color:#e1dbc5;}
+#content-shell.has-selector-bar #selector-bar ul li ul li {color:#2a2a2a;}
+#content-shell.has-selector-bar #selector-bar ul li ul li a:hover {background:#54b948;}
+
+#content-shell .tile-list a .tile-list-price {color:#48382f;}
+#content-shell .tile-list a:hover .tile-list-price {color:#54b948;}
+#content-shell .tile-list a:hover h3 {color:#54b948;}
+
+div.product #product-image {border-color:#c6c6c6;}
+div.product #product-details {color:#2a2a2a;}
+div.product #product-details .user-rating-group div {color:#474747;}
+
+div.product #energy-info .energy-stats ul li {border-color:#909090 !important; color:#474747;}
+div.product #energy-info .energy-stats ul li div {color:#474747;}
+div.product #energy-info .energy-stats ul li h2 {color:#474747;}
+div.product #energy-info .energy-summary p {color:#474747;}
+
+.product-list .page-chooser input {color:#272727;}
+.product-list .tile-list .tile-list-price .price-was {color:#1c1b1b;}
+.product-list .tile-list .clearance-highlight {background:#4ca340; color:#FFF;}
+
+#content-shell div..find-a-dealer .map {border-color:#48382f;}
+#content-shell div.find-a-dealer ul.location-list li.preferred {background-color:#e1dbc5; border-bottom: solid 2px white;}
+
+/* ------------- search results -------------- */
+/*#content-shell div#content.search-results .manuals .tile-list .model-number {color:#4b372e;}*/
+
+/* ------------- 5 min install -------------- */
+#content-shell div#install-step-div {color:#54b948;}
+#content-shell div#install-title-div {color:Black;}
+#content-shell div#install-home-title-div {color:Black;}
+#content-shell div#install-title-col1-div {color:Black;}
+#content-shell div#install-table-col1-div {color:#473831;}
+#content-shell div#install-table-col1-div2 {color:#473831;}
+#content-shell div#install-title-col2-div {color:Black;}
+#content-shell div#install-table-col2-div {color:#473831;}
+#content-shell div#install-table-col2-div2 {color:#473831;}
+#content-shell div#install-page3-title-col1-div {color:Black;}
+#content-shell div#install-page3-table-col1-div {color:#473831;}
+#content-shell div#install-page3-title-col2-div {color:Black;}
+#content-shell div#install-page3-table-col2-div {color:#473831;}
+#content-shell div#install-page4-heading2 {color:Black;}
+#content-shell div#install-page5-title-col1-div {color:Black;}
+#content-shell div#install-page5-table-col1-div {color:#473831;}
+#content-shell div#install-page5-title-col2-div {color:Black;}
+#content-shell div#install-page5-title2-col2-div {color:Black;}
+#content-shell div#install-page5-table-col2-div {color:#473831;}
+#content-shell div#install-page7-title-col2-div {color:Black;}
+#content-shell div#install-page7-title2-col2-div {color:Black;}
+#content-shell div#install-table-strong-type-div {color:Black;}
+#content-shell div#install-table-strong-size14-div {color:Black;}
+#content-shell div#install-table-normal-type-div {color:#473831;}
+#content-shell div#install-table-tip-type-div {color:#473831; background-color:#e1dbc5;}
+#content-shell div#install-step5-top-col1-div {color:#473831;}
+#content-shell div#install-page5-imgSystemType-div {border-color:Green}
+#content-shell div#install-page5-table-col1-system-type-image-header input {background-color:Green; color:White}
+#content-shell div#install-page5-table-col1-system-type-image-header {background-color:Green;}
+
+#content-shell div#step-progress-no-right-margin-border2 {border-color:#48382f;}
+
+/* ------ new five minute thermostats ------ */
+#content-shell div#new-five-minute-install-title-div {color:Black;}
+#content-shell div#subHeading-div { color:#54b948; }
+#content-shell div#sub1-div { color:#473831; }
+#content-shell div#sub2-div { color:#473831; }
+#content-shell div#sub3-div { color:#473831; }
+#content-shell div#sub4-div { color:#473831; }
+#content-shell div#quick-start-main-header { color:Black; }
+#content-shell div#quick-start-label {color:#53ba47; }
+
+/* --------------- holiday gifts ---------------------- */
+#content-shell div#holiday-savings { color:#770409 }
+#content-shell div#holiday-categories-under50-txt { color:#770409 }
+#content-shell div#holiday-categories-under100-txt { color:#770409 }
+#content-shell div#holiday-categories-for-him-txt { color:#770409 }
+#content-shell div#holiday-categories-for-her-txt { color:#770409 }
+#content-shell div#holiday-categories-DIY-txt { color:#770409 }
+#content-shell div#holiday-categories-healthy-txt { color:#770409 }
+#content-shell div#holiday-categories-energy-saver-txt { color:#770409 }
+#content-shell div#holiday-categories-kids-txt { color:#770409 }
+#content-shell div#holiday-categories-view-all-txt { color:#770409 }
+
+/* ------------- shopping cart -------------- */
+#content-shell div#content.cart div.total {background:#e1dbc5; color:#473831;}
+#content-shell div#content.cart div.total .price {color:#473831;}
+#content-shell div#content.cart table th {color: Black}
+
+/* ------------- mini cart -------------- */
+.modal-bg .modal.mini-cart div.total {background:#e1dbc5; color:#473831;}
+.modal-bg .modal.mini-cart div.total .price {color:#473831;}
+.modal-bg .modal.mini-cart div.total a {color:#473831;}
+.modal-bg .modal.mini-cart div.total a:hover {color:#54b948;}
+
+/* ------------- my account - login ------------- */
+#content-shell div.my-account-login #sign-in-shell #sign-in {background-color:#e1dbc5;}
+#content-shell div.my-account-login #sign-in-shell #no-account {border-color:#e1dbc5;}
+
+/* ------------- my account - edit account ------------- */
+#content-shell div#content.my-account-edit-account .form-container {border-color:#e1dbc5;}
+
+/* ------------- my account - order detail ------------- */
+#content-shell div.news-press .article div.date {color:#5e5048;}
+#content-shell div.news-press .article {color:#262626;}
+
+/* ------------- checkout - checkout ------------- */
+#content-shell div.checkout .form-container {border-color:#e1dbc5;}
+#content-shell div.checkout-begin #checkout-begin-content #begin-create-account .box {border-color:#e2dbc8;}
+#content-shell div.checkout-begin #checkout-begin-content #begin-sign-in .box {background-color:#e2dbc8;}
+
+/* order detail pages (my account order detail and checkout order detail) */
+#content-shell div.order-detail .order-details .order-summary {background:#e1dbc5; color:#49382e;}
+
+/* ------------- contact ------------- */
+#content-shell div.contact div.form-container.primary {background:#e1dbc5;}
+
+ul#step-progress li {border-top-color:#ddd7bd;}
+ul#step-progress li.selected {border-top-color:#53ba47;}
+
+ul#step-progress-no-right-margin li {border-top-color:#ddd7bd;}
+ul#step-progress-no-right-margin li.selected {border-top-color:#53ba47;}
+
+ul#install-8step-progress-no-right-margin li {border-top-color:#ddd7bd;}
+ul#install-8step-progress-no-right-margin li.selected {border-top-color:#53ba47;}
+
+ul#install-7step-progress-no-right-margin li {border-top-color:#ddd7bd;}
+ul#install-7step-progress-no-right-margin li.selected {border-top-color:#53ba47;}
+
+ul#options-guided li div {border-color:#e4deca;}
+ul#options-guided li.selected {color:#FFF;}
+ul#options-guided li.selected div {color:#FFF; background:#4ca340; border-color:#4ca340;}
+ul#options-guided li.selected div h5 {color:#FFF;}
+ul#options-guided li.selected p {color:#FFF;}
+ul#options-guided li.disabled div {border-color:#f5f3ec; color:#bebebe;}
+ul#options-guided li.disabled div h5 {color:#bebebe;}
+
+div#control-bar-guided #select-all-guided label:hover {color:#54b948;}
+div#control-bar-guided #select-all-guided label:hover {color:#54b948;}
+
+#footer {background-color:#1c1210;}
+#footer a {color:#9d9068;}
+#footer a:hover {color:#bdb07e;}
+#footer input {color:#685449; border-color:#685449;}
+
+#sub-footer div.description {color:#9D9068;}
+#sub-footer div.copyright {color:#463c2a;}
+
+#breadcrumbs {color:#484848;}
+#breadcrumbs a {color:#484848;}
+
+#print-link {color:#484848;}
+#print-link a {color:#484848;}
+
+#content-shell #print-link {position:absolute; top:0px; left:0px;}
+
+
+
+/*
+     FILE ARCHIVED ON 18:49:19 Jan 31, 2011 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 08:59:45 Jul 17, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 107.459
+  exclusion.robots: 0.07
+  exclusion.robots.policy: 0.061
+  cdx.remote: 0.054
+  esindex: 0.008
+  LoadShardBlock: 64.828 (3)
+  PetaboxLoader3.datanode: 111.394 (4)
+  load_resource: 124.902
+  PetaboxLoader3.resolve: 60.769
+*/
