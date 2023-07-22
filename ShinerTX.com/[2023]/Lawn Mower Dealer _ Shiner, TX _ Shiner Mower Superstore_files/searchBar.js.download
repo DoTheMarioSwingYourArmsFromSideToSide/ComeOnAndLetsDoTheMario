@@ -1,0 +1,162 @@
+/// <reference path="../../scripts/typings/typeahead/typeahead.d.ts" />
+/// <reference path="../../scripts/typings/webspeechapi/webspeechapi.d.ts" />
+/// <reference path="../../scripts/typings/jquery/jquery.d.ts" />
+var Suggestion = /** @class */ (function () {
+    function Suggestion() {
+    }
+    return Suggestion;
+}());
+var SearchBar = /** @class */ (function () {
+    function SearchBar(leadFormSelector) {
+        var _this = this;
+        this.recognition = null;
+        this.recognizing = false;
+        this.ignoreOnEnd = false;
+        this.finalTranscript = "";
+        this.interimTranscript = "";
+        this.searchInput = "input.queryString";
+        this.faMic = "fa-microphone";
+        this.toggleMicrophone = function () {
+            if (_this.recognizing) {
+                _this.recognition.stop();
+            }
+            else {
+                _this.recognition.start();
+            }
+        };
+        this.setupWebkitSpeechRecognition = function () {
+            var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            if (typeof SpeechRecognition === "undefined") {
+                return;
+            }
+            _this.recognition = new SpeechRecognition();
+            _this.recognition.lang = "en-US";
+            _this.recognition.continuous = false;
+            _this.recognition.interimResults = true;
+            _this.recognition.onstart = function () {
+                _this.recognizing = true;
+                _this.finalTranscript = "";
+                _this.interimTranscript = "";
+                $(_this.searchInput).val("");
+                $(_this.searchInput).attr("placeholder", "Speak now...");
+            };
+            _this.recognition.onerror = function (event) {
+                _this.ignoreOnEnd = true;
+                $(_this.searchInput).attr("placeholder", _this.getErrorText(event.error));
+            };
+            _this.recognition.onresult = function (event) {
+                for (var i = event.resultIndex; i < event.results.length; ++i) {
+                    if (event.results[i].isFinal) {
+                        _this.finalTranscript += event.results[i][0].transcript;
+                        $(_this.searchInput).val(_this.finalTranscript);
+                        SearchBar.search(_this.finalTranscript);
+                    }
+                    else {
+                        _this.interimTranscript += ".";
+                        $(_this.searchInput).val(_this.interimTranscript);
+                    }
+                }
+            };
+            _this.recognition.onend = function () {
+                _this.recognizing = false;
+                $(_this.searchInput).attr("placeholder", "Search");
+                if (_this.ignoreOnEnd || !_this.finalTranscript) {
+                    return;
+                }
+                _this.finalTranscript = "";
+                _this.interimTranscript = "";
+            };
+        };
+        this.$searchBarContainer = $(leadFormSelector);
+        this.$typeAhead = this.$searchBarContainer.find(".typeahead");
+        this.$queryString = this.$searchBarContainer.find(".queryString");
+        this.$searchButton = this.$searchBarContainer.find(".searchBtn");
+        var suggestions = new Bloodhound({
+            datumTokenizer: function (datum) {
+                return Bloodhound.tokenizers.whitespace(datum.title);
+            },
+            queryTokenizer: Bloodhound.tokenizers.whitespace,
+            remote: {
+                url: "/SearchRoot/1.0.0/Home/Suggestion/",
+                prepare: function (query, settings) {
+                    settings.type = "POST";
+                    settings.contentType = "application/json";
+                    settings.dataType = "json";
+                    settings.data = JSON.stringify({ "searchType": "Inventory", "pageSize": 3, "queryString": query });
+                    return settings;
+                }
+            }
+        });
+        suggestions.initialize();
+        this.$typeAhead.typeahead({
+            minLength: 2,
+            highlight: false
+        }, {
+            source: suggestions,
+            name: "searchAggregations",
+            display: "title",
+            async: true,
+            limit: Infinity,
+            templates: {
+                header: SearchBar.getHeaderTemplate("Suggestions"),
+                suggestion: SearchBar.getSuggestionTemplate
+            }
+        });
+        //Remove crazy type-ahead inline styles
+        this.$searchBarContainer.find(".twitter-typeahead").attr("style", "");
+        this.$queryString.attr("style", "");
+        //Remove unused typeahead input
+        this.$searchBarContainer.find("input:first").remove();
+        //Set up on submit of search
+        this.$searchButton.click(function () {
+            SearchBar.search(_this.$queryString.val());
+        });
+        this.$queryString.keypress(function (e) {
+            if (e.which === 13) { //Enter Key
+                SearchBar.search(_this.$queryString.val());
+            }
+        });
+        // Set up event for submitting suggestions by keyboard
+        this.$typeAhead.on("typeahead:selected", function (e, datum) {
+            window.location.href = datum.link.replace(/\/$/, "");
+        });
+        //Setup voice activated search
+        if (!window.webkitSpeechRecognition) {
+            $(".micBtn").remove();
+        }
+        else {
+            this.setupWebkitSpeechRecognition();
+            $(".micBtn").click(this.toggleMicrophone);
+        }
+    }
+    SearchBar.getHeaderTemplate = function (headerString) {
+        return "<div class=\"tt-header\"><strong>" + headerString + "<strong></div>";
+    };
+    SearchBar.getSuggestionTemplate = function (data) {
+        return "<div><a href=\"" + data.link.replace(/\/$/, "") + "\" rel=\"nofollow\"><span>" + data.title + (data.category ? " - " + data.category : "") + "</span><small class=\"text-muted\">  " + (!data.subText ? "" : data.subText) + "</small></a></div>";
+    };
+    SearchBar.search = function (querystring) {
+        $.ajax("/SearchRoot/1.0.0/Home/SearchQueryRedirectUrl", {
+            type: "GET",
+            contentType: "application/json",
+            data: "queryString=" + querystring,
+            success: function (data) {
+                window.location.href = data;
+            }
+        });
+    };
+    SearchBar.prototype.getErrorText = function (error) {
+        switch (error) {
+            case "no-speech":
+                return "No speech detected.";
+            case "audio-capture":
+                return "Error: No microphone detected.";
+            case "not-allowed":
+                return "Error: Ensure a microphone is plugged in.";
+            default:
+                return "Error.";
+        }
+    };
+    return SearchBar;
+}());
+//# sourceMappingURL=searchBar.js.map

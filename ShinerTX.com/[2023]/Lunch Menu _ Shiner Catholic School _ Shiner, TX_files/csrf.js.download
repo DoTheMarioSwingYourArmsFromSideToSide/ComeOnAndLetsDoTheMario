@@ -1,0 +1,93 @@
+/*
+ * Basic implementation of a CSRF refresher
+ * URL: https://stackoverflow.com/questions/31449434/handling-expired-token-in-laravel#answer-61779177
+ * Author: user125661
+ * Modified By: Jonathan Kocmoud
+ */
+
+prod.isCSRFTokenValid = true;
+
+prod.initCSRFToken = function () {
+	var csrfTokenTimeoutTarget;
+	var refreshCsrfTokenTimeout;
+
+	// Add the proper tags to the head and to online forms
+	var insertCsrfTags = function () {
+		$ec("head").append(
+			'<meta name="_csrf" content="">',
+			'<meta name="_csrf_header" content="X-CSRF-TOKEN">',
+			'<meta name="_csrf_parameterName" content="_csrf">',
+		);
+	};
+
+	// Calculate the time for 25 minutes from now
+	var handleNewCsrfToken = function () {
+		var d = new Date();
+		d.setMinutes(d.getMinutes() + 25);
+		csrfTokenTimeoutTarget = d.getTime();
+		setTimeoutToRefreshCsrfToken();
+		prod.isCSRFTokenValid = true;
+	};
+
+	var setTimeoutToRefreshCsrfToken = function () {
+		refreshCsrfTokenTimeout = setTimeout(
+			refreshCsrfToken,
+			Math.max(0, csrfTokenTimeoutTarget - new Date().getTime()),
+		);
+	};
+
+	var refreshCsrfToken = function () {
+		prod.get(
+			"/csrf-token",
+			null,
+			function (response) {
+				var json = JSON.parse(response);
+				if (json.hasOwnProperty("token")) {
+					$ec("*[name='_csrf']").each(function () {
+						// Update the meta tag
+						if (this.content !== undefined) {
+							this.content = json.token;
+						}
+						// Update any input tags
+						if (this.value !== undefined) {
+							this.value = json.token;
+						}
+					});
+					handleNewCsrfToken();
+				} else {
+					console.log(
+						"An error occurred while parsing a new security token: " + response,
+					);
+					if (csrfTokenTimeoutTarget - new Date().getTime() < 0) {
+						// CSRF is expired, so set error state
+						prod.isCSRFTokenValid = false;
+					}
+				}
+			},
+			function () {
+				console.log("An error occurred while retrieving a new security token");
+				if (csrfTokenTimeoutTarget - new Date().getTime() < 0) {
+					// CSRF is expired, so set error state
+					prod.isCSRFTokenValid = false;
+				}
+			},
+		);
+	};
+
+	if ($ec("head meta[name='_csrf']").length === 0) {
+		insertCsrfTags();
+		refreshCsrfToken();
+	} else {
+		handleNewCsrfToken();
+	}
+
+	// Uses the visibility API to stop the timeout when sleeping
+	// After being restored, start the timeout with remaining offset
+	document.addEventListener("visibilitychange", function () {
+		if (document.visibilityState === "visible") {
+			setTimeoutToRefreshCsrfToken();
+		} else if (document.visibilityState === "hidden") {
+			clearTimeout(refreshCsrfTokenTimeout);
+		}
+	});
+};

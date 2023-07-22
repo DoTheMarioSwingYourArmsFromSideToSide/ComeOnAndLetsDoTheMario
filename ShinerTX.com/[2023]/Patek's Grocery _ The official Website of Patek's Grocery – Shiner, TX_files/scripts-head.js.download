@@ -1,0 +1,62 @@
+var dfpCounter = 15;
+
+function dfpTimer() {
+    if (dfpCounter > 0) {
+        dfpCounter -= 1;
+    }
+    setTimeout("dfpTimer()", 1000);
+}
+
+jQuery(document).ready(function ($) {
+    var $dfpTallBanner = $('#dfp-right');
+    var padding = 10; // Tall banner top-padding
+    var minTop = $('#masthead').height();
+    var width0 = 727;
+    var width1 = 1078;
+    var widthVersion = 2;
+    var windowWidth = $(window).width();
+    if (windowWidth <= width1) {
+        widthVersion = 1;
+    }
+    if (windowWidth <= width0) {
+        widthVersion = 0;
+    }
+
+//var isWide = ($(window).width() > minWidth);
+
+    function adjustTallBannerTop() {
+        var variance = minTop - $(document).scrollTop();
+        $dfpTallBanner.css('top', (variance > 0 ? variance + padding : padding) + 'px');
+    }
+
+    function cleanupBanners() {
+        var tempWindowWidth = $(window).width();
+        if (widthVersion !== 0 && tempWindowWidth <= width0) {
+            widthVersion = 0;
+            dfpRefresh(true);
+        } else if (widthVersion !== 1 && tempWindowWidth > width0 && tempWindowWidth <= width1) {
+            widthVersion = 1;
+            dfpRefresh(true);
+        } else if (widthVersion !== 2 && tempWindowWidth > width1) {
+            widthVersion = 2;
+            dfpRefresh(true);
+        }
+    }
+
+    $(window).scroll(adjustTallBannerTop);
+    $(window).resize(cleanupBanners);
+    adjustTallBannerTop();
+    setTimeout("dfpTimer()", 1000);
+    $(document).on('click', '.gsnaction', function (e) {
+        dfpRefresh(false);
+    });
+    function dfpRefresh(force) {
+        if (force || dfpCounter <= 0) {
+            googletag.pubads().refresh();
+            if (dfpCounter <= 0 && (typeof S !== 'undefined') && (typeof S.inmobi !== 'undefined')) {
+                S.inmobi.refreshAd();
+            }
+            dfpCounter = 15;
+        }
+    }
+});

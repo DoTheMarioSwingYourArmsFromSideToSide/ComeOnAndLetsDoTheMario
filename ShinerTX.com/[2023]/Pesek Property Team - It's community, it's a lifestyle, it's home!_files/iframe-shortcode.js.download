@@ -1,0 +1,33 @@
+( function($) {
+		
+	function iframeShortcodeScrollable() {
+		if ( /iPhone|iPod|iPad/.test(navigator.userAgent) ) {
+			$( 'iframe.aios-iframe' ).each( function () {
+				var iframe_height = $( this ).attr( 'height' );
+
+				if( !$( this ).parent().hasClass( 'iframe-enable-touch' ) ) {
+					$( this ).wrapAll( '<div class="iframe-enable-touch"></div>' );
+					$( this ).parent().css({
+						width: "100%",
+						height: iframe_height,
+						overflow: 'auto',
+						'-webkit-overflow-scrolling': 'touch'
+					});
+				}
+			} );
+		}
+	}
+		
+	function iframeOnLoad() {
+		$( 'iframe[websource]' ).each( function() {
+			var websource = $( this ).attr( 'websource' );
+			$( this ).attr( 'src', websource );
+		} );
+	}
+
+	$( window ).on( 'load', function() {
+		iframeOnLoad();
+		iframeShortcodeScrollable();
+	} );
+	
+})( jQuery );

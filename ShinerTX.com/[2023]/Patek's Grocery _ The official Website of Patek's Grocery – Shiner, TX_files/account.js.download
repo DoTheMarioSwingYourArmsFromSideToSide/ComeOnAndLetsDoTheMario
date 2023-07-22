@@ -1,0 +1,134 @@
+// STC Functions
+function showAccountPassword() {$jq("#accountpassword").val(''); $jq("#accountverifypassword").val(''); if ($jq("#accountPasswordBlock").is(':visible')) {$jq("#accountPasswordBlock").hide();} else {$jq("#accountPasswordBlock").show();}}
+
+function login() {
+    if ($jq("#loginusername").val().length == 0 || $jq("#loginpassword").val().length == 0) {
+        $jq("#loginerrormessage").html('<p>You must enter a username and password.</p>');
+        $jq("#loginerrormessage").show();
+        return;
+    }
+
+    $jq("#loginerrormessage").hide();
+
+    $jq.ajax({
+        url: "/stc/global-v1/transactions/loginuser.php?template_dir=" + template_dir + "&loginusername=" + $jq("#loginusername").val() + "&loginpassword=" + $jq("#loginpassword").val(),
+        success:function(result) {
+            if (result == "ok") {
+                $jq("#loginform").hide();
+                $jq("#thankyoumessage").show();
+                $jq("#okbutton").focus();
+                
+            } else {
+                $jq("#loginerrormessage").html('<p>' + result + '</p>');
+                $jq("#loginerrormessage").show();
+            }
+        }
+    });
+}
+
+function submitAccountInformation() {
+    var violation = "";
+
+    if ($jq("#accountFirstName").val().length == 0) {violation += "- First Name is a required field.\n";}
+    if ($jq("#accountLastName").val().length == 0) {violation += "- Last Name is a required field.\n";}
+    if ($jq("#accountUsername").val().length < 6) {violation += "- Username must be at least 6 characters.\n";}
+    if ($jq("#accountPasswordBlock").is(':visible') && $jq("#accountPassword").val().length < 6) {violation += "- Password must be at least 6 characters.\n";}
+    if ($jq("#accountPasswordBlock").is(':visible') && $jq("#accountPassword").val() != $jq("#accountVerifyPassword").val()) {violation += "- Password must match Verify Password.\n";}
+    var phone = $jq("#accountPhone1").val() + $jq("#accountPhone2").val() + $jq("#accountPhone3").val();
+    if (phone.length != 0 && (phone.length != 10 || isNaN(phone))) {violation += "- Phone is an invalid format. [ex. (555) 555-5555]\n";}
+    
+    if ($jq("#accountEmail").val().length == 0) {violation += "- Email is a required field.\n";}
+    else if (!echeck($jq("#accountEmail").val())) {violation += "- Email is an invalid format.\n";}
+    
+    if (violation != "") {
+        alert("The following errors occurred on the form:\n\n" + violation);
+        return;
+    }
+    
+    $jq("#accounterrormessage").hide();
+
+    var data = "template_dir=" + template_dir + "&firstName=" + cleanURL($jq("#accountFirstName").val()) + "&lastName=" + cleanURL($jq("#accountLastName").val()) + 
+            "&username=" + cleanURL($jq("#accountUsername").val()) + "&password=" + cleanURL($jq("#accountPassword").val()) + "&updatePassword=" + $jq("#accountPasswordBlock").is(':visible') +
+            "&phone=" + phone + "&email=" + cleanURL($jq("#accountEmail").val());    
+    
+    $jq.ajax({
+        url: "/stc/global-v1/transactions/account.php",
+        type: "post",
+        data: data,
+        success:function(result) {
+            var code = result.substring(result.indexOf("<code>") + 6, result.indexOf("</code>"))
+            var message = result.substring(result.indexOf("<message>") + 9, result.indexOf("</message>"))
+         
+            if (code == "ok") {
+                $jq("#accountform").hide();
+                $jq("#accountthankyoumessage").html('<p>' + message + '</p>');
+                $jq("#thankyoumessage").show();
+                $jq("#okbutton").focus();
+                
+            } else {
+                $jq("#accounterrormessage").html('<p>' + message + '</p>');
+                $jq("#accounterrormessage").show();
+            }
+        }
+    });
+}
+
+function forgotUsername() {
+    if ($jq("#forgotusernameemail").val().length == 0 || !echeck($jq("#forgotusernameemail").val())) {
+        $jq("#forgotusernameerrormessage").html('<p>You must enter a valid email address.</p>');
+        $jq("#forgotusernameerrormessage").show();
+        return;
+    }
+
+    $jq("#forgotusernameerrormessage").hide();
+
+    $jq.ajax({
+        url: "/stc/global-v1/transactions/forgotusername.php?forgotusernameemail=" + $jq("#forgotusernameemail").val(),
+        success:function(result) {
+            if (result == "ok") {
+                $jq("#forgotusernameform").hide();
+                $jq("#completemessage").show();
+                $jq("#okbutton").focus();
+                
+            } else {
+                $jq("#forgotusernameerrormessage").html('<p>' + result + '</p>');
+                $jq("#forgotusernameerrormessage").show();
+            }
+        }
+    });
+}
+
+function forgotPassword() {
+    if ($jq("#forgotpasswordusername").val().length == 0 || $jq("#forgotpasswordemail").val().length == 0 || !echeck($jq("#forgotpasswordemail").val())) {
+        $jq("#forgotpassworderrormessage").html('<p>You must enter a valid username and email address.</p>');
+        $jq("#forgotpassworderrormessage").show();
+        return;
+    }
+    
+    $jq("#forgotpassworderrormessage").hide();
+
+    $jq.ajax({
+        url: "/stc/global-v1/transactions/forgotpassword.php?forgotpasswordusername=" + $jq("#forgotpasswordusername").val() + "&forgotpasswordemail=" + $jq("#forgotpasswordemail").val(),
+        success:function(result) {
+            if (result == "ok") {
+                $jq("#forgotpasswordform").hide();
+                $jq("#completemessage").show();
+                $jq("#okbutton").focus();
+                
+            } else {
+                $jq("#forgotpassworderrormessage").html('<p>' + result + '</p>');
+                $jq("#forgotpassworderrormessage").show();
+            }
+        }
+    });
+}
+
+function modifyRecipeBox(recipeID, addFlag) {
+    $jq.ajax({
+        url: "/stc/global-v1/transactions/modifyrecipebox.php?recipeid=" + recipeID + "&addflag=" + addFlag,
+        success:function(result) {
+            history.go(0);
+        }
+    });    
+}
+// End STC Functions

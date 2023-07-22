@@ -1,0 +1,41 @@
+var LeadPop = /** @class */ (function () {
+    function LeadPop() {
+        this.initializeEvents();
+    }
+    LeadPop.prototype.initializeEvents = function () {
+        $('a').click(function (e) {
+            // Save url to be used later to redirect.
+            var userClickedLink = $(e.currentTarget).attr('href');
+            var target = $(e.currentTarget).attr('target');
+            var isFromLeadForm = $(e.currentTarget).attr('data-for-leadform');
+            var isFromMerchFromSlideShow = $(e.currentTarget).parents(".slide").is("div.slide") && $(e.currentTarget).attr("class") == "rotoSlide"
+                || $(e.currentTarget).parents(".offer-rotator-bar").is("div.offer-rotator-bar") && $(e.currentTarget).attr("class") == "btn-offer-rotator";
+            /* Fires modal if the anchor tag:
+             * a. Is not from merchandising slide show
+             * b. Is not from the lead form
+             * c. Has a non-empty href
+             * d. Was not clicked in last 24 hours
+             */
+            if (!isFromMerchFromSlideShow
+                && !isFromLeadForm
+                && userClickedLink
+                && document.cookie.indexOf("dominoLeadPop") == -1) {
+                // If the cookie doesn't exist, set it to expire in 24 hours.
+                var cookieExpiryDays = 1;
+                var dateTime = new Date();
+                dateTime.setDate(dateTime.getDate() + cookieExpiryDays);
+                document.cookie = "dominoLeadPop='displayed'; expires=" + dateTime.toUTCString();
+                var leadPopModalId = $("#leadPopModalId").val();
+                $('#' + leadPopModalId).modal();
+                $('#' + leadPopModalId).on('hidden.bs.modal', function (e) {
+                    // Redirects to the page the user clicked after the modal is closed.
+                    window.open(userClickedLink, !target ? "_self" : target);
+                    $('#' + leadPopModalId).off('hidden.bs.modal');
+                });
+                e.preventDefault();
+            }
+        });
+    };
+    return LeadPop;
+}());
+//# sourceMappingURL=leadPop.js.map

@@ -1,0 +1,27 @@
+
+/* = Volunteer Form
+---------------------------------------------------- */
+
+jQuery(document).bind('gform_post_render', function(event, form_id, current_page){
+
+	jQuery('.volunteer-form[data-form-id="'+form_id+'"] .gfield.help').each(function(){
+
+		jQuery(this).find('.ginput_container')
+			.prepend('<span class="ginput_placeholder"><span>'+ script_vars.volunteer_label +'</span></span>');
+
+		jQuery(this).find('.ginput_placeholder').click(function(e){
+			jQuery(this).next().fadeToggle(200);
+		});
+
+		jQuery('html').click(function(e){
+
+			if (!jQuery(e.target).hasClass('ginput_placeholder') &&
+				 !jQuery(e.target).parent().hasClass('ginput_placeholder') &&
+				 !jQuery(e.target).hasClass('gfield_checkbox') &&
+				 !jQuery(e.target).closest('.gfield_checkbox').length)
+
+				jQuery('.volunteer-form .gfield.help .gfield_checkbox').fadeOut(200);
+		});
+	});
+
+});

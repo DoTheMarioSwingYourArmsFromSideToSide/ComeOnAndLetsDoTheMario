@@ -1,0 +1,347 @@
+/***** Lead generation forms *****/
+
+/* Generic styles */
+
+.aidefcf-wrapper {
+	position:relative;
+	z-index:1;
+}
+
+.aidefcf-wrapper:after,
+.ai-default-cf7wrap:after {
+	content:" ";
+	clear:both;
+	width:100%;
+	display:block;
+}
+
+.aidefcf-title {
+    width: 100%;
+    margin-bottom: 30px;
+    display: inline-block;
+    line-height: 25px;
+    }
+    .aidefcf-title span {
+        font-size: 20px;
+        font-weight: bold;
+        margin: 0;
+        display: block;
+    }
+
+.aidefcf-subtitle {
+    min-height: 55px;
+    line-height: 25px;
+    }
+    .aidefcf-subtitle span {
+        font-size: 20px;
+        font-weight: 600;
+        margin: 0;
+        text-transform: uppercase;
+        display: block;
+    }
+
+.ai-default-cf7wrap {
+    width: 100%;
+    }
+    .ai-default-cf7wrap p {
+        margin: 0 !important;
+    }
+    .ai-default-cf7wrap input[type="text"], .ai-default-cf7wrap input[type="tel"], .ai-default-cf7wrap input[type="email"], .ai-default-cf7wrap select, .ai-default-cf7wrap textarea {
+        width: 100%;
+        border: 1px solid #969696;
+        margin: 5px 0;
+        height: 28px;
+        /* text-indent: 9px; */
+        padding: 5px 9px!important;
+        font-family: Verdana;
+        font-size: 11px;
+        box-sizing: border-box;
+
+        -webkit-appearance: none;
+		-webkit-border-radius: 0;
+    }
+    .ai-default-cf7wrap textarea {
+        height: 98px;
+        padding-top: 5px;
+    }
+    .ai-default-cf7wrap select {
+        text-indent: 2px;
+        font-family: Verdana;
+        font-size: 11px;
+    }
+    .ai-default-cf7wrap input[type="submit"] {
+        background: #444444;
+        line-height: 38px;
+        text-align: center;
+        font-size: 17px;
+        font-weight: 500;
+        letter-spacing: 2px;
+        cursor: pointer;
+        width: 100%;
+        border: none;
+        color: #fff;
+        text-transform: uppercase;
+
+        -webkit-appearance: none;
+		-webkit-border-radius: 0;
+    }
+
+    .ai-default-cf7wrap .custom-select {
+        width: 100%;
+        max-width: 100%;
+        border: 1px solid #969696;
+        margin: 5px 0;
+        padding: 0;
+        height: 28px;
+        margin-bottom:-28px;
+        text-indent: 9px;
+        text-indent: 2px;
+        font-family: Verdana;
+        text-transform: none;
+        font-size: 11px;
+    }
+    .ai-default-cf7wrap .custom-select-display {
+        width: 100%;
+        max-width: 100%;
+        border: 1px solid #969696;
+        padding: 0 10px;
+        height: 28px;
+        line-height: 28px;
+        text-indent: 9px;
+        text-indent: 2px;
+        font-family: Verdana;
+        font-size: 11px;
+        text-transform: none;
+        margin-bottom: 5px;
+    }
+    .ai-default-cf7wrap .custom-select option {
+        padding: 5px 10px;
+    }
+
+    .ai-default-cf7wrap ::-webkit-input-placeholder, .ai-default-cf7wrap ::-webkit-textarea-placeholder {
+        opacity: 1;
+        font-family: Verdana;
+        font-size: 11px;
+    }
+
+    .ai-default-cf7wrap :-moz-placeholder { /* Firefox 18- */
+        opacity: 1;
+        font-family: Verdana;
+        font-size: 11px;  
+    }
+
+    .ai-default-cf7wrap ::-moz-placeholder {  /* Firefox 19+ */
+        opacity: 1;
+        font-family: Verdana;
+        font-size: 11px;
+    }
+
+    .ai-default-cf7wrap :-ms-input-placeholder, .ai-default-cf7wrap :-ms-textarea-placeholder {  
+        opacity: 1;
+        font-family: Verdana;
+        font-size: 11px;
+    }
+
+    .aidefcf-capcha {
+        border: 1px solid #969696;
+        height: 28px;
+        width: 100%;
+        margin: 5px 0 20px 0;
+        display: inline-block;
+        position: relative;
+    }
+        .aidefcf-capcha input.wpcf7-captchar {
+            width: 60% !important;
+            border: none;
+            float: left;
+            margin: 0;
+            height: 25px;
+        }
+        .aidefcf-capcha img {
+            position: absolute;
+            right: 0;
+        }
+
+.aidefcf-cl3 {
+    text-align: center;
+    }
+    .aidefcf-cl3 span {
+        width: 31.60%;
+        display: inline-block;
+    }
+    .aidefcf-cl3 span:first-child {
+        float: left;
+    }
+    .aidefcf-cl3 span:first-child + span + span {
+        float: right;
+    }
+
+.aidefcf-cl2:after {
+	content:" ";
+	width:100%;
+	display:block;
+	clear:both;
+}	
+	
+.aidefcf-cl2 span {
+        width: 48.70%;
+        float: right;
+    }
+    .aidefcf-cl2 span:first-child {
+        float: left;
+    }
+
+.aidefcf-radio {
+    display: block;
+    width: 100%;
+    padding-top: 15px;
+    border-top: 1px dotted #afafaf;
+    }
+    .aidefcf-radio span.aicf-radio-title {
+        font-size: 16px;
+        display: block;
+        margin-bottom: 13px;
+        }
+        .aidefcf-radio .wpcf7-list-item {
+            margin-right: 20px;
+        }
+        .aidefcf-radio .first {
+            margin-left: 0;
+        }
+        .aidefcf-radio input[type="radio"] {
+            margin: 0;
+        }
+
+.aidefcf-left {
+    float: left;
+    width: 48.70%;
+    display: inline-block;
+    }
+.aidefcf-right {
+    float: right;
+    width: 48.70%;
+    display: inline-block;
+    }
+
+.ai-contact-wrap {
+    max-width: 355px;
+    width: 100%;    
+    }
+    .ai-contact-wrap .aidefcf-capcha {
+        margin: 5px 0;
+        }
+    .ai-contact-wrap input[type="submit"] {
+        margin-top: 15px;
+        }
+
+    .ai-contact-wrap span {
+        font-size: 25px;
+        font-weight: 500;
+    }
+
+    .ai-contact-wrap  span.wpcf7-form-control-wrap {
+        font-size: inherit;
+    }
+
+    .ai-contact-wrap span.context-mob, .ai-contact-wrap span.context-email {
+        background: url(../img/icon-cfdefmobile-dark.png) no-repeat left center;
+        line-height: 30px;
+        padding-left: 27px;
+        font-size: 18px;
+        font-weight: 500;
+    }
+	.ai-contact-wrap span.context-mob a, .ai-contact-wrap span.context-email a {
+		color:inherit;
+	}
+    .ai-contact-wrap span.context-email {
+        word-break: break-all;
+        background: url(../img/icon-cfdefemail-dark.png) no-repeat left center;
+    }
+
+    .ai-contact-wrap span.mob-white-icon {
+         background: url(../img/icon-cfdefmobile-white.png) no-repeat left center !important;
+    }
+
+    .ai-contact-wrap span.email-white-icon {
+        background: url(../img/icon-cfdefemail-white.png) no-repeat left center !important;
+    }
+    
+    .ai-contact-wrap span.wpcf7-not-valid-tip {
+        font-size:11px !important;
+    }
+
+.aidefcf-wrapper div.wpcf7-response-output {
+    width: auto;
+    clear:both;
+	margin-left:0;
+	margin-right:0;
+	text-align:center;
+}
+
+.aidefcf-wrapper .use-floating-validation-tip span.wpcf7-not-valid-tip {
+    font-size: 10px;
+}
+
+.aidefcf-left span.your-name, .aidefcf-left span.your-email, .aidefcf-left span.Phone {
+	width: 100%;
+}
+
+@media only screen and (max-width: 977px) {
+	
+	.ai-default-cf7wrap input[type="text"], 
+	.ai-default-cf7wrap input[type="email"],
+	.ai-default-cf7wrap input[type="tel"],
+	.ai-default-cf7wrap select, 
+	.ai-default-cf7wrap textarea {
+		width: 100% !important;
+		max-width: none !important;
+		/* padding-left:0 !important;
+        padding-right:0 !important; */
+	}
+	
+}
+
+@media only screen and (max-width: 480px) {
+	.aidefcf-left, .aidefcf-right {
+		float: none;
+		width: 100%;
+	}
+	.aidefcf-right {
+		margin-top: 30px;
+	}
+}
+
+/* Contact us lead form */
+
+*[class*=aidefcf-wrapper-contact-us] .wpcf7 {
+	max-width:355px;
+}
+
+.aidefcf-wrapper-contact-us.wpcf7-form-control-wrap {
+	display:block;
+}
+
+.aidefcf-wrapper .wpcf7-form-control.wpcf7-select{
+    
+    background: #fff;
+    color:#000;
+	padding-left: 6px;
+    padding-right: 6px;
+}
+
+
+
+/* 
+    Fix for Buggy Forms
+    - Forms get shortened upon submit,
+    - all fields are moving upon submit
+ */
+
+
+ .ai-default-cf7wrap > div > span.wpcf7-form-control-wrap,
+ .ai-default-cf7wrap.ai-contact-wrap span.wpcf7-form-control-wrap {
+    display: block!important;
+ }
+
+ 
+/***** End Contact Forms *****/

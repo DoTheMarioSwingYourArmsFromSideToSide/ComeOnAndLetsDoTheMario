@@ -1,0 +1,33 @@
+(function($){
+
+	$(document).ready(function(){
+
+		$('a[href^="mailto(coln)"], .asis-mailto-obfuscated-email').each(function() {
+			
+			//Get value of href attribute
+			var obfuscated = $(this).attr('data-value');
+			
+			//Restore original email address
+			var original = obfuscated.replace(/\(at\)/g, '@').replace(/\(dotted\)/g, '.').replace(/^\s+|\s+$/gm,'');
+			
+			var original_href = 'mailto:' + original;
+			$(this).attr('href', original_href );
+
+			//Restore instances of original email address in the content
+			var content = htmlDecode( $(this).html() );
+			$(this).html( content.replace( new RegExp(escapeRegExp(obfuscated)), original) );
+			
+		});
+		
+	});
+	
+	function htmlDecode(html) {
+		var textarea = jQuery("<textarea>"+html+"</textarea>");
+		return textarea.text();
+	}
+	
+	function escapeRegExp(str) {
+	  return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+	}
+	
+})(jQuery);

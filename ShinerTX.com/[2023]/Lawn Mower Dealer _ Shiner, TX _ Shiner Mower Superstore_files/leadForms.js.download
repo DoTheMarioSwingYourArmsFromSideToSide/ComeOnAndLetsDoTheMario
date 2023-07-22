@@ -1,0 +1,1457 @@
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+/// <reference path="../../scripts/typings/jquery/jquery.d.ts" />
+/// <reference path="../../scripts/typings/moment/moment.d.ts" />
+/// <reference path="../../scripts/typings/typeahead/typeahead.d.ts" />
+/// <reference path="jquery.alpaca.d.ts" />
+var LeadForm = /** @class */ (function () {
+    function LeadForm() {
+        this.contactFieldMapping = {
+            "address": [
+                "address",
+                "cf_address",
+                "address1",
+                "street1"
+            ],
+            "address2": [
+                "address2",
+                "street2"
+            ],
+            "city": ["city"],
+            "cf_firstname": ["cf_firstname"],
+            "cf_lastname": ["cf_lastname"],
+            "country": ["country"],
+            "email": ["email"],
+            "locationid": ["locationid"],
+            "name": [
+                "name",
+                "fullname",
+                "cf_name"
+            ],
+            "phone": [
+                "phone",
+                "cf_phone",
+                "cf_Phone",
+                "phoneNumber"
+            ],
+            "postalcode": [
+                "postalcode",
+                "zip"
+            ],
+            "region": ["region"]
+        };
+        this.categories = [];
+        this.makes = [];
+        this.styles = [];
+        this.industries = [];
+        this.fieldsWithOverwritableDefaultOptions = [
+            'country',
+            'region',
+            //The following come from the financing form
+            'employerCountry',
+            'previousEmployerCountry',
+            'referenceCountry',
+            'employerState',
+            'previousEmployerState',
+            'referenceState',
+            'cf_driversLicenseStateRegion'
+        ];
+        this.sessionId = "";
+        this.postLocation = "/LeadForm/1.0.0/Home/SubmitLead";
+        this.countryListLocation = "/LeadForm/1.0.0/Data/Countries";
+        this.regionListLocation = "/LeadForm/1.0.0/Data/Regions";
+        this.locationsListLocation = "/LeadForm/1.0.0/Data/LocationsForForm";
+        this.allLocationsListLocation = "/LeadForm/1.0.0/Data/Locations";
+        this.minimumAge = $('[data-form-minimum-age]', this.$formContainer).data().formMinimumAge;
+        this.submitted = false;
+        this.dirty = false;
+        this.optInSchema = {
+            "optIn": {
+                "type": "boolean",
+                "default": "false"
+            }
+        };
+        this.optInOptions = {
+            "fields": {
+                "optIn": {
+                    "rightLabel": "Receive Offers",
+                }
+            }
+        };
+        this.confirmMinimumAgeSchema = {
+            "confirmMinimumAge": {
+                "type": "boolean",
+                "default": "true"
+            }
+        };
+        this.confirmMinimumAgeOptions = {
+            "fields": {
+                "confirmMinimumAge": {
+                    "rightLabel": "I am " + this.minimumAge + " years old or older.",
+                }
+            }
+        };
+        this.dom4405Schema = {
+            "altEmail2": {
+                "type": "string",
+                "title": "Alternate Email Address",
+                "placeholder": "user@example.com"
+            }
+        };
+        this.dom4405Options = {
+            "fields": {
+                "altEmail2": {
+                    "rightLabel": "Alternate Email Address",
+                    "type": "email",
+                    "hidden": "true",
+                    "fieldClass": "altEmail2"
+                }
+            }
+        };
+        this.replyEmailsDefaultSchema = {
+            "replyEmails": {
+                "type": "string"
+            }
+        };
+        this.dealerNotificationOverrideDefaultSchema = {
+            "DealerNotificationOverride": {
+                "type": "string"
+            }
+        };
+        this.trackLeadSourceSchema = {
+            "leadSource": {
+                "type": "string",
+            }
+        };
+        this.trackLeadSourceOptions = {
+            "fields": {
+                "leadSource": {
+                    "type": "hidden"
+                }
+            }
+        };
+        var self = this;
+        this.defaultOptions = {
+            "fields": {
+                "country": {
+                    "type": "select",
+                    "removeDefaultNone": true,
+                    "emptySelectFirst": true,
+                    "dataSource": this.countryListLocation,
+                    "sort": false
+                },
+                "region": {
+                    "type": "select",
+                    "removeDefaultNone": true,
+                    "emptySelectFirst": true,
+                    "dataSource": this.regionListLocation
+                },
+                "locationid": {
+                    "validate": false,
+                    "emptySelectFirst": true,
+                    "removeDefaultNone": true,
+                    "dataSource": this.locationsListLocation
+                },
+                "replyEmails": {
+                    "type": "hidden"
+                },
+                "DealerNotificationOverride": {
+                    "type": "hidden"
+                }
+            }
+        };
+        this.countryPostalCodeMappings = [];
+        this.countryPostalCodeMappings.push(new CountyPostalCodeMap("country", ["region", "cf_driversLicenseStateRegion"], ["postalcode", "zip"]));
+        this.utility = new Utility();
+    }
+    LeadForm.prototype.replicate = function () {
+        return new LeadForm();
+    };
+    LeadForm.prototype.boot = function (leadFormSelector, schema, additionalOnSubmit, productId) {
+        var _this = this;
+        this.bootSchema = schema;
+        this.$formContainer = $(leadFormSelector);
+        this.alpacaObj = schema;
+        this.gatherData();
+        this.additionalOnSubmit = new Function(additionalOnSubmit);
+        // Service Scheduler form uses custom function to get locations
+        if (typeof this.defaultOptions.fields.locationid.dataSource !== 'function') {
+            if (this.isCustomForm) {
+                this.defaultOptions.fields.locationid.dataSource = this.allLocationsListLocation;
+            }
+            else {
+                this.defaultOptions.fields.locationid.dataSource = this.defaultOptions.fields.locationid.dataSource + "/" + this.leadSystemFormId;
+            }
+        }
+        this.defaultParams = {
+            leadType: this.leadType,
+            leadFormId: this.leadFormId,
+            leadSystemFormId: this.leadSystemFormId,
+            isPartial: false,
+            referringUrl: window.location.href,
+            autoReply: this.autoReply,
+            enableOptIn: this.optIn,
+            minimumAge: this.minimumAge,
+            confirmMinimumAgeEnabled: this.confirmMinimumAgeEnabled,
+            replyEmails: this.replyEmails,
+            DealerNotificationOverride: this.dealerNotificationOverride,
+            encryptionKeyId: this.encryptionKeyId,
+            deliveryTarget: this.deliveryTarget
+        };
+        if (this.alpacaObj.dataSource) {
+            this.alpacaObj.dataSource = $.extend(true, {}, this.alpacaObj.dataSource, this.dataSource);
+        }
+        else {
+            this.alpacaObj.dataSource = this.dataSource;
+        }
+        this.fetchStoredFormFieldData();
+        this.alpacaObj.schema.properties = $.extend(true, {}, this.alpacaObj.schema.properties, this.dom4405Schema);
+        this.alpacaObj.options = $.extend(true, {}, this.alpacaObj.options, this.dom4405Options);
+        var tempFormOptions = this.alpacaObj.options;
+        this.alpacaObj.options = $.extend(true, {}, this.alpacaObj.options, this.defaultOptions);
+        this.fieldsWithOverwritableDefaultOptions.forEach(function (f) {
+            _this.alpacaObj.options.fields[f] = $.extend(true, {}, _this.alpacaObj.options.fields[f], tempFormOptions.fields[f]);
+        });
+        var self = this;
+        this.formSetup = {
+            "buttons": {
+                "submit": {
+                    "value": this.submitText,
+                    "click": function () { self.clickAjaxCallback(this); },
+                    "attributes": {
+                        "product-id": productId
+                    }
+                }
+            },
+            "attributes": {
+                "action": this.postLocation,
+                "method": "POST"
+            }
+        };
+        this.alpacaObj.options.form = $.extend(true, {}, this.alpacaObj.options.form, this.formSetup);
+        this.alpacaObj.options.hideInitValidationError = true;
+        this.alpacaObj.options.focus = "";
+        if (this.confirmMinimumAgeEnabled) {
+            this.alpacaObj.schema.properties = $.extend(true, {}, this.alpacaObj.schema.properties, this.confirmMinimumAgeSchema);
+            this.alpacaObj.options = $.extend(true, {}, this.alpacaObj.options, this.confirmMinimumAgeOptions);
+        }
+        if (this.optIn) {
+            this.alpacaObj.schema.properties = $.extend(true, {}, this.alpacaObj.schema.properties, this.optInSchema);
+            this.alpacaObj.options = $.extend(true, {}, this.alpacaObj.options, this.optInOptions);
+        }
+        this.alpacaObj.options = $.extend(true, {}, this.alpacaObj.options, this.dom4405ComplianceOptions);
+        this.defaultParams.leadSource = $("[data-lead-source]", this.$formContainer).data().leadSource;
+        this.alpacaObj.schema.properties = $.extend(true, {}, this.alpacaObj.schema.properties, this.trackLeadSourceSchema);
+        this.alpacaObj.options = $.extend(true, {}, this.alpacaObj.options, this.trackLeadSourceOptions);
+        if (this.replyEmails !== '') {
+            this.alpacaObj.schema.properties = $.extend(true, {}, this.alpacaObj.schema.properties, this.replyEmailsDefaultSchema);
+        }
+        if (this.dealerNotificationOverride !== '') {
+            this.alpacaObj.schema.properties = $.extend(true, {}, this.alpacaObj.schema.properties, this.dealerNotificationOverrideDefaultSchema);
+        }
+        this.alpacaObj.postRender = function (control) {
+            _this.bindInputWatchers();
+            if (typeof _this.postRenderParams === "function") {
+                _this.postRenderParams(control);
+            }
+            var ssnControl = control.getControlByPath('cf_ssn');
+            if (ssnControl) {
+                ssnControl.refresh();
+                var countryControl = control.getControlByPath('country');
+                if (countryControl && countryControl.selectOptions.length >= 2) {
+                    countryControl.setValue(countryControl.selectOptions[1].value);
+                    countryControl.trigger('change');
+                    ssnControl.refresh();
+                    countryControl.setValue(countryControl.selectOptions[0].value);
+                    countryControl.trigger('change');
+                    ssnControl.refresh();
+                }
+                ssnControl.refresh();
+                changeSSNLabel(countryControl.getValue());
+            }
+        };
+        this.attachMultiEmailValidator();
+        this.attachCountryChangeEvent(this.countryPostalCodeMappings);
+        this.attachUsAndCanadaPostalCodeValidator(this.countryPostalCodeMappings);
+        this.attachSSNCountryValid();
+        this.alpacaObj.view = $.extend(true, {}, this.alpacaObj.view, "bootstrap-edit", this.viewOptions);
+        this.$formContainer.find(".ari-form-container").alpaca(this.alpacaObj);
+        this.$alpacaForm = $(".ari-form-container", this.$formContainer).find('form');
+        $(window).on("unload", function () { return _this.handleOnclose(); });
+    };
+    LeadForm.prototype.validateEmail = function (callback, self) {
+        var emailRegexp = /^[^@]+@.+\.[a-zA-Z]{2,6}$/i;
+        var value = self.getValue();
+        value = value.trim().replace(/,$/, "");
+        if (!emailRegexp.test(value) && value.length > 0) {
+            callback({
+                "status": false,
+                "message": "The email is invalid: " + value
+            });
+        }
+        else {
+            callback({
+                "status": true
+            });
+        }
+    };
+    LeadForm.prototype.genericPostRenderActions = function (control) {
+        var locationControl = control.childrenByPropertyId['locationid'], thumbUrlControl = control.childrenByPropertyId['itemThumbNailUrl'], itemPriceControl = control.childrenByPropertyId['itemPrice'], originalItemControl = control.childrenByPropertyId['originalItem'];
+        if (locationControl.options.optionLabels && locationControl.options.optionLabels.length === 1 || locationControl.data === "" || locationControl.data === "0") {
+            locationControl.setValue(locationControl.selectOptions[0].value);
+        }
+        if (thumbUrlControl.data == null) {
+            thumbUrlControl.hide();
+        }
+        if (itemPriceControl.data == null) {
+            itemPriceControl.hide();
+        }
+        if (originalItemControl.data == null) {
+            originalItemControl.hide();
+        }
+    };
+    LeadForm.prototype.validateLocation = function (callback, self) {
+        var value = self.getValue();
+        if (value == null || value.length === 0) {
+            callback({
+                "status": false,
+                "message": "This field is not optional."
+            });
+            $('.alpaca-message-invalidValueOfEnum').hide();
+        }
+        else {
+            callback({
+                "status": true
+            });
+        }
+    };
+    LeadForm.prototype.clickAjaxCallback = function (context) {
+        var _this = this;
+        var submitButton = this.$alpacaForm.find(":submit");
+        var allLocations = null;
+        var selectedLocation = null;
+        var selectedServices = null;
+        // disable the button as a bandaid for DOM-5971: under some conditions, the "submit" button gets re-enabled and allows for multiple form submissions
+        submitButton.prop("disabled", true);
+        submitButton.off();
+        submitButton.html('<i class="fa fa-spin fa-refresh"></i>');
+        this.$formContainer.find(".error").addClass('hidden');
+        this.submitted = true;
+        this.$alpacaForm = $(".ari-form-container", this.$formContainer).find('form');
+        var form = this.$alpacaForm.alpaca("get");
+        this.formData = form.getValue();
+        var hiddenDataSource = typeof submitButton.attr("product-id") !== 'undefined' ? $("span.datasource-" + submitButton.attr("product-id")) : $("span.datasource");
+        if (hiddenDataSource.length > 0) {
+            var dataSourceJson = hiddenDataSource[0].innerHTML;
+            if (dataSourceJson) {
+                dataSourceJson = dataSourceJson.trim();
+                try {
+                    var dataSourceObject = JSON.parse(new DOMParser().parseFromString(dataSourceJson, "text/html").documentElement.textContent);
+                    if (dataSourceObject) {
+                        if (!('leadValue' in this.formData)) {
+                            if (dataSourceObject['price']) {
+                                this.formData.leadValue = dataSourceObject['price'].match(/([\d,\.]+)/)[0];
+                            }
+                            else if (dataSourceObject['leadValue']) {
+                                this.formData.leadValue = dataSourceObject['leadValue'].match(/([\d,\.]+)/)[0];
+                            }
+                            else if (dataSourceObject['itemPrice']) {
+                                this.formData.leadValue = dataSourceObject['itemPrice'].match(/([\d,\.]+)/)[0];
+                            }
+                        }
+                        if (!('productId' in this.formData) && dataSourceObject['productId']) {
+                            this.formData.productId = dataSourceObject['productId'];
+                        }
+                        if (!('isUnitInventory' in this.formData) && dataSourceObject['isUnitInventory']) {
+                            this.formData.isUnitInventory = dataSourceObject['isUnitInventory'];
+                        }
+                        if (!('msrp' in this.formData) && dataSourceObject['msrp']) {
+                            this.formData.msrp = dataSourceObject['msrp'];
+                        }
+                        if (!('bestprice' in this.formData) && dataSourceObject['bestPrice']) {
+                            this.formData.bestprice = dataSourceObject['bestPrice'];
+                        }
+                    }
+                }
+                catch (e) {
+                    console.log('could not parse json data: leadForm.clickAjaxCallback');
+                }
+            }
+        }
+        var isNewVdpSpans = $("span.isNewVdp");
+        if (isNewVdpSpans) {
+            this.formData.isNewVdp = isNewVdpSpans[0].getAttribute("data-isNewVdp");
+        }
+        this.sessionId = this.utility.getKeyFromStringDictionary('ses_id', this.utility.getCookie('utag_main', true));
+        if (this.sessionId.indexOf(';') > 0) {
+            this.sessionId = this.sessionId.split(';')[0];
+        }
+        this.formData.sessionId = this.sessionId;
+        this.mapDefaultParams();
+        this.mapInventoryNotifierParams();
+        var locationControl = form.childrenByPropertyId['locationid'];
+        if (locationControl) {
+            allLocations = locationControl.selectOptions;
+            selectedLocation = locationControl.data;
+        }
+        var servicesControl = form.childrenByPropertyId["services"];
+        if (servicesControl) {
+            selectedServices = servicesControl.data;
+        }
+        var config = {
+            data: $.param(this.formData),
+            dataType: "html",
+            success: function (data) {
+                _this.storeFormFieldData(_this.formData);
+                _this.additionalOnSubmit();
+                _this.$formContainer.find('.success-message').html(data).removeClass('hidden');
+                _this.$formContainer.find('.additional-message').removeClass('hidden');
+                _this.$formContainer.find('.privacy-center').hide();
+                _this.$alpacaForm.hide();
+                if (_this.$formContainer.find('.success-message').closest('.form-modal').length > 0) {
+                    _this.$formContainer.find('.success-message').closest('.form-modal').focus();
+                }
+                if (_this.$formContainer.find('.success-message').closest('.modal-request').length > 0) {
+                    _this.$formContainer.find('.success-message').closest('.modal-request')[0].focus();
+                }
+                var leadId = $($.parseHTML(data)).find('span[data-modal-leadId]').attr('data-modal-leadId');
+                var form = {
+                    FormName: _this.$formContainer.find('span[data-form-name]').attr('data-form-name'),
+                    Type: _this.leadType,
+                    FormId: _this.leadFormId,
+                    LeadId: leadId,
+                    AllLocations: allLocations,
+                    SelectedLocation: selectedLocation,
+                    SelectedServices: selectedServices
+                };
+                var formSubmitDetails = $.extend({}, form, _this.formData, _this.dataSource);
+                var eventFormSubmissionDetails = new CustomEvent('FormSubmissionDetails', { 'detail': formSubmitDetails });
+                document.dispatchEvent(eventFormSubmissionDetails);
+            },
+            error: function (data) {
+                //Critical server error.
+                _this.$formContainer.find('.error').removeClass('hidden');
+                submitButton.prop("disabled", false);
+                console.log(data);
+            }
+        };
+        context.ajaxSubmit(config);
+    };
+    LeadForm.prototype.clearMessages = function () {
+        this.$formContainer.find('.success-message, .error').addClass('hidden');
+    };
+    LeadForm.prototype.bindInputWatchers = function () {
+        var _this = this;
+        $('input', this.$formContainer).on('change', function () {
+            _this.dirty = true;
+        });
+    };
+    LeadForm.prototype.yearsSelector = function (year, callback) {
+        var nextYear = new Date().getFullYear() + 1;
+        var yearArray = [];
+        var counter = 0;
+        if (year === 0 || isNaN(year)) {
+            for (var i = nextYear; i >= 1900; i--) {
+                yearArray[counter++] = i.toString();
+            }
+        }
+        else {
+            if (year + 10 <= nextYear) {
+                nextYear = year + 10;
+            }
+            for (var j = nextYear; j >= year; j--) {
+                yearArray[counter++] = j.toString();
+            }
+        }
+        return callback(yearArray);
+    };
+    LeadForm.prototype.gatherData = function () {
+        this.leadFormId = $('[data-form-id]', this.$formContainer).data().formId;
+        this.leadSystemFormId = $('[data-system-form-id]', this.$formContainer).data().systemFormId;
+        this.submitText = $('[data-form-submit-txt]', this.$formContainer).data().formSubmitTxt;
+        this.dataSource = JSON.parse(new DOMParser().parseFromString($('.datasource', this.$formContainer).text(), "text/html").documentElement.textContent);
+        this.leadType = $('[data-lead-type]', this.$formContainer).data().leadType;
+        this.optIn = String($('[data-form-enable-optin]', this.$formContainer).data().formEnableOptin.toLowerCase()) == "true";
+        this.autoReply = String($('[data-form-autoreply]', this.$formContainer).data().formAutoreply.toLowerCase()) == "true";
+        this.isCustomForm = String($('[data-form-iscustom]', this.$formContainer).data().formIscustom.toLowerCase()) == "true";
+        this.replyEmails = $('[data-form-reply]', this.$formContainer).data().formReply;
+        this.dealerNotificationOverride = $('[data-dealer-notification-override]', this.$formContainer).data().dealerNotificationOverride;
+        this.encryptionKeyId = $('[data-encryption-key-id]', this.$formContainer).data().encryptionKeyId;
+        this.deliveryTarget = $('[data-delivery-target]', this.$formContainer).data().deliveryTarget;
+        this.confirmMinimumAgeEnabled = String($('[data-form-confirm-minimum-age-enabled]', this.$formContainer).data().formConfirmMinimumAgeEnabled.toLowerCase()) == "true";
+    };
+    LeadForm.prototype.mapDefaultParams = function () {
+        this.formData = $.extend(true, {}, this.formData, this.defaultParams);
+    };
+    LeadForm.prototype.mapInventoryNotifierParams = function () {
+        var _this = this;
+        var categoriesArray = [], makesArray = [], stylesArray = [];
+        if (this.formData.leadType === "instocknotifier") {
+            categoriesArray.push(this.formData.inventoryNotifCategory);
+            $(this.formData.inventoryNotifMake).each(function (index, value) {
+                makesArray.push($.grep(_this.makes, function (ele) { return ele.Id === value; })[0].Name);
+            });
+            $(this.formData.inventoryNotifStyle).each(function (index, value) {
+                stylesArray.push($.grep(_this.styles, function (ele) { return ele.Id === value; })[0].Name);
+            });
+            this.formData.inventoryNotifCategory = categoriesArray;
+            this.formData.inventoryNotifMake = makesArray;
+            this.formData.inventoryNotifStyle = stylesArray;
+        }
+    };
+    LeadForm.prototype.handleOnclose = function () {
+        this.$alpacaForm = $(".ari-form-container", this.$formContainer).find('form');
+        var form = this.$alpacaForm.alpaca("get");
+        if (form) {
+            this.formData = form.getValue();
+            if (!this.submitted && this.dirty) {
+                this.defaultParams.isPartial = true;
+                this.mapDefaultParams();
+                if (typeof navigator !== 'undefined' && typeof navigator.sendBeacon !== 'undefined') {
+                    navigator.sendBeacon(this.postLocation, new Blob([$.param(this.formData)], { type: 'application/x-www-form-urlencoded' }));
+                }
+                else {
+                    $.ajax({
+                        type: "POST",
+                        url: this.postLocation,
+                        data: $.param(this.formData),
+                        async: true
+                    }).done(function (data) {
+                        console.log('done');
+                    });
+                }
+            }
+        }
+    };
+    LeadForm.prototype.attachMultiEmailValidator = function () {
+        if (typeof this.alpacaObj.schema.properties.friendsemails !== "undefined") {
+            var emailRegexp = /^[a-z0-9!\#\$%&'\*\-\/=\?\+\-\^_`\{\|\}~]+(?:\.[a-z0-9!\#\$%&'\*\-\/=\?\+\-\^_`\{\|\}~]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z]{2,6}$/i;
+            this.multiEmailValidator = {
+                "validator": function (callback) {
+                    var value = this.getValue();
+                    value = value.trim().replace(/,$/, "");
+                    var emailAddrs = value.split(",");
+                    var failedEmails = [];
+                    $.each(emailAddrs, function (index, addr) {
+                        addr = addr.trim();
+                        if (!emailRegexp.test(addr)) {
+                            failedEmails.push(addr);
+                        }
+                    });
+                    if (failedEmails.length > 0 && value.trim() !== "") {
+                        callback({
+                            "status": false,
+                            "message": "The following emails are invalid: " + failedEmails.join(", ")
+                        });
+                    }
+                    else {
+                        callback({
+                            "status": true
+                        });
+                    }
+                }
+            };
+            this.alpacaObj.options.fields.friendsemails = $.extend(true, {}, this.alpacaObj.options.fields.friendsemails, this.multiEmailValidator);
+        }
+    };
+    LeadForm.prototype.attachCountryChangeEvent = function (mapping) {
+        var _this = this;
+        var self = this;
+        mapping.forEach(function (map) {
+            if (typeof _this.alpacaObj.schema.properties[map.country] !== "undefined") {
+                var changeEvent = {
+                    "events": {
+                        "change": function (e) {
+                            var _this = this;
+                            var currentCountry = this.getValue(); // We are using this a couple of times
+                            if (this.name == "country") {
+                                changeSSNLabel(currentCountry);
+                            }
+                            map.regions.forEach(function (regionName) {
+                                var region = _this.getParent().childrenByPropertyId[regionName];
+                                if (typeof region !== 'undefined') {
+                                    region.options.dataSource = self.regionListLocation + "?country=" + currentCountry;
+                                    region.refresh();
+                                    region.data = null;
+                                }
+                            });
+                            map.postalCodes.forEach(function (postalCode) {
+                                var thisPostalCode = _this.getParent().childrenByPropertyId[postalCode];
+                                if (typeof thisPostalCode != 'undefined') {
+                                    thisPostalCode.validate(false);
+                                    thisPostalCode.refreshValidationState(false);
+                                }
+                            });
+                        }
+                    }
+                };
+                _this.alpacaObj.options.fields[map.country] = $.extend(true, {}, _this.alpacaObj.options.fields[map.country], changeEvent);
+            }
+        });
+    };
+    LeadForm.prototype.attachUsAndCanadaPostalCodeValidator = function (mapping) {
+        var _this = this;
+        mapping.forEach(function (map) {
+            map.postalCodes.forEach(function (postalCode) {
+                if (typeof _this.alpacaObj.schema.properties[postalCode] !== "undefined") {
+                    var self = _this;
+                    var postalCodeRegex = /^(\d{5}(-\d{4})?|[A-CEGHJ-NPRSTVXY]\d[A-CEGHJ-NPRSTV-Z][ -]?\d[A-CEGHJ-NPRSTV-Z]\d)$/;
+                    var countryRegex = /^(United States|Canada)$/;
+                    _this.postalCodeValidator = {
+                        "validator": function (callback) {
+                            var value = this.getValue();
+                            // Alpaca will not allow multiple validators to be attached to a field
+                            // So check for required
+                            if (this.name == "previousEmployerZip" && this.getParent().childrenByPropertyId["numberOfYearsWithEmployer"]) {
+                                var numberOfYearsWithEmployer = this.getParent().childrenByPropertyId["numberOfYearsWithEmployer"].getValue();
+                                var curReq = this.schema.required;
+                                if (numberOfYearsWithEmployer !== "Over 3 years" && !value) {
+                                    callback({
+                                        "status": false,
+                                        "message": "This field is not optional."
+                                    });
+                                    return;
+                                }
+                            }
+                            var currentCountry = this.getParent().childrenByPropertyId[map.country].getValue();
+                            if (value && currentCountry.match(countryRegex) && !value.match(postalCodeRegex)) {
+                                var caseMessage = value.match(/[a-z]/) ? "<br />Letters in postal code must be upper case" : "";
+                                callback({
+                                    "status": false,
+                                    "message": "Must be a valid postal code." + caseMessage
+                                });
+                            }
+                            else {
+                                callback({
+                                    "status": true
+                                });
+                            }
+                        }
+                    };
+                    _this.alpacaObj.options.fields[postalCode] = $.extend(true, {}, _this.alpacaObj.options.fields[postalCode], _this.postalCodeValidator);
+                }
+            });
+        });
+    };
+    LeadForm.prototype.attachSSNCountryValid = function () {
+        var self = this;
+        if (typeof this.alpacaObj.schema.properties.cf_ssn !== "undefined") {
+            this.ssnCountryValidator = {
+                "validator": function (callback) {
+                    var value = this.getValue().trim();
+                    var currentCountry = $("select[name=country]").val();
+                    var countryRegex = /^(United States|Canada)$/;
+                    if (currentCountry.match(countryRegex) && value == '' && value.length != 9) {
+                        callback({
+                            "status": false,
+                            "message": "This field is required for United States and Canada"
+                        });
+                    }
+                    else {
+                        callback({
+                            "status": true
+                        });
+                    }
+                }
+            };
+            this.alpacaObj.options.fields.cf_ssn = $.extend(true, {}, this.alpacaObj.options.fields.cf_ssn, this.ssnCountryValidator);
+        }
+    };
+    LeadForm.prototype.hideErrorMessages = function (callback) {
+        callback({
+            "status": true
+        });
+        $('.alpaca-message-invalidValueOfEnum').hide();
+    };
+    LeadForm.prototype.storeFormFieldData = function (formData) {
+        var _this = this;
+        Object.keys(this.contactFieldMapping).forEach(function (m) {
+            var formValue = _this.contactFieldMapping[m].map(function (d) { return formData[d]; }).find(function (d) { return typeof (d) !== "undefined"; });
+            if (typeof (formValue) !== "undefined") {
+                window.sessionStorage.setItem("LeadInfo." + m, formValue);
+            }
+        });
+    };
+    LeadForm.prototype.fetchStoredFormFieldData = function () {
+        var _this = this;
+        Object.keys(this.contactFieldMapping).forEach(function (m) {
+            var storedValue = window.sessionStorage.getItem("LeadInfo." + m);
+            if (storedValue) {
+                _this.contactFieldMapping[m].forEach(function (f) {
+                    if (_this.alpacaObj.schema.properties[f] && !_this.alpacaObj.dataSource[f]) {
+                        _this.alpacaObj.dataSource[f] = storedValue;
+                    }
+                });
+            }
+        });
+    };
+    return LeadForm;
+}());
+var InventoryNotifierLeadForm = /** @class */ (function (_super) {
+    __extends(InventoryNotifierLeadForm, _super);
+    function InventoryNotifierLeadForm(leadFormSelector) {
+        var _this = _super.call(this) || this;
+        _this.categoriesListLocation = "/LeadForm/1.0.0/Data/Categories";
+        _this.makesListLocation = "/LeadForm/1.0.0/Data/ProductOwners";
+        _this.stylesListLocation = "/LeadForm/1.0.0/Data/ProductStyles";
+        _this.inventoryLocationsListLocation = "/LeadForm/1.0.0/Data/InventoryLocations";
+        _this.industriesListLocation = "/LeadForm/1.0.0/Data/Industries";
+        var self = _this;
+        _this.options = {
+            "fields": {
+                "email": {
+                    "validator": function (callback) {
+                        self.validateEmail(callback, this);
+                    }
+                },
+                "inventoryNotifIndustries": {
+                    "type": "radio",
+                    "removeDefaultNone": true,
+                    "emptySelectFirst": false,
+                    "dataSource": JSON.parse($('.industry-datasource', $(leadFormSelector)).html())
+                },
+                "inventoryNotifCategory": {
+                    "type": "select",
+                    "emptySelectFirst": true,
+                    "hideNone": false,
+                    "multiple": false,
+                    "validator": function (callback) {
+                        self.hideErrorMessages(callback);
+                    },
+                    "sort": false
+                },
+                "inventoryNotifMake": {
+                    "type": "select",
+                    "removeDefaultNone": true,
+                    "emptySelectFirst": false,
+                    "multiple": true,
+                    "sort": false
+                },
+                "inventoryNotifStyle": {
+                    "type": "select",
+                    "removeDefaultNone": true,
+                    "emptySelectFirst": false,
+                    "multiple": true,
+                    "sort": false
+                },
+                "modelYearFrom": {
+                    "type": "select",
+                    "dataSource": function (callback) { _this.yearsSelector(0, callback); },
+                    "sort": false
+                },
+                "modelYearTo": {
+                    "type": "select",
+                    "dataSource": function (callback) { _this.yearsSelector(0, callback); },
+                    "sort": false
+                },
+                "boatLengthFrom": {
+                    "validator": function (callback) {
+                        var regex = /^[0-9]{1,7}$/;
+                        var value = this.getValue();
+                        if (!regex.test(value) && !isNaN(value)) {
+                            callback({
+                                "status": false,
+                                "message": "The value is invalid"
+                            });
+                        }
+                        else {
+                            callback({
+                                "status": true
+                            });
+                        }
+                        this.getParent().childrenByPropertyId["boatLengthTo"].refreshValidationState();
+                    }
+                },
+                "boatLengthTo": {
+                    "validator": function (callback) {
+                        var value = this.getValue();
+                        var regex = /^[0-9]{1,7}$/;
+                        if (!regex.test(value) && !isNaN(value)) {
+                            callback({
+                                "status": false,
+                                "message": "The value is invalid"
+                            });
+                            return;
+                        }
+                        var fromValue = self.$formContainer.find("[name='boatLengthFrom']").val();
+                        if (!fromValue || isNaN(value) || value >= fromValue) {
+                            callback({
+                                "status": true
+                            });
+                        }
+                        else {
+                            callback({
+                                "status": false,
+                                "message": "Value should be higher or equal to From value"
+                            });
+                        }
+                    }
+                },
+                "priceFrom": {
+                    "onFieldChange": function () {
+                        this.getParent().childrenByPropertyId["priceTo"].refreshValidationState();
+                    }
+                },
+                "priceTo": {
+                    "validator": function (callback) {
+                        var value = this.getValue();
+                        var fromValue = self.$formContainer.find("[name='priceFrom']").val();
+                        if (!fromValue || isNaN(value) || value < 0 || value >= fromValue) {
+                            callback({
+                                "status": true
+                            });
+                        }
+                        else {
+                            callback({
+                                "status": false,
+                                "message": "Value should be higher or equal to From value"
+                            });
+                        }
+                    }
+                },
+                "locations": {
+                    "dataSource": _this.inventoryLocationsListLocation
+                }
+            }
+        };
+        $.get(self.industriesListLocation, function (res) { _this.industries = res; });
+        _this.defaultOptions = $.extend(true, {}, _this.defaultOptions, _this.options);
+        _this.postRenderParams = function (control) {
+            var _this = this;
+            var industryControl = control.childrenByPropertyId['inventoryNotifIndustries'], categoryControl = control.childrenByPropertyId['inventoryNotifCategory'], makeControl = control.childrenByPropertyId['inventoryNotifMake'], styleControl = control.childrenByPropertyId['inventoryNotifStyle'], yearFromControl = control.childrenByPropertyId['modelYearFrom'], yearToControl = control.childrenByPropertyId['modelYearTo'], locationsControl = control.childrenByPropertyId['locations'], categoryControlIds = control.childrenByPropertyId['inventoryNotifCategoryIds'], makeControlIds = control.childrenByPropertyId['inventoryNotifMakeIds'], styleControlIds = control.childrenByPropertyId['inventoryNotifStyleIds'], industriesControlIds = control.childrenByPropertyId['inventoryNotifIndustriesIds'], requestIdentifierControl = control.childrenByPropertyId['requestIdentifier'];
+            industryControl.on('change', function () {
+                var industry = industryControl.getValue();
+                categoryControl.options.dataSource = function (control) {
+                    $.get(self.categoriesListLocation + '?industry=' + industry, function (res) {
+                        _this.categories = res;
+                        var list = res.map(function (e) {
+                            return { "value": e.Name, "text": e.Name };
+                        });
+                        control(list);
+                    });
+                };
+                industriesControlIds.setValue($.grep(self.industries, function (ele) { return ele.Name === industry; })[0].Id);
+                requestIdentifierControl.setValue(self.createGuid());
+                $('#yourInfo').removeClass('hidden');
+                categoryControl.refresh();
+                // These should be at least empty until new category is selected
+                makeControl.options.dataSource = [];
+                styleControl.options.dataSource = [];
+                makeControl.refresh();
+                styleControl.refresh();
+                // Working around issue with alpaca when dependencies are lost after field is refreshed
+                control.bindDependencyFieldUpdateEvent('boatLengthFrom');
+                control.bindDependencyFieldUpdateEvent('boatLengthTo');
+            });
+            categoryControl.on('change', function () {
+                if (makeControl && styleControl) {
+                    var industry = industryControl.getValue(), category = categoryControl.getValue();
+                    makeControl.options.dataSource = function (control) {
+                        $.get(self.makesListLocation + '?category=' + category + '&industry=' + industry, function (res) {
+                            _this.makes = res;
+                            var list = res.map(function (e) {
+                                return { "value": e.Id, "text": e.Name };
+                            });
+                            control(list);
+                        });
+                    };
+                    styleControl.options.dataSource = function (control) {
+                        $.get(self.stylesListLocation + '?category=' + category + '&industry=' + industry, function (res) {
+                            _this.styles = res;
+                            var list = res.map(function (e) {
+                                return { "value": e.Id, "text": e.Name };
+                            });
+                            control(list);
+                        });
+                    };
+                    makeControl.refresh();
+                    styleControl.refresh();
+                    makeControlIds.setValue('');
+                    styleControlIds.setValue('');
+                    if (categoryControl.getValue().indexOf(',') === -1) {
+                        categoryControlIds.setValue(categoryControl.getValue());
+                    }
+                    else {
+                        categoryControlIds.setValue(categoryControl.getValue().join(','));
+                    }
+                }
+            });
+            makeControl.on('change', function () {
+                makeControlIds.setValue(makeControl.getValue().join(','));
+                styleControlIds.setValue(styleControl.getValue().join(','));
+                categoryControlIds.setValue(categoryControl.getValue().join(','));
+            });
+            styleControl.on('change', function () {
+                makeControlIds.setValue(makeControl.getValue().join(','));
+                styleControlIds.setValue(styleControl.getValue().join(','));
+                categoryControlIds.setValue(categoryControl.getValue().join(','));
+            });
+            yearFromControl.on('change', function () {
+                if (yearToControl) {
+                    var yearFrom = parseInt(yearFromControl.getValue());
+                    yearToControl.options.dataSource = function (callback) { _this.yearsSelector(yearFrom, callback); };
+                    yearToControl.refresh();
+                }
+            });
+            if (industryControl.selectOptions.length < 2) {
+                industryControl.setValue(industryControl.selectOptions[0].value);
+                industryControl.trigger('change');
+                $(industryControl.field[0]).css('position', 'absolute');
+                $(industryControl.field[0]).css('visibility', 'hidden');
+            }
+            if (locationsControl && locationsControl.selectOptions.length < 2) {
+                $(locationsControl.field[0]).addClass('hidden');
+            }
+        };
+        return _this;
+    }
+    InventoryNotifierLeadForm.prototype.createGuid = function () {
+        return this.p8(false) + this.p8(true) + this.p8(true) + this.p8(false);
+    };
+    InventoryNotifierLeadForm.prototype.p8 = function (s) {
+        var p = (Math.random().toString(16) + "000000000").substr(2, 8);
+        return s ? "-" + p.substr(0, 4) + "-" + p.substr(4, 4) : p;
+    };
+    return InventoryNotifierLeadForm;
+}(LeadForm));
+var GetPreQualifiedLeadForm = /** @class */ (function (_super) {
+    __extends(GetPreQualifiedLeadForm, _super);
+    function GetPreQualifiedLeadForm() {
+        var _this = _super.call(this) || this;
+        var self = _this;
+        _this.options = {
+            "fields": {
+                "email": {
+                    "validator": function (callback) {
+                        self.validateEmail(callback, this);
+                    }
+                },
+                "estimatedCreditRating": {
+                    "validator": function (callback) {
+                        self.hideErrorMessages(callback);
+                    }
+                },
+                "bankruptcy": {
+                    "validator": function (callback) {
+                        self.hideErrorMessages(callback);
+                    },
+                    "showMessages": false
+                },
+                "vehicleRepossessed": {
+                    "validator": function (callback) {
+                        self.hideErrorMessages(callback);
+                    },
+                    "showMessages": false
+                },
+                "foreClosures": {
+                    "validator": function (callback) {
+                        self.hideErrorMessages(callback);
+                    },
+                    "showMessages": false
+                }
+            }
+        };
+        _this.defaultOptions = $.extend(true, {}, _this.defaultOptions, _this.options);
+        return _this;
+    }
+    return GetPreQualifiedLeadForm;
+}(LeadForm));
+var ValueYourTradeLeadForm = /** @class */ (function (_super) {
+    __extends(ValueYourTradeLeadForm, _super);
+    function ValueYourTradeLeadForm() {
+        var _this = _super.call(this) || this;
+        var self = _this;
+        _this.options = {
+            "fields": {
+                "email": {
+                    "validator": function (callback) {
+                        self.validateEmail(callback, this);
+                    }
+                },
+                "locationid": {
+                    "useDataSourceAsEnum": false,
+                    "validator": function (callback) {
+                        self.validateLocation(callback, this);
+                    }
+                }
+            }
+        };
+        _this.defaultOptions = $.extend(true, {}, _this.defaultOptions, _this.options);
+        _this.postRenderParams = function (control) {
+            var itemYear = control.childrenByPropertyId["itemYear"];
+            if (itemYear.getValue() <= 0) {
+                itemYear.hide();
+                itemYear.control.parents("div[data-alpaca-layout-binding]").hide();
+            }
+            _this.genericPostRenderActions(control);
+        };
+        return _this;
+    }
+    ValueYourTradeLeadForm.prototype.replicate = function () {
+        return new ValueYourTradeLeadForm();
+    };
+    return ValueYourTradeLeadForm;
+}(LeadForm));
+var ScheduleTestDriveLeadForm = /** @class */ (function (_super) {
+    __extends(ScheduleTestDriveLeadForm, _super);
+    function ScheduleTestDriveLeadForm() {
+        var _this = _super.call(this) || this;
+        var self = _this;
+        _this.options = {
+            "fields": {
+                "email": {
+                    "validator": function (callback) {
+                        self.validateEmail(callback, this);
+                    }
+                },
+                "locationid": {
+                    "validator": function (callback) {
+                        self.validateLocation(callback, this);
+                    }
+                }
+            }
+        };
+        _this.defaultOptions = $.extend(true, {}, _this.defaultOptions, _this.options);
+        _this.postRenderParams = function (control) { _this.genericPostRenderActions(control); };
+        return _this;
+    }
+    ScheduleTestDriveLeadForm.prototype.replicate = function () {
+        return new ScheduleTestDriveLeadForm();
+    };
+    return ScheduleTestDriveLeadForm;
+}(LeadForm));
+var FinancingForm = /** @class */ (function (_super) {
+    __extends(FinancingForm, _super);
+    function FinancingForm() {
+        var _this = _super.call(this) || this;
+        var self = _this;
+        var fieldsToHideValidation = ['maritalStatus', 'individualOrJoint', 'selfEmployed', 'checkingAccount', 'savingsAccount', 'additionalSources', 'subjectOfBankruptcy', 'vehicleRepossessed', 'judgmentsOrLiensAgainst'];
+        var fieldsWithAdjustedRequiredValidation = ['previousEmployerName', 'previousOccupation', 'previousEmployerPhone', 'previousEmployerStreet1', 'previousEmployerCity'];
+        _this.countryPostalCodeMappings.push(new CountyPostalCodeMap("employerCountry", ["employerState"], ["employerZip"]));
+        _this.countryPostalCodeMappings.push(new CountyPostalCodeMap("previousEmployerCountry", ["previousEmployerState"], ["previousEmployerZip"]));
+        _this.countryPostalCodeMappings.push(new CountyPostalCodeMap("referenceCountry", ["referenceState"], ["referenceZip"]));
+        _this.options = {
+            "fields": {
+                "locationid": {
+                    "useDataSourceAsEnum": false
+                },
+                "privacy": {
+                    "validator": function (callback) {
+                        var value = this.getValue();
+                        callback({
+                            "status": value,
+                            "message": "This field is not optional."
+                        });
+                    }
+                },
+                "email": {
+                    "validator": function (callback) {
+                        self.validateEmail(callback, this);
+                    }
+                },
+                "employerCountry": {
+                    "type": "select",
+                    "removeDefaultNone": true,
+                    "emptySelectFirst": true,
+                    "dataSource": _this.countryListLocation,
+                    "sort": false
+                },
+                "numberOfYearsWithEmployer": {
+                    "onFieldChange": function (e) {
+                        if (this.getValue() === 'Over 3 years') {
+                            $('#previousEmployerFieldset').hide();
+                        }
+                        else {
+                            $('#previousEmployerFieldset').show();
+                        }
+                    }
+                },
+                "previousEmployerCountry": {
+                    "type": "select",
+                    "removeDefaultNone": true,
+                    "emptySelectFirst": true,
+                    "dataSource": _this.countryListLocation,
+                    "sort": false
+                },
+                "referenceCountry": {
+                    "type": "select",
+                    "removeDefaultNone": true,
+                    "emptySelectFirst": true,
+                    "dataSource": _this.countryListLocation,
+                    "sort": false
+                },
+                "employerState": {
+                    "type": "select",
+                    "removeDefaultNone": true,
+                    "emptySelectFirst": true,
+                    "dataSource": _this.regionListLocation
+                },
+                "previousEmployerState": {
+                    "type": "select",
+                    "removeDefaultNone": true,
+                    "emptySelectFirst": true,
+                    "dataSource": _this.regionListLocation
+                },
+                "referenceState": {
+                    "type": "select",
+                    "removeDefaultNone": true,
+                    "emptySelectFirst": true,
+                    "dataSource": _this.regionListLocation
+                },
+                "cf_driversLicenseStateRegion": {
+                    "type": "select",
+                    "removeDefaultNone": true,
+                    "emptySelectFirst": true,
+                    "dataSource": _this.regionListLocation
+                }
+            }
+        };
+        fieldsToHideValidation.forEach(function (f) {
+            _this.options.fields[f] = {
+                "validator": function (callback) {
+                    self.hideErrorMessages(callback);
+                },
+                "showMessages": false
+            };
+        });
+        // Alpaca's wizard issue - 'next' button does not work if hidden fields are required (validation failing), so making these required only when those field are shown 
+        fieldsWithAdjustedRequiredValidation.forEach(function (f) {
+            _this.options.fields[f] = {
+                "validator": function (callback) {
+                    var numberOfYearsWithEmployer = this.getParent().childrenByPropertyId["numberOfYearsWithEmployer"].getValue();
+                    if (numberOfYearsWithEmployer !== 'Over 3 years') {
+                        if (!this.getValue()) {
+                            callback({
+                                "status": false,
+                                "message": "This field is not optional."
+                            });
+                        }
+                        else {
+                            callback({
+                                "status": true
+                            });
+                        }
+                    }
+                    else {
+                        callback({
+                            "status": true
+                        });
+                    }
+                }
+            };
+        });
+        var scrollFn = function (e) {
+            $('html, body').animate({
+                scrollTop: $(".alpaca-wizard").offset().top
+            }, 200);
+        };
+        _this.view = {
+            "wizard": {
+                "buttons": {
+                    "next": {
+                        "click": scrollFn
+                    },
+                    "previous": {
+                        "click": scrollFn
+                    }
+                }
+            }
+        };
+        _this.viewOptions = $.extend(true, {}, _this.viewOptions, _this.view);
+        _this.defaultOptions = $.extend(true, {}, _this.defaultOptions, _this.options);
+        return _this;
+    }
+    return FinancingForm;
+}(LeadForm));
+var ServiceSchedulerLeadForm = /** @class */ (function (_super) {
+    __extends(ServiceSchedulerLeadForm, _super);
+    function ServiceSchedulerLeadForm(leadFormSelector) {
+        var _this = _super.call(this) || this;
+        _this.locations = [];
+        _this.locationService = "/LeadForm/1.0.0/Data/ServiceLocations?serviceId=";
+        _this.servicesService = "/LeadForm/1.0.0/Data/SchedulableServicesForLocation?locationId=";
+        var self = _this;
+        var eqTypes = new Bloodhound({
+            datumTokenizer: function (datum) {
+                return Bloodhound.tokenizers.whitespace(datum);
+            },
+            queryTokenizer: Bloodhound.tokenizers.whitespace,
+            prefetch: "/LeadForm/1.0.0/Data/EquipmentTypes"
+        });
+        _this.options = {
+            "fields": {
+                "email": {
+                    "validator": function (callback) {
+                        self.validateEmail(callback, this);
+                    }
+                },
+                "locationid": {
+                    "type": "select",
+                    "dataSource": function (control) {
+                        $.get(_this.locationService + _this.alpacaObj.dataSource.serviceId, function (res) {
+                            _this.locations = res;
+                            var locationsSelectList = res.map(function (e) {
+                                return { "value": e.Id, "text": e.Name + ' - ' + e.City + ', ' + e.Region + ' ' + e.PostalCode };
+                            });
+                            control(locationsSelectList);
+                        });
+                    },
+                    "emptySelectFirst": true,
+                    "validate": false
+                },
+                "services": {
+                    "type": "checkbox",
+                    "useDataSourceAsEnum": true,
+                    "dataSource": function (control) {
+                        var value = this.observable("/locationid").get();
+                        $.get(self.servicesService + value, function (res) {
+                            control(res);
+                        });
+                    },
+                    "validator": function (callback) {
+                        self.hideErrorMessages(callback);
+                    }
+                },
+                "timeFrameOfAppointment": {
+                    "type": "select",
+                    "useDataSourceAsEnum": true,
+                    "removeDefaultNone": true,
+                    "dataSource": function (control) {
+                        var value = this.observable("/locationid").get();
+                        var location = self.getLocationById(value);
+                        control(location.TimeFrameOfAppointment);
+                    }
+                },
+                "equipmentType": {
+                    "type": "text",
+                    "typeahead": {
+                        "config": {
+                            "highlight": true,
+                            "minLength": 1
+                        },
+                        "datasets": {
+                            "name": "eqTypes",
+                            "source": eqTypes
+                        }
+                    }
+                }
+            }
+        };
+        _this.postRenderParams = function (control) {
+            _this.initDatePicker(control);
+            _this.addLocationEvents(control, leadFormSelector);
+            _this.addAutocompleteEvents(control);
+            _this.addContactEvents(control);
+        };
+        _this.defaultOptions = $.extend(true, {}, _this.defaultOptions, _this.options);
+        return _this;
+    }
+    ServiceSchedulerLeadForm.prototype.addLocationEvents = function (control, leadFormSelector) {
+        var locationControl = control.childrenByPropertyId["locationid"];
+        locationControl.on("change", function () {
+            var splittedPath = window.location.pathname.split('/');
+            if (splittedPath.length === 5) {
+                var url = window.location.pathname.replace(splittedPath[2], locationControl.data) + '#schedule';
+                window.location.replace(url);
+            }
+        });
+        if (locationControl.options.optionLabels.length === 1) {
+            $('#locationFieldset', leadFormSelector).hide();
+            $('#servicesLegend', leadFormSelector).text('Step 1 of 3: Choose Services');
+            $('#datetimeLegend', leadFormSelector).text('Step 2 of 3: Choose Date & Time');
+            $('#informationLegend', leadFormSelector).text('Step 3 of 3: Your Information');
+        }
+    };
+    ServiceSchedulerLeadForm.prototype.addContactEvents = function (control) {
+        var contactField = control.childrenByPropertyId['howToContact'], emailField = control.childrenByPropertyId['email'], phoneField = control.childrenByPropertyId['phone'], timeFrameOfAppointmentControl = control.childrenByPropertyId['timeFrameOfAppointment'];
+        contactField.on('change', function () {
+            if (contactField.data === 'Phone') {
+                phoneField.schema.required = true;
+                emailField.schema.required = false;
+            }
+            else {
+                phoneField.schema.required = false;
+                emailField.schema.required = true;
+            }
+            emailField.refresh();
+            phoneField.refresh();
+        });
+        if (timeFrameOfAppointmentControl.options.optionLabels.length === 1) {
+            timeFrameOfAppointmentControl.setValue(timeFrameOfAppointmentControl.selectOptions[0].value);
+        }
+    };
+    ServiceSchedulerLeadForm.prototype.initDatePicker = function (control) {
+        var locationField = control.childrenByPropertyId["locationid"];
+        var dateField = control.childrenByPropertyId["date"];
+        var location = this.getLocationById(locationField.data);
+        //to avoid deprecation message on console from moment object
+        if (location.ExcludedDates != null && location.ExcludedDates != "") {
+            var formattedDates = location.ExcludedDates.split(",");
+            for (var i in formattedDates) {
+                var tmp = formattedDates[i].replace(/["']/g, "");
+                formattedDates[i] = "\"" + new Date(tmp).toISOString() + "\"";
+            }
+            location.ExcludedDates = formattedDates.join(",");
+        }
+        this.alpacaObj.options.fields.date.picker.daysOfWeekDisabled = location.DaysOfWeekDisabled;
+        this.alpacaObj.options.fields.date.picker.minDate = moment(moment()).add(location.LeadTime, 'day').startOf('day');
+        this.alpacaObj.options.fields.date.picker.disabledDates = JSON.parse("[" + location.ExcludedDates + "]");
+        dateField.refresh();
+    };
+    ServiceSchedulerLeadForm.prototype.addAutocompleteEvents = function (control) {
+        var eqTypeField = control.childrenByPropertyId["equipmentType"];
+        var brandField = control.childrenByPropertyId["brand"];
+        var yearField = control.childrenByPropertyId["year"];
+        var modelField = control.childrenByPropertyId["model"];
+        eqTypeField.on("change", function () {
+            var brands = new Bloodhound({
+                datumTokenizer: function (datum) {
+                    return Bloodhound.tokenizers.whitespace(datum);
+                },
+                queryTokenizer: Bloodhound.tokenizers.whitespace,
+                prefetch: "/LeadForm/1.0.0/Data/Brands?eqType=" + eqTypeField.data
+            });
+            brandField.options.typeahead = {
+                "config": {
+                    "highlight": true,
+                    "minLength": 1
+                },
+                "datasets": {
+                    "name": "brands",
+                    "source": brands
+                }
+            };
+            brandField.refresh();
+        });
+        brandField.on("change", function () {
+            var years = new Bloodhound({
+                datumTokenizer: function (datum) {
+                    return Bloodhound.tokenizers.whitespace(datum);
+                },
+                queryTokenizer: Bloodhound.tokenizers.whitespace,
+                prefetch: "/LeadForm/1.0.0/Data/Years?eqType=" + eqTypeField.data + "&brand=" + brandField.data
+            });
+            yearField.options.typeahead = {
+                "config": {
+                    "highlight": true,
+                    "minLength": 1
+                },
+                "datasets": {
+                    "name": "years",
+                    "source": years
+                }
+            };
+            yearField.refresh();
+        });
+        yearField.on("change", function () {
+            var model = new Bloodhound({
+                datumTokenizer: function (datum) {
+                    return Bloodhound.tokenizers.whitespace(datum);
+                },
+                queryTokenizer: Bloodhound.tokenizers.whitespace,
+                prefetch: "/LeadForm/1.0.0/Data/Model?eqType=" + eqTypeField.data + "&brand=" + brandField.data + "&year=" + yearField.data
+            });
+            modelField.options.typeahead = {
+                "config": {
+                    "highlight": true,
+                    "minLength": 1
+                },
+                "datasets": {
+                    "name": "model",
+                    "source": model
+                }
+            };
+            modelField.refresh();
+        });
+    };
+    ServiceSchedulerLeadForm.prototype.getLocationById = function (id) {
+        var location = $.grep(this.locations, function (l) {
+            return l.Id == id;
+        })[0];
+        return location;
+    };
+    return ServiceSchedulerLeadForm;
+}(LeadForm));
+// Display required flag; Alpaca ignores any other way so do this the only fashioned way
+function changeSSNLabel(currentCountry) {
+    var countryRegex = /^(United States|Canada)$/;
+    var ssnLabel = $('div[data-alpaca-layout-binding="cf_ssn"] label:first-child');
+    if (ssnLabel[0]) {
+        if (currentCountry.match(countryRegex)) {
+            ssnLabel[0].innerHTML = "<span class='alpaca-icon-required glyphicon glyphicon-star'></span>Social Security Number";
+        }
+        else {
+            ssnLabel[0].innerHTML = "Social Security Number";
+        }
+    }
+}
+/* Link a country, region and postalcode field.
+ * - Used to bind region to the specified county field to update on change.
+ * - Used to bind postal code to specified country field to recheck validation on change.
+ */
+var CountyPostalCodeMap = /** @class */ (function () {
+    function CountyPostalCodeMap(countryField, regionNames, postalCodeFields) {
+        this.country = countryField;
+        this.postalCodes = postalCodeFields;
+        this.regions = regionNames;
+    }
+    return CountyPostalCodeMap;
+}());
+var Utility = /** @class */ (function () {
+    function Utility() {
+    }
+    Utility.prototype.getCookie = function (name, urlDecode) {
+        if (urlDecode === void 0) { urlDecode = false; }
+        var cname = name + "=";
+        var cookies = document.cookie.split('; ');
+        for (var i = 0; i < cookies.length; i++) {
+            if (cookies[i].indexOf(cname) == 0) {
+                var value = cookies[i].split('=')[1];
+                if (urlDecode) {
+                    value = decodeURIComponent(value);
+                }
+                return value;
+            }
+        }
+        return "";
+    };
+    Utility.prototype.getKeyFromStringDictionary = function (key, dictionary, entrySeparator, valueSeparator) {
+        if (entrySeparator === void 0) { entrySeparator = "$"; }
+        if (valueSeparator === void 0) { valueSeparator = ":"; }
+        var entries = dictionary.split(entrySeparator);
+        var searchKey = key + valueSeparator;
+        for (var i = 0; i < entries.length; i++) {
+            if (entries[i].indexOf(searchKey) == 0) {
+                var value = entries[i].split(valueSeparator)[1];
+                return value;
+            }
+        }
+        return "";
+    };
+    Utility.prototype.setCookie = function (cname, cvalue, exdays) {
+        var str = 'string';
+        if (typeof cname === str && typeof cvalue === str && !isNaN(exdays)) {
+            var d = new Date();
+            d.setTime(d.getTime() + (exdays * 86400000));
+            var expires = "expires=" + d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+            return true;
+        }
+        return false;
+    };
+    return Utility;
+}());
+//# sourceMappingURL=leadForms.js.map

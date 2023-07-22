@@ -1,0 +1,61 @@
+
+/* = Issues List
+---------------------------------------------------- */
+
+.issues-section{
+	padding: 55px 0;
+	background-color: #f1f1f1;
+	text-align: center;
+	position: relative;
+}
+
+.issues-section-bg{
+	background-size: cover;
+	background-position: center;
+	opacity: 0.15;
+	content: "";
+
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	top: 0;
+}
+
+.issues-section .wrap{
+	position: relative;
+}
+
+.issues-section .section-title{
+	margin-bottom: 30px;
+}
+
+.issues-section .buttons{
+	margin-top: 5px;
+}
+
+.issues-section .button{
+	padding-right: 30px;
+	padding-left: 30px;
+}
+
+/* = News List
+---------------------------------------------------- */
+
+.news-section{
+	padding-bottom: 40px;
+	padding-top: 60px;
+}
+
+.news-section .section-title{
+	margin-bottom: 35px;
+	text-align: center;
+}
+
+/* = Volunteer Form
+---------------------------------------------------- */
+
+.volunteer-form-section{
+	padding-bottom: 55px;
+	padding-top: 60px;
+}

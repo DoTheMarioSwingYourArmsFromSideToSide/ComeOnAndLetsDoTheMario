@@ -1,0 +1,107 @@
+window.onload = function(){
+	var navBar = document.getElementsByClassName("primary-navigation");
+	var header = document.getElementsByClassName("header");
+	window.onscroll = function() { stickybar() };	
+	var position = navBar[0].offsetTop;
+
+	function stickybar() {
+
+		if (window.pageYOffset >= position + 80) {
+			navBar[0].classList.add("sticky");
+			header[0].classList.add("stick");
+		}
+		else {
+			navBar[0].classList.remove("sticky");
+			header[0].classList.remove("stick");
+		}
+	}
+};
+
+$(window).scroll(function() {
+  var t = $(".mower-holder");
+    $.each(t, function() {
+        var t = $(window).height()
+          , i = $(this).offset().top - $(document).scrollTop();
+        Math.floor(i / t * 100) < 80 && $(this).addClass("animate");
+    }); 
+});
+
+$(".Locations_1-0-0 .social-media .fa-youtube-play").toggleClass("fa-youtube");
+$(".search-btn span[data-target='.xd1-mobile-search']").click(function(){
+    $(this).toggleClass('change-to-x');
+});
+$(".mb-slider").addClass("slick-slideshow");
+$('.mb-slider.slick-slideshow').slick({
+	dots: true,
+	arrows: false,
+	autoplay:true,	  
+	slidesToScroll:3,
+	centerMode: false,
+	slidesToShow: 3,
+    responsive: [
+        {
+            breakpoint: 992,
+            settings: {
+                slidesToShow: 3
+            }
+        },
+        {
+            breakpoint: 768,
+            settings: {
+                slidesToShow: 1,
+                slidesToScroll:1
+            }
+        }
+    ]
+});
+function changNavposition() {
+    if ($(".Appearing-Lead-Banner_1-0-1 .appearing-lead").hasClass("fixed")) {
+        $(".xd-header2 .primary-navigation").css("top","80px");
+    } else {
+        $(".xd-header2 .primary-navigation").css("top","0");
+    }
+}
+$( window ).scroll(function() { changNavposition() });
+
+
+
+const pixelCode = `
+  <!-- Facebook Pixel Code -->
+    <script>
+        !function(f,b,e,v,n,t,s){
+        if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window,document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '140619175354751'); 
+        fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1" src="https://www.facebook.com/tr?id=140619175354751&ev=PageView&noscript=1"/>
+    </noscript>
+    <!-- End Facebook Pixel Code -->
+`;
+if(window.location.pathname.localeCompare('/search/inventory/availability/In%20Stock/brand/Bad%20Boy') === 0) {
+    $("head").append(pixelCode);
+}
+
+$(".search-result .panel-body").each(function () {
+    if($(this).find(".price-info.label-back-ordered").length){
+        $(this).find('.display-price-box').html('Call for Deal of the Month');
+    }
+});
+
+$(".search-results-attributes .label.label-success").text(function () {
+    return $(this).text().replace("Back Ordered", "Call for Deal of the Month");
+});
+
+$(".vdp-body-container .price-box h2").text(function () {
+    return $(this).text().replace("Back Ordered", "Call for Deal of the Month");
+});
+
+$(".vdp-key-feature-detail .text-right.pull-right").text(function () {
+    return $(this).text().replace("Back Ordered", "Call for Deal of the Month");
+});
