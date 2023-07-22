@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<!-- saved from url=(0100)https://dnserrorassist.att.net/search/?q=http%3A//www.moultoninn.com/&r=&t=0&srchgdeCid=aaaaaaaa&bc= -->
+<html lang="en"><script type="text/javascript" src="chrome-extension://mdnleldcmiljblolnjhpnblkcekpdkpa/libs/customElements.js" class="__REQUESTLY__SCRIPT"></script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Search</title>
+    
+    <link href="./Search i_files/bootstrap.min.css" rel="stylesheet">
+    <link href="./Search i_files/searchguide.css" rel="stylesheet">
+    <link href="./Search i_files/font-awesome-min.css" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://assets.nextplaysearch.com/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://assets.nextplaysearch.com/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://assets.nextplaysearch.com/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="https://assets.nextplaysearch.com/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="https://assets.nextplaysearch.com/img/att/favicon.ico">
+
+    <!--[if lt IE 9]>
+    <link href="//assets.nextplaysearch.com/css/searchguide-ie-compat.css" rel="stylesheet">
+    <![endif]-->
+    <style>
+        .logo {
+            max-height: 25px;
+        }
+        .header {
+            border-top: 1px solid #DCDCDC;
+            border-bottom: 1px solid #DCDCDC;
+        }
+        .header, .gray-bg {
+            background-color: white;
+        }
+        .footer {
+            border-top: 1px solid #DCDCDC;
+            padding-bottom: 15px;
+            background-color: white;
+        }
+        .step-series .row {
+            padding-top: 20px;
+        }
+        .search-options-row {
+            max-width: 1500px !important;
+            border-bottom: none !important;
+        }
+        .search-bar-logo {
+            padding-top: 0px !important;
+        }
+
+        form.searchForm input[type=search] {
+            padding: 10px;
+            font-size: 17px;
+            border: 1px solid grey;
+            float: left;
+            width: 80%;
+            background: #f1f1f1;
+        }
+
+        form.searchForm button {
+            float: left;
+            width: 20%;
+            padding: 10px;
+            background: #2196F3;
+            color: white;
+            font-size: 17px;
+            border: 1px solid grey;
+            border-left: none;
+            cursor: pointer;
+        }
+
+        form.searchForm button:hover {
+            background: #0b7dda;
+        }
+
+        form.searchForm::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+        .q-input {
+            width: 100px;
+        }
+        .b-links {
+            background-color: transparent;
+            border-bottom: 3px solid #E1E1E1;
+            padding-left: 23px !important;
+            margin-left: -20px !important;
+        }
+        .news-inline {
+            border: none !important;
+        }
+        .images-center h5 a, .news-inline h4 a {
+            font-size: 18px;
+            font-weight: normal;
+            color: #A3A3A3 !important;
+        }
+        .link-title, .news-title, .link-host {
+            color: rgb(5,104,174) !important;
+        }
+        .link-text {
+            color: rgb(25,25,25) !important;
+        }
+        .site-links li {
+            padding-left: 0px !important;
+        }
+        .site-link {
+            color: rgb(5,104,174) !important;
+            border: 1px solid #A3A3A3;
+            background-color: transparent !important;
+            border-radius: 3px;
+        }
+        .wiki-category {
+            color: #A3A3A3 !important;
+        }
+        .search-option-selected {
+            border-bottom: 2px solid;
+        }
+        .search-option:hover {
+            border-bottom: 2px solid;
+        }
+        .pagination {
+            text-align: right;
+            width: 100%;
+        }
+        .page-button {
+            background-color: transparent;
+            border: none;
+        }
+        .att-header-body {
+            width: 100%;
+            background-color: rgb(255,184,28);
+            border-bottom: 1px solid #DFE5B5;
+            padding: 0 !important;
+        }
+        .att-header-body .row {
+            margin-right: 0;
+        }
+        .att-header-msg {
+            padding: 15px 20px 15px 20px;
+        }
+        .search-btn-container,.yahoo-logo {
+            padding: 0;
+        }
+        .step-img {
+            max-width: 500px;
+            max-height: 500px;
+        }
+        .win-step-img {
+            max-width: 1000px;
+            max-height: 1000px;
+        }
+        .underline {
+            border-bottom: 1px solid #e2e2e2;
+        }
+        .optout-font {
+            font-family: Arial;
+            font-size: 12px;
+        }
+        .main-btn {
+            padding-bottom: 0 !important;
+        }
+
+        @media (max-width: 800px) {
+            .search-bar {
+                margin-top: 15px !important;
+            }
+            .search-bar-logo {
+                width: 70px;
+            }
+            .footer-second-row div:last-child {
+                margin-top: 10px;
+            }
+        }
+
+        @media (min-width: 801px) {
+            .search-bar-logo {
+                width: 55px;
+            }
+        }
+
+         
+        .att-footer-logo {
+            display: inline-block;
+            margin: -10px 1px 0 0;
+            height: auto;
+            max-width: 120px;
+        }
+        #footer {font-family:Verdana, Geneva, sans-serif;}
+        #footer a, #footer a:link, #footer a:visited {text-decoration:none; color:#088dd5;}
+        #footer a:hover {text-decoration:underline;}
+        #footerUrls {position:relative; top:10px;width:100%}
+
+        ul.attOnWeb li { float:left; padding:0 20px; font-size:9px; background:url(http://portalmigration.att.net/design/CDLS30/img/ui/tabBorderDark.png) no-repeat left 0;}
+        ul.attOnWeb li a {font-size:12px;}
+        ul.attOnWeb li.first {font-size:12px; padding:8px 20px 0 0 ;background:none;}
+        ul.attOnWeb li#attComFoot {width:148px;}
+        ul.attOnWeb li#attNetFoot {width:182px;}
+
+        ul.footerLinks { clear: left;
+            height: 30px;
+            line-height: normal;
+            list-style: none outside none;
+            padding-top: 10px;
+            width: 100%;
+            font-size: 16px !important;
+        }
+        .footerLinks-container {
+            text-align: center;
+        }
+        .footer-second-row {
+            margin: 10px 0;
+        }
+        .footer-second-row div:first-child {
+            text-align: right;
+            padding: 0;
+        }
+        .footer-second-row div:last-child {
+            text-align: left;
+            padding: 0;
+        }
+        ul.footerLinks li {padding:0 6px; border-right:1px solid #999; margin:0; font-size:0.75em; }
+        ul.footerLinks li:first-child {padding-left:0;}
+        ul.footerLinks li:last-child {border:0;}
+        .copyText { font-size:9px; display: inline-block; padding-top: 5px !important; }
+        #USOlympic {background:url(http://portalmigration.att.net/design/CDLS30/img/logos/YP_USOC_logos.png) no-repeat -90px 0; width:367px; height:40px;}
+        #USOlympic a {display:block; position:absolute; height:40px; text-indent:-999em;}
+        #USOlympic a#USOurl {width:225px;}
+        #USOlympic a#YPurl {width:90px;}
+         
+    </style>
+
+    <script type="text/javascript" src="./Search i_files/e28dfdf49e9e4063519fc6233c9dc954522001624dcc5"></script><script src="./Search i_files/jquery.min.js.download" type="text/javascript"></script>
+    <script src="./Search i_files/s_code.js.download"></script>
+    <script type="text/javascript">
+        var adobeAnalytics = window.s;
+        if (adobeAnalytics) {
+            adobeAnalytics.t();
+        }
+    </script>
+
+    <script>
+        function replaceCopyright() {
+            var d = new Date();
+            var n = d.getFullYear();
+            var copyrightMsg = "Copyright &copy; " + n + " AT&amp;T Intellectual Property"
+            document.getElementById("copyrightId").innerHTML = copyrightMsg;
+        }
+
+        document.addEventListener("DOMContentLoaded", replaceCopyright());
+
+    </script>
+
+</head>
+<body data-new-gr-c-s-check-loaded="14.1115.0" data-gr-ext-installed="">
+<script type="text/javascript">
+    $(function() {
+        ddo.disableAutoPageLoad();
+        ddo.pushEvent("pageLoad", "my page");
+    });
+</script>
+
+    
+        
+            <div class="container-fluid att-header-body">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1">
+                        <div class="att-header-msg">
+                            <strong>Sorry, the page you were looking for does not exist or is not available.</strong>  We performed a web search for “Moultonins.Com” and here's what we found.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+    
+
+<div class="header container-fluid">
+    <form class="searchForm form-inline" action="https://dnserrorassist.att.net/search/" method="get">
+        <div class="search-bar row">
+
+            <div class="col-xs-2 col-sm-2 col-md-1 col-lg-1 search-bar-logo">
+                <a href="http://www.currently.com/"><img width="40px" align="right" src="./Search i_files/logo.png"></a>
+            </div>
+
+            <div class="col-xs-6 col-sm-5 col-md-5 col-lg-5 search-bar-bar">
+                <input class="form-control" placeholder="Enter Your Search Here" name="q" type="search" value="Moultonins.Com" x-webkit-speech="">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </div>
+
+            <div class="hidden-xs col-sm-1 col-md-1 col-lg-1 yahoo-logo">
+            </div>
+            <div class="hidden-xs col-sm-1 col-md-1 col-lg-1 yahoo-logo">
+            </div>
+
+            <div class="hidden-xs col-sm-1 col-md-1 col-lg-1 yahoo-logo">
+                <a style="color: rgb(29,34,40)" href="https://more.att.com/currently/email?source=EnEmaiL2020000DNL&amp;wtExtndSource=dns">Get AT&amp;T Mail</a>
+            </div>
+
+            <div class="hidden-xs col-sm-1 col-md-1 col-lg-1 yahoo-logo">
+                <a href="https://more.att.com/currently/email?source=EnEmaiL2020000DNL&amp;wtExtndSource=dns">
+                    <img align="left" class="logo img-responsive" src="./Search i_files/att-mail-icon-40x40.svg">
+                </a>
+            </div>
+
+            <div class="hidden-xs col-sm-1 col-md-1 col-lg-1 yahoo-logo">
+                <a href="https://currently.att.com/">
+                    <img align="left" src="./Search i_files/yahoo-currently-136x36.png">
+                </a>
+            </div>
+
+        </div>
+        <input type="hidden" name="t" value="9">
+    </form>
+    <div><br></div>
+</div>
+
+
+
+    <div class="container-fluid">
+
+        
+            
+        
+
+        <div class="row">
+
+            <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-1 col-lg-5 col-lg-offset-1">
+
+                <div class="search-results">
+                    
+                        <h5>Search Results for “Moultonins.Com”</h5>
+                        
+                        <div class="links">
+                            
+                                
+                                    
+                                        
+                                            <div class="link">
+                                                <a href="https://www.moultoninsgroup.com/" s="false" h="www.moultoninsgroup.com">
+                                                    <div class="link-title">Auto, Home, Life Insurance | Moulton Insurance Group ...</div>
+                                                    <div class="link-host">www.moultoninsgroup.com</div>
+                                                    <div class="link-text">Auto, Home, Life Insurance | Moulton Insurance Group | Charlotte, NC - Moulton Insurance Group A BETTER WAY TO BUY INSURANCE Finding the right coverage for the best rate is easier than ever. Let's Find Yours!</div>
+                                                </a>
+                                            </div>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <div class="link">
+                                                <a href="https://moultoninsurance.com/" s="false" h="moultoninsurance.com">
+                                                    <div class="link-title">Home, Auto, Life, &amp; Business Insurance for Western MA</div>
+                                                    <div class="link-host">moultoninsurance.com</div>
+                                                    <div class="link-text">Contact Us Auto Insurance Home Insurance Business Insurance Life Insurance Cost-effective insurance coverage for your needs. Moulton Insurance is proud of its family tradition of serving individuals and businesses throughout Massachusetts since 1952. We offer personalized service and the convenience of two local offices in Ware and Belchertown.</div>
+                                                </a>
+                                            </div>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <div class="link">
+                                                <a href="https://moultoninsurance.com/about/" s="false" h="moultoninsurance.com/about">
+                                                    <div class="link-title">About - Moulton Insurance</div>
+                                                    <div class="link-host">moultoninsurance.com/about</div>
+                                                    <div class="link-text">As an independent agency, the mission of Moulton Insurance is to provide a safeguard of asset protection to our individual clients and businesses by providing the highest quality insurance products, services, education, and professional standards of conduct. Our History In 1952, Charles Moulton had the foresight to start an insurance agency.</div>
+                                                </a>
+                                            </div>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <div class="link">
+                                                <a href="https://www.yellowpages.com/belchertown-ma/mip/moulton-insurance-agency-inc-496953497" s="false" h="www.yellowpages.com/belchertown-ma/mip/moulton...">
+                                                    <div class="link-title">Moulton Insurance Agency Inc - Belchertown, MA 01007</div>
+                                                    <div class="link-host">www.yellowpages.com/belchertown-ma/mip/moulton...</div>
+                                                    <div class="link-text">Moulton Insurance is proud of its family tradition of serving both individuals and businesses throughout Massachusetts since 1952. We offer personalized service and the convenience of two local offices in Ware and Belchertown.</div>
+                                                </a>
+                                            </div>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <div class="link">
+                                                <a href="https://www.zoominfo.com/c/moulton-insurance-agency-inc/53250756" s="false" h="www.zoominfo.com/c/moulton-insurance-agency-inc/...">
+                                                    <div class="link-title">Moulton Insurance Agency - Overview, News &amp; Competitors ...</div>
+                                                    <div class="link-host">www.zoominfo.com/c/moulton-insurance-agency-inc/...</div>
+                                                    <div class="link-text">www.<b>moultonins</b>.com Revenue $6.2M Industry Insurance Moulton Insurance Agency's Social Media Is this data correct? View contact profiles from Moulton Insurance Agency Popular Searches Moulton Insurance Agency Inc Moulton Insurance Agency Moulton Insurance Inc Moulton Insurance Agency As A Moulton Insurance Agency Inc SIC Code 64,641</div>
+                                                </a>
+                                            </div>
+                                        
+                                    
+                                
+                            
+                        </div>
+                        <div class="pagination">
+                            
+                            <a class="page-button" href="https://dnserrorassist.att.net/search/?bc=&amp;q=http%3A%2F%2Fwww.moultoninn.com%2F&amp;r=&amp;srchgdeCid=aaaaaaaa&amp;t=0&amp;qs=qsx-890bb769b8a088963736f93ecac970fe999b6efbbfd56f2836f9006656c20ed0d0898848ae6d22e71b5d44b09eead88048499b49f93edae553f7ddc042a9f8e9c820de6ce7562919f778b2a27b0be066eb60971a8b272839435a8e3b769bfaeb33ee2a926eb690bca22328a0f71a46bbeb041813d7129ece856fa50907b719a4491a8b00a4de0b95232270697705bd3b974965bb8b1e844e49b1bacaabdd91a30311dcab4660e5d618e8602d25337c31583d5e9d36813ccee2ace6ec347d184a26aedee1febb7476ba6a4f0e51c7f9681a884ff57e9610cd2b76585a3d818243536df9072b10a09d6b34e4c5e723db6399ac79c6bde4ebc1036a49b18b020e176294412d8eb96757283c5541dc25b0f9aa2ba2e2509aa588bab46db6c9bd940ba2aa7178355ac85ea0a9ff6bcb8c58d9c5d3b9d5290fc06226535008487ce764011e0c6d78555bc343555faac443d57f4233f64da3d67bf90a9335184766024d68735741861c85070df39fa73175bdfea474c95bc61accfd115ef711c8c976c0da197c62c03c23ff846a560839ac18669f793e6ca25397adde1eb16970f9b4ede95a4ba8ee9bab54b4aa7751d301bd47d0862c5f5a1e40cfefda24b97fa984380ed21d1030732dd559a7119033b080c261355c0ca971e18e6fbaacb96b5714f1fdf8883bb45456632af6548ea410d852dda98c017662966a493fd80ff16b3c07154590069242a242d18bef987727848e51a6e6cef96047f6d83b273c0f0060084776d822001d7341fd1a9b70540b2e057c9946491d92a4d40d727329a34a1b97e1453fe4187fa40d258db6df6d392a5dee8cdb69a6e3436e32f6bb94b35ea0ff4cb1ca123a2b8fd9d591b71ff8a02bf151fa84c585f9a779acd41269bd984613df2e899ee47e6a461508d551d7d92ab3647ea3a650008b79130753db6cc3beb1873f10c8dfe64a8a74bd22ac5c0e844d75923cb8a7bfb13f20bc65f7eb7ab7bcb679501bbac4aadddb771acd8732b62423cb9bde25795a2480b066d98776b997eea26ca1fbe40b06af0a9d0a70d242eba45ea9d36ce1b6375bed20811670504131968d1c9620aa2bad68699b448494f0240fdf7d3a4b26c8057d0e196813b99fc2e43e67e10c2237e9a9b160bcfc57e13af4dc866c5b1f1ec1f47ccf70bbb0a74807b3b45a502cea6f75331b513532399c5fbda06c96edb378077882a9158e635be5fbc5adcd9de3c6f12f2ae698cc9225d8200baa2dedb24febff1eff0692a139c1f5348ab7416203.e6ad683d8eb2c5f3145ab821bc6a9f42&amp;p=1">Next »</a>
+                        </div>
+                    
+                </div>
+            </div>
+
+            <div class="right-side hidden-xs hidden-sm col-md-3 col-lg-4">
+
+                
+                    <div class="categories">
+                        <h5>Searches Related to “Moultonins.Com”</h5>
+
+                        
+                            <div class="link">
+                                <a href="https://dnserrorassist.att.net/search/?q=real+estate&amp;qs=qsx-89a11e9b6ce7a638b6c8b18dd20eede7241b862cc7a3475467aaaa469a66466eb6274a00e760e78fc068925f5ab39bb6c17846cba1b8b028853d41efde18aa1d563ba193cb2a875cbc11cab06c3fce0e3ee6de8b23a3a36b6874218861b47a7f601fdbf7bc014fd404585ca5a06195a74a1de11f8ae132ef7d6944f079ea581faa981ab1a9d8bb8ac3ce0f283b3d357102c2a97c884163b4ed92c695bf241d5d47192728929d90f4bc70f29d06d66524d4a21d7952bc91ef1fccce514f565ac7e5f2e5dd1a56fe1324646c0bb0f523eb82f88d3e15a5f20fd026d3c03f9d663135ec889c4935fa7e6656a93a688e3bce643c948949c6860e1daa9af91b5c14b7b73f001a93f1a74f24c87794eb013fa785666d651e9450f69921e13c12e53a5c274b141ce85ee189efb1e5f60b926bc4833e4acbd7b6a126854b4515c6dc6226b60666674178f2188d183ba31954d9a75484ba50f6a45fed467a000ff6dd4757a3d159228d858d88e85e358e2a6c69225f8ca08f5735039b5057d68b29f1421badce0f06faf8d80c023af91ae27612d189975f13219f509c4bbd67a56f19ae7a71556dca9777f82d579cb03ba1478dda9a52ddac9c12d6f038c793915c951ddaa72540f7ef38a8d4824790db6085193ef3029c12d3bc8a8e1064db2b0d3aaa85a22fddb6983250cbd402c9c6e345279b497871d4bf5d73b924a6b9dea573f9b4621f457de9ac8b22f19dbdabe1c115556d0f901e1b66ba94104074b8f9a47f06734b017694de865578a758420f7133cc7f162adaf81a432db724d4d09182e5e836718f0e0da6dba7a843046e2e1eedd8deb417f7617c17d6cb9f7a337fdd1a8649b260e597a2d4df5db5c9efb2f335cd817f32e9ce908c7bc77c3f5e63423963341a41a5ae67c87d12bc38be90d9029a7d38c39fcda4bfc6b345b6211a5cbf71a0d255da0c295a8a38726355557a49e47e9802a06b5ddb828d620d7a94.a38fc1808f4fc8e342aa598f39b01ca6">
+                                    real estate
+                                </a>
+                            </div>
+                        
+                            <div class="link">
+                                <a href="https://dnserrorassist.att.net/search/?q=apartment+for+rent&amp;qs=qsx-18e371c15fbe97011e0200c0c30944e6b722963f04d598b055a0cc8a5604f6b0a152b1cd8ad91f2a20c7e4c23a0b0cee9fee9b419820093c9329dc4e51d42fa7b768685ae706971e82f26ee5dc1bfea59920937e5d92b469c2da4f4145fef88ddefd7535bd6dcc3914e9bc1290d7f01c167d713b54caaeb8982a025abc804812c1483db5c7e0d7f02f13d996fb5c7987f3d599268041cfedbbd69463d85266f770f88eedde1019f2426f611a56bbe348154c5617dae7b38cbd6abad0289f5786151cb2ec0e1e88a318182881c0eb2a2d0410859b1c70550748d0647087113c5b207dfdd109e2f8f93ce38a47f855cafd9102d17dca6230f003bb788339dd686ab22e8d63461b96d021cad0e2e0efef028f3047fd002f4596cb106cc8c9d68ae322af6e448a192283f0d2c722ae2a5a7606912c07874686a84c47f47c1fa513ac6e683237950ec4d4a9132d6f5fa2a51b76a31e0f26f4803493b2467390f08c80bc0aa7c0cafe49b49a6a4963db4bfb9c2eff2e636618569bc7460260351f48c394fe7651d72202139494b7bec57c7edbfad3750e855355a3a3b3ba13879d2cc57e3c500cff5bfb576284f5827d12b47e6d937de20da31ad2b6870035b877d84b4a3ac775d45c4827a491d554f683e6b2ea40928d857e70e25cc6914e455b5a44ab96f6f010dd95332ef64d16acbbe96b8aafd827a4f82aec2274afb1c985419b25626ca66d63a12ea3e4e896daadfd32dfc1184ef72674237e902ca01ccfec79595cf0d7a1a0e874c401f7ce2e3175ab9c165ddaa4155551442659ad5bedf6f0e88a4e49ad5b55b3cdc8f420baa4d33e16193fee0c54d58bbe4d34f0160a338b5b81b6aa1e105c0f44f649009d7939d456b91192c8971749d7e283ba5d9c5004ab585bc598e280f6132d90245f1bb01fb887a4b194bcaf356e8e2cceabc917f3677c93e43dea8d06b7a6677cba7f1e763418f5729d258f2f5775946a7c1c86774676c64a.f6071d7cd74df2ea74d232b458223f1c">
+                                    apartment for rent
+                                </a>
+                            </div>
+                        
+                            <div class="link">
+                                <a href="https://dnserrorassist.att.net/search/?q=personals&amp;qs=qsx-16f8506e7dc726ed8c2a928adf8a56ae7e1ad70b17a24d2062c58e0a4d1198835a0e1724b3f501d3cdb4c90f159285aea2b14a1c15d3f3dd1ecc74e1e9a66a03e618e34293d8d01dc12f12503f0fd2826ed4ee732295cdf78162699154a31cc1133f6787bf42d9269fbc9955f6ec0594ce6b709707573e78730b323805677a2f88622887627dd862f115c979ad29d0b1cb1e2f9c9f792fcef0980aef532bb08b523136917d9154e383f0b9f184e16c681cd95ce5daa252a236338487f6306289e114e105005d9c125a03df45f6e57713159175a67a4e7d9acf53f1d60ea4263f3145195ee67b16f547a94814e749b8663120b128e9131504dda046967a7d0d7ebf6f2e7628447b43d1f4267fff289dcb70c6a4cfd6167290da019a2d5b29923fe15413b6bf3182483c819b9fd6c694431dba96dd756f70f2fc03cf057d32eabeb51af362225282ae4434a7b275df84a9e242c6e1fc531fa3bac579a4772c3d85073130dec94c40e7109149bcb203312f54cb13ea3b9a85adf8d2288f73d4e122246e939e378c0448be257ec9bd368f7e257baa2b6b3495d0079788683e4a74e8dc1ef0e2378eaca6613af3a78ce609fa3813a50d212ac84a1ad8089745bfa42799aca05e41e18b198bdc6a329f7a339eb1263d460a57e130921db0b7a37d6d27883d017ccd493a0d531e4353659d19bfab5c377dcb29e30e2f21ff5d639c42e3f259858a7c0ed1076aff0be8df838439b086ccfbbb71ba888f6a18c94eb08ecb5142dca887bc4e8f6122eb7ec1c2a375e74c31b57e0fc244d155bae41b06bb6519d177cb15c8cb82ad747d0ffadea81c2d1797d4eee3524c2b5c954c835f8cfc0aa124fe9ed1f09f189ab2061a8a34454c5d5dc894b996ee2c71dcbd258e6dff19ed37ddb1784b23e7f7faf032bd7dcec825506afb1b5824c1d114575c13d73712ddd3948558a8284a9e501810ec56f331cb950029cf9defc3ba10.3bad22cb2626734d02cdfb0a865f8750">
+                                    personals
+                                </a>
+                            </div>
+                        
+                            <div class="link">
+                                <a href="https://dnserrorassist.att.net/search/?q=cheap+airfare&amp;qs=qsx-ea6e39f2650069091bb579650ce082d6c598b7704f0e419227149e709a64ca951f1622445f6e1332303833ccc2a39724da8302fa8dc7506ad2edb44598839b7a002c0b9b6999bcf66e7663c84081fb58d34279b5f4332d311676b29767751154453ed27443c274b179e381e3bffd59df1456ceb14607b7ee798aad3d7295b3161d04adaf824388ed52302c8b293aed3b1fc9afdbd125a52d734dbdd63a7fcad4e173e700099ee50e55839efe5837c0709bdf02cd8df1cd30e1702e3fe2d1be57ba39dba7d8dda88993321404dfe8136bec84ce3491686d4ad92df35d8fbe65d76fc9ad7c0a4dc4f492769f603584d8a043905c08dc7b6c859728fe6dd0eabdfc2c5d7918fef590a3f59252041558cdf17b6f65175fabdb7f81ea0dc2e35e70c73e279464c3f958ef626f792731550ffac688543c4cf31f19c9e36a554f8e63eecd7e2caf8e4c0c10e14c52e789c692b02d51ca321733fe9ae87bf6d90927e31130402fe61f1701331c44ea9061de3bb457655c84f6605f11254c127be2ac8c220e1ba13e86384d2a452da626f535533d926f50d5354390d3d794dd9b6f0998649cf647aaca767013f7f32c240e76d3bf66ba3e8a3ae7ae9dc8135cf2b17d21c73aa40f4522d8f67e2a03613c0b7e70f08590272adb025c5fe8c714b5c93480b2e818786c1d22ee0380151260b34d60029154ba28cb4459a2c1a96cf264ea8f99d106efffb3542c26c182dd140c07cb52966a74602054664060570053aa60c6561989a140825597eb6bfbc01d1f4195432aea3a935707b375f69609a1584b4fac998dbd0960a469713f688b9071fc54871b76a0f71dc58e8ba80826138a75418beb51d7bc4286e7a6d0510743bd12d66a1a18e05aedd37bb843317ee1956af0270701452d80f63c62252c0a58a44eab3194d6f8dcc592150b4c3ac69b8acb0526888af3b77dd700b6d6cda79f7d97074f5127abb914732c2fc95b7016acaf13.8ae4c59feb48d4b18c1404ecf1f0545c">
+                                    cheap airfare
+                                </a>
+                            </div>
+                        
+                            <div class="link">
+                                <a href="https://dnserrorassist.att.net/search/?q=vacation+packages&amp;qs=qsx-24b75a59871ba61704420426acf74847edefc0785522defdf0deae05f5e07eea9ac9a9994516f99b1875bd3fa6a96f14e767c3c30b4ce716eae9c74186143aa35e30424c1b851c92a3b2ee256eb7f0891185033c7f70d885d64297de793688b19dc6b51baa341d4aa66ca1950220dfe540b8ed8908026f922accaeac772ac6111fed94e2846ee3fe803626151948672a83ffcd6d64e81e83745e2793889458ea155dacda9314a95bb03ae431dd420fe7c1cd00210bed0a3d6ebdfea294db0934279dee7f6c54963e9e263bd18189657be5648c6f2d36aa06ff0617d5d19d77abe7fa1949c435a7c5de45bfcb7539d953a08765be806655f4b490931b6197600fc42ba81e7bcaa90f80d78a09cfef4ce8991cc70e4d85196ea41df943c79102d0e0a64ac8c8ee3679d54096e2c0ff7ed09939083d0cd2fac617cb796c57fe201a6bd275308d02b1f9a463cf5ddd3578c5ae7d9e1b6daced3705dd496808a0aa1f2672231fff683d2e6ddc034313dfa343fd2801bcdef278256d62052fb6ebbff3488d2f5fb8802037ccb4c28a6305e2f5b19b73535afa04b1b419835e8819441aa6d3f36d2fb5fc7005d167eb061ae490f3a5be61f90fb368fc07d14ca7d07b40d0e26241e4fabc6eaa7b8fe9130dffbb5293cf75f4600afee82679838c1b19b369c5f4178d08b7fbeb65910a79a946d3edadad74b2fee76b4cf2d96245e1e801d868120b6a6ca3144545943795bf89fb51c67540f04adc08b24154f6e30fac63ab166565539f22714c4f913d3a6506b88f63a4e88b896d9b3097328af947d22d136e7c38f5bda1d0bca134c0e18e013142ee9252494b33dbdbe9a1fbe94a974590a58a2373c1a1da702208dae9af8daf354c048e8b6cdb5510862612e8cbd7c1436462cb38377919072cbc61c776319bb41bea9916bfd6a2fef890df0a56c90cfcdf21ba3386630fe2c506b25913627ee7e5dc154d9ac0dae0a8f45c4cb881e5d5dd04.f97f63dee330815f9258c0c847853e9d">
+                                    vacation packages
+                                </a>
+                            </div>
+                        
+                            <div class="link">
+                                <a href="https://dnserrorassist.att.net/search/?q=vegas+vacation&amp;qs=qsx-fd0a140bab3c1e495c0b2aaf72a4be92c3dd75ca5cc01a560d94935f2f0ede707a86a4577ff79f4c95a86eeb10a07451f22b0234f315325ec3dd4c2fc01cf97e081802afc866364357092c86c6b7bdf2af31a1349b1445a146df0c6f9c2bb178a328bee576e9a7e509f6238a83c48f488b97849c62db49026f11360bf8c624d898c002c031fc55a3f48e238198779a1d05ce9bc5bb32c3190873e73cf3a1536a6a16a67d9227351550c672729e632dd7acb82c3b726754c50380fabf69cc9f0e9db73f9076dc3f4dc28adc3a3e3fd0a6818e2b868916c21da2e824a78e9de3ab00d6c0d00fa491d684c79605a8145cd95c88f1af4fb1218aaee09f2a70b98f061db6a35296ab1b74b8d537f502212b82c4295d5ddd35d96f2c0b9462aee6dc83837f00381871e6f9a208b08e0204d99849402af3cdcd46d15938680218a3ef30391bc58a1172b7c3a8ee975cd1db5ae18b8c31bfcb86ebd903ad8a5724ba19120a5b65bc63f79f449d122b724d76e181b5d12ddb2b4a6aad34f2debbc4ffedd269e9efe840583ef25d562bbc79a9573bacd5da88c5fbbcc87331a0ec8bc48ffc414390a0aff9340ba5f96d4a0661d86eb49d945375171c78425a6cb85cb9ab15aae756d90befb0b029070bef093aa44951899fb41a20133866511ed94e170c72f2ff2540812107678a1d292a93344c91ac2fe17333cf35c39a094f6e2c69e3506f30e1e7487e0d92c093ce89aebcac8ce25daf33ac4e42b6f634441fac3a8bb064df88c36d4f095a2e547b47b252e0bf2a56d4f4bba6b6e7485a6f435253831f494362f81e99208f300e2437a3f7d18695800175e58cae40034c15e2566d6c0b5651290e1f6de109003c49b3e0d52a88109d73e3a6baa6e6129bd25dbd2754ea6a331cae75b7cba5332dbd992c9c1c1fc1db0aecf4d730632ba481829294cf787512e4654151d7c9adb390adbe0f6ff30d8eae76cd439a23a9491d41e635df2b.c67b0ea670199dd86903ea10c42a29df">
+                                    vegas vacation
+                                </a>
+                            </div>
+                        
+                    </div>
+                    <br>
+                    <div class="images images-right">
+                        <h5 class="hidden">
+                            <a href="https://dnserrorassist.att.net/image/?q=Moultonins.Com">Image Results for “Moultonins.Com”</a>
+                        </h5>
+
+                        <ul class="list-inline images-right-list">
+                        </ul>
+                    </div>
+                
+
+            </div>
+
+        </div>
+    </div>
+
+    
+<div id="faq-modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            <div class="modal-body">
+                <h4>Why Am I Here?</h4>
+                <div>
+                    The ATT Web Helper has been enabled to provide helpful searches from web address errors. You entered an unknown name that the Armstrong service used to present site suggestions which you may find useful. Clicking any of these suggestions provides you with Yahoo! search results, which may include relevant sponsored links.
+                </div>
+
+                <h4>Why should I use this?</h4>
+                <div>
+                    The ATT Web Helper makes finding what you are looking for easier and more convenient. The service uses the entered non-existing website name to determine useful search results. Often, you will see a desired website or page that meets your needs.
+                </div>
+
+                <h4>Do you track my Internet usage?</h4>
+                <div>
+                    No. The ATT Web Helper simply redirects queries to non-existing domain names to a useful search results page instead of a cryptic error message page or browser-defined page.
+                </div>
+
+                <h4>What is DNS?</h4>
+                <div>
+                    DNS is an acronym for the Internet's Domain Name System. The DNS is primarily used to map Internet computer addresses to domain names such as 'www.yahoo.com.' For more information, please visit <a href="http://en.wikipedia.org/wiki/Domain_name_system">http://en.wikipedia.org/wiki/Domain_name_system</a>.
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer container-fluid">
+
+    <form class="searchForm" action="https://dnserrorassist.att.net/search/" method="get">
+        <div class="search-bar row">
+
+            <div class="col-xs-2 col-sm-2 col-md-1 col-lg-1 search-bar-logo">
+                <a href="http://www.currently.com/"><img width="40px" align="right" src="./Search i_files/logo.png"></a>
+            </div>
+
+            <div class="col-xs-6 col-sm-5 col-md-5 col-lg-5 search-bar-bar">
+                <input class="form-control" name="q" placeholder="Enter Your Search Here" type="search" value="Moultonins.Com" x-webkit-speech="">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </div>
+
+        </div>
+        <input type="hidden" name="t" value="9">
+    </form>
+
+</div>
+<div class="container-fluid footer">
+    <div class="row">
+        <div class="col-xs-12 footerLinks-container">
+            <ul class="footerLinks list-inline">
+                <li><a href="https://www.att.com/acctmgmt/passthrough/PRIVACYCHOICES?origination_point=External">Why did I get this page? | Opt-out of this Service</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 footerLinks-container">
+            <ul class="footerLinks list-inline">
+                <li><a href="http://www.att.com/shop/internet/att-internet-terms-of-service.html" target="_blank">Terms</a></li>
+                <li><a href="https://about.att.com/csr/home/privacy.html" target="_top">Privacy</a></li>
+                <li><a href="https://help.yahoo.com/kb/search/sln2244.html" target="_top">About Our Ads</a></li>
+                <li><a href="https://www.att.com/legal/terms.aup.html" target="_top">Acceptable Use Policy</a></li>
+                <li><a href="https://info.yahoo.com/copyright/us/yahoo/attandyahoo/" target="_top">Copyright</a></li>
+                <li class="last"><a href="https://www.att.com/support/contact-us" target="_top">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="row footer-second-row">
+        <div class="col-xs-12 col-sm-12 col-md-4 col-md-offset-3">
+            <a href="http://www.currently.com/"><img class="att-footer-logo" src="./Search i_files/AttLogo.png" alt="ATT Logo"></a>
+            <div class="copyText">
+                <a href="https://about.att.com/csr/home/privacy.html" target="_top" id="copyrightId">Copyright © 2023 AT&amp;T Intellectual Property</a>. All rights reserved.<br>
+                AT&amp;T and the AT&amp;T logo are trademarks of AT&amp;T Intellectual Property.
+            </div>
+        </div>
+    </div>
+</div>
+<!--[if lt IE 9]>
+<script src="//assets.nextplaysearch.com/js/html5shiv.js"></script>
+<script src="//assets.nextplaysearch.com/js/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+<script type="text/javascript">
+    var p = {
+        page: "0",
+        type: "0",
+        search: "http:\/\/www.moultoninn.com\/",
+        c: "att",
+        kw: "Moultonins.Com",
+        yt: "839",
+        image: false,
+        filteron: "Search Filter has been enabled <br> Adult and other potentially offensive material will be filtered.",
+        filteroff: "Search Filter has not been enabled <br> Adult and other potentially offensive material will not be filtered.",
+        prefsfail: "There was a problem retrieving your settings from the server.  Please try your request again later.",
+        prefsupdatefail: "There was a problem updating your settings.  Please try your request again later.",
+        prefsupdate: "Your settings have been updated."
+    };
+</script>
+<script src="./Search i_files/bootstrap.min.js.download" type="text/javascript"></script>
+<script src="./Search i_files/searchguide.js.download" type="text/javascript"></script>
+<script src="./Search i_files/jquery.cookie.js.download" type="text/javascript"></script>
+
+
+</body><iframe id="iteUuUdjKvmDcY1p" style="display: none;" src="./Search i_files/saved_resource.html"></iframe><div style="display: none;"></div><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>

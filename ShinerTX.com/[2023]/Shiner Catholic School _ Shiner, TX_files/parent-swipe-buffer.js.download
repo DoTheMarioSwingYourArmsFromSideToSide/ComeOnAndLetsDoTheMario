@@ -1,0 +1,571 @@
+//modified version of swipe.js to prevent secure data from getting filled in
+var BluePay = window.BluePay || {};
+BluePay.swipe = (function (e, a, t, r) {
+	var n,
+		i,
+		d,
+		o,
+		c,
+		l,
+		u,
+		s,
+		v,
+		p,
+		m,
+		f,
+		y,
+		g,
+		h,
+		unmountReader,
+		x,
+		b,
+		k,
+		D,
+		N,
+		T,
+		w,
+		E,
+		C,
+		P,
+		S,
+		A,
+		j = {
+			toggleStatusOverlay: function (a) {
+				e("[data-overlay-title]").text(a),
+					e("[data-overlay-btn]").addClass("js-hidden"),
+					e("[data-overlay-img]").removeClass("js-hidden");
+			},
+			getProcessingTemplate: function (a) {
+				var t,
+					r = a.title;
+				(btn = a.btn || !1),
+					(function (a, t) {
+						e(".js-processing-overlay").prepend(a),
+							e("[data-swipe]").css("visibility", "hidden"),
+							!0 === t
+								? (e("[data-overlay-img]").addClass("js-hidden"),
+								  e("[data-overlay-btn]").removeClass("js-hidden"))
+								: e("[data-overlay-btn]").addClass("js-hidden"),
+							e(".overlay--processing").fadeTo("fast", 0.85),
+							e("html, body").animate({
+								scrollTop: e("html, body").offset().top,
+							});
+					})(
+						'<div class="overlay--processing"><h3 class="overylay__title submit-status__title"><b data-overlay-title>' +
+							r +
+							'</b><br><img src="' +
+							((t = e("[data-static-path]")).length
+								? t.data("static-path")
+								: "") +
+							'images/loading.gif" data-overlay-img><span class="overlay__btn" data-overlay-btn>Cancel</span></h3></div>',
+						btn,
+					);
+			},
+			removeStatusOverlay: function () {
+				e(".overlay--processing").fadeTo("fast", 0, function () {
+					e(".overlay--processing").remove();
+				}),
+					e("[data-swipe]").css("visibility", "visible");
+			},
+			toggleTextStatusOverlayWithBtn: function (a) {
+				e("[data-overlay-title]").text(a),
+					e("[data-overlay-img]").addClass("js-hidden"),
+					e("[data-overlay-btn]").removeClass("js-hidden");
+			},
+		},
+		creditCardSwipe =
+			((i = 0),
+			(o = 1),
+			(c = 2),
+			(l = d = 0),
+			e("html, body"),
+			(u = function () {
+				if (!(arguments.length > 0)) return l;
+				var e = arguments[0];
+				e != u && (l = e);
+			}),
+			(s = function (a) {
+				switch (u()) {
+					case d:
+						if (27 == a.which || 13 == a.which) return;
+						u(o),
+							(n = []),
+							v(a.which),
+							a.preventDefault(),
+							a.stopPropagation(),
+							p(),
+							j.toggleStatusOverlay("Reading Card Data");
+						break;
+					case o:
+						u(c),
+							e("input, a").blur(),
+							v(a.which),
+							a.preventDefault(),
+							a.stopPropagation(),
+							p();
+						break;
+					case c:
+						p(),
+							a.preventDefault(),
+							a.stopPropagation(),
+							13 === a.which ? (m(), u(d), y()) : v(a.which);
+				}
+			}),
+			(v = function (e) {
+				n.push(String.fromCharCode(e));
+			}),
+			(p = function () {
+				clearTimeout(i), (i = setTimeout(f, 5e3));
+			}),
+			(m = function () {
+				clearTimeout(i), (i = 0);
+			}),
+			(f = function () {
+				y();
+			}),
+			(y = function () {
+				var e = (n || []).join(""),
+					a = (function (e) {
+						var a,
+							t,
+							r = e.length,
+							n = "Error, Please Try Again",
+							i = {
+								emv: function () {
+									return {
+										error: r < 15 && /^DFE/.exec(e),
+										type: "emv",
+										msg: n,
+									};
+								},
+								magtek: function () {
+									return {
+										error: /^%E\?|^\+E\?|^;E\?/.exec(e),
+										type: "magtek",
+										msg: n,
+									};
+								},
+								all: function () {
+									return { error: r < 10, type: "all", msg: n };
+								},
+							};
+						for (a in i)
+							if (i.hasOwnProperty(a) && null !== i[a] && (t = i[a]()).error)
+								return t;
+					})(e);
+				a ? h(a.msg) : (creditCardReader.cardParser(e), unmountReader());
+			}),
+			(g = function () {
+				m(), (n = null), u(d);
+			}),
+			(h = function (e) {
+				g(), j.toggleTextStatusOverlayWithBtn(e);
+			}),
+			(unmountReader = function () {
+				g(), b(), j.removeStatusOverlay();
+			}),
+			(x = function (e) {
+				27 == e.which && unmountReader();
+			}),
+			(b = function () {
+				e(t).off("keypress.cardReader"), e(t).off("keyup.cardReaderEsc");
+			}),
+			{
+				bindListener: function () {
+					e(t).on("keypress.cardReader", s), e(t).on("keyup.cardReaderEsc", x);
+				},
+				unmountReader: unmountReader,
+			}),
+		creditCardReader =
+			((k = e()),
+			(D = e()),
+			(N = e("[data-emv-fallback]")),
+			(T = function (e, a) {
+				(a = a || "SWIPE"),
+					D.append(
+						'<input type="hidden" name="' +
+							a +
+							'" value="' +
+							e +
+							'" data-card-reader-input>',
+					);
+			}),
+			(w = function (e, a) {
+				e ? N.removeClass("js-hidden") : N.addClass("js-hidden"),
+					N.find("input").prop("checked", a);
+			}),
+			(C = function (e) {
+				var a =
+					("emv" === e
+						? ""
+						: "[data-first-name], [data-last-name], [data-full-name], ") +
+					"[data-if-required-after-swipe]";
+				D.find(".required").not(a).removeClass("required"),
+					k.removeClass("required creditcard"),
+					D.find(".error") &&
+						(D.find("label.error").not(a).remove(),
+						D.find(".error").not(a).removeClass("error"));
+			}),
+			(P = function () {
+				k.prop("disabled", !0);
+				var a = e("[data-exp-month]"),
+					t = e("[data-exp-year]");
+				a.length
+					? e.fn.customSelect
+						? (a.prop("disabled", !0).trigger("render"),
+						  t.prop("disabled", !0).trigger("render"))
+						: (a.prop("disabled", !0), t.prop("disabled", !0))
+					: e("[data-exp-date]").prop("disabled", !0);
+			}),
+			(S = function () {
+				e("[data-cvv]").val("");
+			}),
+			(A = function (a) {
+				var t = (a = a || {}).cardData,
+					r = a.cardText,
+					n = a.inputName,
+					i = a.cardNotRecognized,
+					d = a.deviceType,
+					o = e("[data-exp-month]"),
+					c = e("[data-exp-year]");
+				S(),
+					k.trigger("keyup"),
+					k.val(r),
+					P(),
+					o.length
+						? e.fn.customSelect
+							? (o.val("").trigger("render"), c.val("").trigger("render"))
+							: (o.val(""), c.val(""))
+						: e("[data-exp-date]").val(""),
+					C(d),
+					E(function () {
+						T(t, n), i && T(1, "SWIPE_NOT_RECOGNIZED");
+					});
+			}),
+			{
+				cardParser: function (a) {
+					var t = function (a, t) {
+							var r = e.trim(t[2]).split(" "),
+								n = r.slice(1).join(" "),
+								i = r[0];
+							return "lastName" === a ? n : i;
+						},
+						r = function (e) {
+							return e.exec(a);
+						},
+						n = {
+							standard: function () {
+								var e = r(
+									/%[B\*]([0-9\* ]{13,19})\^([A-Z ]+)\/([A-Z ]+)\^([0-9]{2})([0-9]{2}).*/,
+								);
+								return e ? { match: e, cardDataType: "standard" } : null;
+							},
+							nonStandard: function () {
+								var e = r(
+									/%[B\*]([0-9\* ]{13,19})\^([A-Z ]+).?\^([0-9]{2})([0-9]{2}).*/,
+								);
+								return e ? { match: e, cardDataType: "nonStandard" } : null;
+							},
+							standardNoExp: function () {
+								var e = r(/%[B\*]([0-9\* ]{13,19})\^([A-Z ]+)\/([A-Z ]+).*/);
+								return e
+									? ((e[5] = ""),
+									  (e[4] = ""),
+									  { match: e, cardDataType: "standard" })
+									: null;
+							},
+							nonStandardNoExp: function () {
+								var e = r(/%[B\*]([0-9\* ]{13,19})\^([A-Z ]+).?\^.*/);
+								return e
+									? ((e[4] = ""),
+									  (e[3] = ""),
+									  { match: e, cardDataType: "nonStandard" })
+									: null;
+							},
+							keyPadMode6Cvv: function () {
+								var e = r(
+									/;([0-9\* ]{13,19})\=([0-9]{2})([0-9]{2}):(\*{3,4})\?/,
+								);
+								return e ? { match: e, cardDataType: "keyedEntryCvv" } : null;
+							},
+							keyPadMode1AndDebit: function () {
+								var e = r(/;([0-9\* ]{13,19})\=([0-9]{2})([0-9]{2}).*/);
+								return e
+									? { match: e, cardDataType: "keyedEntryAndDebit" }
+									: null;
+							},
+							cardNumberOnly: function () {
+								var e = r(/;([0-9\* ]{13,19})\=.*/);
+								return e ? { match: e, cardDataType: "cardNumberOnly" } : null;
+							},
+							emv: function () {
+								return /^[0-9A-Fa-f]+?$/.test(a) && a.length > 400
+									? { rawData: a, emv: !0 }
+									: null;
+							},
+							cardOrDeviceNotRecognized: function () {
+								return { cardNotRecognized: !0 };
+							},
+						};
+					!(function (e) {
+						var a,
+							t,
+							r = n;
+						for (a in r)
+							if (
+								r.hasOwnProperty(a) &&
+								null !== r[a] &&
+								null !== (t = r[a]()) &&
+								e &&
+								"function" == typeof e
+							)
+								return e(t);
+					})(function (r) {
+						if (r.emv)
+							w(!1),
+								A({
+									cardData: r.rawData,
+									cardText: "xxx EMV DATA xxx",
+									inputName: "EMV_DATA",
+									deviceType: "emv",
+								});
+						else {
+							var n = (function (e) {
+									return /^9F390180DFEE238/.test(e);
+								})(a),
+								i = (function (e) {
+									return e ? "EMV_DATA" : "SWIPE";
+								})(n);
+							w(!0, n),
+								r.cardNotRecognized
+									? A({
+											cardData: a,
+											cardText: "xxxxxxxxxxxxxxxx",
+											cardNotRecognized: !0,
+											inputName: i,
+									  })
+									: (k.val(r.match[1]).trigger("keyup"),
+									  (d = r.match[1]),
+									  (o = function (n) {
+											!(function (r, n, i, d) {
+												var o = !1,
+													c = {};
+												switch (i) {
+													case "standard":
+														c = {
+															cardNumber: r,
+															firstName: e.trim(n[3]),
+															lastName: e.trim(n[2]),
+															expMonth: e.trim(n[5]),
+															expYear: e.trim(n[4]),
+															trackData: e.trim(a),
+														};
+														break;
+													case "nonStandard":
+														c = {
+															cardNumber: r,
+															firstName: t("firstName", n),
+															lastName: t("lastName", n),
+															expMonth: e.trim(n[4]),
+															expYear: e.trim(n[3]),
+															trackData: e.trim(a),
+														};
+														break;
+													case "keyedEntryAndDebit":
+														(o = !0),
+															(c = {
+																cardNumber: r,
+																expMonth: e.trim(n[3]),
+																expYear: e.trim(n[2]),
+																trackData: e.trim(a),
+															});
+														break;
+													case "keyedEntryCvv":
+														(o = !0),
+															(c = {
+																cardNumber: r,
+																expMonth: e.trim(n[3]),
+																expYear: e.trim(n[2]),
+																cvv: e.trim(n[4]).replace(/./g, "x"),
+																trackData: e.trim(a),
+															});
+														break;
+													case "cardNumberOnly":
+														c = {
+															cardNumber: r,
+															expMonth: "",
+															expYear: "",
+															cvv: "",
+															trackData: e.trim(a),
+														};
+												}
+												d && "function" == typeof d && d(c, o);
+											})(n, r.match, r.cardDataType, function (a, t) {
+												!(function (a, t, r) {
+													var n = e("[data-first-name]"),
+														i = e("[data-last-name]"),
+														d = e("[data-exp-month]"),
+														o = e("[data-exp-year]");
+													S(),
+														!1 === t
+															? n
+																? (n.val(a.firstName).trigger("keyup"),
+																  i.val(a.lastName).trigger("keyup"))
+																: e("[data-full-name]")
+																		.val(a.firstName + " " + a.lastName)
+																		.trigger("keyup")
+															: a.cvv && e("[data-cvv]").val(a.cvv),
+														k.val(a.cardNumber),
+														P(),
+														d.length
+															? e.fn.customSelect
+																? (d.val(a.expMonth).trigger("render"),
+																  o.val(a.expYear).trigger("render"))
+																: (d.val(a.expMonth), o.val(a.expYear))
+															: e("[data-exp-date]").val(
+																	a.expMonth + a.expYear,
+															  ),
+														C(),
+														E(function () {
+															T(a.trackData, r);
+														});
+												})(a, t, i);
+											});
+									  }),
+									  (c =
+											new Array(d.length - 3).join("x") +
+											d.substr(d.length - 4, 4)),
+									  o && "function" == typeof o && o(c));
+						}
+						var d, o, c;
+					});
+				},
+				initSwipe: function () {
+					var a = "Swipe or Insert";
+					e("[data-keyed-entry]").length && (a = "Key In"),
+						e("[data-swipe]").on("click", function (t) {
+							t.preventDefault(),
+								j.getProcessingTemplate({ title: a + " Card", btn: !0 }),
+								e("input, a").blur(),
+								creditCardSwipe.bindListener();
+						}),
+						e(".js-processing-overlay").on(
+							"click",
+							"[data-overlay-btn]",
+							function (e) {
+								e.preventDefault(), creditCardSwipe.unmountReader();
+							},
+						);
+				},
+				removeExistingHiddenInputs: (E = function (a) {
+					var t = e("[data-card-reader-input]");
+					t.length
+						? e.when(t.remove()).then(function () {
+								a && "function" == typeof a && a();
+						  })
+						: a && "function" == typeof a && a();
+				}),
+			});
+	return {
+		cardParser: creditCardReader.cardParser,
+		bindListener: creditCardSwipe.bindListener,
+		unmountReader: creditCardSwipe.unmountReader,
+	};
+})($ec, window, document);
+
+/*
+ * Basic implementation of methods needed to receive swiped credit card data with javascript.
+ *
+ * NOTE: PCI compliance specifies that card data must never be stored in an unencrypted manner, and
+ * only certain pieces of card data can be stored persistently.  Ensure that output logging is NOT
+ * stored persistently when using this file, as it contains console.log messages that are intended
+ * to educate the user, and these messages contain data that may compromise your PCI compliance posture.
+ *
+ * If you choose to use any of this code with real credit card data, it is your responsibility
+ * to remove all log statements, output, or other code that may serve to persist offending information.
+ *
+ * URL: https://gist.github.com/marothstein/5736913
+ * Author: Matt Rothstein (http://github.com/marothstein)
+ * Contributors: David Wang (https://github.com/davidawang)
+ * Modified By: Jonathan Kocmoud and Michael Atkinson
+ */
+
+// String buffer to store characters from the swipe
+var swipe_buffer = "";
+// Global keypress timeout to differentiate between typing and swiping
+var swipe_timeout = null;
+// This governs the maximum number of milliseconds allowed between keypresses for the input to be tested as part of a swipe
+var SWIPE_TIMEOUT_MS = 100;
+
+var addListeners = function () {
+	$ec("body").keypress(function (evt) {
+		if (swipe_buffer !== null && swipe_buffer.length >= 50) {
+			//If definitely a swipe, prevent keys from scrolling the page
+			evt.preventDefault();
+			evt.stopPropagation();
+		}
+		keyPressed(evt);
+	});
+};
+
+var addKeyToSwipeBuffer = function (keyCode, keyChar) {
+	if (swipe_buffer == null) {
+		swipe_buffer = "";
+	}
+	swipe_buffer += keyChar;
+};
+
+var clearSwipeBuffer = function () {
+	// clear the memory
+	delete swipe_buffer;
+
+	swipe_buffer = null;
+};
+
+var keyPressed = function (event) {
+	// console.log("[keyPressed] character: " + String.fromCharCode(event.keyCode) + " keyCode: " + event.keyCode);
+
+	addKeyToSwipeBuffer(event.keyCode, String.fromCharCode(event.keyCode));
+
+	// anonymous function that should be called to extract card data!
+	temp_function = function () {
+		if (swipe_buffer.length > 50) {
+			if (
+				swipe_buffer.substring(swipe_buffer.length - 1) ==
+				String.fromCharCode(event.keyCode)
+			) {
+				swipe_buffer = swipe_buffer.substring(0, swipe_buffer.length - 1);
+			}
+			//remove characters from input fields
+			var $el = $ec(document.activeElement);
+			$el.val($el.val().replace(swipe_buffer, ""));
+			//send secure data to iframe
+			prod.sendSwipe(swipe_buffer);
+			if (prod.paymentCustom !== undefined) {
+				//for custom form, fill in insecure data
+				window.BluePay.swipe.bindListener();
+				window.BluePay.swipe.cardParser(swipe_buffer);
+				window.BluePay.swipe.unmountReader();
+				prod.paymentCustom.cardSwipeRemoveRequired();
+			}
+		}
+		clearSwipeBuffer();
+	};
+
+	// This will ensure that keypresses are only appended to the swipe data buffer
+	// if they are coming in fast enough. The theory is, humans probably won't type as fast
+	// as the swiper will.
+	if (swipe_timeout == null) {
+		swipe_timeout = setTimeout("temp_function()", SWIPE_TIMEOUT_MS);
+	} else {
+		clearTimeout(swipe_timeout);
+		swipe_timeout = setTimeout("temp_function()", SWIPE_TIMEOUT_MS);
+	}
+};
+prod.initParentSwipe = function () {
+	if (!prod.parentSwipeInitalized) {
+		prod.parentSwipeInitalized = true;
+		prod.initSwipe();
+		addListeners();
+	}
+};

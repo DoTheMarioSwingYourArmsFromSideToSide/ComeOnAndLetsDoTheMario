@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<!-- saved from url=(0101)https://dnserrorassist.att.net/search/?q=http%3A//www.rehmethouse.com/&r=&t=0&srchgdeCid=aaaaaaaa&bc= -->
+<html lang="en"><script type="text/javascript" src="chrome-extension://mdnleldcmiljblolnjhpnblkcekpdkpa/libs/customElements.js" class="__REQUESTLY__SCRIPT"></script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Search</title>
+    
+    <link href="./Search_files/bootstrap.min.css" rel="stylesheet">
+    <link href="./Search_files/searchguide.css" rel="stylesheet">
+    <link href="./Search_files/font-awesome-min.css" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://assets.nextplaysearch.com/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://assets.nextplaysearch.com/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://assets.nextplaysearch.com/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="https://assets.nextplaysearch.com/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="https://assets.nextplaysearch.com/img/att/favicon.ico">
+
+    <!--[if lt IE 9]>
+    <link href="//assets.nextplaysearch.com/css/searchguide-ie-compat.css" rel="stylesheet">
+    <![endif]-->
+    <style>
+        .logo {
+            max-height: 25px;
+        }
+        .header {
+            border-top: 1px solid #DCDCDC;
+            border-bottom: 1px solid #DCDCDC;
+        }
+        .header, .gray-bg {
+            background-color: white;
+        }
+        .footer {
+            border-top: 1px solid #DCDCDC;
+            padding-bottom: 15px;
+            background-color: white;
+        }
+        .step-series .row {
+            padding-top: 20px;
+        }
+        .search-options-row {
+            max-width: 1500px !important;
+            border-bottom: none !important;
+        }
+        .search-bar-logo {
+            padding-top: 0px !important;
+        }
+
+        form.searchForm input[type=search] {
+            padding: 10px;
+            font-size: 17px;
+            border: 1px solid grey;
+            float: left;
+            width: 80%;
+            background: #f1f1f1;
+        }
+
+        form.searchForm button {
+            float: left;
+            width: 20%;
+            padding: 10px;
+            background: #2196F3;
+            color: white;
+            font-size: 17px;
+            border: 1px solid grey;
+            border-left: none;
+            cursor: pointer;
+        }
+
+        form.searchForm button:hover {
+            background: #0b7dda;
+        }
+
+        form.searchForm::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+        .q-input {
+            width: 100px;
+        }
+        .b-links {
+            background-color: transparent;
+            border-bottom: 3px solid #E1E1E1;
+            padding-left: 23px !important;
+            margin-left: -20px !important;
+        }
+        .news-inline {
+            border: none !important;
+        }
+        .images-center h5 a, .news-inline h4 a {
+            font-size: 18px;
+            font-weight: normal;
+            color: #A3A3A3 !important;
+        }
+        .link-title, .news-title, .link-host {
+            color: rgb(5,104,174) !important;
+        }
+        .link-text {
+            color: rgb(25,25,25) !important;
+        }
+        .site-links li {
+            padding-left: 0px !important;
+        }
+        .site-link {
+            color: rgb(5,104,174) !important;
+            border: 1px solid #A3A3A3;
+            background-color: transparent !important;
+            border-radius: 3px;
+        }
+        .wiki-category {
+            color: #A3A3A3 !important;
+        }
+        .search-option-selected {
+            border-bottom: 2px solid;
+        }
+        .search-option:hover {
+            border-bottom: 2px solid;
+        }
+        .pagination {
+            text-align: right;
+            width: 100%;
+        }
+        .page-button {
+            background-color: transparent;
+            border: none;
+        }
+        .att-header-body {
+            width: 100%;
+            background-color: rgb(255,184,28);
+            border-bottom: 1px solid #DFE5B5;
+            padding: 0 !important;
+        }
+        .att-header-body .row {
+            margin-right: 0;
+        }
+        .att-header-msg {
+            padding: 15px 20px 15px 20px;
+        }
+        .search-btn-container,.yahoo-logo {
+            padding: 0;
+        }
+        .step-img {
+            max-width: 500px;
+            max-height: 500px;
+        }
+        .win-step-img {
+            max-width: 1000px;
+            max-height: 1000px;
+        }
+        .underline {
+            border-bottom: 1px solid #e2e2e2;
+        }
+        .optout-font {
+            font-family: Arial;
+            font-size: 12px;
+        }
+        .main-btn {
+            padding-bottom: 0 !important;
+        }
+
+        @media (max-width: 800px) {
+            .search-bar {
+                margin-top: 15px !important;
+            }
+            .search-bar-logo {
+                width: 70px;
+            }
+            .footer-second-row div:last-child {
+                margin-top: 10px;
+            }
+        }
+
+        @media (min-width: 801px) {
+            .search-bar-logo {
+                width: 55px;
+            }
+        }
+
+         
+        .att-footer-logo {
+            display: inline-block;
+            margin: -10px 1px 0 0;
+            height: auto;
+            max-width: 120px;
+        }
+        #footer {font-family:Verdana, Geneva, sans-serif;}
+        #footer a, #footer a:link, #footer a:visited {text-decoration:none; color:#088dd5;}
+        #footer a:hover {text-decoration:underline;}
+        #footerUrls {position:relative; top:10px;width:100%}
+
+        ul.attOnWeb li { float:left; padding:0 20px; font-size:9px; background:url(http://portalmigration.att.net/design/CDLS30/img/ui/tabBorderDark.png) no-repeat left 0;}
+        ul.attOnWeb li a {font-size:12px;}
+        ul.attOnWeb li.first {font-size:12px; padding:8px 20px 0 0 ;background:none;}
+        ul.attOnWeb li#attComFoot {width:148px;}
+        ul.attOnWeb li#attNetFoot {width:182px;}
+
+        ul.footerLinks { clear: left;
+            height: 30px;
+            line-height: normal;
+            list-style: none outside none;
+            padding-top: 10px;
+            width: 100%;
+            font-size: 16px !important;
+        }
+        .footerLinks-container {
+            text-align: center;
+        }
+        .footer-second-row {
+            margin: 10px 0;
+        }
+        .footer-second-row div:first-child {
+            text-align: right;
+            padding: 0;
+        }
+        .footer-second-row div:last-child {
+            text-align: left;
+            padding: 0;
+        }
+        ul.footerLinks li {padding:0 6px; border-right:1px solid #999; margin:0; font-size:0.75em; }
+        ul.footerLinks li:first-child {padding-left:0;}
+        ul.footerLinks li:last-child {border:0;}
+        .copyText { font-size:9px; display: inline-block; padding-top: 5px !important; }
+        #USOlympic {background:url(http://portalmigration.att.net/design/CDLS30/img/logos/YP_USOC_logos.png) no-repeat -90px 0; width:367px; height:40px;}
+        #USOlympic a {display:block; position:absolute; height:40px; text-indent:-999em;}
+        #USOlympic a#USOurl {width:225px;}
+        #USOlympic a#YPurl {width:90px;}
+         
+    </style>
+
+    <script type="text/javascript" src="./Search_files/e28dfdf49e9e4063519fc6233c9dc954522001624dcc5"></script><script src="./Search_files/jquery.min.js.download" type="text/javascript"></script>
+    <script src="./Search_files/s_code.js.download"></script>
+    <script type="text/javascript">
+        var adobeAnalytics = window.s;
+        if (adobeAnalytics) {
+            adobeAnalytics.t();
+        }
+    </script>
+
+    <script>
+        function replaceCopyright() {
+            var d = new Date();
+            var n = d.getFullYear();
+            var copyrightMsg = "Copyright &copy; " + n + " AT&amp;T Intellectual Property"
+            document.getElementById("copyrightId").innerHTML = copyrightMsg;
+        }
+
+        document.addEventListener("DOMContentLoaded", replaceCopyright());
+
+    </script>
+
+</head>
+<body data-new-gr-c-s-check-loaded="14.1115.0" data-gr-ext-installed="">
+<script type="text/javascript">
+    $(function() {
+        ddo.disableAutoPageLoad();
+        ddo.pushEvent("pageLoad", "my page");
+    });
+</script>
+
+    
+        
+            <div class="container-fluid att-header-body">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1">
+                        <div class="att-header-msg">
+                            <strong>Sorry, the page you were looking for does not exist or is not available.</strong>  We performed a web search for “Www Rehmet House” and here's what we found.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+    
+
+<div class="header container-fluid">
+    <form class="searchForm form-inline" action="https://dnserrorassist.att.net/search/" method="get">
+        <div class="search-bar row">
+
+            <div class="col-xs-2 col-sm-2 col-md-1 col-lg-1 search-bar-logo">
+                <a href="http://www.currently.com/"><img width="40px" align="right" src="./Search_files/logo.png"></a>
+            </div>
+
+            <div class="col-xs-6 col-sm-5 col-md-5 col-lg-5 search-bar-bar">
+                <input class="form-control" placeholder="Enter Your Search Here" name="q" type="search" value="Www Rehmet House" x-webkit-speech="">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </div>
+
+            <div class="hidden-xs col-sm-1 col-md-1 col-lg-1 yahoo-logo">
+            </div>
+            <div class="hidden-xs col-sm-1 col-md-1 col-lg-1 yahoo-logo">
+            </div>
+
+            <div class="hidden-xs col-sm-1 col-md-1 col-lg-1 yahoo-logo">
+                <a style="color: rgb(29,34,40)" href="https://more.att.com/currently/email?source=EnEmaiL2020000DNL&amp;wtExtndSource=dns">Get AT&amp;T Mail</a>
+            </div>
+
+            <div class="hidden-xs col-sm-1 col-md-1 col-lg-1 yahoo-logo">
+                <a href="https://more.att.com/currently/email?source=EnEmaiL2020000DNL&amp;wtExtndSource=dns">
+                    <img align="left" class="logo img-responsive" src="./Search_files/att-mail-icon-40x40.svg">
+                </a>
+            </div>
+
+            <div class="hidden-xs col-sm-1 col-md-1 col-lg-1 yahoo-logo">
+                <a href="https://currently.att.com/">
+                    <img align="left" src="./Search_files/yahoo-currently-136x36.png">
+                </a>
+            </div>
+
+        </div>
+        <input type="hidden" name="t" value="9">
+    </form>
+    <div><br></div>
+</div>
+
+
+
+    <div class="container-fluid">
+
+        
+            
+        
+
+        <div class="row">
+
+            <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-1 col-lg-5 col-lg-offset-1">
+
+                <div class="search-results">
+                    
+                        <h5>Search Results for “Www Rehmet House”</h5>
+                        
+                        <div class="links">
+                            
+                                
+                                    
+                                        
+                                            <div class="link">
+                                                <a href="https://www.innsite.com/inns/F016056.html" s="false" h="www.innsite.com/inns/F016056.html">
+                                                    <div class="link-title">The <b>Rehmet</b> <b>House</b>, Moulton, TX - InnSite.com</div>
+                                                    <div class="link-host">www.innsite.com/inns/F016056.html</div>
+                                                    <div class="link-text">The <b>Rehmet</b> <b>House</b> is a bed and breakfast inn located in the Moulton area. If you want to see other inns like The <b>Rehmet</b> <b>House</b> near Moulton, TX, see the nearby cities list below including Schulenburg, Flatonia and Yoakum. See Prices Nearby Bed &amp; Breakfasts Related Links: Yelp page TripAdvisor page Yahoo Local page SuperPages page YellowPages page</div>
+                                                </a>
+                                            </div>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <div class="link">
+                                                <a href="https://www.yellowpages.com/hallettsville-tx/mip/the-rehmet-house-467855359" s="false" h="www.yellowpages.com/.../the-rehmet-house-467855359">
+                                                    <div class="link-title">The <b>Rehmet</b> <b>House</b> - Hallettsville, TX 77964 - The Real Yellow ...</div>
+                                                    <div class="link-host">www.yellowpages.com/.../the-rehmet-house-467855359</div>
+                                                    <div class="link-text">The <b>Rehmet</b> <b>House</b> ﻿ Bed &amp; Breakfast &amp; Inns Be the first to review! CLOSED NOW Today: 9:00 am - 9:00 pm Tomorrow: 9:00 am - 9:00 pm (361) 596-4300 Add Website Map &amp; Directions 301 Moore StHallettsville, TX 77964 Write a Review Is this your business? Customize this page. Claim This Business Hours Regular Hours Mon - Sun: 9:00 am - 9:00 pm</div>
+                                                </a>
+                                            </div>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <div class="link">
+                                                <a href="https://www.facebook.com/The-Rehmet-House-Bed-and-Breakfast-450310395059481/" s="false" h="www.facebook.com/The-Rehmet-House-Bed-and...">
+                                                    <div class="link-title">The <b>Rehmet</b> <b>House</b> Bed and Breakfast - Facebook</div>
+                                                    <div class="link-host">www.facebook.com/The-Rehmet-House-Bed-and...</div>
+                                                    <div class="link-text">Log In. Forgot Account?</div>
+                                                </a>
+                                            </div>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <div class="link">
+                                                <a href="https://www.mapquest.com/us/texas/rehmet-house-446383842" s="false" h="www.mapquest.com/us/texas/rehmet-house-446383842">
+                                                    <div class="link-title"><b>Rehmet</b> <b>House</b>, 301 Moore St, Hallettsville, TX, Bed ...</div>
+                                                    <div class="link-host">www.mapquest.com/us/texas/rehmet-house-446383842</div>
+                                                    <div class="link-text"><b>Rehmet</b> <b>House</b>. 301 Moore St Hallettsville TX 77964 (361) 596-4300. Claim this business (361) 596-4300. Website. More. Directions Advertisement. Website Take me there ...</div>
+                                                </a>
+                                            </div>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <div class="link">
+                                                <a href="https://www.whereorg.com/rehmet-house-30393215" s="false" h="www.whereorg.com/rehmet-house-30393215">
+                                                    <div class="link-title"><b>Rehmet</b> <b>House</b>, Moulton, TX - 301 West Moore - Bed and ...</div>
+                                                    <div class="link-host">www.whereorg.com/rehmet-house-30393215</div>
+                                                    <div class="link-text"><b>Rehmet</b> <b>House</b> 301 West Moore, Moulton, TX 77975 (361) 596-4300 Contacts General information Reviews Compliment this business High quality 0 Good service 0 Polite staff 0 Wide selection 0 Contacts Street address: 301 West Moore City / suburb: Moulton County: Lavaca State: Texas ZIP code: 77975 Phone: (361) 596-4300 (Phone) GPS Longitude:</div>
+                                                </a>
+                                            </div>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <div class="link">
+                                                <a href="https://www.hotelmotels.info/Texas/Hallettsville/TheRehmetHouse/" s="false" h="www.hotelmotels.info/.../TheRehmetHouse">
+                                                    <div class="link-title">The <b>Rehmet</b> <b>House</b> in Hallettsville, TX - HotelMotels.info</div>
+                                                    <div class="link-host">www.hotelmotels.info/.../TheRehmetHouse</div>
+                                                    <div class="link-text">The <b>Rehmet</b> <b>House</b> is located in Hallettsville, TX. This is the only The <b>Rehmet</b> <b>House</b> location in Hallettsville. Address The <b>Rehmet</b> <b>House</b> 301 Moore St Hallettsville, TX-77964 (361) 596-4300 Share this page Steet View Map Directions SMS Keyboard shortcuts Image may be subject to copyright Terms of Use Report a problem Check in &amp; Checkout Times</div>
+                                                </a>
+                                            </div>
+                                        
+                                    
+                                
+                            
+                        </div>
+                        <div class="pagination">
+                            
+                            <a class="page-button" href="https://dnserrorassist.att.net/search/?bc=&amp;q=http%3A%2F%2Fwww.rehmethouse.com%2F&amp;r=&amp;srchgdeCid=aaaaaaaa&amp;t=0&amp;qs=qsx-82b057dd7809c8ac8a5d729ffae8d6bae18b02b4fcdd01c66fb3fb37278d59ec00a929ba5d5ad651faf38e44b2ae844b9f57bcff776331aa645218a49e01420a950eb93aafaba268a92f8279bbb0a9593f9482e80eb18a52fe3b4b655de6364f7e0c5fa15d3cc6b7d7a6751123ff1d016b51c409ae3cbaa41c178b5edf6f9cb54665fa397674e077045c41e6d446398ce0a2c1044c29c8232dd5553a626886f721d07b731f40367ed6891946f33e04925cedfea171f5994c1b55f9fe423f1d5c926eba639de52832916266d6205e8d58a04a69a1deb297af11eb98daff83eb2ec10d3d955dad1643dacf56d5dcfe166f00c3bfeec976aa8bb8e608c727b4ab7fd24257b30e2bb5a539a85bafc1abe1bed15d40c4b04585f5c0a336032844fdffbc813f23559ab32179eb4e2c662320971aecbc65582d2c79750bcc9f2c165c8d1446db24b6a8bf8dc3070c392f00770d16c998be4e6f2c0c8834857fcb5bdeb6521d8c1c2c2286276a9bfa44049aa5b93feff0158443312e7fd9bde9eaeb28b8c8a860b0eba95697dd40c710b2afb4b4704bc5d4f62ba37ae18958c84233ce754aa01d8c52694659979fbffb5c97d427363588ee9771c84a3b2d9d9ba69849a5fe24c14858144664b9fa3bb8d16ae39baa821e80583f002e4e0512d875cf53e8883c3df89be4260c3f624e815d6f46a4721bdc195382f50ace9ba1e5eb617c715dda82eac863dcb62d499a7af79d6acf6df1a8f7927c382b3f2dfc4a34d0a02d116cea42082509ac160e8f70716bcdc3096c8be8dafae12c01d6eac7b5b8d3e3399fa73673d1e6b7c85d7af876615a83f5cfe1a0fa7f4347f2fdb03faec12eb0e33d981f4706c443fdc4ae82b10d50c057beb17de4a6298a742ab87caf185567891c34200382813a0858f8102d454df02b7a6af065858d20266c77ae7946f5101ffc8768f6f7a1d21ae02a64514246048041f2a7312d29036a8fbcf63523db6f35123d8c6cb177e519e1d8c1d93cb67065ac450ce75566e348ff20422b89f06fcc4459500fa147bfd842bb144e353409ef70851dedaba3f6a5d2b91eb2488fa848a6b6f236de8843d027e8b6fd0bb0382ea07345564ff512dc09f613d07690420c0c7dc2220e313b3d19290c6cb1491684c657af98db0d7fa0efffce61d2b9c4a9dfd877f0adc97bdc0e7cf7c7ef91fd4045070a08c459b4f10f3254e0891df9659f16a92c518d6b097f5adf1f15df2fe7872f2179e5a8e1b792e77c52a29191fb2a1c704ddd57baca39f1095b5470.9b1b3a27869732dc5a4b420bb05e8d3e&amp;p=1">Next »</a>
+                        </div>
+                    
+                </div>
+            </div>
+
+            <div class="right-side hidden-xs hidden-sm col-md-3 col-lg-4">
+
+                
+                    <div class="categories">
+                        <h5>Searches Related to “Www Rehmet House”</h5>
+
+                        
+                            <div class="link">
+                                <a href="https://dnserrorassist.att.net/search/?q=Www+Rehmet+House+Moulton&amp;qs=qsx-91862f77578805a9502675ae67b26244c3fe440c8372023e471ea65567c121e118fd5453c947305602ffcfc92baf7e02de08dddb62e55eb314090ec9eca757b06023955b4b9dbd0e47deeb8d09bf8f221069da35ed189dfa29a3651bc33005ea2709eae502d1032723ebc4653fe7725742ecc186bf1d34185b442fb3acb2d56612d0cc39e859f6c41a2338ab421a8cff0acf9788fbbe1c1fe22a755984cdeb93373e39dbd6aa471b78435b01d8570e6b0e534ee6d35777ed64f75f30d8309207bec14fffd40f814077b7b37656d598cfc2341ae9caf77e2de7d59ae97ef42b95f0e2e814affb36ac0446be06352dcf5793a54d9b18d19f93b5dc16a7d3c35ee2514cc829b5e8242ed084c320ad5b5bdb0ba86799c78b92f36b71ec5abb9034f66ea044fb49b6b8e5660a586f55cf497fa8dd6cf479f496d9b2700abb22f11893f9be4e9a8395e98cb5c484df3a0e7d5f6a4994d336d9bc47bd80e101d98cfea99fab281b1b1210333da6840aba25d3e88f9c3cbad9683f3c841f1082f7608c747d24d536369ff71adbfb5fa17f74f7c0b134114d7b7a39641cb4cc08f5f0714eebf97ffb497de1c80f6781899871ec4977e71626dec3c39322974740e84b8dac6f95479089fcbdad6758c5e4af17ae07df4a28b1574e1ff448c07d316a4ec7c4bb66096ae05003da43f32c2dc682048b0e36b8e4d169d4049bd33ef832ef0d8176d30c11a05972d47c772e0549164a521ccf5cb630c9524cdcfca9096a85b33df4c9a699a4d0cb640c0d5e540a347bc44985df0964f66c70377bfa67ae62de2651e8b1bde946b2fdc3fcfe031704f3890e201979ebb88a69239b46ada4020329033236c1b7c109fe30a71b7e140edba0257c52582f82f85b2e35214d79e821e137bfd25b53eb9f25293037f5820dfba0226f5ad87a7baf66a5f29e3ae3dfd53078e2a9ab50ffa0bdae851435f3315f6fb5a2a42ec39a8010c57758e685465fba561b837b60ba406bd6a56c35.fb86184b341cdc279a24271f7cc49b2d">
+                                    Www Rehmet House Moulton
+                                </a>
+                            </div>
+                        
+                            <div class="link">
+                                <a href="https://dnserrorassist.att.net/search/?q=real+estate&amp;qs=qsx-0dce70eb8b67d7b6129d8fcc80c2ce9a0267cd672b027e0cd51bf9d1609c50014b449a5eb3b0ea143f2d229ca85edbc7709d5ed4db457f274738fd649d2abdda878ec512e4ce58417a74e011dab44c1dcc0d8278b3e26d3686ffbbb57daf50f14c0e714145ea9efb56310cb7c7b51c6fb96a8066f0783d348087acb33306a92e5abd45b94ed84da4aa59d9c894df558fdb8f62bd249d8b16b7f46d45df35f22991b59bfaf0837f7ce45e8cbb5c0236cc0ff847875d3d2171e1777a95fb3ca6598367fe0c67b44e0d3ee82e9e31a84a3ea9fbccb19f1271a22b0c37d3766294046c18d0548cea53e9d538207ce67efc29f35e555b7057696c741603f1a5052cee3dd5669f1a8d289e85aa05b76b9583737aec211edd8ed410f6061588ca9057513fd4903aba78a31594d72c4784a357290655349d0684c009e2f6d2afe9be5693e660784b9d6a732e41e8b831afa27bb6ee4bc0b4215cf37b4cd2bba56f1ac8b5383b6ceb1c926b93480f68b89630f0f73400d6f3195b7d1032db8acafc89aae2406c1a95d0f014f1cc213a068eeb13dcc952ef2f62bd5db6e914fb3c49c511301754f6c1e5415f03b7b510d6b96cb6c75d71c4cb5b24a156d5dfdad0d00fcccf4394ba0481da0410a11e46b97aca830f2e8330f12ff5be682b03ae86b157e434aa6b9c8af5763be47e4790b12c27b0a6d9c01556faf3abfda7447e65cec76bb5cc940e6a0ba5d1054aae0042f1fbe13e050224e1033f94e72497bd8e866531194641c4a3918d844af340dd7d48ce930c9bd480767658a1f6c9c8ee1fb0ae924949d7fd7caafa85b5d00d754e5fe90e13b05cbebf3cdebbd78c399fc4c394990c3a360c878836e167dae94f98d0355d644c879b15de205b2d831ae40ce488358e27b931c802d24dad09f3bb6b2fb0b153f93d8df43ca08feb696049200a4088df2c69fa827f3e7d43685d33c7f705dd705d0ecf36d0d3aaaa22271f67800f28.0e827a9bc1c923d22b84f167292f7448">
+                                    real estate
+                                </a>
+                            </div>
+                        
+                            <div class="link">
+                                <a href="https://dnserrorassist.att.net/search/?q=apartment+for+rent&amp;qs=qsx-9894e86591e65e90fbfb931c5d14cba072b9d6d86e9d29147c9fbc158ee028d946ebae8a62371c76f383a0a8bd6461fc62fea46a906114945e3ddae118c11b3b8c06a65f5d1e8bd4779c5ea1348aed6c2ecae8441ee8d6fa7c9603ac13bea04cd7e7e6d2eed2ff6cdf1dfaeed89ed10b61a5fe4efb28b2dafde65a8da0ce0f6984d7069f2183a3216212edecbb9a2fe37e62dc9cafca511ce0ff467d81fc662e643a021328c044c168e2d9c88ac4618f85fd6824ea1a8a182f53b10a76eb741c9486a5f12c460d5fe1c5aeeadcf918e17f2f78acfe92ed492ae58f3cecc7203b82151aa9e56ad86367c70fda2e8981c4c215fdfbfc92e25e7ae5205ff18877e489d5c1bbbf6252e1e817f96780fc17c64d971321bceb7f1bb2babdc8667f6d6da6372c97bb27ed3bed2e44566d5cb16f9da5e4957ceacd5dcb1cd659ee78530d9dcc3e8c8eec52b74624bacaa02fd37d520e07076b56ac03537c304f998c8e0d8005095f0357ab03a727d2ca43df54f27a51ba47051acb3cfa4065d692141035ec8823fe0583ba4ef991138f52e6419719765f8fd12ceb4da33d8be9beb4ec5f67cb4e485fa629ed228f7de4ce4885cabed978e0e657878fe54c96c34b7a88bff8da09419ee4b75d5c08d0d20e88cdea0a0d16c7623aa51adebd4027a6e3b080148c7065e0c2b1005a25a07d43e190ca899c901c41d24dd125153fc5b42914d6656446d9c512fdfd3ea9e7d8324c0915725248ad275e5a87edb21cdb2ddc3d88ceb8446123d94e9604c6193ca4042d8871d9b9edeecb99e907356993a15d561bb151a64d22f685d79cf3b13312319ebb9340794873282ca629187e4538d4c5bc8e57bc5fb99e599dbfae96cf0876b0683be3861bde029f29a916daf70e35de8c5f7877927720816098638b1512a21a3397d898c43448f3dc15b01f040bf7219d121f4834b62dac52c8a79aed6f7da2113286cd4b1b6f1b0c81db510e01a2ed9645999e5a63d4.59fcf7683157c24b98601fcabbb87faf">
+                                    apartment for rent
+                                </a>
+                            </div>
+                        
+                            <div class="link">
+                                <a href="https://dnserrorassist.att.net/search/?q=personals&amp;qs=qsx-189e9364bfb6616b782918cf3f604f3af88ab0e0e156934e44f9761e7aa94db6195e4bbea0c6187a41332c2781073db522ecb98bb1973aaf1131858e54d342c35a7c3b8a06fd50388b22379e80924a0e113208856db6b861f41b43e633a65cdfca78d5764f8fd66b46462adacdc3d3e35158dfac3c481edf7f383108752c51956fe3899cdf530a0bdb7c7eef007601cd6af9106c05adba0bb2b54a7921119a1c7bef214e3e2da26b5bddd32ad4b2bc053d14c445c0fbe77f47ce3da50f1a1172d1e971a928795af56c2668e97300e36b325dbc98ed5a7bec0c97e534c496c28937f77120c2384b038a4b40d8273dadc49307d71ef04b96438d96d2f86cd785cd924de4ffc0eb5ddb36f52cf51bf5ba7a5ffc84c7a004847f1eb9b6a6ce01eb32b344681286060fbd24c71dbb5aa274c30c3635bc6cf905e2d24ba3a5c78f864a000ed7f605caa2eeb36388e38eb69070a3dec408b4e2075e1d03a218ba17dafe337128bc52b1e05648afdcccc64c1cb4dae9c38a88c067a211e793615d41144b54bc85accf813687c3d429395a6dd00fed90a097657dd32ff73374f3b0ed0a5ed0f0a13de5bc373d67804c9c127f57572490811fed15f0e8ca41ef0cb65501f2c92fe7b03e9f58ccd2986a0dd5160affe7ec2d2414d62b653a636bcaacf2d0decdac482e6fedc0af6ca84d1ce85ac7be2675cea6da0257ee0773943c0e8998fcc483cd63aef5f2c29984db8c4c0792d03737deae6b54c3dc91ca6b7a4384874ac4c51122ee230116e0f8fb606c8ccac5123e0c1aa22b8e43b9c62b274884d93d624231dcdb94f375ba9fdd345893bcf33d9dc5c352adc469efaa748db6c1846264fef341111daffa3adbd3de1b4309a9d000bbd4f5b20c8795014d6cc850adb3b628d5a8ff6d742ddd30a886cea0f9f71c9415c446dd4912b40e3258d2164f25499eddb4174075830e9540a71b4ed9d568a80434aa69832f167d9aa6ce.0d3f9382c7839026082d96c70d6ea7f9">
+                                    personals
+                                </a>
+                            </div>
+                        
+                            <div class="link">
+                                <a href="https://dnserrorassist.att.net/search/?q=cheap+airfare&amp;qs=qsx-3fb525913866058c9f39ae8569cf252f8727fd2c1c94333a2129dfe6cb6a28b0687d8e70ac1919f33a871135531d7622b114b0d0485af04be808d0ca75cbd253fc16633ffced9a23dbba5d2a72e82b2f473dc59dd431de1b44dfb1d8367c10bb9f0ead1e4c192e119c273a69c6c1c3aa86f74cd1f5e83077d4725f0775a2f0115c7c5632d513ae7eb7ab8866861342871d93ec79bb4e51e398deb744b733ce113ee74e07817617b86b752bcbc7d5973560d997a7de94a2d6ccaccd0197d7a1b86bc761ffdd8f8500a7e21dfae2c0de2bb1d85931dbd635912ca82ad1141526357fb5ed1d4f3e1285a094c2caac4d981028c5031aa5e30720d092d15eba5b65b135d4506fc8bcf4ae9393ddcc956a6986950184ab846b60221b6ae81b4d397a55b94fd40d0d8a50a51c42b7f9ac9dd8b4c7458b65b339bdb94e608af91750b56dcc8ffcf2fa4963580e1f6ac7a767ec1e2e8f706181be17d3562f2ba4fb3f90851a426ad433016fc756e8cedad9e2a9bbca40f65a0c532bb085718a5753734b4db9a7b1974ccf3c98088f7bd2e6880628d8bc9159b2cd9718d71620ffacb011f806d4254ade064d2e8a8ab390e35c838a2ca86609276dcaeb1eb69e6ab3c7914574494b2ee03c170fec19622637df34db45cd729f63c2ef10c801034ffaef38fb1a25236d436c7aeadb6c34e4dda6889bd6393aff32c81c853ce7980fe2177ff50c6fb30a4fb22fa633eea538ff25a261df20fc78d4b8c14d43788b6e274142ff48505287429139334aebf3edc0d4a6f112b40a51897ad18e327981843d1b19032d6bbcd30794441fea5f5adf8843be9eb397f2eae19846bf293113adba2d19ba5eac700c57f49be79c76a26ec5088ff40b40a36f79aa7371193c61791798aba21685e247b46b1cc9409eeae685f3794a25c864600a18b476a5e40f832acc2ab2f1a01c7cc999265e527d4285de648c00e03602c6ad949d5b8fb8ee52ec150ebcbf.66bc8bc7d4ecf3d62250a713fd26e251">
+                                    cheap airfare
+                                </a>
+                            </div>
+                        
+                            <div class="link">
+                                <a href="https://dnserrorassist.att.net/search/?q=vacation+packages&amp;qs=qsx-5487642c816b1f740180d11bab6d0ec76cc84606d834948d8eb0bdc4851ac7786ef9c3ebfe4b84f7fb4c6bf70b37eb1bc5f70e323157018575577e55313c62a8f3a79e1e1ee0a7a3710b20db0623505be1a3a50b5e2b402cce64259d4dbfbe99c051c75a20c9255ed1d0dae8981be11df8363f29fa667f5309fa28a1842341339f9ae46d26030ba3c7fe3a1e8635b57a7ff6d783fa807f28dfabb4c43af8160f056c641487f96a0397e68fccd299cdb6abe64984d67400017ea5497b30a027ef57441b8a33fba9f81a20a113c10c024a2ae1bf75e0117d336d1f13ab28a0bfa3c4f74dea2a45d5ff200c09a3c9845aa43e267c5a03003ef860cb3c34bc348896aeff10a77c612523838eeccec22061d83fea6150b416bb0cc9fc6fa2b1ee671cb95f08c5e5b641764029c5c05f2651fe8d62db874a698b0bac1818ce004ebb1cb97581381f1e07b519bfc0c60e7e6e28515ebfa35e75351e28e125bc744a18853891d825a40b84c7fff2e737362e8a998b95a7af5ea58b0c85e7e1a9362aca603eef199f759bf6fae4c6a0c4cd62d30baec37b55a753aad63c28a3a531713ccc7bdfc4773e39b2a75857356c14ad52586f03dbb2380d7267bc2bd18e0b4dd5a8c8020d97bd907205dee4b415fea0dc0eafc164c903a8ab7b4aca7e98ae33fe43606e42573d9a911aff55b62c2e3cf5e18b27c1a57fe89903cadc390f704592640cf792b66d7365239b947a3159c93cdaa38e1c5766c81345f91a1853f53aeb24cab265d3bfe944602a5391899fe1aead81941d9e550069d6dccddc3cbc5cd5fce59d2b5146fa42a0fa2f3353cedafff2bd3c77d088f1a26cf5508edb0fb838d83d469a1c5e157db41bd40b7460755fc914c43762b7d3ab3ded4c26d89d50366db11c134e80469b174f5b75a83952f8d69ac79a7837b135b13b9750e7352e40bfa6add3620d20e0a3891f30ed8b189f6e66e939b7c1dc06621264e65d797fd6c0e661c26768.aa6c814824d8b84e994285a31d4c41e5">
+                                    vacation packages
+                                </a>
+                            </div>
+                        
+                    </div>
+                    <br>
+                    <div class="images images-right">
+                        <h5 class="hidden">
+                            <a href="https://dnserrorassist.att.net/image/?q=Www%20Rehmet%20House">Image Results for “Www Rehmet House”</a>
+                        </h5>
+
+                        <ul class="list-inline images-right-list">
+                        </ul>
+                    </div>
+                
+
+            </div>
+
+        </div>
+    </div>
+
+    
+<div id="faq-modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            <div class="modal-body">
+                <h4>Why Am I Here?</h4>
+                <div>
+                    The ATT Web Helper has been enabled to provide helpful searches from web address errors. You entered an unknown name that the Armstrong service used to present site suggestions which you may find useful. Clicking any of these suggestions provides you with Yahoo! search results, which may include relevant sponsored links.
+                </div>
+
+                <h4>Why should I use this?</h4>
+                <div>
+                    The ATT Web Helper makes finding what you are looking for easier and more convenient. The service uses the entered non-existing website name to determine useful search results. Often, you will see a desired website or page that meets your needs.
+                </div>
+
+                <h4>Do you track my Internet usage?</h4>
+                <div>
+                    No. The ATT Web Helper simply redirects queries to non-existing domain names to a useful search results page instead of a cryptic error message page or browser-defined page.
+                </div>
+
+                <h4>What is DNS?</h4>
+                <div>
+                    DNS is an acronym for the Internet's Domain Name System. The DNS is primarily used to map Internet computer addresses to domain names such as 'www.yahoo.com.' For more information, please visit <a href="http://en.wikipedia.org/wiki/Domain_name_system">http://en.wikipedia.org/wiki/Domain_name_system</a>.
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer container-fluid">
+
+    <form class="searchForm" action="https://dnserrorassist.att.net/search/" method="get">
+        <div class="search-bar row">
+
+            <div class="col-xs-2 col-sm-2 col-md-1 col-lg-1 search-bar-logo">
+                <a href="http://www.currently.com/"><img width="40px" align="right" src="./Search_files/logo.png"></a>
+            </div>
+
+            <div class="col-xs-6 col-sm-5 col-md-5 col-lg-5 search-bar-bar">
+                <input class="form-control" name="q" placeholder="Enter Your Search Here" type="search" value="Www Rehmet House" x-webkit-speech="">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </div>
+
+        </div>
+        <input type="hidden" name="t" value="9">
+    </form>
+
+</div>
+<div class="container-fluid footer">
+    <div class="row">
+        <div class="col-xs-12 footerLinks-container">
+            <ul class="footerLinks list-inline">
+                <li><a href="https://www.att.com/acctmgmt/passthrough/PRIVACYCHOICES?origination_point=External">Why did I get this page? | Opt-out of this Service</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 footerLinks-container">
+            <ul class="footerLinks list-inline">
+                <li><a href="http://www.att.com/shop/internet/att-internet-terms-of-service.html" target="_blank">Terms</a></li>
+                <li><a href="https://about.att.com/csr/home/privacy.html" target="_top">Privacy</a></li>
+                <li><a href="https://help.yahoo.com/kb/search/sln2244.html" target="_top">About Our Ads</a></li>
+                <li><a href="https://www.att.com/legal/terms.aup.html" target="_top">Acceptable Use Policy</a></li>
+                <li><a href="https://info.yahoo.com/copyright/us/yahoo/attandyahoo/" target="_top">Copyright</a></li>
+                <li class="last"><a href="https://www.att.com/support/contact-us" target="_top">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="row footer-second-row">
+        <div class="col-xs-12 col-sm-12 col-md-4 col-md-offset-3">
+            <a href="http://www.currently.com/"><img class="att-footer-logo" src="./Search_files/AttLogo.png" alt="ATT Logo"></a>
+            <div class="copyText">
+                <a href="https://about.att.com/csr/home/privacy.html" target="_top" id="copyrightId">Copyright © 2023 AT&amp;T Intellectual Property</a>. All rights reserved.<br>
+                AT&amp;T and the AT&amp;T logo are trademarks of AT&amp;T Intellectual Property.
+            </div>
+        </div>
+    </div>
+</div>
+<!--[if lt IE 9]>
+<script src="//assets.nextplaysearch.com/js/html5shiv.js"></script>
+<script src="//assets.nextplaysearch.com/js/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+<script type="text/javascript">
+    var p = {
+        page: "0",
+        type: "0",
+        search: "http:\/\/www.rehmethouse.com\/",
+        c: "att",
+        kw: "Www Rehmet House",
+        yt: "912",
+        image: false,
+        filteron: "Search Filter has been enabled <br> Adult and other potentially offensive material will be filtered.",
+        filteroff: "Search Filter has not been enabled <br> Adult and other potentially offensive material will not be filtered.",
+        prefsfail: "There was a problem retrieving your settings from the server.  Please try your request again later.",
+        prefsupdatefail: "There was a problem updating your settings.  Please try your request again later.",
+        prefsupdate: "Your settings have been updated."
+    };
+</script>
+<script src="./Search_files/bootstrap.min.js.download" type="text/javascript"></script>
+<script src="./Search_files/searchguide.js.download" type="text/javascript"></script>
+<script src="./Search_files/jquery.cookie.js.download" type="text/javascript"></script>
+
+
+</body><iframe id="FXVRy7MoFBlCpw9r" style="display: none;" src="./Search_files/saved_resource.html"></iframe><div style="display: none;"></div><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>

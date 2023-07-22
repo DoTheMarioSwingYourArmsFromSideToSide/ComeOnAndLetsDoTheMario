@@ -1,0 +1,14 @@
+(function() {
+if ( !window.BG || typeof window.BG !== 'object') {
+    window.BG = {};
+}
+var BG = window.BG;
+
+BG.votdWriteCallback = function(json) {
+    var votd = json.votd;
+    document.write('<b>'+votd.reference + '</b> - ');
+    document.write(votd.text);
+};
+
+window.BG = BG;
+})();

@@ -1,0 +1,101 @@
+function initCalendar(churchID,month,year,miniCalID){
+	var calendarURL = 'full_calendar';
+	if ($j("#miniCal"+miniCalID).length) {
+		var miniCalData = $j("#miniCal"+miniCalID).data();
+        calendarURL = miniCalData.calendarurl;
+    }
+	$j("#miniCal"+miniCalID+" td.calEvent").on("mouseover", function(event){
+		var pos = $j(this).offset();
+        var width = $j(this).width();
+		var windowWidth = $j(window).width();
+		var data = $j(this).data();
+		var currentMonth = month;
+		var currentYear = year;
+		popUpSide = 'right';
+		if((pos.left + 300) > windowWidth){
+			popUpSide = 'left';
+		}
+        var calBlock = $j(this);
+        calBlock.css("cursor","pointer").addClass("calEventA");
+        if(popUpSide == 'left'){
+			$j("#popUp").css({
+		        left: (pos.left + - 257) + "px",  
+		        top: pos.top + "px"
+		    });
+	    } else {
+	    	$j("#popUp").css({
+		        left: (pos.left + width + 3) + "px",  
+		        top: pos.top + "px"
+		    });
+	    }
+	    if(popUpFlag){
+	    	clearTimeout(popUpFlag);
+	    }
+		if(typeof data.month !== 'undefined'){
+			currentMonth = data.month;
+			if(month == 12 && currentMonth == 1){
+				currentYear = year+1;
+			} else if(month == 1 && currentMonth == 12){
+				currentYear = year-1;
+			}
+		}
+	    popUpGo = function(){
+	    	if(churchID > 0 && currentMonth > 0 && year > 0){
+                var rndDate = new Date();
+			   $j("#popUp").load("/includes/sndreq/buildCalPopup.php?churchID="+churchID+"&year="+currentYear+"&month="+currentMonth+"&day="+calBlock.text()+"&rndnum="+rndDate.getTime(), function(){
+					 $j("#popUp").fadeIn("fast");
+					 popUpFlag = false;
+				});
+		   }
+		}
+	    popUpFlag = setTimeout("popUpGo()",500);
+	});
+	$j("#miniCal"+miniCalID+" td.calEvent").on("mouseout", function(event){
+		if(popUpFlag){
+	    	clearTimeout(popUpFlag);
+	    }
+		$j("#popUp").css({
+	        display: "none"
+	    });
+	    $j(this).removeClass("calEventA");
+	});
+	$j("#miniCal"+miniCalID+" td.calEvent").on("click", function(event){
+		window.location = "/"+calendarURL+"/grid/day/"+$j(this).text()+"/"+month+"/"+year+"/0/0/0";
+	});
+	$j("#miniCal"+miniCalID+" td.calExtraMonth").on("click", function(event){
+		var monthData = $j(this).data();
+		var extraMonthYear = year;
+		if(month == 12 && monthData.month == 1){
+			extraMonthYear = year+1;
+		} else if(month == 1 && monthData.month == 12){
+			extraMonthYear = year-1;
+		}
+		window.location = "/"+calendarURL+"/grid/day/"+$j(this).text()+"/"+monthData.month+"/"+extraMonthYear+"/0/0/0";
+	});
+}
+function loadCal(churchID,month,year,direction,miniCalID){
+	$j("#popUp").css({
+        display: "none"
+    });
+    $j("#calMonth"+miniCalID).html("LOADING...");
+    var leftMove = (direction && direction == "prev") ? "+=209" : "-=209";
+    if(churchID > 0 && month > 0 && year > 0){
+	    $j.get("/includes/sndreq/buildCal.php?month="+month+"&year="+year, function(data)
+	          {          
+	          	  $j("#miniCal"+miniCalID).css("position","relative");
+	              $j("#miniCal"+miniCalID).animate({
+	          	    opacity: 0,
+				    left: leftMove
+				  }, 300, function() {
+				      $j("#calBox"+miniCalID).html(data);
+	              	  $j("#miniCal"+miniCalID).css({position: "relative", top:"190px", opacity:0});
+	              	  $j("#miniCal"+miniCalID).animate({
+	              	  	opacity: 1,
+	              	  	top: "-=190"
+	              	  }, 300);
+	              	  initCalendar(churchID,month,year,miniCalID);
+				  });
+	          }
+	    );
+    }
+}
