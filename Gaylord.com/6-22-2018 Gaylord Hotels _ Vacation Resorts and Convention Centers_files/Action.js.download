@@ -1,0 +1,39 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+
+MI.Anita.Components.Action=(function($){var
+NAMESPACE='anitaAction',_actions={headerFindPanel:{trigger:'a[href*=#js-toggle-find-panel]',event:'click.'+NAMESPACE,routine:function(event){event.preventDefault();if($(document).scrollTop()>0){$('html,body').stop().animate({scrollTop:0},'slow');}
+var $target=$("#header-find-panel-trigger");$target.focus();if($target.length==0){$target=$("#find-a-hotel-control");}
+$target.trigger('click');return false;}}},_attachActions=function(){for(var i=0,keys=Object.keys(_actions),l=keys.length;i<l;++i){var action=_actions[keys[i]],$el=$(action.trigger);if($el.length>0){$el.on(action.event,action.routine);}}};return{attachActions:_attachActions}}(jQuery));
+
+}
+/*
+     FILE ARCHIVED ON 18:17:13 Jun 16, 2018 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 07:55:33 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 1269.25
+  exclusion.robots: 0.083
+  exclusion.robots.policy: 0.072
+  cdx.remote: 0.065
+  esindex: 0.01
+  LoadShardBlock: 320.006 (3)
+  PetaboxLoader3.resolve: 320.019 (4)
+  PetaboxLoader3.datanode: 135.518 (5)
+  load_resource: 184.314 (2)
+*/

@@ -1,0 +1,35 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+s_c_il[0]._setMarketingCloudFields({"d_mid":"90438269092979710151992614632567905162","id_sync_ttl":604800,"d_blob":"NRX38WO0n5BH8Th-nqAG_A","dcs_region":7,"ibs":[],"subdomain":"marriottinternationa"})
+
+}
+/*
+     FILE ARCHIVED ON 00:02:26 Jun 27, 2015 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 07:47:05 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 162.948
+  exclusion.robots: 0.084
+  exclusion.robots.policy: 0.075
+  cdx.remote: 0.063
+  esindex: 0.009
+  LoadShardBlock: 123.684 (3)
+  PetaboxLoader3.datanode: 125.596 (4)
+  load_resource: 36.567
+  PetaboxLoader3.resolve: 26.431
+*/

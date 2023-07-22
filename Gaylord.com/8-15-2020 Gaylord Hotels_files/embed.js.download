@@ -1,0 +1,41 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+
+(function(){if(!window.KAMPYLE_EMBED){window.KAMPYLE_EMBED={kampyleInit:function(){var t=document.createElement('script');t.type='text/javascript';t.async=true;t.src=KAMPYLE_EMBED.getGenericLocation();t.charset='UTF-8';document.body.appendChild(t);},kampyleLoadLogger:function(){},kampyleEventHandler:function(elem,eventType,handler){if(elem.addEventListener){elem.addEventListener(eventType,handler,false);}
+else if(elem.attachEvent){elem.attachEvent('on'+eventType,handler);}},isSupported:function(){var result={isIE:false,trueVersion:0,actingVersion:0,compatibilityMode:false};var trident=window.KAMPYLE_EMBED.getUserAgent().match(/Trident\/(\d+)/);if(trident){result.isIE=true;result.trueVersion=parseInt(trident[1],10)+4;}
+var msie=navigator.userAgent.match(/MSIE (\d+)/);if(msie){result.isIE=true;result.actingVersion=parseInt(msie[1]);}else{result.actingVersion=result.trueVersion;}
+if(result.isIE&&result.trueVersion>0&&result.actingVersion>0){result.compatibilityMode=result.trueVersion!=result.actingVersion;}
+return!result.isIE||result.trueVersion>9||(result.actingVersion>=9&&result.compatibilityMode);},getUserAgent:function(){return navigator.userAgent;},getGenericLocation:function(){var genericLocation=location.protocol+'//'+'resources.digital-cloud.medallia.com/wdcus/1745/onsite/generic1585330117758.js';return genericLocation;},};if(window.KAMPYLE_EMBED.isSupported()){if(document.readyState==='complete'){window.KAMPYLE_EMBED.kampyleInit();}
+else{window.KAMPYLE_EMBED.kampyleEventHandler(window,'load',window.KAMPYLE_EMBED.kampyleInit);}}}})();
+
+}
+/*
+     FILE ARCHIVED ON 07:25:39 Aug 15, 2020 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 08:06:14 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 286.15
+  exclusion.robots: 0.064
+  exclusion.robots.policy: 0.056
+  RedisCDXSource: 138.067
+  esindex: 0.009
+  LoadShardBlock: 92.371 (3)
+  PetaboxLoader3.datanode: 193.364 (5)
+  load_resource: 236.635 (2)
+  PetaboxLoader3.resolve: 114.062 (2)
+*/

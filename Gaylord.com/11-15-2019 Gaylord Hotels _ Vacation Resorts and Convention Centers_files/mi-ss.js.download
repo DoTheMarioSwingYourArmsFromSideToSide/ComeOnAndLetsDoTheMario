@@ -1,0 +1,35 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+miJsonp([9],{9:3,19:function(e,t,i){var n=(i(9),i(1));e.exports={init:function(){function e(e){var t=e.getBoundingClientRect(),i=document.body,n=document.documentElement,o=window.pageYOffset||n.scrollTop||i.scrollTop,s=n.clientTop||i.clientTop||0,c=t.top+o-s;return Math.round(c)}function t(){m&&d.scrollTop()>p?(a.css("margin-top",i.outerHeight()+"px"),i.addClass("is-sticky-top"),window.pubsub.publish("added/stickyBehavior")):(a.css("margin-top","0px"),i.removeClass("is-sticky-top"),p=e(i.get(0)),window.pubsub.publish("removed/stickyBehavior"))}var i=n("#stickySummary");if(i.length>=1){i=i.eq(0);const o=50,s="searchSummary/stickyPanelResize",c="searchSummary/addSticky",u="searchSummary/removeSticky";var r,a=n("#stickySummary ~ [class*='sub-section']").eq(0),m=!0,p=i.offset().top,d=n(document),l=0;d.scroll(function(){var e=(new Date).getTime();r||(e-l>150&&(t(),l=e),r=setTimeout(function(){r=null,l=(new Date).getTime(),t()},o))}),window.pubsub.subscribe(s,function(){l=(new Date).getTime(),t()}),window.pubsub.subscribe(c,function(){l=(new Date).getTime(),m=!0,t()}),window.pubsub.subscribe(u,function(){l=(new Date).getTime(),m=!1,t()})}}}}});
+
+}
+/*
+     FILE ARCHIVED ON 03:23:15 Nov 15, 2019 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 08:01:29 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 95.632
+  exclusion.robots: 0.159
+  exclusion.robots.policy: 0.142
+  cdx.remote: 0.115
+  esindex: 0.014
+  LoadShardBlock: 64.846 (3)
+  PetaboxLoader3.datanode: 67.027 (5)
+  load_resource: 188.183 (2)
+  PetaboxLoader3.resolve: 172.603 (2)
+*/

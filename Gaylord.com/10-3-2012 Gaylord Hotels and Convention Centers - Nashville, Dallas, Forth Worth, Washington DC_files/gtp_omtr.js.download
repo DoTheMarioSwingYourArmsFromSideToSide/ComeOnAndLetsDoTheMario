@@ -1,0 +1,202 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+function openOverlay(light, fade) {
+
+	document.getElementById(light).style.display='block';
+
+	document.getElementById(fade).style.display='block';
+
+
+}
+function hideOverlay(light, fade) {
+
+	document.getElementById(light).style.display='none';
+
+	document.getElementById(fade).style.display='none';
+
+
+}
+
+function doimages(){
+	var linkslen = document.links.length;
+	for (var i=0;i< linkslen;i++) {
+		if (document.links[i].title) document.links[i].title = "";
+	}
+	var home = true;
+	var images = getElementsByClassName("home_main_image", "div", "wrapper2");
+	if (!images.length) {
+		home = false;
+		var images = getElementsByClassName("main_image", "div", "wrapper2");
+	}
+	var firstimage = getfirstimage();
+	createbutton("audio-off-icon", firstimage, 122, 907, playerunmute);
+	createbutton("audio-on-icon", firstimage, 122, 907, playermute);
+	firstimage.imagenumber = 0;
+	var home_image = getFirstClass(firstimage, "home_image_cont", "div");
+	var buttons = creatediv("buttons_cont", firstimage);
+	if (home_image && home_image.style.display == "none") {
+		buttons.style.visibility = "hidden";
+	}
+	if (gaylord.buffering) {
+		buttons.style.visibility = "hidden";
+	}
+	
+	if (home) {
+		buttons.className = "thumb_box home_thumbs";
+	}
+	else {
+		buttons.className = "thumb_box";
+	}
+
+	if (manualLink) {
+		var rightbutton = creatediv("right_button", firstimage);
+		rightbutton.innerHTML = manualLink;
+		
+	}
+
+	
+	var chev_right = createabutton("chev_right", firstimage, "&nbsp;", "chev-right-id", false, nextimage);
+	if (images.length > 1) {
+		chev_right.style.visibility = "visible";
+	}
+	var chev_left = createabutton("chev_left", firstimage, "&nbsp;", "chev-left-id", false, previmage);
+	
+	for (var i = 0; i < images.length; i++) {
+		var image = images[i];
+		var imgs = image.getElementsByTagName("img");
+		//alert(images.length);
+		if (images.length > 1) {
+			var img = imgs[0];
+			gaylord.imgsrcs.push(img.src);
+			var aref = createimageref(buttons, img.src, img.alt, i);
+			if (i == 0) {
+				//				aref.className = "hov_thumb";
+			}
+		}
+		
+		var infobox = getElementByClassName("trans_box2", "div", image, 0);
+		//alert(infobox.innerHTML);
+		var h1elem = infobox.getElementsByTagName("h1")[0];
+		var closeref = createa("close", infobox, "&nbsp", "#", h1elem);
+		closeref.onmousedown = closeinfobox;
+		var openref = createa("open", infobox, "&nbsp;", "#");
+		openref.onmousedown = showinfobox;
+		setFirstClass(infobox, "open", "a", "hidden");
+
+		
+		
+		/*      
+		 <a href="#" class="open">&nbsp;</a>
+		 var newref = document.createElement('a');
+		 newref.onmousedown = closeinfobox;
+		 newref.className = "close";
+		 newref.innerHTML = "x";
+		 newref.href = "#";
+		 infobox.insertBefore(newref, h1elem); */
+		//             <a  class="shev_right">&nbsp;</a>
+		
+		if (i > 0) {
+			image.style.display = "none";
+			img.src = "";
+			firstimage.insertBefore(infobox, buttons);
+			infobox.style.display = "none";
+		}
+		
+	}
+	if (home_image) {
+//if (false){
+//		home_image.id = "home_image_1";
+		home_image.id = "home_image_cont";
+		var imgs = home_image.getElementsByTagName("img");
+		var img = imgs[0];
+		img.id = "home_img_1";
+		var slider = document.getElementById("slider1");
+		var home_image2 = createdivafter("home_image_2", firstimage,home_image);
+		home_image2.style.visibility = "hidden";
+//		home_image2.className = "home_image_cont2";
+		home_image2.id = "home_image_cont2";
+		var img2 = createimg("home_img_2", home_image2);
+		
+	}
+
+	if (isStory()) {
+		doStoryImages();
+	}
+	increment(gaylord.imagedelay + 1000);
+}
+function changeimagenum(num,nofade) {
+
+	var firstimage = getfirstimage();
+
+	var imgs = firstimage.getElementsByTagName("img");
+	var img = imgs[0];
+
+
+	var hrefs = firstimage.getElementsByTagName("a");
+	//var href = hrefs[0];
+	//alert(href);
+	
+	img.zIndex = 2;
+
+	if (isIE6()) {
+
+//		img.zIndex = -1;		
+
+	}
+
+	img.alt = gaylord.alts[num];
+	//alert(img.alt);
+	if (!nofade && img.id == "home_img_1" /*&& !isIE6() */) {
+
+          imagefade(gaylord.imgsrcs[num]);	
+
+	}
+
+	else {
+
+		img.src = gaylord.imgsrcs[num];
+		href = heroHrefs[num];
+
+		var aEls = document.getElementById('image_cont').getElementsByTagName('a');
+		for (var i = 0, aEl; aEl = aEls[i]; i++) {
+		
+			if (!href) href = 'JavaScript:void(0)';
+			aEl.href = href;
+					
+		}
+
+	}
+
+}
+
+}
+/*
+     FILE ARCHIVED ON 17:04:13 Oct 04, 2012 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 07:38:16 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 119.702
+  exclusion.robots: 0.089
+  exclusion.robots.policy: 0.079
+  cdx.remote: 0.07
+  esindex: 0.009
+  LoadShardBlock: 65.999 (3)
+  PetaboxLoader3.datanode: 61.46 (4)
+  load_resource: 126.071
+  PetaboxLoader3.resolve: 88.516
+*/

@@ -1,0 +1,93 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+/**
+ * viewportBreakPoint set
+ */
+
+function setViewportBreakPoint(w){
+	
+	var textSet,tshirt;
+	
+	if(w < 240){
+		tshirt = '&lt;XS';
+	}else if(w >= 240 && w < 320){
+		tshirt = 'XS';
+	}else if(w >= 320 && w < 480){
+		tshirt = 'S';
+	}else if(w >= 480 && w < 560){
+		tshirt = 'SM';
+	}else if(w >= 560 && w < 672){
+		tshirt = 'M';
+	}else if(w >= 672 && w < 768){
+		tshirt = 'MML';
+	}else if(w >= 768 && w < 864){
+		tshirt = 'ML';
+	}else if(w >= 864 && w < 960){
+		tshirt = 'MLL';
+	}else if(w >= 960 && w < 1024){
+		tshirt = 'L';
+	}else if(w >= 1024 && w < 1200){
+		tshirt = 'XL';
+	}else if(w >= 1200 && w < 1440){
+		tshirt = 'XXL';
+	}else if(w >= 1440){
+		tshirt = 'XXXL';
+	}else{
+		tshirt = 'Unknown';
+	}
+	
+	textSet = tshirt+' - '+w
+	
+	return textSet;
+}
+
+try {
+    var dnsObj = new Object();
+    dnsObj.dns1 = "//web.archive.org/web/20180901012750/https://metrics.marriott.com";
+    dnsObj.dns2 = "//web.archive.org/web/20180901012750/https://dpm.demdex.net";
+    dnsObj.dns3 = "//web.archive.org/web/20180901012750/https://marriottinternationa.demdex.net";
+    dnsObj.dns4 = "//web.archive.org/web/20180901012750/https://fast.marriottinternationa.demdex.net";
+    dnsObj.dns5 = "//web.archive.org/web/20180901012750/https://marriottinternationa.tt.omtrdc.net";
+    for (var prop in dnsObj) {
+        //console.log('obj.' + prop, '=', dnsObj[prop]);
+        var link = document.createElement('link');
+        link.rel = 'dns-prefetch';
+        link.href = dnsObj[prop];
+        document.head.appendChild(link);
+    }
+} catch (err) {
+	console.log("err is :"+err);
+}
+
+
+}
+/*
+     FILE ARCHIVED ON 01:27:50 Sep 01, 2018 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 07:54:56 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 98.237
+  exclusion.robots: 0.102
+  exclusion.robots.policy: 0.089
+  cdx.remote: 0.081
+  esindex: 0.01
+  LoadShardBlock: 41.782 (3)
+  PetaboxLoader3.datanode: 116.897 (4)
+  load_resource: 199.189
+  PetaboxLoader3.resolve: 109.031
+*/

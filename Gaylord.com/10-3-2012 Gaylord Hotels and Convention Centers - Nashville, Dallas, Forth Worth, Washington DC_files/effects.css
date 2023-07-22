@@ -1,0 +1,82 @@
+/** shadow border styles **/
+
+.visual-shadow-border {
+    position:relative;
+    margin:0 auto;
+    background:#fff url( /web/20121004170726im_/http://www.gaylordhotels.com/assets/images/effects/bg-shadowborder-w.gif) repeat-y left top;
+}
+
+
+.visual-shadow-border .top {
+    width:100%;
+    height:8px;
+    background:url(/web/20121004170726im_/http://www.gaylordhotels.com/assets/images/effects/bg-shadowborder-n.gif) no-repeat left top;
+    overflow:hidden;
+}
+
+.visual-shadow-border .top span {
+    width:100%;
+    display:block;
+    position:relative;
+    height:8px;
+    background:url(/web/20121004170726im_/http://www.gaylordhotels.com/assets/images/effects/bg-shadowborder-ne.gif) no-repeat right top;
+}
+
+
+.visual-shadow-border .center-content {
+    position:relative;
+    background:url(/web/20121004170726im_/http://www.gaylordhotels.com/assets/images/effects/bg-shadowborder-e.gif) repeat-y right top;
+    padding:0 7px 0 8px;
+    margin: 0 0 0px;
+}
+* html .visual-shadow-border .center-content { /* Holly hack filter for IE6 */
+    margin: 0 0 -6px;
+}
+
+.visual-shadow-border .bottom {
+    height:8px;
+    background:url(/web/20121004170726im_/http://www.gaylordhotels.com/assets/images/effects/bg-shadowborder-s.gif) no-repeat left bottom;
+
+}
+
+.visual-shadow-border .bottom span {
+    display:block;
+    position:relative;
+    height:8px;
+    background:url(/web/20121004170726im_/http://www.gaylordhotels.com/assets/images/effects/bg-shadowborder-se.gif) no-repeat right bottom;
+}
+
+.visual-shadow-border img {display:block;}
+
+.visual-shadow-border .center-flash-content {
+    height: 193px;
+}
+
+/** image-rotator **/
+
+.element-rotator .hide {
+    display:none;
+}
+.element-rotator .show {
+    display:block;
+}
+/*
+     FILE ARCHIVED ON 17:07:26 Oct 04, 2012 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 07:38:16 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 100.861
+  exclusion.robots: 0.078
+  exclusion.robots.policy: 0.068
+  cdx.remote: 0.08
+  esindex: 0.009
+  LoadShardBlock: 57.425 (3)
+  PetaboxLoader3.datanode: 66.298 (4)
+  load_resource: 56.014
+  PetaboxLoader3.resolve: 30.129
+*/

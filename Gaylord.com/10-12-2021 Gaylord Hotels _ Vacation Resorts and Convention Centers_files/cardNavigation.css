@@ -1,0 +1,24 @@
+.l-menu-container{display:block;text-align:left;text-decoration:none}.l-top-nav-container{height:5rem}.l-main-menu-link,.l-main-menu-link:hover{font-size:1.25rem;font-weight:bold;color:#1C1C1C;padding:0 1rem;text-decoration:none;transition:all 0.25s ease-in-out}.l-main-menu-link:not(.l-display-none),.l-main-menu-link:hover:not(.l-display-none){display:block}.l-sub-menu-container{display:none}.l-sub-menu-container a{padding-left:0.5rem;color:#1C1C1C;text-decoration:none}.l-sub-menu-container li{padding-left:0.5rem;padding-right:2rem;line-height:1rem;padding-bottom:0}.l-sub-menu-container li:hover{font-weight:bold;border:none;box-shadow:none}.opened .l-sub-menu-container{display:inline-table}.opened .l-sub-menu-container a{font-size:1rem;padding-top:1rem;display:block;text-decoration:none;transition:all 0.25s ease-in-out}@media (min-width: 48.1rem){.l-sub-menu-scroll{max-height:calc(100vh - 5rem);overflow-y:auto;box-sizing:border-box}.l-nav-height{height:5rem}.l-menu-container{width:auto;display:table-cell;padding:0 0.5rem;text-align:center;text-align:left;text-decoration:none}.l-menu-container .l-sub-menu-container{display:none;opacity:0}.l-nav-header{padding:1rem;line-height:1rem}.opened .l-sub-menu-container{position:absolute;min-width:20rem;top:5rem;display:block;opacity:1;transition:opacity 1s ease-out;margin-left:-0.5rem;z-index:999}.opened .l-sub-menu-container li{padding-left:2rem}.l-nav-container{margin-right:4rem;white-space:nowrap;scroll-behavior:smooth;-ms-overflow-style:-ms-autohiding-scrollbar;overflow:hidden}.l-nav-container::-webkit-scrollbar{display:none}.l-nav-container:hover{-ms-overflow-style:none}.t-offset-elem{height:5rem}.l-scroll-link{position:absolute;display:table-cell;top:0;width:4rem}.l-scroll-link.left{left:0}.l-scroll-link.right{right:0}.l-scroll-link span{padding-top:.75rem;display:inline-block}.t-sticky-nav .l-scroll-link.right{right:0}.t-sticky-nav .l-scroll-link.right a{padding-right:0}.t-cursor-disabled{pointer-events:none;transition:visibility 0s linear 0.33s, opacity 0.33s}}[data-overflowing="both"] .right,[data-overflowing="both"] .left{opacity:1}[data-overflowing="right"] .right{opacity:1}[data-overflowing="right"] .left{opacity:0}[data-overflowing="left"] .right{opacity:0}[data-overflowing="left"] .left{opacity:1}[data-overflowing="none"] .right,[data-overflowing="none"] .left{display:none}.l-top-navigation{width:100%;padding:1.5rem 0}.l-top-navigation a{font-size:1.25rem;font-weight:bold;color:#1C1C1C;text-decoration:none}.l-top-navigation:hover{text-decoration:none}.l-top-navigation .t-icon{cursor:pointer;font-size:0.5rem;vertical-align:middle}.l-nav-sticky-margin,.l-main-nav-container .mfp-close{display:none}.t-sticky-nav nav,.t-sticky-nav .l-top-nav-container{left:0;margin:0;max-width:9999rem;position:fixed;right:0;top:0;z-index:10;box-shadow:0 0.125rem 0.25rem 0 rgba(0,0,0,0.5)}.t-sticky-nav .l-main-nav-container .l-nav-container{max-width:73.75rem;margin:0 auto}.t-sticky-nav .l-nav-sticky-margin{position:static;height:5rem;display:block}.is-nav-takeover{position:fixed;top:0 !important;z-index:999;left:0;right:0;height:100vh;overflow-y:scroll;overflow-x:hidden}.is-nav-takeover .l-scroll-link{display:none}.is-nav-takeover .l-sub-menu-container{width:100%}.is-nav-takeover .l-nav-container{padding-top:2rem}.is-nav-takeover .mfp-close{display:block}.is-nav-takeover-html,.is-nav-takeover-html body{overflow:hidden !important;height:100vh}.is-nav-fixed{position:fixed}html[lang="zh_CN"] .l-top-navigation a .t-icon-arrow-down,html[lang="zh-CN"] .l-top-navigation a .t-icon-arrow-down{line-height:normal}
+
+
+/*# sourceMappingURL=cardNavigation.css.map*/
+/*
+     FILE ARCHIVED ON 05:18:18 Oct 13, 2021 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 08:11:05 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 109.386
+  exclusion.robots: 0.13
+  exclusion.robots.policy: 0.116
+  cdx.remote: 0.089
+  esindex: 0.012
+  LoadShardBlock: 78.947 (3)
+  PetaboxLoader3.datanode: 173.018 (5)
+  load_resource: 263.944 (2)
+  PetaboxLoader3.resolve: 115.251 (2)
+*/

@@ -1,0 +1,39 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+
+MI.Anita.Components.Action=(function($){var
+NAMESPACE='anitaAction',_actions={headerFindPanel:{trigger:'a[href*=#js-toggle-find-panel]',event:'click.'+NAMESPACE,routine:function(event){event.preventDefault();if($(document).scrollTop()>0){$('html,body').stop().animate({scrollTop:0},'slow');}
+var $target=$("#header-find-panel-trigger");$target.focus();if($target.length==0){$target=$("#find-a-hotel-control");}
+$target.trigger('click');return false;}}},_attachActions=function(){for(var i=0,keys=Object.keys(_actions),l=keys.length;i<l;++i){var action=_actions[keys[i]],$el=$(action.trigger);if($el.length>0){$el.on(action.event,action.routine);}}};return{attachActions:_attachActions}}(jQuery));
+
+}
+/*
+     FILE ARCHIVED ON 05:53:31 Aug 30, 2018 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 07:58:59 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 134.822
+  exclusion.robots: 0.073
+  exclusion.robots.policy: 0.065
+  RedisCDXSource: 1.38
+  esindex: 0.023
+  LoadShardBlock: 112.419 (3)
+  PetaboxLoader3.datanode: 150.745 (5)
+  load_resource: 255.388 (2)
+  PetaboxLoader3.resolve: 142.191 (2)
+*/

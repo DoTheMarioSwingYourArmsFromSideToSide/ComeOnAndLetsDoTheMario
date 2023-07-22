@@ -1,0 +1,43 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+function _truste_eumap(){truste=self.truste||{};truste.eu||(truste.eu={});var f=truste.eu.bindMap={domain:"marriott.com",width:parseInt("840"),height:parseInt("270"),baseName:"te-notice-clr1-751ddab4-84a9-46d1-8afd-80abe3e4c89a",showOverlay:"{ShowLink}",hideOverlay:"{HideLink}",anchName:"te-notice-clr1-751ddab4-84a9-46d1-8afd-80abe3e4c89a-anch",intDivName:"te-notice-clr1-751ddab4-84a9-46d1-8afd-80abe3e4c89a-itl",iconSpanId:"te-notice-clr1-751ddab4-84a9-46d1-8afd-80abe3e4c89a-icon",containerId:"marriottConsent",messageBaseUrl:"https://web.archive.org/web/20170807191535/http://consent.truste.com/noticemsg?",daxSignature:"",privacyUrl:"",prefmgrUrl:"https://web.archive.org/web/20170807191535/http://consent-pref.truste.com/?type=marriott&ostype=mobile",text:"true",icon:"Tracking Preferences",locale:"en",language:"en",country:"us",assetServerURL:(parseInt("")?"https://web.archive.org/web/20170807191535/http://consent-st.truste.com/":"https://web.archive.org/web/20170807191535/https://consent.truste.com/")+"get?name=",iconBaseUrl:"https://web.archive.org/web/20170807191535/https://consent.truste.com/",behavior:"implied",behaviorManager:"eu",provisionedFeatures:"",cookiePreferenceIcon:"truste_cookiepreferences.png",closeButtonUrl:"https://web.archive.org/web/20170807191535/http://consent.truste.com/get?name=btnclose_marriott.png",noticeFilename:"notice.js",apiDefaults:'{"reportlevel":16777215}',cmTimeout:parseInt("6000",10),autoDisplayCloseButton:false};
+if(self.location.protocol!="http:"){for(var a in f){if(f[a]&&f[a].replace){f[a]=f[a].replace(/^(http:)?\/\//,"https://")
+}}}if(!truste.cma){var c=self.document,b=c.createElement("script");b.setAttribute("async","async");b.setAttribute("type","text/javascript");
+b.setAttribute("crossorigin","");b.src=f.assetServerURL+f.noticeFilename+"&version=1";(c.getElementById(f.containerId)||c.getElementsByTagName("body")[0]||c.getElementsByTagName("head")[0]).appendChild(b)
+}$temp_closebtn_style={top:"16px",right:"14px"};$temp_box_overlay={padding:"0px"};$temp_closebtn_style={top:"16px",right:"14px"};
+$temp_box_overlay={padding:"0px"};truste.eu.bindMap.closeButtonUrl=truste.eu.bindMap.closeButtonUrl.replace(/get\?name=/i,"get?name="+truste.eu.bindMap.language+"-");
+f.styles={};f.styles.closebtn=typeof $temp_closebtn_style!="undefined"&&$temp_closebtn_style;f.styles.box_overlay=typeof $temp_box_overlay!="undefined"&&$temp_box_overlay;
+f.styles.overlay=typeof $temp_overlay!="undefined"&&$temp_overlay;f.styles.inner_iframe=typeof $temp_inner_iframe!="undefined"&&$temp_inner_iframe;
+f.outerdiv=typeof $temp_outerdiv!="undefined"}self._truste&&(self._truste.eumap=_truste_eumap)||_truste_eumap();
+
+}
+/*
+     FILE ARCHIVED ON 19:15:35 Aug 07, 2017 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 07:53:08 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 143.49
+  exclusion.robots: 0.087
+  exclusion.robots.policy: 0.078
+  cdx.remote: 0.054
+  esindex: 0.007
+  LoadShardBlock: 66.127 (3)
+  PetaboxLoader3.datanode: 58.853 (4)
+  load_resource: 51.549
+  PetaboxLoader3.resolve: 32.176
+*/

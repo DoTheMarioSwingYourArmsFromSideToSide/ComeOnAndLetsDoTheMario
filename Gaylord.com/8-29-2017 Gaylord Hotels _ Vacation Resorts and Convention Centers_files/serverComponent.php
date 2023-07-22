@@ -1,0 +1,2 @@
+//HTTP:default
+Bootstrapper.callOnPageSpecificCompletion();

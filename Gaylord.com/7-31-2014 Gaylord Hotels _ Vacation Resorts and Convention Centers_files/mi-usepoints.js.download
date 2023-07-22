@@ -1,0 +1,42 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+
+$(function(){var $body=$("body");$body.miAjax();var $allPossibleBuyPointsContainers=$('.buy-gift-link',$body);var $allPossiblePreferencePanelContainers=$('a[href^="/rewards/moreRewardDetail.mi"],a[href^="/rewards/partnerDetail.mi"]',$body);var isAuthenticated=$('[data-auth]').data('auth');if($allPossiblePreferencePanelContainers.length>0){$allPossiblePreferencePanelContainers.on({"click":function(event){event.preventDefault();}},null,null);if(isAuthenticated=="authenticatedOrRemembered"||isAuthenticated=="authenticated"||isAuthenticated=="remembered"){$body.miAjax();$body.miAjax("newRequest","order",{"containerId":"award-order-container","getUrl":"/redemption/load.mi"});$allPossiblePreferencePanelContainers.each(function(index,elem){var obj=$body.miAjax("getInstance","order");obj.deferred.complete(function(){obj.clone.awardOrderDialog({"owner":elem});$(elem).data("dialog-award-order",obj.clone);$(elem).on({"click":function(event){$(obj.clone).awardOrderDialog("open");}},null,null);if(window.location.hash&&window.location.hash==="#"+index){$(obj.clone).awardOrderDialog("open");}});});}else{$body.miAjax();var rememberMeWhatsThis="/remember-me.mi?ajax=true";if($locale){var locale=$locale.locale("option","desiredLocale");if(locale!=="en-US"){rememberMeWhatsThis="/Channels/remember-me-"+locale.split("-")[0]+".mi?ajax=true";}}
+var loginUrl="/login-dialog/award-order.mi";$body.miAjax("newRequest","login",{"containerId":"award-order-login-container","getUrl":loginUrl});$body.miAjax("newRequest","rememberMe",{"containerId":"award-order-login-remember-me","getUrl":"/remember-me-usepoints.mi?ajax=true"});$allPossiblePreferencePanelContainers.each(function(index,elem){var obj=$body.miAjax("getInstance","login"),rememberMe=$body.miAjax("getInstance","rememberMe"),pathAndHash=window.location.pathname+"#"+index;rememberMe.deferred.complete(function(){obj.deferred.complete(function(){rememberMe.clone.rememberMeDialog();obj.clone.awardOrderLoginDialog({"returnTo":pathAndHash,"reloadPath":loginUrl,"$rememberMeDialog":rememberMe.clone}).trigger("awardorderlogindialogrefreshed");$(elem).data("login-dialog",obj.clone);$(elem).on({"click":function(event){$(obj.clone).awardOrderLoginDialog("open");}},null,null);});});});}}
+if($allPossibleBuyPointsContainers.length>0){var purchasePointsUrl="/login-dialog/purchase-points.mi";$body.miAjax("newRequest","buyPoints",{"containerId":"purchase-points-container","getUrl":purchasePointsUrl});$allPossibleBuyPointsContainers.each(function(index,elem){var buyPointsHtml=$body.miAjax("getInstance","buyPoints");buyPointsHtml.deferred.complete(function(){buyPointsHtml.clone.buyPointsDialog();$(elem).on({"click":function(event){if(event.target.id=='purchase-link')
+{$('.submit-buy').show();$('.submit-gift').hide();}
+else if(event.target.id=='gift-link')
+{$('.submit-buy').hide();$('.submit-gift').show();}
+event.preventDefault();$(buyPointsHtml.clone).buyPointsDialog("open");}},null,null);});});}});
+
+}
+/*
+     FILE ARCHIVED ON 10:29:43 Jul 31, 2014 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 07:45:16 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 110.492
+  exclusion.robots: 0.088
+  exclusion.robots.policy: 0.077
+  cdx.remote: 0.067
+  esindex: 0.009
+  LoadShardBlock: 50.99 (3)
+  PetaboxLoader3.datanode: 71.094 (5)
+  load_resource: 148.563 (2)
+  PetaboxLoader3.resolve: 84.725 (2)
+*/

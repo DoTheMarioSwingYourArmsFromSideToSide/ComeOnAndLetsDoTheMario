@@ -1,0 +1,15 @@
+ /* DISABLED: Following mbox.js deprecation, this endpoint is disabled. */
+if (mboxVersion >= 33) {
+  mboxFactories.get('default').getMboxes().each(function(m){m.setOffer(new mboxOfferDefault()).loaded();});
+} else if (mboxVersion >= 31) {
+  mboxFactoryDefault.getMboxes().each(function(m){m.setOffer(new mboxOfferDefault()).loaded();});
+} else if (mboxVersion >= 25) {
+  mboxFactoryDefault.getMboxes().each(function(m){m.setOffer(new mboxOfferDefault()).activate();});
+} else if (mboxVersion == 24) {
+  mboxFactoryDefault.getMboxes().each(function(m){m.setOffer(new mboxOfferDefault());m.activate();});
+} else if (mboxVersion <= 23) {
+  for (var mbox in mboxs) {
+    mboxs[mbox].setOffer(new mboxOfferDefault());
+    mboxs[mbox].activate();
+  }
+}

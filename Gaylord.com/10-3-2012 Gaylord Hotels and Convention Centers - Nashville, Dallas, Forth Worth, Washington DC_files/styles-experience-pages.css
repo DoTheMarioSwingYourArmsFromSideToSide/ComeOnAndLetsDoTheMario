@@ -1,0 +1,97 @@
+@charset "UTF-8";
+/* CSS Document */
+
+#col_2_super_wide {
+    display: block;
+    float: left;
+    margin: 0;
+    padding: 0 10px;
+    width: 942px;
+}
+
+#SubContent {
+	width: 942px;
+	margin: auto;
+	background-image: url(/web/20121003064619im_/http://www.gaylordhotels.com/assets/images/brand/homepage-bground-fade.jpg);
+	background-repeat: repeat-x;
+	background-position: center top;
+	padding-top: 12px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	background-color: #FFF;
+	text-align: left;
+}
+.subfeature-boxes   {
+	display: block;
+	min-height:120px;
+	padding-top:20px;
+	background-image: url(/web/20121003064619im_/http://www.gaylordhotels.com/assets/images/common/homepage-subfeature-bground-01.png);
+	background-repeat: no-repeat;
+	background-position: center top;
+}
+.subfeature-boxes img   {
+	float: left;
+	margin-right: 20px;
+}
+.subfeature-boxes div   {
+	margin-left: 213px;
+}
+.subfeature-boxes div    .title{
+	font-size: 14px;
+	color: #333;
+	display: block;
+	padding-bottom: 10px;
+	padding-top: 0px;
+	margin: 0px;
+}
+.subfeature-boxes div .title h3{
+	padding: 0px;
+	display: block;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 4px;
+	margin-left: 0px;
+	font-size: 14px;
+	letter-spacing: -.04em;
+}
+.subfeature-boxes div p {
+	font-size: 13px;
+	line-height: 16px;
+	padding: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 12px;
+	margin-left: 0px;
+}
+.subfeature-boxes div p a:link, .subfeature-boxes div p a:visited {
+	color: #0775cf;
+	font-weight: bold;
+	background-image: url(/web/20121003064619im_/http://www.gaylordhotels.com/assets/images/brand/link-arrow.png);
+	background-position: left 3px;
+	padding-left: 10px;
+	text-decoration: none;
+	background-repeat: no-repeat;
+}
+
+
+/*
+     FILE ARCHIVED ON 06:46:19 Oct 03, 2012 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 07:38:16 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 71.893
+  exclusion.robots: 0.083
+  exclusion.robots.policy: 0.073
+  RedisCDXSource: 5.014
+  esindex: 0.008
+  LoadShardBlock: 43.547 (3)
+  PetaboxLoader3.datanode: 52.006 (4)
+  load_resource: 95.457
+  PetaboxLoader3.resolve: 50.226
+*/

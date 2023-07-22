@@ -1,0 +1,7 @@
+_satellite.pushBlockingScript(function(event, target, $variables){
+  if (typeof mvtRecipes !== 'undefined' && mvtRecipes.length > 0) {
+	for (i = 0; i < mvtRecipes.length; i++) {
+    mvtRecipes[i]();
+	}
+} 
+});

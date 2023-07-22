@@ -1,0 +1,303 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+// vvv 9f969e75-28f5-48f5-972c-c146dbe8cdac
+function buildMojoIframe(srcAttribute) {
+    var mojoIframe = document.createElement('iframe');
+    mojoIframe.frameBorder = 0;
+    mojoIframe.allowTransparency = true;
+    mojoIframe.setAttribute("allowtransparency", "true");
+    mojoIframe.style.cssText = 'z-index: 2147483647; display: block; background: rgba(0, 0, 0, 0.004); border: 0px none transparent; overflow-x: hidden; overflow-y: auto; visibility: visible; margin: 0px; padding: 0px; -webkit-tap-highlight-color: transparent; position: fixed; left: 0px; top: 0px; width: 100%; height: 100%;';
+    mojoIframe.id = "mojoiframe";
+    mojoIframe.setAttribute("src", srcAttribute);
+    document.body.appendChild(mojoIframe);
+    window.addEventListener('message', function (event) {
+        if (event.data == 'destroyMojoPopup') {
+            document.body.removeChild(mojoIframe);
+            // let mj = document.getElementById('mojo');
+            // mj.removeChild(mojoIframe);
+        }
+    }, false);
+}
+function showMojoPopup(hotelKey, packageKey, preview, popupHtmlUrl) {
+    if (!popupHtmlUrl) {
+        popupHtmlUrl = 'https://web.archive.org/web/20220404211039/https://popup.mobilitymojo.com/version-2/popup.html';
+    }
+    var src = popupHtmlUrl + '?hotelKey=' + hotelKey;
+    if (packageKey) {
+        src += "&packageKey=" + packageKey;
+    }
+    if (preview) {
+        src += "&preview=" + preview;
+    }
+    buildMojoIframe(src);
+}
+function showMojoModal(hotelKey, param2, param3, param4, param5) {
+    if (param2 === void 0) { param2 = null; }
+    if (param3 === void 0) { param3 = null; }
+    if (param4 === void 0) { param4 = null; }
+    if (param5 === void 0) { param5 = null; }
+    if ('hygiene' === param2) {
+        showMojoPopup(hotelKey, param2, param3, param4);
+    }
+    else { // accessibility V1
+        var customCssUrl = param2;
+        var bookNowUrl = param3;
+        var popupHtmlUrl = param4;
+        var test = param5;
+        if (!popupHtmlUrl) {
+            popupHtmlUrl = 'https://web.archive.org/web/20220404211039/https://popup.mobilitymojo.com/popup.html';
+        }
+        var src = popupHtmlUrl + '?hotelKey=' + hotelKey;
+        if (customCssUrl) {
+            src += "&customCssUrl=" + customCssUrl;
+        }
+        if (bookNowUrl) {
+            src += "&bookNowUrl=" + bookNowUrl;
+        }
+        if (test) {
+            src += "&test=" + test;
+        }
+        buildMojoIframe(src);
+    }
+}
+// ^^^ 9f969e75-28f5-48f5-972c-c146dbe8cdac
+function disableMojoMessageBubble() {
+    var disableUntil = new Date();
+    disableUntil.setTime(disableUntil.getTime() + (1 * 24 * 60 * 60 * 1000));
+    document.cookie = "disableMojoMessageBubble=" + disableUntil.getTime();
+}
+function isMojoMessageBubbleEnabled() {
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var keyValues = decodedCookie.split(';');
+    for (var i = 0; i < keyValues.length; i++) {
+        var keyValue = keyValues[i].split('=');
+        // console.log( 'keyValue', keyValue );
+        if (2 != keyValue.length) {
+            continue;
+        }
+        if (-1 === keyValue[0].indexOf('disableMojoMessageBubble')) {
+            continue;
+        }
+        var disabledUntil = parseInt(keyValue[1]);
+        if (!isNaN(disabledUntil)) {
+            return false; // ?
+        }
+        var now = new Date();
+        if (now.getTime() < disabledUntil) {
+            return false;
+        }
+    }
+    return true;
+}
+function setMojoAttributes(target, attributes) {
+    for (var key in attributes) {
+        target.setAttribute(key, attributes[key]);
+    }
+}
+function setMojoStylings(target, stylings) {
+    for (var key in stylings) {
+        target.style[key] = stylings[key];
+    }
+}
+function showMojoFloatingButton(hotelKey, product, options) {
+    if (product === void 0) { product = null; }
+    if (options === void 0) { options = null; }
+    var forAccessibility = true;
+    if ('hygiene' === product) {
+        forAccessibility = false;
+    }
+    var popupHtmlUrl = null;
+    if (options && options.popupHtmlUrl) {
+        popupHtmlUrl = options.popupHtmlUrl;
+    }
+    var mojoMessageBubble = null;
+    var mojoFloatingButton = document.createElement('div');
+    {
+        setMojoAttributes(mojoFloatingButton, {
+            'href': '#',
+            'pclass': 'mojoFloatingButton',
+        });
+        setMojoStylings(mojoFloatingButton, {
+            // '': '',
+            'background-color': '#452c83',
+            'border-color': '#FFFFFF',
+            'border-radius': '40px',
+            'border-width': '2px',
+            'border-style': 'solid',
+            'bottom': '10px',
+            'box-shadow': '0px 2px 10px 0px rgba(0,0,0,0.25)',
+            'cursor': 'pointer',
+            'height': '60px',
+            'margin': 'auto',
+            'position': 'fixed',
+            'right': '24px',
+            'width': '60px',
+            'z-index': '2147483646',
+        });
+        if (options && options.stylings && options.stylings.mojoFloatingButton) {
+            setMojoStylings(mojoFloatingButton, options.stylings.mojoFloatingButton);
+        }
+        mojoFloatingButton.addEventListener('click', function () {
+            if (mojoMessageBubble) {
+                mojoMessageBubble.parentNode.removeChild(mojoMessageBubble);
+                mojoMessageBubble = null;
+            }
+            showMojoModal(hotelKey, product, null, popupHtmlUrl);
+        });
+        var mojoLogo = null;
+        {
+            var parser = new DOMParser();
+            var svgText = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n<svg\n        xmlns=\"http://www.w3.org/2000/svg\"\n        viewBox=\"0 0 68.254555 39.290627\"\n        version=\"1.1\"\n        id=\"svg3795\"\n        pclass=\"mojoLogo\"\n        >\n    <defs\n            id=\"defs3789\" />\n    <metadata\n            id=\"metadata3792\">\n    </metadata>\n    <g\n            id=\"layer1\"\n            transform=\"translate(-51.295342,-76.271354)\">\n        <g\n                id=\"mojo-logo-elements\"\n                style=\"fill:#FFFFFF\"\n                >\n            <path\n                    class=\"st0\"\n                    d=\"m 90.580672,115.55933 c 0,-15.999351 12.969868,-28.969226 28.969228,-28.969226 V 76.274 c -21.698478,0 -39.287978,17.5895 -39.287978,39.28798 h 10.31875 z\"\n                    id=\"path3852\"\n                    style=\"stroke-width:0.26458332\" />\n            <path\n                    class=\"st0\"\n                    d=\"m 102.25144,95.297541 v 20.084519 h 10.3161 V 89.847125 c -3.85497,1.04775 -7.36335,2.931583 -10.3161,5.450416 z\"\n                    id=\"path3854\"\n                    style=\"stroke-width:0.26458332\" />\n            <path\n                    class=\"st0\"\n                    d=\"m 84.156592,94.038125 c -7.0194,-10.697104 -19.1135,-17.766771 -32.86125,-17.766771 v 10.316104 c 13.03073,0 24.04798,8.60425 27.69129,20.439062 0.98689,-4.66725 2.75696,-9.046104 5.16996,-12.988395 z\"\n                    id=\"path3856\"\n                    style=\"stroke-width:0.26458332\" />\n            <path\n                    class=\"st0\"\n                    d=\"m 68.596442,95.297541 v 20.084519 h -10.3161 V 89.847125 c 3.85233,1.04775 7.3607,2.931583 10.3161,5.450416 z\"\n                    id=\"path3858\"\n                    style=\"stroke-width:0.26458332\" />\n        </g>\n    </g>\n</svg>";
+            var svg = parser.parseFromString(svgText, "image/svg+xml");
+            mojoLogo = svg.documentElement;
+            setMojoStylings(mojoLogo, {
+                'box-sizing': 'initial',
+                'padding-top': '18px',
+                'padding-left': '7px',
+                'width': '44px',
+                'height': '22px'
+            });
+            if (options && options.stylings && options.stylings.mojoLogo) {
+                setMojoStylings(mojoLogo, options.stylings.mojoLogo);
+            }
+            mojoFloatingButton.append(mojoLogo);
+        }
+        mojoFloatingButton.addEventListener('mouseenter', function () {
+            setMojoStylings(mojoFloatingButton, {
+                'background-color': '#FFFFFF',
+                'border-color': '#452c83'
+            });
+            var logoElements = document.getElementById("mojo-logo-elements");
+            setMojoAttributes(logoElements, {
+                'style': 'fill:#452c83;',
+            });
+        });
+        mojoFloatingButton.addEventListener('mouseleave', function () {
+            setMojoStylings(mojoFloatingButton, {
+                'background-color': '#452c83',
+                'border-color': '#FFFFFF'
+            });
+            var logoElements = document.getElementById("mojo-logo-elements");
+            setMojoAttributes(logoElements, {
+                'style': 'fill:#FFFFFF;',
+            });
+        });
+    }
+    document.body.appendChild(mojoFloatingButton);
+    if (!isMojoMessageBubbleEnabled()) {
+        return;
+    }
+    {
+        mojoMessageBubble = document.createElement('div');
+        setMojoAttributes(mojoMessageBubble, {
+            "pclass": "mojoMessageBubble"
+        });
+        setMojoStylings(mojoMessageBubble, {
+            // '': '',
+            'background-color': 'white',
+            'border-radius': '4px',
+            'bottom': '68px',
+            'box-shadow': '0px 2px 10px 0px rgba(0,0,0,0.25)',
+            'box-sizing': 'initial',
+            'height': '84px',
+            'margin': '10px',
+            'padding': '0px 10px 10px 10px',
+            'position': 'fixed',
+            'right': '10px',
+            'width': '180px',
+            'z-index': '2147483645',
+        });
+        if (options && options.stylings && options.stylings.mojoMessageBubble) {
+            setMojoStylings(mojoMessageBubble, options.stylings.mojoMessageBubble);
+        }
+        {
+            var closeContainer = document.createElement('div');
+            mojoMessageBubble.append(closeContainer);
+            // closeContainer.setAttribute( 'pclass', 'mojo-close-container');
+            setMojoAttributes(closeContainer, {
+                "pclass": "mojo-close-container"
+            });
+            setMojoStylings(closeContainer, {
+                'cursor': 'pointer',
+                'margin-left': '163px',
+                'padding-top': '8px',
+                'position': 'fixed',
+            });
+            closeContainer.addEventListener('click', function () {
+                mojoMessageBubble.parentNode.removeChild(mojoMessageBubble);
+                mojoMessageBubble = null;
+                disableMojoMessageBubble();
+            });
+            {
+                var parser = new DOMParser();
+                var svgText = "<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"18\" width=\"18\"><path d=\"M 2 2 16 16 M 2 16 16 2\" style=\"stroke:#452c83; stroke-width:2\"></path></svg>";
+                var svg = parser.parseFromString(svgText, "image/svg+xml");
+                closeContainer.append(svg.documentElement);
+            }
+        }
+        {
+            var bubbleText = document.createElement('div');
+            setMojoStylings(bubbleText, {
+                // '': '',
+                'color': 'rgb(51, 71, 91)',
+                'cursor': 'pointer',
+                'font-family': 'Helvetica, Arial, sans-serif',
+                'font-weight': '400',
+                'font-size': '14px',
+                'line-height': '24px',
+                'padding-top': '10px',
+            });
+            bubbleText.addEventListener('click', function () {
+                mojoMessageBubble.parentNode.removeChild(mojoMessageBubble);
+                mojoMessageBubble = null;
+                showMojoModal(hotelKey, product, null, popupHtmlUrl);
+            });
+            bubbleText.append(document.createTextNode("Looking for our"));
+            bubbleText.append(document.createElement('br'));
+            {
+                var informationText = 'accessibility information?';
+                if (!forAccessibility) {
+                    informationText = 'hygiene information?';
+                }
+                bubbleText.append(document.createTextNode(informationText));
+            }
+            bubbleText.append(document.createElement('br'));
+            bubbleText.append(document.createTextNode("Click here"));
+            mojoMessageBubble.append(bubbleText);
+        }
+        document.body.appendChild(mojoMessageBubble);
+    }
+}
+
+
+}
+/*
+     FILE ARCHIVED ON 21:10:39 Apr 04, 2022 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 08:16:58 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 129.842
+  exclusion.robots: 0.094
+  exclusion.robots.policy: 0.084
+  cdx.remote: 0.067
+  esindex: 0.01
+  LoadShardBlock: 88.38 (3)
+  PetaboxLoader3.datanode: 127.703 (4)
+  load_resource: 298.166
+  PetaboxLoader3.resolve: 223.348
+*/

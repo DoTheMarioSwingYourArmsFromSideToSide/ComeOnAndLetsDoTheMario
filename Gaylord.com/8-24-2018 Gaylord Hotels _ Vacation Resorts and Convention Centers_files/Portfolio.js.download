@@ -1,0 +1,38 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+
+MI.Anita.Components.Portfolio=(function($,Viewport,undefined){var
+_options={},_loadHoverImage=function(event){var $img=$(this).find('.t-logo-image');$img.attr('src',$img.data('srcHover'));},_loadDefaultImage=function(event){var $img=$(this).find('.t-logo-image');$img.attr('src',$img.data('srcDefault'))},_loadSpriteHoverImage=function(event){$(this).addClass('t-portfolio-hover');},_loadSpriteDefaultImage=function(event){$(this).removeClass('t-portfolio-hover');},_centerFitWrapper=function(){var $fitWrapper=$(this),$looseWrapper=$fitWrapper.parent('.t-loose-wrapper');$looseWrapper.css('width','');$fitWrapper.css('width','');var wrapperWidth={'loose':$looseWrapper.width(),'fit':0},$logo=$fitWrapper.find('.t-logo'),logoWidth=$logo.outerWidth(true),i=0;do{wrapperWidth.fit=i*logoWidth;i++;}
+while(i*logoWidth<wrapperWidth.loose&&i<=$logo.length)};return{init:function(options){_options=$.extend({},options,_options);return this;},getOptions:function(){return _options;},build:function(){$('.m-portfolio').each(function(){var $this=$(this);$this.find('a.t-logo').on('mouseenter focus',_loadHoverImage).on('mouseleave blur mouseup',_loadDefaultImage);var $fitWrapper=$this.find('.t-fit-wrapper');_centerFitWrapper.call($fitWrapper[0]);Viewport.onResize(function(event){_centerFitWrapper.call($fitWrapper[0]);});});$('.m-brand-portfolio').each(function(){var $this=$(this);$this.find('a.t-portfolio-sprite').on('mouseenter focus',_loadSpriteHoverImage).on('mouseleave blur mouseup',_loadSpriteDefaultImage);});return this;}}}(jQuery,MI.Util.Viewport));
+
+}
+/*
+     FILE ARCHIVED ON 03:24:26 Aug 23, 2018 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 07:57:28 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 75.52
+  exclusion.robots: 0.089
+  exclusion.robots.policy: 0.078
+  cdx.remote: 0.066
+  esindex: 0.01
+  LoadShardBlock: 39.008 (3)
+  PetaboxLoader3.datanode: 53.149 (5)
+  load_resource: 107.624 (2)
+  PetaboxLoader3.resolve: 70.272 (2)
+*/

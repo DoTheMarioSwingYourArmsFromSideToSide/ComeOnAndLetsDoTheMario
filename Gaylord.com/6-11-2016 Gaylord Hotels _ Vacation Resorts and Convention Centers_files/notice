@@ -1,0 +1,43 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+function _truste_eumap(){truste=self.truste||{};truste.eu||(truste.eu={});var f=truste.eu.bindMap={domain:"marriott.com",width:parseInt("840"),height:parseInt("270"),baseName:"te-notice-clr1-a298927c-b2ec-4b9b-b422-acd49fcfa734",showOverlay:"{ShowLink}",hideOverlay:"{HideLink}",anchName:"te-notice-clr1-a298927c-b2ec-4b9b-b422-acd49fcfa734-anch",intDivName:"te-notice-clr1-a298927c-b2ec-4b9b-b422-acd49fcfa734-itl",iconSpanId:"te-notice-clr1-a298927c-b2ec-4b9b-b422-acd49fcfa734-icon",containerId:"marriottConsent",messageBaseUrl:"https://web.archive.org/web/20160611003153/http://consent.truste.com/noticemsg?",daxSignature:"",privacyUrl:"",prefmgrUrl:"https://web.archive.org/web/20160611003153/http://consent-pref.truste.com/?type=marriott&ostype=mobile",text:"true",icon:"Tracking Preferences",locale:"en",language:"en",country:"fr",assetServerURL:"https://web.archive.org/web/20160611003153/http://consent.truste.com/get?name=",iconBaseUrl:"https://web.archive.org/web/20160611003153/http://consent.truste.com/",behavior:"expressed",behaviorManager:"eu",provisionedFeatures:"",cookiePreferenceIcon:"truste_cookiepreferences.png",closeButtonUrl:"https://web.archive.org/web/20160611003153/http://consent.truste.com/get?name=btnclose_marriott.png",noticeFilename:"notice.js",apiDefaults:'{"reportlevel":16777215}',autoDisplayCloseButton:false};
+if(self.location.protocol!="http:"){for(var a in f){if(f[a]&&f[a].replace){f[a]=f[a].replace(/^(http:)?\/\//,"https://")
+}}}if(!truste.cma){var c=self.document,b=c.createElement("script");b.setAttribute("async","async");b.setAttribute("type","text/javascript");
+b.setAttribute("crossorigin","");b.src=f.assetServerURL+f.noticeFilename;(c.getElementById(f.containerId)||c.getElementsByTagName("body")[0]||c.getElementsByTagName("head")[0]).appendChild(b)
+}$temp_closebtn_style={top:"16px",right:"14px"};$temp_box_overlay={padding:"0px"};$temp_closebtn_style={top:"16px",right:"14px"};
+$temp_box_overlay={padding:"0px"};truste.eu.bindMap.closeButtonUrl=truste.eu.bindMap.closeButtonUrl.replace(/get\?name=/i,"get?name="+truste.eu.bindMap.language+"-");
+f.closebtn=(typeof $temp_closebtn_style!="undefined"&&$temp_closebtn_style)||{position:"absolute",top:"-20px",right:"-20px"};
+f.box_overlay=(typeof $temp_box_overlay!="undefined"&&$temp_box_overlay)||{padding:"10px"};f.overlay=(typeof $temp_overlay!="undefined"&&$temp_overlay)||{opacity:"0.4"};
+f.closebtn.position=(f.closebtn.position)?f.closebtn.position:"absolute"}self._truste&&(self._truste.eumap=_truste_eumap)||_truste_eumap();
+
+}
+/*
+     FILE ARCHIVED ON 00:31:53 Jun 11, 2016 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 07:48:15 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 309.944
+  exclusion.robots: 0.104
+  exclusion.robots.policy: 0.095
+  RedisCDXSource: 2.269
+  esindex: 0.009
+  LoadShardBlock: 65.553 (3)
+  PetaboxLoader3.datanode: 37.372 (4)
+  PetaboxLoader3.resolve: 61.842 (2)
+  load_resource: 38.536
+*/

@@ -1,0 +1,35 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+(function(){var d=document;var s=d.currentScript;window._zAtq=function(f){f("uniqueStateKey",30,40,30,130,50,50,20,20,null,null,[[/(?:)/,/^((?=www\.marriott\.com$)|(?=www\.marriott\.com\.au$)|(?=www\.marriott\.com\.br$)|(?=www\.marriott\.com\.cn$)|(?=www\.marriott\.com\.ru$)|(?=www\.marriott\.co\.jp$)|(?=www\.marriott\.co\.kr$)|(?=www\.marriott\.co\.uk$)|(?=www\.marriott\.com\.tr$)|(?=www\.marriott\.com\.tw$)|(?=www\.marriott\.de$)|(?=www\.marriott\.fr$)|(?=www\.marriott\.pt$)|(?=www\.marriott\.it$)|(?=www\.espanol\.marriott\.com$)|(?=rewards\.ritzcarlton\.com$)|(?=rewards\.ritzcarlton\.cn$)|(?=rewards\.ritzcarlton\.jp$)|(?=www\.arabic\.marriott\.com$))/i,/^((?=.*\/reservation\/availabilitysearch\.mi))/i,/^((?=.*istl_data))/i,/^((?=.*\/search\/submitsearch\.mi))/i,/^((?=\/aries\-auth\/loginwithcredentials\.comp))/i,/^((?=\/directlogin\.mi)|(?=\/ritz\/directlogin\.mi))/i,/^((?=\/j_security_check))/i,/^((?=\/reservation\/submitsignin\.mi))/i,/^((?=\/reservation\/selectrate\.mi))/i,/^((?=\/reservation\/v2\/selectrate\.mi))/i,/^((?=\/reservation\/enterguestinfo\.mi))/i,/^((?=.*\/reservation\/findreservationdetail\.mi))/i,/^((?=.*\/createaccount\/activateaccountchallengesubmit))/i,/^((?=.*\/createaccount\/createaccountpage1submit))/i,/^((?=.*\/createaccount\/verifymarriottrewardsaccountsubmit))/i,/^((?=.*\/forgotpasswordsubmit))/i,/^((?=.*\/profile\/email\/signupsubmit\.mi))/i,/^((?=.*editemailpreferencessubmit))/i,/^((?=.*\/suggest\/response\.mi))/i,/^((?=.*\/aries\-rewards\/v1\/enroll))/i],[[["GET"],[0,1,2,3]],[["GET"],[0,1,4,3]],[["POST"],[0,1,5,0]],[["POST"],[0,1,6,0]],[["POST"],[0,1,7,0]],[["POST"],[0,1,8,0]],[["POST"],[0,1,9,0]],[["POST"],[0,1,10,0]],[["POST"],[0,1,11,0]],[["POST"],[0,1,2,0]],[["POST"],[0,1,12,0]],[["POST"],[0,1,4,0]],[["POST"],[0,1,13,0]],[["POST"],[0,1,14,0]],[["POST"],[0,1,15,0]],[["POST"],[0,1,16,0]],[["POST"],[0,1,17,0]],[["POST"],[0,1,18,0]],[["POST"],[0,1,19,0]],[["POST"],[0,1,20,0]]]],"a","EOil1Z_2xAfjNpCvehR83Q7wLy5d9tkBgcqTXIrU=zm6FDJau0nYMGVKoSH-bs4WP","uniqueStateKey","uniqueStateKey","b","c","d","uniqueStateKey",100,"ANwrvyZkAQAA1yZNX-xujlDspYdTKzYpPsEqYhDzbDtUJW0O22YYp0S0tLzc","AIDCuCZkAQAA5Cf3oacSR-ULV-0CDKqho1LGYg4zu887b1VhTPJ7g9RMD_TJ",0,"X-aZnN0eCb-",79e2,"ZMz286iJ",[1024542949,242296910,1612046512,1569212389,20722823e2,464046955,1492068712,1119284219,1846076139,127086311,1971953642,747221984,13393486e2,1466139315,2096924323,1214988351,1545171466,1252293315,1160350962,1303864363,1483208727,1652695782,42789201,1505505842,940104876,1228828696,775566338,331274343,1125349888,872238314,14172543,878016448]);delete window._zAtq;var e=d.getElementById("0080c2b82664010000e427f7a1a71247e50b57ed020caaa1a352c6620e33bbcf3b6f55614cf27b83d44c0ff4c9");e&&e.parentNode.removeChild(e);s&&s.parentNode.removeChild(s)};d.write("<script src=\"/common/js/marriottCommon.js?seed=AIDCuCZkAQAA5Cf3oacSR-ULV-0CDKqho1LGYg4zu887b1VhTPJ7g9RMD_TJ\" id=\"0080c2b82664010000e427f7a1a71247e50b57ed020caaa1a352c6620e33bbcf3b6f55614cf27b83d44c0ff4c9\"></scr" + "ipt>")})();
+
+}
+/*
+     FILE ARCHIVED ON 09:07:00 Jun 22, 2018 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 07:55:27 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 805.709
+  exclusion.robots: 0.068
+  exclusion.robots.policy: 0.058
+  cdx.remote: 0.052
+  esindex: 0.009
+  LoadShardBlock: 271.315 (3)
+  PetaboxLoader3.resolve: 153.142 (2)
+  PetaboxLoader3.datanode: 170.325 (4)
+  load_resource: 92.381
+*/

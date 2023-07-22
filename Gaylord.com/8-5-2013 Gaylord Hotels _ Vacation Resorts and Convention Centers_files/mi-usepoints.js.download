@@ -1,0 +1,37 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+
+$(function(){var $body=$("body");var $allPossiblePreferencePanelContainers=$('a[href^="/rewards/moreRewardDetail.mi"],a[href^="/rewards/partnerDetail.mi"]',$body);var isAuthenticated=($("#my-account-container form",$body).length<=0);var isAllowedProtocol=(window.location.protocol=="https:");if($allPossiblePreferencePanelContainers.length>0){$allPossiblePreferencePanelContainers.on({"click":function(event){event.preventDefault();}},null,null);if(isAuthenticated&&isAllowedProtocol){$body.miAjax();$body.miAjax("newRequest","order",{"containerId":"award-order-container","getUrl":"/redemption/load.mi"});$allPossiblePreferencePanelContainers.each(function(index,elem){var obj=$body.miAjax("getInstance","order");obj.deferred.complete(function(){obj.clone.awardOrderDialog({"owner":elem});$(elem).data("dialog-award-order",obj.clone);$(elem).on({"click":function(event){$(obj.clone).awardOrderDialog("open");}},null,null);if(window.location.hash&&window.location.hash==="#"+index){$(obj.clone).awardOrderDialog("open");}});});}else{$body.miAjax();var rememberMeWhatsThis="/remember-me.mi?ajax=true";if($locale){var locale=$locale.locale("option","desiredLocale");if(locale!=="en-US"){rememberMeWhatsThis="/Channels/remember-me-"+locale.split("-")[0]+".mi?ajax=true";}}
+var loginUrl="/login-dialog/award-order.mi";$body.miAjax("newRequest","login",{"containerId":"award-order-login-container","getUrl":loginUrl});$body.miAjax("newRequest","rememberMe",{"containerId":"award-order-login-remember-me","getUrl":rememberMeWhatsThis});$allPossiblePreferencePanelContainers.each(function(index,elem){var obj=$body.miAjax("getInstance","login"),rememberMe=$body.miAjax("getInstance","rememberMe"),pathAndHash=window.location.pathname+"#"+index;rememberMe.deferred.complete(function(){obj.deferred.complete(function(){rememberMe.clone.rememberMeDialog();obj.clone.awardOrderLoginDialog({"returnTo":pathAndHash,"reloadPath":loginUrl,"$rememberMeDialog":rememberMe.clone}).trigger("awardorderlogindialogrefreshed");$(elem).data("login-dialog",obj.clone);$(elem).on({"click":function(event){$(obj.clone).awardOrderLoginDialog("open");}},null,null);});});});}}});
+
+}
+/*
+     FILE ARCHIVED ON 17:32:31 Aug 05, 2013 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 07:41:37 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 70.033
+  exclusion.robots: 0.061
+  exclusion.robots.policy: 0.053
+  cdx.remote: 0.049
+  esindex: 0.007
+  LoadShardBlock: 44.712 (3)
+  PetaboxLoader3.datanode: 238.301 (5)
+  load_resource: 316.326 (2)
+  PetaboxLoader3.resolve: 103.265 (2)
+*/

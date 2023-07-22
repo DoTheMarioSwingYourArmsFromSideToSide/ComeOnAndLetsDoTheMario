@@ -1,0 +1,38 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+
+MI.Anita.Components.Tabs=(function($,Viewport){var
+_Tabs=this,_opt={eventNamespace:'tabs',selectors:{module:'.m-tabs',tab:'.t-tab',tabList:'.t-tab-list',tabPanel:'.t-tab-panel'},classes:{isStacked:'is-stacked',isTabbed:'is-tabbed',isSelected:'is-selected'},toggleThreshold:5},_selectTab=function($tab,$panel){$tab.addClass(_opt.classes.isSelected).attr('aria-selected','true');$panel.addClass(_opt.classes.isSelected).attr('aria-hidden','false');},_deselectTab=function($tab,$panel){$tab.removeClass(_opt.classes.isSelected).attr('aria-selected','false');$panel.removeClass(_opt.classes.isSelected).attr('aria-hidden','true');},_toggleStackedTabs=function(){var $component=$(this),$allTabs=$component.find(_opt.selectors.tab),i=0,tabsCount=$allTabs.length;var tabWidth=0;for(i=0;i<tabsCount;i++){tabWidth+=$($allTabs[i]).outerWidth(true);}
+tabWidth+=_opt.toggleThreshold;if(tabWidth>$component.width()){$component.removeClass(_opt.classes.isTabbed).addClass(_opt.classes.isStacked);}else{$component.removeClass(_opt.classes.isStacked).addClass(_opt.classes.isTabbed);var $tabs=$component.find(_opt.selectors.tab);if(!$tabs.is('.'+_opt.classes.isSelected)){_selectTab($tabs.first(),$component.find(_opt.selectors.tabPanel+':first'));}}},_selectTabHandler=function(){var $component=$(this),$allTabs=$component.find(_opt.selectors.tab),$allTabPanels=$component.find(_opt.selectors.tabPanel);$allTabs.on('click.'+_opt.eventNamespace,function(){if(!$component.hasClass(_opt.classes.isStacked)){var $thisTab=$(this);_deselectTab($allTabs,$allTabPanels);_selectTab($thisTab,$component.find('#'+$thisTab.attr('aria-controls')));}});};return{init:function(options){_opt=$.extend({},_opt,options);return this;},build:function(){$(_opt.selectors.module).each(function(){var component=this;_toggleStackedTabs.call(component);Viewport.onResize(function(event){_toggleStackedTabs.call(component);});_selectTabHandler.call(component);});return this;}}}(jQuery,MI.Util.Viewport));
+
+}
+/*
+     FILE ARCHIVED ON 16:57:39 Sep 03, 2016 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 07:50:00 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 98.892
+  exclusion.robots: 0.098
+  exclusion.robots.policy: 0.087
+  RedisCDXSource: 15.747
+  esindex: 0.008
+  LoadShardBlock: 60.5 (3)
+  PetaboxLoader3.datanode: 85.617 (5)
+  load_resource: 211.757 (2)
+  PetaboxLoader3.resolve: 79.557 (2)
+*/

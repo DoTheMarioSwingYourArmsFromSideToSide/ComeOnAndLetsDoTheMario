@@ -1,0 +1,39 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+
+MI.Anita.Components.Superhero=(function($,Viewport,undefined){var
+_options={carousel:{breakpoints:['XS-and-above'],circular:false,css:{width:'1000%'},height:'variable',infinite:false,items:{visible:1},next:{button:'carousel-[NUM]-control-next'},onCreate:function(){var $slides=$(this).find('.is-carousel-slide');$slides.removeClass('l-visibility-hidden').find('img[data-src]').each(function(){_loadImage(this);});},pagination:{container:'carousel-[NUM]-pagination'},prev:{button:'carousel-[NUM]-control-prev'},scroll:{fx:'directscroll'},responsive:true}},_pageCarousels=0,_getCarouselConfig=function(config){return $.extend({},_options.carousel,config);},_getCarouselElementId=function(num,idTemplate){return idTemplate.replace('[NUM]',num);},_fixCarouselDimensionsOnResize=function(){var $this=$(this);Viewport.onResize(function(event){setTimeout(function(){var height=$this.children().first().height();$this.parent().add($this).height(height);},1);});},_hideAdditionalIntroText=function(){var $this=$(this),$paragraphs=$this.find('.t-intro-text > :not(:header, .t-show-more-trigger):gt(0)');if($paragraphs.length>0){$paragraphs.wrapAll('<div class="t-hidden-intro-text is-hidden"></div>');$this.find('.t-show-more-trigger').removeClass('is-hidden');}},_setShowMoreTriggerFunctionality=function(){var $this=$(this);$this.find('.t-show-more-trigger').on('click',function(event){event.preventDefault();$(this).remove();$this.find('.t-hidden-intro-text').removeClass('is-hidden');});},_loadImage=function(el,callback){var img=new Image(),src=el.getAttribute('data-src');img.onload=function(){el.src=src;if(typeof callback=='function'){callback();}}
+img.src=src;};return{init:function(options){_options=$.extend({},_options,options);return this;},getOptions:function(){return _options;},build:function(){$('.m-superhero').each(function(){var $this=$(this),$carouselSlides=$this.find('.is-carousel-slide'),imgCount=$carouselSlides.length;if(imgCount>1){_pageCarousels++;var paginationID=_getCarouselElementId(_pageCarousels,_options.carousel.pagination.container),prevControlID=_getCarouselElementId(_pageCarousels,_options.carousel.prev.button),nextControlID=_getCarouselElementId(_pageCarousels,_options.carousel.next.button);$this.find('.is-carousel-pagination').attr('id',paginationID);$this.find('.is-carousel-prev').attr('id',prevControlID);$this.find('.is-carousel-next').attr('id',nextControlID);$this.find('.is-carousel-control').on('click',function(e){e.preventDefault();});$this.carousel(_getCarouselConfig({pagination:{container:'#'+paginationID,anchorBuilder:false},prev:{button:'#'+prevControlID},next:{button:'#'+nextControlID}}));_fixCarouselDimensionsOnResize.call($this.find('.is-carousel')[0]);}
+_hideAdditionalIntroText.call($this[0]);_setShowMoreTriggerFunctionality.call($this[0]);});return this;}}}(jQuery,MI.Util.Viewport));
+
+}
+/*
+     FILE ARCHIVED ON 21:21:18 Jun 10, 2016 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 07:48:13 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 887.245
+  exclusion.robots: 0.066
+  exclusion.robots.policy: 0.058
+  cdx.remote: 0.054
+  esindex: 0.008
+  LoadShardBlock: 845.038 (3)
+  PetaboxLoader3.datanode: 804.614 (5)
+  load_resource: 182.317 (2)
+  PetaboxLoader3.resolve: 156.235 (2)
+*/
