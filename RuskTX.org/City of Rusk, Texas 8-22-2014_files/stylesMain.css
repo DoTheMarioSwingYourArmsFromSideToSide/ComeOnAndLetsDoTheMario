@@ -1,0 +1,318 @@
+@charset "utf-8";
+/* CSS Document */
+
+body, html {
+	padding: 0;
+	margin: 0;
+	font-family: Verdana, Geneva, sans-serif;	
+}
+
+	body {
+		background: url(/web/20141224060938im_/http://rusktx.org/images/body-bg.jpg) no-repeat center top fixed #f8dfae;
+	}
+
+h1, h2, h3, h4 {
+	margin: 0 0 .5em 0;	
+	color: #AB7132;
+	font-weight: normal;
+}
+
+	h1 {
+		font-size: 2.5em;
+		margin-bottom: 20px;
+		line-height: .5em;
+	}
+
+	h2 {
+		color: #5E101D;
+	}
+
+p, ol, ul, table {
+	font-size: .8em;
+	margin: 0 0 .5em 0;	
+}
+
+a {
+	text-decoration: none;
+	font-weight: bold;
+	font-style: italic;
+	color: #AB7132;
+}
+
+	a:hover {
+		
+	}
+	
+img {
+	border: none;	
+}
+
+hr {
+	border: none;
+	margin: .5em 0;
+	clear: both;
+	height: 1px;
+	color: #000;
+	background: #000;	
+}
+
+.textAlignCenter {
+	text-align: center;
+}	
+
+#container {
+	width: 960px;
+	margin: 0 auto;
+}
+
+#header {
+	position: relative;
+	width: 960px;
+	height: 200px;
+}
+
+#logo {
+	position: absolute;
+	left: 50px;
+	top: 10px;
+}
+
+#slogan {
+	position: absolute;
+	right: 70px;
+	top: 90px;
+}
+
+/*#nav {
+	position: relative;
+	width: 960px;
+	height: 25px;
+	margin: 0 0; 
+	float: left;	
+	z-index: 10;
+}
+
+	#nav ul {
+		margin: 0 auto;
+		list-style-type: none;
+		padding: 0;
+		position: relative;
+		left: 50%;
+	}
+
+	#nav li {
+		float: left;
+		position: relative;
+	}	
+
+	#nav a {
+		font-size: 12px;
+		font-style: normal;	
+		background: #FFF6E5;
+		padding: 7px;
+		margin: 0 .5px 0 .5px;
+		float: left;
+		text-alin: center;
+		white-space: nowrap;
+		color: #5b101b;
+	}
+	
+	#nav a:hover {
+		background: #D4751B;	
+		color: #FFF4DE;
+	}
+	
+	#nav ul li li {
+		width: 100%;
+	}
+	
+	#nav li li a {
+		font-size: 12px;
+		font-style: normal;
+		background-image: none;	
+		background: #FFF6E5;
+		padding: 7px;
+		margin: 0 .5px 0 .5px;
+		text-alin: center;
+		white-space: nowrap;
+		color: #5b101b;
+	}
+	
+	#nav li li li a {
+		font-size: 12px;
+		font-style: normal;	
+		background-image: none;
+		background: #FFF6E5;
+		padding: 7px;
+		margin: 0 .5px 0 .5px;
+		text-alin: center;
+		white-space: nowrap;
+		color: #5b101b;
+	}*/
+
+
+#topnav {
+	height: 30px;
+	text-align: center;
+	font-size: 14px;
+	float: right;
+	-moz-box-shadow: 0 0 5px #2b2620;
+	-webkit-box-shadow: 0 0 5px #2b2620;
+	box-shadow: 0 0 5px #2b2620;
+}
+
+	#topnav a {
+		font-size: 13px;
+		font-style: normal;	
+		padding: 7px 7px;
+		margin: 0 .5px 10px .5px;
+		background: #FFF4DE;
+		float: left;
+		text-alin: center;
+		white-space: nowrap;
+		color: #5b101b;
+	}
+	
+	#topnav a:hover {
+		background: #D4751B;	
+		color: #FFF4DE;
+	}
+
+
+
+#banner {
+	width: 934px;
+	height: 150px;
+	background: #FFF6E5;
+	float: left;
+	box-shadow: 0 0 70px #A08155;
+	-moz-box-shadow: 0 0 70px #A08155;
+	-webkit-box-shadow: 0 0 70px #A08155;
+	z-index: 8;
+	position: relative;
+	border: 13px solid #fff4de;
+	margin-top: 15px;
+}
+
+	body#indexPage #banner {
+		height: 354px;	
+	}
+
+#main {
+	width: 820px;
+	min-height: 300px;
+	padding: 30px 30px 15px 30px;
+	margin: 0 40px;
+	float: left;
+	background: url(/web/20141224060938im_/http://rusktx.org/images/main-bg.png);
+}
+
+	body#indexPage #main {
+		padding-top: 15px;	
+		min-height: 1px;
+	}
+
+#leftCol {
+	float: left;
+	width: 240px;
+	padding: 40px;
+	margin: 0 0 0 -70px;
+	background: #FFF6E5;
+	box-shadow: 0 30px 70px #A08155;
+	-moz-box-shadow: 0 30px 70px #A08155;
+	-webkit-box-shadow: 0 30px 70px #A08155;
+	position: relative;
+}
+
+#leftColArt {
+	position: absolute;
+	left: 0px;
+	bottom: -83px;
+	z-index: 1;
+}
+
+#eaglesText {
+	margin: 5px 0 -60px -10px;	
+	position: relative;
+	z-index: 2;
+}
+
+#rightCol {
+	float: right;
+	width: 540px;
+}
+
+.infoBox {
+	clear: both;
+	border-bottom: 1px solid #DBCAAC;
+	float: left;
+	padding: 15px 0;
+}
+
+	.infoBox img {
+		width: 182px;
+		height: 130px;	
+		border: 8px solid #fff4de;
+		float: left;
+		margin: 0 15px;
+		box-shadow: 0 0 70px #A08155;
+		-moz-box-shadow: 0 0 70px #A08155;
+		-webkit-box-shadow: 0 0 70px #A08155;
+	}
+	
+	.infoBox p {
+		font-size: .7em;	
+		line-height: 1.3em;
+	}
+	
+	.infoBox img.alt {
+		float: right;	
+	}
+	
+	.infoBox:last-child {
+		border: none;	
+	}
+	
+#bigSlogan {
+	margin: 20px 0 -70px 0;
+	position: relative;
+	z-index: 9;
+}	
+
+#footer {
+	width: 960px;
+	float: left;
+	clear: both;
+	padding: 10px 0 30px 0;
+	background: url(/web/20141224060938im_/http://rusktx.org/images/footer-bg.png) no-repeat center bottom;
+	margin-bottom: 20px;
+}
+
+	#footer p {
+		text-align: center;
+		margin: 0;	
+	}
+	
+#footerArt {
+	margin: 0 0 20px 0;	
+}
+/*
+     FILE ARCHIVED ON 06:09:38 Dec 24, 2014 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:22:42 Jul 18, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 90.511
+  exclusion.robots: 0.161
+  exclusion.robots.policy: 0.143
+  cdx.remote: 0.112
+  esindex: 0.017
+  LoadShardBlock: 58.066 (3)
+  PetaboxLoader3.datanode: 90.602 (4)
+  load_resource: 157.286
+  PetaboxLoader3.resolve: 104.651
+*/

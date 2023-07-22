@@ -1,0 +1,122 @@
+/*
+Skin Name: Nivo Slider Dark Theme
+Skin URI: http://nivo.dev7studios.com
+Description: A dark skin for the Nivo Slider.
+Version: 1.0
+Author: Gilbert Pellegrom
+Author URI: http://dev7studios.com
+Supports Thumbs: true
+*/
+
+.theme-dark.slider-wrapper {
+    background: #222;
+    padding: 10px;
+}
+.theme-dark .nivoSlider {
+	position:relative;
+	background:#fff url(/web/20150627030430im_/http://www.rusktx.org/slideshow/themes/dark/loading.gif) no-repeat 50% 50%;
+    margin-bottom:10px;
+    overflow: visible;
+}
+.theme-dark .nivoSlider img {
+	position:absolute;
+	top:0px;
+	left:0px;
+	display:none;
+}
+.theme-dark .nivoSlider a {
+	border:0;
+	display:block;
+}
+
+.theme-dark .nivo-controlNav {
+	text-align: left;
+	padding: 0;
+	position: relative;
+	z-index: 10;
+}
+.theme-dark .nivo-controlNav a {
+	display:inline-block;
+	width:10px;
+	height:10px;
+	background:url(/web/20150627030430im_/http://www.rusktx.org/slideshow/themes/dark/bullets.png) no-repeat 0 2px;
+	text-indent:-9999px;
+	border:0;
+	margin: 0 2px;
+}
+.theme-dark .nivo-controlNav a.active {
+	background-position:0 100%;
+}
+
+.theme-dark .nivo-directionNav a {
+	display:block;
+	width:30px;
+	height:30px;
+	background: url(/web/20150627030430im_/http://www.rusktx.org/slideshow/themes/dark/arrows.png) no-repeat;
+	text-indent:-9999px;
+	border:0;
+	top: auto;
+	bottom: -36px;
+	z-index: 11;
+}
+.theme-dark .nivo-directionNav a:hover {
+    background-color: #333;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+.theme-dark a.nivo-nextNav {
+	background-position:-16px 50%;
+	right:0px;
+}
+.theme-dark a.nivo-prevNav {
+    background-position:11px 50%;
+    left: auto;
+	right: 35px;
+}
+
+.theme-dark .nivo-caption {
+    font-family: Helvetica, Arial, sans-serif;
+}
+.theme-dark .nivo-caption a {
+    color:#fff;
+    border-bottom:1px dotted #fff;
+}
+.theme-dark .nivo-caption a:hover {
+    color:#fff;
+}
+
+.theme-dark .nivo-controlNav.nivo-thumbs-enabled {
+	width: 80%;
+}
+.theme-dark .nivo-controlNav.nivo-thumbs-enabled a {
+	width: auto;
+	height: auto;
+	background: none;
+	margin-bottom: 5px;
+}
+.theme-dark .nivo-controlNav.nivo-thumbs-enabled img {
+	display: block;
+	width: 120px;
+	height: auto;
+}
+/*
+     FILE ARCHIVED ON 03:04:30 Jun 27, 2015 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:21:35 Jul 18, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 51.912
+  exclusion.robots: 0.082
+  exclusion.robots.policy: 0.071
+  RedisCDXSource: 0.663
+  esindex: 0.01
+  LoadShardBlock: 32.666 (3)
+  PetaboxLoader3.datanode: 45.611 (4)
+  load_resource: 94.282
+  PetaboxLoader3.resolve: 70.265
+*/

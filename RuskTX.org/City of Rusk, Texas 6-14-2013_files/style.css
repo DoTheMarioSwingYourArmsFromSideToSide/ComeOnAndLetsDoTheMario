@@ -1,0 +1,175 @@
+/* bottom center */
+#wowslider-container1  .ws_bullets {
+	top:20px;
+    right:15px;
+}
+
+/* Image container style */
+#wowslider-container1{
+	width:990px;
+	height:390px;
+	position:relative;
+	margin:0 auto;
+	z-index:100;
+	background-image: url(/web/20131023173800im_/http://rusktx.org/webadmin/gallery/slider/templates/PULSE/engine1/bg.png);
+}
+#wowslider-container1 .ws_images{
+	position: absolute;
+	left:15px;
+	top:15px;
+	width:960px;
+	height:360px;
+	overflow:hidden;
+}
+#wowslider-container1 .ws_images img{
+	top:0;
+	left:0;
+	border:0 none;
+	max-width: none;
+}
+
+/* Navigation arrows for preview mode */
+#wowslider-container1 a.ws_next, #wowslider-container1 a.ws_prev{
+	outline:none;
+	position:absolute;
+	display:none;
+	top:50%;
+	width:56px;
+	height:56px;
+	margin:-28px 0 0 0;
+	z-index:60;
+	cursor:pointer;
+	opacity:0.6;
+    -moz-border-radius:10px;
+    -webkit-border-radius:10px;
+    border-radius:10px;
+	filter:progid:DXImageTransform.Microsoft.Alpha(opacity=60);	
+}
+#wowslider-container1 a.ws_next{
+	right:20px;
+	background:#000 url(/web/20131023173800im_/http://rusktx.org/webadmin/gallery/slider/templates/PULSE/engine1/next_photo.png) no-repeat 50% 50%;
+}
+#wowslider-container1 a.ws_prev{
+	left:20px;
+	background:#000 url(/web/20131023173800im_/http://rusktx.org/webadmin/gallery/slider/templates/PULSE/engine1/prev_photo.png) no-repeat 50% 50%;
+}
+* html #wowslider-container1 a.ws_next,* html #wowslider-container1 a.ws_prev{display:block}
+#wowslider-container1:hover a.ws_next, #wowslider-container1:hover a.ws_prev {display:block}
+
+#wowslider-container1 a.ws_next:hover, #wowslider-container1 a.ws_prev:hover{
+	opacity:0.8;
+	filter:progid:DXImageTransform.Microsoft.Alpha(opacity=80);	
+}
+
+/* bullets */
+#wowslider-container1  .ws_bullets{
+	position:absolute;
+	z-index:70;
+}
+#wowslider-container1 .ws_bullets a {
+	position:relative;
+	background:url("/web/20131023173800im_/http://rusktx.org/webadmin/gallery/slider/templates/PULSE/engine1/bullet.png") no-repeat scroll 0 0 transparent;
+	border:0 none;
+	display:block;
+	float:left;
+	cursor:pointer;
+	height:10px;
+	margin-right:4px;
+	text-indent:-9999px;
+	width:10px;
+	z-index:100;
+	outline:none;
+	color:transparent;
+}
+#wowslider-container1 a.ws_selbull,#wowslider-container1 a.ws_overbull,#wowslider-container1 .ws_bullets a:hover{
+	background-position:100% 0;
+}
+
+#wowslider-container1 .ws-title{
+	position:absolute;
+	display:block;
+	bottom: 20px;
+	left: 20px;
+	margin-right:25px;
+	padding:10px;
+	background-color:black;
+	color:white;
+	z-index: 50;
+	opacity:0.5;
+	-moz-border-radius:8px;
+	-webkit-border-radius:8px;
+	border-radius:8px;
+	font-family: Tahoma,Arial,Helvetica;
+	font-size: 14px;
+	height:17px;
+	filter:progid:DXImageTransform.Microsoft.Alpha(opacity=50);	
+}
+#wowslider-container1 .ws-title div{
+	padding-top:5px;
+	font-size: 12px;
+}#wowslider-container1 .ws_bullets  a img{
+	text-indent:0;
+	display:block;
+	top:10px;
+	left:-120px;
+	visibility:hidden;
+	position:absolute;
+    -moz-box-shadow: 0 0 5px #999999;
+    box-shadow: 0 0 5px #999999;
+    border: 5px solid #FFFFFF;
+}
+#wowslider-container1 .ws_bullets a:hover img{
+	visibility:visible;
+}
+
+#wowslider-container1 .ws_bulframe div div{
+	height:90px;
+	overflow:visible;
+	position:relative;
+}
+#wowslider-container1 .ws_bulframe div {
+	left:0;
+	overflow:hidden;
+	position:relative;
+	width:240px;
+}
+#wowslider-container1  .ws_bullets .ws_bulframe{
+	display:none;
+	top:15px;
+	overflow:visible;
+	position:absolute;
+	cursor:pointer;
+    -moz-box-shadow: 0 0 5px #999999;
+    box-shadow: 0 0 5px #999999;
+    border: 5px solid #FFFFFF;
+}
+#wowslider-container1 .ws_bulframe span{
+	display:block;
+	position:absolute;
+	top:-11px;
+	margin-left:-9px;
+	left:120px;
+	background:url(/web/20131023173800im_/http://rusktx.org/webadmin/gallery/slider/templates/PULSE/engine1/triangle.png);
+	width:15px;
+	height:6px;
+}
+/*
+     FILE ARCHIVED ON 17:38:00 Oct 23, 2013 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:23:53 Jul 18, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 100.372
+  exclusion.robots: 0.082
+  exclusion.robots.policy: 0.074
+  cdx.remote: 0.049
+  esindex: 0.008
+  LoadShardBlock: 77.347 (3)
+  PetaboxLoader3.datanode: 90.137 (4)
+  load_resource: 93.554
+  PetaboxLoader3.resolve: 55.894
+*/

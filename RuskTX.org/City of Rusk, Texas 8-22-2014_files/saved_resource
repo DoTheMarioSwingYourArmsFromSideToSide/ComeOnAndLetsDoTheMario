@@ -1,0 +1,212 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script src="/assets/js/jquery.min.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>City of Rusk, Texas</title>
+<link href="/stylesMain.css" rel="stylesheet" type="text/css">
+<link href="/stylesSuperfish.css" rel="stylesheet" type="text/css">
+
+<script src="/js/cufon-yui.js" type="text/javascript"></script>
+<script src="/js/BookmanJFSwashA_italic_400.font.js" type="text/javascript"></script>
+<script src="/js/cufon-replace.js" type="text/javascript"></script>
+</head>
+
+<body id="indexPage">
+
+
+	<div id="container">
+
+
+    	<div id="header">
+        <div id="topnav">
+			  					<a href="/pages/points-of-interest"   >Points of Interest</a>
+			 				<a href="/pages/links"   >Links</a>
+			 				<a href="http://www.rusktx.org/uploads/tinymce/Consumer%20Confidence%20Report%202013%20doc.pdf" target="_blank"  >2013 CCR</a>
+			 				<a href="/pages/civic-center-events"   >Civic Center Events</a>
+			 				<a href="/calendar.php"   >Calendar of Events</a>
+			 				<a href="/pages/contact-us"   >Contact Us</a>
+			        </div>
+
+
+
+        <a href="/index.php"><img src="/images/rusk-logo.png" alt="City of Rusk" name="logo" width="212" height="180" id="logo"/></a>
+
+
+            <img src="/images/slogan.png" alt="The Heart of East Texas" width="417" height="58" id="slogan" />
+
+</div><!--header-->
+
+       <div id="nav">
+       				<ul class="sf-menu" >
+											<li id="menu-17"><a href="/"   >Home</a>
+						</li>							<li id="menu-18"><a href="/pages/about-city-of-rusk"   >About City of Rusk</a>
+						</li>							<li id="menu-19"><a href="/pages/utility-billing"   >Utility Billing</a>
+						<ul>							<li id="menu-28"><a href="/pages/utility-billing/2013-consumer-confidence-report"   >2013 Consumer Confidence Report</a>
+						</li></ul>							<li id="menu-20"><a href="/pages/public-worksstreets"   >Public Works/Streets</a>
+						</li>							<li id="menu-21"><a href="/pages/civic-center"   >Civic Center</a>
+						</li>							<li id="menu-22"><a href="/pages/singletary-library"   >Singletary Library</a>
+						</li>							<li id="menu-23"><a href="/pages/agenda-and-notices"  onclick="return false;" >Agenda &amp; Notices</a>
+						<ul>							<li id="menu-36"><a href="/pages/agenda-and-notices/2014-city-council-agenda"   >2014 City Council Agenda</a>
+						</li></ul>							<li id="menu-24"><a href="/pages/departments"   >Departments</a>
+						</li>			</ul>
+		       </div><!--nav-->
+
+        <div id="banner"> <!--<img src="images/banner-01.jpg" width="934" height="354" alt="">-->
+		<div class="slider-wrapper theme-light" style="width:913px;height:333px;"><div id="slideshow" class="nivoSlider" style=""><img src="/assets/scripts/timthumb.php?src=http://www.rusktx.org/uploads/gallery/40.jpg&w=893&h=313" title="" data-thumb="/assets/scripts/timthumb.php?src=http://www.rusktx.org/uploads/gallery/40.jpg&w=120&h=75"/><img src="/assets/scripts/timthumb.php?src=http://www.rusktx.org/uploads/gallery/41.jpg&w=893&h=313" title="" data-thumb="/assets/scripts/timthumb.php?src=http://www.rusktx.org/uploads/gallery/41.jpg&w=120&h=75"/><img src="/assets/scripts/timthumb.php?src=http://www.rusktx.org/uploads/gallery/42.jpg&w=893&h=313" title="" data-thumb="/assets/scripts/timthumb.php?src=http://www.rusktx.org/uploads/gallery/42.jpg&w=120&h=75"/><img src="/assets/scripts/timthumb.php?src=http://www.rusktx.org/uploads/gallery/43.jpg&w=893&h=313" title="" data-thumb="/assets/scripts/timthumb.php?src=http://www.rusktx.org/uploads/gallery/43.jpg&w=120&h=75"/><img src="/assets/scripts/timthumb.php?src=http://www.rusktx.org/uploads/gallery/44.jpg&w=893&h=313" title="" data-thumb="/assets/scripts/timthumb.php?src=http://www.rusktx.org/uploads/gallery/44.jpg&w=120&h=75"/><img src="/assets/scripts/timthumb.php?src=http://www.rusktx.org/uploads/gallery/45.jpg&w=893&h=313" title="" data-thumb="/assets/scripts/timthumb.php?src=http://www.rusktx.org/uploads/gallery/45.jpg&w=120&h=75"/><img src="/assets/scripts/timthumb.php?src=http://www.rusktx.org/uploads/gallery/46.jpg&w=893&h=313" title="" data-thumb="/assets/scripts/timthumb.php?src=http://www.rusktx.org/uploads/gallery/46.jpg&w=120&h=75"/><img src="/assets/scripts/timthumb.php?src=http://www.rusktx.org/uploads/gallery/49.jpg&w=893&h=313" title="New Splash Pad under construction" data-thumb="/assets/scripts/timthumb.php?src=http://www.rusktx.org/uploads/gallery/49.jpg&w=120&h=75"/></div></div><div style="clear:both;"></div><link rel="stylesheet" href="/slideshow/themes/default/default.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="/slideshow/themes/light/light.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="/slideshow/themes/dark/dark.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="/slideshow/themes/bar/bar.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="/slideshow/nivo-slider.css" type="text/css" media="screen" />
+<style type="text/css">
+.nivoSlider {
+    position:relative;
+    background:url(/slideshow/images/loading.gif) no-repeat 50% 50%;
+}
+.nivoSlider img {
+    position:absolute;
+    top:0px;
+    left:0px;
+    display:none;
+}
+.nivoSlider a {
+    border:0;
+    display:block;
+}
+</style>
+<script type="text/javascript" src="/slideshow/jquery.nivo.slider.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#slideshow').nivoSlider({
+        effect: "random", // Specify sets like: 'fold,fade,sliceDown'
+        slices: 15, // For slice animations
+        boxCols: 8, // For box animations
+        boxRows: 4, // For box animations
+        animSpeed: 500, // Slide transition speed
+        pauseTime: 3000, // How long each slide will show
+        startSlide: 0, // Set starting Slide (0 index)
+        directionNav: 1, // Next & Prev navigation
+        controlNav: 1, // 1,2,3... navigation
+        controlNavThumbs: 0, // Use thumbnails for Control Nav
+        pauseOnHover: 1, // Stop animation while hovering
+        manualAdvance: 0, // Force manual transitions
+        prevText: "Prev", // Prev directionNav text
+        nextText: "Next", // Next directionNav text
+        randomStart: 0, // Start on a random slide
+        beforeChange: function(){}, // Triggers before a slide transition
+        afterChange: function(){}, // Triggers after a slide transition
+        slideshowEnd: function(){}, // Triggers after all slides have been shown
+        lastSlide: function(){}, // Triggers when last slide is shown
+        afterLoad: function(){} // Triggers when slider has loaded
+    });
+});
+</script>
+	  </div><!--banner-->
+
+        <div id="main">
+        <link rel="stylesheet" href="/slideshow/themes/light/light.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="/slideshow/themes/dark/dark.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="/slideshow/themes/bar/bar.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="/slideshow/nivo-slider.css" type="text/css" media="screen" />
+	<script type="text/javascript" src="/slideshow/jquery.nivo.slider.pack.js"></script>
+	<script>
+	$(document).ready(function() {
+	    $('#slideshow').nivoSlider({
+		effect: "random", // Specify sets like: 'fold,fade,sliceDown'
+		slices: 15, // For slice animations
+		boxCols: 8, // For box animations
+		boxRows: 4, // For box animations
+		animSpeed: 500, // Slide transition speed
+		pauseTime: 3000, // How long each slide will show
+		startSlide: 0, // Set starting Slide (0 index)
+		directionNav: 1, // Next & Prev navigation
+		controlNav: 1, // 1,2,3... navigation
+		controlNavThumbs: 0, // Use thumbnails for Control Nav
+		pauseOnHover: 1, // Stop animation while hovering
+		manualAdvance: 0, // Force manual transitions
+		prevText: "Prev", // Prev directionNav text
+		nextText: "Next", // Next directionNav text
+		randomStart: 0, // Start on a random slide
+		beforeChange: function(){}, // Triggers before a slide transition
+		afterChange: function(){}, // Triggers after a slide transition
+		slideshowEnd: function(){}, // Triggers after all slides have been shown
+		lastSlide: function(){}, // Triggers when last slide is shown
+		afterLoad: function(){} // Triggers when slider has loaded
+	    });
+	});
+	</script>
+	<style type="text/css">
+	.nivoSlider {
+	    position:relative;
+	    background:url(/slideshow/images/loading.gif) no-repeat 50% 50%;
+	}
+	.nivoSlider img {
+	    position:absolute;
+	    top:0px;
+	    left:0px;
+	    display:none;
+	}
+	.nivoSlider a {
+	    border:0;
+	    display:block;
+	}
+	</style>
+<div id="leftCol">
+			<h1>Welcome to Rusk</h1>
+	  		<p><strong>RUSK, TEXAS</strong>. Rusk, the county seat and second largest city of Cherokee County, is near the geographic center of the county at the junction of U.S. highways 69 and 84, State Highway 110, and Farm roads 241, 343, 752, 768, 1248, 1857, and 2972, 120 miles southeast of Dallas. The town was established by an act of the Texas legislature on April 11, 1846, which defined the boundaries of Cherokee County and called for the county seat to be named for Gen. <a href="http://www.tshaonline.org/handbook/online/articles/fru16">Thomas Jefferson Rusk</a>, one of the signers of the <a href="http://www.tshaonline.org/handbook/online/articles/mjtce">Texas Declaration of Independence</a></p>
+
+      <img id="eaglesText" src="images/eagles-text.png" width="252" height="77" alt="">
+      <img id="leftColArt" src="images/leftCol-art.png" width="320" height="83" alt="">
+
+     </div><!--leftCol-->
+
+            <div id="rightCol">
+            	          					<div class="infoBox">
+										<img  src="" alt="" />
+										<h2>City-wide Clean Up/Dumpster Days</h2>
+										<p>Click here for information: &nbsp; /uploads/tinymce/Clean up Information.pdf</p>
+										<p><a href="/newsletter?id=9">› Read more</a></p>
+										</div><!--infoBox-->
+          				          					<div class="infoBox">
+										<img class="alt" src="" alt="" />
+										<h2>2013 Consumer Confidence Report</h2>
+										<p>OUR DRINKING WATER MEETS OR EXCEEDS ALL FEDERAL (EPA) DRINKING WATER REQUIRMENTS&nbsp; This report </p>
+										<p><a href="/newsletter?id=8">› Read more</a></p>
+										</div><!--infoBox-->
+          				          					<div class="infoBox">
+										<img  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN0AAABICAYAAAByb/DqAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAACWISURBVHhe7d0LvGZT+QfwjVJSQiGklOiiJKJUuilkdJEUjcrkFgpJCmXc79SYhIxkKtVQipSQWyPpRheXSulCKboXJbX/+/uY5/zX7Hnf95zDOebM2L/PZ3/e9917rbXX5XnWc1trvYv873//q6txwiKLLDLn28hQ1+NWlQ4dJgzGhelKZvvXv/5V/frXv65+97vfVXfddVf10Ic+tHrEIx5RPeYxj6lWWWWVeO561KMeVT3ykY+MPB3zdViYMaZMl8z273//O5js2muvrX7zm99Uq666avWEJzyhWmyxxaq///3v1Z///Ofq6quvrn7/+99XK6ywQvWc5zynevjDHx6MuOaaawZTdozXYWHF/WK6XurjL37xi+qHP/xh9atf/Sqk11Oe8pTqjjvuCGZ66lOfGmnuvPPO6stf/nK19NJLV//4xz8izxprrBGMd/fdd1fPfvazQwp2jNdhYcR9Yrpktv/85z9Vk7962MMeFr+/973vhSr55Cc/ufr5z39eveQlLwnp9Yc//KH65je/WW244YbBaL5TJUk4+PGPf1x95StfqR7/+MdXz3rWs6qf/vSn8Uw50DFfh4UJo2Y6DPfHP/6xmj17dnyy05ZZZplgrJVWWqnacsst494VV1xRvfzlLw/pBT/4wQ9CvXzmM59ZnXvuudW6665brbzyyvEMqJynn356SMdJkyZVV111VaShmnZM12FhwqJzPocFZnOxw0477bRQEV/0ohdVr3vd66p77rmn+uc//xnp/vSnP4Xk++9//xuqY2KppZaq/vrXv8b3v/3tb8GYgKFcGHennXYKp8pFF10UDEsC3nbbbUOSNeuQvzt0WBAxIqZLIv/tb39bnXTSSdVqq61WbbPNNmGHsdfYavvvv3+ohN/61reC4Uisn/zkJ5EP2GqkHmbDsLfffnvcL5mIyrn99tuHaorx1l577eo73/lO5JVGPhIxf2e+Dh0WJAyrXiJsjHX22WeH5LnllltCulH7eBlJNrbakksuGekvv/zyasUVVwxHCBVUiIBK+e1vfzueP+QhD4m8v/zlL6vFF1+8evSjH1096UlPCluPfbjoootWN998czV9+vRq1113DQb72c9+FuX85S9/Caajym6++ebVeuut16meHRY4LDZ16tQD53yfBxgO0bO1qIdPf/rTgzkwHdf/pz71qeoZz3hG9bSnPW1OjipUSkxBGj7ucY8Lhj3//PNDbZR3rbXWCga94YYbIqxAeimL5KOWujhf2H/y+X3ZZZcF466//vrhBaWKmgSU7+rQYUHCsOolO4w0e81rXhPeRRIHoWOM5z73ucFUJFECo5JI1Ej52IDUSqrnJptsUj32sY+NGB3P5o477lhtuummwbQkHqmF2cDzm266KcIJVFkS0nvF9V74wheG6nnddddF2k7N7LAgYVimy6A1ySREQGKRZsIDGGWDDTaovv/97w+pebfeemswBzVR+EBQfIsttghnC6/lF77whcif6ijbT3r2oTKkA3E+3k3v9H725DXXXFN97Wtfq84777xQQZUNnYrZYUHCiGy6Sy+9tDrllFNCFWR3TZs2Ley75ZdfPjyRVp4873nPC2mEodh4JCDHCIZhz1EHfWIWDPaKV7yiWnbZZUNisc2AmokZvfOLX/xilC/08PznPz9CCILumNKKFxL33e9+d7wLOsbrsKBgWJuOB5InkSpJRRTYpjqSUGwsnyQd5sNMyXyYwOdxxx1XnXzyyWGbvfjFL45PKiuGo67yTmImMb7lllsu3omxqI5WppB0yqfC7rzzztV2221Xvf71rw/ny5VXXhk2Imksn6tDh4mOvkyXBHzWWWeFHbXtttuGM4OdRgqRShtttFGogFQ/MTtODjYZ1ZIDZr/99gvGeNe73hUhBaoo6ffEJz4xGIvknDx5cqS1LEyowTPMev3114cX1O+PfvSjwWTCCSQhBrdqhYNFWt+9l1TtGK/DRMdAm460ok4i+ATHB+8h2+673/1uMArHSaneYagTTzwxwgunnnpq9cY3vjHuk3CYgkOFVOSxvPjii8P9/5a3vCXsRJ5S9hz1lHeTI4adiAHBO6mzSyyxRMQHBdHVjxpKanboMNExj6Qr1TSfpAjiX2eddeIeFfDGG28MCUM95NywaoQqKO7G1ps5c2YwwRFHHBHSEUhGkkme1VdfPZwnJNznP//5UDXZdaQlRmT7US95L0lWDK4uGFV8T1oxQMvESFdlqdeXvvSlSJNbhDp0mIiYi+mS2UgXjMYpgqA5MdhupbQhjUioH/3o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" alt="" />
+										<h2>Mega Games comes to RHS</h2>
+										<p> </p>
+										<p><a href="/newsletter?id=6">› Read more</a></p>
+										</div><!--infoBox-->
+          				
+            </div><!--rightCol-->
+
+        <p class="textAlignCenter"><img id="bigSlogan" src="images/slogan-big.png" width="633" height="91" alt="The Heart of East Texas"></p>
+
+        </div><!--main-->
+
+        <div id="footer">
+
+        	<p class="textAlignCenter"><img id="footerArt" src="/images/footer-art.png" width="654" height="13" alt=""></p>
+   	    <p>Rusk City Hall <img src="/images/star-icon.png" width="12" height="11" alt=""> 205 S. Main St. <img src="/images/star-icon.png" width="12" height="11" alt=""> Rusk, Texas 75785 <img src="/images/star-icon.png" width="12" height="11" alt=""> <a href="/pages/map-of-rusk" target="_self">See Map</a> <img src="/images/star-icon.png" width="12" height="11" alt=""> 903-683-2213 <img src="/images/star-icon.png" width="12" height="11" alt=""> 903-683-5964 (fax)</p>
+			<p><a href="http://www.groupm7.com" target="_blank">Website by GroupM7 Design&trade;</a></p>
+
+        </div><!--footer-->
+
+    </div><!--container-->
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-28314906-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+</html>

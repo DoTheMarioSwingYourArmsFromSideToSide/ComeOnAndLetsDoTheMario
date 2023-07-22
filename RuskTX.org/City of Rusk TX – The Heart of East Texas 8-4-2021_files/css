@@ -1,0 +1,147 @@
+@font-face {
+  font-family: 'Nunito';
+  font-style: italic;
+  font-weight: 200;
+  font-display: swap;
+  src: url(https://web.archive.org/web/20211003185508im_/https://fonts.gstatic.com/s/nunito/v16/XRXQ3I6Li01BKofIMN5MZ9vKUTo.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Nunito';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://web.archive.org/web/20211003185508im_/https://fonts.gstatic.com/s/nunito/v16/XRXQ3I6Li01BKofIMN4oZNvKUTo.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Nunito';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://web.archive.org/web/20211003185508im_/https://fonts.gstatic.com/s/nunito/v16/XRXX3I6Li01BKofIMNaDRss.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Nunito';
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://web.archive.org/web/20211003185508im_/https://fonts.gstatic.com/s/nunito/v16/XRXQ3I6Li01BKofIMN5cYtvKUTo.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Nunito';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://web.archive.org/web/20211003185508im_/https://fonts.gstatic.com/s/nunito/v16/XRXQ3I6Li01BKofIMN44Y9vKUTo.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Nunito';
+  font-style: italic;
+  font-weight: 800;
+  font-display: swap;
+  src: url(https://web.archive.org/web/20211003185508im_/https://fonts.gstatic.com/s/nunito/v16/XRXQ3I6Li01BKofIMN4kYNvKUTo.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Nunito';
+  font-style: italic;
+  font-weight: 900;
+  font-display: swap;
+  src: url(https://web.archive.org/web/20211003185508im_/https://fonts.gstatic.com/s/nunito/v16/XRXQ3I6Li01BKofIMN4AYdvKUTo.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+  src: url(https://web.archive.org/web/20211003185508im_/https://fonts.gstatic.com/s/nunito/v16/XRXW3I6Li01BKofA-seUYevN.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://web.archive.org/web/20211003185508im_/https://fonts.gstatic.com/s/nunito/v16/XRXW3I6Li01BKofAnsSUYevN.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://web.archive.org/web/20211003185508im_/https://fonts.gstatic.com/s/nunito/v16/XRXV3I6Li01BKofINeaE.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://web.archive.org/web/20211003185508im_/https://fonts.gstatic.com/s/nunito/v16/XRXW3I6Li01BKofA6sKUYevN.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://web.archive.org/web/20211003185508im_/https://fonts.gstatic.com/s/nunito/v16/XRXW3I6Li01BKofAjsOUYevN.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(https://web.archive.org/web/20211003185508im_/https://fonts.gstatic.com/s/nunito/v16/XRXW3I6Li01BKofAksCUYevN.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url(https://web.archive.org/web/20211003185508im_/https://fonts.gstatic.com/s/nunito/v16/XRXW3I6Li01BKofAtsGUYevN.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://web.archive.org/web/20211003185508im_/https://fonts.gstatic.com/s/poppins/v15/pxiEyp8kv8JHgFVrJJfedw.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://web.archive.org/web/20211003185508im_/https://fonts.gstatic.com/s/poppins/v15/pxiByp8kv8JHgFVrLGT9Z1xlEA.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://web.archive.org/web/20211003185508im_/https://fonts.gstatic.com/s/poppins/v15/pxiByp8kv8JHgFVrLEj6Z1xlEA.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://web.archive.org/web/20211003185508im_/https://fonts.gstatic.com/s/poppins/v15/pxiByp8kv8JHgFVrLCz7Z1xlEA.ttf) format('truetype');
+}
+
+/*
+     FILE ARCHIVED ON 18:55:08 Oct 03, 2021 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:15:44 Jul 18, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 190.826
+  exclusion.robots: 0.158
+  exclusion.robots.policy: 0.143
+  cdx.remote: 0.099
+  esindex: 0.016
+  LoadShardBlock: 135.338 (3)
+  PetaboxLoader3.datanode: 120.338 (5)
+  load_resource: 128.999 (2)
+  PetaboxLoader3.resolve: 56.917 (2)
+*/

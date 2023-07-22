@@ -1,0 +1,37 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+;/*FB_PKG_DELIM*/
+
+__d("SchedulerPostTask-profiling.classic",[],(function(a,b,c,d,e,f){"use strict";b=window.performance;var g=window.setTimeout,h=a.scheduler,i=b.now.bind(b),j=0,k=3;function l(a,b,c,d){j=i()+5;try{k=a;d=d(!1);if("function"===typeof d){var e=new TaskController(),f={priority:b,signal:e.signal};c._controller=e;e=l.bind(null,a,b,c,d);void 0!==h.yield?h.yield(f).then(e)["catch"](m):h.postTask(e,f)["catch"](m)}}catch(a){g(function(){throw a})}finally{k=3}}function m(){}f.unstable_IdlePriority=5;f.unstable_ImmediatePriority=1;f.unstable_LowPriority=4;f.unstable_NormalPriority=3;f.unstable_Profiling=null;f.unstable_UserBlockingPriority=2;f.unstable_cancelCallback=function(a){a._controller.abort()};f.unstable_continueExecution=function(){};f.unstable_forceFrameRate=function(){};f.unstable_getCurrentPriorityLevel=function(){return k};f.unstable_getFirstCallbackNode=function(){return null};f.unstable_next=function(a){switch(k){case 1:case 2:case 3:var b=3;break;default:b=k}var c=k;k=b;try{return a()}finally{k=c}};f.unstable_now=i;f.unstable_pauseExecution=function(){};f.unstable_requestPaint=function(){};f.unstable_runWithPriority=function(a,b){var c=k;k=a;try{return b()}finally{k=c}};f.unstable_scheduleCallback=function(a,b,c){switch(a){case 1:case 2:var d="user-blocking";break;case 4:case 3:d="user-visible";break;case 5:d="background";break;default:d="user-visible"}var e=new TaskController();c={priority:d,delay:"object"===typeof c&&null!==c?c.delay:0,signal:e.signal};e={_controller:e};h.postTask(l.bind(null,a,d,e,b),c)["catch"](m);return e};f.unstable_shouldYield=function(){return i()>=j};f.unstable_wrapCallback=function(a){var b=k;return function(){var c=k;k=b;try{return a()}finally{k=c}}}}),null);
+
+}
+/*
+     FILE ARCHIVED ON 18:49:17 Jul 17, 2023 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:13:17 Jul 18, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 211.59
+  exclusion.robots: 0.067
+  exclusion.robots.policy: 0.058
+  cdx.remote: 0.052
+  esindex: 0.009
+  LoadShardBlock: 158.534 (3)
+  PetaboxLoader3.datanode: 163.471 (4)
+  load_resource: 377.462
+  PetaboxLoader3.resolve: 344.85
+*/
