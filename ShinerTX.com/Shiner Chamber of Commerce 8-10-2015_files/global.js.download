@@ -1,0 +1,1106 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+/*jshint browser:true, indent:false */
+/*global jQuery: false, Modernizr:false, AGE_VERIFICATION:false, imagesLoaded:false */
+
+// Create console, console.log, & console.error stubs for really awful browsers
+if (window.console === void 0) window.console = {};
+if (window.console.log === void 0) window.console.log = function() {};
+if (window.console.error === void 0) window.console.error = function() {};
+// patch Date.now for IE8 and earlier version.
+if (!Date.now) Date.now = function() { return new Date().valueOf(); };
+
+// Update device pixel ratio
+(function(pixelRatio) {
+  if (typeof pixelRatio === 'number') {
+    var ratio = Math.ceil(pixelRatio),
+        current = null,
+        match = /devicePixelRatio=(\d)/.exec(document.cookie);
+    if (match) current = parseInt(match[1], 10);
+    if (current !== ratio) {
+      var expires = new Date();
+      expires.setFullYear(expires.getFullYear() + 1);
+      document.cookie = 'devicePixelRatio=' + ratio + '; path=/; expires=' + expires.toUTCString();
+    }
+  }
+})(window.devicePixelRatio);
+
+!function(window, $, Modernizr, undefined) {
+
+  var
+    layoutKey = $('body').attr('data-sc-layout'),
+    isHorizontalNav = layoutKey === 'b' || layoutKey === 'e' || layoutKey === 'a' || layoutKey === 'g',
+    homeNavCollapseThreshold = $('#navTopLevel').attr('data-home-nav-collapse-min') || 7,
+    skipHomepageMobileDropdownNav = $('#home').length && $('#navTopLevel').find('li').length < homeNavCollapseThreshold,
+    forceMobileNav = $('#navTopLevel').attr('data-force-mobile-nav'),
+    noNav = $('#navTopLevel li').length === 0,
+    screenType = '',
+    isIELTE8 = $('html').hasClass('ieLTE8'),
+    masonryEligible = !isIELTE8;
+
+  function trimString(str) {
+    if(String.prototype.trim) {
+      return str.trim();
+    }
+    else  {
+      return str.replace(/^\s+|\s+$/g,'');
+    }
+  }
+
+  // temporary until Flexslider patches https://github.com/woothemes/FlexSlider/issues/853
+  function is_iOS7(){
+    if(!navigator) return;
+    var uaStr = navigator.userAgent;
+    return uaStr && (uaStr.indexOf('iPhone')>0 || uaStr.indexOf('iPad')>0 || uaStr.indexOf('iPod')>0) && uaStr.indexOf('OS 7_')>0;
+  }
+
+  function adjustCarouselHeight($carousel, visibleTransition) {
+    var
+      $s = $carousel.slides,
+      $slideViewer = $carousel.find('.flex-viewport').length ? $carousel.find('.flex-viewport') : $carousel,
+      animatingTo = $carousel.animatingTo,
+      count = $carousel.count,
+      $slide = [],
+      duration = visibleTransition ? 500 : 0;
+    if($s){
+      $slide = $($s[animatingTo]);
+      if($slide.length){
+        if(isIELTE8){ // set manually, this animation is janky in IE and kicks off multiple window.resize events
+          $slideViewer.height( $slide.outerHeight() );
+        } else{
+          $slideViewer.animate({
+            height: $slide.outerHeight()
+          }, duration);
+        }
+      }
+    }
+  }
+
+  function getCarouselMinMaxItems(max, windowWidth){
+    if(!max || max === 1) return 0;
+    else if(windowWidth < 768) {
+      return 1;
+    }
+    else if(windowWidth < 1009) { // was 1024, but Firefox-in-1024px-design-tool iframe
+      return 2;
+    }
+    else return max;
+  }
+
+  function initializeCarousel($c) {
+    var $w = $(window),
+        carouselMinMax = getCarouselMinMaxItems(parseInt($c.attr('data-max-items'), 10), $w.width());
+    $c.flexslider({
+      animation: $c.attr('data-animation') === 'fade' && !($c.attr('data-max-items')) ? 'fade' : 'slide',
+      slideshow: $c.attr('data-slideshow') === 'true',
+      slideshowSpeed: parseInt($c.attr('data-slideshow-speed'), 10),
+      itemWidth: parseInt($c.attr('data-item-width'), 10) || 0,
+      itemMargin: parseInt($c.attr('data-item-margin'), 10) || 0,
+      maxItems: carouselMinMax,
+      minItems: carouselMinMax,
+      controlNav: true,
+      keyboardNav: false,
+      useCSS: is_iOS7() ? false : true,
+      controlsContainer: $c.closest('.flex-container'),
+      start: function($fs) {
+        if(isIELTE8) {
+          // don't bother resize for IE8 & below, causes headaches w/ triggering window resize & leaks memory — just adjustHeight once
+          adjustCarouselHeight($fs, false);
+        } else {
+          $w.resize(function(){
+            adjustCarouselHeight($fs, false);
+            var newMinMax = getCarouselMinMaxItems(parseInt($fs.attr('data-max-items'), 10), $w.width());
+            if (!$fs.vars) $fs.vars = {};
+            $fs.vars.maxItems = newMinMax;
+            $fs.vars.minItems = newMinMax;
+          });
+          $w.resize();
+        }
+        $c.trigger('scFlexsliderStart', [$fs]);
+      },
+      before: function($fs) {
+        if(isIELTE8) window.suppressResize = true; // set suppressResize in IE8 to prevent an unnecessary run of adaptations, etc., when the carousel height changes
+        adjustCarouselHeight($fs, true);
+        $c.trigger('scFlexsliderBefore', [$fs]);
+      },
+      after: function($fs) {
+        $c.trigger('scFlexsliderAfter', [$fs]);
+      },
+      end: function($fs) {
+        $c.trigger('scFlexsliderEnd', [$fs]);
+      },
+      added: function($fs) {
+        $c.trigger('scFlexsliderAdded', [$fs]);
+      },
+      removed: function($fs) {
+        $c.trigger('scFlexsliderRemoved', [$fs]);
+      }
+    });
+  }
+
+  function largeScreenNavigation() {
+    // kill the dropdown-style main nav
+    destroyMobileNav();
+    // make drop-down nav touch-friendly
+    if(Modernizr.touch && isHorizontalNav) {
+      // ... but only on devices that are truly touch-only
+      if(document.implementation && document.implementation.hasFeature('MouseEvent', '3.0')===false) {
+        $('.navContent').find('.dropArrow').closest('a').addClass('hasSubnav');
+        $('.navContent ul li ul').css('display', 'none');
+        $('.navContent').find('.dropArrow').on('touchstart.spacecraft', function(e){
+          e.preventDefault();
+          e.stopPropagation();
+          var
+            $arrow = $(this),
+            $li = $arrow.closest('li'),
+            $subnav = $li.find('ul');
+          // close all other subnavs and show
+          if($subnav.css('display') === 'none') {
+            $li.siblings().find('ul').css('display','none');
+            $subnav.css('display', 'block');
+          } // or just hide this one
+          else $subnav.css('display', 'none');
+        });
+      }
+    }
+  }
+
+  function smallScreenNavigation() {
+    // turn nav into a dropdown
+    buildMobileNav();
+    // remove touchscreen accommodations made for large screens
+    if(Modernizr.touch && isHorizontalNav) {
+      $('.navContent').find('.dropArrow').closest('a').removeClass('hasSubnav');
+      $('.navContent').find('.dropArrow').off('touchstart.spacecraft');
+    }
+  }
+
+  function buildMobileNav() {
+    // don't use dropdown-style nav on homepage (depends on collapse threshold setting), or on any page if there are no nav links
+    if((skipHomepageMobileDropdownNav || noNav) && !forceMobileNav) {
+      $('.navContent').addClass('mobileNavNoDrop');
+      return;
+    }
+    var $html = $('html'),
+        $body = $('body'),
+        $nav = $('#navTopLevel'),
+        $navContainer = $('.navContainer'),
+        labelText = $nav.attr('data-mobile-nav-label') || 'Menu',
+        iconClass = $nav.attr('data-mobile-nav-icon'),
+        navStyle = $nav.attr('data-mobile-nav-style'),
+        triggerType = $nav.attr('data-mobile-nav-trigger'),
+        iconPos = $nav.attr('data-mobile-nav-icon-position'),
+        triggerHtml = '<a id="navTrigger" href="#">',
+        iconHtml = '<span class="navIcon '+iconClass+'"></span>';
+    // build the trigger html
+    if(navStyle === 'dropdown' && triggerType === 'label'){
+      if(iconPos === 'left') triggerHtml += iconHtml;
+      triggerHtml += '<span class="navLabel">'+labelText+'</span>';
+      if(iconPos === 'right') triggerHtml += iconHtml;
+    } else { //
+      triggerHtml += iconHtml;
+    }
+    triggerHtml += '</a>';
+    // place the trigger
+    if(navStyle === 'dropdown' && triggerType === 'label') {
+      $nav.before(triggerHtml);
+    } else if($('.headerContent').length){
+      if(iconPos==='left') $('.headerContent').prepend(triggerHtml);
+      else $('.headerContent').append(triggerHtml);
+    } else {
+      $body.append(triggerHtml);
+    }
+    var $navTrigger = $('#navTrigger');
+    // more specific setup details: dropdown option
+    if(navStyle==='dropdown') {
+      $nav.addClass('mobileDropDownNav'); // do this for any setting because it's what the CSS colors key off of
+      if(triggerType === 'icon') {
+        $navContainer.addClass('mobileDropDownNav');
+      }
+      var selector = triggerType === 'label' ? '#navTopLevel' : '.navContainer',
+          navHeight = triggerType === 'label' ? $nav.height() : $navContainer.height();
+      $body.append('<style id="navHeightCache" type="text/css">'+selector+' { height: '+navHeight+'px }</style>');
+      heightToggle($(selector));
+      $navTrigger.on('touchstart.mobileNavEvents click.mobileNavEvents', function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        $navTrigger.toggleClass('mobileNavOpen');
+        heightToggle($(selector));
+      });
+    }
+    // setup details: side-nav option
+    if(navStyle==='side'){
+      $('<div id="navContainerLocation"></div>').insertBefore($('.navContainer'));
+      $('.navContainer').addClass('mobileSideNav').insertBefore('.siteWrapper').hide();
+      $html.addClass('useMobileSideNav');
+      $navTrigger.on('touchstart.mobileNavEvents click.mobileNavEvents', function(e){
+         e.preventDefault();
+         e.stopPropagation();
+         var isOpen = $html.hasClass('mobileSideNavOpen');
+         if(isOpen){
+          setTimeout(function(){ $navContainer.hide(); }, 350); // faux transitionEnd
+         } else {
+          $navContainer.show().css('min-height', $('.navContent').outerHeight() + parseInt($navContainer.css('padding-top'),10) + parseInt($navContainer.css('padding-bottom'),10));
+         }
+         $html.toggleClass('mobileSideNavOpen');
+      });
+      $navContainer.on('touchstart.mobileNavEvents click.mobileNavEvents', function(e){
+        e.stopPropagation();
+      });
+      $('.siteWrapper').on('touchstart.mobileNavEvents click.mobileNavEvents', function(){
+        if($html.hasClass('mobileSideNavOpen')) $html.removeClass('mobileSideNavOpen');
+      });
+    }
+    $body.trigger('mobileNavBuilt');
+  }
+
+  function destroyMobileNav(){
+    // dropdown-style nav isn't used on homepage if 7 or fewer nav links,
+    // or on any page if there are no nav links at all, so just kill the special class it carries
+    if(skipHomepageMobileDropdownNav || noNav) {
+      $('.navContent').removeClass('mobileNavNoDrop');
+      return;
+    }
+    var $nav = $('#navTopLevel'),
+        $navContainer = $('.navContainer');
+    // cleanup mobile side-nav option
+    if($nav.attr('data-mobile-nav-style')==='side'){
+      $navContainer.removeClass('mobileSideNav').off('.mobileNavEvents').insertAfter('#navContainerLocation');
+      $('#navContainerLocation').remove();
+      $('html').removeClass('useMobileSideNav');
+      $('.siteWrapper').off('.mobileNavEvents');
+    } else { // default mobile dropdown nav
+      if($nav.hasClass('collapsed')) heightToggle($nav);
+    }
+    // additional cleanup required for either style
+    $nav.removeClass('mobileDropDownNav');
+    $navContainer.removeClass('mobileDropDownNav').css({'min-height':'','display':''});
+    $('#navTrigger').off('.mobileNavEvents').remove();
+    $('#navHeightCache').remove();
+    $('body').trigger('mobileNavDestroyed');
+  }
+
+  function heightToggle($elem) {
+    if(Modernizr.csstransitions) {
+      $elem.hasClass('collapsed') ? $elem.removeClass('collapsed') : $elem.addClass('collapsed');
+      setTimeout(function(){ $('body').trigger('pageHeightChanged'); }, 350); // simple delay instead of fussing with multiple vendor versions of transitionEnd
+      return;
+    }
+    if($elem.hasClass('collapsed')) {
+      $elem.slideDown(350, function(){ $elem.removeClass('collapsed'); $('body').trigger('pageHeightChanged'); });
+    }
+    else {
+      $elem.slideUp(350, function(){ $elem.addClass('collapsed'); $('body').trigger('pageHeightChanged'); });
+    }
+  }
+
+  function placeholderPolyfill() {
+    $('input').each(function(){
+      var
+        $elem = $(this),
+        placeholder = $elem.attr('placeholder');
+      if(!placeholder) return;
+      $elem.on('focus', function(){
+        if(trimString($elem.val()) === placeholder) $elem.val('').removeClass('usingPlaceholder');
+      });
+      $elem.on('blur', function(){
+        if(trimString($elem.val())==='') $elem.val(placeholder).addClass('usingPlaceholder');
+        else $elem.removeClass('usingPlaceholder');
+      });
+      $elem.triggerHandler('blur');
+    });
+  }
+
+  function footerAtBottom() {
+    var
+      $win = $(window),
+      $header = $('.headerContainer'),
+      $navContainer = $('.navContainer'),
+      $navContent = $('.navContent'),
+      $hero = $('.heroContainer'),
+      $contentContainer = $('.primaryAndSecondaryContainer').first().css({minHeight: 0}),
+      $footer = $('.footerContainer'),
+      windowHeight = $win.height(),
+      footerHeight = $footer.outerHeight() || 0,
+      headerHeight = $header.outerHeight() || 0,
+      heroHeight = $hero.outerHeight() || 0,
+      navContainerHeight = $navContainer.outerHeight() || 0,
+      navContentHeight = $navContent.outerHeight() || 0,
+      contentVPadding = (parseInt($contentContainer.css('padding-top'), 10) || 0) + (parseInt($contentContainer.css('padding-bottom'), 10) || 0),
+      contentVMargin = (parseInt($contentContainer.css('margin-top'), 10) || 0) + (parseInt($contentContainer.css('margin-bottom'), 10) || 0),
+      navVPadding = (parseInt($navContainer.css('padding-top'), 10) || 0) + (parseInt($navContainer.css('padding-bottom'), 10) || 0),
+      minHeight = 0;
+
+      switch(layoutKey) {
+        case 'd':
+        case 'f':
+          var availableSpace = windowHeight - headerHeight - footerHeight - heroHeight - contentVPadding;
+          if(screenType === 'small') {
+            availableSpace -= navContainerHeight;
+            minHeight = availableSpace;
+          } else {
+            var totalNavHeight = navContentHeight + navVPadding;
+            minHeight = Math.max(totalNavHeight, availableSpace);
+          }
+          break;
+        case 'c':
+        case 'h':
+           // reset any effects from previous run
+          $navContainer.css('min-height', 0);
+          if(screenType === 'small') {
+            minHeight = windowHeight - heroHeight - headerHeight - navContainerHeight - contentVPadding - footerHeight;
+          } else {
+            minHeight = windowHeight - heroHeight- footerHeight - contentVPadding;
+            $navContainer.css({
+              minHeight: Math.max($contentContainer.outerHeight() - headerHeight, windowHeight - headerHeight - heroHeight - footerHeight - navVPadding)
+            });
+          }
+          break;
+        default:
+        case 'a':
+        case 'b':
+        case 'g':
+        case 'e':
+          // these four layouts can take a super-simple approach that works on any screen size
+          var
+            $siblings = $contentContainer.siblings(),
+            siblingsHeight = 0;
+          $siblings.each(function(index, elem){
+            var $elem = $(elem),
+                pos = $elem.css('position');
+            if(pos !== 'absolute' && pos !== 'fixed'){
+              siblingsHeight += $elem.outerHeight(true);
+            }
+          });
+          minHeight = windowHeight - siblingsHeight - contentVPadding - contentVMargin;
+          break;
+      }
+      if (isIELTE8) {
+        window.suppressResize = true; // helps fix an issue where IE8 fires resize if setting min-height on primaryContentContainer
+      }
+      $contentContainer.css({minHeight: minHeight});
+      if($('.mfItems').length) {
+        $contentContainer.css('padding-bottom', $('.mfItems').height()+'px');
+      }
+  }
+
+  function setMasonryLayouts(windowWidth) {
+    $('.masonryGrid').each(function(index, elem){
+      var $elem = $(elem);
+      imagesLoaded(elem, function(){
+        $elem.find('.item').addClass('packeryItem');
+        if($elem.find('.packeryGutterSizer').length===0) $elem.append('<div class="packeryGutterSizer"></div><div class="packeryColumnSizer"></div>');
+        $elem.addClass('packery').packery({ itemSelector: '.item:not(.hidden)', columnWidth: '.packeryColumnSizer', gutter: '.packeryGutterSizer', isResizeBound: false });
+      });
+    });
+  }
+
+  function undoMasonryLayouts() {
+    $('.masonryGrid').each(function(index, elem){
+      var $elem = $(elem);
+      $elem.find('.packeryGutterSizer, .packeryColumnSizer').remove();
+      $elem.find('.item').removeClass('packeryItem');
+      $elem.removeClass('packery');
+      if($elem.data('packery')) $elem.packery('destroy');
+    });
+  }
+
+  function refreshMasonryLayouts() {
+    $('.masonryGrid').packery('layout');
+  }
+
+  function adaptations() {
+    var winWidth = $(window).width();
+    if(winWidth >= 768 && !forceMobileNav) { // large(ish) screen adaptations
+      // only need to do once
+      if(screenType !== 'large') {
+        largeScreenNavigation();
+        screenType = 'large';
+      }
+    }
+    else {
+      if(screenType !== 'small' || (screenType === 'large' && forceMobileNav)) { // small screen adapatations
+        smallScreenNavigation();
+        screenType = 'small';
+      }
+    }
+    // run truncation/packery/footer@bottom every time adapations runs, since content reflow changes heights
+    // truncation needs to precede packery since it can impact the item heights
+    previewTruncation();
+    if(masonryEligible) winWidth > 480 ? setMasonryLayouts(winWidth) : undoMasonryLayouts();
+    footerAtBottom();
+  }
+  // export this fn so the design tool can use it
+  window.scAdaptations = adaptations;
+
+  function filterTags(currentTag) {
+    filterItems('tags', currentTag);
+  }
+
+  function filterCategories(currentCategory) {
+    filterItems('categories', currentCategory);
+  }
+
+  function filterItems(selector, current, $scope) {
+    // loop through items that have tags or categories assigned to them,
+    // figure out if any of their tags or categories is currentTag
+    var
+      currentTagLinkSelector = '.tags a[href$="='+current+'"]',
+      searchSelectors = 'li[data-'+selector+'], div[data-'+selector+']',
+      $items = $scope ? $scope.find(searchSelectors) : $(searchSelectors),
+      $currentTagLink = $scope ? $scope.find(currentTagLinkSelector) : $(currentTagLinkSelector);
+
+    $items.each(function(){
+      var $elem = $(this).removeClass('hidden'), fullList = $elem.attr('data-'+selector).split(','), hasMatch = false;
+      if(current === 'all') return;
+      $.each(fullList, function(index, val){
+        if(val === current) {
+          hasMatch = true;
+          return true;
+        }
+      });
+      // hide the items that don't have currentTag in their tags
+      if(!hasMatch) $elem.addClass('hidden');
+    });
+    // get the tags attached to each item and highlight the currently fitered tag; de-highlight "All" if applicable
+    $('.categoryFilter .allCategories').removeClass('selected');
+    $currentTagLink.addClass('selected');
+  }
+
+  function dynamicFilter(e) {
+    e.preventDefault();
+    var
+      $link = $(e.target),
+      selector = $link.attr('data-selector'),
+      target = $link.attr('data-target'),
+      scopeSelector,
+      $scope;
+
+    if($link.closest('[data-filter-scope]').length) {
+      scopeSelector = $link.closest('[data-filter-scope]').attr('data-filter-scope');
+      $scope = $link.closest(scopeSelector);
+    }
+
+    $link.siblings('a').removeClass('selected');
+
+    filterItems(selector, target, $scope);
+    if($link.closest('.itemsCollectionContainer').find('.packery').length && masonryEligible) {
+      refreshMasonryLayouts();
+    }
+  }
+
+  function extractQueryStringParam(qsUrl, param) {
+    var
+      dict = {},
+      qs = qsUrl.split('?')[1],
+      kvPairs = qs.split('&');
+    for(var i = 0, len = kvPairs.length; i < len; ++i) {
+      var keyVal = kvPairs[i].split('=');
+      dict[keyVal[0]] = keyVal[1];
+    }
+    if(param in dict) return dict[param];
+    else return false;
+  }
+
+  function addHelperClasses() {
+    // all this bs is only for IE LTE8; better browsers are just using CSS3 nth-child selectors
+    // to cover all the grid options, need groupings by 2, 3, 4, 5, 6, plus 7 & 8 for image grids
+    // IE LTE8 needs nth-of-type instead of nth-child because CSS3PIE-generated elements throw off nth-child classes
+    // Note that nth-of-type is not natively supported by Sizzle; using the extra-selectors plugin for this
+    var selectors = ['.item', '.socialStreamGroup', '.imgGridItem'];
+    $.each(selectors, function(index, selector){
+      $(selector+':nth-of-type(3n+1)').addClass('child1of3');
+      $(selector+':nth-of-type(3n+3)').addClass('child3of3');
+      $(selector+':nth-of-type(4n+1)').addClass('child1of4');
+      $(selector+':nth-of-type(4n+4)').addClass('child4of4');
+      $(selector+':nth-of-type(5n+1)').addClass('child1of5');
+      $(selector+':nth-of-type(5n+5)').addClass('child5of5');
+      $(selector+':nth-of-type(6n+1)').addClass('child1of6');
+      $(selector+':nth-of-type(6n+6)').addClass('child6of6');
+      $(selector+':nth-of-type(odd)').addClass('odd');
+      $(selector+':nth-of-type(even)').addClass('even');
+      if(selector==='.imgGridItem'){
+        $(selector+':nth-of-type(7n+1)').addClass('child1of7');
+        $(selector+':nth-of-type(7n+7)').addClass('child7of7');
+        $(selector+':nth-of-type(8n+1)').addClass('child1of8');
+        $(selector+':nth-of-type(8n+8)').addClass('child8of8');
+      }
+    });
+  }
+
+  function prepTruncationDivs($elems){
+    // for content that's all tags and no spaces (one-word <LI>s, for example), need to get some whitespace in the source
+    if (!$elems) $elems = $('.truncateContent');
+    $elems.each(function(){
+      var
+        $t = $(this),
+        html = trimString($t.html());
+      html = html.replace(/\>\</g, '> <');
+      $t.html(html);
+    });
+  }
+
+  function previewTruncation($elems) {
+    if (!$elems) $elems = $('.truncateContent');
+    $elems.each(function(){
+      var
+        $trunc = $(this),
+        $more = $trunc.find('a.moreLink'),
+        moreHtml = '<span class="scTruncateEllipsis">&hellip;</span>'+ ($trunc.hasClass('noPermalinks') ? '' : '<a class="moreLink" href="'+$more.attr('href')+'">more</a>');
+      if(!$trunc.data('originalHtml')) {
+        // move the more link to the last content element if it's a paragraph,
+        // or the last list item if it's a list
+        var $prev = $more.prev(),
+          nodeName = $prev.length ? $prev[0].nodeName : null;
+        if($more.length && nodeName) {
+          nodeName = nodeName.toLowerCase();
+          if (nodeName === 'ul' || nodeName === 'ol' ) {
+            $prev.find('li').last().append($more);
+          }
+          else {
+            $prev.append($more);
+          }
+        }
+        $trunc.data('originalHtml', $trunc.html());
+      }
+      else {
+        $trunc.empty();
+        $trunc.html($trunc.data('originalHtml'));
+      }
+      // call the super-simple truncate plugin
+      $trunc.removeClass('scTruncateUnchanged').scTruncate({
+        more: moreHtml
+      });
+    });
+  }
+
+  function setupSquareGalleries() {
+    $('.squareGallery').each(function(index, elem){
+      var $g = $(elem);
+      if(isIELTE8) { $g.removeClass('squareGallery'); return; }
+      $g.find('.imgGridItem').each(function(index, item){
+        var
+          $i = $(item),
+          src = $i.find('.contentImg').attr('src');
+          $i.css('background-image', 'url('+src+')');
+      });
+    });
+  }
+
+  function setupMasonryGalleries() {
+    $('.masonryImgGallery').each(function(index, elem){
+      var $elem = $(elem);
+      $elem.append('<div class="packeryGutterSizer"></div><div class="packeryColumnSizer"></div>');
+      imagesLoaded(elem, function(){
+        $elem.find('.imgGridItem').addClass('packeryItem');
+        $elem.addClass('packery').packery({itemSelector: '.imgGridItem', columnWidth: '.packeryColumnSizer', gutter: '.packeryGutterSizer'});
+      });
+    });
+  }
+
+  // Show the age verification modal
+  function showAgeVerification() {
+    // Check if age verification is enabled
+    if (window.AGE_VERIFICATION) {
+      // Check a cookie to see if age has already been verified
+      var match = /ageVerified=1/.exec(document.cookie);
+      if (match === null) {
+        // Create HTML
+        var html =  '<div class="publicModalContainer">' +
+                      '<div class="publicModalMask"></div>' +
+                      '<div class="publicModalContent ageVerification">' +
+                        '<h1 class="pageTitle">' + AGE_VERIFICATION.title + '</h1>' +
+                        '<p>' + AGE_VERIFICATION.prompt + '</p>' +
+                        '<div class="verifyLinks">' +
+                          '<a href="#" class="verifyYes">Yes</a>' +
+                          '<a href="' + AGE_VERIFICATION.url + '" class="verifyNo">No</a>' +
+                        '</div>' +
+                      '</div>' +
+                    '</div>';
+        var $modal = $(html).appendTo($('body'));
+        $modal.find('.verifyYes').on('click', function(e) {
+          e.preventDefault();
+          // Set age verification cookie
+          var expires = new Date();
+          expires.setFullYear(expires.getFullYear() + 1);
+          document.cookie = 'ageVerified=1; path=/;';
+          // Cleanup and remove modal
+          $(this).unbind('click');
+          $modal.remove();
+        });
+      }
+    }
+  }
+
+  function getBlockId($elem) {
+    var classNames = $elem.attr('class'),
+        className;
+    if (classNames) {
+      classNames = classNames.split(' ');
+      for (var i = 0, l = classNames.length; i < l; ++i) {
+        className = classNames[i];
+        if (className.substring(0, 6) === 'block_') return className.substring(6);
+      }
+    }
+  }
+
+  function collectionPagination() {
+    $('a.paginationTrigger').each(function() {
+      // Get the element references
+      var elem = this,
+          $elem = $(elem),
+          $parent = $elem.closest('.blockContent'),
+          $items = $parent.find('.itemsCollectionContent'),
+          $appendTarget = $items,
+          label = $elem.attr('data-label'),
+          currentPage = 1,
+          blockId = getBlockId($parent);
+      if ($parent.attr('data-paginated') === '1') {
+        // shift the append target if it's a titles-only view
+        if($items.find('> ul').length === 1) $appendTarget = $items.find('> ul');
+        if ($items.length === 1 && blockId) {
+          // Change the link text and bind the click handler
+          $elem.text(label).on('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            // Check if paging is allowed
+            if ($elem.hasClass('disabled')) return;
+            var page = currentPage + 1;
+            // Disable the element
+            $elem.addClass('disabled').css('opacity', 0.5);
+            // Make the AJAX request
+            $.ajax({
+              url: document.location.pathname + '?id=' + blockId + '&page=' + page,
+              cache: true,
+              success: function(data) {
+                var $data = $(data).appendTo($appendTarget),
+                    $images = $data.find('img').css('opacity', 0 ),
+                    $truncate = $data.find('.truncateContent'),
+                    total = $images.length,
+                    hasMasonry = $items.hasClass('packery'),
+                    done = function() {
+                      currentPage = page;
+                      if ($data.lenth === 0 || $data.filter('.lastItem').length || $data.find('.lastItem').length) {
+                        $elem.hide();
+                      } else {
+                        $elem.removeClass('disabled').css('opacity', 1);
+                      }
+                    };
+                if ($truncate.length > 0) {
+                  prepTruncationDivs($truncate);
+                  previewTruncation($truncate);
+                }
+                if (hasMasonry) { // first use packery's appended fn to add all new items to the packery instance, then we can update layout only after images load
+                  var $appended = $items.find('.item:not(.packeryItem)').addClass('packeryItem');
+                  $items.packery('appended', $appended);
+                }
+                if (total === 0) {
+                  done();
+                } else {
+                  $images.on('load.pagination error.pagination', function(e) {
+                    if (--total === 0) {
+                      if (hasMasonry) $items.packery('layout');
+                      $images.animate({ opacity: 1 }, done);
+                    }
+                  });
+                }
+              },
+              error: function(jqXHR, textStatus, errorThrown) {
+                $elem.removeClass('disabled');
+              },
+              timeout: 10000
+            });
+          });
+        }
+      }
+    });
+  }
+
+  function showAjaxFormResults($form, msg, isError){
+    if($form && msg) {
+      var $results = $('<p class="ajaxFormResult">'+msg+'</p>').hide();
+      if(isError) {
+        $results.addClass('scFormError');
+      }
+      else {
+       $form.css('height', $form.css('height')).empty();
+      }
+      $form[isError === true ? 'after' : 'append']($results);
+      $results.slideDown(350);
+    }
+  }
+
+  // Initialize email capture forms
+  function initializeEmailCapture() {
+    var ajaxPrefix = $('body').attr('data-ajax-prefix'),
+        url = ajaxPrefix + '/email-capture/submit';
+    $('form.emailCapture').each(function() {
+      var $form = $(this),
+          $parent = $form.closest('.blockContent'),
+          $spinner = $form.find('.progressSpinner'),
+          $email = $form.find('input[name="email"]'),
+          button = $form.find('button').get(0),
+          blockId = getBlockId($parent);
+      $form.on('submit', function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+        if (blockId && $email.val()) {
+          // remove any previous results
+          if($parent.find('.ajaxFormResult').length) $parent.find('.ajaxFormResult').remove();
+          button.disabled = true;
+          $spinner.show();
+          // Make the AJAX request
+          $.ajax({
+            url: url + '?id=' + blockId + '&email=' + encodeURIComponent($email.val()),
+            cache: false,
+            success: function(data) {
+              $spinner.hide();
+              showAjaxFormResults($form, data);
+              button.disabled = false;
+              $('body').trigger('emailCaptureSuccess', [$form]);
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+              $spinner.hide();
+              showAjaxFormResults($form, jqXHR.responseText, true);
+              button.disabled = false;
+              $('body').trigger('emailCaptureError', [$form]);
+            },
+            timeout: 10000
+          });
+        }
+      });
+    });
+  }
+
+  // Initialize location finder
+  function initializeLocationFinder() {
+    var ajaxPrefix = $('body').attr('data-ajax-prefix'),
+        url = ajaxPrefix + '/location-finder/submit',
+        hasGeo = navigator.geolocation,
+        strings = {
+          noZIP: 'Please enter a postal code.',
+          invalidZIP: 'That doesn\'t look like a valid postal code. Please try again',
+          getLatLongError: 'Sorry, we weren\'t able to get the details for that location.',
+          browserGeolocationError: 'Sorry, something went wrong getting your location from your browser. Try searching instead.',
+          getLocationsError: 'Sorry, we couldn\'t get the business locations at this time. Please try another nearby postal code or try again later.'
+        },
+        showResults = function(scope, content, wrap) {
+          if (content) {
+            var clearResults = '<a href="#" class="clearResults">' + scope.reset + '</a>';
+            if (wrap) {
+              content = clearResults + '<p>' + content + '</p>';
+            } else {
+              content = clearResults + content;
+            }
+            scope.$results.html(content);
+          } else {
+            scope.$results.html('<a href="#" class="clearResults">' + scope.reset + '</a>');
+          }
+          scope.$results.width(scope.$results.parent().width());
+          setTimeout(function(){ // this slight delay prevents janky slidedown, so the browser can complete a repaint with the width set above
+            scope.$results.slideDown(350, function(){ scope.$results.width('auto'); });
+          }, 0);
+          scope.$spinner.hide();
+          scope.$button[0].disabled = false;
+          scope.$results.find('.itemsCollectionContent').addClass(scope.itemsClasses);
+          scope.$form.trigger('renderLocationFinder', scope.$results.find('li').length > 0);
+          $(window).trigger('resize'); // trigger adaptations script so footer@bottom & packery can do their stuff
+        },
+        getLocations = function(scope, params) {
+          var renderLocations = function(data) {
+                if (data && trimString(data) !== '') {
+                  showResults(scope, data);
+                } else {
+                  showResults(scope, strings.getLocationsError, true);
+                }
+              },
+              locationsError = function(jqXHR, textStatus, errorThrown) {
+                showResults(scope, strings.getLocationsError, true);
+                console.log('get locations error:');
+                console.log(textStatus);
+                console.log(errorThrown);
+                console.log('--------------------');
+              },
+              fetchLocations = function() {
+                var requestUrl = url + '?id=' + scope.blockId;
+                for (var key in params) {
+                  if (params.hasOwnProperty(key)) {
+                    requestUrl += '&' + key + '=' + params[key];
+                  }
+                }
+                $.ajax({
+                  url: requestUrl,
+                  cache: false,
+                  success: renderLocations,
+                  error: locationsError,
+                  timeout: 10000
+                });
+              };
+          if (typeof window.__getLocations__ === 'function') {
+            window.__getLocations__(scope, params, fetchLocations, showResults);
+          } else {
+            fetchLocations();
+          }
+        },
+        initializeGeo = function(scope) {
+          if (hasGeo) {
+            var geolocationSuccess = function(position) {
+                  if (position && position.coords && position.coords.latitude && position.coords.longitude) {
+                    getLocations(scope, { lat: position.coords.latitude, lng: position.coords.longitude });
+                  } else {
+                    geolocationError();
+                  }
+                },
+                geolocationError = function(){
+                  console.log('geolocation error:');
+                  console.log(arguments);
+                  showResults(scope, strings.browserGeolocationError, true);
+                };
+            $('<a class="detectLocation" href="#geolocate">' + scope.detect + '</a>').insertAfter(scope.$button);
+            scope.$form.on('click', '.detectLocation', function(e) {
+              e.preventDefault();
+              // disable submit button, show progress spinner, and try to get the position from the browser
+              scope.$button[0].disabled = true;
+              scope.$input.val('');
+              scope.$spinner.show();
+              scope.$results.empty().hide();
+              navigator.geolocation.getCurrentPosition(geolocationSuccess, geolocationError, { maximumAge: 3000, timeout: 5000, enableHighAccuracy: true });
+            });
+          }
+        };
+    $('.scLocationFinder').each(function() {
+      var $this = $(this),
+          $parent = $this.closest('.blockContent'),
+          scope = {
+            $form: $this,
+            $button: $this.find('button'),
+            $input: $this.find('input[name="location"]'),
+            $results: $this.next('.locationFinderResults'),
+            $spinner: $this.find('.progressSpinner'),
+            blockId: getBlockId($parent),
+            itemsClasses: $this.next('.locationFinderResults').attr('data-items-classes'),
+            detect: $this.data('detect'),
+            reset: $this.data('reset')
+          };
+      if (!scope.blockId) return;
+      // Initialize geo
+      initializeGeo(scope);
+      // Form submit handler
+      scope.$form.submit(function(e){
+        e.preventDefault();
+        // Get the value
+        var val = scope.$input.val();
+        // Clear the old results
+        scope.$results.empty().hide();
+        // blank val? output error and die
+        if (!val) {
+          showResults(scope, strings.noZIP, true);
+          return;
+        }
+        // Get the US, MX or CA postal code
+        var match = /^(\d{5})(?:-)?(?:\d{4})?|([ABCEGHJKLMNPRSTVXY]\d[A-Z] \d[A-Z]\d)$/i.exec(trimString(val));
+        if (match && match.length === 3) {
+          // disable submit button, show progress spinner, and make the ajax call
+          scope.$button[0].disabled = true;
+          scope.$spinner.show();
+          scope.$form.trigger('clearLocationFinder');
+          getLocations(scope, { zip: match[1] || match[2] });
+        } else { // show invalid ZIP error message
+          showResults(scope, strings.invalidZIP, true);
+          return;
+        }
+      });
+      // Clear results handler
+      scope.$results.on('click', '.clearResults', function(e) {
+        e.preventDefault();
+        scope.$results.slideUp(350, function() {
+          scope.$results.empty().hide();
+        });
+        scope.$input.val('');
+        scope.$form.trigger('clearLocationFinder');
+      });
+    });
+  }
+
+  function initializeMobileFooter() {
+    // append footer to body to avoid position:fixed issue that can come up with side-slide mobile (transform:translateZ(0) on site wrapper throws it off)
+    var $mfc = $('.mobileFooterContainer').appendTo('body');
+    $('.mfPhoneLink').on('click', function(e){
+      e.preventDefault();
+      var $t = $(this),
+          $mfc = $('.mobileFooterContainer'),
+          $allPhoneLinks = $('.mfPhoneLink');
+      if($t.hasClass('showingNumber')) {
+        $mfc.removeClass('openDrawer');
+        $allPhoneLinks.removeClass('showingNumber');
+      } else {
+        $allPhoneLinks.removeClass('showingNumber');
+        $t.addClass('showingNumber');
+        $('.mfPhone').removeClass('visible');
+        var targetId = $(this).attr('href');
+        $(targetId).addClass('visible');
+        $mfc.addClass('openDrawer');
+      }
+    });
+    // IE9 Mobile on WinPhone7.5 doesn't support position:fixed or webfonts *sigh*
+    if($('.ie9.mobile .mobileFooterContainer').length){
+      $('html').css('position', 'relative').append($('.mobileFooterContainer'));
+    }
+  }
+
+  function initializeFaqCollapsing() {
+    $('.collapsibleFaqs').each(function(){
+      var $container = $(this);
+      // pre-collapse FAQ answer including entire blocks that are part of the answer item
+      $container.find('.faqPrimary .contentTitle').siblings().hide();
+      $container.find('.blockContainer, .itemsCollectionContainer').not('[data-is-primary="true"]').hide();
+      // set up and bind toggle action
+      $container.find('.faqPrimary .contentTitle').addClass('hasClickAction').attr('tabindex', 0).on('click', function(e){
+        var $t = $(this),
+            $parent = $t.closest('.blockContainer'),
+            $itemSiblings = $parent.siblings();
+        if($t.hasClass('showAnswers')) {
+          $t.siblings().hide();
+          $itemSiblings.hide();
+        } else {
+          $t.siblings().show();
+          $itemSiblings.show();
+          if($itemSiblings.find('.packery').length) { $(window).trigger('resize'); }
+        }
+        $t.add($t.closest('.fullDetailsItem')).toggleClass('showAnswers');
+        if(screenType === 'large') footerAtBottom();
+      });
+    });
+  }
+
+  // DOM-READY, set up special features etc.
+  $(document).ready(function() {
+
+    // add the item class to all social feed items, with a special condition for images-only view
+    $('.socialFeedItem').each(function(){
+      var $t = $(this).addClass('item');
+      if($t.closest('.imagesOnly').length && !$t.hasClass('hasImg')) $t.addClass('hidden');
+    });
+
+    // helper classes for browsers that don't do nth-of-type
+    if($('html').hasClass('ieLTE8')) addHelperClasses();
+
+    // three types of image gallery setup scripts
+    $('.flexslider').each(function(index, elem){
+      imagesLoaded(elem, function(){
+        initializeCarousel($(elem));
+      });
+    });
+    if(masonryEligible) setupMasonryGalleries();
+    setupSquareGalleries();
+
+    // make videos responsive
+    $('.primaryContent, .secondaryContent').fitVids();
+
+    // filter tags and categories
+    if(document.location.search) {
+      var currentTag = extractQueryStringParam(document.location.search, 'filter');
+      if(currentTag) filterTags(currentTag);
+      var currentCategory = extractQueryStringParam(document.location.search, 'category');
+      if(currentCategory) filterCategories(currentCategory);
+    }
+
+    // set up client-only filtering - delegated to relevant containers since dynamic filters are sometimes dynamically added
+    $('.frontdeskAppointments, .serviceFilterContainer').on('click', '.dynamicFilter a', dynamicFilter);
+
+    // collection pagination
+    collectionPagination();
+
+    // show the age verification if enabled
+    showAgeVerification();
+
+    // simple HTML5 placeholder attribute polyfill
+    if(!Modernizr.input.placeholder) placeholderPolyfill();
+
+    // initialize email capture forms
+    initializeEmailCapture();
+
+    // Initialize location finder
+    initializeLocationFinder();
+
+    // set up mobile footer special functions
+    initializeMobileFooter();
+
+    // expand/collapse Faqs
+    initializeFaqCollapsing();
+
+    // prep to auto-truncation on itemsCollections in preview layout or featuredContent lists (prep runs once, actual trucation script runs in adaptations)
+    prepTruncationDivs();
+
+    // screen-size adaptations
+    adaptations();
+
+    // debounced resize handler
+    $(window).on('resize', $.debounce(200, function(){
+      if(window.suppressResize) { // helps fix an issues where IE8 fires resize if setting height/min-height on primaryAndSecondaryContainer or other DOM elements
+        window.suppressResize = false;
+        return;
+      }
+      adaptations();
+    })).one('fontsLoaded', function() {
+      previewTruncation();
+    });
+
+  }); // </doc-ready>
+
+  // for scripts that require all images to be fully loaded
+  $(window).load(function(){
+
+    // repeat adaptations on load since loaded images have caused some dimensions to change
+    adaptations();
+
+    // on-click event for frontgate event feed (expand details)
+    $('.frontgateFeedActions .moreButton').on('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var buttonLabel = $(this).text();
+        if (buttonLabel === 'More') {
+          $(this).text('Hide');
+        } else {
+          $(this).text('More');
+        }
+        $(this).closest('.item').find('.frontgateFeedExpand').slideToggle('fast');
+     });
+
+  }); // </window-load>
+
+
+}(this, jQuery, Modernizr);
+
+
+}
+/*
+     FILE ARCHIVED ON 08:44:17 Aug 19, 2015 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 04:21:22 Jul 19, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 104.25
+  exclusion.robots: 0.081
+  exclusion.robots.policy: 0.071
+  RedisCDXSource: 0.777
+  esindex: 0.009
+  LoadShardBlock: 88.02 (3)
+  PetaboxLoader3.datanode: 85.025 (4)
+  load_resource: 92.243
+  PetaboxLoader3.resolve: 49.272
+*/

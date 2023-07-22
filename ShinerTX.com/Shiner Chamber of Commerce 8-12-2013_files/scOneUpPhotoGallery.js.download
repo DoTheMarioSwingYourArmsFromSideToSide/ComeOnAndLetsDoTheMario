@@ -1,0 +1,130 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+/*jshint browser:true */
+/*global jQuery: false, Modernizr:false, scCalendar: false */
+
+!function(window, $, Modernizr, undefined) {
+
+
+  $(document).ready(function() {
+
+    var
+      $galleryBlocks = $('.hasOneUpGallery'),
+      deviceType = $('html').attr('data-device-type'),
+      devicePixelRatio = parseInt($('html').attr('data-dpr'), 10),
+      imageServer = $galleryBlocks.attr('data-img-server'),
+      viewerImgWidths = {
+        desktop: 1150,
+        tablet: 950,
+        mobile: 600
+      },
+      width = viewerImgWidths[deviceType] * devicePixelRatio,
+      imgPrefix = imageServer+ '/width/' + width.toString() + '?url=';
+
+    $galleryBlocks.each(function(){
+
+      var
+        $block = $(this),
+        $viewer = $block.find('.oneUpViewer'),
+        $oneUpImg = $('<img class="contentImg" alt="">').appendTo($viewer),
+        $gallery = $block.find('.galleryWrapper'),
+        $images = $gallery.find('img'),
+        preloadUrls = [];
+
+      var setOneUp = function($img) {
+        // // unwrap any previous link
+        if($oneUpImg.parent().is('.oneUpImgLink')){
+          $oneUpImg.unwrap();
+        }
+        var src = imgPrefix + $img.attr('data-src');
+        $oneUpImg.attr('src', src);
+        // wrap new img in link if required
+        var $srcLink = $img.closest('a');
+        if($srcLink.length){
+          var $bigLink = $('<a class="oneUpImgLink" href="'+$srcLink.attr('href')+'"></a>');
+          if($srcLink.attr('target') === '_blank') $bigLink.attr('target', '_blank');
+          $oneUpImg.wrap($bigLink);
+        }
+        $block.trigger('photoViewed', [$img]);
+      };
+
+      $gallery.on('click', 'img', function(e){
+        setOneUp($(this));
+      });
+
+      $gallery.on('keyup', 'img', function(e){
+        var keyCode = e.which || e.keyCode;
+        if(keyCode === 13) { // enter
+          setOneUp($(this));
+        }
+      });
+
+      $gallery.on('click', 'a', function(e){
+        e.preventDefault();
+      });
+
+      $gallery.on('keyup', 'a', function(e){
+        var keyCode = e.which || e.keyCode;
+        if(keyCode === 13) { // enter
+          e.preventDefault();
+          $(e.target).find('img').trigger('click');
+        }
+      });
+
+      // kill tabindex attribute on images that have been wrapped in links, and add their big urls to the preload array
+      $images.each(function(i, img){
+        if($(img).closest('a').length) $(img).removeAttr('tabindex');
+        preloadUrls.push(imgPrefix + $(img).attr('data-src'));
+      });
+
+      // wait until onload to prevent blocking, then preload images
+      $(window).on('load', function(){
+        $.each(preloadUrls, function(index, url){
+          if(index > 0) { // skip preloading the first since the gallery calls for it right away anyway
+            var pImg = new Image();
+            pImg.src = url;
+          }
+        });
+      });
+
+      // first-run, get the first one on display
+      $images.eq(0).trigger('click');
+
+    });
+
+
+  }); // </dom-ready>
+}(this, jQuery, Modernizr);
+
+
+}
+/*
+     FILE ARCHIVED ON 10:35:56 Sep 11, 2013 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 04:23:06 Jul 19, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 211.959
+  exclusion.robots: 0.079
+  exclusion.robots.policy: 0.068
+  RedisCDXSource: 0.645
+  esindex: 0.009
+  LoadShardBlock: 195.568 (3)
+  PetaboxLoader3.datanode: 199.324 (4)
+  load_resource: 118.652
+  PetaboxLoader3.resolve: 69.389
+*/
