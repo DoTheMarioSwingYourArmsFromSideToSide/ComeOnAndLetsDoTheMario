@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0031)http://shinerpubliclibrary.org/ -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="en-us" http-equiv="Content-Language">
+
+<title>Shiner Public Library</title>
+<style type="text/css">
+.auto-style1 {
+	text-align: center;
+	font-size: xx-large;
+}
+body  {
+	/* it's good practice to zero the margin and padding of the body element to account for differing browser defaults */border-color: #FFFFFF;
+	font: 100% Verdana, Arial, Helvetica, sans-serif;
+	background: #FFFFFF;
+	margin: 0;
+	padding: 0;
+	text-align: center; /* this centers the container in IE 5* browsers. The text is then set to the left aligned default in the #container selector */;
+	color: #000;
+	background-color: #E1B44B;
+}
+80% of the browser width */
+	background: #FFFFFF;
+	margin: 0 auto; /* the auto margins (in conjunction with a width) center the page */
+	border: 1px solid #000000; /* this overrides the text-align: center on the body element. */
+	color: #000;
+	font-family: Verdana, Geneva, sans-serif;
+} 
+.thrColLiqHdr #header {
+	background: #1C5AA8;
+	padding: 10;  /* this padding matches the left alignment of the elements in the divs that appear beneath it. If an image is used in the #header instead of text, you may want to remove the padding. */
+	color: #FFF;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	border-top-color: #1C5AA8;
+	border-right-color: #1C5AA8;
+	border-bottom-color: #1C5AA8;
+	border-left-color: #1C5AA8;
+	border-color: #1C5AA8;
+	outline-color: #1C5AA8;
+} 
+.thrColLiqHdr #header h1 {
+	margin: 0;
+/* zeroing the margin of the last element in the #header div will avoid margin collapse - an unexplainable space between divs. If the div has a border around it, this is not necessary as that also avoids the margin collapse */padding: 10px 0;
+	background-color: #808000;
+}
+
+/* Tips for sidebars:
+1. Since we are working in percentages, it's best not to use side padding on the sidebars. It will be added to the width for standards compliant browsers creating an unknown actual width. 
+2. Space between the side of the div and the elements within it can be created by placing a left and right margin on those elements as seen in the ".thrColLiqHdr #sidebar1 p" rule.
+3. Since Explorer calculates widths after the parent element is rendered, you may occasionally run into unexplained bugs with percentage-based columns. If you need more predictable results, you may choose to change to pixel sized columns.
+*/
+.thrColLiqHdr #sidebar1 {
+	float: left; /* this element must precede in the source order any element you would like it be positioned next to */
+	width: 22%; /* the background color will be displayed for the length of the content in the column, but no further */
+	padding: 15px 0; /* top and bottom padding create visual space within this div  */
+	color: #FFF;
+	background-color: #696;
+}
+.thrColLiqHdr #sidebar2 {
+	float: right; /* this element must precede in the source order any element you would like it be positioned next to */
+	width: 23%; /* the background color will be displayed for the length of the content in the column, but no further */
+	padding: 15px 0; /* top and bottom padding create visual space within this div */
+	color: #FFF;
+	background-color: #696;
+	line-height: normal;
+	text-transform: none;
+}
+.thrColLiqHdr #sidebar1 p, .thrColLiqHdr #sidebar1 h3, .thrColLiqHdr #sidebar2 p, .thrColLiqHdr #sidebar2 h3 {
+	margin-left: 10px; /* the left and right margin should be given to every element that will be placed in the side columns */
+	margin-right: 10px;
+}
+
+/* Tips for mainContent:
+1. the space between the mainContent and sidebars is created with the left and right margins on the mainContent div.
+2. to avoid float drop at a supported minimum 800 x 600 resolution, elements within the mainContent div should be 300px or smaller (this includes images).
+3. in the Internet Explorer Conditional Comment below, the zoom property is used to give the mainContent "hasLayout." This avoids several IE-specific bugs.
+*/
+.thrColLiqHdr #mainContent {
+	margin: 0 24% 0 23.5%; /* the right and left margins on this div element creates the two outer columns on the sides of the page. No matter how much content the sidebar divs contain, the column space will remain. You can remove this margin if you want the #mainContent div's text to fill the sidebar spaces when the content in each sidebar ends. */
+	font-size: large;
+}
+
+.thrColLiqHdr #footer { 
+	padding: 0 10px; /* this padding matches the left alignment of the elements in the divs that appear above it. */
+	background:#DDDDDD;
+} 
+.thrColLiqHdr #footer p {
+	margin: 0; /* zeroing the margins of the first element in the footer will avoid the possibility of margin collapse - a space between divs */
+	padding: 10px 0; /* padding on this element will create space, just as the the margin would have, without the margin collapse issue */
+}
+
+/* Miscellaneous classes for reuse */
+.fltrt { /* this class can be used to float an element right in your page. The floated element must precede the element it should be next to on the page. */
+	float: right;
+	margin-left: 8px;
+}
+.fltlft { /* this class can be used to float an element left in your page The floated element must precede the element it should be next to on the page. */
+	float: left;
+	margin-right: 8px;
+}
+.clearfloat { /* this class should be placed on a div or break element and should be the final element before the close of a container that should fully contain its child floats */
+	clear:both;
+    height:0;
+    font-size: 1px;
+    line-height: 0px;
+}
+.tmed {	font-family: Verdana, Geneva, sans-serif;
+	font-size: 14px;
+	font-style: normal;
+}
+.h1a {
+	font-family: "Times New Roman", Times, serif;
+	color: #F00;
+}
+.red {
+	color: #F00;
+}
+.green {
+	color: #390;
+}
+.red1 {	color: #F30;
+}
+.blue {
+	color: #f0C;
+}
+.script {
+	font-family: "Comic Sans MS", cursive;
+	font-size: 18px;
+	color: #639;
+	text-align: center;
+}
+.pale-blue {
+	color: #09F;
+}
+.black {
+	color: #FFF;
+}
+.orange {
+	color: #F60;
+}
+-->
+	</style>
+	<!--[if IE]>
+<style type="text/css">
+ 
+/* place css fixes for all versions of IE in this conditional comment */
+.thrColLiqHdr #sidebar2, .thrColLiqHdr #sidebar1 {
+	padding-top: 10px;
+	background-color: #669999;
+}
+.thrColLiqHdr #mainContent { zoom: 1; padding-top: 15px; }
+/* the above proprietary zoom property gives IE the hasLayout it needs to avoid several bugs */
+</style>
+<![endif]-->
+<link href="./Shiner Public Library_files/style.css" media="screen" rel="stylesheet" type="text/css">
+	<style type="text/css">
+	a#vlb{display:none}.pink {	font-family: Verdana, Geneva, sans-serif;
+	color: #F99;
+}
+ a:link {
+	color: #00F;
+}
+a:visited {
+	color: #309;
+}
+.thrColLiqHdr #container #mainContent #mainContent2 div h3 a {
+	color: #1C5AA8;
+}
+ .Lavender {
+	color: #8000FF;
+}
+	.auto-style1 {
+		color: #000000;
+		font-family: Georgia, "Times New Roman", Times, serif;
+	}
+	.auto-style2 {
+		font-size: xx-large;
+	}
+	.auto-style4 {
+		font-family: Georgia, "Times New Roman", Times, serif;
+		text-align: center;
+	}
+	</style>
+<!-- TemplateParam name="OptionalRegion1" type="boolean" value="true" -->
+   
+
+</head>
+
+<body>
+
+<p class="auto-style1"><strong>Shiner Public Library</strong></p>
+<div align="center">
+  <table border="5" cellpadding="0" cellspacing="0" width="1100">
+	<tbody>
+		<tr>
+        <td style="width: 640px; height: 320px;background-color: #89A3AE;"> 
+			<h4 class="auto-style4">Library Hours</h4>
+
+			<h4 class="auto-style4">Monday - Thursday 8:00am - 5:30pm</h4>
+
+			<h4 class="auto-style4">Friday &amp; Saturday 8:00am - 11:00am</h4>
+
+			<h4 class="auto-style4">Closed Sunday</h4>
+
+		</td>
+
+	    <td style="background-color: #000000; background: #FFFFFF; width: 640px; height: 320px;"><img alt="Shiner Public Library" height="320" src="./Shiner Public Library_files/ShinerLibrary.jpg" width="640"></td>
+			<td style="width: 500px;  height: 320px; background-color: #89A3AE;">
+			<h4 class="auto-style4">115 E. Wolters, 2nd Street</h4>
+
+			<h4 class="auto-style4">Shiner, TX 77984</h4>
+
+			<h4 class="auto-style4">Phone:</h4>
+
+			<h4 class="auto-style4">361-594-3044</h4>
+			<h4 class="auto-style4">Email:</h4>
+			<h4 class="auto-style4">Library@shinertexas.gov</h4>
+
+			<h4>&nbsp;</h4>
+		</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+
+<p></p>
+<p><a href="https://shinerpl.follettdestiny.com/"><span class="auto-style2">
+Library Catalog</span></a>&nbsp;</p>
+
+<p class="auto-style2"><a href="http://www.libraryoftexas.org/texshare">TexShare 
+Database</a></p>
+
+<div id="sidebar2">
+	<iframe frameborder="40" height="350" scrolling="no" src="./Shiner Public Library_files/embed.html" style="border-width: 0px; border: medium #000000 groove;" width="600"></iframe>
+
+<p class="auto-style2">
+<img alt="Free WiFi available" height="171" src="./Shiner Public Library_files/wifi.png" width="294"></p>
+</div></body></html>
