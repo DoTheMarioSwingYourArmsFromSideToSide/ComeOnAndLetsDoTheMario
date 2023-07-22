@@ -1,0 +1,246 @@
+/***** BODY *****/
+body { background: #ffffff; }
+
+
+/***** ACCUEIL *****/
+/* Texte sur la page d'acceuil :
+Cet annuaire contient...
+*/
+.text_index_annu {  }
+
+/* Lien vers les categories princiaples sur la page d'accueil */ 
+a.link_cat_index_annu { font-family: Arial; font-size: 14px; ; font-weight: bold}
+
+/* Lien vers les sous-categories sur la page d'accueil */ 
+a.link_scat_index_annu { font-family: Arial; font-size: 12px; }
+
+/* Nombre de sous-categories entre les () sur la page d'accueil */
+.nb_scat_index_annu { font-family: Arial; font-size: 11px; ; color: #666666; font-weight: bold}
+
+
+/***** CATEGORIES *****/
+/* Lien vers les sous-categories sur les pages des categories */ 
+a.link_scat_other_annu { font-family: Arial; font-size: 15px; }
+
+/* Nombre de sous-categories entre les () sur les pages des categories */
+.nb_scat_other_annu {font-family: Arial; font-size: 11px; ; color: #666666; font-weight: bold}
+
+
+/* Texte qui est affiche en guise de description d'une categorie */
+.text_cat_annu { font-weight: normal; font-family: Arial; font-size: 12px; }
+
+/* Texte pour dire qu'il n'y a pas de site dans une categorie :
+Pas encore de sites dans...
+*/
+.no_site_in_cat_annu { color: #ff0000; }
+
+
+/***** SITES *****/
+/* Titre des sites */
+a.titre_site_annu {  font-family: Arial, Helvetica, sans-serif; font-size: 12px}
+
+/* Nombre de clics sur les sites */
+.nb_clics_site_annu {  }
+
+/* Url des sites*/
+.url_site_annu { font-family: Arial, Helvetica, sans-serif; font-size: 2px}
+
+/* Date de validation des sites */
+.date_validation_site_annu {  }
+
+/* Moyenne + nombre de votes dans le top votes */
+.moyenne_votes_topv_annu {  }
+
+/* Description des sites */
+.description_site_annu {  font-family: Arial, Helvetica, sans-serif; font-size: 12px; text-align: center}
+
+/* Moyenne des votes des sites */
+.moyenne_votes_site_annu {  }
+
+/* Lien pour voter pour les sites */
+a.vote_site_annu {  }
+
+/* Nombre de commentaires pour les sites */
+.commentaire_site_annu {  }
+
+/* Lien pour voir et ecrire des commentaires */
+a.read_write_com_site_annu {  }
+
+/* Position des sites (1,2,3,4,...) dans les Top clics et Top votes */
+.position_site_annu {  }
+
+
+/***** NOUVEAUTES *****/
+/* Texte pour dire qu'il n'y a pas de nouveaux sites ces X derniers jours :
+Aucun site n'a été ajouté ...
+*/
+.no_new_site_annu { color: #ff0000; }
+
+/* Date pour laquelle il y a des nouveaux sites */
+.date_new_site_annu { font-weight: bold; ; font-size: 14px}
+
+
+/***** TOP CLICS *****/
+/* Texte pour dire qu'aucun site n'a deja recu de clic :
+Aucun site n'a encore reçu de visite...
+*/
+.no_clic_site_annu { color: #ff0000; }
+
+
+/***** TOP VOTES *****/
+/* Texte pour dire qu'on n'a pas encore voter pour les sites :
+Aucun site n'a encore reçu de vote...
+*/
+.no_vote_site_annu { color: #ff0000; }
+
+/* Liens vers les 2 types de classement par votes (moyenne ou nombre) */
+a.type_vote_annu {  }
+
+
+/***** RECHERCHE *****/
+/* Texte au cas ou il n'y aurait pas de resultat a la recherche effectuee :
+Aucun résultat pour la recherche...
+*/
+.no_res_search_annu { color: #ff0000; }
+
+/* Timer pour le moteur de recherche */
+.timer_search_annu { font-style: italic; ; font-family: Arial, Helvetica, sans-serif}
+
+/* Texte dans les resultats d'une recherche :
+Categories trouvées, Sites trouves
+*/
+.res_search_cat_site_annu { font-weight: bold; ; font-family: Arial, Helvetica, sans-serif}
+
+/* Champ pour entrer le(s) mot(s) a rechercher */
+input.text_to_search_annu {  }
+
+/* Bouton pour lancer la recherche */
+input.button_make_search_annu {  }
+
+/* Texte en dessous du champ pour entrer la recherche a effectuer :
+Résultats par page ...
+*/
+.text_search_annu {  }
+
+/* Liste deroulante pour choisir le nombre de resultats de la recherche */
+select.list_nb__res_search_annu {  }
+
+
+/***** AJOUTER UN SITE *****/
+/* Texte de confirmation apres la proposition d'un site dans l'annuaire */
+.confirm_add_site_annu { font-size: 14px; }
+
+/* Texte pour dire que tous les champs sont obligatoires */
+.all_field_required_annu { color: #ff0000; font-weight: bold; ; font-family: Arial, Helvetica, sans-serif; font-size: 14px}
+
+/* Texte pour signaler qu'on ne peut pas ajouter de site dans cette categorie */
+.can_not_add_annu { color: #ff0000; font-weight: bold; font-size: 14px; }
+
+/* Texte devant les champs :
+Votre nom :, Votre prénom,...
+*/
+.text_before_field_add_annu { font-family: Arial; font-size: 12px; }
+
+/* Champ(4) pour rentrer les donnees du site (nom, email, URL, titre) */
+input.field_data_add_site_annu {  }
+
+/* Textarea pour la description du site */
+textarea.descr_add_site_annu {  }
+
+/* Bouton pour envoyer le formulaire */
+input.submit_form_add_site_annu {  }
+
+/* Liste deroulante avec toutes les categories */
+select.list_all_cats_annu {  }  
+
+
+/***** VOTE *****/
+/* Texte si on a deja vote pour le site :
+Vous avez déjà voté ces dernières...
+*/
+.deja_vote_annu { color: #ff0000; }
+
+/* Texte apres avoir voter correctement */
+.vote_ok_annu { color: #009900; }
+
+/* Texte qui apparait dans la popup avant de voter :
+Vous allez pouvoir voter...
+*/
+.text_vote_annu { font-weight: bold; }
+
+/* Liste deroulante avec les votes possibles */
+select.list_vote_site_annu {  }
+
+
+/***** COMMENTAIRES *****/
+/* Texte pour signaler qu'il n'y a pas encore eu de commentaires pour un site :
+Pas encore de commentaire...
+*/
+.no_com_site_annu { color: #ff0000; }
+
+/* Auteur + date d'ajout du commentaire */
+.author_and_date_com_annu { font-weight: bold; }
+
+/* Texte du commentaire */
+.text_com_annu {  }
+
+/* Bouton pour ajouter un commentaire */
+input.button_add_com_annu {  }
+
+/* Texte devant les champs du formulaire d'ajout d'un commentaire */
+.text_before_field_com_annu { font-weight: bold; }
+
+/* Textarea pour entrer le commentaire */
+textarea.text_add_com_annu { font-size: 12px; }
+
+/* Champs nom et email pour la personne qui ajoute un commentaire */
+input.champ_com_annu {  } 
+
+
+/***** DIVERS *****/
+/* Lien dans le bas des pages */
+a.link_footer_annu { font-family: Verdana; font-size: 12 px; font-weight: bold; }
+
+/* Liens principaux de l'annuaire (Accueil, Top clics, Ajouter un site,...) */
+a.top_link_annu { font-family: Verdana; font-size:13 px; }
+
+/* Arborescence en ligne des categories */
+.arbo_annu {  font-family: Arial, Helvetica, sans-serif; font-size: 13px; color: #666666; font-style: italic; clip:    rect(   ); font-weight: bold}
+
+/* Liens vers les numeros des pages si il y a trop de sites pour etre affiche sur une seule page (categorie + recherche) */
+a.link_numpage_annu { font-size: 11px; font-family: Arial; }
+
+/* Titre des pages de l'annuaire */
+.titre_annu { font-size: 12px; font-weight: bold; font-family: Arial; }
+
+/* Lien vers la categorie d'un site dans les nouveautes, les tops et le moteur... */
+.link_to_cat_annu {  font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #666666}
+
+/* Boutons des formulaires pour fermer les popups pour les votes et les commentaires */
+input.button_close_annu {  }
+
+.Corps_de_page {  font-family: Arial, Helvetica, sans-serif; font-size: 12px; padding-right: 35px}
+.liens_annu {  font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-weight: normal}
+.Titres-pages_annu {  font-family: Arial, Helvetica, sans-serif; font-size: 18px; font-weight: bold; color: #666666; text-align: center}
+.sous_titres_pages_annu {  font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold; color: #666666}
+
+/*
+     FILE ARCHIVED ON 04:24:04 Nov 14, 2008 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 08:31:25 Jul 18, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 187.602
+  exclusion.robots: 0.098
+  exclusion.robots.policy: 0.085
+  RedisCDXSource: 0.656
+  esindex: 0.01
+  LoadShardBlock: 169.89 (3)
+  PetaboxLoader3.datanode: 209.096 (4)
+  load_resource: 95.768
+  PetaboxLoader3.resolve: 39.44
+*/

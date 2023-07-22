@@ -1,0 +1,623 @@
+/*=====================================================( GLOBALS )===*/
+/*===================================================================*/
+
+BODY
+{
+	color: #000000;
+	font-family: Verdana, Sans, Arial, Helvetica, sans-serif;
+	font-size: 9pt;
+	background: #5D7178 url(/web/20131005190816im_/http://www.pagosasprings.co.gov/repository/designs/templates/GO_pagosasprings-co/images/bodybg.jpg) no-repeat top left;
+}
+img { border: none; }
+#allContainer
+{
+	min-width: 975px;
+	max-width: 1280px;
+	padding-bottom: 10px;
+}
+
+/* banner */
+.banner
+{
+	display: block;
+	margin: 0;
+	position: relative;
+	height: 150px;
+}
+.banner img
+{
+	display: block;
+	border: none;
+	position: absolute;
+	top: 40px;
+	right: 5px;
+}
+
+/* banner overlay for search */
+.overlay { position: relative; 	zoom: 1; }
+.overlay * { vertical-align: middle; }
+.overlay .positioner
+{
+	position: absolute;
+	bottom: 10px;
+	left: 5px;
+	/* z-index: 10; */
+}
+
+.photobox table
+{
+	width: 100%;
+	border-collapse: collapse;
+}
+.photobox td
+{
+	height: 135px;
+	border: 1px solid white;
+}
+.random1 .photo1 { background: url(/web/20131005190816im_/http://www.pagosasprings.co.gov/repository/designs/templates/GO_pagosasprings-co/images/photo11.jpg) no-repeat top center; }
+.random1 .photo2 { background: url(/web/20131005190816im_/http://www.pagosasprings.co.gov/repository/designs/templates/GO_pagosasprings-co/images/photo12.jpg) no-repeat top center; }
+.random1 .photo3 { background: url(/web/20131005190816im_/http://www.pagosasprings.co.gov/repository/designs/templates/GO_pagosasprings-co/images/photo13.jpg) no-repeat top center; }
+.random1 .photo4 { background: url(/web/20131005190816im_/http://www.pagosasprings.co.gov/repository/designs/templates/GO_pagosasprings-co/images/photo14.jpg) no-repeat top center; }
+.random1 .photo5 { background: url(/web/20131005190816im_/http://www.pagosasprings.co.gov/repository/designs/templates/GO_pagosasprings-co/images/photo15.jpg) no-repeat top center; }
+.random2 .photo1 { background: url(/web/20131005190816im_/http://www.pagosasprings.co.gov/repository/designs/templates/GO_pagosasprings-co/images/photo21.jpg) no-repeat top center; }
+.random2 .photo2 { background: url(/web/20131005190816im_/http://www.pagosasprings.co.gov/repository/designs/templates/GO_pagosasprings-co/images/photo22.jpg) no-repeat top center; }
+.random2 .photo3 { background: url(/web/20131005190816im_/http://www.pagosasprings.co.gov/repository/designs/templates/GO_pagosasprings-co/images/photo23.jpg) no-repeat top center; }
+.random2 .photo4 { background: url(/web/20131005190816im_/http://www.pagosasprings.co.gov/repository/designs/templates/GO_pagosasprings-co/images/photo24.jpg) no-repeat top center; }
+.random2 .photo5 { background: url(/web/20131005190816im_/http://www.pagosasprings.co.gov/repository/designs/templates/GO_pagosasprings-co/images/photo25.jpg) no-repeat top center; }
+.random3 .photo1 { background: url(/web/20131005190816im_/http://www.pagosasprings.co.gov/repository/designs/templates/GO_pagosasprings-co/images/photo31.jpg) no-repeat top center; }
+.random3 .photo2 { background: url(/web/20131005190816im_/http://www.pagosasprings.co.gov/repository/designs/templates/GO_pagosasprings-co/images/photo32.jpg) no-repeat top center; }
+.random3 .photo3 { background: url(/web/20131005190816im_/http://www.pagosasprings.co.gov/repository/designs/templates/GO_pagosasprings-co/images/photo33.jpg) no-repeat top center; }
+.random3 .photo4 { background: url(/web/20131005190816im_/http://www.pagosasprings.co.gov/repository/designs/templates/GO_pagosasprings-co/images/photo34.jpg) no-repeat top center; }
+.random3 .photo5 { background: url(/web/20131005190816im_/http://www.pagosasprings.co.gov/repository/designs/templates/GO_pagosasprings-co/images/photo35.jpg) no-repeat top center; }
+
+.cc1 { background: url(/web/20131005190816im_/http://www.pagosasprings.co.gov/repository/designs/templates/GO_pagosasprings-co/images/cc1.jpg) no-repeat top center; }
+.cc2 { background: url(/web/20131005190816im_/http://www.pagosasprings.co.gov/repository/designs/templates/GO_pagosasprings-co/images/cc2.jpg) no-repeat top center; }
+.cc3 { background: url(/web/20131005190816im_/http://www.pagosasprings.co.gov/repository/designs/templates/GO_pagosasprings-co/images/cc3.jpg) no-repeat top center; }
+.cc4 { background: url(/web/20131005190816im_/http://www.pagosasprings.co.gov/repository/designs/templates/GO_pagosasprings-co/images/cc4.jpg) no-repeat top center; }
+.cc5 { background: url(/web/20131005190816im_/http://www.pagosasprings.co.gov/repository/designs/templates/GO_pagosasprings-co/images/cc5.jpg) no-repeat top center; }
+
+/* main table */
+.mainTable
+{
+	width: 100%;
+	border-collapse: collapse;
+	margin: 0; border: 0;
+	background-color: white;
+}
+.mainTable td.column { vertical-align: top; text-align: left; padding: 0 }
+.mainTable td.centerColumn
+{
+	padding: 1em 1.6em;
+}
+.mainTable td.narrow.column
+{
+	font-size: 88.8%;
+}
+.mainTable td.leftColumn
+{
+	width: 190px;
+	padding: 8px;
+}
+.mainTable td.rightColumn
+{
+	width: 190px;
+	padding: 8px;
+}
+
+
+/* global stuff */
+.subtext, .subtextlink, .subtextitalics, .subtextItalics
+{
+	font-size: 85%;
+}
+.narrow.column .subtext, .narrow.column .subtextlink, .narrow.column .subtextitalics, .narrow.column .subtextItalics
+{
+	font-size: 100%;
+}
+a
+{
+	color: #59392d;
+	/*font-weight: bold;*/
+}
+a:hover { color: #323f3e; }
+.itemLink { font-weight: bold; }
+
+
+/* simple search box, now in by default */
+.searchbox.simple 
+{
+	text-align: right;
+	margin: 0;
+	font-size: 8pt;
+}
+.searchbox.simple > * { display: inline-block; vertical-align: middle; }
+.searchbox.simple .searchbox_header
+{
+	padding: 0;
+	background: transparent;
+}
+.searchbox.simple .searchbox_field
+{
+	width: 30ex;
+	border: 1px solid black;
+	border-color: rgba(0,0,0,0.3);
+	font-size: 7.5pt;
+	padding: 2px;
+}
+.searchbox.simple .searchbox_options input, .searchbox.simple .searchbox_tips { margin: 0 0 0 2ex; }
+.searchbox.simple .searchbox_options > * { vertical-align: middle; }
+.searchbox.simple .searchbox_controls, .searchbox.simple .searchbox_tips { display: none; }
+.searchbox.simple A.goButton
+{
+	display: inline-block;
+	padding: 2px 5px;
+	background: #b1b1b1 url(/web/20131005190816im_/http://www.pagosasprings.co.gov/repository/designs/templates/GO_pagosasprings-co/images/gograd.jpg) repeat-x top left;
+	color: #000000;
+	border: 1px solid #666;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 7.5pt;
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+}
+.searchbox.simple A.goButton:hover { background: #dad2a7; }
+
+
+
+
+/*===================================================( HEADLINES )===*/
+/*===================================================================*/
+
+.headline1, .headline2, .headline3, .headline4
+{
+	font-weight: bold;
+	font-size: 133%;
+}
+.headline1 { font-size: 200%; }
+.headline2 { font-size: 155%; }
+.headline3 {}
+.headline4 { font-size: 111%; }
+.headlineDisplay A { font-weight: bold; }
+
+
+/*==========================================( MAIN COLUMN PIECES )===*/
+/*===================================================================*/
+
+.centerColumn .contentbox
+{
+}
+.centerColumn .contentbox > .header
+{
+	margin-bottom: 1ex;
+}
+.centerColumn .contentbox > .body
+{
+}
+.attachments
+{
+}
+.centerColumn A
+{
+
+}
+.centerColumn A:hover
+{
+
+}
+
+
+/*==========================================( LEFT COLUMN PIECES )===*/
+/*===================================================================*/
+
+.leftColumn .contentbox
+{
+}
+.leftColumn .contentbox > .header
+{
+	color: #fff;
+	font-size: 115%;
+	font-weight: bold;
+	background-color: #53562d;
+	padding: 0.5em;
+	margin-bottom: 3px;
+}
+.leftColumn .contentbox:nth-child(even) > .header
+{
+	background-color: #574220;
+}
+.leftColumn .contentbox > .body
+{
+	background-color: #ccd3a8;
+	border: 1px solid black;
+	margin-bottom: 10px;
+	padding: 1em;
+}
+.leftColumn .contentbox:nth-child(even) > .body
+{
+	background-color: #ece2a8;
+}
+.leftColumn A
+{
+}
+.leftColumn A:hover
+{
+}
+
+/*=========================================( RIGHT COLUMN PIECES )===*/
+/*===================================================================*/
+
+.rightColumn .contentbox
+{
+}
+.rightColumn .contentbox > .header
+{
+	color: #fff;
+	font-size: 115%;
+	font-weight: bold;
+	background-color: #53562d;
+	padding: 0.5em;
+	margin-bottom: 3px;
+}
+.rightColumn .contentbox:nth-child(even) > .header
+{
+	background-color: #2a1e11;
+}
+.rightColumn .contentbox > .body
+{
+	background-color: #ccd3a8;
+	border: 1px solid black;
+	margin-bottom: 10px;
+	padding: 1em;
+}
+.rightColumn .contentbox:nth-child(even) > .body
+{
+	background-color: #bcb38f;
+}
+.rightColumn A
+{
+
+}
+.rightColumn A:hover
+{
+
+}
+
+
+/*===============================================( FOOTER PIECES )===*/
+/*===================================================================*/
+.footer
+{
+	font-size: 88%;
+	font-weight: bold;
+	color: #ece2a8;
+	background-color: #0b0d17;
+	text-align: center;
+	padding: 0.6em 1em;
+	border: 1px solid white;
+}
+
+.footernav
+{
+	text-align: center;
+	color: black;
+}
+A.footernav
+{
+	font-size: 88%;
+	color: black;
+}
+A.footernav:hover
+{	
+	color: #ccc;
+}
+.verticalLogo_text a
+{
+	text-decoration: none;
+	color: white;
+	font-weight: bold;
+}
+
+/* =============== MENU NAV STUFF =====================*/
+
+
+/*=================================================*/
+/*==( Adjustable styles )==========================*/
+/*=================================================*/
+
+/* width of menus */
+A.menuItem, A.menuItem_hi, DIV.menu
+{
+	width: 240px;
+}
+
+/* padding...try to keep it consistent between menu titles and menu items */
+.menuItemPadder, .menuTitle, .menuTitle_hi
+{
+	padding: 6px 10px 6px 10px;
+}
+.menuTitle, .menuTitle_hi
+{
+	padding: 6px 10px 6px 10px;
+}
+/* keep the "top" value of this set equal to the amount of padding-top on the menuItemPadder */
+.subTriangle
+{
+	top: 6px;
+}
+
+/* text size...keep this consistent as well */
+A.menuTitle, A.menuTitle_hi, A.menuItem, A.menuItem_hi, .subTriangle
+{
+	font-size: 9pt;
+}
+
+
+/* menu TITLE style */
+A.menuTitle, A.menuTitle_hi
+{
+	color: #ffffff;
+	background-color: #4f3a17;
+	text-decoration: none;
+	text-align: left;
+	font-weight: bold;
+	white-space: nowrap;
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.2);
+	margin-bottom: 3px;
+	display: block;
+	border: 1px solid black;
+}
+A.menuTitle_hi, A.menuTitle:hover, A.menuTitle_hi:hover
+{
+	background-color: #000;
+}
+
+/*.vertNavBox A.menuTitle, .vertNavBox A.menuTitle_hi
+{
+}
+.vertNavBox A.menuTitle:hover, .vertNavBox A.menuTitle_hi:hover, .vertNavBox A.menuTitle_hi
+{
+}*/
+
+.horizNavBox A.menuTitle, .horizNavBox A.menuTitle_hi
+{
+	margin: 0;
+	border: none;
+	background: transparent url(/web/20131005190816im_/http://www.pagosasprings.co.gov/repository/designs/templates/GO_pagosasprings-co/images/divider.jpg) no-repeat top left;
+	padding: 6px 20px 3px 20px;
+}
+.horizNavBox td:first-child A.menuTitle, .horizNavBox td:first-child A.menuTitle_hi
+{
+	background: transparent;
+}
+
+.horizNavBox A.menuTitle:hover, .horizNavBox A.menuTitle_hi:hover, .horizNavBox A.menuTitle_hi
+{
+	background: black url(/web/20131005190816im_/http://www.pagosasprings.co.gov/repository/designs/templates/GO_pagosasprings-co/images/divider.jpg) no-repeat top left;
+}
+.horizNavBox td:first-child A.menuTitle:hover, .horizNavBox td:first-child A.menuTitle_hi:hover, .horizNavBox td:first-child A.menuTitle_hi
+{
+	background: black;
+}
+
+/* menu ITEM style */
+A.menuItem, A.menuItem_hi
+{
+	color: white;
+	font-weight: bold;
+	text-decoration: none;
+}
+A.menuItem_hi, A.menuItem:hover, A.menuItem_hi:hover
+{
+	color: white;
+	background-color: #000;
+	text-decoration: none;
+}
+/*.vertNavBox A.menuItem, .vertNavBox A.menuItem_hi
+{
+}
+.vertNavBox A.menuItem_hi, .vertNavBox A.menuItem:hover, .vertNavBox A.menuItem_hi:hover
+{
+}*/
+
+/*.horizNavBox A.menuItem, .horizNavBox A.menuItem_hi
+{
+}
+.horizNavBox A.menuItem_hi, .horizNavBox A.menuItem:hover, .horizNavBox A.menuItem_hi:hover
+{
+}*/
+
+
+/* subnav triangle */
+.menuItem .subTriangle, .menuItem_hi .subTriangle, .menuItem:hover .subTriangle
+{
+	color: white;
+}
+.menuItem_hi .subTriangle, .menuItem:hover .subTriangle
+{
+}
+
+
+/* MENU style */
+DIV.menu
+{
+	/* NOTE:If you don't want PNG-transparent menus, you can
+	replace the following with a background-color.*/
+	/*background-image: url(/web/20131005190816im_/http://www.pagosasprings.co.gov/repository/designs/templates/GO_pagosasprings-co/images/menuBG.png);*/
+	background-color: #4f3a17;
+	
+	border-style: solid;
+	border-bottom-color: #666666;
+	border-left-color: #b6b6b6;
+	border-right-color: #666666;
+	border-top-color: #b6b6b6;
+}
+
+/*#secNavBox DIV.menu
+{
+	background-color: #929292;
+	
+	border-style: solid;
+	border-bottom-color: #666666;
+	border-left-color: #b6b6b6;
+	border-right-color: #666666;
+	border-top-color: #b6b6b6;
+}*/
+
+/*===============================================*/
+/*==( REQUIRED styles )==========================*/
+/*===============================================*/
+
+/* NEW as of 4/22/2011: no stupid style attributes on menu nav boxes, style is now here */
+.menuNavBox
+{
+	position: relative;
+	text-align: left;
+	width: 100%;
+}
+
+ /* z-indexes on these now considered unnecessary and harmful.
+  removing them solves overlapping issues. */
+.horizNavBox
+{
+	/* z-index: 6; */
+}
+.vertNavBox
+{
+	/* z-index: 5; */
+	margin-bottom: 1em;
+}
+
+/* this solves the remaining z-index issues on IE<8 in most cases */
+/* the rule is redundant because IE6 randomly doesn't get this double-class selector at the end */
+#priNavBox.active, #secNavBox.active, .menuNavBox.active
+{
+	z-index: 1000;
+}
+.navwrap
+{
+	height: 8px;
+	background-color: #4f3a17;
+	border-left: 1px solid white;
+	border-right: 1px solid white;
+	position: relative;
+}
+.menuBar
+{
+	position: absolute;
+	bottom: 0px;
+	right: 50px;
+	border: 1px solid white;
+	border-bottom: none;
+	background-color: #4f3a17;
+}
+DIV.menu
+{
+	z-index: 10;
+	position: absolute;
+	visibility: hidden;
+	top: 0px;
+	left: 0px;
+}
+A.menuTitle, A.menuTitle_hi
+{
+	display: block;
+	position: relative;
+	text-decoration: none;
+	cursor: pointer;
+	vertical-align: middle;
+	white-space: nowrap;
+}
+.vertNavBox A.menuTitle, .vertNavBox A.menuTitle_hi
+{
+	white-space: normal;
+}
+A.menuItem, A.menuItem_hi
+{
+	display: block;
+	cursor: pointer;
+	text-decoration: none;
+}
+DIV.menuItemWrapper
+{
+	padding-right: 1.2em;
+}
+.menuItem .subTriangle, .menuItem_hi .subTriangle, .menuItem:hover .subTriangle
+{
+	text-decoration: none;
+	position: absolute;
+	right: 5px;
+}
+/* hover color for subnav triangle */
+.menuItem_hi .subTriangle, .menuItem:hover .subTriangle
+{
+}
+
+/*===========================================( NAVIGATION PIECES )===*/
+/*===================================================================*/
+
+
+/* SUBSECTIONS-ONLY box styles */
+.subnavbox A.subSectionLink, .subnavbox A.subSectionLink_high
+{
+	text-decoration: none;
+}
+.subnavbox A.subSectionLink_high, .subnavbox A.subSectionLink:hover, .subnavbox A.subSectionLink_high:hover
+{
+	text-decoration: underline;
+	color: #323f3e;
+}
+.subnavDivTag
+{
+	margin-bottom: 0.5em;
+}
+
+
+/*=================================================( CALENDAR PIECES )===*/
+/*=======================================================================*/
+
+.calMonth table, .calDayHeading /* calendar grid color */
+{
+	background-color: #201304;
+}
+/* .calMonth table { border-radius: 7px 7px 0 0; } */
+.calDayHeading
+{
+	background-color: #584321;
+}
+
+.calGrayDay
+{
+	background-color: #b1a174;
+	color: #333333;
+}
+.calToday
+{
+	background-color: #dad2a7;
+}
+.eventTip
+{
+	border-color: #555500;
+	background-color: #ffff88;
+	color: black;
+}
+/*
+     FILE ARCHIVED ON 19:08:16 Oct 05, 2013 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 07:51:46 Jul 20, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 155.516
+  exclusion.robots: 0.079
+  exclusion.robots.policy: 0.069
+  RedisCDXSource: 4.545
+  esindex: 0.009
+  LoadShardBlock: 129.569 (3)
+  PetaboxLoader3.datanode: 77.104 (4)
+  load_resource: 56.953
+  PetaboxLoader3.resolve: 43.464
+*/

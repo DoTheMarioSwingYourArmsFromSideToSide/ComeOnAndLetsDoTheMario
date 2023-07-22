@@ -1,0 +1,134 @@
+#featureBar .topSep { width: 19px; background: url(https://web.archive.org/web/20080131224754im_/http://icons.wxug.com/graphics/smash/topDarkLight2.gif); }
+
+H1 A { text-decoration: none; color: #213F9A; }
+
+#titleBar { padding: 2px; background-color: #F5F5F5; color: #333; border-top: 1px solid #333; margin-bottom: 10px; }
+#titleBar A { color: #213F9A; text-decoration: none; border-bottom: 1px dotted #213F9A; }
+#titleBar A:hover { color: #213F9A; text-decoration: none; border-bottom: 1px solid #213F9A; }
+
+.i { font-style: italic; }
+.b { font-weight: bold; }
+.nb { font-weight: normal; }
+.p5 { padding: 5px; }
+.w10 { width: 10px; }
+.w15 { width: 15px; }
+.taC { text-align: center; }
+TD.vaT { vertical-align: top; }
+TR.vaT TD { vertical-align: top; }
+TD.vaM { vertical-align: middle; }
+TR.vaM TD { vertical-align: middle; }
+.full { width: 100%; }
+.tm10 { margin-top: 10px; }
+.tm20 { margin-top: 20px; }
+.bm10 { margin-bottom: 10px; }
+.bm20 { margin-bottom: 20px; }
+.bm15 { margin-bottom: 15px; }
+.lm10 { margin-left: 10px; }
+.lm20 { margin-left: 20px; }
+.gap1 { height: 1px; line-height: 1px; clear: both; }
+.none { display: none; }
+.nobr { white-space: nobr; }
+.caps { text-transform: capitalize; }
+.lower { text-transform: lowercase; }
+.clear { clear: both; }
+.center { margin-left: auto; margin-right: auto; }
+.subG { background-color: #F5F5F5; border-bottom: 1px solid #CCC; padding: 2px; }
+.mainB { font-size: 14px; font-weight: bold; background-color: #CDD9FF; border-bottom: 1px solid #172C6C; padding: 2px; }
+
+.red { color: #F00; }
+.blue { color: #00F; }
+.green { color: #008000; }
+.orange { color: #FF8C00; }
+
+.pageTop { text-align: right; margin: 10px 0 10px 0; font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; font-size: 11px; }
+.pageTop A { color: #00F; }
+
+.blueTop { width: 100%; }
+.blueTop .hLeft { padding: 0; height: 20px; background-color: #213F9A; }
+.blueTop .hCenter { height: 20px; line-height: 20px; width: 100%; font-size: 14px; font-weight: bold; color: #FFF; background-color: #213F9A; }
+.blueTop .hCenter A { color: #FFF; text-decoration: none; }
+.blueTop .hRight { padding: 0; height: 20px; background-color: #213F9A; }
+.blueTop .sLeft { padding: 0; height: 6px; }
+.blueTop .sCenter { padding: 0; height: 6px; line-height: 6px; font-size: 6px; }
+.blueTop .sRight { padding: 0; height: 6px; }
+.blueBox { border-right: 1px solid #213F9A; border-left: 1px solid #213F9A; padding: 0 5px 0 5px; }
+.blueBox .noGap { height: 1px; line-height: 1px; }
+.blueBottom { height: 10px; width: 100%; }
+.blueBottom .bLeft DIV { height: 10px; width: 10px; background-image: url(https://web.archive.org/web/20080131224754im_/http://icons.wxug.com/graphics/wu2/botBlue-left.gif); background-repeat: no-repeat; }
+.blueBottom .bCenter DIV { height: 10px; background-image: url(https://web.archive.org/web/20080131224754im_/http://icons.wxug.com/graphics/wu2/botBlue-center.gif); background-repeat: repeat-x; }
+.blueBottom .bRight DIV { height: 10px; width: 10px; background-image: url(https://web.archive.org/web/20080131224754im_/http://icons.wxug.com/graphics/wu2/botBlue-right.gif); background-repeat: no-repeat; }
+
+.dataTable { width: 100%; }
+.dataTable THEAD TR TD { border-bottom: 1px solid #999; font-weight: bold; padding: 2px; background-color: #F5F5F5; }
+.dataTable TBODY TR TD { border-bottom: 1px dotted #CCC; padding: 3px; }
+.dataTable TBODY TR TD.dataBlue { border-bottom: 1px dotted #CCC; padding: 3px; background-color: #DEF; }
+.dataTable TBODY TR TD.dataGrey { border-bottom: 1px dotted #CCC; padding: 3px; background-color: #F5F5F5; }
+.dataTable TBODY TR:hover TD { border-bottom: 1px dotted #CCC; padding: 3px; background-color: #FFC; }
+.dataTable TBODY TR:hover TD { background-color: #FFC; }
+.dataTable TBODY TR.wHover:hover TD { background-color: #FFF; }
+.dataTable TBODY TR.gHover:hover TD { background-color: #F5F5F5; }
+.dataTable TBODY TR.noBorder TD { border-bottom: 0; }
+.dataTable TR TD.dataFooter { background-color: #F5F5F5; border-bottom: 1px solid #CCC; }
+.dataTable TR TD.dataFooter:hover { background-color: #F5F5F5; border-bottom: 1px solid #CCC; }
+.dataTable TR TD.dataFooter A { color: #213F9A; }
+
+.rightCol { margin-left: 10px; }
+.rightCol .contentBox { background-image: url(https://web.archive.org/web/20080131224754im_/http://icons.wxug.com/graphics/wu2/bgBlue-300.gif); background-repeat: repeat-y; }
+.rightCol .contentBox .headerText { font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; font-weight: bold; color: #9A5121; margin: 0 5px 0 5px; border-bottom: 1px solid #CCC; padding-bottom: 3px; }
+.rightCol .contentBox A { color: #213F9A; }
+.rightCol .contentBox P { margin: 10px; }
+.rightCol .contentBox UL { margin: 10px 0 10px 30px; }
+
+.innerCol { margin-left: 10px; }
+.innerCol .contentBox { width: 300px; }
+.innerCol .contentBox .headerText { font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; font-weight: bold; color: #9A5121; border-bottom: 1px solid #CCC; padding-bottom: 3px; }
+.innerCol .contentBox A { color: #213F9A; }
+.innerCol .contentBox P { margin: 10px; }
+.innerCol .contentBox UL { margin: 10px 0 10px 30px; }
+
+.endBox { height: 0; line-height: 0; }
+
+.condIcon { border: 1px solid #172C6C; }
+
+A.subLink { display: inline; padding: 1px 10px 1px 10px; border: 1px solid #9A8221; background-color: #FFEB9B; color: #172C6C; margin: 10px 0 10px 0; text-decoration: none; }
+A.subLink:hover { border: 1px solid #6C5B17; background-color: #FFF5CD; }
+
+.wxStickerType { border-bottom: 1px solid #CCC; margin: 0 0 10px 0; padding: 2px; font-weight: bold; }
+TEXTAREA.stickerCode { width: 600px; height: 100px; margin: 10px; }
+
+#gMapSide { margin-top: 5px; width: 290px; height: 330px; border: 1px solid #CCC; overflow: hidden;  }
+
+#dlList { list-style-type: none; margin: 0; }
+#dlList LI { clear: both; border-bottom: 1px solid #CCC; min-height: 100px; list-style-type: none; padding: 5px; }
+#dlList LI .dlIcon { float: left; margin: 5px; }
+
+.noteFeature { height: 50px; width: 300px; background-image: url(https://web.archive.org/web/20080131224754im_/http://icons.wxug.com/graphics/wu2/note_tornadomap.gif); background-repeat: no-repeat; margin-bottom: 10px; }
+.noteFeature A { display: block; height: 50px; width: 300px; text-decoration: none; text-align: center; font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; font-size: 14px; }
+.noteFeature A DIV.noteIntro { padding-top: 7px; color: #172C6C; }
+.noteFeature A DIV.noteTitle { font-weight: bold; padding-top: 3px; color: #172C6C; text-decoration: underline; }
+
+.warnTable { width: 100%; }
+.warnTable THEAD TR TD { vertical-align: middle; background-color: #F5F5F5; border-bottom: 1px solid #CCC; font-size: 14px; padding: 2px; font-weight: bold; }
+
+#dateSelector TR TD { border: 0; background-color: #F5F5F5; }
+
+/*
+     FILE ARCHIVED ON 22:47:54 Jan 31, 2008 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 08:22:36 Jul 18, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 271.897
+  exclusion.robots: 0.169
+  exclusion.robots.policy: 0.154
+  cdx.remote: 0.111
+  esindex: 0.015
+  LoadShardBlock: 225.179 (3)
+  PetaboxLoader3.datanode: 110.159 (4)
+  PetaboxLoader3.resolve: 201.923 (3)
+  load_resource: 134.815
+*/

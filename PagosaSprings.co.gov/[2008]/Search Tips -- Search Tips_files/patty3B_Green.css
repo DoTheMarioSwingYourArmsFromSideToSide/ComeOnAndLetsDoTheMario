@@ -1,0 +1,396 @@
+/* ========== GENERAL CLASSES ========== */
+/* ========== LEFT CLASSES ============= */
+/* ========== RIGHT CLASSES ============ */
+/* ========== NAV CLASSES ============== */
+/* ========== FOOTER CLASSES =========== */
+/* ========== HEADLINE CLASSES ========= */
+/* ========== Link CLASSES ============= */
+/* ======== Special For This Site Or Misc. ====== */
+
+
+
+
+/* ========== GENERAL CLASSES ========== */
+.form, TABLE.form, TD.form
+{
+    FONT-SIZE: 11px;
+    COLOR: #000000;
+    FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.warning
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 12px;
+    COLOR: #FF0000;
+    FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.normal, TABLE.normal, TD.normal
+{
+    FONT-SIZE: 10pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+    BACKGROUND-COLOR: #FFFFFF;
+}
+.shaded
+{
+    COLOR: #000000;
+    FONT-SIZE: 10pt;
+    BACKGROUND-COLOR: #CCCCCC;
+}
+
+
+.contentbox, TABLE.contentbox, TD.contentbox
+{
+    FONT-SIZE: 10pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+    BACKGROUND-COLOR: #FFFFFF
+}
+.contentboxheader, TABLE.contentboxheader, TD.contentboxheader
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 12pt;
+    COLOR: #003333;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+    BACKGROUND-COLOR: #FFFFFF
+}
+
+
+
+
+/* ========== LEFT CLASSES ============= */
+.normal_left, TABLE.normal_left, TD.normal_left
+{
+    FONT-SIZE: 10pt;
+    COLOR: #FFFFFF;
+    FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.contentbox_left, TABLE.contentbox_left, TD.contentbox_left
+{
+    FONT-SIZE: 10pt;
+    COLOR: #FFFFFF;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+    BACKGROUND-COLOR: #669966
+}
+.contentboxheader_left, TABLE.contentboxheader_left, TD.contentboxheader_left
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 12pt;
+    COLOR: #FFFFFF;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+    BACKGROUND-COLOR: #669966
+}
+.contentbox_left A:link, .contentbox_left A:visited
+{
+    FONT-WEIGHT: bold;
+    COLOR: #FFFFFF
+}
+.searchbox, TABLE.searchbox, TD.searchbox
+{
+    FONT-SIZE: 10pt;
+    COLOR: #FFFFFF;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+    BACKGROUND-COLOR: #669966
+}
+.searchboxheader, TABLE.searchboxheader, TD.searchboxheader
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 12pt;
+    COLOR: #FFFFFF;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+    BACKGROUND-COLOR: #669966
+}
+.searchbox A:link, .searchbox A:visited
+{
+    FONT-WEIGHT: bold;
+    COLOR: #FFFFFF
+}
+
+
+
+
+/* ========== RIGHT CLASSES ============ */
+.normal_right, TABLE.normal_right, TD.normal_right
+{
+    FONT-SIZE: 10pt;
+    COLOR: #FFFFFF;
+    FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.contentbox_right A:link, .contentbox_right A:visited
+{
+    FONT-WEIGHT: bold;
+    COLOR: #000000
+}
+.contentbox_right, TABLE.contentbox_right, TD.contentbox_right
+{
+    FONT-SIZE: 10pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+    BACKGROUND-COLOR: #FFFFFF
+}
+.contentboxheader_right, TABLE.contentboxheader_right, TD.contentboxheader_right
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 12pt;
+    COLOR: #666666;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+    BACKGROUND-COLOR: #FFFFFF
+}
+.sidebar, TABLE.sidebar, TD.sidebar
+{
+    FONT-SIZE: 10pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+    BACKGROUND-COLOR: #FFFFFF
+}
+.sidebar A:link, .sidebar A:visited
+{
+    FONT-WEIGHT: bold;
+    COLOR: #000000
+}
+.sidebarheader, TABLE.sidebarheader, TD.sidebarheader
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 12pt;
+    COLOR: #666666;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+    BACKGROUND-COLOR: #FFFFFF
+}
+.rlfsidebar, TABLE.rlfsidebar, TD.rlfsidebar
+{
+    FONT-SIZE: 10pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+    BACKGROUND-COLOR: #FFFFFF
+}
+.rlfsidebar A:link, .rlfsidebar A:visited
+{
+    FONT-WEIGHT: bold;
+    COLOR: #000000
+}
+.rlfsidebarheader, TABLE.rlfsidebarheader, TD.rlfsidebarheader
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 12pt;
+    COLOR: #003333;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+    BACKGROUND-COLOR: #FFFFFF
+}
+
+.guestbookTable_right .contentboxheader_right
+{
+	border-top: 1px solid #666;
+	border-left: 1px solid #666;
+	border-right: 1px solid #666;
+}
+.guestbookTable_right .contentbox_right
+{
+	background-color: white;
+	border-bottom: 1px solid #666;
+	border-left: 1px solid #666;
+	border-right: 1px solid #666;
+}
+
+
+/* ========== NAV CLASSES ============== */
+.navbar, A.navbar,  TABLE.navbar, TD.navbar
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 9pt;
+    COLOR: #FFFFFF;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+    BACKGROUND-COLOR: #669966;
+    TEXT-DECORATION: none
+}
+.navbarHigh, A.navbarHigh, TABLE.navbarHigh, TD.navbarHigh 
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 9pt;
+    COLOR: #FF9900;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+    BACKGROUND-COLOR: #669966
+}
+.navbarnested, A.navbarnested, TABLE.navbarnested, TD.navbarnested
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 9pt;
+    COLOR: #FFFFFF;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+    BACKGROUND-COLOR: #669966;
+    TEXT-DECORATION: none
+}
+.cookiecrumb, TABLE.cookiecrumb, TD.cookiecrumb
+{
+    FONT-SIZE: 8pt;
+    COLOR: #FFFFFF;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+    BACKGROUND-COLOR: #669966
+}
+.cookiecrumb A:link, .cookiecrumb A:visited
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 8pt;
+    COLOR: #FFFFFF;
+    TEXT-DECORATION: none
+}
+
+
+
+
+/* ========== FOOTER CLASSES =========== */
+.footer, TABLE.footer, TD.footer
+{
+    FONT-SIZE: 9pt;
+    COLOR: #FFFFFF;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+    BACKGROUND-COLOR: #669966
+}
+.footernav, TABLE.footernav, TD.footernav
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 9pt;
+    COLOR: #FFFFFF;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+    BACKGROUND-COLOR: #669966
+}
+
+
+/* ========== HEADLINE CLASSES ========= */
+.headline1
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 18pt;
+    COLOR: #666666;
+    FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.headline2
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 14pt;
+    COLOR: #666666;
+    FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.headline3
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 12pt;
+    COLOR: #666666;
+    FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.headline4
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    COLOR: #666666;
+    FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+
+
+
+
+
+/* ========== Link CLASSES ============= */
+.subtext, TABLE.subtext, TD.subtex
+{
+    FONT-SIZE: 7.5pt;
+    FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.subtextlink
+{
+    FONT-SIZE: 7.5pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.link
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+}
+
+
+
+
+/* ======== Special For This Site Or Misc. ====== */
+.subtextitalics
+{
+    FONT-SIZE: 7.5pt;
+    FONT-STYLE: italic;
+    FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.menuLink
+{
+    FONT-SIZE: 7.5pt;
+    COLOR: #339933;
+    FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.menuLinkActive
+{
+    FONT-SIZE: 7.5pt;
+    COLOR: #666699;
+    FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+H1
+{
+    FONT-SIZE: 18pt
+}
+H2
+{
+    FONT-SIZE: 14pt;
+    MARGIN-BOTTOM: 0em;
+    FONT-FAMILY: Arial
+}
+H3
+{
+    FONT-SIZE: 12pt;
+    FONT-FAMILY: Arial
+}
+H4
+{
+    FONT-SIZE: 10pt;
+    MARGIN-BOTTOM: -1.4em;
+    FONT-FAMILY: Arial
+}
+LI
+{
+    MARGIN-LEFT: -25px
+}
+.bottomcorner
+{
+    BACKGROUND-POSITION: left bottom;
+    BACKGROUND-ATTACHMENT: fixed;
+    BACKGROUND-IMAGE: url(/web/20080917210028im_/http://search.avenet.net/repository/designs/templates/patty3B/images/bottom_corner3.gif);
+    BACKGROUND-REPEAT: no-repeat
+}
+.titleback, TABLE.titleback, TD.titleback
+{
+    BACKGROUND-POSITION: left top;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 13pt;
+    FONT-FAMILY: Arial, Helvetica, sans-serif  
+    COLOR: #FFFFFF;
+    BACKGROUND-COLOR: #666666
+}
+
+
+/*
+     FILE ARCHIVED ON 21:00:28 Sep 17, 2008 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:54:24 Jul 18, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 87.973
+  exclusion.robots: 0.071
+  exclusion.robots.policy: 0.061
+  RedisCDXSource: 0.662
+  esindex: 0.008
+  LoadShardBlock: 70.149 (3)
+  PetaboxLoader3.datanode: 1196.562 (4)
+  load_resource: 2328.366
+  PetaboxLoader3.resolve: 1041.139
+*/

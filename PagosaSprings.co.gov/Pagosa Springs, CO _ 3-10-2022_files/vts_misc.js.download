@@ -1,0 +1,62 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+(function ($, Drupal, window, document, undefined) {
+  Drupal.behaviors.vts_misc = {
+    attach: function(context, settings) {
+      $('.resp-tabs-list a[href*=#]:not([href=#])').click(function(event) {
+        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname && $(window).width() > 767) {
+          /* Interrupt anchor and just change tab classes */
+          event.preventDefault();
+          /*
+          // Scroll smoothly to responsive tab anchors on tablet and desktop.
+          var target = $(this.hash);
+          var dest = 0;
+          if (target.offset().top > $(document).height()-$(window).height()){
+            dest=$(document).height()-$(window).height();
+          }
+          else {
+            dest=target.offset().top;
+          }
+          $('html,body').animate({scrollTop: dest}, 1000, 'swing');
+          */
+        }
+      });
+
+      // Remove Superfish hidden classes from mega menu ul content.
+      $('.menu-minipanel-panel ul.sf-hidden').removeClass('sf-hidden');
+    }
+  };
+})(jQuery, Drupal, this, this.document);
+
+}
+/*
+     FILE ARCHIVED ON 02:54:46 Mar 10, 2022 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 09:10:18 Jul 18, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 248.978
+  exclusion.robots: 0.067
+  exclusion.robots.policy: 0.057
+  RedisCDXSource: 5.406
+  esindex: 0.007
+  LoadShardBlock: 218.952 (3)
+  PetaboxLoader3.datanode: 231.138 (5)
+  load_resource: 73.735
+  PetaboxLoader3.resolve: 47.791
+  loaddict: 15.162
+*/

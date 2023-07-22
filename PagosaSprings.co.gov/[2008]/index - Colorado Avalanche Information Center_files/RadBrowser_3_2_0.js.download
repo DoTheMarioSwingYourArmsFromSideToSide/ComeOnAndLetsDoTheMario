@@ -1,0 +1,36 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+function Browser(){if (window.navigator){ this.O2d=navigator.userAgent.toLowerCase(); }else { this.O2d=""; } this.G= false; this.l2d= false; this.i2d= false; this.i2a= false; this.I2d= false; this.o25= false; this.o2e= false; this.O2e= false; this.l2e= false; this.g= false; this.i2e= false; this.I2e= false; this.h= false; this.o2f= false; this.O2f= false; this.l2f= false; this.i2f= false; this.oy= false; this.Oy= false; this.I2f= false; this.Z= false; this.o2g= false; this.O2g= false; this.l2g= false; this.i2g= false; this.I2g= false; this.o2h= false; this.O2h= false; this.l2h= false; this.i2h= false; this.I2h= false; this.o2i= false; this.O2i= false; this.l2i= false; this.i2i= false; this.I2i= false; this.o2j= false; this.O2j= false; this.l2j= false; this.i2j= false; this.I2j= false; this.HasFilters= false; this.lg= false; this.o2k(); this.O2k(); this.l2k(); this.i2k=navigator.appName; this.I2k=navigator.appCodeName; this.o2l=navigator.appVersion.substring(0,4); this.O2l=navigator.platform; this.l2l=navigator.javaEnabled(); this.i2l=screen.width; this.I2l=screen.height; return this ; }Browser.prototype.o2m= function (){ this.h=this.Oy=this.oy=this.i2f=this.I2f=this.o2f=this.O2f=this.l2f= false; };Browser.prototype.O2m= function (){ this.o2g=this.O2g=this.l2g=this.i2g= false; };Browser.prototype.l2m= function (){ this.h=this.Oy=this.oy=this.i2f=this.I2f=this.o2f=this.O2f=this.l2f= false; };Browser.prototype.o2k= function (){if ((this.O2d.indexOf("w\x69n")!=-1)){ this.G= true; }else if ((this.O2d.indexOf("mac")!=-1) || (navigator.appVersion.indexOf("\x6dac")!=-1)){ this.i2a= true; }else if ((this.O2d.indexOf("\x6c\x69nux")!=-1)){ this.l2d= true; }else if ((this.O2d.indexOf("\x78\x311")!=-1)){ this.i2d= true; }else { this.l2h= true; }};Browser.prototype.O2k= function (){if ((document.getElementById && document.createElement)){ this.i2h= true; }if (document.all){ this.I2h= true; }if (document.layers){ this.o2i= true; }if (window.focus){ this.O2i= true; }if (document.compatMode && document.compatMode=="\x43S\x53\x31Com\x70at"){ this.l2i= true; }if (document.images){ this.i2i= true; }if (document.anchors){ this.I2i= true; }if (document.clear){ this.o2j= true; }if (document.appendChild){ this.O2j= true; }if (window.innerWidth){ this.l2j= true; }if (window.i2m){ this.i2j= true; }if (document.documentElement && document.documentElement.currentStyle){ this.I2j= true; }else if (document.body && document.body.currentStyle){ this.I2j= true; }if (document.body && document.body.filters){ this.HasFilters= true; }if (typeof(window.status)!="unde\x66ined"){ this.lg= true; }};Browser.prototype.l2k= function (){if (this.I2h || (navigator.appName=="M\x69crosoft \x49nterne\x74\040Expl\x6frer")){ this.h= true; if (this.G){if (this.i2h){if ((navigator.appVersion.indexOf("\x4d\x53\111\x45 6")>0) || (document.getElementById && document.compatMode)){ this.Oy= true; }else if ((navigator.appVersion.indexOf("MSIE 5\x2e5")>0) && document.getElementById && !document.compatMode){ this.oy= true; this.Oy= true; }else if (document.getElementById && !document.compatMode){ this.i2f= true; }}else { this.I2f= true; }}else if (this.i2a){ this.o2f= true; if (this.i2h){ this.O2f= true; }else { this.l2f= true; }}}if (this.O2d.indexOf("\x6fper\x61")!=-1 && typeof(window.opera)=="u\x6edefined"){ this.o2g= true; this.Z= true; this.o2m(); }else if (typeof(window.opera)!="undefi\x6eed" && !typeof(window.print)=="undefined"){ this.O2g= true; this.Z= true; this.o2m(); }else if (typeof(window.opera)!="u\x6e\x64efined" && typeof(window.print)!="undefine\x64" && typeof(document.childNodes)=="\x75n\x64\x65fin\x65d"){ this.l2g= true; this.Z= true; this.o2m(); }else if (typeof(window.opera)!="\x75\x6e\x64efi\x6eed" && typeof(document.childNodes)!="\x75ndefin\x65\x64"){ this.i2g= true; this.Z= true; this.o2m(); }if (this.O2d.indexOf("\146\x69ref\x6f\x78/")!=-1){ this.o2m(); this.O2m(); this.g= true; this.i2e= true; }else if (navigator.I2m=="Geck\x6f" && window.o2n){ this.o2m(); this.O2m(); this.g= true; }else if (navigator.vendor && navigator.vendor.indexOf("Netscape")!=-1 && navigator.I2m=="\x47ecko" && window.o2n){ this.o2m(); this.O2m(); this.O2e= true; this.g= true; }else if (navigator.vendor && navigator.vendor=="Ca\x6dino"){ this.o2m(); this.O2m(); this.O2h= true; this.g= true; }else if (navigator.I2m=="G\x65cko" && !window.o2n){ this.o2m(); this.O2m(); this.o2e= true; }else if ((navigator.vendor && navigator.vendor.indexOf("\x4e\x65tscape")!=-1 && navigator.I2m=="Gecko" && window.o2n) || (this.O2d.indexOf("netscap\x65/7")!=-1 || this.O2d.indexOf("net\x73cape7")!=-1)){ this.o2m(); this.O2m(); this.g= true; this.l2e= true; }else if (navigator.vendor && navigator.vendor=="Camino"){ this.o2m(); this.O2m(); this.O2h= true; }if (((navigator.vendor && navigator.vendor=="\x4bDE") || (document.childNodes) && (!document.all) && (!navigator.taintEnabled))){ this.o2m(); this.O2m(); this.I2g= true; }if ((document.childNodes) && (!document.all) && (!navigator.taintEnabled) && (navigator.O2n)){ this.o2m(); this.O2m(); this.o2h= true; }else if (document.layers && navigator.mimeTypes["*"]){ this.o2m(); this.O2m(); this.o25= true; }if ((document.childNodes) && (!document.all) && (!navigator.taintEnabled) && (!navigator.O2n)){ this.o2m(); this.O2m(); this.I2e= true; }else {l2h= true; }};
+
+
+}
+/*
+     FILE ARCHIVED ON 20:51:28 May 12, 2008 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 08:30:29 Jul 18, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 218.324
+  exclusion.robots: 0.068
+  exclusion.robots.policy: 0.06
+  cdx.remote: 0.063
+  esindex: 0.008
+  LoadShardBlock: 189.532 (3)
+  PetaboxLoader3.datanode: 196.721 (4)
+  load_resource: 67.168
+  PetaboxLoader3.resolve: 37.614
+*/

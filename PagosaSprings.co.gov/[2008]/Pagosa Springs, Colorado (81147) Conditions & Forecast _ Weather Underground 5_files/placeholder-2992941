@@ -1,0 +1,47 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+function submitCJ10460073X986(formId, url) {
+   var s = "";
+   if (url != null) {
+      s = "<form id=\"" + formId + "\" method=\"post\" action=\"http://www.dpbolvw.net/click\" target=\"_blank\">\r\n<input type=\"hidden\" name=\"aid\" value=\"10460073\"/>\r\n<input type=\"hidden\" name=\"pid\" value=\"2545362\"/><input type=\"hidden\" name=\"url\" value=\"" + url + "\"/></form>";
+   } else {
+      s = "<form id=\"" + formId + "\" method=\"post\" action=\"http://www.dpbolvw.net/click\" target=\"_blank\">\r\n<input type=\"hidden\" name=\"aid\" value=\"10460073\"/>\r\n<input type=\"hidden\" name=\"pid\" value=\"2545362\"/></form>";
+   }
+   var x = document.createElement("div");
+   x.innerHTML = s;
+   document.getElementsByTagName("body")[0].appendChild(x);
+   document.getElementById(formId).submit();
+}
+document.write("<a href=\"javascript:submitCJ10460073X986(\'CJ10460073X986\',null);\"><img src=\"http://www.yceml.net/0937/10460073-1.jpg\" width=\"120\" height=\"600\" alt=\"LifeLock Save 10%\" border=\"0\"/></a>");
+
+}
+/*
+     FILE ARCHIVED ON 03:46:30 May 02, 2008 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 08:32:33 Jul 18, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 169.596
+  exclusion.robots: 0.122
+  exclusion.robots.policy: 0.108
+  cdx.remote: 0.115
+  esindex: 0.013
+  LoadShardBlock: 122.665 (3)
+  PetaboxLoader3.datanode: 52.294 (4)
+  load_resource: 39.929
+  PetaboxLoader3.resolve: 27.263
+*/

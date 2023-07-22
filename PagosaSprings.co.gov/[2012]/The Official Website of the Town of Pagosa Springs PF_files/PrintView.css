@@ -1,0 +1,197 @@
+/* ========== GENERAL CLASSES ========== */
+/* ========== LEFT CLASSES ============= */
+/* ========== RIGHT CLASSES ============ */
+/* ========== NAV CLASSES ============== */
+/* ========== FOOTER CLASSES =========== */
+/* ========== HEADLINE CLASSES ========= */
+/* ========== Link CLASSES ============= */
+/* ======== Special For This Site Or Misc. ====== */
+
+
+/* ========== GENERAL CLASSES ========== */
+.normal, TABLE.normal, TR.normal, TD.normal, body
+{
+    FONT-SIZE: 10pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+    BACKGROUND-COLOR: white;
+}
+.shaded
+{
+    COLOR: #000000;
+    FONT-SIZE: 10pt;
+    BACKGROUND-COLOR: #CCCCCC;
+}
+
+
+
+
+
+/* ========== LEFT CLASSES ============= */
+.contentbox_left, TABLE.contentbox_left, TD.contentbox_left, .searchbox, TABLE.searchbox, TD.searchbox
+{
+    FONT-SIZE: 10pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+
+.contentboxheader_left, TABLE.contentboxheader_left, TD.contentboxheader_left, .searchboxheader, TABLE.searchboxheader, TD.searchboxheader
+{
+    COLOR: #000000;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+
+
+
+
+/* ========== RIGHT CLASSES ============ */
+.contentbox_right, TABLE.contentbox_right, TD.contentbox_right
+{
+    FONT-SIZE: 10pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.contentboxheader_right, TABLE.contentboxheader_right, TD.contentboxheader_right
+{
+    COLOR: #000000;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.sidebar, TABLE.sidebar, TD.sidebar
+{
+    FONT-SIZE: 10pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.sidebarheader, TABLE.sidebarheader, TD.sidebarheader
+{
+    COLOR: #000000;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+
+
+
+
+
+/* ========== NAV CLASSES ============== */
+
+
+
+
+/* ========== FOOTER CLASSES =========== */
+
+
+
+
+/* ========== HEADLINE CLASSES ========= */
+.headline1
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 18pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+}
+.headline2
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 14pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+}
+.headline3
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 12pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+}
+.headline4
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+}
+
+
+
+
+/* ========== Link CLASSES ============= */
+.subtext, TABLE.subtext, TD.subtext
+{
+    FONT-SIZE: 7.5pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+}
+.subtextlink, TABLE.subtextlink, TD.subtextlink
+{
+    FONT-SIZE: 7.5pt;
+    COLOR: black;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+    VERTICAL-ALIGN:top;
+}
+.link
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+}
+.linkblack
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+}
+A:hover
+{
+    COLOR: red
+}
+
+
+
+
+/* ======== Special For This Site Or Misc. ====== */
+.hr
+{
+    color: #000000;
+}
+.subtextitalics, TABLE.subtextitalics, TD.subtextitalics
+{
+    FONT-SIZE: 7.5pt;
+    COLOR: #000000;
+    FONT-STYLE: italic;
+    FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.border, table.border, tr.border, td.border
+{
+    border-width:1px; 
+    border-color:black; 
+    border-style:solid;
+}
+
+
+/*
+     FILE ARCHIVED ON 12:47:53 Oct 13, 2013 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 08:33:47 Jul 19, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 769.848
+  exclusion.robots: 0.098
+  exclusion.robots.policy: 0.087
+  cdx.remote: 0.07
+  esindex: 0.01
+  LoadShardBlock: 736.171 (3)
+  PetaboxLoader3.resolve: 144.223 (4)
+  PetaboxLoader3.datanode: 667.533 (4)
+  load_resource: 116.352
+*/

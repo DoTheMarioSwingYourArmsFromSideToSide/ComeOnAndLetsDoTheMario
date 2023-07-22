@@ -1,0 +1,1308 @@
+/* CSS Document */
+
+/* Elements Go Here */
+/* Typically no need to mess with these */
+* {
+	/* overwrite all default brower settings */
+	margin: 0;
+	padding: 0;
+}
+html {
+     overflow: -moz-scrollbars-vertical;
+}
+
+img { 
+	border: none; 
+}
+
+blockquote {
+	margin-left: 5%; margin-right: 5%;
+}
+form {
+    border:0px;
+    padding:0;
+    margin:0 auto;
+}
+body {
+	font-family: Arial, Verdana, sans-serif;
+	background-image:url(https://web.archive.org/web/20130115094659im_/http://www.colorado.gov/cybersecurity/images/bgrdTile.jpg);
+	background-repeat: repeat;
+	margin:0px;
+}
+p {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:75%;
+	color:#000000;
+}
+li {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:75%;
+	color:#000000;
+}
+/* End Elements */
+
+
+/* Often used classes */
+h1.blue {
+	background:url(https://web.archive.org/web/20130115094659im_/http://www.colorado.gov/cms/images/body_images/h1BgrdBlue.gif) repeat-y; font-size:95%; padding:3px 3px 3px 4px;
+}
+h1.green {
+	background:url(https://web.archive.org/web/20130115094659im_/http://www.colorado.gov/cms/images/body_images/h1BgrdGreen.gif) repeat-y; font-size:85%; padding:3px 3px 3px 4px;
+}
+h1.red {
+	background:url(https://web.archive.org/web/20130115094659im_/http://www.colorado.gov/cms/images/body_images/h1BgrdRed.gif) repeat-y; font-size:80%; padding:3px 3px 3px 4px;
+}
+h1.yellow {
+	background:url(https://web.archive.org/web/20130115094659im_/http://www.colorado.gov/cms/images/body_images/h1BgrdYellow.gif) repeat-y; font-size:75%; padding:3px 3px 3px 4px;
+}
+
+
+/*Link (a href) control classes go here*/
+.leftNav a:active, .leftNav a:link, .leftNav a:visited, .leftNavSub a:active, .leftNavSub a:link, .leftNavSub a:visited {
+	text-decoration:none;
+}
+.leftNav a:hover, .leftNavSub a:hover {
+	text-decoration:underline;
+	color:green;
+}
+.sectionTitleSub a:active, .sectionTitleSub a:link, .sectionTitleSub a:visited {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight:bold;
+	text-decoration:none;
+	color:#cccccc;
+}
+.sectionTitleSub a:hover {
+	text-decoration:underline;
+}
+.featuredServicesText a:active, .featuredServicesText a:link, .featuredServicesText a:visited {
+	text-decoration:none;
+}
+.featuredServicesText a:hover {
+	text-decoration:underline;
+}
+.homelink a:active, .homelink a:link, .homelink a:visited {
+	color:#FFFFFF;
+	text-decoration:none;
+}
+/* end a hrefs */
+
+
+
+/* Classes Go Here */
+.DocumentLink{
+ font-size:12px;
+}
+
+.docdownloadlink{
+ font-size:12px;
+}
+
+a.news{
+	padding:5px 10px 5px 5px;
+	color:#ff0000;
+	text-decoration:none;
+	}
+
+
+.sectionTitle {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 115%;
+	background-repeat:repeat-x;
+	font-weight:bold;
+	color:#002B51;
+	margin: 0px 0px 30px 0px;
+	
+}
+
+/*classes for right callout boxes */
+div#body ol { margin-left:2em;}
+div#body ol li { line-height:1.5; }
+div#body ol li:first-child { padding-top:.75em; }
+
+.copySideBox {
+    border-left: 1px solid #999;
+    border-right: 1px solid #999;
+    border-top: 0px solid #999;
+    border-bottom: 1px solid #999;
+    margin-bottom: 10px;
+    width: 170px;
+	background-image:url(https://web.archive.org/web/20130115094659im_/http://www.colorado.gov/cybersecurity/images/img_boxTop.gif);
+    background-repeat: no-repeat;
+    background-position: top left;
+    vertical-align: top;
+    padding: 10px 5px 5px 5px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 75%;
+	color:#000000;
+}
+.copySideBoxTitle{
+    color: #333;
+    font-weight: bold;
+    font-size: 11px;
+    padding-left: 5px;
+    margin-top: -7px;
+    padding-bottom: 5px;
+}
+.copySideBoxList { 
+    margin: 1em 0 0 .5em;
+    padding-left: 1em;
+    text-indent: -1em;
+}    
+.copySideBoxList li {
+    list-style-type: none;
+    margin: 1em 0 0 0;
+}
+.topBoxTopBody {
+	background-image: url(https://web.archive.org/web/20130115094659im_/http://www.colorado.gov/cybersecurity/images/img_boxTopBody.gif);
+	background-repeat:no-repeat;
+	color: #333;
+    font-weight: bold;
+    font-size: 70%;
+    padding-left: 5px;
+}
+
+/* Call Box with background color */
+.copySideBox2 {
+    border-left: 1px solid #999;
+    border-right: 1px solid #999;
+    border-bottom: 1px solid #999;
+	color:#000;
+	font-size: 11px;
+	margin-bottom: 10px;
+    padding: 3px 0 0 5px;
+}
+.copySideBox2 p {
+	padding: 2px 4px 4px 0;
+	font-size: 11px;
+}
+.copySideBoxTitle2 {
+    border-top: 1px solid #999;
+    border-left: 1px solid #999;
+    border-right: 1px solid #999;
+	color:#333;
+	background:#E6E6E6;
+	padding:3px 0 3px 4px;
+	font-size:11px;
+	font-weight:bold;
+}
+
+/*end classes for right callout boxes
+
+/* End Classes Here */
+
+
+
+/* Divs controls go Here */
+
+/* Breadcrumb stuff goes here */
+#breadcrumbs {
+    width:747px;
+    background-color:#FFFFFF;
+}
+#breadcrumbsList {
+    padding:0px 0px 3px 10px;
+    margin:0px;
+    list-style-type:none;
+}
+#breadcrumbsList li {
+	display: inline;
+	font-size: 60%;
+	font-weight: normal;
+}
+#breadcrumbsList a:active, #breadcrumbsList a:link, #breadcrumbsList a:visited {
+    color: #6699CC;
+    text-decoration: none;
+    font-weight: normal;
+    padding: 0px 7px 0px 0px;
+    background-image: url(https://web.archive.org/web/20130115094659im_/http://www.colorado.gov/cybersecurity/images/breadcrumbs.gif);
+    background-repeat: no-repeat;
+    background-position: center right;
+}
+#breadcrumbsList a:hover {
+	text-decoration:underline;
+	color:#336699;
+}
+/*End Breadcrumb stuff*/
+
+
+
+/* Left Navigation Container Item */
+
+#leftNavigation {
+    width: 188px;
+    background:url(https://web.archive.org/web/20130115094659im_/http://www.colorado.gov/cybersecurity/images/imgLeftNavTop.gif);
+    background-repeat: no-repeat;
+    border: 0px solid;
+    float: left;
+}
+#leftNavList {
+    margin: 1em 0 3em 0;
+	padding: 0 6px 0 0;
+	border: 0;
+	list-style-type: none;
+}
+#leftNavList li {
+	border-top: 1px solid #fdfdfd;
+	border-bottom: 1px solid #c1c1c1;
+}
+#leftNavList li a {
+	text-decoration: none;
+	color: #333;
+	padding: .4em 0 .4em .7em;
+	display: block;
+}
+/*#leftNavList li a:hover {
+	background-color: #ccc;
+}
+*/
+#leftNavList li:hover {
+	background:#ccc;
+	display:block;
+}
+
+/*BH-New left nav style to maintain "hover" state for active item*/
+
+#leftNavList2 li a,#leftNavList3 li a,#leftNavList4 li a,#leftNavList5 li a {line-height:1.25!important;}
+
+
+#leftNavList2 {
+    border:none;
+	list-style-type:none;	
+	margin:1em 0 3em 0;	
+	padding:0 6px 0 0;
+}
+#leftNavList2 li {
+	border-top:1px solid #fdfdfd;
+	border-bottom:1px solid #c1c1c1;
+	background:#CCC;
+}
+#leftNavList2 li a {
+	text-decoration: none;
+	color:#000;
+	padding:.4em 0 .4em .7em;
+	display: block;
+	background:#CCC;
+}
+#leftNavList2 li a:hover {
+	background:#e0e0e0;
+}
+#leftNavList3 {
+ 	border:none;
+	margin:0;
+	padding:0;
+	list-style-type:none;
+}
+#leftNavList3 li {
+	border-top: 1px solid #e0e0e0;
+	border-bottom: 1px solid #e0e0e0;
+	background:#e0e0e0;
+}
+#leftNavList3 li a {
+	text-decoration: none;
+	padding:.4em 0 .4em 1.8em;
+    color:#000;
+	display:block;
+	font-size:12px;
+	background:#e0e0e0;
+}
+#leftNavList4 {
+	border:none;
+    margin:0;
+	padding:0;
+	list-style-type:none;
+}
+#leftNavList4 li {
+	border-top: 1px solid #e0e0e0;
+	border-bottom: 1px solid #e0e0e0;
+	background:#CCC;
+}
+#leftNavList4 li a {
+	text-decoration: none;
+	background-color: #cccccc;
+	padding: .2em 0 .2em 3.2em;
+	display: block;
+    color:black;
+	font-size:11px;
+}
+#leftNavList5 {
+	border:none;
+    margin:0;
+	padding:0;
+	list-style-type:none;
+}
+#leftNavList5 li {
+	border-top: 1px solid #e0e0e0;
+	border-bottom: 1px solid #e0e0e0;
+	background:#e0e0e0;
+}
+#leftNavList5 li a {
+	text-decoration: none;
+	background:#e0e0e0;
+	padding:.2em 0 .2em 4.4em;
+	display:block;
+    color:black;
+	font-size:10px;
+}
+/*End New Item*/ 
+/* End Left Navigation Container Item*/
+
+/*Important page controls  edit with caution if editing at all */
+#centerPage { /*do not edit*/
+	width:747px;
+	margin-left:auto;
+	margin-right:auto;
+	padding:0;
+	text-align:left;
+	background-color: #FFFFFF;
+}
+/*content box with top tabs*/
+#contentBoxTabs { /*do not edit*/
+	position: absolute;
+	top:161px;	
+	width: 747px;
+	background:url(https://web.archive.org/web/20130115094659im_/http://www.colorado.gov/cybersecurity/images/imgNavBgrd.jpg);
+	background-repeat:repeat-y;
+	background-color: #FFFFFF;	
+}
+#contentBoxTabs-NoLeft { /*do not edit*/
+	position: absolute;
+	top:161px;	
+	width: 747px;	
+	background-color: #FFFFFF;	
+}
+/*content box with no top tabs*/
+#contentBoxNTabs { /*do not edit*/
+	position: absolute;
+	top:139px;	
+	width: 747px;
+	background:url(https://web.archive.org/web/20130115094659im_/http://www.colorado.gov/cybersecurity/images/imgNavBgrd.jpg);
+	background-repeat:repeat-y;
+	background-color: #FFFFFF;	
+}
+#contentBox-Spec { /*do not edit --for pages without the horizontal navigation bar*/
+	position: absolute;
+	top: 142px;
+	width: 747px;	
+	background-color: #FFFFFF;
+}
+#copy { /*do not edit*/
+	float: left;
+	width: 540px;
+	border:0;
+	padding:0;
+	margin-left:10px;
+}
+
+#copy ul {
+	margin-left:1em;
+	padding:0px;
+	/*list-style-type:disc;*/
+	margin-bottom:10px;
+	/* list-style-position:outside; */
+	
+}
+
+#copy ul li {
+	
+	/* padding-left:0px; */
+		font-family:Arial, Helvetica, sans-serif;
+	font-size:75%;
+	color:#000000;
+	line-height:1.1;
+	
+}
+
+#copy ul li li {
+	
+	/* padding-left:0px; */
+		font-family:Arial, Helvetica, sans-serif;
+	font-size:100%;
+}
+
+
+#copy ul li a {
+	
+	/* padding-left:0px; */
+		font-family:Arial, Helvetica, sans-serif;
+	font-size:100%;
+	
+}
+
+#copy ul li li a {
+	
+	/* padding-left:0px; */
+		font-family:Arial, Helvetica, sans-serif;
+	font-size:100%;
+}
+
+
+
+
+#copy ol {
+	margin-left:12px;
+	padding:0px;
+	/* list-style-type:disc; */
+	margin-bottom:10px;
+	list-style-position:outside;
+	
+}
+
+#copy ol li {
+	
+	padding-left:0px;
+}
+#copy ol li li {
+	
+	padding-left:0px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:100%;
+}
+
+#contentBox-Home { /*do not edit*/
+	position: absolute;
+	top:161px;	
+	width: 747px;
+	background-repeat:repeat-y;
+	background-color: #FFFFFF;	
+}
+#copy-Spec { /*do not edit --best from home page layout -- top tabs, no left nav, right nav boxes */
+	display:inline;
+	float: left;
+	width: 700px;
+	border:0;
+	padding:0;
+	margin-left:10px;
+}
+
+#copy-Spec ul {
+	margin-left:10px;
+	padding:0px;
+	list-style-type:disc;
+	list-style-position:outside;
+	margin-bottom:10px;
+	
+}
+
+#copy-Spec ul li {
+	
+	padding-left:0px;
+}
+
+#sectionTitle { /* content section page title*/
+	background:url(https://web.archive.org/web/20130115094659im_/http://www.colorado.gov/cms/images/body_images/imgLeftNavTop.gif);
+    background-repeat: no-repeat;
+    color: #fff;
+    font-size: 75%;
+    font-weight: bold;
+    height: 19px;
+    border: 0px solid #000;
+    padding: 3px 5px 0px 10px;
+    margin-left:0px;
+}
+/* Image floats
+--------------------------------------------------------------------------- */
+img.right{
+float:right;margin-right:10px;margin-bottom:0px;
+}
+
+img.left{
+float:left;margin-right:10px;margin-bottom:0px;
+}
+
+/* span Image floats
+--------------------------------------------------------------------------- */
+.right{
+float:right;margin-right:10px;margin-bottom:0px;display:inline;
+}
+
+.left{
+float:left;margin-right:10px;margin-bottom:0px;display:inline;
+}
+
+/* FOOTER
+-------------------------------------------------------------------------- */
+#footer { /*do not edit*/
+    width: 747px;
+    padding: 0;
+    margin-top: 2em;
+    float: left;
+	background-color: #FFF;
+    border-top: 2px solid #c33;
+    font-size: 10px;
+	clear:both;
+}
+#footerLine1 { /*do not edit*/
+	border-bottom: 1px solid #ccc;
+	vertical-align: middle;
+	text-align: center;
+	padding: 4px 0;
+	height: 1.5em;
+}
+#footerLine2 { /*do not edit*/
+    height: 1.5em;
+	padding: 4px 0;
+	text-align: center;
+}
+#footerNav { /*do not edit*/
+    padding: 3px 0;
+    margin: 0;
+    text-align: center;
+}   
+#footerNav li { /*do not edit*/
+	display: inline;
+	font-size: 10px;
+	color: #666;
+	padding: 0 0.2em 0 0;
+}
+#footerLinks { /*do not edit*/
+    float:left;
+    padding: 3px 0;
+    margin: 0;
+    border: 0px solid;
+}
+#footerLinks li { /*do not edit*/
+	display: inline;
+	font-size: 10px;
+	padding: 0 0.25em 0 0.5em;
+}
+#footerNav li a, #footerLinks li a { /*do not edit*/
+	color: #666;
+	text-decoration:none;
+}
+#footerLinks li a:hover { text-decoration:underline; }
+ 
+#footerRight { /*do not edit*/
+    font-size: 10px;
+    float: right;
+    color: #666;
+    padding: 3px 5px 3px 0;
+    border: 0px solid;
+}
+#footerRight a {color:#666;}
+
+/* CLEAR 
+-------------------------------------------------------------------------- */
+.clear {
+	clear: both;
+}
+.bugfix {
+	display: inline;
+}
+
+
+
+/* header divs */
+
+#headerLogo { /*small colorado logo: do not edit*/
+	height:34px;
+	background-color:#FFFFFF;
+	padding: 4px 0 0 8px;
+}
+#headerLogo a#logo { /*small colorado logo: do not edit*/
+	position: absolute;
+	top: 0px;
+	width: 270px;
+	height: 34px;
+	background: url(/web/20130115094659im_/http://www.colorado.gov/cms/images/logoColorado.gif);
+	background-repeat:no-repeat;
+	background-position: 8px 4px;
+	text-decoration: none;
+	text-indent: -5000px;
+}
+#headerImage { /*do not edit*/
+	border-top: 1px solid #FFFFFF;
+	position: absolute;
+	top: 57px;
+	height: 60px;
+	width: 747px;
+}
+#imgLiveHelpBar { /*do not edit*/
+	background-image:url(https://web.archive.org/web/20130115094659im_/http://www.colorado.gov/cybersecurity/images/imgLiveHelpbar.gif);
+	background-repeat:no-repeat;
+	background-position: 15px 0px;
+}
+#imgToolkitBar {
+	background-image:url(https://web.archive.org/web/20130115094659im_/http://www.colorado.gov/cybersecurity/images/imgToolkitbar.gif);
+	background-repeat:no-repeat;
+	background-position: 15px 0px;
+}
+#searchBar { /*do not edit*/
+	position: absolute;
+	top: 34px;
+	background-color: #E2E2E2;
+	background: url(https://web.archive.org/web/20130115094659im_/http://www.colorado.gov/cybersecurity/images/sBarBgrd.gif);
+	background-repeat:repeat-x;
+	padding: 0px;
+	margin: 0px;
+	width: 747px;
+	float: left;
+	height: 23px;
+}
+#searchForm { /*container for the search form in the search bar*/
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 70%;
+	color: #333333;
+	padding: 2px 12px 0px 0px ;
+	border: 0;
+	margin: 0;
+	display: inline;
+	float: right;
+}
+#searchBar a {
+	color: #000000;
+	text-decoration: none;
+}
+#searchBar a:hover {
+	text-decoration: underline;
+}
+#searchBarBox { /*container:  the search bar*/
+	font-family:Arial, Helvetica, sans-serif;
+	padding: 0px;
+	margin: 1px;
+	border-top: 1px solid #818181;
+	border-right: 1px solid #d9d9d9;
+	border-bottom: 1px solid #d9d9d9;
+	border-left: 1px solid #818181;
+	font-size: 9pt;
+}
+#searchBarSubmit { /*do not edit*/
+	vertical-align: top;
+	margin-left: 3px;
+	padding: 1px;
+}
+#searchBarLiveHelp { /*do not edit*/
+	vertical-align: top;
+	margin-right: 10px;
+	padding: 2px 0px 0px 0px;
+}
+
+/*end header divs*/
+
+
+
+/* top  alt nav stuff*/
+
+#topRightNav { /*alt navigation*/
+	float: right;
+	top: 0px;
+	width: 425px;
+	border: 0;
+	margin: 0px;
+	padding: 2px 9px 0px 0px;
+}
+#topRightNavList { /*alt navigation*/
+	border: 0px;
+	padding: 0px;
+	margin: 0px;
+	float: right;
+}
+#topRightNavList li { /*alt navigation*/
+	display: inline;
+	padding-right: 6px;
+}
+#topRightNav a:active, #topRightNav a:link, #topRightNav a:visited { /*alt navigation*/
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	text-decoration: none;
+	color: #000000;
+}
+#topRightNav a:hover { /*alt navigation*/
+	text-decoration: underline;
+}
+
+/* end top  alt nav stuff*/
+
+
+
+/* horizontal global nav stuff*/
+
+#topNavBar {/*this is the container for the horizontal nav items*/
+	position:absolute;
+	top: 140px;
+	width: 746px;
+	height: 20px;
+}
+#navcontainer ul {
+	padding:0;
+	margin:0;
+	background-color: #e2e2e2;
+	border-top: 1px solid #FFFFFF;
+	border-bottom: 1px solid #b9b9b9;
+	border-right: 1px solid #FFFFFF;
+	color: #003366;
+	float: left;
+	width:100%;
+	font-family: arial, helvetica, sans-serif;
+	font-weight:bold;
+}
+#navcontainer  li {
+	display: inline;
+}
+#navcontainer a {
+	padding: 0.2em .97em;
+	background-color: #e2e2e2;
+	color: #0C205F;
+	text-decoration: none;
+	float: left;
+	border-left: 1px solid #FFFFFF;
+}
+
+#navcontainer #current a {
+	padding: 0.2em 1em;
+	background-color: #0067AE;
+	color: #ffffff;
+	text-decoration: none;
+	float: left;
+	border-left: 1px solid #FFFFFF;
+}
+
+#navcontainer a:hover
+{
+	background-color: #0067AE;
+	color: #fff;
+}
+
+
+
+
+/* end horizontal global nav stuff*/
+
+
+
+/*These items deal with the page layout: edit with caution if at all*/
+
+#copyMiddle-Spec {
+    border: 0;
+    padding: 0;
+    width: 480px;
+    height: 100%;
+    float: left;
+}
+#copyRight {
+	margin-left: 355px;
+    width: 175px;
+    border: 0px solid;
+    z-index: 3; padding-left:5px; padding-right:5px; padding-top:4px; padding-bottom:0
+}
+
+
+#copyRight-Spec {
+	margin-left: 495px;
+    width: 175px;
+    border: 0 solid;
+    padding-top: 5px;
+	padding-bottom:5px;
+	padding-left:10px;
+	z-index: 1;
+}
+
+#copyRight ul {
+    margin: 1em 0 1em 1.5em;
+    border: 0;
+    padding: 0;
+    list-style-type: square;
+    list-style-position: outside;
+}
+#copyRight ul li {
+    font-size: 100%;
+    margin: 5px 0 0 0;
+}
+
+/* End Divs Here */
+
+/* DPA STYLES
+---------------------------------------------------------------------------------------------------------------------------------------*/
+
+/* copyFullHome is for pages with top nav only */
+#copyFullHome {
+	display: inline;
+	float: left;
+	width: 725px;
+	background:#fff url('https://web.archive.org/web/20130115094659im_/http://colorado.gov/cms/cms-banner/dpa/new_site/images/purpleBarBtm.gif') bottom left no-repeat; margin-left:12px; margin-right:0; margin-top:21px; margin-bottom:10px;
+}
+.topButtonHolders{
+	width: 725px;
+	height:100%;
+}
+
+#left {
+	width: 242px;
+	background-color:#ffffff;
+	display:inline;
+	float:left;
+	margin-left: 1em;
+}
+
+
+/* CLEAR 
+-------------------------------------------------------------------------- */
+.clear {
+	clear: both;
+}
+.clearNone {
+	clear: none;
+}
+
+
+#left {
+	width: 242px;
+	background-color:#ffffff;
+	display:inline;
+	float:left;
+	margin-left: 1em;
+}
+
+#middle {
+	margin: 0px;
+	background:#ffffff;
+	float:left;
+	width: 235px;
+}
+#right {
+	background-color: #ffffff;
+	float:right;
+	margin-right:1em;
+}
+.topButtonHolders {
+	width: 725px;
+	height:100%;
+		
+}
+
+
+/*faq and document box layout*/
+
+/* UPDATED NEW 08/2008 .boxContainer */
+.boxContainer {
+	width:535px;
+	line-height:24px;
+	font-size:14px;
+	font-family: arial;
+	text-align:left;
+	background:#fff;
+	border:1px solid #cccccc;
+}
+/* UPDATED OLD 08/2008 .boxContainer {width:500px;font-size:12px;text-align:left;background:#FFF;border:1px solid #3366cc;} */
+
+/* UPDATED NEW 08/2008 .boxHeader */
+.boxHeader {
+	line-height:24px;
+	color:#000000;
+	background:#cccccc;
+	padding:2px 2px 2px 2px;
+	border:1px solid #f0f0f0;
+	border-right-width: 0px;
+	border-left-width: 0px;
+	border-top-width: 0px;
+	font-weight: bold
+}
+/* UPDATED OLD 08/2008 .boxHeader {color:#FFF;background:#3366cc;padding:2px 2px 2px 2px;border-bottom:1px solid #f0f0f0;font-weight:bold;} */
+
+/* UPDATED NEW 08/2008 .boxContent */
+.boxContent {
+	color:#000;
+	border:1px solid #cccccc;
+	border-right-width: 0px;
+	border-left-width: 0px;
+	border-top-width: 0px;
+	padding:2px 2px 2px 2px;
+	text-indent: 1em;
+	line-height:28px;
+	font-family:arial;
+	vertical-align:top;
+}
+/* UPDATED OLD 02/2008 .boxContent {color:#000;border-bottom:1px solid #cccccc;padding:2px;text-indent: 1em;} */
+
+.rellink {
+	text-indent: 1em;
+}
+.arrow {
+	float:right;
+	width:20px;
+	height:20px;
+	display:inline;
+	position:absolute;
+	top:5px;
+	left:94%;
+}
+.faqbox {
+    border:1px solid #cccccc;
+	width:550px;
+	border-collapse:separate;
+}
+.faqbox td.quest {
+    background:#f0f0f0;
+	color:#000;
+	font-size:11px;
+	font-family:Arial, Helvetica, sans-serif;
+    font-weight:bold;
+}
+.faqbox td.questdelim {
+    background:#CCC;
+	color:#000;
+	width:7%;
+	font-size:12px;
+	vertical-align:top;
+	font-family:Arial, Helvetica, sans-serif;
+	border-right:1px solid #cccccc;
+	font-weight:normal;
+}
+.faqbox td.ansdelim {
+	background:#FFF;
+    vertical-align:top;
+	font-size:12px;
+	font-family:Arial, Helvetica, sans-serif;
+    font-weight:normal;
+	color:red;
+	border-bottom:1px solid #cccccc;
+	border-right:1px solid #cccccc;
+	padding-left:5px;
+}
+.faqbox td.ans {
+    font-size:13px;
+	font-family:Arial, Helvetica, sans-serif;
+	border-bottom:1px solid #cccccc;
+	padding-left: 5px
+}
+.faqbox tr {
+    border: 0px solid #cccccc;
+}
+
+/* ALL DPA SPECIFIC STYLES   */
+
+/* Global class styles for DPA  
+-------------------------------------------------------*/
+
+.topHolder {
+	width: 213px;
+	background-color: #fff;
+	overflow:hidden;
+	clear:both;
+	margin-bottom: 1em;	
+}
+
+.topHolder p {
+	margin:0px;
+	font:11px Arial, Helvetica, sans-serif;
+	line-height:1.4em;
+	background:#dddddd;
+}
+
+.pad5{
+	padding:5px;
+}
+
+
+/* use on all buttons */
+.more {
+	color:#0c205f;
+	font-weight:bold;
+	text-decoration:none;
+	text-align:right;
+	display:block;
+	background: url('https://web.archive.org/web/20130115094659im_/http://colorado.gov/cms/cms-banner/dpa/new_site/images/btm-gray.gif') no-repeat bottom left; padding-left:0px; padding-right:10px; padding-top:0px; padding-bottom:5px 
+}
+
+.roundbottom {
+	background: #dddddd url('https://web.archive.org/web/20130115094659im_/http://colorado.gov/cms/cms-banner/dpa/new_site/images/grayArrowBtmRgt.gif') no-repeat bottom right; 
+}
+
+img.corner {
+  
+   border: none;
+   display: block !important;
+}
+
+
+/* about DPA
+--------------------------------------------------------- */
+.aboutDPA{
+	background:#8b96b3;
+	padding:10px;
+	margin-bottom:15px;
+	
+}
+
+.aboutDPA p{
+	
+	color: #FFFFFF;
+	line-height:1.4em;
+}
+
+.aboutDPA h1{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color:#fff;
+	border-bottom:1px solid #495885; 
+	margin-bottom:10px;
+	padding-bottom:5px;
+	}
+	
+
+/* DPA News
+--------------------------------------------- */	
+.dpaNews{
+	background:#fff url('https://web.archive.org/web/20130115094659im_/http://colorado.gov/cms/cms-banner/dpa/new_site/images/grayBg.jpg') bottom left repeat-x;
+	clear:both;
+	margin-top:2em;
+}
+
+.dpaNews ul{
+	margin:10px 10px 0px 0px;
+	padding:0;
+	list-style-type:none;
+}
+
+.dpaNews li{
+	background:url('https://web.archive.org/web/20130115094659im_/http://colorado.gov/cms/cms-banner/dpa/new_site/images/arrows.gif') 0 9px  no-repeat;
+	list-style-position:outside;
+	margin-left:10px;
+	padding-top:5px;
+	padding-bottom:10px;
+	padding-left:10px;
+}	
+
+.dpaNews h1{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	color:#333;
+	margin-left:10px;
+	margin-bottom:0px;
+	padding:0px;
+}
+/* ALL SUB PAGE ELEMENST FOR DPA
+------------------------------------------------------ */
+
+/* each copy home uses the first letter of each word in department name
+so for example Human Resources would be named copyFullHR  */
+
+/*Human Resources  */
+#copyFullHomeHR {
+	display: inline;
+	font-size: 12px;
+	float: left;
+	width: 725px;
+	background:#fff url('https://web.archive.org/web/20130115094659im_/http://colorado.gov/cms/cms-banner/dpa/new_site/images/hsBarBtm.gif') no-repeat bottom left; margin-left:10px; margin-right:10px; margin-top:21px; margin-bottom:10px
+}
+
+.aboutHR{
+	background:#004f46;
+	padding:10px;
+	margin-bottom:15px;
+}
+
+.aboutHR p{
+	color: #FFFFFF;
+	line-height:1.4em;
+}
+.aboutHR h1{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color:#fff;
+	border-bottom:1px solid #fff; 
+	margin-bottom:10px;
+	padding-bottom:5px;
+	}
+	
+	
+/*Central Services */
+#copyFullHomeCS {
+	display: inline;
+	font-size: 12px;
+	float: left;
+	width: 725px;
+	background:#fff url('https://web.archive.org/web/20130115094659im_/http://colorado.gov/cms/cms-banner/dpa/new_site/images/csBarBtm.gif') no-repeat bottom left; margin-left:10px; margin-right:10px; margin-top:21px; margin-bottom:10px
+}
+
+.aboutCS{
+	background:#b95711;
+	padding:10px;
+	margin-bottom:15px;
+}
+
+.aboutCS p{
+	color: #FFFFFF;
+	line-height:1.4em;
+}
+
+.aboutCS h1{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color:#fff;
+	border-bottom:1px solid #fff; 
+	margin-bottom:10px;
+	padding-bottom:5px;
+}
+
+
+/*Executive Offices */
+#copyFullHomeEO {
+	display: inline;
+	font-size: 12px;
+	float: left;
+	width: 725px;
+	background:#fff url('https://web.archive.org/web/20130115094659im_/http://colorado.gov/cms/cms-banner/dpa/new_site/images/eoBarBtm.gif') no-repeat bottom left; margin-left:10px; margin-right:10px; margin-top:21px; margin-bottom:10px
+}
+
+.aboutEO{
+	background:#012f73;
+	padding:10px;
+	margin-bottom:15px;
+}
+
+.aboutEO p{
+	color: #FFFFFF;
+	line-height:1.4em;
+}
+
+.aboutEO h1{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color:#fff;
+	border-bottom:1px solid #fff; 
+	margin-bottom:10px;
+	padding-bottom:5px;
+}
+
+/* State Personnel Board */
+#copyFullHomeSPB {
+	display: inline;
+	font-size: 12px;
+	float: left;
+	width: 725px;
+	background:#fff url('https://web.archive.org/web/20130115094659im_/http://colorado.gov/cms/cms-banner/dpa/new_site/images/spbBarBtm.gif') no-repeat bottom left; margin-left:10px; margin-right:10px; margin-top:21px; margin-bottom:10px
+}
+
+.aboutSPB {
+	background:#d9846a;
+	padding:10px;
+	margin-bottom:15px;
+}
+
+.aboutSBP p{
+	color: #FFFFFF;
+	line-height:1.4em;
+}
+
+.aboutSPB h1{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color:#fff;
+	border-bottom:1px solid #fff; 
+	margin-bottom:10px;
+	padding-bottom:5px;
+}
+
+/* Finance and Produrement */
+#copyFullHomeFP {
+	display: inline;
+	font-size: 12px;
+	float: left;
+	width: 725px;
+	background:#fff url('https://web.archive.org/web/20130115094659im_/http://colorado.gov/cms/cms-banner/dpa/new_site/images/fpBarBtm.gif') no-repeat bottom left; margin-left:10px; margin-right:10px; margin-top:21px; margin-bottom:10px
+}
+
+.aboutFP{
+	background:#b99120;
+	padding:10px;
+	margin-bottom:15px;
+}
+
+.aboutFP p{
+	color: #FFFFFF;
+	line-height:1.4em;
+}
+
+.aboutFP h1{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color:#fff;
+	border-bottom:1px solid #fff; 
+	margin-bottom:10px;
+	padding-bottom:5px;
+}
+
+
+
+/* Information and Technologies */
+#copyFullHomeIT {
+	display: inline;
+	font-size: 12px;
+	float: left;
+	width: 725px;
+	background:#fff url('https://web.archive.org/web/20130115094659im_/http://colorado.gov/cms/cms-banner/dpa/new_site/images/itBarBtm.gif') no-repeat bottom left; margin-left:10px; margin-right:10px; margin-top:21px; margin-bottom:10px
+}
+
+.aboutIT{
+	background:#b9141c;
+	padding:10px;
+	margin-bottom:15px;
+}
+
+.aboutIT p{
+	color: #FFFFFF;
+	line-height:1.4em;
+}
+
+.aboutIT h1{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color:#fff;
+	border-bottom:1px solid #fff; 
+	margin-bottom:10px;
+	padding-bottom:5px;
+}
+
+/* Administration Courts */
+#copyFullHomeAC {
+	display: inline;
+	font-size: 12px;
+	float: left;
+	width: 725px;
+	background:#fff url('https://web.archive.org/web/20130115094659im_/http://colorado.gov/cms/cms-banner/dpa/new_site/images/acBarBtm.gif') no-repeat bottom left; margin-left:10px; margin-right:10px; margin-top:21px; margin-bottom:10px
+}
+
+.aboutAC{
+	background:#0087a0;
+	padding:10px;
+	margin-bottom:15px;
+}
+
+.aboutAC p{
+	color: #FFFFFF;
+	line-height:1.4em;
+}
+
+.aboutAC h1{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color:#fff;
+	border-bottom:1px solid #fff; 
+	margin-bottom:10px;
+	padding-bottom:5px;
+}
+/* CDHS DVP Site home page styles */
+hr.hrRed {color:#FF6600!important;height:1px;width:100%;margin:7px 0 7px 0;clear:both;}
+hr.hrBlack {color:#000;height:1px;width:100%;margin:7px 0 12px 0;clear:both;}
+
+/*
+     FILE ARCHIVED ON 09:46:59 Jan 15, 2013 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 08:55:51 Jul 20, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 646.645
+  exclusion.robots: 0.087
+  exclusion.robots.policy: 0.078
+  cdx.remote: 0.083
+  esindex: 0.009
+  LoadShardBlock: 329.854 (3)
+  PetaboxLoader3.datanode: 374.689 (4)
+  load_resource: 110.671
+  PetaboxLoader3.resolve: 32.604
+*/

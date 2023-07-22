@@ -1,0 +1,127 @@
+/*===================================( NEW-STYLE CALENDAR STYLES )===*/
+/*===================================================================*/
+
+
+/*======================================( STRUCTURE AND POSITION )===*/
+
+/* common styles */
+.calMonthHeading { text-align: center; }
+.calMonth
+{
+	width: 100%;
+	width: 90% !ie; 			/* for IE < 8 */
+}
+.calMonth TABLE { width: 100%; margin-bottom: 0px; }
+
+.calMonth TD { padding: 1px }
+TD.calDay {  width: 14%; height: 4em; vertical-align: top; }
+
+.calLinks { position: relative; margin: 3px 0px 3px 0px; padding: 0px; text-align: left; }
+.calLinks .next { position: absolute; right: 0px; }
+.calMonth IMG { border: none; }
+.eventLink { display: block; }
+
+/* weekday hiding for small calendars */
+.leftColumn .calDayHeading .medium, .rightColumn .calDayHeading .medium { display: none; }
+.leftColumn .calDayHeading .long, .rightColumn .calDayHeading .long { display: none; }
+.calDayHeading .long { display: none; }
+
+/* height for small calendars */
+.leftColumn TD.calDay, .leftColumn TD.calendar_small_event_title,
+.rightColumn TD.calDay, .rightColumn TD.calendar_small_event_title
+{ height: 18pt; }
+
+
+/*=== tooltip-like event info display... ===*/
+.eventTip {
+    position: absolute;
+    bottom: 100%;
+    right: -10%;
+    display: none;
+    border-style: solid;
+    border-width: 1px;
+    padding: 5px;
+    z-index: 5;
+    width: 200%;
+    opacity: .85;
+}
+.mouseDetect { position: relative; display: block; }
+.mouseDetect:hover .eventTip { display: block; }
+.tipTitle { font-weight: bold; }
+
+/* tip widths */
+.leftColumn .eventTip, .rightColumn .eventTip { width: 700%; }
+.leftColumn .eventTip { left: -50%; }
+.rightColumn .eventTip { right: 50%; }
+
+
+
+/*======================================( STYLE AND COLOR )===*/
+
+.calMonth TABLE {
+    background-color: #888;
+	border-collapse: separate;
+}
+.calMonth TD { font-size: 8pt; }
+.calMonthName, .calYear {
+    font-size: 150%;
+    color: white;
+    font-weight: bold;
+}
+.calDayHeading {
+    background-color: #888;
+    color: white;
+    letter-spacing: 0px;
+    text-align: center;
+}
+.calDayHeading SPAN { font-size: 120%; }
+
+.calDay {
+    color: black;
+    vertical-align: top;
+    background-color: white;
+}
+.calDayNum {
+    display: block;
+    font-size: 120%;
+}
+.calGrayDay{
+    background-color: #CCC;
+    color: #333;
+}
+.calToday {
+    font-weight: bold;
+    background-color: #FFD;
+}
+.eventTip
+{
+    border-color: #550;
+    background-color: #FF8;
+}
+
+/* font size for small calendars */
+.leftColumn .calDayHeading SPAN, .leftColumn .calDayNum,
+.rightColumn .calDayHeading SPAN, .rightColumn .calDayNum
+{ font-size: 100%; }
+
+
+/*
+     FILE ARCHIVED ON 18:13:33 Oct 05, 2013 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:24:45 Jul 20, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 241.273
+  exclusion.robots: 0.069
+  exclusion.robots.policy: 0.06
+  RedisCDXSource: 62.276
+  esindex: 0.009
+  LoadShardBlock: 153.756 (3)
+  PetaboxLoader3.datanode: 145.975 (4)
+  PetaboxLoader3.resolve: 61.682 (2)
+  load_resource: 81.833
+*/

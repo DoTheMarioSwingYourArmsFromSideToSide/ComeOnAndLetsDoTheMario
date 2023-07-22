@@ -1,0 +1,40 @@
+tr.even.seo_checker_result_failed td {
+  background-color: #ffcccc;
+}
+
+tr.odd.seo_checker_result_failed td {
+  background-color: #ffe6e6;
+}
+
+tr.even.seo_checker_result_passed td {
+  background-color: #ccffcc;
+}
+
+tr.odd.seo_checker_result_passed td {
+  background-color: #e6ffe6;
+}
+
+div.status .seo-check-results {
+  color: #494949;
+}
+
+/*
+     FILE ARCHIVED ON 03:59:12 Apr 22, 2012 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:28:34 Jul 20, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 193.548
+  exclusion.robots: 0.085
+  exclusion.robots.policy: 0.075
+  RedisCDXSource: 1.12
+  esindex: 0.007
+  LoadShardBlock: 172.346 (3)
+  PetaboxLoader3.datanode: 194.032 (4)
+  load_resource: 144.615
+  PetaboxLoader3.resolve: 111.872
+*/

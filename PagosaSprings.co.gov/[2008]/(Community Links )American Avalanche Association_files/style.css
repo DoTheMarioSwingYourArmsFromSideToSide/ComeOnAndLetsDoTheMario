@@ -1,0 +1,60 @@
+
+BODY   { color: #333; font-size: 9pt; font-family: Verdana, Arial, Helvetica, sans-serif; background-color: white; margin-top: 0; margin-left: 0 }
+a:link, a:visited {
+	color: #333333;
+	text-decoration: underline }
+a:hover { color: #ff3333; text-decoration: underline }
+H2    { color: #333; font-size: 12pt; font-family: Verdana, Arial, Helvetica, sans-serif; font-style: normal; font-weight: normal; text-align: center }
+input { font-size: 9pt }
+#topBar { background-color: #999 }
+#header { background-color: #666; vertical-align: middle }
+#header a:link { color: white; font-size: 13pt; text-decoration: none; letter-spacing: 1pt }
+#header a:visited { color: white; font-size: 13pt; text-decoration: none; letter-spacing: 1pt }
+#header a:hover     { color: #ff3333; font-size: 13pt; text-decoration: none; letter-spacing: 1px }
+#indexSide   { color: black; font-size: 10pt; background-color: #dadada; text-align: justify; padding-right: 15pt; padding-left: 15pt; vertical-align: top }
+#indexRandom { font-size: 12pt; background-color: #999; text-align: left; padding-left: 30px }
+#sidebar      { line-height: 13pt; background-color: #dadada; vertical-align: top }
+#sidebar a:link  { color: #333; text-decoration: underline }
+#sidebar a:visited  { color: #333; text-decoration: underline }
+#sidebar a:hover  { color: #f33; text-decoration: underline }
+.float-right     { display: inline; margin: 0; float: right }
+.float-left    { display: inline; margin: 0; float: left }
+.text   { font-size: 9pt }
+.small { font-size: 8pt }
+#content  { background-color: #ececec; vertical-align: top }
+#mainText  { font-size: 9pt; text-align: justify; padding-left: 30px; vertical-align: top }
+#mainHeader  { font-size: 9pt }
+#mainHeader a:link  { color: #333; font-size: 8pt; text-decoration: underline; letter-spacing: 1px }
+#mainHeader a:visited  { color: #333; font-size: 8pt; text-decoration: underline; letter-spacing: 1px }
+#mainHeader a:hover  { color: #ff3333; font-size: 8pt; text-decoration: underline; letter-spacing: 1px }
+.line { background-color: white }
+.noJust { color: #333333; font-size: 9pt; font-family: verdana, "sans serif"; text-align: left }
+.title { font-weight: bold }
+.note  { color: #333333; font-size: 8pt; text-align: justify; padding-left: 20px }
+.colored { color: red }
+.colored a:link   { color: red; font-size: 8pt; text-decoration: underline; letter-spacing: 1px }
+.colored a:visited   { color: red; font-size: 8pt; text-decoration: underline; letter-spacing: 1px }
+.colored a:hover   { color: #333; font-size: 8pt; text-decoration: underline; letter-spacing: 1px }
+.content_nojust { font-size: 9pt }
+#footer TD { color: white; font-size: 8pt; vertical-align: middle }
+
+/*
+     FILE ARCHIVED ON 20:51:39 May 12, 2008 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 07:00:27 Jul 18, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 113.385
+  exclusion.robots: 0.068
+  exclusion.robots.policy: 0.058
+  cdx.remote: 0.059
+  esindex: 0.01
+  LoadShardBlock: 84.231 (3)
+  PetaboxLoader3.datanode: 95.235 (4)
+  load_resource: 82.335
+  PetaboxLoader3.resolve: 43.43
+*/

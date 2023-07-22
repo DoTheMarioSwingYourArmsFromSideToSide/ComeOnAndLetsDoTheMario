@@ -1,0 +1,2410 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <LINK  rel="icon" type="image/png" href="images/favicon.ico">
+ <LINK REL="shortcut icon" HREF="/images/favicon.ico" TYPE="image/x-icon">
+    
+	    	<title>Official Visitor Information for Pagosa Springs, Colorado</title>
+   	   	    	<meta name="description" content="Welcome to the official visitor information website for the town of Pagosa Springs, your destination for year-round adventure in southwest Colorado.">
+            	 <meta name="keywords" content="Pagosa Springs Visitor Information">
+        	
+  
+
+
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KRRCXG8');</script>
+<!-- End Google Tag Manager -->
+
+
+    <link rel="stylesheet" href="media/css/bootstrap.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic,900,300italic,300' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="media/css/all.css">
+
+    
+    <style type="text/css">
+    	.clsIterPopUp{font-size: 24px;color: #27648e;}
+    	#formAddItinerary .jcf-select span{font-size: 19px;}
+    	label#trip_days_label{font-size: 16px;}
+    	.clsIternPopUpBtn{padding:3px 12px;font-size:16px;}
+    	.new.wrapper-content{position: absolute;width: 100%;height: 100%;}
+    	.wrapper-content.manage_overflow{
+    		overflow: scroll !important;
+    	}
+    </style>
+    
+  
+
+ 	   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+ 	   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/js/reveal.min.js"></script>
+       
+	   <!--<script type="text/javascript" src="media/js/jquery.cycle.all.js"></script>-->
+	   
+	   
+		<script type="text/javascript" src="media/js/jquery.cycle2.js"></script>
+		<script src="media/js/herbyCookie.js"></script>
+		
+
+    <script type="text/javascript">window.jQuery || document.write('<script src="media/js/jquery-1.11.2.min.js"><\/script>')</script>
+
+            <script src="//cdn.jsdelivr.net/npm/afterglowplayer@1.x"></script>
+        
+    <script src="media/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="media/js/tooltip.js"></script>
+
+
+
+ 	    		 <script type="text/javascript" src="media/js/jquery.main.js"></script>
+
+	  
+    
+
+
+        
+            
+                
+            
+        
+        
+        
+
+        
+
+        
+
+        
+
+<link rel="stylesheet" href="media/scripts/magnific-popup/magnific-popup.css">
+
+<script src="media/scripts/magnific-popup/jquery.magnific-popup.js"></script>
+<link rel="stylesheet" href="media/css/screen1.css">
+<script src="media/js/jquery.validate.js"></script>
+<script type="text/javascript">
+
+	
+$.validator.addMethod("pwcheck", function(value) {
+   return /^[A-Za-z0-9\d=!\-@._*]*$/.test(value) // consists of only these
+       && /[A-Z]/.test(value) // has a lowercase letter
+       && /\d/.test(value) // has a digit
+	   && /[$-/:-?{-~!@#%&^_`\[\]]/.test(value) // has a digit
+});	
+	</script>
+<script type="text/javascript">
+
+ 
+
+	jQuery(document).ready(function($) {
+	
+	jQuery( "#usr_email1" ).keyup(function() {
+	var curremail = jQuery( "#usr_email1" ).val();
+	jQuery("#usr_username1").val(curremail);
+});
+
+jQuery(".itinerarymodal-content .close").click(function() {
+	jQuery("#showitineraryresponsepopup").hide();
+	jQuery("#showsaveorderpopup").hide();
+	jQuery("#addnewtrip_popup").hide();
+});
+
+
+
+jQuery('.addtoitinerarycompany').click(function(){
+    jQuery("p.itinerarymsgshow").html("");
+    jQuery("#itinerarysucessmsg").hide();
+    $('#formAddItinerary')[0].reset();
+    $('#formAddItinerary').show();
+
+    var removeFav = $(this).attr("removeFav");
+    if(removeFav == 1) {
+    	$('.default_field').remove();
+    	$('.clsIterPopUp').html('Select a Trip');
+    }
+
+    var user_id = $(this).attr("user_id");
+    $('#itinerary_user_id').val(user_id);
+    var source = $(this).attr("source");
+    $('#itinerary_source').val(source);
+    var source_id = $(this).attr("source_id");
+    $('#itinerary_source_id').val(source_id);
+    var category = $(this).attr("category");
+    $('#itinerary_category').val(category);
+
+
+    displayTripDays();
+    jQuery("#showitineraryresponsepopup").show();
+
+/*
+
+
+
+					jQuery("#pagosa-placeholder-image").show();
+					var user_id = $(this).attr("user_id");
+					var source = $(this).attr("source");
+					var source_id = $(this).attr("source_id");
+					var dataString = 'user_id='+ user_id + '&source_id='+ source_id + '&source='+ source;
+					jQuery.ajax({
+						type: "POST",
+						url: "index.php?section=addtoitinerary",
+						data: dataString,
+						success: function(result){
+
+							if(result == 1)
+							{
+								jQuery("#itinerarysucessmsg").removeClass("error");
+								jQuery("p.itinerarymsgshow").html("Successfully added to your itinerary.");
+								jQuery("#itinerarysucessmsg").show();
+								jQuery("#showitineraryresponsepopup").show();
+								setTimeout(function(){ jQuery("#showitineraryresponsepopup").hide() }, 4000);
+								jQuery("#pagosa-placeholder-image").hide();
+
+
+							}
+							else if(result == 3)
+							{
+								jQuery("#itinerarysucessmsg").addClass("error");
+								jQuery("p.itinerarymsgshow").html("This item is already added in your itinerary.");
+								jQuery("#itinerarysucessmsg").show();
+								jQuery("#showitineraryresponsepopup").show();
+								setTimeout(function(){ jQuery("#showitineraryresponsepopup").hide() }, 4000);
+								jQuery("#pagosa-placeholder-image").hide();
+
+							}
+							else
+							{
+								jQuery("#itinerarysucessmsg").addClass("error");
+								jQuery("p.itinerarymsgshow").html("Failed added to your itinerary.");
+								jQuery("#itinerarysucessmsg").show();
+								jQuery("#showitineraryresponsepopup").show();
+								setTimeout(function(){ jQuery("#showitineraryresponsepopup").hide() }, 4000);
+								jQuery("#pagosa-placeholder-image").hide();
+
+							}
+						}
+						});
+					return false;
+					*/
+});
+
+
+	
+	$("#signupForm").validate({
+			rules: {
+				usr_password1: {
+					required: true,
+					pwcheck: true,
+					minlength: 8
+				},
+				usr_confirmpassword: {
+					required: true,
+					minlength: 8,
+					equalTo: "#usr_password1"
+				},
+				
+			},
+			messages: {
+				usr_firstname: "This field is required",
+				usr_password1: {
+					minlength: "Your password must be at least 8 characters long",
+					pwcheck: "Password must include one capital letter,one number and one special character",
+				},
+			},
+            submitHandler: function() {
+				var usr_firstname = $("#usr_firstname").val();
+				var usr_lastname = $("#usr_lastname").val();
+				var usr_homzip = $("#usr_homzip").val();
+				var usr_lastvisit = $("#usr_lastvisit").val();
+				if(usr_lastvisit) { var usr_lastvisitdate = usr_lastvisit; } else { var usr_lastvisitdate = ''; }
+				var usr_confirmpassword = $("#usr_confirmpassword").val();
+				var usr_username = $("#usr_username1").val();
+				var keepmeposted = $("#keepmeposted").val();
+				var usr_password = $("#usr_password1").val();
+					var usr_email = $("#usr_email1").val();
+					var createaccount = 'submit';
+					
+					var dataString = 'usr_firstname='+ usr_firstname + '&usr_lastname='+ usr_lastname + '&usr_homzip='+ usr_homzip + '&usr_lastvisit='+ usr_lastvisitdate + '&keepmeposted='+ keepmeposted + '&usr_username='+ usr_username + '&usr_password='+ usr_password + '&usr_email='+ usr_email+'&create_account='+ createaccount +'&ajaxrequest=true';
+                    
+					jQuery.ajax({
+						type: "POST",
+						url: "index.php?section=create_account",
+						data: dataString,
+						success: function(result){
+							console.log('result:'+result);
+							//alert(result);
+							if(result == 1)
+							{
+								jQuery(".registration-msg").html("Thank you for setting up an account on the Pagosa website! You'll be logging in to the sytem automatically ...");
+								jQuery('form.lpfrm').animate({height: "toggle", opacity: "toggle"}, 6000);
+								jQuery(".login-error").hide();
+								jQuery(this).closest('form').find("input[type=text], textarea").val("");
+								jQuery(".registration-msg").show();
+								jQuery("button#createnewuser").attr("disabled", false);
+
+                                // logging in user, by filling and submitting the login form
+                                $("#usr_username").val(usr_username);
+                                $("#usr_password").val(usr_password);
+                                jQuery('#loginuser').trigger('click')
+
+							}
+							else
+							{   
+								jQuery(".registration-msg").hide();
+								jQuery(".login-error span").html(result);
+								jQuery(".login-error").show();
+								jQuery("button#createnewuser").attr("disabled", false);
+							}
+							
+						},
+						 beforeSend: function() {   
+						 	jQuery(".registration-msg").show(); 
+							jQuery(".registration-msg").html("Your process is working please wait!");
+							jQuery("button#createnewuser").attr("disabled", true);
+							
+							
+        				}
+						});
+					return false;
+					
+			
+		    }
+		});	
+
+			jQuery('.open-popup-link').magnificPopup({
+
+			type:'inline',
+
+			midClick: true  
+
+			});
+			
+			jQuery('.addnewtrippage').magnificPopup({
+			
+			type:'inline',
+
+			midClick: true  
+
+			});
+
+                    
+            jQuery('.__map_popup').magnificPopup({
+
+			type:'iframe',
+
+			midClick: true  
+
+			});    
+
+                   jQuery('.message a').click(function(){
+
+		 jQuery('form.lpfrm').animate({height: "toggle", opacity: "toggle"}, "slow");
+
+                });  
+
+                jQuery('.forgot a').click(function(){
+
+		 jQuery('form.popup_form').animate({height: "toggle", opacity: "toggle"}, "slow");
+
+                }); 
+				
+		 jQuery(".dropdown a[href='index.php?section=places-to-stay']").attr("href","index.php?section=places-to-stay&filterbygroup=3");
+		 
+	jQuery('#loginuser').click(function(){
+					var usr_username = $("#usr_username").val();
+					var usr_password = $("#usr_password").val();
+					var dataString = 'usr_username='+ usr_username + '&usr_password='+ usr_password;
+					//alert(dataString); return false;
+					jQuery.ajax({
+						type: "POST",
+						url: "index.php?section=authenticate",
+						data: dataString,
+						success: function(result){
+						
+							if(result == 1)
+							{
+								jQuery(".login-error span").html("");
+								jQuery(".login-error").hide();
+								var url_curr      = window.location.href;
+								window.location.href = url_curr;
+								
+							}
+							else
+							{
+								jQuery(".login-error span").html("You have supplied an incorrect username and/or password. Please try again.");
+								jQuery(".login-error").show();
+							}
+						}
+						});
+					return false;
+                }); 
+				
+				jQuery(".visitbefore1").click(function() {
+					var visitbeforeyes = $("input[name=beforevisit]:checked").val();
+					if(visitbeforeyes == 1)
+					{
+						jQuery("input#usr_lastvisit").show();
+					}
+					else
+					{
+						jQuery("input#usr_lastvisit").hide();
+					}
+				});
+				
+jQuery(".add_new_trip").click(function() {
+		if(jQuery("#frmAddItern").length > 0) {
+			document.getElementById("frmAddItern").reset();
+		}
+		jQuery('.TripPopGeading').html('ADD A NEW TRIP');
+		jQuery('#itinerary-dates').show();
+
+		jQuery("#addnewtrip_popup").show();
+		$( "#trip_startdate" ).datepicker({ dateFormat: 'yy-mm-dd'});
+		 $( "#trip_enddate" ).datepicker({ dateFormat: 'yy-mm-dd'});
+
+	});
+
+
+
+	});
+
+	function displayTripDays()
+    {
+        var id = $("select#itinerary_trip option").filter(":selected").val();
+        if (id == 0) {
+            $('#trip_days_label').hide();
+        } else {
+            $('#trip_days_label').show();
+        }
+        $('.trip-list').hide();
+        $('#trip-list-' + id).show();
+    }
+
+    function saveItinerary()
+    {
+        var id = $("select#itinerary_trip option").filter(":selected").val();
+        var daysChecked = $('#trip-list-' + id).find('input:checked').length;
+
+        if (id != 0 && daysChecked == 0) {
+            jQuery("#itinerarysucessmsg").addClass("error");
+            jQuery("p.itinerarymsgshow").html("Please check at least one day.");
+            jQuery("#itinerarysucessmsg").show();
+        } else {
+            jQuery("#itinerarysucessmsg").removeClass("error");
+            jQuery("p.itinerarymsgshow").html("");
+            jQuery("#itinerarysucessmsg").hide();
+
+            $('#formAddItinerary').hide();
+            jQuery.ajax({
+                type: "POST",
+                url: "index.php?section=addtoitinerary",
+                data: $('#formAddItinerary').serialize(),
+                success: function (result) {
+                    if(result == 1)
+                    {
+                        jQuery("#itinerarysucessmsg").removeClass("error");
+                        jQuery("p.itinerarymsgshow").html("Successfully added to your itinerary.");
+                        jQuery("#itinerarysucessmsg").show();
+                        jQuery("#showitineraryresponsepopup").show();
+                        setTimeout(function(){ jQuery("#showitineraryresponsepopup").hide() }, 4000);
+                        jQuery("#pagosa-placeholder-image").hide();
+
+
+                    }
+                    else if(result == 3)
+                    {
+                        jQuery("#itinerarysucessmsg").addClass("error");
+                        jQuery("p.itinerarymsgshow").html("This item is already added in your itinerary.");
+                        jQuery("#itinerarysucessmsg").show();
+                        jQuery("#showitineraryresponsepopup").show();
+                        setTimeout(function(){ jQuery("#showitineraryresponsepopup").hide() }, 4000);
+                        jQuery("#pagosa-placeholder-image").hide();
+
+                    }
+                    else
+                    {
+                        jQuery("#itinerarysucessmsg").addClass("error");
+                        jQuery("p.itinerarymsgshow").html("Failed added to your itinerary.");
+                        jQuery("#itinerarysucessmsg").show();
+                        jQuery("#showitineraryresponsepopup").show();
+                        setTimeout(function(){ jQuery("#showitineraryresponsepopup").hide() }, 4000);
+                        jQuery("#pagosa-placeholder-image").hide();
+
+                    }
+                }
+            });
+        }
+    }
+	
+
+ </script>
+
+<script>
+jQuery(document).ready(function(){
+            jQuery(document).herbyCookie({
+                link: "https://www.jqueryscript.net/privacy/",
+            });
+            
+    $(".close-search").hide();
+    $(".open-search").click(function(){
+        $(".search-form").addClass("open");
+        $(".close-search").show();
+        $(".open-search").hide();
+    });
+    
+    $(".close-search").click(function(){
+        $(".search-form").removeClass("open");
+        $(".close-search").hide();
+        $(".open-search").show();
+    });
+    
+    
+
+        });
+</script>
+
+        
+
+        
+<script src="//d3c3cq33003psk.cloudfront.net/opentag-160716-pollinator.js" async defer></script>
+
+ 
+
+<style type="text/css">
+
+
+.pagosa-placeholder {
+    background: rgba(0, 0, 0, 0.7) none repeat scroll 0 0;
+    bottom: 0;
+    color: #fff;
+    left: 0;
+    position: fixed;
+    right: 0;
+    text-align: center;
+    top: 0;
+    z-index: 99999;
+	}
+.pagosa-placeholder i {
+    font-size: 50px;
+    margin-top: 20%;
+    position: static;
+}
+
+.pagosa-placeholder {
+    color: #fff;
+    text-align: center;
+}
+.dropdown:hover .dropdown-menu {display: block;}
+</style>
+
+
+<!-- Codiminds -->
+
+
+	
+		
+
+
+	
+				
+		<meta name="p:domain_verify" content="da54005f04e5e1627f41fec42c7668f8"/>
+<!-- Clarity tracking code for https://www.visitpagosasprings.com/ --><script>    (function(c,l,a,r,i,t,y){        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);    })(window, document, "clarity", "script", "4v31qyb4sk");</script>
+	
+<!-- Codiminds -->
+
+<!-- Visit Widget Script -->
+<script id="visit_widget_script_tag" type="text/javascript" src="https://scripts.visitwidget.com/visitpagosasprings.visitwidget.com/Widget%201/visit_widget.js"></script>
+<script type="text/javascript" src="https://scripts.visitwidget.com/visitpagosasprings.visitwidget.com/app_banner_config.js"></script>
+<script type="text/javascript" src="https://scripts.visitwidget.com/app_banner_v2.min.js"></script>
+<!-- Visit Widget Script -->
+
+</head>
+
+<body>
+	
+
+	<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KRRCXG8"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+<!-- Codiminds -->
+	
+		
+		        
+        	
+        <div class="pixel-image">
+        <img src="https://dc.arrivalist.com/px/?pixel_id=1669&a_source=Visit_Pagosa_Springs&a_medium=Page_Visit&a_campaign=Homepage&a_content=NA&a_type=Owned" width="1" height="1">
+
+<!-- Sojern Tag v6_js, Pixel Version: 1 -->
+<script>
+(function () {
+var params = {};
+/* Please do not modify the below code. */
+var cid = [];
+var paramsArr = [];
+var cidParams = [];
+var pl = document.createElement('script');
+var defaultParams = {"vid":"tou"};
+for(key in defaultParams) { params[key] = defaultParams[key]; };
+for(key in cidParams) { cid.push(params[cidParams[key]]); };
+params.cid = cid.join('|');
+for(key in params) { paramsArr.push(key + '=' + encodeURIComponent(params[key])) };
+pl.type = 'text/javascript';
+pl.async = true;
+pl.src = 'https://beacon.sojern.com/pixel/p/276101?f_v=v6_js&p_v=1&' + paramsArr.join('&');
+(document.getElementsByTagName('head')[0] ||
+document.getElementsByTagName('body')[0]).appendChild(pl);
+})();
+</script>
+<!-- End Sojern Tag -->
+    </div>
+            
+    
+
+	
+<!-- Codiminds -->
+
+    <div id="wrapper" class="new wrapper-content ">
+        
+        <div class="wrap2 side-push main-wrapper-content">
+
+            <div class="hold">
+
+                <header id="header">
+
+                    <nav class="navbar navbar-default menu">
+
+                        <div class="container-fluid">
+
+                            <!-- Brand and toggle get grouped for better mobile display -->
+
+                            <div class="navbar-header">
+
+                                <button type="button" class="navbar-toggle">
+
+                                    <span class="sr-only">Toggle navigation</span>
+
+                                    <span class="icon-bar"></span>
+
+                                    <span class="icon-bar"></span>
+
+                                    <span class="icon-bar"></span>
+
+                                </button>
+                                <div class="logo-wrapper">
+                                <a class="navbar-brand" href="index.php"><img src="media/images/logo.png" height="165" width="281" alt="image description"></a>
+                                </div>
+
+                                
+                                <div class="navbar-form search-form placeholder-change">
+                                    <div class="open-search"></div>
+                                    <div class="close-search"></div>
+                                    <input type="text" class="addsearch form-control" placeholder="I am searching for.." style="width: 92.2% !important" />
+                                    <script src="https://addsearch.com/js/?key=4957eeb021a33267cd7bd63d9665f514"></script>
+                                </div>
+
+                            </div>
+
+                            <!-- Collect the nav links, forms, and other content for toggling -->
+
+
+                            <!-- Itnery Icon -->
+                            <div class="header-right"> 
+                                                                 </div>
+                            <!-- /Itnery Icon -->
+                            <div class="drop">
+
+                                <div class="nav-holder">
+
+                                    <ul class="nav navbar-nav navbar-right">
+
+                                        
+                                            																			
+
+                                                <li class="dropdown">
+
+                                                    
+                                                        <a href="discover" onClick="window.location='discover'" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+
+                                                            Discover
+
+                                                            
+                                                                <span class="icon-arrow-bottom"></span>
+
+                                                            
+                                                        </a>
+
+                                                    
+                                                    
+                                                        <ul class="dropdown-menu" role="menu">
+
+                                                            
+                                                                <li>
+
+                                                                    
+                                                                        <a href="visit-pagosa-springs-app">Visit Pagosa Springs App</a>
+
+                                                                    
+                                                                    <!--      -->
+
+                                                                </li>
+
+                                                            
+                                                                <li>
+
+                                                                    
+                                                                        <a href="get-to-know-us">Get to Know Us</a>
+
+                                                                    
+                                                                    <!--      -->
+
+                                                                </li>
+
+                                                            
+                                                                <li>
+
+                                                                    
+                                                                        <a href="photo-gallery">Photos & Videos</a>
+
+                                                                    
+                                                                    <!--      -->
+
+                                                                </li>
+
+                                                            
+                                                                <li>
+
+                                                                    
+                                                                        <a href="our-community">Our Community</a>
+
+                                                                    
+                                                                    <!--      -->
+
+                                                                </li>
+
+                                                            
+                                                                <li>
+
+                                                                    
+                                                                        <a href="the-weathers-fine">Our Weather</a>
+
+                                                                    
+                                                                    <!--      -->
+
+                                                                </li>
+
+                                                            
+                                                                <li>
+
+                                                                    
+                                                                        <a href="discover-geothermal">Geothermal</a>
+
+                                                                    
+                                                                    <!--      -->
+
+                                                                </li>
+
+                                                            
+                                                                <li>
+
+                                                                    
+                                                                        <a href="discover-maps-links">Get to Pagosa</a>
+
+                                                                    
+                                                                    <!--      -->
+
+                                                                </li>
+
+                                                            
+                                                                <li>
+
+                                                                    
+                                                                        <a href="discover-pagosa-springs-brochures">Pagosa Springs Brochures</a>
+
+                                                                    
+                                                                    <!--      -->
+
+                                                                </li>
+
+                                                            
+                                                                <li>
+
+                                                                    
+                                                                        <a href="riverusage">River Usage</a>
+
+                                                                    
+                                                                    <!--      -->
+
+                                                                </li>
+
+                                                            
+                                                        </ul>
+
+                                                    
+                                                </li>
+
+                                            
+                                        
+                                            																			
+
+                                                <li class="dropdown">
+
+                                                    
+                                                        <a href="things-to-do" onClick="window.location='things-to-do'" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+
+                                                            Things To Do
+
+                                                            
+                                                                <span class="icon-arrow-bottom"></span>
+
+                                                            
+                                                        </a>
+
+                                                    
+                                                    
+                                                        <ul class="dropdown-menu" role="menu">
+
+                                                            
+                                                                <li>
+
+                                                                    
+                                                                        <a href="leave-no-trace-in-pagosa-springs">Leave No Trace</a>
+
+                                                                    
+                                                                    <!--      -->
+
+                                                                </li>
+
+                                                            
+                                                                <li>
+
+                                                                    
+                                                                        <a href="things-to-do-activities">Activities</a>
+
+                                                                    
+                                                                    <!--      -->
+
+                                                                </li>
+
+                                                            
+                                                                <li>
+
+                                                                    
+                                                                        <a href="things-to-do-breweries">Breweries</a>
+
+                                                                    
+                                                                    <!--      -->
+
+                                                                </li>
+
+                                                            
+                                                                <li>
+
+                                                                    
+                                                                        <a href="things-to-do-dining">Dining</a>
+
+                                                                    
+                                                                    <!--      -->
+
+                                                                </li>
+
+                                                            
+                                                                <li>
+
+                                                                    
+                                                                        <a href="things-to-do-hot-springs">Hot Springs</a>
+
+                                                                    
+                                                                    <!--      -->
+
+                                                                </li>
+
+                                                            
+                                                                <li>
+
+                                                                    
+                                                                        <a href="visit-pagosa-springs-bicycle-planter-scavenger-hunt">Scavenger Hunt</a>
+
+                                                                    
+                                                                    <!--      -->
+
+                                                                </li>
+
+                                                            
+                                                                <li>
+
+                                                                    
+                                                                        <a href="things-to-do-shopping">Shopping</a>
+
+                                                                    
+                                                                    <!--      -->
+
+                                                                </li>
+
+                                                            
+                                                                <li>
+
+                                                                    
+                                                                        <a href="https://visitpagosasprings.com/pagosa-springs-waterfalls" >Waterfalls</a>
+
+                                                                    
+                                                                    <!--      -->
+
+                                                                </li>
+
+                                                            
+                                                                <li>
+
+                                                                    
+                                                                        <a href="things-to-do-health">Wellness</a>
+
+                                                                    
+                                                                    <!--      -->
+
+                                                                </li>
+
+                                                            
+                                                        </ul>
+
+                                                    
+                                                </li>
+
+                                            
+                                        
+                                            																			
+
+                                                <li class="dropdown">
+
+                                                    
+                                                        <a href="places-to-stay" onClick="window.location='places-to-stay'">
+
+                                                            Places to Stay
+
+                                                            
+                                                        </a>
+
+                                                    
+                                                    
+                                                </li>
+
+                                            
+                                        
+                                            																			
+
+                                                <li class="dropdown">
+
+                                                    
+                                                        <a href="arts-culture" onClick="window.location='arts-culture'" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+
+                                                            Arts & Culture
+
+                                                            
+                                                                <span class="icon-arrow-bottom"></span>
+
+                                                            
+                                                        </a>
+
+                                                    
+                                                    
+                                                        <ul class="dropdown-menu" role="menu">
+
+                                                            
+                                                                <li>
+
+                                                                    
+                                                                        <a href="galleries">Galleries</a>
+
+                                                                    
+                                                                    <!--      -->
+
+                                                                </li>
+
+                                                            
+                                                                <li>
+
+                                                                    
+                                                                        <a href="art-culture-theatre">Theatre</a>
+
+                                                                    
+                                                                    <!--      -->
+
+                                                                </li>
+
+                                                            
+                                                                <li>
+
+                                                                    
+                                                                        <a href="art-culture-museums">Museum</a>
+
+                                                                    
+                                                                    <!--      -->
+
+                                                                </li>
+
+                                                            
+                                                                <li>
+
+                                                                    
+                                                                        <a href="arts-and-culture">Culture</a>
+
+                                                                    
+                                                                    <!--      -->
+
+                                                                </li>
+
+                                                            
+                                                                <li>
+
+                                                                    
+                                                                        <a href="historic-trains">Historic Trains</a>
+
+                                                                    
+                                                                    <!--      -->
+
+                                                                </li>
+
+                                                            
+                                                        </ul>
+
+                                                    
+                                                </li>
+
+                                            
+                                        
+                                            																			
+
+                                                <li class="dropdown">
+
+                                                    
+                                                        <a href="events" onClick="window.location='events'">
+
+                                                            Events
+
+                                                            
+                                                        </a>
+
+                                                    
+                                                    
+                                                </li>
+
+                                            
+                                        
+                                            																			
+
+                                                <li class="dropdown">
+
+                                                    
+                                                        <a href="groups-meetings" onClick="window.location='groups-meetings'" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+
+                                                            Large Groups
+
+                                                            
+                                                                <span class="icon-arrow-bottom"></span>
+
+                                                            
+                                                        </a>
+
+                                                    
+                                                    
+                                                        <ul class="dropdown-menu" role="menu">
+
+                                                            
+                                                                <li>
+
+                                                                    
+                                                                        <a href="meetings-reunions">Family Reunions</a>
+
+                                                                    
+                                                                    <!--      -->
+
+                                                                </li>
+
+                                                            
+                                                                <li>
+
+                                                                    
+                                                                        <a href="meetings-business">Business Retreats</a>
+
+                                                                    
+                                                                    <!--      -->
+
+                                                                </li>
+
+                                                            
+                                                                <li>
+
+                                                                    
+                                                                        <a href="meetings-groups">Group Trips</a>
+
+                                                                    
+                                                                    <!--      -->
+
+                                                                </li>
+
+                                                            
+                                                                <li>
+
+                                                                    
+                                                                        <a href="meetings-weddings">Weddings</a>
+
+                                                                    
+                                                                    <!--      -->
+
+                                                                </li>
+
+                                                            
+                                                        </ul>
+
+                                                    
+                                                </li>
+
+                                            
+                                        
+                                            																			
+
+                                                <li class="dropdown">
+
+                                                    
+                                                        <a href="" onClick="window.location=''" >
+
+                                                               
+
+                                                        </a>
+
+                                                    
+                                                    
+                                                </li>
+
+                                            
+                                        
+                                        <!-- <li class="dropdown">
+
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+
+                                                Discover
+
+                                                <span class="icon-arrow-bottom"></span>
+
+                                            </a>
+
+                                            <ul class="dropdown-menu" role="menu">
+
+                                                <li>
+
+                                                    <a href="#">Facts</a>
+
+                                                </li>
+
+                                                <li>
+
+                                                    <a href="#">Community</a>
+
+                                                </li>
+
+                                                <li>
+
+                                                    <a href="#">Weather</a>
+
+                                                </li>
+
+                                                <li>
+
+                                                    <a href="#">Maps Links</a>
+
+                                                </li>
+
+                                            </ul>
+
+                                        </li> -->
+
+                                    </ul>
+
+                                </div>
+
+                               
+
+                                
+
+                                 <div id="test-popup" class="white-popup mfp-hide test">
+
+                                 <div class="xlform">
+
+  <div class="thumbnail"><img src="media/images/logo-login.png"/></div>
+
+<form class="register-form lpfrm" method="post" id="signupForm" action="index.php?section=create_account&create_account=submit">
+  <h3>Create your Free Visit Pagosa Springs account and start planning the awesome!</h3>
+<div class="registration-msg" style="display:none;color:green;font-size:14px;padding-bottom:5px;"></div>
+<div class="login-error" style="display:none;"><span style="color:red;font-size:14px;padding-bottom:5px;"></span></div>
+ <input type="text" name="usr_firstname" id="usr_firstname" required="required" placeholder="First Name*" autocomplete="off" value="" />
+  <input type="text" name="usr_lastname" id="usr_lastname" required="required" placeholder="Last Name*" autocomplete="off" value="" />
+   
+	<input type="email" name="usr_email" id="usr_email1" placeholder="Email address*" required="required" autocomplete="off" value="" />
+	 <input type="text" name="usr_homzip" id="usr_homzip" required="required" placeholder="Home Zip Code*" autocomplete="off" value="" />
+	<div class="before_visit" style="font-size:14px;">Have you visited Pagosa Springs Before?
+	<p><input type="radio" class="visitbefore1" value="1" name="beforevisit">&nbsp;Yes&nbsp;&nbsp;<input type="radio" class="visitbefore1" name="beforevisit" value="0">&nbsp;No</p>
+	</div>
+	
+	<input type="text" name="usr_lastvisit" id="usr_lastvisit" style="display:none" placeholder="Last Visit Date ( dd-mm-yy )" autocomplete="off" value="" />
+	  <input type="text" name="usr_username" id="usr_username1" readonly="readonly" placeholder="Username" autocomplete="off" value="" />
+    <input type="password" name="usr_password1" id="usr_password1" required="required" placeholder="Password*" autocomplete="off" value="" />
+	 <input type="password" name="usr_confirmpassword" id="usr_confirmpassword" required="required" placeholder="Confirm Password*" autocomplete="off" value="" />
+	 <div class="keepmeposted" style="font-size:14px;"><input type="checkbox" id="keepmeposted" name="keepmeposted" value="1">&nbsp;Keep me posted about happenings and special offers.</div>
+<button class="btn btn-small btn-primary" type="submit" id="createnewuser">create</button>
+
+    <p class="message">Already registered? <a href="javascript:void(0)">Sign In</a></p>
+
+  </form>
+
+  <form method="post" class="login-form lpfrm popup_form" action="">
+<h3 style="text-transform:initial;">If you already set up an account, log in here.<br />To create one just click the link below!</h3>
+<div class="login-error" style="display:none;"><span style="color:red;font-size:14px;padding-bottom:5px;"></span></div>
+    <input type="text" name="usr_username" id="usr_username" required="required" placeholder="Username" autocomplete="off" value="" />
+
+    <input type="password" name="usr_password" id="usr_password" required="required" placeholder="Password" autocomplete="off" value="" />
+
+    <button class="btn btn-small btn-primary" type="submit" id="loginuser"> Login</button>
+
+    <!--<p class="message">Not registered? <a href="#">Create an account</a></p>-->
+
+    <div id="xloginbottom"><span class="message"><a href="javascript:void(0)" id="create-account"><img src="//tag.yieldoptimizer.com/ps/ps?cnv_a=4651&cnv_cpid=5432&t=i&p=4585" width="1" height="1" alt="" /> Create Your account</a></span>  | <span class="forgot"> <a href="javascript:void(0)" id="forgot-password">Forgot Password</a></span></div>
+
+  </form>
+
+  <form style="display:none;" class="forgot-form popup_form">
+
+      <input type="text" name="email" placeholder="email"/>
+
+   
+
+    <button>Submit</button>
+
+    <!--<p class="message">Not registered? <a href="#">Create your free account!</a></p>-->
+
+    <div id="xloginbottom"><span class="forgot">Already registered? <a href="#">Sign In</a></span> </div>
+
+  </form>
+
+</div>
+
+                                 </div>
+
+                            </div>
+
+                            <!-- /.navbar-collapse -->
+
+                        </div>
+
+                        <!-- /.container-fluid -->
+
+                    </nav>
+					
+<!-- The Modal -->
+<div id="showitineraryresponsepopup" class="itinerarymodal">
+
+  <!-- Modal content -->
+  <div class="itinerarymodal-content">
+    <span class="close">&times;</span>
+   <div id="itinerarysucessmsg">
+   <p class="succ-msg itinerarymsgshow"></p>
+
+
+        <a href="index.php?section=itinerary" class="btn btn-small btn-primary hidden" style="font-size:17px;padding:3px 6px">View Itinerary</a>
+
+</div>
+<form id="formAddItinerary" class="form-horizontal register-form lpfrm">
+
+    <label class="clsIterPopUp">Select A Trip and a Day</label>
+<select onChange="displayTripDays()" name="trip_id" id="itinerary_trip" class="form-control">
+        <option value="0" class="default_field">My Favorites</option>
+            </select>
+
+        <input type="hidden" name="user_id" id="itinerary_user_id">    <input type="hidden" name="source"  id="itinerary_source">    <input type="hidden" name="source_id"  id="itinerary_source_id">    <input type="hidden" name="category" id="itinerary_category">    <button type="button" onClick="saveItinerary()" class="btn btn-small btn-primary clsIternPopUpBtn">Add</button></form>  </div></div>	 </header> <div class="container-fluid">   <div class="container-bg"><div class="shadow"><script type="text/javascript" src="media/js/jquery.fancybox.pack.js"></script>
+
+<link rel="stylesheet" type="text/css" href="media/css/jquery.fancybox.css" media="screen" />
+
+<script type="text/javascript"> $(document).ready(function() {    /* This is basic - uses default settings */        $("a#single_image").fancybox();        /* Using custom settings */        $("a#inline").fancybox({        'hideOnContentClick': true    });    /* Apply fancybox to multiple items */    $("a.group").fancybox({        'transitionIn'  :   'elastic',        'transitionOut' :   'elastic',        'speedIn'       :   600,         'speedOut'      :   200,         'overlayShow'   :   false,        'autoplay'      :   false    });    });   </script>
+
+<style type="text/css">    .slide p    {        margin: 0 !important;    }    a:hover    {        text-decoration: none;    }    .social li a {      background: none;      display: inline;    }
+
+.vjs-afterglow-skin.vjs-has-started .vjs-control-bar{display:none}
+</style>
+
+
+
+<div class="row">
+
+   <div class="box-gallery">
+
+      <div class="cycle-gallery">
+
+         <div class="mask">
+
+            <div class="slideset">
+                              			
+							
+						                                    																					
+				   							
+							               							
+				   							
+							               							
+				   							
+							               							
+				   							
+							               							
+				   							
+							               							
+				   					    
+					   <a href="https://visitpagosasprings.com/visit-pagosa-springs-app"  >
+						  <div class="slide">
+                                            <img src="corecode/uploads/homepage/uploaded_images/corecode/Spring-App-Billboard.jpg" height="345" width="1170" alt="6">
+                     							 
+							 						  </div>
+					   </a>
+					   				   							
+							               							
+				   							
+							               							
+				   							
+							               							
+                                                																					
+				   							
+							               							
+				   							
+							               							
+				   							
+							               							
+				   							
+							               							
+				   							
+							               							
+				   							
+							               							
+				   					    
+					   <a href="https://visitpagosasprings.com/things-to-do"  >
+						  <div class="slide">
+                                            <img src="corecode/uploads/homepage/uploaded_images/corecode/rafting-be-adventurous-2700x940.jfif" height="345" width="1170" alt="7">
+                     							 
+							 						  </div>
+					   </a>
+					   				   							
+							               							
+				   							
+							               							
+                                                																					
+				   					    
+					   <a href="https://visitpagosasprings.com/index.php?section=things-to-do-activities&subcategory_id=20&season="  >
+						  <div class="slide">
+                                            <img src="corecode/uploads/homepage/uploaded_images/corecode/Spring Billboard -Balloon.jpg" height="345" width="1170" alt="1">
+                     							 
+							 						  </div>
+					   </a>
+					   				   							
+							               							
+				   							
+							               							
+				   							
+							               							
+				   							
+							               							
+				   							
+							               							
+				   							
+							               							
+				   							
+							               							
+				   							
+							               							
+                                                																					
+				   							
+							               							
+				   							
+							               							
+				   							
+							               							
+				   							
+							               							
+				   							
+							               							
+				   							
+							               							
+				   							
+							               							
+				   							
+							               							
+                                                																					
+				   							
+							               							
+				   							
+							               							
+				   							
+							               							
+				   							
+							               							
+				   							
+							               							
+				   							
+							               							
+				   							
+							               							
+				   							
+							               							
+                                                																					
+				   							
+							               							
+				   							
+							               							
+				   							
+							               							
+				   							
+							               							
+				   					    
+					   <a href="https://visitpagosasprings.com/things-to-do"  >
+						  <div class="slide">
+                                            <img src="corecode/uploads/homepage/uploaded_images/corecode/Spring Billboard-River.jpg" height="345" width="1170" alt="5">
+                     							 
+							 						  </div>
+					   </a>
+					   				   							
+							               							
+				   							
+							               							
+				   							
+							               							
+				   							
+							               							
+                                                																					
+				   							
+							               							
+				   							
+							               							
+				   							
+							               							
+				   							
+							               							
+				   							
+							               							
+				   							
+							               							
+				   							
+							               							
+				   							
+							               							
+                                    </div>
+
+         </div>
+
+         <!-- slideshow structure example -->
+
+         <div class="slideshow">
+
+            <div class="slideset">
+
+                                   
+
+                                       
+
+				                               
+
+					                           
+
+				                       
+
+                                       
+
+				                               
+
+					                           
+
+				                       
+
+                                       
+
+				                               
+
+					                           
+
+				                       
+
+                                       
+
+				                               
+
+					                           
+
+				                       
+
+                                       
+
+				                               
+
+					                           
+
+				                       
+
+                                       
+
+				                               
+
+					                           
+
+				                       
+
+                                       
+
+				                               
+
+					                           
+
+				                       
+
+                                       
+
+				                       
+
+               
+            </div>
+
+            <a class="btn-next" href="#"><i class="icon-arrow-right"></i></a>
+
+            <a class="btn-prev" href="#"><i class="icon-arrow-left"></i></a>
+
+         </div>
+
+      </div>
+
+   </div>
+
+ 
+
+</div>
+
+<main id="main">
+
+   <div class="row sameheight-box transparrent-bg">
+
+  
+
+   <div id="homeEvent2">
+
+      <div id="jrs_calendar_form" class="mainwrap"> <div id="widget-container-1496"> </div><img src="//tag.yieldoptimizer.com/ps/ps?cnv_a=4651&cnv_cpid=5432&t=i&p=4585" width="1" height="1" alt="" /></div>
+
+       <script src="https://admin.bookdirect.net/hs4/widgets/1496.js?widget_element=widget-container-1496" type="text/javascript"></script>
+
+	   <script src="https://widgets.bookdirect.net/widgets/search_widget.js.php?id=1177" type="text/javascript"></script>
+
+   </div>
+
+  
+
+   
+
+      <div class="col-sm-12 col-md-9 left-wrapper">          
+
+         <div class="content-bg">
+
+            <div class="content">               
+
+               <div class="row">
+
+                  <div class="col-sm-8">
+
+                     <!--  <div id="homeEvent">
+
+                        <script src="https://widgets.bookdirect.net/widgets/search_widget.js.php?id=990" type="text/javascript"></script>
+
+                     </div>-->
+
+                     <div class="visual"> 
+
+                     <div class="thumbnail">                               
+
+                                                          
+
+                       
+
+                       <div class="visual-thumbnail">                                      
+
+                      <a href="https://visitpagosasprings.com/leave-no-trace-in-pagosa-springs">                   
+
+                      <img src="https://visitpagosasprings.com/corecode/uploads/homepage/uploaded_images/corecode/Spring-Wildcard-Image.jpg" height="251" width="553" alt="">
+
+                      <span class="title" style="margin-top: 150px;margin-left: 10px">Leave No Trace </span>
+
+                      <span class="title" style="margin-top:191px;margin-left: 30px;font-size: 32px;">Safely Explore Pagosa</span> 
+
+                      
+
+                      </a>    
+
+                      </div>                                                               
+
+                                                
+
+                      </div>
+
+                    </div>
+
+
+
+
+
+
+
+
+
+                     <div class="row wildcard-images">
+
+                        <div class="col-sm-4">
+
+                           <div class="thumbnail">
+
+                              
+                              <div class="visual-thumbnail">                                                <img src="corecode/uploads/homepage/uploaded_images/corecode/Balloon-Spring2.jpg" height="118" width="169" alt="Hot Air Balloon Rides">                                                <span class="title">Ballooning</span>                                            </div>
+
+                              
+                              <div class="caption 11">
+
+                                                                                 <p>
+	Enjoy a birds-eye view of Pagosa Country year round.&nbsp;&nbsp;</p>
+                                                                                        
+                                 <p>                                                    <a href="https://visitpagosasprings.com/index.php?section=things-to-do-activities&subcategory_id=20&season=">Click Here</a>                                                </p>
+
+                                 
+                              </div>
+
+                           </div>
+
+                        </div>
+
+
+
+
+
+                        <div class="col-sm-4">
+
+                           <div class="thumbnail">
+
+                              
+                              <div class="visual-thumbnail">
+
+                              <img src="corecode/uploads/homepage/uploaded_images/corecode/Rafting-Wildcard.jpg" height="118" width="169" alt="Rafting Adventures">                                                <span class="title">RAFTING </span>                                            </div>
+
+                              
+                              <div class="caption 12">
+
+                                                                                 <p>
+	Enjoy amazing San Juan River adventures!</p>
+                                                                                        
+                              <p><a href="https://visitpagosasprings.com/index.php?section=things-to-do-activities&subcategory_id=28&season=">Click Here</a></p>
+
+                                 
+                              </div>
+
+                           </div>
+
+                        </div>
+
+                        <div class="col-sm-4">
+
+                           <div class="thumbnail">
+
+                              
+                              <div class="visual-thumbnail">                                                <img src="corecode/uploads/homepage/uploaded_images/corecode/Galleries-Wildcard.jpg" height="118" width="169" alt="Art Galleries">                                                <span class="title">GALLERIES</span>                                            </div>
+
+                              
+                              <div class="caption 34">
+
+                                                                                 <p>
+	Pagosa has some exceptional Art Galleries for you to enjoy while you are here visiting.</p>
+                                                                                        
+                                 <p>                                                    <a href="https://visitpagosasprings.com/index.php?section=things-to-do-activities&subcategory_id=58&season=">Click Here</a>                                                </p>
+
+                                 
+                              </div>
+
+                           </div>
+
+                        </div>
+
+
+
+                   <div class="col-sm-4">
+
+                      <div class="thumbnail">
+
+                              
+                        <div class="visual-thumbnail">                                               <img src="corecode/uploads/homepage/uploaded_images/corecode/Soaking-web.jpg" height="118" width="169" alt="Soak in Pagosa Springs' all-natural, hot mineral waters.">               
+
+                <span class="title">SOAKING</span>      
+
+              </div>
+
+                              
+                            <div class="caption">
+
+                                                                                <p>
+	Play hard. Relax harder with a <a href="https://visitpagosasprings.com/things-to-do-hot-springs" target="_self">hot springs</a> soak. Open year-round.</p>
+                                                                                    
+
+                
+                                 <p><a href="https://visitpagosasprings.com/things-to-do-hot-springs">Click Here</a></p>
+
+                                
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-sm-4">
+
+                        <div class="thumbnail">
+
+                              
+                            <div class="visual-thumbnail">                                             <img src="corecode/uploads/homepage/uploaded_images/corecode/Chimney-Rock-Wildcard.jpg" height="118" width="169" alt="Chimney Rock Archeological Site ">               
+
+                <span class="title">Culture</span>      
+
+              </div>
+
+                              
+                            <div class="caption">
+
+                                                                                <p>
+	Experience 1000 years of history just outside of town at Chimney Rock National Monument!</p>
+                                         
+
+                                                                            
+
+                
+                                 <p><a href="https://visitpagosasprings.com/arts-and-culture">Click Here</a></p>
+
+                                
+                            </div>
+
+                        </div>
+
+                    </div>
+
+          <div class="col-sm-4">
+
+                        <div class="thumbnail">
+
+                              
+                            <div class="visual-thumbnail">                                             <img src="corecode/uploads/homepage/uploaded_images/corecode/Fishing-Wildcard.jpg" height="118" width="169" alt="Fishing in Pagosa">               
+
+                <span class="title">Fishing</span>      
+
+              </div>
+
+                              
+                            <div class="caption">
+
+                                                                                <p>
+	Fishing in Paradise! Fish along the banks of the San Juan River at at one of our beatiful mountain lakes close to town!</p>
+                                                                                   
+
+                
+                                 <p><a href="https://visitpagosasprings.com/index.php?section=things-to-do-activities&subcategory_id=15&season=">Click Here</a></p>
+
+                                
+                            </div>
+
+                        </div>
+
+                    </div> 
+
+
+
+<!--                         <div class="col-sm-4">
+
+                                <div class="thumbnail">
+
+                                   
+                                   <div class="visual-thumbnail"> 
+
+                                        <img src="media/images/happenings.jpg" height="118" width="169" alt="">                                       
+
+                                       <span class="title">HAPPENINGS</span>
+
+                                    </div>
+
+                                   
+                                   <div class="caption">
+
+                                     <p>
+	Enjoy a birds-eye view of Pagosa Country year round.&nbsp;&nbsp;</p>
+ 
+
+                                      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+
+                                      
+                                      <p>
+
+                                          <a href="#">Click Here</a>
+
+                                     </p>
+
+                                      
+                                   </div>
+
+                                </div>
+
+                         </div>
+
+
+
+                         <div class="col-sm-4">
+
+                                <div class="thumbnail">
+
+                                   
+                                   <div class="visual-thumbnail"> 
+
+                                        <img src="media/images/gatherings.jpg" height="118" width="169" alt=""> 
+
+                                       <span class="title">GATHERINGS</span>
+
+                                    </div>
+
+                                   
+                                   <div class="caption">
+
+                                       <p>
+	Enjoy a birds-eye view of Pagosa Country year round.&nbsp;&nbsp;</p>
+
+                                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget libero a ante
+
+                                      
+                                      <p>
+
+                                          <a href="#">Click Here</a>
+
+                                     </p>
+
+                                      
+                                   </div>
+
+                                </div>
+
+                         </div>
+
+
+
+                         <div class="col-sm-4">
+
+                                <div class="thumbnail">
+
+                                   
+                                   <div class="visual-thumbnail"> 
+
+                                       <img src="media/images/memories.jpg" height="118" width="169" alt=""> 
+
+                                       <span class="title">MEMORIES</span>
+
+                                    </div>
+
+                                   
+                                   <div class="caption">
+
+                                        <p>
+	Enjoy a birds-eye view of Pagosa Country year round.&nbsp;&nbsp;</p>
+ 
+
+                                      Contrary to popular belief, Lorem Ipsum is not simply random text. 
+
+                                      
+                                      <p>
+
+                                          <a href="#">Click Here</a>
+
+                                     </p>
+
+                                      
+                                   </div>
+
+                                </div>
+
+                         </div> -->
+
+                        
+
+
+
+                     </div>
+
+                  </div>
+
+                  <div class="col-sm-4">
+
+                     <div class="block-visual home-video">
+
+                        <!-- NULL
+ -->
+
+                        <div class="box">
+
+                                                               
+                           <div class="video"><a id="inline" href="#data">
+
+                               <img src="https://visitpagosasprings.com/corecode/uploads/photo/uploaded_photos/corecode/12/scaled/spring-promo-thumb.jpg" height="172" width="263" alt="image description"></a>
+
+                            </div>
+
+                           <!-- <p>Spring 30 Sec Promo</p> -->
+
+                           <div class="video-channel-link"><a  href="https://www.youtube-nocookie.com/embed/wuY3v6fAMuE?list=PLUSxHGWdZLRQo6G9CYBF-g-4e-3R2vOsh&autoplay=1&iv_load_policy=3&loop=1&modestbranding=1&start=" target="_balnk">Visit Pagosa Springs on YouTube</a></div>
+
+                           <div style="display:none">
+
+                              <div id="data">
+
+                                  
+                                  <object width="460" height="315" data="https://www.youtube.com/embed/DqXe49ozH-M?rel=0&autoplay=0"></object>
+
+                                  
+                                </div>
+
+                           </div>
+
+                           
+
+
+                           
+
+
+                        </div>
+
+                        <div class="box explore-box">
+
+                           
+                           <h2>Download the Rafting & Tubing Brochure</h2>
+
+                           
+                           <div class="box-visual">
+
+                              <div class="visual">
+                                  <a href="https://visitpagosasprings.com/index.php?section=events&evtid=572" class="group_explorer_pagosa" rel="example12"></a>
+
+                                
+                                </div>
+
+								
+
+								
+
+							 <div class="visual explore-brown-box test" style="display:none"> 
+
+							  	<a href="https://visitpagosasprings.com/index.php?section=events&evtid=599">
+
+							  	 	<img src="https://pagosav2lw2.jjcbigideas.com/corecode/uploads/homepage/uploaded_images/corecode/Cabin-Fever-Festival-265x475.jpg" >
+
+								</a>
+
+							 </div>
+
+                              <div class="visual explore-brown-box" style="display:block">
+
+							  
+
+							  
+
+							  
+
+									
+									
+
+										  <div class="col thriller-single">
+
+                                      
+
+                                     <!-- <a href="" class="group_explorer_pagosa" rel="example12"> -->
+
+                                        <a href="https://visitpagosasprings.com/ckeditorfiles/files/River%20Use-2023-PRINT-front-final.pdf" class="" rel="example12"  >
+
+                                        <img src="https://visitpagosasprings.com/corecode/uploads/homepage/uploaded_images/corecode/homepage_rafting.png" height="156" width="264" >
+
+                                        <div class="thumb-over">
+
+                                            <h3></h3>
+
+                                        </div>
+
+                                    </a>
+
+                                     
+
+                                </div>
+
+										
+
+									
+									
+
+                                
+
+                                
+
+
+
+                              </div>
+
+                           </div>
+
+                           <!--  -->
+
+                        </div>
+
+
+
+
+
+                     </div>
+
+                  </div>
+
+               </div>
+
+               <div class="row">
+
+                   <div class="col-sm-12">
+
+                                                              <div>	<h1 style="display:none;">		Your Source for Pagosa Springs Visitor Information</h1></div><div>	<script id="cr-init__6b2fd0b694dc492a" src="https://starling.crowdriff.com/js/crowdriff.js" async></script></div>
+                    
+                   </div>
+
+               </div>
+
+            </div>
+
+         </div>
+
+       
+
+      </div>
+
+      <div class="col-sm-12 col-md-3">
+
+         <div id="sidebar" class="">
+
+            <div class="row">
+
+               
+               <div class="col-md-12 col-sm-6">
+
+                    <div class="sidebar-social">
+
+                            <h3>Stay Social</h3>
+
+                            <ul class="social">
+
+                               
+                               <li><a href="https://www.facebook.com/visitpagosasprings" target="_blank"><img src="https://visitpagosasprings.com/corecode/uploads/homepage/uploaded_images/corecode/facbook.png"></a></li>
+
+                                                           
+                               <li><a href="https://www.pinterest.com/visitpagosa/" target="_blank"><img src="https://visitpagosasprings.com/corecode/uploads/homepage/uploaded_images/corecode/pinterest.png"></a></li>
+
+                                                           
+                               <li><a href="https://twitter.com/visitpagosa" target="_blank"><img src="https://visitpagosasprings.com/corecode/uploads/homepage/uploaded_images/corecode/twitter.png"></a></li>
+
+                                                           
+                               <li><a href="https://www.flickr.com/photos/visitpagosasprings" target="_blank"><img src="https://visitpagosasprings.com/corecode/uploads/homepage/uploaded_images/corecode/flickr.png"></a></li>
+
+                               
+                               <li><a href="https://www.youtube.com/user/visitpagosa" target="_blank"><img src="https://visitpagosasprings.com/corecode/uploads/homepage/uploaded_images/corecode/youtube.png"></a></li>
+
+                               
+                               
+                               <li><a href="https://www.instagram.com/visitpagosa/" target="_blank"><img src="https://visitpagosasprings.com/corecode/uploads/homepage/uploaded_images/corecode/instagram.png"></a></li>
+
+                               
+                               <!-- <li><a href="https://www.instagram.com/visitpagosa/" target="_blank"><img src="./media/images/instagram.png"></a></li>
+
+                               <li><a href="https://www.youtube.com/user/PagosaCom" target="_blank"><img src="./media/images/youtube.png"></a></li> -->
+
+                               
+                            </ul>
+
+                          </div>
+
+                  <div class="events events-home">
+
+                     
+                     <h3>Upcoming Events</h3>
+
+                     
+                     <ul class="list">
+
+                                                                                                                                                                                                                                                                                                                                                
+                        <li>
+
+                        
+
+
+
+                           <p><a href="https://visitpagosasprings.com/index.php?section=events&evtid=572&evtid=4486">Live Music @ The Alley House Grille-Lounge</a></p>
+
+                           <time datetime="2023-07-19 17:30:00">Wednesday, July 19, 2023</time>
+
+                        </li>
+
+                                                                                                                                                                                                                                                                                                            
+                        <li>
+
+                        
+
+
+
+                           <p><a href="https://visitpagosasprings.com/index.php?section=events&evtid=572&evtid=4516">Live Theatre @ Pagosa Springs Center for the Arts</a></p>
+
+                           <time datetime="2023-07-19 19:00:00">Wednesday, July 19, 2023</time>
+
+                        </li>
+
+                                                                                                                                                                                                                                                                                                            
+                        <li>
+
+                        
+
+
+
+                           <p><a href="https://visitpagosasprings.com/index.php?section=events&evtid=572&evtid=4393">Artist Reception @ Two Old Crows Gallery</a></p>
+
+                           <time datetime="2023-07-20 17:30:00">Thursday, July 20, 2023</time>
+
+                        </li>
+
+                                                                                                                                                                                                                                                                                                            
+                        <li>
+
+                        
+
+
+
+                           <p><a href="https://visitpagosasprings.com/index.php?section=events&evtid=572&evtid=4479">Pagosa Night Rodeo @ Western Heritage Event Center Rodeo Grounds</a></p>
+
+                           <time datetime="2023-07-20 18:00:00">Thursday, July 20, 2023</time>
+
+                        </li>
+
+                                                                                                                                    
+                     </ul>
+                     <a href="/events" class="more">View More Events<i class="icon-arrow-right"></i></a>
+                     
+                  </div>
+
+               </div>
+
+               <div class="col-md-12 col-sm-6">
+
+                  <div class="widget ico-widget">
+
+                      
+
+                                                                                         
+                     <div class="thumb-image 12">
+
+                        
+                        <a href="https://visitpagosasprings.com/index.php?section=request-information" target="_self">                                                                                                    
+                           <h3 class="sky-blue 12">Pagosa Springs Info</h3>                                                                                                                                                                                                             </a>                                                                                                                                                                                                                                <a href="https://visitpagosasprings.com/index.php?section=request-information" target="_self"> <img src="https://visitpagosasprings.com/corecode/uploads/sidebar/uploaded_images/corecode/Travel-Planner_19.png"  alt=""></a>                                                                                                                                                                                                                                                    
+                        <div class="text-part"><p>
+	Activities, lodging, dining, shopping, and more. Start planning your vacation today!</p>
+</div>
+
+                        
+                     </div>
+
+                                                                                 
+                  </div>
+
+                  <div class="widget">
+
+                                                                                         
+                     <div class="thumb-image">
+
+                        
+                        <a href="https://pagosaweather.org/" target="_self">                                                                                                    
+                           <h3 class="sky-blue 34">Current Weather</h3>                                                                                                                                                                                                             </a>                                                                                                                                                
+                        <div class="text-part"><p>
+	<script type='text/javascript' src='https://darksky.net/widget/small/37.2696,-107.0108/us12/en.js?width=100%&height=150&title=Current Weather&textColor=333333&bgColor=FFFFFF&transparency=false&skyColor=undefined&fontFamily=Default&customFont=&units=us'></script><script type='text/javascript' src='https://darksky.net/widget/default/37.2696,-107.0108/us12/en.js?width=100%&height=350&title=Look Ahead&textColor=333333&bgColor=FFFFFF&transparency=false&skyColor=undefined&fontFamily=Default&customFont=&units=us&htColor=333333<Color=C7C7C7&displaySum=yes&displayHeader=yes'></script></p>
+</div>
+
+                        
+                     </div>
+
+                                                                                 
+                  </div>
+
+                  
+
+               </div>
+
+            </div>
+
+         </div>
+
+      </div>
+
+   </div>
+
+   
+
+   
+ 	<!-- Modal -->
+
+	 	<div id="homemodel" class="modal fade" role="dialog">
+
+		  <div class="modal-dialog modal-lg" style="z-index:11111;">
+
+		
+
+			<!-- Modal content-->
+
+			<div class="modal-content">
+
+			  <div class="modal-header">
+
+				<button type="button" class="close" data-dismiss="modal" style="">&times;</button>
+
+				<!--<h4 class="modal-title">Modal Header</h4>-->
+
+			  </div>
+
+			  <div class="modal-body" style="text-align:center;">
+
+				<h1>Oops.</h1>
+
+				<h1>Looks like you've lost the trail.</h1>
+
+        <div class="popuplogo" style="text-align:center; margin-top:20px;"> <img src="https://visitpagosasprings.com/corecode/uploads/nav/uploaded_images/corecode/Hiking (1)_18_33.jpg" width="100%" /></div>				
+
+				<h3 style="">The page you are looking for has moved. Use the site's main navigation to explore our new site and discover all that Pagosa Springs has to offer. We hope to see you here in <a href="https://visitpagosasprings.com/index.php?section=discover-maps-links">person</a> soon.</h3>
+
+
+
+
+
+
+
+
+
+			  </div>
+
+			  <!--<div class="modal-footer">
+
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+			  </div>-->
+
+			</div>
+
+		
+
+		  </div>
+
+		</div>
+
+   <!-- Modal close -->
+
+  
+
+	    <script type="text/javascript">
+
+		   $(window).load(function(){        
+
+		   $('#homemodel').modal('show');
+
+			}); 
+
+		</script>
+
+   
+
+
+
+
+</main>
+
+
+	
+		
+
+
+	
+				
+		<script type="text/javascript" src="//tag.yieldoptimizer.com/ps/ps?t=s&p=4585&sg=y&pg=ot&"></script>
+	
+
+
+
+<style type="text/css">
+	#this{
+		
+	}
+    #footer{
+         width:1170px !important; 
+         position: relative !important;
+         /* background:rgba(0, 0, 0, 0) url("https://web.archive.org/web/20230719090856im_/https://pagosav2lw2.jjcbigideas.com/media/images/bg-1.jpg") repeat scroll left bottom; */
+         background:#554b44;
+         margin: 0 -15px;
+         z-index:9 !important;
+    }
+    /*#main{margin-bottom:312px !important;}*/
+    .footer-panel {margin: 0;}
+    .footer-bar {margin: 0;}
+    @media screen and (max-width: 1170px) {
+        /*#main {
+            margin-bottom: 0 !important;
+        }*/
+        #footer {
+            position: static !important;
+            width: auto !important;
+            z-index: 999 !important;
+        }
+    }
+</style>
+
+<footer id="footer">
+  <div class="footer-panel"> 
+    
+    
+    <ul class="list">
+	<li>
+		<h4>
+			Find it Fast</h4>
+		<ul class="menu">
+			<li>
+				<a href="/index.php?section=events">Local Events</a></li>
+			<li>
+				<a href="/index.php?section=things-to-do-activities">Activities</a></li>
+			<li>
+				<a href="/index.php?section=things-to-do-hot-springs">Hot Springs</a></li>
+		</ul>
+	</li>
+</ul>
+<ul class="list">
+	<li>
+		<h4>
+			General Information</h4>
+		<ul class="menu">
+			<li>
+				<a href="https://visitpagosasprings.com/index.php?section=request-information" target="_blank">Request A&nbsp;Travel Planner</a></li>
+			<li>
+				<a href="/what-know-about-covid-19-and-pagosa-springs-travel" target="_self">Public Health Information</a></li>
+			<li>
+				<a href="/what-know-about-covid-19-and-pagosa-springs-travel" target="_self">C</a><a href="https://visitpagosasprings.com/pagosa-springs-covid19-toolbox" target="_self">OVID-19 TOOLBOX</a></li>
+		</ul>
+	</li>
+</ul>
+<ul class="list">
+	<li>
+		<h4>
+			Featured Links</h4>
+		<ul class="menu">
+			<li>
+				<a href="/index.php?section=photo-gallery">Photos / Videos</a></li>
+			<li>
+				<a href="/index.php?section=meetings-weddings">Weddings</a></li>
+			<li>
+				<a href="https://www.youtube.com/user/VisitPagosa">V</a><a href="/visit-pagosa-springs-app" target="_self">isit Pagosa Springs App</a></li>
+		</ul>
+	</li>
+</ul>
+
+    <div class="logo"><a href="#"><img src="media/images/logo-1.png" height="93" width="162" alt="image description"></a></div>
+  </div>
+  <div class="footer-bar">
+      <div class="footer-bar-inner">     
+        <div class="col-sm-8">
+            <div class="footer-lft-link">
+                <div class="none copyright-wrapper"><span class="copyright">&copy; 2023</span>&nbsp; Pagosa Springs Colorado</div>
+                <div class="policy-link"> <ul class="footer-nav">
+	<li>
+		<a href="/visitpagosa-privacy-policy" target="_self">Privacy Policy</a></li>
+	<li>
+		<a href="mailto:marketing@visitpagosasprings.com">Contact Us</a></li>
+	<li>
+		<a href="/sitemap" target="_self">Sitemap</a></li>
+</ul>
+ </div> 
+            </div>
+        </div>       
+        <div class="ft-social-icon col-sm-4">
+            <ul class="social2">
+            <li><a href="https://www.facebook.com/visitpagosasprings"><img src="https://visitpagosasprings.com/corecode/uploads/footer/uploaded_images/corecode/fcbk_2.png"></a></li>
+            <li><a href="https://www.pinterest.com/visitpagosa/"><img src="https://visitpagosasprings.com/corecode/uploads/footer/uploaded_images/corecode/pinterest_2.png"></a></li>
+            <li><a href="https://twitter.com/visitpagosa"><img src="https://visitpagosasprings.com/corecode/uploads/footer/uploaded_images/corecode/twitter_2.png"></a></li>
+            <li><a href="https://www.flickr.com/photos/visitpagosasprings"><img src="https://visitpagosasprings.com/corecode/uploads/footer/uploaded_images/corecode/flickr_2.png"></a></li>
+            <li><a href="https://www.youtube.com/user/PagosaCom"><img src="https://visitpagosasprings.com/corecode/uploads/footer/uploaded_images/corecode/youtube_2.png"></a></li>
+            <li><a href="https://www.instagram.com/visitpagosa/" target="_blank"><img src="./media/images/instagram.png"></a></li>
+            <!-- <li><a href="https://www.youtube.com/user/PagosaCom" target="_blank"><img src="./media/images/youtube.png"></a></li> -->
+            </ul>
+        </div>
+    </div>  
+  </div>
+</footer>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="pagosa-placeholder-image" class="pagosa-placeholder" style="display:none"> <i class="fa fa-spinner fa-spin "></i></div>
+
+ 
+<script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+            
+            ga('create', 'UA-3201094-1', 'auto');
+            ga('send', 'pageview');
+    </script> 
+	
+<script async src='https://tag.simpli.fi/sifitag/ea972990-e47b-0136-55ec-067f653fa718'></script>
+<script type="text/javascript" src="//tag.yieldoptimizer.com/ps/ps?t=s&p=4585&sg=y&pg=ot&"></script>
+
+<script>
+  window.onload = function() { // same as window.addEventListener('load', (event) => {
+    if( jQuery('#main>.row>div>div.twocolumns').outerHeight(true) < jQuery('#sidebar').outerHeight(true) )
+      jQuery('#main>.row>div>div.twocolumns').css('transition', 'height .3s linear').css('height', jQuery('#main').outerHeight(true) + 'px');
+  };
+</script>
+
+
+</body></html>
+
+
+<!--
+     FILE ARCHIVED ON 09:08:56 Jul 19, 2023 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:25:53 Jul 20, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->
+<!--
+playback timings (ms):
+  captures_list: 210.583
+  exclusion.robots: 0.065
+  exclusion.robots.policy: 0.056
+  cdx.remote: 0.051
+  esindex: 0.008
+  LoadShardBlock: 173.354 (3)
+  PetaboxLoader3.datanode: 103.933 (4)
+  load_resource: 87.855
+  PetaboxLoader3.resolve: 34.435
+-->

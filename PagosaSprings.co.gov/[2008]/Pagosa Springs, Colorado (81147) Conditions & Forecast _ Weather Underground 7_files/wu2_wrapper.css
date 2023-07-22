@@ -1,0 +1,121 @@
+BODY { background-color: #DDD; }
+
+#AdminBar { background-color: #A52E16; border-bottom: 1px solid #CCC; color: #FFF; }
+#AdminBar TR TD { font-size: 11px; font-family: Arial, Helvetica, sans-serif; }
+#AdminBar .b { padding-left: 10px; }
+#AdminBar A { color: #DDD; }
+#AdminBar A SPAN { font-weight: bold; color: #FFF; }
+#AdminBar A:hover { color: #FF0; }
+
+#AssistBar { background-color: #9A2157; border-bottom: 1px solid #CCC; color: #FFF; }
+#AssistBar TR TD { font-size: 11px; font-family: Arial, Helvetica, sans-serif; }
+#AssistBar .b { padding-left: 10px; }
+#AssistBar A { color: #DDD; }
+#AssistBar A SPAN { font-weight: bold; color: #FFF; }
+#AssistBar A:hover { color: #FF0; }
+
+#mainContent { background: #DDD url(https://web.archive.org/web/20080708024609im_/http://icons.wxug.com/i/w/bg.gif) repeat-x top left; }
+
+#left { vertical-align: top; width: 130px; }
+#left .leftTitle { background: url(https://web.archive.org/web/20080708024609im_/http://icons.wxug.com/i/w/bg-title.gif) no-repeat top left; padding-left: 5px; height: 20px; line-height: 20px; color: #FFF; font-weight: bold; }
+#left #logo { margin-top: 11px; text-align: center; width: 130px; }
+
+#left #favorites { margin-top: 15px; width: 130px; }
+#left #favorites TABLE { background-color: #F5F5F5; width: 130px; }
+#left #favorites TABLE TR TD.sm { background-color: #FFF; padding: 2px; border-bottom: 1px dotted #DDD; width: 130px; }
+#left #favorites TABLE TR TD.sm A { color: #213F9A; width: 126px; display: block; overflow: hidden; }
+#left #favorites TABLE TR TD.vaM { width: 100px; }
+#left #favorites DIV.sm { background: #F5F5F5 url(https://web.archive.org/web/20080708024609im_/http://icons.wxug.com/i/w/bg-side.gif) no-repeat top left; padding: 6px 0; text-align: center; border-top: 1px dotted #CCC; }
+
+#left #sidePhoto { margin-top: 10px; width: 130px; }
+#left #sidePhoto .taC { background-color: #FFF; padding: 3px 0; border-bottom: 1px dotted #DDD; }
+#left #sidePhoto .sm { background: #F5F5F5 url(https://web.archive.org/web/20080708024609im_/http://icons.wxug.com/i/w/bg-side.gif) no-repeat top left; padding: 6px 0; text-align: center; }
+
+#left #sideWunderMap { margin-top: 10px; width: 130px; }
+#left #sideWunderMap .taC { background-color: #FFF; padding: 3px 0; border-bottom: 1px dotted #DDD; }
+#left #sideWunderMap .sm { background: #F5F5F5 url(https://web.archive.org/web/20080708024609im_/http://icons.wxug.com/i/w/bg-side.gif) no-repeat top left; padding: 6px 0; text-align: center; }
+
+#left #sideFeatures { margin: 10px 0; width: 130px; background-color: #FFF; }
+#left #sideFeatures A { color: #213F9A; }
+#left #sideFeatures .taC { background-color: #FFF; width: 130px; float: left; }
+#left #sideFeatures .b { background-color: #F5F5F5; color: #333; padding: 3px 0; border-bottom: 1px dotted #DDD; }
+#left #sideFeatures IMG { padding: 3px 0; }
+#left #sideFeatures UL { background-color: #FFF; margin: 0 0 5px 0; }
+#left #sideFeatures UL LI { border-bottom: 1px dotted #DDD; list-style-type: none; margin: 0; padding-left: 5px; }
+#left #sideFeatures .sm { background: #F5F5F5 url(https://web.archive.org/web/20080708024609im_/http://icons.wxug.com/i/w/bg-side.gif) no-repeat top left; padding: 6px 0; text-align: center; }
+
+#right #linkAds { clear: both; margin-bottom: 10px; }
+#right #linkAds A { color: #213F9A; }
+#right #linkAds .taC { background-color: #FFF; width: 150px; float: left; margin: 5px 0 0 5px; }
+#right #linkAds .b { background-color: #F5F5F5; color: #333; padding: 3px 0; border-bottom: 1px dotted #DDD; }
+#right #linkAds IMG { padding: 3px 0; }
+#right #linkAds UL { background-color: #FFF; margin: 0 0 5px 0; }
+#right #linkAds UL LI { border-bottom: 1px dotted #DDD; list-style-type: none; margin: 0; padding-left: 5px; }
+#right #linkAds .sm { background: #F5F5F5 url(https://web.archive.org/web/20080708024609im_/http://icons.wxug.com/i/w/bg-side.gif) no-repeat top left; padding: 6px 0; text-align: center; }
+
+#right { vertical-align: top; width: 100%; }
+#right #wunder { padding-right: 5px; height: 28px; text-align: right; }
+#right #wunder A { color: #00F; }
+#right #member { padding-left: 15px;height: 28px; text-align: left; }
+#right #member A { color: #00F; }
+#right #member SELECT { font-size: 11px; background-color: #FFC; }
+
+#right #search { background: url(https://web.archive.org/web/20080708024609im_/http://icons.wxug.com/i/w/bg-search.gif) no-repeat top left; padding-left: 15px; height: 37px; }
+#right #search FORM { background-color: #213F9A; height: 37px; }
+#right #search FORM TABLE { margin-top: 4px; }
+#right #search FORM TABLE TR TD { vertical-align: middle; }
+#right #search FORM #searchText { font-size: 16px; color: #FFF; }
+#right #search #wuSearch { width: 280px; font-size: 14px; }
+#right #search #wuSearch.focused { color: #000; }
+#right #search #wuSearch.unfocus { color: #666; }
+#right #search #wuSelect { font-size: 14px; }
+#right #search #wuSubmit { font-size: 13px; padding: 0 5px; }
+#right #search #caster { height: 25px; line-height: 12px; overflow-y: hidden; overflow-x: hidden; }
+#right #search #caster DIV { margin-bottom: 1px; }
+#right #search #caster DIV A { color: #FF9; text-decoration: none; }
+#right #search #caster DIV A:hover { text-decoration: underline; }
+
+#right #features { background: url(https://web.archive.org/web/20080708024609im_/http://icons.wxug.com/i/w/bg-features.gif) no-repeat top left; height: 51px; width: 100%; }
+#right #features DIV { width: 85px; text-align: center; }
+#right #features #featureLinks { background: url(https://web.archive.org/web/20080708024609im_/http://icons.wxug.com/i/w/bg-links.gif) repeat-x top left; width: 100%; height: 51px; vertical-align: middle; }
+#right #features #featureLinks TABLE TR TD { vertical-align: middle; text-align: left; padding: 2px 0; font-size: 11px; }
+#right #features #featureLinks TABLE TR TD A { color: #213F9A; }
+
+#right .innerFrame { background: url(https://web.archive.org/web/20080708024609im_/http://icons.wxug.com/i/w/bg-content.gif) repeat-y top left; padding-left: 5px; }
+#right .innerFrame .innerContent { background-color: #FFF; padding: 10px 5px 0 10px; }
+#right .innerFrame .innerContent #footer { padding: 10px 0; color: #333; }
+#right .innerFrame .innerContent #footer #footerTop { border-bottom: 3px double #CCC; margin-bottom: 10px; }
+#right .innerFrame .innerContent #footer #footerTop .clear { clear: both; }
+#right .innerFrame .innerContent #footer A { color: #213F9A; }
+#right .innerFrame .innerContent #footer #services { margin-top: 10px; }
+#right .innerFrame .innerContent #footer #advertise { margin-top: 10px; }
+#right .innerFrame .innerContent #footer .serviceItems { background: url(https://web.archive.org/web/20080708024609im_/http://icons.wxug.com/graphics/wund/right_arrow.gif) no-repeat left; padding-left: 18px; margin-top: 2px; }
+#right .innerFrame .innerContent #footer #signature { margin-top: 20px; }
+#right .innerFrame .innerContent #footer #signature A { color: #213F9A; }
+#right .innerFrame .innerContent #footer #signature IMG { margin-right: 10px; }
+
+#right #signaturePrint { display: none; }
+
+#right #pageEnd { height: 20px; background: url(https://web.archive.org/web/20080708024609im_/http://icons.wxug.com/i/w/bg-bottom.gif) repeat-x; }
+#right #copyright { text-align: center; color: #333; margin: 20px 0; font-size: 14px; }
+
+/*
+     FILE ARCHIVED ON 02:46:09 Jul 08, 2008 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 08:23:32 Jul 18, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 109.843
+  exclusion.robots: 0.1
+  exclusion.robots.policy: 0.086
+  RedisCDXSource: 21.872
+  esindex: 0.014
+  LoadShardBlock: 64.522 (3)
+  PetaboxLoader3.datanode: 90.222 (4)
+  load_resource: 74.894
+  PetaboxLoader3.resolve: 27.5
+*/

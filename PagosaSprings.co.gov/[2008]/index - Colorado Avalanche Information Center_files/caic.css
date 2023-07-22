@@ -1,0 +1,941 @@
+/*  Application level classes */
+
+BODY 
+{
+	background: #E4E4E4;
+	margin:0px;
+	padding:0px;
+}
+
+/*  End application level classes */
+
+.article {
+	width: 345px;
+	background: #fff;
+	text-align: left;
+	margin-left: 30px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+.articleone {
+	width: 530px;
+	background: #fff;
+	text-align: left;
+	margin-left: 30px;
+	margin-top: 30px;
+	margin-right: 30px;
+	margin-bottom: 30px;
+}
+
+.badLogin
+{
+	font-family: verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	line-height: 18px;
+	color: #FF0000;
+	font-weight: normal;
+	text-decoration: none;
+	
+}
+
+.breadcrumbs, .breadcrumbs a
+{
+	font-family: verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	line-height: 18px;
+	color: #000;
+	text-decoration: none;
+	
+}
+
+.breadcrumbs  a:hover{
+	font-family: verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	line-height: 18px;
+	color: #f00;
+	text-decoration: none;
+}
+
+.Button
+{
+    border-right: lightblue 1pt solid;
+    border-top: lightblue 1pt solid;
+    border-left: lightblue 1pt solid;
+    border-bottom: lightblue 1pt solid;
+    background-color: activecaption;
+    color: white;
+}
+
+.calendarArchive
+{
+	width: 300px;
+}
+
+.calendarDayStyle
+{
+	font-family: verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	line-height: 18px;
+	color: #00529B;
+	font-weight: normal;
+	text-decoration: none;
+}
+
+.calendarDayStyle  a{
+	color: #7D0606;
+	text-decoration: none;
+}
+
+.calendarDayStyle a:hover
+{
+	font-weight: bold;
+	color: #00529b;
+	text-decoration: underline;
+}
+
+.calendarDayHeaderStyle
+{
+	font-weight: bold;
+	font-size: 12px;
+	color: #00529b;
+	line-height: 18px;
+	font-family: verdana, Arial, Helvetica, sans-serif;
+	text-decoration: none;
+}
+
+.calendarMonthTitleStyle
+{
+	font-weight: bold;
+	font-size: 12px;
+	color: #00529b;
+	line-height: 18px;
+	font-family: verdana, Arial, Helvetica, sans-serif;
+	text-decoration: none;
+}
+
+.calendarMonthSelectorStyle
+{
+	font-weight: bold;
+	font-size: 12px;
+	color: #00529b;
+	line-height: 18px;
+	font-family: verdana, Arial, Helvetica, sans-serif;
+	text-decoration: none;
+}
+
+.calendarMonthSelectorStyle a
+{
+	font-weight: bold;
+	color: #00529b;
+	text-decoration: none;
+}
+
+.calendarMonthSelectorStyle a:hover
+{
+	font-weight: bold;
+	color: #00529b;
+	text-decoration: underline;
+}
+
+.calendarOtherMonthStyle
+{
+	font-weight: normal;
+	font-size: 11px;
+	color: #00529b;
+	line-height: 18px;
+	font-family: verdana, Arial, Helvetica, sans-serif;
+	background-color: silver;
+	text-decoration: none;
+}
+
+.calendarOtherMonthStyle  a{
+	color: #7D0606;
+	text-decoration: none;
+}
+
+.calendarOtherMonthStyle a:hover
+{
+	font-weight: bold;
+	color: #00529b;
+	text-decoration: underline;
+}
+
+.center
+{
+	text-align: center;
+}
+
+.contenttitle{
+	font-family: verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	line-height: 30px;
+	color: #00529B;
+	font-weight: bold;
+	text-decoration: none;
+	padding-left: 25px;
+}
+
+.contensubttitle{
+	font-family: verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	line-height: 25px;
+	color: #606060;
+	font-weight: normal;
+	text-decoration: none;
+	padding-left: 25px;
+}
+
+.content {
+	font-family: verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	line-height: 18px;
+	color: #00529B;
+	font-weight: normal;
+	text-decoration: none;
+	padding-left: 25px;
+}
+
+.content  a{
+	color: #7D0606;
+	text-decoration: none;
+}
+
+.content  a:hover{
+	color: #000;
+	text-decoration: underline;
+}
+.content  h1{
+	font-family: verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	line-height: 18px;
+	color: #00529B;
+	font-weight: bold;
+	text-decoration: none;
+	margin-bottom:0;
+}
+
+.content  h2{
+	font-family: verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	line-height: 18px;
+	color: #606060;
+	font-weight: normal;
+	text-decoration: none;
+	margin-top:0;
+}
+
+.DNRcalendar
+{
+	height: 1000px;
+	width: 779px;
+	border-top-style: none;
+	border-right-style: none;
+	border-left-style: none;
+	border-bottom-style: none;
+}
+	
+.eventTitle
+{
+	padding-right: 0px;
+	padding-left: 10px;
+	font-weight: bold;
+	font-size: 12px;
+	padding-bottom: 0px;
+	color: #00529b;
+	padding-top: 5px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	text-decoration: none;
+}
+.eventTitle a {
+	color: #7D0606;
+	text-decoration: none; 
+}
+.eventTitle a:hover{
+	color: #000;
+	text-decoration: underline;
+}
+	
+.eventInfo
+{
+	padding-left: 15px;
+	font-weight: normal;
+	font-size: 11px;
+	color: #00529B;
+	
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+.footer 
+{
+	width: 1000px;
+	background: #A6AAAB;
+}
+	
+.footertext, .footertext a
+{
+	font-size: 12px;
+	color: #00529b;
+	line-height: 18px;
+	font-family: verdana, Arial, Helvetica, sans-serif;
+	text-decoration: none;
+	margin: 0px, 10px, 0px, 10px;
+}
+
+.footertext a:hover{
+	font-family: verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	line-height: 18px;
+	color: #FFCC00;
+	text-decoration: none;
+}
+
+.forecastDiv
+{
+	
+	margin-bottom: 10px;
+	width: 100%;
+	
+}
+
+.forecastIssueDate
+{
+	font-weight: bold;
+	font-size: 13px;
+	font-family: verdana, Arial, Helvetica, sans-serif;
+	color: #00529B;
+	
+}
+
+.forecastIssuer
+{
+	width: 100%;
+	color: #00529B;
+	font-family: verdana, Arial, Helvetica, sans-serif;
+	font-size: x-small;
+	text-align: center;
+	
+}
+
+.forecastPrinterFriendly
+{
+	width: 120px;
+	color: #FFF;
+	background-color: #00529B;
+	font-family: verdana, Arial, Helvetica, sans-serif;
+	
+}
+
+.forecastTimestamp
+{
+	width: 100%;
+	font-family: verdana, Arial, Helvetica, sans-serif;
+	
+	font-size: 18px;
+	color: #00529B;
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 5px;
+	
+}
+
+.forecastTitle
+{
+	width: 100%;
+	font-weight: bold;
+	font-size: 14px;
+	color: #FFF;
+	line-height: 18px;
+	font-family: verdana, Arial, Helvetica, sans-serif;
+	background-color: #00529B;
+	margin-bottom: 10px;
+}
+
+.forecastTitleArchive
+{
+	width: 100%;
+	font-weight: bold;
+	font-size: 14px;
+	color: #FFF;
+	line-height: 18px;
+	font-family: verdana, Arial, Helvetica, sans-serif;
+	background-color: #00529B;
+	margin-bottom: 10px;
+}
+
+.forecastTitleNoPad
+{
+	width: 100%;
+	font-weight: bold;
+	font-size: 14px;
+	color: #FFF;
+	line-height: 18px;
+	font-family: verdana, Arial, Helvetica, sans-serif;
+	background-color: #00529B;
+	
+}
+
+
+
+.forecastZone
+{
+	width: 100%;
+	font-family: verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 16px;
+	color: #00529B;
+	text-align: center;
+	padding-bottom: 5px;
+	padding-top: 20px;
+}
+
+.forecastZoneNoPad
+{
+	width: 100%;
+	font-family: verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 16px;
+	color: #00529B;
+	text-align: center;
+	padding-bottom: 15px;
+	margin-bottom: 15px;
+	padding-top: 5px;
+}
+
+.hazardGrid
+{
+	font-family: verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	line-height: 18px;
+	color: #00529B;
+	font-weight: normal;
+	text-decoration: none;
+	margin-bottom: 10px;
+}
+
+.headerSmallText
+{
+	font-weight: normal;
+	font-size: 10px;
+	color: #00529b;
+	line-height: 18px;
+	font-family: verdana, Arial, Helvetica, sans-serif;
+	text-decoration: none;
+}
+
+.homeDonorDiv
+{
+	border-bottom: thin solid #606060;
+}
+
+.homeDonorImages
+{
+	width: 580px;
+	background-color: #d9dfe8;
+}
+
+.homeCaicNewsTitle
+{
+	padding-bottom: 5px;
+	width: 580px;
+	padding-top: 5px;
+	background-color: silver;
+}
+
+.homeCaicSubTitleText
+{
+	padding-left: 25px;
+	font-weight: bold;
+	font-size: 12px;
+	color: #00529b;
+	line-height: 18px;
+	font-family: verdana, Arial, Helvetica, sans-serif;
+	text-decoration: none;
+}
+
+.homeCaicNews
+{
+	width: 580px;
+	line-height: 18px;
+	padding-top: 5px;
+	font-weight: bold;
+	font-size: 11px;
+	color: graytext;
+	line-height: 18px;
+	font-family: verdana, Arial, Helvetica, sans-serif;
+	text-decoration: none;
+}
+
+.homeCaicNews UL
+{
+	list-style-type: none;
+	padding-bottom: 10px;
+}
+
+.homeCaicNews UL LI
+{
+	font-weight: bold;
+	font-size: 11px;
+	color: graytext;
+	line-height: 18px;
+	font-family: verdana, Arial, Helvetica, sans-serif;
+	text-decoration: none;
+}
+
+.homeCaicNews UL UL
+{
+	list-style-type: none;
+}
+
+.homeCaicNews UL UL LI
+{
+	font-weight: bold;
+	font-size: 11px;
+	color: #00529B;
+	line-height: 18px;
+	font-family: verdana, Arial, Helvetica, sans-serif;
+	text-decoration: none;	
+}
+
+.homeWeatherSection
+{
+	width: 580px;
+}
+
+.homeWeatherSection  a{
+	color: #7D0606;
+	text-decoration: none;
+}
+
+.homeWeatherSection  a:hover{
+	color: #000;
+	text-decoration: underline;
+}
+
+.iframe
+{
+	width: 750px;
+	height: 800px;
+	background-color: #E4E4E4;
+}
+	
+.innermarquis {
+	width: 730px;
+/*	height:300px; */
+/*	background: #D9DFE8 url("/web/20080512205205im_/http://avalanche.state.co.us/images/innermarquis.gif") no-repeat; */
+	background: #D9DFE8;
+	text-align: left;
+	border: thin solid #6E6E6E;
+	margin-left:10px;
+	margin-right: 10px;
+	}
+
+.leftNavTopCell
+{
+	width: 200px;
+	height: 27;
+	background-image: url(/web/20080512205205im_/http://avalanche.state.co.us/images/left_nav_head.gif);
+}
+
+.leftNavMenuCell
+{
+	width: 200px;
+	background-image: url(/web/20080512205205im_/http://avalanche.state.co.us/images/leftnavbk.gif);
+}
+.leftNavMenu
+{
+	padding-left: 35px;
+	width: 150px;
+}
+	
+.leftnavitem, .leftnavitem a{
+	font-family: verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	line-height: 25px;
+	color: #fff;
+	font-weight: bold;
+	text-decoration: none;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+.leftnavitemhover
+{
+	font-family: verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	line-height: 25px;
+	color: #FFCC00;
+	font-weight: bold;
+	text-decoration: none;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+.main 
+{
+	width: 1000px;
+	background: #fff;
+}
+
+.mainUtility
+{
+	width: 1000px;
+	background: #fff;
+}
+
+.marquisText {
+	font-family: verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	line-height: 18px;
+	color: #00529B;
+	font-weight: normal;
+	text-decoration: none;
+}
+.marquisTitle  {
+	font-family: verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	line-height: 18px;
+	color: #00529B;
+	font-weight: bold;
+	text-decoration: none;
+}
+.marquisSubTitle{
+	font-family: verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	line-height: 18px;
+	color: #606060;
+	font-weight: normal;
+	text-decoration: none;
+	}
+
+
+
+.newsheadtext  a{
+	font-family: verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	line-height: 29px;
+	color: #00529B;
+	font-weight: bold;
+	padding-left:10px;
+}
+
+.newsheadtextsm  a{
+	font-family: verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	line-height: 18px;
+	color: #000;
+	font-weight: normal;
+}
+
+.newsitem, .newsitem  a{
+	font-family: verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	line-height: 18px;
+	color: #606060;
+	font-weight: bold;
+	text-decoration: none;
+	padding-left: 25px;
+}
+
+ .newsitem  a:hover{
+	font-family: verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	line-height: 18px;
+	color: #000;
+	font-weight: bold;
+	text-decoration: underline;
+}
+.newsitemdesc, .newsitemdesc  a{
+	font-family: verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	line-height: 18px;
+	color: #00529B;
+	text-decoration: none;
+	font-weight: normal;
+	padding-left: 65px;
+}
+
+.postingNav, .postingNav a
+{	
+	font-family: Verdana, Arial, Helvetica, sans-serif; 
+	color:white;
+	cursor:pointer;
+	font-size:xx-small; 
+	font-weight: normal;
+	text-decoration:none;
+	background-color: Maroon;
+	padding-left: 35px;
+	padding-top: 2px;
+	padding-bottom: 4px;
+}
+
+.postingNav a:hover{
+	font-weight: bold;
+	}
+
+.postingNavHover, .postingNavHover a{
+	font-family: Verdana, Arial, Helvetica, sans-serif; 
+	color:white;
+	cursor:pointer;
+	font-size:xx-small; 
+	font-weight: bold;
+	text-decoration:none;
+	background-color: Maroon;
+	padding-left: 35px;
+	padding-top: 2px;
+	padding-bottom: 4px;
+}
+
+.radioButton
+{
+	
+	color: #FFF;
+	background-color: #00529B;
+	font-family: verdana, Arial, Helvetica, sans-serif;
+	font-size: smaller;
+	width: 73px;
+}
+
+.searchButton
+{
+	font-family: verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	line-height: 18px;
+	color: #fff;
+	text-decoration: none;
+	letter-spacing:1px; 
+	font-weight:normal; 
+	text-align: right;
+	border-top-style: none;
+	border-right-style: none;
+	border-left-style: none;
+	border-bottom-style: none;
+	background-color: transparent;
+	cursor: pointer;
+}
+	
+.sectionname{
+	font-family: verdana, Arial, Helvetica, sans-serif;
+	font-size: 28px;
+	line-height: 25px;
+	color: #fff;
+	font-weight: normal;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+
+.subleftnavitem, .subleftnavitem a{
+	font-family: verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	line-height: 14px;
+	color: #FFCC00;
+	font-weight: normal;
+	text-decoration: none;
+	padding-left: 20px;
+}
+
+.subleftnavitemhover
+{
+	font-family: verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	line-height: 14px;
+	color: #fff;
+	font-weight: normal;
+	text-decoration: none;
+	padding-left: 20px;
+	cursor: pointer;
+}
+
+.topNav
+{
+	width: 1000px;
+	height:29px;
+	background: #00529B;
+}
+
+.topNavItem
+{
+	font-weight: bold;
+	cursor: pointer;
+	color: #fff;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	list-style: none;
+	background-color: #00529B;
+	text-align: left;
+	margin: 0px, 10px;
+	text-shadow: black;
+}
+	
+.topNavItemHover {
+	color: #fff;
+	cursor: pointer;
+	list-style: none;
+	background-color: Gray;
+	font-family : Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	text-align: left;
+	margin: 0px, 10px;
+}
+
+
+.utility {
+	width: 1000px;
+	height:30px;
+	background: #A6AAAB;
+	}
+	
+.utility a{
+	font-family: verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	line-height: 18px;
+	color: #fff;
+	text-decoration: none;
+}
+.utility a:hover{
+	font-family: verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	line-height: 18px;
+	color: #FFCC00;
+	text-decoration: none;
+}
+
+.warning
+{
+	padding-top: 135px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 22pt;
+	color: red;
+}
+
+
+#topright {
+	width: 533px;
+	background: #D4E2ED;
+	text-align: center;
+	border-bottom: thin solid #A6AAAB;
+	}
+
+#bottomright {
+padding:20px;	
+background: #FFFFFF;
+}
+
+	
+#newshead {
+	width: 533px;
+	height:29px;
+	background: #D9DBDA;
+	text-align: left;
+	border-top: thin solid #fff;
+	}
+
+#newsbody {
+	width: 580px;
+	background: #D9DBDA;
+	text-align: left;
+	border-bottom: thin solid #606060;
+	background: #D4E2EF url("/web/20080512205205im_/http://avalanche.state.co.us/Images/gradient.gif") repeat-x;
+	}
+
+/*  Home page classes */
+		
+.icons {
+width: 82px;
+float: left;
+padding: 0 0 0 0;
+}
+.right-rows {
+float: right;
+}
+.right-row1 {
+width: 400px;
+height: 130px;
+background-color: #B5C4D5;
+}
+.right-row2 {
+width: 400px;
+height: 130px;
+background-color: #97ACC4;
+}
+.right-row3 {
+width: 400px;
+height: 130px;
+background-color: #627fa1;
+}
+.right-row-space {
+height: 20px;
+text-align:right;
+font-size: 9pt;
+font-family:Arial, Helvetica, sans-serif;
+padding: 0 10px 0 0;
+}
+.right-row-space a:link{
+text-decoration: underline;
+color: #990000;
+}
+.right-row-space a:hover {
+text-decoration: none;
+color: #000000;
+}
+.right-row-space a:visited{
+text-decoration: none;
+color: #666666;
+}
+.right-row-content{
+padding: 0 5px 3px 5px;
+color: #000000;
+font-family:Arial, Helvetica, sans-serif;
+font-size: 9pt;
+vertical-align: top;
+}
+.right-row-content li{
+padding: 0 0 0 5px;
+color: #000000;
+font-size: 9pt;
+}
+.right-row-header
+{
+	font-weight: bold;
+	font-size: 12pt;
+	width: 90%;
+	color: #990000;
+	font-family: Verdana;
+}
+.right-row-content a:link {
+color: #990000;
+text-decoration:underline;
+}
+.right-row-support {
+text-align:right;
+font-size: 9pt;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+/*  End home page classes */
+
+
+
+
+
+/*
+     FILE ARCHIVED ON 20:52:05 May 12, 2008 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 08:30:28 Jul 18, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 71.671
+  exclusion.robots: 0.088
+  exclusion.robots.policy: 0.077
+  cdx.remote: 0.063
+  esindex: 0.009
+  LoadShardBlock: 43.83 (3)
+  PetaboxLoader3.datanode: 63.763 (4)
+  load_resource: 256.016
+  PetaboxLoader3.resolve: 203.752
+*/

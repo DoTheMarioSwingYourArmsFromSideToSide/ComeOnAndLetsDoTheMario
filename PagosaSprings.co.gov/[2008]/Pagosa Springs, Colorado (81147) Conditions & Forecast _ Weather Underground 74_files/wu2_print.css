@@ -1,0 +1,46 @@
+BODY { background-color: #FFF; }
+
+.TabBox { border-top: 2px solid #FFF; border-right: 1px solid #FFF; border-bottom: 1px solid #FFF; border-left: 1px solid #FFF; }
+#photoBox { border: 0px; }
+#top { visibility: hidden; }
+#printPhoto { display: block; }
+#photoTable { width: 650px; }
+#blogUpdated { border-top: 1px solid #666; background-color: #EEE; margin-top: 5px; margin-bottom: 10px; }
+
+#featuresBar, #checkWeather, #photoRating, #viewComments, #postComment, #blogSort, #blogRead, #blogReport, #more, #blogInfo, #towerAd, #chat, #gutter, #photoTabs, #photoNav, #photoDetails, #photoLinks, #photoBottom, #leftBar, #topNav, #copyNav, #features, #bottomAds, H5 { display: none; }
+
+.leftBar, .noPrint { display: none; }
+
+
+#left, #AdminBar, #AssistBar, #search, #wunder, #member, #footer, #pageEnd, #copyright { display: none; }
+#right { background-color: #FFF; }
+#right .innerFrame { background: #FFF; padding: 0; margin: 0; }
+#right #signaturePrint { margin: 10px auto 0 auto; display: block; }
+#right #signaturePrint IMG { margin-right: 10px; }
+
+.blueTop .hLeft { display: none; }
+.blueTop .hRight { display: none; }
+.blueTop .hCenter { background-color: #FFF; color: #000; }
+.blueBox { border: 0; }
+.blueBottom, .sLeft, .sCenter, .sRight { display: none; }
+
+/*
+     FILE ARCHIVED ON 02:46:18 Jul 08, 2008 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 08:34:47 Jul 18, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 131.465
+  exclusion.robots: 0.065
+  exclusion.robots.policy: 0.056
+  RedisCDXSource: 0.68
+  esindex: 0.006
+  LoadShardBlock: 109.102 (3)
+  PetaboxLoader3.datanode: 115.68 (4)
+  load_resource: 82.115
+  PetaboxLoader3.resolve: 45.872
+*/

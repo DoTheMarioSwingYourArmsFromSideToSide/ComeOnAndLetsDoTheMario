@@ -1,0 +1,72 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+(function ($, Drupal, window, document, undefined) {
+  Drupal.behaviors.accordion_menu = {
+    attach: function(context, settings) {
+      var expandableSubMenu = $(".menu-block-vts-accordion");
+      var noSubMenu = $(".menu-block-vts-accordion li.leaf");
+      var withSubMenu = $(".menu-block-vts-accordion li.expanded");
+
+      expandableSubMenu.find("li.expanded").once('accordion-menu', function() {
+        // Make the children of list items hidden by default.
+        $(this).addClass("is-closed");
+      });
+
+      // Expand the menu based on the active menu item.
+      var activeParent = expandableSubMenu.find(".active").parents(".expanded");
+      activeParent.addClass("is-active-parent");
+      activeParent.children("ul").show();
+      if (activeParent.hasClass("is-closed")) {
+        activeParent.removeClass("is-closed");
+        activeParent.addClass("is-open");
+      }
+
+      // Hide sub menus for non-active menu items.
+      $(".menu-block-vts-accordion .is-closed > ul").hide();
+
+      // Only apply click event to the direct children, not grandchildren.
+      withSubMenu.click(function(event) {
+        event.stopPropagation();
+        $(this).toggleClass("is-closed is-open");
+        $(this).children("ul").slideToggle();
+      });
+
+      // Prevent clicks on nested links from affecting parent list items without children.
+      noSubMenu.click(function(event) {
+        event.stopPropagation();
+      });
+    }
+  };
+})(jQuery, Drupal, this, this.document);
+
+}
+/*
+     FILE ARCHIVED ON 21:49:54 Nov 30, 2022 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 09:12:33 Jul 18, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 63.145
+  exclusion.robots: 0.107
+  exclusion.robots.policy: 0.093
+  RedisCDXSource: 0.699
+  esindex: 0.01
+  LoadShardBlock: 34.126 (3)
+  PetaboxLoader3.datanode: 43.584 (4)
+  load_resource: 53.851
+  PetaboxLoader3.resolve: 23.519
+*/

@@ -1,0 +1,553 @@
+
+/*=========================================( AVENET GLOBAL STYLE )===*/
+/*===================================================================*/
+
+/* Global Stuff */
+BODY
+{
+	background-color: white;
+	/* MS browsers need help centering page content.
+	text-align should not apply to block-level elements, but
+	it does in MS browsers when it's on the BODY tag. */
+	text-align: center;
+}
+
+
+/*INPUT, TEXTAREA
+{
+	font-size: 8pt;
+}*/
+#allContainer
+{
+	/* to center page content the "correct" way */
+	margin-left: auto;
+	margin-right: auto;
+	/* and compensate for the text-align: center on the BODY... */
+	text-align: left;
+}
+
+div.mobileOnly { display: none; }
+
+img[style*="float: left"]  { margin-right: 10px; margin-bottom: 5px; }
+img[style*="float: right"] { margin-left:  10px; margin-bottom: 5px; }
+
+/* so we don't get too much shrinkage with nested .subtextX things... */
+.subtext .subtextlink, .subtext .subtextitalics { font-size: 100%; }
+.subtextItalics, .subtextitalics { font-style: italic; }
+
+.divRule, .guestbookDivider
+{
+	border-top: 1px solid #777;
+	margin-bottom: 1em;
+	margin-top: 0.25em;
+}
+
+/* VerticalLogo, Footer default appearance	*/
+.verticalLogo, .verticalLogo_text, .footernav
+{
+	text-align: center;
+	font-size: 9pt;
+	margin-top: 1em;
+}
+
+/* Main column content display */
+.centerColumn
+{
+	padding: 0.6em 1em 1em 1em;
+}
+.contentbox_center, .sec
+{
+	margin-bottom: 2em;
+}
+.contentbox_center
+{
+	clear: left;
+}
+.contentbox_center_header, .sec_title
+{
+}
+/* to get rid of extraneous space... */
+/*DIV.contentbox_center>*:last-child
+{
+	margin-bottom: 0px;
+}*/
+
+/* attachments */
+.attachments
+{
+	background-color: transparent;
+	clear: both;
+	margin-top: 1em;
+}
+.attachments IMG
+{
+	margin-right: 0.5em;
+	vertical-align: middle;
+}
+
+/* Item and Item Summary display */
+.itemSummary
+{
+	/* the padding is to work around a (gasp!) Gecko bug */
+	padding: 0.1px;
+	margin-bottom:	1.5em;
+	/* hide from IE5-Mac \*/
+	clear: both;
+	/* end hide */
+}
+.itemSummary P
+{
+	margin-bottom: 0px;
+}
+.itemLink
+{
+
+}
+.item
+{
+	margin-bottom: 2em;
+}
+.itemHeadline
+{
+	margin-bottom: 1em;
+}
+.itemBody
+{
+	margin-bottom: 1em;
+}
+.item>*:last-child
+{
+	margin-bottom: 0px;
+}
+
+.listingCheck
+{
+	text-align: right;
+	padding-top: 1em;
+}
+UL LI
+{
+	list-style-position: outside;
+}
+
+
+/*=========================================================( NAV )===*/
+/*===================================================================*/
+
+.notClickable { cursor: default !important; }
+table.navHorizontal { width: 100%; }
+
+/*===============================================( IMAGE DISPLAY )===*/
+/*===================================================================*/
+
+/* make 'em block to avoid extra space in IE-Win... */
+.imageBoxImage A, .imageBoxImage IMG
+{
+	display: block;
+}
+.imageBoxLeft
+{
+	float: left;
+	margin: 1em 1em 1em 0em;
+}
+.imageBoxRight
+{
+	float: right;
+	margin: 1em 0em 1em 1em;
+}
+.itemSummary .imageBoxLeft, .itemSummary .imageBoxRight
+{
+	float: left;
+	margin: .25em .25em .25em 0em;
+}
+/* the exception for QuickList... */
+.quickList .itemSummary .imageBoxRight
+{
+	float: right;
+	margin: .25em 0em .25em .25em;
+}
+
+.promoIcon
+{
+	float: left;
+	margin: 0em 1em 1em 0em;
+}
+.sidebarImageBox
+{
+	margin-bottom: 0.25em;
+}
+
+/*=========================================( DATATYPE FORMATTING )===*/
+/*===================================================================*/
+
+/* events */
+DIV.description, DIV.location, DIV.directions
+{
+	margin-bottom: 1em;
+}
+.quickList .itemLink, .itemSummaryTitle
+{
+	font-weight: bold;
+}
+.calendarTable
+{
+	margin-bottom: 0.5em;
+	clear: both;
+}
+
+/* Jobs */
+DIV.jobLabel
+{
+	width: 10em;
+	float: left;
+	font-weight: bold;
+}
+DIV.jobData
+{
+	float: left;
+}
+
+/* DYNAFORMS */
+FORM.tightForm
+{
+	margin: 0px;
+	padding: 0px;
+}
+.formElement
+{
+	margin-bottom: 0.25em;
+	padding: 1px;
+}
+.formElement .formField INPUT
+{
+	font-weight: normal;
+}
+
+/* main forms */
+.contentbox_center DIV.formLabel, .contentbox_center DIV.formLabelReq
+{
+	width: 30%;
+	float: left;
+	text-align: right;
+	padding: 4px;
+}
+DIV.formLabelReq
+{
+	/*color: #600;*/
+	font-weight: bold;
+}
+.contentbox_center DIV.formField
+{
+	float: left;
+	font-weight: normal;
+}
+.contentbox_center DIV.formSubmitButton
+{
+	/* commented out since it was breaking in IE6 */
+	/*padding-left: 30%;*/
+}
+/* left, right forms */
+.contentbox_left .formLabel, .contentbox_right .formLabel, .contentbox_left .formField, .contentbox_right .formField
+{
+	padding: 0px;
+	text-align: left;
+	font-weight: normal;
+}
+.contentbox_left .formField, .contentbox_right .formField
+{
+	display: inline;
+}
+
+/* hidden */
+.hidden
+{
+	position:absolute;
+	left:-10000px;
+	top:auto;
+	width:1px;
+	height:1px;
+	overflow:hidden;
+}
+
+
+/* SuperForms */
+DIV.signupButton
+{
+	margin-top: 0.5em;
+	text-align: right;
+}
+
+.SF_box
+{
+	width: 85%;
+	clear: both;
+}
+.SF .SF_field
+{
+	float: right;
+	width: 68%;
+	text-align: left;
+}
+.SF .SF_label
+{
+	float: left;
+	width: 28%;
+	text-align: right;
+	padding-top: 0.2em;
+}
+.SF_buttons
+{
+	clear: both;
+}
+.spacerDIV
+{
+	clear: both;
+	font-size: 1px;
+}
+.SF INPUT
+{
+
+}
+.SF HR
+{
+	display: block;
+	clear: both;
+}
+
+/* product catalog */
+.typeAndQuantity
+{
+	clear: both;
+}
+
+/* guestbook */
+.guestbookDivider
+{
+	margin-top: 0.75em;
+	margin-bottom: 0.75em;
+}
+
+/* new quickpolls! */
+/* .QUICKPOLL .itemSummary .text { } */
+.QUICKPOLL h4
+{
+	font-size: 100%;
+	margin-top: 0;
+}
+.QUICKPOLL .itemSummary
+{
+	padding: 0.1px;
+	margin:	1.5em 0;
+	clear: both;
+}
+.QUICKPOLL .itemSummary:first-child { margin-top: 0; }
+.QUICKPOLL .body.results
+{
+	display: none;
+	opacity: 0;
+}
+.QUICKPOLL .result .response
+{
+	font-size: 90%;
+	margin-bottom: 1ex;
+}
+.QUICKPOLL .color
+{
+	color: white;
+	font-weight: bold;
+
+	/* background: rgb(120, 120, 120); */
+	/* background: rgba(0, 0, 0, 0.5); */
+
+	/* this is from http://www.colorzilla.com/gradient-editor/ */
+	background: -moz-linear-gradient(top, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.5) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.2)), color-stop(100%,rgba(0,0,0,0.5))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.5) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.5) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.5) 100%); /* IE10+ */
+	background: linear-gradient(top, rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.5) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#33000000', endColorstr='#80000000',GradientType=0 ); /* IE6-9 */
+
+	box-shadow: 2px 2px 7px rgba(0,0,0,0.2);
+	-moz-box-shadow: 2px 2px 7px rgba(0,0,0,0.2);
+	-webkit-box-shadow: 2px 2px 7px rgba(0,0,0,0.2);
+
+
+	padding: 2px 4px;
+	width: 1.2ex;
+}
+.QUICKPOLL a.showResults { margin-left: 1em; font-size: 90%; }
+.QUICKPOLL .error { color: red; }
+.QUICKPOLL .error, .QUICKPOLL .thankYou
+{
+	display: none;
+	margin: 1ex 0;
+}
+
+
+
+/*======================================================( RSS )======*/
+/*===================================================================*/
+.RSSLinkAboveSectionIntro, .RSSLinkHACenter
+{
+	display: block;
+	float: right;
+	margin-left: 1em;
+	margin-bottom: 1em;
+}
+.rssReader .itemSummary
+{
+	margin-bottom: 1em;
+}
+.RSSLinkBelowSectionIntro
+{
+
+}
+
+
+/*======================================================( PROMOS )===*/
+/*===================================================================*/
+.headlineDisplay
+{
+	margin-bottom: 0.6em;
+}
+
+/*===================================================( PRINTVIEW )===*/
+/*===================================================================*/
+.printView
+{
+	padding: 1em;
+	background-color: transparent;
+	text-align: center;
+}
+#pvSidebarFloat
+{
+	float: right;
+	/*border: 1px solid #EEE;*/
+	/*background-color: #FAFAFA;*/
+	margin-left: 1em;
+	margin-bottom: 1em;
+}
+#pvMain
+{
+	padding: 0px;
+	text-align: left;
+	margin-bottom: 0em;
+}
+/*#pvSidebarFloat A
+{
+	color: #999;
+}*/
+
+/*=================================================( LAST EDITED )===*/
+/*===================================================================*/
+.lastEdited
+{
+	margin-bottom: 1em;
+}
+
+/*=====================================================( UTILITY )===*/
+/*===================================================================*/
+
+.blk{ display: block; }
+
+DIV.clr
+{
+	clear: both;
+	font-size: 0px;
+	height: 0px;
+	padding-bottom: 0.1px;
+}
+
+A#skipLink{ display: none; }
+
+
+
+/*=========================================( THE ESSENTIAL FIXES )===*/
+/*===================================================================*/
+
+/* Calendar fixes */
+/*.calendarTable *, .calendarTable .contentbox_left, .calendarTable .contentbox_left_body, .calendarTable .contentbox_right
+{
+	padding: 0px;
+}*/
+
+
+/* Sidebar fix */
+.sidebar P, .leftSidebar P { margin-top: 0px; }
+
+/* SuperForms fixes */
+/* note: these classes should be gone from superforms_lt,
+but until it's ready, we need these */
+.SF_left .contentbox_left
+{
+	border: none;
+	padding: 0px;
+}
+.SF_right .contentbox_right
+{
+	border: none;
+	padding: 0px;
+}
+
+
+/*=========================================== slideshow Controls ===*/
+.slideshowControls .highlighted
+{
+	border: 2px solid white;
+}
+
+/*=========================================== messageboard cleanup ===*/
+.currentMessage
+{
+	background-color: #ccc;
+	padding: 3px;
+}
+.messageLink
+{
+	color: #000;
+}
+.messageLink:hover
+{
+	color: #333;
+}
+
+/* SEARCH */
+.searchtabstrip { padding: 5px; margin-bottom: 12px; }
+.searchpages, .searchdocs{ margin-bottom: 10px; }
+.searchpages h3, .searchdocs h3{ margin: 10px 5px 3px 0; }
+.searchtab
+{
+	border: 1px solid #333;
+	padding: 5px 10px;
+	margin-right: 10px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	cursor: pointer;
+	opacity: 0.8;
+	font-size: 80%;
+}
+.searchtab.active { padding-bottom: 6px; box-shadow: 3px 3px 3px #555; opacity: 1.0; }
+.searchdocs { display: none; }
+
+/*
+     FILE ARCHIVED ON 22:32:42 May 31, 2020 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 09:05:04 Jul 18, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 154.235
+  exclusion.robots: 0.084
+  exclusion.robots.policy: 0.077
+  cdx.remote: 0.049
+  esindex: 0.006
+  LoadShardBlock: 122.165 (3)
+  PetaboxLoader3.datanode: 97.865 (5)
+  PetaboxLoader3.resolve: 234.186 (3)
+  load_resource: 408.609 (2)
+*/

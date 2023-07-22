@@ -1,0 +1,56 @@
+.rteindent1 {
+  margin-left: 40px;
+}
+.rteindent2 {
+  margin-left: 80px;
+}
+.rteindent3 {
+  margin-left: 120px;
+}
+.rteindent4 {
+  margin-left: 160px;
+}
+.rteleft {
+  text-align: left;
+}
+.rteright {
+  text-align: right;
+}
+.rtecenter {
+  text-align: center;
+}
+.rtejustify {
+  text-align: justify;
+}
+.image_assist{
+  background-color: #eeeeee;
+  background-repeat: no-repeat;
+  background-image: url(/web/20120422035828im_/http://www.visitpagosasprings.com/sites/all/modules/fckeditor/plugins/imgassist/imgassist.gif);
+  background-position: 50% 50%;
+  border: 1px dashed #dddddd;
+}
+.ibimage_left {
+  float: left;
+}
+.ibimage_right {
+  float: right;
+}
+/*
+     FILE ARCHIVED ON 03:58:28 Apr 22, 2012 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:28:34 Jul 20, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 55.824
+  exclusion.robots: 0.088
+  exclusion.robots.policy: 0.077
+  RedisCDXSource: 0.704
+  esindex: 0.012
+  LoadShardBlock: 34.75 (3)
+  PetaboxLoader3.datanode: 73.109 (4)
+  load_resource: 42.885
+*/

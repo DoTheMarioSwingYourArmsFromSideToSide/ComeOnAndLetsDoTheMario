@@ -1,0 +1,63 @@
+body { font-family: arial, tahoma, sans-serif; font-size: 13px  }
+
+P, ul, ol, li, td { line-height: 120%; font-family: arial, tahoma, sans-serif; font-size: 13px; font-weight: normal; color: #000000;}
+.norm { line-height: 120%; font-family: arial, tahoma, sans-serif; font-size: 13px; font-weight: normal; color: #000000; }
+.small { font-size: 11px }  
+.big { font-size: 16px }                                      
+.header {font-size: 20px; font-weight: bold; color: #666633; font-style: italic; }
+.headersmall {font-size: 13px; font-weight: bold; color: #666633; font-style: italic; }
+.divider {font-size: 14px; font-weight: bold; color: #666633; border-left: 1px solid #999966; border-bottom: 1px solid #999966; padding: 2px 2px 2px 2px;}
+.subhead {font-size: 13px; font-weight: bold; color: #999966;}    
+.bigblack {font-size: 14px; font-weight: bold; color: #000000; }
+.biggreen {font-size: 14px; font-weight: bold; color: #666633; }
+.bigdkred {font-size: 14px; font-weight: bold; color: #993333; }
+
+li { line-height: 180%;}
+
+.dkgreen {color: #333300; }
+
+A:link, A:active    { color: #003399; text-decoration: none; font-family: arial, tahoma, sans-serif; font-weight: normal }
+A:visited { color: #993333; text-decoration: none; font-weight: normal; font-family: arial, tahoma, sans-serif }
+A:hover { text-decoration: underline; }
+
+.nav { font-family: 'Trebuchet MS', Helvetica, sans-serif; font-size: 13px; color: #993333;  font-weight: bold;}
+  A.nav:link, A.nav:visited, A.nav:active   { color: #993333; text-decoration: none; font-family: 'Trebuchet MS', Helvetica, sans-serif;  font-weight: bold;}
+  A.nav:hover { color: #FFFFFF; background-color: #993333 ;  font-weight: bold;}
+
+.admin { line-height: 150%; font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #003399;}
+  A.admin:link, A.admin:visited, A.admin:active   { color: #993333; font-size: 11px; text-decoration: none; font-family: arial, tahoma, sans-serif }
+  A.admin:hover { text-decoration: underline; }
+  
+.copy { font-family: Arial, Helvetica, sans-serif; font-size: 10px; color: #666666;  margin-right: 20px} 
+  A.copy:link, A.copy:visited, A.copy:active   { color: #666666; text-decoration: none; font-family: arial, tahoma, sans-serif }
+  A.copy:hover { text-decoration: underline; }
+
+.footer { line-height: 150%; font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #CCCCCC;  margin-right: 20px}
+  A.foot:link, A.foot:visited, A.foot:active   { color: #FFFFFF; font-size: 11px; text-decoration: none; font-family: arial, tahoma, sans-serif }
+  A.foot:hover { text-decoration: underline; }
+
+.error  { line-height: 120%; font-family: arial, tahoma, helvetica, sans-serif; font-size: 13px; font-weight: normal; color: #000000; text-decoration: none; border: 1px solid #990000; padding: 3px; background-color:#FFCCCC; text-align: center  }
+.green  { line-height: 120%; font-family: arial, tahoma, helvetica, sans-serif; font-size: 13px; font-weight: normal; color: #000000; text-decoration: none; border: 1px solid #009933; padding: 3px; background-color:#99FFCC; text-align: center  }
+.editinfo  { line-height: 120%; font-family: arial, tahoma, helvetica, sans-serif; font-size: 13px; font-weight: normal; color: #000000; text-decoration: none; border: 1px solid #003399; padding: 3px; background-color:#FFFFFF; text-align: center  }
+
+
+/*
+     FILE ARCHIVED ON 16:56:42 Jul 12, 2006 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 07:19:41 Jul 18, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 160.261
+  exclusion.robots: 0.07
+  exclusion.robots.policy: 0.06
+  RedisCDXSource: 0.617
+  esindex: 0.008
+  LoadShardBlock: 142.393 (3)
+  PetaboxLoader3.datanode: 187.175 (4)
+  load_resource: 234.886
+  PetaboxLoader3.resolve: 123.026
+*/

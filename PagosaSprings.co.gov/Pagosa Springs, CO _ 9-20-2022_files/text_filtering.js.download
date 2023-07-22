@@ -1,0 +1,73 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+(function ($, Drupal, window, document, undefined) {
+  Drupal.behaviors.text_filtering = {
+    attach: function(context, settings) {
+      // Inline images need to resize on browser resize
+      $('.field-type-text-with-summary img').each(function() {
+        $(this).removeAttr('height');
+        $(this).removeAttr('width');
+        $(this).css('width', 'auto');
+        $(this).css('height', 'auto');
+
+        // Replace float with class that can be responsive.
+        if ($(this).css('float') == 'left') {
+          $(this).addClass('float-left');
+          $(this).css('float', '');
+        }
+        else if ($(this).css('float') == 'right') {
+          $(this).addClass('float-right');
+          $(this).css('float', '');
+        }
+      });
+      $('.pane-custom img').each(function() {
+        $(this).removeAttr('height');
+        $(this).removeAttr('width');
+        $(this).css('width', 'auto');
+        $(this).css('height', 'auto');
+      });
+
+      // Inline tables need to resize if they can.
+      $('.field-type-text-with-summary td').each(function() {
+        var cell_width = $(this)[0].style.width;
+        // Allow only percentage widths.
+        if (cell_width.length > 1 && cell_width.lastIndexOf('%') !== (cell_width.length - 1)) {
+          $(this).removeAttr('width');
+          $(this).css('width', 'auto');
+        }
+      });
+    }
+  };
+})(jQuery, Drupal, this, this.document);
+
+}
+/*
+     FILE ARCHIVED ON 04:06:08 Sep 22, 2022 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 09:12:01 Jul 18, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 106.231
+  exclusion.robots: 0.068
+  exclusion.robots.policy: 0.058
+  cdx.remote: 0.059
+  esindex: 0.008
+  LoadShardBlock: 56.08 (3)
+  PetaboxLoader3.datanode: 64.242 (4)
+  load_resource: 103.316
+  PetaboxLoader3.resolve: 71.912
+*/

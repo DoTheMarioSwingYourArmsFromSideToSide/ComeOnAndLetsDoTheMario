@@ -1,0 +1,118 @@
+
+<!-- saved from url=(0097)https://web.archive.org/web/20080510000053if_/http://stationdata.wunderground.com/xmlrequest.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript" src="./bundle-playback.js.download" charset="utf-8"></script>
+<script type="text/javascript" src="./wombat.js.download" charset="utf-8"></script>
+<script type="text/javascript">
+  __wm.init("https://web.archive.org/web");
+  __wm.wombat("http://stationdata.wunderground.com/xmlrequest.html","20080510000053","https://web.archive.org/","web","/_static/",
+	      "1210377653");
+</script>
+<link rel="stylesheet" type="text/css" href="./banner-styles.css">
+<link rel="stylesheet" type="text/css" href="./iconochive.css">
+<!-- End Wayback Rewrite JS Include -->
+<script id="ajaxrequest">
+
+var request = false;
+   try { request = new XMLHttpRequest(); }
+     catch (trymicrosoft) {
+        try { request = new ActiveXObject("Msxml2.XMLHTTP"); }
+     catch (othermicrosoft)
+    {
+       try { request = new ActiveXObject("Microsoft.XMLHTTP"); }
+    catch (failed)
+     {
+         request = false;
+     }
+
+     }
+   }
+
+function startAJAX_JavascriptExec(url)
+{
+   var restart=0;
+
+	if (url.indexOf("restartupdate=1")!=-1)
+		restart=1;
+
+   if (!request)
+    return;
+
+   //document.domain="wunderground.com";
+//alert('opening:'+url);
+    request.open("GET", url,true);
+//alert(document.domain);
+    //request.open("GET", "https://web.archive.org/web/20080510000053/http://dev.wunderground.com/data/wuiXML/snow_photos.xml",true);
+    request.onreadystatechange = function()
+	{
+    	if (request.readyState==4)
+		{
+//alert('done');
+//	alert('got:'+request.responseText);
+			if (restart==1)
+			{
+				clearTimeout(window.timeout);
+				if (request.status!=200)
+				{
+					setTimeout("parent.GetUpdateConds()",5000);
+					return;
+				}
+			}
+			try {
+        	eval(request.responseText);
+			}
+			catch (request_notparseable) {
+				if (restart==1)
+				{
+					setTimeout("parent.GetUpdateConds()",5000);
+				}
+			}
+    	}
+	}
+
+	if (restart==1)
+	{
+		window.timeout = window.setTimeout("request.abort();parent.GetUpdateConds()", 10000);
+	}
+
+    request.send(null);
+}
+
+
+function getWUIDomain()
+{
+    var domainStr = document.domain;
+    var domainarray=domainStr.split(".");
+
+    var domaincom=domainarray[domainarray.length-1];
+    var domainname=domainarray[domainarray.length-2];
+
+//  alert('domain:' +domainname+'.'+domaincom);
+    return domainname+'.'+domaincom;
+
+}
+
+document.domain=getWUIDomain();
+
+//document.domain="wunderground.com";
+
+</script>
+<!--
+     FILE ARCHIVED ON 00:00:53 May 10, 2008 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 08:32:37 Jul 18, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->
+<!--
+playback timings (ms):
+  captures_list: 909.62
+  exclusion.robots: 0.087
+  exclusion.robots.policy: 0.077
+  RedisCDXSource: 0.595
+  esindex: 0.008
+  LoadShardBlock: 881.736 (3)
+  PetaboxLoader3.datanode: 134.197 (4)
+  load_resource: 99.982
+  PetaboxLoader3.resolve: 71.432
+--></head><body data-new-gr-c-s-check-loaded="14.1115.0" data-gr-ext-installed=""></body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>

@@ -1,0 +1,71 @@
+td,p { font-family: verdana; font-size: 11px;color:333333; }
+h2 {font-size: 14px;padding:5px 2px 2px 2px}
+a { color: #0000ff; }
+a:hover { color: #ff0000; }
+.smlLinks { color: #999999; font-size: 10px }
+.smlLinks:hover { color: #000000 }
+.navLinks { color: #FFFFFF; text-decoration: none }
+.navLinks:hover { color: #F7EDC6 }
+hr {color:#98CC98}
+.calendarTable { background-color: #E8F0E8 }
+.calendarTitle { color: #004C37; font-weight: bold;font-size:11px }
+.calendarCopy { color: #004C37; }
+.dateCellEvent { background-color: #004C37;color: #FFFFFF; text-align: center }
+.dateCellNoEvent { background-color: #689A85; color: #FFFFFF; text-align: center }
+.date { color: #FFFFFF; text-decoration: none }
+.date:hover { color: #F7EDC6  }
+.header { font-weight:bold;font-size:15;color:#00518A;padding:5px }
+.dirImage { border-color: #98CC98 }
+.smltxt { font-size: 9px; }
+.caltxt {font-size: 10px; }
+dt {
+ font-weight:bold;
+ margin:10px 5px 0px 5px;
+}
+	
+li {
+ margin-top: 5px;
+}
+
+#supporter {
+border: 1px solid #EFF3F7;
+font-size:80%;
+margin-top:10px;
+}
+#supporter th {
+font-family: verdana; color:333333; font-weight:bold;
+}
+
+.brdRight {
+border-right: 1px solid grey;
+}
+
+.style1 {
+	font-size: 14px;
+	font-weight: bold;
+	text-align:center;
+	color:#004D31;
+	font-family:Arial,sans-serif;
+}
+
+.smlText { color: #0000ff; font-size: 10px }
+/*
+     FILE ARCHIVED ON 15:58:13 Jul 27, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 07:18:11 Jul 18, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 851.926
+  exclusion.robots: 0.096
+  exclusion.robots.policy: 0.084
+  cdx.remote: 0.105
+  esindex: 0.018
+  LoadShardBlock: 824.391 (3)
+  PetaboxLoader3.datanode: 1172.456 (4)
+  load_resource: 707.271
+  PetaboxLoader3.resolve: 291.709
+*/

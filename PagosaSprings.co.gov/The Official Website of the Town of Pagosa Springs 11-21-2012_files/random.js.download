@@ -1,0 +1,132 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+// Random number insertion library
+// requires jQuery
+//
+// put this in design xml file
+//		<JSInclude library="random.js" />		
+//
+// you call it as:
+// Random.image(6, '<img id="photos" src="{$imagePath}/photos1.jpg" alt="photos of Otsego, MN" />');
+// or
+// Random.className(6, 'myBox');
+//
+// in the className method, default class on the box should always be "random1" to
+// provide a default and prevent a FOUC
+
+var Random = new (function Random() {
+
+	// PUBLIC METHODS
+	
+	// * use "cram" to force a number, rather than use a random one
+	// * each returns the number it selected
+
+	// takes a number and a string containing a valid, default image
+	// tag, randomizes the numeral "1" in the last pathname piece and
+	// spits out the finished tag
+	this.image = function randomImage(max, imageTag, cram) {
+		var $img = $(imageTag);
+		var n = (cram != null ? setSrc(cram, $img) : randomSrc(max, $img));
+		// put it in a dummy shell so we can get its contents as an
+		// HTML string
+		document.write(($("<div />").append($img)).html());
+		document.close();
+
+		return n;
+	};
+
+	// adds a class to the given element called "randomX", where X is the random integer
+	this.className = function randomClass(max, id, cram) {
+		var $e = $("#" + id);
+		var n = (cram != null ? cram : randomNumber(max));
+		if ($e.hasClass("random1")) {
+			$e.removeClass("random1");
+			$e.addClass("random" + n);
+		}
+
+		return n;
+	};
+
+	// replaces "random1" in the style att. on all elements matching the selector
+	this.style = function randomStyle(max, selector, cram) {
+		var $e = $(selector);
+		var n = (cram != null ? cram : randomNumber(max));
+		$e.each(function() {
+			$(this).attr("style", $(this).attr("style").replace("random1", "random" + n));
+		});
+
+		return n;
+	};
+
+
+
+	// INTERNAL FUNCTIONS
+	
+	// replaces the numeral "1" with the requested random number in an
+	// image's src attribute
+	function randomSrc(max, element) {
+		var n = randomNumber(max);
+		setSrc(n, element);
+		return n;
+	}
+
+	function setSrc(n, element) {
+		var $img = (typeof element == "string" ? $("#" + id) : $(element));
+		var newSrc = $img.attr("data-src") ? $img.attr("data-src") : $img.attr("src");
+		var lastslash = newSrc.lastIndexOf('/');
+		var part1 = newSrc.substr(0, lastslash);
+		var part2 = newSrc.substr(lastslash);
+		
+		part2 = part2.replace('1', n);
+		$img.attr('src', (part1 + part2));
+		
+		return n;
+	}
+
+	// returns a random number between 1 and max
+	function randomNumber(max) {
+		return Math.ceil(Math.random() * max);
+	}
+
+	// test harness for randomness
+	function random_testDistribution() {
+		var arr = [0,0,0,0,0];
+		for(i = 1; i < 10; i++) {
+			var rand = randomNumber(5);
+			arr[rand - 1]++;
+		}
+		console.log(arr);
+	}
+})();
+
+}
+/*
+     FILE ARCHIVED ON 13:14:46 Oct 05, 2013 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 08:43:52 Jul 18, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 122.107
+  exclusion.robots: 0.086
+  exclusion.robots.policy: 0.075
+  RedisCDXSource: 1.112
+  esindex: 0.01
+  LoadShardBlock: 97.169 (3)
+  PetaboxLoader3.datanode: 102.072 (4)
+  load_resource: 111.1
+  PetaboxLoader3.resolve: 62.013
+*/

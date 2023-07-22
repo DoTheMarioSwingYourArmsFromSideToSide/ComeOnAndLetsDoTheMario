@@ -1,0 +1,94 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+(function ($) {
+  Drupal.behaviors.fitvids = {
+    attach: function (context, settings) {
+      try
+      {
+        // Check that fitvids exists
+        if (typeof $.fn.fitVids !== 'undefined') {
+        
+          // Check that the settings object exists
+          if (typeof settings.fitvids !== 'undefined') {
+            
+            // Default settings values
+            var selectors = ['body'];
+            var simplifymarkup = true;
+            var custom_domains = null;
+            
+            // Get settings for this behaviour
+            if (typeof settings.fitvids.selectors !== 'undefined') {
+              selectors = settings.fitvids.selectors;
+            }
+            if (typeof settings.fitvids.simplifymarkup !== 'undefined') {
+              simplifymarkup = settings.fitvids.simplifymarkup;
+            }
+            if (settings.fitvids.custom_domains.length > 0) {
+              custom_domains = settings.fitvids.custom_domains;
+            }
+                
+            // Remove media wrappers
+            if (simplifymarkup) {
+              if ($(".media-youtube-outer-wrapper").length) {
+                $(".media-youtube-outer-wrapper").removeAttr("style");
+                $(".media-youtube-preview-wrapper").removeAttr("style");
+                $(".media-youtube-outer-wrapper").removeClass("media-youtube-outer-wrapper");
+                $(".media-youtube-preview-wrapper").removeClass("media-youtube-preview-wrapper");
+              }
+              if ($(".media-vimeo-outer-wrapper").length) {
+                $(".media-vimeo-outer-wrapper").removeAttr("style");
+                $(".media-vimeo-preview-wrapper").removeAttr("style");
+                $(".media-vimeo-outer-wrapper").removeClass("media-vimeo-outer-wrapper");
+                $(".media-vimeo-preview-wrapper").removeClass("media-vimeo-preview-wrapper");
+              }
+            }
+            
+            // Fitvids!
+            for (var x = 0; x < selectors.length; x ++) {
+              $(selectors[x]).fitVids({customSelector: custom_domains});
+            }
+          }
+        }
+      }
+      catch (e) {
+        // catch any fitvids errors
+        window.console && console.warn('Fitvids stopped with the following exception');
+        window.console && console.error(e);
+      }
+    }
+  };
+}(jQuery));
+
+
+}
+/*
+     FILE ARCHIVED ON 22:12:33 Dec 26, 2022 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 09:13:15 Jul 18, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 94.989
+  exclusion.robots: 0.07
+  exclusion.robots.policy: 0.061
+  cdx.remote: 0.055
+  esindex: 0.01
+  LoadShardBlock: 39.048 (3)
+  PetaboxLoader3.datanode: 224.555 (5)
+  load_resource: 329.733
+  PetaboxLoader3.resolve: 130.462
+  loaddict: 49.984
+*/

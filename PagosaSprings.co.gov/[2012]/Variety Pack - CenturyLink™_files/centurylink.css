@@ -1,0 +1,2075 @@
+/***  CenturyLink Custom Styles ***/
+
+body {
+	background: #f2eee3;
+	font-family: Arial, Tahoma, Helvetica, sans-serif;
+}
+
+#site_container {
+	width: 982px;
+}
+
+#site_container_800 {
+	font-size: 1.2em;
+	width: 787px;
+}
+
+a,
+a:visited,
+div.comp_body a,
+div.comp_container div.agdistis_quicklinks ul.quicklinks_ul_hack li a,
+div.comp_container_maindcc .comp_container_dcc a,
+.dcc-text ul li a,
+.dcc-text h2 a,
+.dcc-text .more a,
+.text a {
+	color: #00853e;
+	text-decoration: none;
+}
+
+a:hover,
+div.comp_body a:hover,
+div.comp_container div.agdistis_quicklinks ul.quicklinks_ul_hack li a:hover,
+div.comp_container_maindcc .comp_container_dcc a:hover,
+.dcc-text ul li a:hover,
+.dcc-text h2 a:hover,
+.dcc-text .more a:hover,
+div.comp_container .text a:link:hover,
+.comp_body .text h4 a:hover,
+.text a:link:hover,
+.text a:hover {
+	color: #ff6319;
+	text-decoration: underline;
+}
+
+/**************************************************/
+/*********************HEADER***********************/
+/**************************************************/
+
+div.ctl_portal_header {
+	float: left;
+	width: 982px;
+}
+
+div#site_container_800 div.ctl_portal_header {
+	width: 787px;
+}
+
+div.ctl_header {
+	background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/48583.png) no-repeat;
+/*	background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlheader.png) no-repeat 0 -878px;*/
+	float: left;
+/*	height: 192px;*/
+	padding: 4px 10px 0px 7px;
+	width: 968px;
+}
+
+div#site_container_800 div.ctl_header {
+	background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlheader.png) no-repeat 0 -1126px;
+	width: 770px;
+}
+
+div.ctl_header div.ctl_header_container {
+	border-bottom: 1px solid #ebebeb;
+	float: left;
+	padding-bottom: 15px;
+	width: 968px;
+}
+
+div#site_container_800 div.ctl_header div.ctl_header_container {
+	width: 773px;
+}
+
+/** GLOBAL NAVIGATION **/
+div.ctl_header_nav {
+	float: right;
+	margin: 19px 0px 0px;
+	width: 100%;
+}
+
+div.ctl_header_nav #ctl_home_link {
+	color: #00853f;
+	float: left;
+	margin-top: -15px;
+	padding: 0px 0px 0px 7px;
+}
+
+div.ctl_header_nav #ctl_home_link a {
+	color: #00853f;
+	font-size: 12px;
+}
+
+div.ctl_header_nav #ctl_home_link a:hover {
+	color: #ff6319;
+}
+
+div.ctl_header_nav #ctl_header_date {
+	float: none;
+	margin-top: 0px;
+	text-align: center;
+	width: 982px;
+}
+
+div.ctl_header_nav #ctl_nav_wrapper {
+	float: right;
+	margin-right: 8px;
+	margin-top: -15px;
+}
+
+div.ctl_header_nav #ctl_nav_wrapper a {
+	text-align: left;
+}
+
+div.ctl_header_nav .ctl_gnav_off {
+	background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlheader.png) 132px -130px no-repeat;
+	display: block;
+	float: left;
+	font-size: 12px;
+	text-align: left;
+}
+
+div.ctl_header_nav .ctl_gnav_off a {
+	color: #00853f;
+	display: block;
+	font-size: 12px;
+	padding: 1px 0px 0px;
+	text-decoration: none;
+	text-indent: 30px;
+}
+
+div.ctl_header_nav .ctl_gnav_off a:hover {
+	background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlheader.png) 132px -193px no-repeat;
+	color: #00853f;
+}
+
+div.ctl_header_nav .ctl_gnav_off:hover {
+	background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlheader.png) 132px -193px no-repeat;
+	color: #00853f;
+	display: block;
+	float: left;
+	font-size: 12px;
+	padding-left: 20px;
+	text-decoration: none;
+}
+
+div.ctl_header_nav .ctl_gnav_top {
+	float: left;
+	height: 12px;
+	overflow: hidden;
+	width: 148px;
+}
+
+div.ctl_header_nav .ctl_gnav_content {
+	float: left;
+	width: 148px;
+}
+
+div.ctl_header_nav .ctl_gnav_bot {
+	float: left;
+	height: 10px;
+	text-indent: -9999px;
+	width: 148px;
+}
+
+div.ctl_header_nav .ctl_gnav_link {
+	float: left;
+	position: relative;
+	background: transparent;
+}
+
+div.ctl_header_nav #ctl_top_nav,
+div.ctl_header_nav #ctl_top_nav ul {
+	float: left;
+	list-style: none;	
+	margin: 0;	
+	padding: 0;	
+}
+
+div.ctl_header_nav #ctl_top_nav a {
+	display: block;
+	width: 145px;
+}
+
+div.ctl_header_nav #ctl_top_nav li {
+	float: left;
+	margin: 0px 0px 0px 4px;
+	padding: 0;
+	width: 145px;
+}
+
+div.ctl_header_nav #ctl_top_nav li div.ctl_gnav {
+	clear: both;
+	display: none;	
+	float: left;
+	left: -999em;
+	margin-left: 8px;
+	margin-top: -6px;
+	position: absolute;
+	width: 148px;
+	z-index: 9999;
+}
+
+div.ctl_header_nav #ctl_top_nav li.ctl_gnav_on div.ctl_gnav {
+	display: block;
+	left: auto;
+}
+
+div.ctl_header_nav #ctl_top_nav li ul li a {
+	color: #fff;
+	font-size: 12px;
+	text-indent: 0;
+	background: transparent;
+	text-align: left;
+	line-height: 16px;
+	padding: 5px 0px 5px 18px;
+	text-decoration: none;
+	width: 145px;
+}
+
+div.ctl_header_nav #ctl_top_nav li ul li a:hover {
+	background: #666 url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlheader.png) 0 -257px no-repeat;
+	color: #fff;
+	font-size: 12px;
+	text-decoration: none;
+	width: 126px;
+}
+
+div.ctl_header_nav .divider span { 
+	position: absolute; 
+	left: -9999px; 
+	top: 0; 
+	z-index: 0; 
+}
+
+/** LOGO AND BANNER AD **/
+div.ctl_header div.ctl_header_logo {
+	float: left;
+	height: 82px;
+	margin: 40px 0px 16px 25px;
+	width: 150px;
+}
+
+div#site_container_800 div.ctl_header div.ctl_header_logo {
+	margin: 25px 0px 0px 20px;
+}
+
+*html div.ctl_header div.ctl_header_logo {
+	margin-left: 12px;
+}
+
+*html div#site_container_800 div.ctl_header div.ctl_header_logo {
+	margin-left: 10px;
+}
+
+div.ctl_header div.ctl_header_right {
+	float: right;
+	padding-right: 20px;
+	width: 710px;
+}
+
+div#site_container_800 div.ctl_header div.ctl_header_right {
+	width: 550px;
+}
+
+/** WEATHER **/
+div.ctl_header_weather {
+	float: right;
+	height: 31px;
+	margin: 9px 0px 0px;
+}
+
+*html div.ctl_header_weather {
+	margin-right: 0px;
+}
+
+div.ctl_header_weather div.weather {
+	float: right;
+}
+
+div.ctl_header_weather div.weather_left {
+	float: right;
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+}
+
+div.ctl_header_weather div.one_day_title {
+	float: left;
+	font-size: 11px;
+	font-weight: bold;
+	margin-right: 6px;
+	text-align: right;
+}
+
+div.ctl_header_weather div.one_day_title span {
+	display: block;
+}
+
+div.ctl_header_weather div.one_day_title a {
+	background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlheader.png) 0 -383px no-repeat;
+	color: #616365;
+	font-size: 10px;
+	font-weight: normal;
+	padding-left: 6px;
+}
+
+div.ctl_header_weather div.weather_img {
+	float: left;
+	margin-right: 5px;
+}
+
+div.ctl_header_weather div.weather_text {
+	float: left;
+	font-size: 24px;
+}
+
+div.ctl_header_weather div#__f,
+div.ctl_header_weather div#__c {
+	float: left;
+}
+
+div.ctl_header_weather p.degree {
+	float: left;
+}
+
+div.ctl_header_weather span.deg_f {
+	font-size: 12px;
+	margin-left: -13px;
+	vertical-align: top;
+}
+
+div.ctl_header_weather p.day {
+	float: left;
+	font-size: 11px;
+	font-weight: bold;
+	margin-left: 7px;
+}
+
+div.ctl_header_weather p.day a {
+	background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlheader.png) 0 -383px no-repeat;
+	color: #616365;
+	font-size: 10px;
+	font-weight: normal;
+	padding-left: 6px;
+}
+
+/** SEARCH **/
+div.ctl_header_search {
+	float: right;
+	height: 87px;
+	margin-right: 10px;
+	margin-top: 13px;
+}
+
+*html div.ctl_header_search {
+	margin-right: 18px;
+}
+
+div#site_container_800 div.ctl_header_search {
+	margin-right: 0px;
+	width: 565px;
+}
+
+*html div#site_container_800 div.ctl_header_search {
+	margin-right: 0px;
+}
+
+div#br_searchbar {
+	background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlheader.png) 0 -1586px no-repeat;
+	color: #000;
+	float: right;
+	font-size: 12px;
+	height: 70px;
+	padding-left: 20px;
+	width: 697px;
+}
+
+div#site_container_800 div#br_searchbar {
+	background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlheader.png) 0 -1707px no-repeat;
+	padding-left: 15px;
+	width: 545px;
+}
+
+div#br_searchbar .sb_lineup1,
+div#br_searchbar .sb_lineup2,
+div#br_searchbar .sb_lineup3  {
+	float: left;
+}
+
+div#br_searchbar .sb_lineup3 {
+	margin: 15px 15px 0px 0px;
+}
+
+div#br_searchbar .sb_lineup1 {
+	margin: 0px 0px 0px;
+}
+
+div#br_searchbar .sb_lineup2 {
+	height: 31px;
+	margin: 18px 0px 0px 9px;
+}
+
+div#br_searchbar div.search_tabs {
+	display: inline;
+}
+
+div#br_searchbar a {
+	color: #000;
+	font-size: 11px;
+	margin: 0px 4px;
+	text-decoration: none;
+}
+
+div#br_searchbar a:hover {
+	color: #ff6319;
+	text-decoration: none;
+}
+
+div#br_searchbar div.search_tabs a {
+	background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlheader.png) 0 -1452px no-repeat;
+	margin: 0px 1px 0px 0px;
+	padding: 0px 13px 3px;
+}
+
+div#br_searchbar div.search_tabs a.brsb_active {
+	color: #fff;
+	background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlheader.png) 0 -1519px no-repeat;
+	font-weight: bold;
+}
+
+div#br_searchbar a.brsb_active:hover {
+	color: #fff;
+}
+
+div#br_searchbar div.sb_lineup1 input {
+	background: transparent url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlheader.png) 0 -1373px no-repeat;
+	border: none;
+	height: 19px;
+	margin: 3px 0px 0px;
+	padding: 5px;
+	width: 485px;
+}
+
+div#site_container_800 div#br_searchbar div.sb_lineup1 input {
+	background: transparent url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlheader.png) 0 -1828px no-repeat;
+	width: 335px;
+}
+
+div#br_searchbar div.sb_lineup1 input.input_search_full {
+	display: inline;
+}
+
+div#br_searchbar div.sb_lineup2 input {
+	float: left;
+}
+
+div#br_searchbar div.sb_lineup2 input.brsb_submit_yp {
+	background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlheader.png) 0 -52px no-repeat;
+	border: none;
+	height: 29px;
+	margin: 0px;
+	padding: 0px;
+	width: 86px;
+}
+
+div#br_searchbar div.sublinks {
+	float: left;
+	margin: 0px 0px 0px 5px;
+}
+
+div#br_searchbar div.sublinks,
+div#br_searchbar div.sublinks a,
+div#br_searchbar div.sublinks a:visited {
+	color: #000;
+	font-size: 11px;
+	text-decoration: none;
+}
+
+div#br_searchbar div.sublinks a:hover {
+	color: #ff6319;
+}
+
+/** PERSONALIZE BANNER **/
+div.ctl_personalize_banner {
+	background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/48558.png) no-repeat;
+	display: none;
+	float: left;
+	height: 50px;
+	margin: -9px 0px -6px;
+	text-align: center;
+	width: 968px;
+}
+
+span.personalize_text {
+	color: #fff;
+	font-size: 20px;
+}
+
+img.personalize_btn {
+	left: 15px;
+	position: relative;
+	top: 12px;
+}
+
+div.personalize_close {
+	position: relative;
+}
+
+div.personalize_close a {
+	bottom: 21px;
+	position: absolute;
+	right: 5px;
+}
+
+/** WELCOME BAR **/
+
+div.ctl_header_welcome {
+	border-top: 1px solid #e6e6e6;
+	float: left;
+	margin: 16px 10px 2px;
+	width: 948px;
+}
+
+div.ctl_welcomebar {
+	border-bottom: 1px solid #e6e6e6;
+	border-top: 0px;
+	margin: 0px 0px 2px;
+	width: 765px;
+}
+
+*html div.ctl_header_welcome {
+	margin: 0px 5px 2px;
+}
+
+div#site_container_800 div.ctl_header_welcome {
+	width: 753px;
+}
+
+div.ctl_header_welcome div.ctl_header_divider {
+	background: #ececec;
+	float: left;
+	height: 26px;
+	margin-bottom: 4px;
+	width: 1px;
+}
+
+div.ctl_header_welcome div.ctl_header_profile {
+	float: left;
+	font-weight: bold;
+	margin-left: 8px;
+	margin-top: 5px;
+}
+
+div.ctl_header_welcome div.ctl_header_profile a {
+	color: #0397d7;
+}
+
+div.ctl_header_welcome div.ctl_header_profile a:hover {
+	color: #ff6319;
+}
+
+div#site_container_800 div.ctl_header_welcome div.ctl_header_profile {
+	margin-left: 0px;
+}
+
+div.ctl_header_welcome div.ctl_header_links {
+	float: right;
+}
+
+div.ctl_header_welcome div.ctl_header_links div.ctl_header_login,
+div.ctl_header_welcome div.ctl_header_links div.ctl_header_account,
+div.ctl_header_welcome div.ctl_header_links div.ctl_header_create,
+div.ctl_header_welcome div.ctl_header_links div.ctl_header_account_hover,
+div.ctl_header_welcome div.ctl_header_links div.ctl_header_support,
+div.ctl_header_welcome div.ctl_header_links div.ctl_header_support_hover {
+	float: left;
+}
+
+div.ctl_header_welcome div.ctl_header_links div.ctl_header_login {
+	margin-top: 5px;
+	margin-right: 8px;
+}
+
+div.ctl_header_welcome div.ctl_header_links div.ctl_header_login span.welcome_text {
+	color: #1a2f16;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+div.ctl_header_welcome div.ctl_header_links div.ctl_header_login span.welcome_text a,
+div.ctl_header_welcome div.ctl_header_links div.ctl_header_account a,
+div.ctl_header_welcome div.ctl_header_links div.ctl_header_create a,
+div.ctl_header_welcome div.ctl_header_links div.ctl_header_account_hover a,
+div.ctl_header_welcome div.ctl_header_links div.ctl_header_support a,
+div.ctl_header_welcome div.ctl_header_links div.ctl_header_support_hover a {
+	color: #1a2f16;
+	font-size: 13px;
+	font-weight: normal;
+}
+
+div.ctl_header_welcome div.ctl_header_links div.ctl_header_login span.welcome_text a:hover,
+div.ctl_header_welcome div.ctl_header_links div.ctl_header_create a:hover,
+div.ctl_header_welcome div.ctl_header_links div.ctl_header_support a:hover {
+	color: #ff6319;
+}
+
+div.ctl_header_welcome div.ctl_header_links div.ctl_header_account,
+div.ctl_header_welcome div.ctl_header_links div.ctl_header_create,
+div.ctl_header_welcome div.ctl_header_links div.ctl_header_support {
+	border: none;
+	color: #1a2f16;
+	font-size: 13px;
+	margin-left: 3px;
+	margin-right: 3px;
+	margin-top: 0px;
+	padding: 5px;
+}
+
+div.ctl_header_welcome div.ctl_header_links div.ctl_header_account_hover,
+div.ctl_header_welcome div.ctl_header_links div.ctl_header_support_hover {
+	border-top: 1px solid #bdbdbd;
+	border-left: 1px solid #bdbdbd;
+	border-right: 1px solid #bdbdbd;
+	border-bottom: none;
+	color: #1a2f16;
+	font-size: 13px;
+	margin-left: 3px;
+	margin-right: 3px;
+	margin-top: 0px;
+	padding: 4px 4px 5px 4px;
+}
+
+div.ctl_header_welcome div.ctl_header_links div.ctl_header_support,
+div.ctl_header_welcome div.ctl_header_links div.ctl_header_support_hover {
+	margin-left: 5px;
+}
+
+div.ctl_header_welcome div.ctl_header_links a#myaccount_window_link {
+	background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlheader.png) no-repeat 77px -440px;
+	padding-right: 20px;
+	text-decoration: none;
+}
+
+div.ctl_header_welcome div.ctl_header_links a#support_window_link {
+	background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlheader.png) no-repeat 33px -440px;
+	padding-right: 20px;
+	text-decoration: none;
+}
+
+div.ctl_header_welcome div.ctl_header_links div.ctl_header_account_hover a#myaccount_window_link {
+	background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlheader.png) no-repeat 77px -503px;	
+}
+
+div.ctl_header_welcome div.ctl_header_links div.ctl_header_support_hover a#support_window_link {
+	background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlheader.png) no-repeat 33px -503px;
+}
+
+div.ctl_header_welcome div.ctl_header_links div.myaccount_window {
+	background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlheader.png) 0 -568px no-repeat;
+	display: none;
+	height: 174px;
+	line-height: 1.4em;
+	margin-left: -175px;
+	padding: 10px;
+	position: absolute;
+	width: 250px;
+	z-index: 9999;
+}
+
+div.ctl_header_welcome div.ctl_header_links div.support_window {
+	background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/48923.png) 0px 0px no-repeat;
+	display: none;
+	height: 104px;
+	line-height: 1.4em;
+	margin-left: -169px;
+	padding: 10px;
+	position: absolute;
+	width: 200px;
+	z-index: 9999;
+}
+
+div.ctl_header_welcome div.ctl_header_links div.ctl_header_account_hover div.myaccount_window,
+div.ctl_header_welcome div.ctl_header_links div.ctl_header_support_hover div.support_window {
+	display: block;
+}
+
+div.ctl_header_welcome div.ctl_header_links div.myaccount_window a,
+div.ctl_header_welcome div.ctl_header_links div.support_window a {
+	font-size: 12px;
+}
+
+div.ctl_header_welcome div.ctl_header_links div.myaccount_window a:hover,
+div.ctl_header_welcome div.ctl_header_links div.support_window a:hover {
+	color: #ff6319;
+}
+
+div.ctl_header_welcome div.ctl_header_links div.myaccount_window div.myaccount_section {
+	float: left;
+	font-size: 11px;
+	margin-top: 14px;
+}
+
+div.ctl_header_welcome div.ctl_header_links div.support_window div.support_section {
+	float: left;
+	font-size: 11px;
+	margin-top: -4px;
+}
+
+div.ctl_header_welcome div.ctl_header_links div.support_window div.tour_section {
+	float: left;
+	margin-top: 15px;
+}
+
+div.ctl_header_welcome div.ctl_header_links div.myaccount_window div.myaccount_section_links,
+div.ctl_header_welcome div.ctl_header_links div.support_window div.support_section_links {
+	float: left;
+}
+
+div.ctl_header_welcome div.ctl_header_links div.myaccount_window div.myaccount_section_links_left,
+div.ctl_header_welcome div.ctl_header_links div.support_window div.support_section_links_left {
+	float: left;
+	width: 138px;
+}
+
+div.ctl_header_welcome div.ctl_header_links div.myaccount_window div.myaccount_section_links_left_top {
+	float: left;
+	width: 130px;
+}
+
+div.ctl_header_welcome div.ctl_header_links div.myaccount_window div.myaccount_section_links_left_loggedout {
+	width: 116px;
+}
+
+div.ctl_header_welcome div.ctl_header_links div.myaccount_window span.title a,
+div.ctl_header_welcome div.ctl_header_links div.support_window span.title {
+	font-size: 13px;
+	text-decoration: underline;
+}
+
+div.ctl_header_welcome div.ctl_header_links div.myaccount_window span.title a.bill_lock {
+	background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlheader.png) no-repeat 117px -812px;
+	padding-right: 18px;
+}
+
+/**************************************************/
+/**********************BODY************************/
+/**************************************************/
+
+/** BODY COL **/
+div#body_col {
+	background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/35379.gif) repeat-y;
+	padding: 5px 0px 0px 11px;
+	width: 971px;
+}
+
+div#site_container_800 div#body_col {
+	background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/35859.gif) repeat-y;
+	padding: 7px 0px 0px 11px;
+	width: 776px;
+}
+
+/** Directory **/
+div#h-nav-dd,
+div#h-nav-dd-holder {
+        background: #fff;
+        width: 188px;
+}
+
+div#body_col div#h-nav div#h-nav-dd-holder div#left_nav_cont {
+        position: absolute;
+}
+
+/** Nav Headers **/
+div.nav_head_left,
+#h-nav-dd div.nav_head_left,
+#h-nav-dd-holder div.nav_head_left {
+        background: #b1cc7b;
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	float: none;
+        height: 30px;
+        padding: 0px;
+        width: 188px;
+}
+
+div.nav_head_left h1 a,
+div.nav_head_left h1.nav_h1 a {
+        color: #fff;
+        float: left;
+        font-size: 16px;
+        margin: 4px 0px 0px 10px;
+        text-decoration: none;
+}
+
+div.nav_head_left h1 a:hover,
+div.nav_head_left h1 a:hover {
+        color: #ff6319;
+}
+
+div.nav_head_left h1 a.on_page_head {
+	color: #ff6319;
+}
+
+div.nav_head_left h1 span#hide_menu,
+div#left_nav_cont div.nav_head_left h1 span.open_close {
+        float: right;
+        height: 15px;
+        margin: 7px 7px 0px 0px;
+        width: 15px;
+}
+
+*html div.nav_head_left h1 span#hide_menu,
+*html div#left_nav_cont div.nav_head_left h1 span.open_close {
+	margin: 7px 3px 0px 0px;
+}
+
+#h-nav-bar .nav_head_left {
+	float: none;
+	height: 30px;
+	padding: 0px;
+	width: 188px;
+}
+
+div#left_nav_cont div.sub_nav_head {
+	border-left: none;
+	border-right: none;
+        float: left;
+        margin: 1px 0px 0px;
+}
+
+/** Channels **/
+div#h-nav-dd div#left_nav_cont,
+div#h-nav-dd-holder div#left_nav_cont,
+div#h-nav-bar div#left_nav_cont {
+	background: #fff;
+	border-bottom: 1px solid #ccc;
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	float: left;
+        width: 188px;
+}
+
+div#left_nav_cont ul.dir_channels {
+        float: left;
+	margin-top: 1px;
+        width: 188px;
+}
+
+div#left_nav_cont ul.dir_channels li {
+	border-bottom: 1px dotted #dfdfdf;
+        float: left;
+	margin: 0px 4px;
+        width: 180px;
+}
+
+*html div#left_nav_cont ul.dir_channels li {
+	margin: 0px 2px;
+}
+
+div#left_nav_cont ul.dir_channels li a {
+        color: #000;
+        float: left;
+        font-size: 12px;
+	font-weight: normal;
+        padding: 0px 0px 0px 9px;
+        width: 171px;
+}
+
+div#left_nav_cont ul.dir_channels li a:hover,
+div#left_nav_cont ul.dir_channels ul#sports_menu li a:hover {
+        color: #ff6319;
+}
+
+div#left_nav_cont ul.dir_channels li.on_page a {
+        color: #ff6319;
+}
+
+/** Channels with Dropdowns **/
+div#left_nav_cont ul.dir_channels li a.sub_dropdown {
+        width: 179px;
+}
+
+div#left_nav_cont ul.dir_channels span.open_close {
+        height: 11px;
+        margin: -18px 5px 0px 0px;
+        position: relative;
+        top: 3px;
+        width: 11px;
+}
+
+*html div#left_nav_cont ul.dir_channels span.open_close {
+	margin: -18px 0px 0px 0px;
+}
+
+div#left_nav_cont ul.dir_channels ul {
+        width: 179px;
+}
+
+div#left_nav_cont ul.dir_channels ul li {
+	border: none;
+	margin: 0px 0px 0px 1px;
+        width: 179px;
+}
+
+div#left_nav_cont ul.dir_channels ul li a,
+div#left_nav_cont ul#navul0 ul li a {
+        background: #f4f4f4;
+	font-size: 11px;
+        font-weight: normal;
+	padding-left: 24px;
+	width: 155px;
+}
+
+div#left_nav_cont ul.dir_channels li.on_page ul li a {
+        color: #000;
+}
+
+div#left_nav_cont ul.dir_channels li.settings_nav {
+        margin-top: 1px;
+}
+
+div#left_nav_cont ul.dir_channels li.settings_nav a.on_page {
+	color: #ff6319;
+}
+
+div#left_nav_cont ul.dir_channels li span.dir_orange {
+	color: #ff6319;
+	display: inline;
+	font-size: 11px;
+	margin-top: 1px;
+}
+
+/** Channels with Icons **/
+div#left_nav_cont ul#navul0 li a {
+        padding: 0px 0px 0px 20px;
+        width: 160px;
+}
+
+div#left_nav_cont ul#navul0 li a.icon_family {
+	background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlnav.gif) no-repeat 0px 3px;
+}
+
+div#left_nav_cont ul#navul0 li.on_page a.icon_family {
+	background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlnav.gif) no-repeat 0px -205px;
+}
+
+div#left_nav_cont ul#navul0 li a.icon_finance {
+	background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlnav.gif) no-repeat 0px -15px;
+}
+
+div#left_nav_cont ul#navul0 li.on_page a.icon_finance {
+	background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlnav.gif) no-repeat 0px -223px;
+}
+
+div#left_nav_cont ul#navul0 li a.icon_games {
+	background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlnav.gif) no-repeat 0px -33px;
+}
+
+div#left_nav_cont ul#navul0 li.on_page a.icon_games {
+	background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlnav.gif) no-repeat 0px -241px;
+}
+
+div#left_nav_cont ul#navul0 li a.icon_local {
+        background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlnav.gif) no-repeat 0px -54px;
+}
+
+div#left_nav_cont ul#navul0 li.on_page a.icon_local {
+        background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlnav.gif) no-repeat 0px -262px;
+}
+
+div#left_nav_cont ul#navul0 li a.icon_movies {
+	background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlnav.gif) no-repeat 0px -73px;
+}
+
+div#left_nav_cont ul#navul0 li.on_page a.icon_movies {
+	background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlnav.gif) no-repeat 0px -281px;
+}
+
+div#left_nav_cont ul#navul0 li a.icon_music {
+	background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlnav.gif) no-repeat 0px -457px;
+}
+
+div#left_nav_cont ul#navul0 li.on_page a.icon_music {
+	background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlnav.gif) no-repeat 0px -478px;
+}
+
+div#left_nav_cont ul#navul0 li a.icon_news {
+        background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlnav.gif) no-repeat 0px -92px;
+}
+
+div#left_nav_cont ul#navul0 li.on_page a.icon_news {
+        background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlnav.gif) no-repeat 0px -300px;
+}
+
+div#left_nav_cont ul#navul0 li a.icon_security {
+	background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlnav.gif) no-repeat 0px -415px;
+}
+
+div#left_nav_cont ul#navul0 li.on_page a.icon_security {
+	background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlnav.gif) no-repeat 0px -436px;
+}
+
+div#left_nav_cont ul#navul0 li a.icon_shopping {
+        background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlnav.gif) no-repeat 0px -110px;
+}
+
+div#left_nav_cont ul#navul0 li a.icon_sports {
+        background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlnav.gif) no-repeat 0px -130px;
+}
+
+div#left_nav_cont ul#navul0 li.on_page a.icon_sports {
+        background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlnav.gif) no-repeat 0px -338px;
+}
+
+div#left_nav_cont ul#navul0 li a.icon_tv {
+	background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlnav.gif) no-repeat 0px -149px;
+}
+
+div#left_nav_cont ul#navul0 li.on_page a.icon_tv {
+	background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlnav.gif) no-repeat 0px -357px;
+}
+
+div#left_nav_cont ul#navul0 li a.icon_video {
+        background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlnav.gif) no-repeat 0px -167px;
+}
+
+div#left_nav_cont ul#navul0 li.on_page a.icon_video {
+        background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlnav.gif) no-repeat 0px -375px;
+}
+
+div#left_nav_cont ul#navul0 li a.icon_seasonal {
+	background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlnav.gif) no-repeat 0px -500px;
+}
+
+div#left_nav_cont ul#navul0 li.on_page a.icon_seasonal {
+	background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlnav.gif) no-repeat 0px -522px;
+}
+
+div#left_nav_cont ul#navul0 li a.icon_other {
+	background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlnav.gif) no-repeat 0px -188px;
+}
+
+/** Components **/
+div.comp_container div.comp_header {
+	background: #b1cc7b;
+	border: none;
+	height: 27px;
+}
+
+div.drag_container {
+	margin-bottom: 6px;
+}
+
+div.drag_container div.comp_container div.comp_header {
+	cursor: n-resize;
+}
+
+div.comp_container div.comp_header h1 {
+	font-size: 16px;
+	font-weight: bold;
+	height: 22px;
+	padding: 4px 0px 0px 11px;
+}
+
+div.comp_container div.comp_body,
+div.comp_20 {
+	background: #fff;
+	border: 1px solid #b1b3b6;
+}
+
+div.comp_container div.comp_footer {
+	float: left;
+	height: 1px;
+	overflow: hidden;
+	width: 100%;
+}
+
+.comp_body .submit,
+.submit,
+div.comp_container_local div.local_component .localright input.submit,
+button.btn {
+	background: #007335 url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlbody.png) no-repeat 0 -681px;
+	border-top: none;
+	border-left: none;
+	border-right: 1px solid #8c8c8c;
+	border-bottom: 1px solid #8c8c8c;
+	color: #fff;
+	cursor: pointer;
+	font-size: 11px;
+	padding: 2px 7px;
+}
+
+.dropzone {
+	border: 2px dashed #888!important;
+}
+
+.dropzone * {
+	visibility: hidden;
+}
+
+/** Left Column Components **/
+div#body_col_1 div.comp_container div.comp_header {
+	background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlbody.png) no-repeat 0 -1438px;
+}
+
+div#body_col_1 div.comp_container div.comp_body {
+	width: 188px;
+}
+
+/** Center and Right Column Components **/
+div#body_col_12 div.comp_container div.comp_header {
+	background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlbody.png) no-repeat 0 -1282px;
+}
+
+div#body_col_12 div.comp_container div.comp_body {
+	width: 653px;
+}
+
+/** Center Column Components **/
+div#body_col_2 div.comp_container div.comp_header {
+	background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlbody.png) no-repeat 0 -1360px;
+}
+
+div#body_col_2 div.comp_container div.comp_body {
+	width: 458px;
+}
+
+/** Right Column Components **/
+div#body_col_3 div.comp_container div.comp_header {
+	background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlbody.png) no-repeat 0 -1672px;
+}
+
+div#body_col_3 div.comp_container div.comp_body {
+	width: 298px;
+}
+
+/** Local Page Components **/
+div#body_col_local_cont div#body_col_local div.comp_container div.comp_header,
+div#body_col_local_cont div#body_col_local div.comp_20_header {
+	background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlbody.png) no-repeat 0 -1516px;
+}
+
+div#body_col_local_cont div#body_col_local div.comp_container div.comp_body,
+div#body_col_local_cont div#body_col_local div.comp_20_body {
+	width: 654px;
+}
+
+div#body_col_local_cont div#body_col_local div.comp_20 {
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 6px;
+}
+
+div#body_col_local_cont div#body_col_local div.local_split div.comp_container div.comp_header {
+	background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlbody.png) no-repeat 0 -1594px;
+}
+
+div#body_col_local_cont div#body_col_local div.local_split div.comp_container div.comp_body {
+	width: 324px;
+}
+
+/** Tabbed Components **/
+div.comp_container div.tabbed_nav ul {
+	background: #f6f6f6 url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlbody.png) no-repeat 0 -1201px;
+	border: none;
+	padding: 0px;
+}
+
+div.living_component div.tabbed_nav ul {
+	background: #f6f6f6 url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlbody.png) no-repeat 0 -1192px;
+}
+
+div.comp_container div.tabbed_nav ul li {
+	border-right: 1px solid #e4e4e4;
+	margin: 0px;
+}
+
+div.comp_container div.tabbed_nav ul li a {
+	color: #000;
+	font-size: 12px;
+	padding: 8px 10px;
+	top: 0px;
+}
+
+div.comp_container div.tabbed_nav ul li.on {
+	background: #fff;
+	border-top: none;
+	border-left: none;
+	border-right: 1px solid #c1c0c0;
+}
+
+div.comp_container div.tabbed_nav ul li.on a {
+	font-weight: bold;
+	padding: 8px 10px;
+}
+
+div.comp_container div.tabbed_nav ul li a:hover {
+	color: #ff6319;
+	text-decoration: none;
+}
+
+/** Gen2 Tabbed Components **/
+div.comp_container div.comp_tabs {
+	margin: -5px;
+}
+div.comp_container div.comp_tabs div.tabbed_nav {
+	width: 100%;
+}
+div.comp_container div.comp_tabs .tabbed_nav ul li a {
+	font-weight: normal;
+	line-height: 14px;
+}
+div.comp_container div.comp_tabs .tabbed_nav ul li.on a {
+	font-weight: bold;
+}
+
+/** More Styles **/
+
+.more, div.dcc-text .more {
+	background: none;
+}
+
+.more a,
+.news_more a,
+.more_topusnews a,
+.comp_container_videoembedded a.more,
+.allbiz_category .ab_more,
+a.playitnow_more {
+	background: transparent url(/web/20121012073245im_/http://centurylink.net/components/images/morenews/centurylink/news_arrow.gif) no-repeat scroll right center;
+	padding-right: 10px;
+}
+
+/** DCC **/
+div.comp_container_maindcc div.comp_body {
+	background: #fff;
+}
+
+div.comp_container_maindcc .comp_body .comp_content,
+div.comp_container_dcc .comp_body .comp_content {
+	padding: 0px;
+}
+
+.dcc-container {
+	background: none;
+	height: 175px;
+}
+
+.dcc-text .more {
+	background: transparent url(/web/20121012073245im_/http://centurylink.net/components/images/morenews/centurylink/news_arrow.gif) no-repeat scroll right center;
+}
+
+div.dcc-nav {
+	padding: 8px 0px 3px 58px;
+	text-align: left;
+	width: 120px;
+}
+
+div.dcc-nav a.dcc_prev {
+	background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlbody.png) no-repeat -1032px -247px;
+	padding-left: 10px;
+}
+
+div.dcc-nav a.dcc_next {
+	background: transparent url(/web/20121012073245im_/http://centurylink.net/components/images/morenews/centurylink/news_arrow.gif) no-repeat scroll right center;
+	padding-right: 10px;
+}
+
+div.dcc_tab_container {
+	float: left;
+	padding: 10px;
+}
+
+.dcc-text ul li a {
+	background: transparent url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlbody.png) no-repeat scroll 0 6px;
+	color: #00853e;
+}
+
+/** New DCC Templates **/
+div.dcc_slide h2 a, div.dcc-container div.dcc-text h2 a {
+	line-height: 1.2em;
+}
+
+div.dcc-container div.dcc-text p, div.dcc-container div.dcc-text ul li {
+	line-height: 1.4em;
+}
+
+div.dcc_slide div.text_container ul.subheadlines li {
+	margin-top: 1px;
+}
+
+div.dcc_slide div.text_container a.moreinfo {
+        background: transparent url(/web/20121012073245im_/http://centurylink.net/components/images/morenews/centurylink/news_arrow.gif) no-repeat scroll right center;
+        padding-right: 10px;
+}
+
+div.dcc_slide div.text_container ul li.promo {
+	margin-bottom: 0px;
+}
+div.dcc_slide p {
+        color: #000;
+}
+
+/** Watercooler **/
+#body_col_2 div.watercooler_component div.comp_body div.comp_content {
+	background: #e1e1e1 url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlbody.png) no-repeat 0 -53px;
+	width: 460px;
+}
+
+.watercooler_component .comp_content .rt {
+	margin-top: 10px;
+}
+
+.watercooler_component .comp_content .rt ul {
+	width: 277px;
+}
+
+.watercooler_component .comp_content .rt ul li a {
+	color: #000;
+}
+
+.watercooler_component .comp_content .rt ul li a:hover {
+	background: transparent;
+	color: #ff6319;
+	text-decoration: none;
+}
+.watercooler_component .comp_content .watercoolermore a {
+	background: transparent url(/web/20121012073245im_/http://centurylink.net/components/images/morenews/centurylink/news_arrow.gif) no-repeat scroll right center;
+}
+
+.watercooler_component .comp_content h1 a,
+.watercooler_component .comp_content h4 a,
+.watercooler_component .comp_content h3 a {
+	color: #00853e;
+}
+
+.watercooler_component .comp_content h1 a:hover,
+.watercooler_component .comp_content h4 a:hover,
+.watercooler_component .comp_content h3 a:hover {
+	color: #ff6319;
+}
+
+/** Marketplace **/
+div.comp_container_1519 div.comp_body div.comp_content {
+	padding: 0px;
+}
+
+/** Top News Component **/
+.comp_body div.news_detail_image {
+	margin-bottom: 15px;
+}
+
+/** News Components **/
+div.news_text {
+	border: none;
+	font-weight: bold;
+}
+
+/** Weather Component **/
+.weather_component .weather_component_body .comp_nav_h form input.submit {
+	padding: 2px 5px;
+}
+
+/** Horizontal Ajax Tabbed Component **/
+div.ajaxtabbed_component div.tabbed_nav ul li a {
+	font-size: 11px;
+}
+
+/** Vertical Ajax Tabbed Component **/
+div.ajaxtabbed_component div.ajaxtabbed_vert {
+	background: none;
+}
+
+div.ajaxtabbed_component div.ajaxtabbed_vert div.tabbed_nav_vert {
+	width: 135px;
+}
+
+div.ajaxtabbed_component div.ajaxtabbed_vert div.tabbed_nav_vert ul {
+	height: 100%;
+	width: 135px;
+}
+
+div.ajaxtabbed_component div.ajaxtabbed_vert div.tabbed_nav_vert ul li {
+	border-bottom: 1px solid #000;
+	width: 125px;
+}
+
+div.ajaxtabbed_component div.ajaxtabbed_vert div.tabbed_nav_vert ul li.on {
+	background: transparent;
+	border-left: none;
+	border-right: none;
+	border-top: none;
+}
+
+body div#site_container div.ajaxtabbed_component div.ajaxtabbed_vert div.tabbed_nav_vert ul li a {
+	font-size: 12px;
+	width: 125px;
+}
+
+body div#site_container div.ajaxtabbed_component div.ajaxtabbed_vert div.tabbed_nav_vert ul li a:hover {
+	color: #ff6319;
+	text-decoration: none;
+}
+
+div.ajaxtabbed_component div.ajaxtabbed_vert div.tabcontent_vert {
+	width: 309px;
+}
+
+div.ajaxtabbed_component div.ajaxtabbed_vert div.tabcontent_vert div.img_left .img {
+	width: 60px;
+}
+
+div.ajaxtabbed_component div.ajaxtabbed_vert div.tabcontent_vert div.img_left .text {
+	margin-left: 70px;
+}
+
+/** Vertical Ajax Tabbed Component Right Column **/
+div#body_col_3 div.ajaxtabbed_component div.ajaxtabbed_vert div.tabbed_nav_vert {
+	width: 85px;
+}
+
+div#body_col_3 div.ajaxtabbed_component div.ajaxtabbed_vert div.tabcontent_vert {
+	width: 205px;
+}
+
+/** Local Component **/
+div.comp_container_local div.local_component .localleft {
+	float: left;
+	padding-top: 4px;
+	width: 40%;
+}
+
+div.comp_container_local div.local_component .localright {
+	float: right;
+	text-align: right;
+	width: 60%;
+}
+
+div.comp_container_local div.local_component .localright input {
+	border: 1px solid #000;
+	font-size: 11px;
+}
+
+div.comp_container_local div.local_component ul.local {
+	clear: both;
+	margin: 0 0 0 1px;
+	padding: 0;
+}
+
+div.comp_container_local div.local_component ul.local li {
+	list-style: none;
+	padding: 5px 10px;
+}
+
+div.comp_container_local div.local_component ul.local li a {
+	display: block;
+	padding: 0px 10px;
+}
+
+div#body_col_3 div.comp_container_local div.local_component div.img_left {
+	font-size: 11px;
+	width: 181px;
+}
+
+div.comp_container_local div.local_component div.img_left span {
+	vertical-align: middle;
+}
+
+div.comp_container_local div.local_component .comp_nav_h {
+	width: auto;
+}
+
+/** Living Component **/
+div.splitter-1 div.splitleft {
+	width: 200px;
+}
+
+div.splitter-1 h2, div.splitter-1 ul {
+	margin-left: 0px;
+	width: 100%;
+}
+
+/** Under DCC Text Ad **/
+div.comp_container_2915 div.comp_body {
+	background: #fff;
+	border-left: 1px solid #ccc;
+	border-top: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	width: 458px;
+}
+
+/** Login Component **/
+div.login_component {
+	background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlbody.png) no-repeat 0 -1750px;
+	height: 159px;
+	margin-bottom: 6px;
+}
+
+div.login_form {
+	padding: 45px 0px 0px 5px;
+}
+
+div.login_form form {
+	margin: 0px;
+	padding: 0px;
+}
+
+p.login_user label, p.login_pass label {
+	font-size: 12px;
+}
+
+p.login_user input.login_username,
+p.login_pass input.login_password {
+	border: 1px solid #9a9a9a;
+	font-size: 12px;
+	height: 18px;
+	padding: 1px 2px 0px;
+	width: 87px;
+}
+
+p.login_pass input.login_submit {
+	position: relative;
+	top: 7px;
+	margin-left: 35px;
+}
+
+select.login_email {
+	border: 1px solid #808080;
+	color: #4c4c4c;
+	display: inline;
+	font-size: 12px;
+	height: 20px;
+	padding-top: 1px;
+	vertical-align: top;
+	width: 130px;
+}
+
+select.login_email_support_hover {
+	visibility: hidden;
+}
+
+p.login_checkbox {
+	color: #505251;
+	font-size: 11px;
+	line-height: 1em;
+	margin: 2px 0px 0px 58px;
+}
+
+p.login_checkbox span.uncheck {
+	font-size: 10px;
+	margin-left: 22px;
+}
+
+span.login_email {
+	font-size: 11px;
+}
+
+div.login_buttons {
+	height: 23px;
+	margin: 5px 0px 0px;
+}
+
+*html div.login_buttons {
+	margin: 0px;
+}
+
+div.login_buttons .login_create,
+div.login_buttons .login_chat {
+	margin-right: 3px;
+}
+
+/** TV Listings Component **/
+div#tvlist_form_zipprovider div.change {
+	font-size: 12px;
+}
+
+div.comp_container_tvlisting div.change a {
+	color: #00853e;
+}
+
+div.comp_container_tvlisting a {
+	color: #012b53;
+}
+
+div.comp_container_tvlisting div#tvgrid {
+	background: #fbfbfb;
+}
+
+div.comp_container_tvlisting td.tvlist_grid_display_options {
+	background: #b1b1b1;
+	color: #696969;
+}
+
+div.comp_container_tvlisting td.tvlist_hour {
+	background: #cfcfcf;
+	color: #696969;
+}
+
+div.comp_container_tvlisting td.tvlist_grid_ondk {
+	background: #b1b1b1;
+}
+
+div.comp_container_tvlisting td.tvlist_grid_ondk a {
+	color: #fff;
+}
+
+div.comp_container_tvlisting td.tvlist_grid_onlt div#ptdiv table {
+	background: #dbdbdb;
+}
+
+/** Quicklnks **/
+#body_col_1 .comp_container_component .quicklinks form input {
+	width: 152px;
+}
+
+.quicklinks ul.link_list a.list_link,
+div.pagination_numeric ul li.prev a,
+div.pagination_numeric ul li.next a {
+	color: #00853e;
+}
+
+.quicklinks ul.link_list a.list_link:hover,
+div.pagination_numeric ul li.prev a:hover,
+div.pagination_numeric ul li.next a:hover {
+	color: #ff6319;
+}
+
+div.pagination_numeric ul li span {
+	background-color: #00853f;
+	border: 1px solid #00853f;
+}
+
+div.pagination_numeric ul li a,
+div.pagination_numeric ul li span {
+	border: 1px solid #00853f;
+}
+
+div.pagination_numeric ul li a:hover {
+	background-color: #00853f;
+	color: #fff;
+}
+
+/** Zmail **/
+div.comp_container_zmail div.comp_content {
+	padding: 0px;
+}
+
+/** Premium Spotlight Component **/
+div.comp_container_premiumspotlight {
+	margin-bottom: 6px;
+}
+
+/** Premium Menu **/
+div.comp_container_premiummenu div.comp_content {
+	padding: 0px;
+}
+
+div.comp_container_premiummenu div.comp_footer {
+	display: none;
+}
+
+div.prem_menu_cont {
+	background: #ececeb;
+	float: left;
+	width: 300px;
+}
+
+ul.prem_menu_ul {
+	background: #e1e1e1;
+	float: left;
+	list-style: none;
+	margin: 4px 10px 4px 3px;
+	width: 292px;
+}
+
+*html ul.prem_menu_ul {
+	margin: 4px 10px 4px 2px;
+}
+
+ul.prem_menu_ul li.prem_menu_li {
+	background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlbody.png) no-repeat 0 -531px;
+	border: 1px solid #777;
+	color: #fff;
+	display: block;
+	float: left;
+	font-size: 14px;
+	font-weight: bold;
+	height: 20px;
+	margin: 0px 0px 1px;
+	padding: 2px 0px 0px 7px;
+	width: 283px;
+}
+
+ul.prem_menu_ul li.prem_menu_li a.prem_header {
+	color: #fff;
+	float: left;
+}
+
+ul.prem_menu_ul li.prem_menu_li a.prem_header:hover { 
+	color: #fff;
+	text-decoration: none;
+}
+
+div.comp_container_premiummenu ul.prem_menu_ul li#premium_variety_menu,
+div.comp_container_premiummenu ul.prem_menu_ul li#premium_learning_menu,
+div.comp_container_premiummenu ul.prem_menu_ul li#premium_music_menu {
+	float: left;
+}
+
+span.premium_openclose {
+	background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlbody.png) 0 -1136px no-repeat;
+	display: block;
+	height: 15px;
+	float: right;
+	width: 15px;
+	margin: 1px 6px 0px 0px;
+}
+
+*html span.premium_openclose {
+	margin: 1px 3px 0px 0px;
+}
+
+div.prem_package_row_left,
+div.prem_package_row_right {
+	background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlbody.png) 0 -603px no-repeat;
+	border: 1px solid #848484;
+	float: left;
+	height: 28px;
+	margin: 0px 0px 1px;
+	text-align: left;
+	width: 143px;
+}
+
+div.prem_package_row_left {
+	margin: 0px 2px 1px 0px;
+}
+
+div.prem_package_row_left a,
+div.prem_package_row_right a {
+	color: #000;
+}
+
+div.prem_package_row_left a img,
+div.prem_package_row_right a img {
+	float: left;
+	width: 35px;
+}
+
+div.prem_package_row_left a p,
+div.prem_package_row_right a p {
+	cursor: pointer;
+	float: left;
+	font-size: 11px;
+	font-weight: normal;
+	line-height: 1em;
+	margin: 8px 0px 0px 1px;
+	width: 107px;
+}
+
+div.prem_package_row_left a p.long,
+div.prem_package_row_right a p.long {
+	margin: 2px 0px 0px 1px;
+}
+
+/** Customization **/
+td.agdistis_page_td #embark_contentwrap #navwrap .tabon,
+td.agdistis_page_td #customize_widenarrow .tabon {
+	color: #000;
+	font-size: 13px;
+}
+
+td.agdistis_page_td #embark_contentwrap #navwrap .offcorner a:hover {
+	color: #ff6319;
+}
+
+td.agdistis_page_td #embark_contentwrap #navwrap .offcorner a {
+	color: #00853e;
+}
+
+td.agdistis_page_td #embark_contentwrap .submit,
+td.agdistis_page_td #customize_widenarrow .submit {
+	color: #fff;
+}
+
+/** News Reader Page **/
+.text h3 {
+	color: #00853e;
+}
+
+/**************************************************/
+/*********************FOOTER***********************/
+/**************************************************/
+
+div#site_container_800 div#footer {
+	background: #f2eee3 url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlbody.png) no-repeat -1032px 0;
+	width: 787px;
+}
+
+div#footer {
+	background: #f2eee3 url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlbody.png) no-repeat 0 -751px;
+	float: left;
+	margin: 0px;
+	padding-top: 15px;
+	width: 987px;
+}
+
+div#footer div.site_footer {
+	color: #000;
+	float: left;
+	font-size: 12px;
+	line-height: 1.4em;
+	margin: 11px 0px 0px;
+	padding: 20px 0px 60px;
+	text-align: center;
+	width: 968px;
+}
+
+div#site_container_800 div#footer div.site_footer {
+	width: 787px;
+}
+
+div#footer div.site_footer a {
+	color: #000;
+	padding: 0px 5px;
+	text-decoration: none;
+}
+
+div#footer div.site_footer a:hover {
+	color: #ff6319;
+	text-decoration: underline;
+}
+
+div#footer span.footernotes {
+	color: #586068;
+	font-size: 10px;
+}
+
+/**************************************************/
+/*****************CROSS PROMOTION******************/
+/**************************************************/
+
+/** Sports Page Components **/
+div#body_col_sports1 {
+	float: left;
+	margin: 0px 4px 0px 0px;
+	width: 460px;
+}
+
+div#body_col_sports2 {
+	float: left;
+	width: 300px;
+}
+
+div#body_col_sports1 div.comp_container div.comp_header {
+	background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlbody.png) no-repeat 0 -1360px;
+}
+
+div#body_col_sports1 div.comp_container div.comp_body {
+	width: 458px;
+}
+
+div#body_col_sports2 div.comp_container div.comp_header {
+	background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlbody.png) no-repeat 0 -1672px;
+}
+
+div#body_col_sports2 div.comp_container div.comp_body {
+	width: 298px;
+}
+
+div#body_col_sports1 a,
+div#body_col_sports2 a {
+	color: #00853e;
+}
+
+/** Movies Page Component **/
+div#body_col_movies {
+	float: left;
+	margin-top: 6px;
+	width: 366px;
+}
+
+div#body_col_movies div.comp_container div.comp_header {
+	background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlbody.png) no-repeat -1032px -309px;
+}
+
+div#body_col_movies div.comp_container div.comp_body {
+	width: 364px;
+}
+
+div#body_col_movies div.comp_container .three-col-scrolls {
+	margin: 0px auto;
+}
+
+div#body_col_movies div.comp_container .three-col-scrolls ul li {
+	height: 120px;
+}
+
+/** Weather Page Components **/
+div#body_col_weather1 {
+	bottom: 28px;
+	position: relative;
+	width: 185px;
+}
+
+div#body_col_weather1 div.comp_container div.comp_header {
+	background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlbody.png) no-repeat -1032px -387px;
+}
+
+div#body_col_weather1 div.comp_container div.comp_body {
+	width: 183px;
+}
+
+div#body_col_weather2 {
+	float: left;
+	margin: 6px 4px 0px 0px;
+	width: 460px;
+}
+
+div#body_col_weather3 {
+	float: left;
+	margin-top: 6px;
+	width: 300px;
+}
+
+div#body_col_weather2 div.comp_container div.comp_header {
+	background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlbody.png) no-repeat 0 -1360px;
+}
+
+div#body_col_weather2 div.comp_container div.comp_body {
+	width: 458px;
+}
+
+div#body_col_weather3 div.comp_container div.comp_header {
+	background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlbody.png) no-repeat 0 -1672px;
+}
+
+div#body_col_weather3 div.comp_container div.comp_body {
+	width: 298px;
+}
+
+div#body_col_weather3 div.comp_container_moviesearch div.moviesearch_location input,
+div#body_col_weather3 div.comp_container_moviesearch div.moviesearch_title input {
+	width: 250px;
+}
+
+div#body_col_weather3 div.comp_container_moviesearch div.moviesearch_go {
+	margin: 7px 0px 0px;
+}
+
+/** All Business Articles **/
+div#body_col_12 div.allbiz div.dcc-media div.comp_container {
+	margin-top: 6px;
+	width: 219px;
+}
+div#body_col_12 div.allbiz div.dcc-media div.comp_container div.comp_header {
+	background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/sprites/ctlbody.png) no-repeat -1032px -465px;
+}
+
+div#body_col_12 div.allbiz div.dcc-media div.comp_container div.comp_body {
+	border-bottom: 1px solid #ccc;
+	width: 217px;
+}
+
+div#agdistis_page table tr td {
+}
+
+/** Celeb Page **/
+.celebrity_channel .celebrity_channel_body .webvideo_thumb_cont {
+	height: 75px;
+}
+
+/** Olympics Page **/
+div#body_col_4 div.comp_body {
+	width: 456px;
+}
+
+div#body_col_6 div.comp_body,
+div#body_col_7 div.comp_body,
+div#body_col_8 div.comp_body {
+	width: 296px;
+}
+
+/** Video Channel **/
+div#video #body_col_2 {
+	margin-left: 2px;
+}
+
+/** Movie Listings - Center Col **/
+#body_col_2 .comp_container_movielistings .comp_content {
+	padding: 5px 15px;
+}
+
+#body_col_2 .comp_container_movielistings #titlelefta {
+	width: 335px;
+}
+
+#body_col_2 .comp_container_movielistings #locationlefta {
+	width: 335px;
+}
+
+#body_col_2 .comp_container_movielistings select.movie_date {
+	padding-left: 4px;
+	width: 100px;
+}
+
+#body_col_2 .comp_container_movielistings  .splitright {
+	margin-top: 8px;
+}
+
+#body_col_2 .comp_container_movielistings .movie_list ol {
+	width: 210px;
+}
+
+/** Marketplace **/
+.comp_container_marketplace .marketplace ul li {
+	padding: 1px;
+}
+
+/** Hostopia Email Component **/
+div.hostopia_email div.host_account {
+	background: #b2cd7b;
+	float: left;
+	padding: 10px;
+	width: 280px;
+}
+div.hostopia_email div.host_account a {
+	background: url(https://web.archive.org/web/20121012073245im_/http://images.synacor.com/clientimages/69187/54716.png) no-repeat left center;
+	color: #fff;
+	float: right;
+	padding-left: 10px;
+}
+div.hostopia_email div.host_email {
+	float: left;
+}
+
+/** Play It Now **/
+.playitnow_wide .playitnow_ul li {
+	width: 132px;
+}
+div.playitnow .playitnow_ul li a {
+	color: #00853f;
+}
+/** Gaming News **/
+.games_news div.games_news_content {
+	padding-left: 5px;
+	width: 250px;
+}
+
+/*
+     FILE ARCHIVED ON 07:32:45 Oct 12, 2012 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 07:40:52 Jul 20, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 158.866
+  exclusion.robots: 0.095
+  exclusion.robots.policy: 0.084
+  RedisCDXSource: 0.512
+  esindex: 0.009
+  LoadShardBlock: 138.689 (3)
+  PetaboxLoader3.datanode: 110.268 (4)
+  PetaboxLoader3.resolve: 170.531 (3)
+  load_resource: 154.803
+*/

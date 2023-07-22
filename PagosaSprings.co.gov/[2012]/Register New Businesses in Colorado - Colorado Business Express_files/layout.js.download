@@ -1,0 +1,441 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+$(document).ready(function() {
+	 $(".scroll,.modal-info ol li a").click(function (a) {
+        a.preventDefault();
+        a = this.href.split("#")[1];
+        a = $("#" + a).offset().top;
+        $("html, body").animate({
+            scrollTop: a
+        }, 1E3)
+    })	
+$('.sliverhead h1 a, .helpQ_odd a, .helpQ_even a,.helpInfo p a,.doIQualifyWin').click(function(){
+    window.open(this.href);
+    return false;
+});			
+ //Modal Windows
+  $("[id*=modal_]").fancybox({
+    'width': '80%',
+    'height': '80%',
+    'autoScale': false,
+    'titleShow': false,
+    'transitionIn': 'fade',
+    'transitionOut': 'fade',
+    'type': 'iframe'
+  });
+  $("[id*=modalHelp_]").fancybox({
+    'width': '50%',
+    'height': '26%',
+    'autoScale': false,
+    'titleShow': false,
+    'transitionIn': 'fade',
+    'transitionOut': 'fade',
+    'type': 'iframe'
+  });
+		$("[id*=modalHelpMed_]").fancybox({
+    'width': '50%',
+    'height': '30%',
+    'autoScale': false,
+    'titleShow': false,
+    'transitionIn': 'fade',
+    'transitionOut': 'fade',
+    'type': 'iframe'
+  });
+	$("[id*=modalHelpLrg_]").fancybox({
+    'width': '50%',
+    'height': '39%',
+    'autoScale': false,
+    'titleShow': false,
+    'transitionIn': 'fade',
+    'transitionOut': 'fade',
+    'type': 'iframe'
+  });
+		$("#modalHelpLrg2_rental").fancybox({
+    'width': '50%',
+    'height': '44%',
+    'autoScale': false,
+    'titleShow': false,
+    'transitionIn': 'fade',
+    'transitionOut': 'fade',
+    'type': 'iframe'
+  });
+	$("#modalHelp_filingFreq").fancybox({
+    'width': '50%',
+    'height': '53%',
+    'autoScale': false,
+    'titleShow': false,
+    'transitionIn': 'fade',
+    'transitionOut': 'fade',
+    'type': 'iframe'
+  });
+	$("#modalHelp_specialDistricts").fancybox({
+    'width': '50%',
+    'height': '72%',
+    'autoScale': false,
+    'titleShow': false,
+    'transitionIn': 'fade',
+    'transitionOut': 'fade',
+    'type': 'iframe'
+  });
+  $("#modal_printer").fancybox({
+    'width': 747,
+    'height': '80%',
+    'autoScale': false,
+    'titleShow': false,
+    'transitionIn': 'fade',
+    'transitionOut': 'fade',
+    'type': 'iframe'
+  });
+  $("#modal_20").fancybox({
+    'width': '50%',
+    'height': '41%',
+    'autoScale': false,
+    'titleShow': false,
+    'transitionIn': 'fade',
+    'transitionOut': 'fade',
+    'type': 'iframe'
+  });
+  
+  //target _blank for strict DOCTYPE
+  $('a[rel=external]').attr('target','_blank');
+
+  //Restore the show/hide states in the event we're sent to a page with
+  //already selected values.
+  if(typeof(showHide) != "undefined") {
+    $('input:checked').each(function(index, value){
+      changedvalues(value);
+    });
+    $('select option:selected').each(function(index, value) {
+      changedvalues(value.parentNode)
+    });
+    
+  }
+  
+  changedCheckboxValues(null);
+
+});
+
+function fixIt(e) {
+  if(e.status == 'success') {
+    $('.custom-checkbox input,.custom-radio input').customInput();
+    $('.toolBoxSeparator').next("span").css({'clear':'left','display':'block'});
+    $("#productsServiceDisplay span:eq(1)").css({'display' : 'block','position' : 'relative','overflow' : 'auto','padding' : '0'}); 
+  }
+}
+
+function changedvalues(value) {
+  var identifier = value.id;
+  if(typeof(value.selectedIndex) != "undefined") {
+    identifier = identifier + ":" + value.options[value.selectedIndex].index;
+  } else if (value.type.toLowerCase() == "checkbox") {
+    if(value.checked) {
+      identifier = identifier + ":1";
+    } else {
+      identifier = identifier + ":0";
+    }
+  }
+  showblock(showHide[identifier + ":show"]);
+  hideblock(showHide[identifier + ":hide"]);
+}
+
+function hideblock(divs) {
+  if(typeof(divs) != "undefined") {
+    var divs_split = divs.split(",");
+    for(div in divs_split) {
+      $(divs_split[div]).hide("fast");
+    }
+  }
+}
+
+function showblock(divs) {
+  if(typeof(divs) != "undefined") {
+    var divs_split = divs.split(",");
+    for(div in divs_split) {
+      $(divs_split[div]).show("fast");
+    }
+  }
+}
+
+//Custom hide function for cdle1 (Employees)
+function changedCheckboxValues(value) {
+	if($('.questionTwo').attr('checked') && $('.questionFive').attr('checked'))
+	{
+		$("#qualDateAndFirstPaid").hide("fast");
+	}
+	else
+	{
+		$("#qualDateAndFirstPaid").show("fast");
+	}
+	if(value != null)
+	{
+		changedvalues(value);
+    }
+}
+
+function wholesaleValuesChanged(elem) {
+	var id = elem.id;
+	var labelTxt = $('label[for='+id+']').text();
+	var matchWholeSale=/wholesale/i;
+	if(labelTxt.match(matchWholeSale) != null) {
+		var quest2IdBase="interview\\:question2\\:";
+		var quest2Num=0;
+		var quest2= quest2IdBase+quest2Num;
+		while($("#"+quest2).length) { //If no selector is returned, then the expression will return 0.
+			quest2LabelTxt=$('label[for='+quest2+']').text();
+			if(quest2LabelTxt.match(matchWholeSale)) {
+				if($("#"+id).is(':checked')) {
+					$("#"+quest2).attr('checked','checked');
+					$("#"+quest2).attr('disabled','disabled');
+					$('label[for='+quest2+']').addClass('checked');
+				} else {
+					$("#"+quest2).removeAttr('checked')
+					$("#"+quest2).removeAttr('disabled');
+					$('label[for='+quest2+']').removeClass('checked');
+				}
+			}
+			quest2Num++;
+			quest2=quest2IdBase+quest2Num;
+		}
+		if(quest2Num == 0 ){
+			alert("Loop not run");
+		}
+	}
+}//end wholesaleValuesChanged
+
+//$("input[name$='employeePaid']").click(function(){
+//	var radio_value = $(this).val();
+//		if(radio_value=='yes-employeePaid') {
+//			$("#employeePaid").show("normal");
+//  		}
+//	});
+//$("#employeePaid").hide();
+$("[class*=datePick]")
+	.val("MM/DD/YYYY")
+	.css({'color':'#999'})
+    .focus(function(){
+        if ($(this).val() == "MM/DD/YYYY") {
+			$(this).css({'color':'#000'});
+            $(this).val("");
+	}
+})
+    .blur(function(){
+        if ($(this).val() == "") {
+            $(this).val("MM/DD/YYYY")			
+            .css({'color':'#999'});
+	}
+});
+	
+	
+//Expand/Collapse
+//$("[class*=toggle_container]").hide();
+	//$("[class*=trigger]").toggle(function(){
+	//$(this).addClass("active"); 
+	//	}, function () {
+		//$(this).removeClass("active");
+	//});
+	//$("[class*=trigger]").click(function(){
+		//$(this).next("[class*=toggle_container]").slideToggle(200);
+//});
+var showText="Expand";
+var hideText="Collapse";	
+	$(".toggle").prev().append('<a href="#" class="toggleLink">'+showText+'</a>');
+	$('.toggle').hide();		
+	$('a.toggleLink').click(function() {
+		if ($(this).text()==showText) {
+		$(this).text(hideText);
+		$(this).addClass('toggleLink-arrowUp')
+		}
+		else {
+		$(this).text(showText);
+		$(this).removeClass('toggleLink-arrowUp')
+		}
+$(this).parent().next('.toggle').slideToggle('fast');	
+return false;	
+});
+//Owner, Partner, Corporate Officers
+//$('#addOwner').click(function() {
+//	$('#ownerList').slideDown('fast');
+//});
+//$("#ownerList").hide();
+//Seasonal Business
+//$('#yes-seasonalBus').click(function() {
+//	$('#seasonalBusiness').slideDown('fast');
+//});
+//$("#seasonalBusiness").hide();
+//Employee N/A checked/unchecked
+//$('.employee-na1').click(function() {
+//	if ($('.employee-na1:checked').val() !== undefined) {
+//		$(".empDateEst1").hide('fast');
+//		$(".empNa1 div").show();
+//	} 
+//	else {
+//		$(".empNa1 div").hide();
+//		$(".empDateEst1").slideDown('fast');
+//	}
+//});
+//$(".empNa1 div").hide();
+//$('.employee-na2').click(function() {
+//	if ($('.employee-na2:checked').val() !== undefined) {
+//		$(".empDateEst2").hide('fast');
+//		$(".empNa2 div").show();
+//	} 
+//	else {
+//		$(".empNa2 div").hide();
+//		$(".empDateEst2").slideDown('fast');
+//	}
+//});
+//$(".empNa2 div").hide();
+//Custom Checkbox/Radio selects
+jQuery.fn.customInput = function(){
+	$(this).each(function(i){	
+		if($(this).is('[type=checkbox],[type=radio]')){
+			var input = $(this);
+			
+			// get the associated label using the input's id
+			var label = $('label[for='+input.attr('id')+']');
+			
+			//get type, for classname suffix 
+			var inputType = (input.is('[type=checkbox]')) ? 'checkbox' : 'radio';
+			
+			// wrap the input + label in a div 
+			$('<div class="custom-'+ inputType +'"></div>').insertBefore(input).append(input, label);
+			
+			// find all inputs in this set using the shared name attribute
+			var allInputs = $('input[name='+input.attr('name')+']');
+			
+			// necessary for browsers that don't support the :hover pseudo class on labels
+			label.hover(
+				function(){ 
+					$(this).addClass('hover'); 
+					if(inputType == 'checkbox' && input.is(':checked')){ 
+						$(this).addClass('checkedHover'); 
+					} 
+				},
+				function(){ $(this).removeClass('hover checkedHover'); }
+			);
+			
+			//bind custom event, trigger it, bind click,focus,blur events					
+			input.bind('updateState', function(){	
+				if (input.is(':checked')) {
+					if (input.is(':radio')) {				
+						allInputs.each(function(){
+							$('label[for='+$(this).attr('id')+']').removeClass('checked');
+						});		
+					};
+					label.addClass('checked');
+				}
+				else { label.removeClass('checked checkedHover checkedFocus'); }
+										
+			})
+			.trigger('updateState')
+			.click(function(){ 
+				$(this).trigger('updateState'); 
+			})
+			.focus(function(){ 
+				label.addClass('focus'); 
+				if(inputType == 'checkbox' && input.is(':checked')){ 
+					$(this).addClass('checkedFocus'); 
+				} 
+			})
+			.blur(function(){ label.removeClass('focus checkedFocus'); });
+		}
+	});
+};
+
+//Custom Checkbox/Radio select fire
+$(function(){
+	$('.custom-checkbox input,.custom-radio input').customInput();
+
+
+//Preload Images
+//(function($) {
+//  var cache = [];
+//  // Arguments are image paths relative to the current page.
+//  $.preLoadImages = function() {
+//    var args_len = arguments.length;
+//    for (var i = args_len; i--;) {
+//      var cacheImage = document.createElement('img');
+//      cacheImage.src = arguments[i];
+//      cache.push(cacheImage);
+//    }
+//  }
+//})(jQuery)
+//jQuery.preLoadImages("images/img-showHideTriggerDwn.png,images/btn-feedbackDwn.png,images/btn-helpDwn.png");
+
+$.fn.preload = function() {
+    this.each(function(){
+        $('<img/>')[0].src = this;
+    });
+}
+
+$(['images/img-showHideTriggerDwn.png','images/btn-feedbackDwn.png','images/btn-helpDwn.png']).preload();
+//QTip for (Page Help)
+  //QTip for (Page Help)
+$('.pgHelp').each(function()
+{
+   $(this).qtip({
+      content: $(this).parent().next("[id*=pgHelp_]"),
+	  show: 'click',
+	  hide: 'mouseout',
+	  style: { 
+	  width: 400,
+	  padding:8,
+	  background: '#fff',
+	  color: 'black',
+	  textAlign: 'left',
+	  border: {
+		width: 0,
+		radius: 3,
+		color: '#005592'
+	  },
+      tip: 'topLeft'
+ }
+});
+$("[id*=pgHelp_]").css({'font':'1.4em/1.4 Arial, Helvetica, sans-serif'});
+$("[id*=pgHelp_]").hide();
+
+//Custom CSS Controls
+$('.srchOptions-results div').next().css({'margin-left':'20px'});
+//$('.confirmationTbl th').css({'width':'60%'}).next().css({'width':'20%'});
+$('.bizCustomReport td:nth-child(1)').css({'background':'#f3f3f3','width':'20%'});
+$('.toolBoxSeparator').next("span").css({'clear':'left','display':'block'});
+
+});
+});
+ $("#productsServiceDisplay span:eq(1)").css({'display' : 'block','position' : 'relative','padding' : '0'});
+ $(".hm-pgContentBox span:eq(0)").css({'display' : 'block','position' : 'relative','padding' : '0','margin-left' : '10px'});
+$(".toggle:eq(0)").show();
+$("a.toggleLink:eq(0)").addClass('toggleLink-arrowUp');
+$("a.toggleLink:eq(0)").text('Collapse');
+
+}
+/*
+     FILE ARCHIVED ON 05:23:49 Jun 08, 2012 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 08:59:21 Jul 20, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 316.723
+  exclusion.robots: 0.088
+  exclusion.robots.policy: 0.077
+  cdx.remote: 0.074
+  esindex: 0.009
+  LoadShardBlock: 87.477 (3)
+  PetaboxLoader3.datanode: 70.152 (4)
+  PetaboxLoader3.resolve: 83.714 (2)
+  load_resource: 88.469
+*/

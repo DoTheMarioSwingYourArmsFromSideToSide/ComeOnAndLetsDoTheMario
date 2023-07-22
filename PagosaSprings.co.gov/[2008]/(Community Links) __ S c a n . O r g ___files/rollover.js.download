@@ -1,0 +1,67 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+<!--
+
+function newImage(arg) {
+if (document.images) {
+rslt = new Image();
+rslt.src = arg;
+return rslt;
+}
+}
+
+function changeImages() {
+if (document.images && (preloadFlag == true)) {
+for (var i=0; i<changeImages.arguments.length; i+=2) {
+document[changeImages.arguments[i]].src = changeImages.arguments[i+1];
+}
+}
+}
+
+var preloadFlag = false;
+function preloadImages() {
+if (document.images) {
+community_ImageMap_01_over = newImage("images/community-ImageMap_01_over.jpg");
+Reg__9_Res_ImageMap_02_over = newImage("images/Reg%2c-9-Res-ImageMap_02_over.jpg");
+small_bus_loans_ImageMap_03_over = newImage("images/small_bus_loans-ImageMap_03.jpg");
+sw_transportation_ImageMap_04_over = newImage("images/sw_transportation-ImageMap_.jpg");
+enterprise_zone_ImageMap_05_over = newImage("images/enterprise_zone-ImageMap_05.jpg");
+region_9_publications_ImageMap_06_over = newImage("images/region_9_publications-Image.jpg");
+preloadFlag = true;
+}
+}
+
+// -->
+
+
+}
+/*
+     FILE ARCHIVED ON 09:26:02 Jul 09, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 08:18:37 Jul 18, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 233.224
+  exclusion.robots: 0.066
+  exclusion.robots.policy: 0.058
+  cdx.remote: 0.051
+  esindex: 0.008
+  LoadShardBlock: 197.288 (3)
+  PetaboxLoader3.datanode: 214.016 (4)
+  load_resource: 149.896
+  PetaboxLoader3.resolve: 92.51
+*/

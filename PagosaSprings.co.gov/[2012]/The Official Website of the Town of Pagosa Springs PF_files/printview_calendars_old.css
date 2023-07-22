@@ -1,0 +1,190 @@
+/*======================================( LEGACY CALENDAR STYLES )===*/
+/*===================================================================*/
+
+
+/*======================================( STRUCTURE AND POSITION )===*/
+
+/* common styles */
+.calMonthHeading { text-align: center; }
+.calMonth { width: 100%; }
+.calendarTable {
+    width: 100%;
+    margin-bottom: 0px;
+    margin-right: auto;
+    margin-left: auto;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-collapse: collapse;
+}
+
+.calMonth TD {
+    padding: 1px;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+TD.calDay, TD.calendar_small_event_title {  width: 14%; height: 4em; vertical-align: top; }
+
+.calLinks { position: relative; margin: 3px 0px 3px 0px; padding: 0px; text-align: left; }
+.calLinks .next { position: absolute; right: 0px; }
+.calMonth IMG { border: none; }
+.eventLink { display: block; }
+
+/* weekday hiding for small calendars */
+.smallCal .calDayHeading .medium, .smallCal .calDayHeading .medium { display: none; }
+.smallCal .calDayHeading .long, .smallCal .calDayHeading .long { display: none; }
+.calDayHeading .long { display: none; }
+
+/* height for small calendars */
+.smallCal TD.calDay, .smallCal TD.calendar_small_event_title,
+.smallCal TD.calDay, .smallCal TD.calendar_small_event_title
+{ height: 18pt; }
+
+
+
+/* the formerly inline styles... */
+.calendarTable
+{
+    background-color: #444;
+}
+.calendar_event_title, .calendar_big_event_title, .calendar_small_event_title, .calendar_date, .calendar_month, .calendar_head, .day_headings, .today_small_cell, .today_big_cell
+{
+    color: black;
+    background-color: white;
+    padding: 1px;
+}
+.day_headings
+{
+    text-align: center;
+}
+.today_big_cell, .calendar_big_event_title
+{
+    height: 50px;
+}
+.today_small_cell, .calendar_small_event_title
+{
+    height: 20px;
+}
+.calendar_big_event_title, .calendar_head, .calendar_nav
+{
+    padding: 5px;
+}
+.today_small_cell, .today_big_cell
+{
+    background-color: #EEE;
+}
+.calendar_nav A
+{
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 17px;
+}
+.calendar_day { font-weight: bold; }
+.calendar_nav, .calendar_month, .calendar_head
+{
+    background-color: #DDD;
+}
+.calendar_month
+{
+    font-size: 12pt;
+    font-weight: bold;
+}
+
+
+
+/* the fixes... */
+
+/* hopefully this one is specific enough that it will override all the time... */
+BODY DIV#allContainer DIV TABLE.calendarTable TD.calendar_date,
+BODY DIV#allContainer DIV TABLE.calendarTable TD.calendar_head,
+BODY DIV#allContainer DIV TABLE.calendarTable TD.calendar_small_event_title,
+BODY DIV#allContainer DIV TABLE.calendarTable TD.calendar_big_event_title,
+BODY DIV#allContainer DIV TABLE.calendarTable TD.day_headings
+{
+    padding: 1px;
+    border: none;
+    margin: 0px;
+    background-image: none;
+}
+/*.calendarTable .contentbox_left, .calendarTable .contentbox_right
+{
+    border: none;
+}*/
+.calendarTable
+{
+
+}
+
+.today_small_cell { color: #600; }
+
+.calendarTable
+{
+    background-color: #444;
+}
+.calendar_event_title, .calendar_big_event_title, .calendar_small_event_title, .calendar_date, .calendar_month, .calendar_head, .day_headings, .today_small_cell, .today_big_cell
+{
+    color: black;
+    background-color: white;
+    padding: 1px;
+}
+.day_headings
+{
+    text-align: center;
+}
+.today_big_cell, .calendar_big_event_title
+{
+    height: 50px;
+}
+.today_small_cell, .calendar_small_event_title
+{
+    height: 20px;
+}
+.calendar_big_event_title, .calendar_head, .calendar_nav
+{
+    padding: 5px;
+}
+.today_small_cell, .today_big_cell
+{
+    background-color: #EEE;
+}
+.calendar_nav A
+{
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 17px;
+}
+.calendar_day { font-weight: bold; }
+.calendar_nav, .calendar_month, .calendar_head
+{
+    background-color: #DDD;
+}
+.calendar_month
+{
+    font-size: 12pt;
+    font-weight: bold;
+}
+
+/* misc., formerly inlined */
+
+.calendar_date .calDayNum { display: none; }
+
+
+/*
+     FILE ARCHIVED ON 15:46:28 Oct 13, 2013 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 08:33:46 Jul 19, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 139.905
+  exclusion.robots: 0.122
+  exclusion.robots.policy: 0.109
+  RedisCDXSource: 0.685
+  esindex: 0.024
+  LoadShardBlock: 112.296 (3)
+  PetaboxLoader3.datanode: 54.862 (4)
+  PetaboxLoader3.resolve: 196.095 (3)
+  load_resource: 168.618
+*/

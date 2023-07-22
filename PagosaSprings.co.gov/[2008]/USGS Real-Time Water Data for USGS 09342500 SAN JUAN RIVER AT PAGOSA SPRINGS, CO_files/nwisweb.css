@@ -1,0 +1,158 @@
+/* Cascading Stylesheet for NwisWeb pages */
+/* $Source: /nwiscvs/nwisweb/web/icons/nwisweb.css,v $ */
+/* $Revision: 1.5 $ */
+/* $Date: 2004/09/23 20:14:33 $ */
+/* $Author: nwisweb $ */
+
+/* Colors for various items */
+
+H1 {    color: #000080; }
+H2 {    color: #000080; }
+H3 {    color: #000080; }
+
+.h1 { 	color:   #000080; }
+.h2 { 	color:   #000080; }
+.h3 { 	color:   #000080; }
+
+.bannercolor { background: #000080; }
+
+.term   { font-size: 1.1em; 
+          font-weight: bolder;
+          }
+
+/* HTML Tag changes */
+H1 { 	margin-top:  	0em; 
+	margin-bottom: 	0em;
+   } 
+
+H2 { 	margin-top:  	0em; 
+	margin-bottom: 	.1em; 
+	
+   } 
+ 
+H3 {    margin-top:  	0em;
+	margin-bottom: 	0em;
+   }
+
+
+
+ADDRESS {
+        	margin-top:     0em;
+		margin-bottom:	0em;
+		font-style:	normal;
+		font-size:	70%;
+		font-weight:	bold;
+	}		
+
+/* New tags */
+
+.h1 {	font-size: 	190%;
+	font-weight:	bold;
+	margin-top:  	0em;
+	margin-bottom: 	0em;
+    }
+
+.h2 {	font-size: 	145%;
+	font-weight:	bold;
+	margin-top:  	0em;
+	margin-bottom: 	0em;
+    }
+
+.h3 { 	font-size: 	120%;
+	font-weight:   	bold;
+	margin-top:  	0em;
+	margin-bottom: 	0em;
+    } 
+	    
+.notop {margin-top: 	0em; } 
+
+.indent { margin-left: 	.25em;
+	  margin-right: .25em;
+	  margin-top: 	0em;
+	  margin-below: .5em;
+	  text-indent:  1em;   
+        }
+
+.blockindent { margin-left: 	5mm; 
+               margin-top:	0em;
+  	   }
+
+.description { margin-left: .5em;
+               margin-right: .5em;
+               margin-top: 0em;
+               margin-bottom: 0em;
+               text-indent:  1em;   
+             }
+
+.grouplabel { margin-top: 0em;
+              margin-bottom: .25em; 
+              color: #000080;
+            }
+.grouptext { margin-top: 0em;
+	     margin-left: .25em;
+	     margin-right: .25em;
+	     margin-bottom: .75em;
+	     text-indent: 1em;
+	   }
+
+/* Used on Help Pages */
+
+.helptext {  margin-left: 2em;
+             margin-top: 0em;
+             margin-bottom: 0em;
+             margin-below:  0em;
+            }
+
+.helpheader { font-size: larger; 
+              color: blue;
+            }
+
+.helpurlheader { color: red; }
+ 
+.helpurls {  margin-left: 2em;
+             margin-top: 0em;
+             margin-bottom: 0em;
+             margin-below:  0em;
+             font-family: courier; 
+          }
+
+.smline { line-height: 95%; }
+
+.nospace { 	margin-top: 	0em;
+  	   	margin-bottom: 	0em;
+		margin-left:   	0em;
+		margin-right:	0em;
+		line-height:    90%;
+	}
+.tableindent { margin-left: 	10mm; 
+               margin-top:	0em;
+  	   }
+.imgcaption {  font-size: 12px; font-weight: bold; color: #FF0000}
+.generic {font-size: 15px ; }
+.fine_print {font-size: 12px ;}
+a.anchor:link {color: blue}     /* unvisited link */
+a.anchor:visited {color: blue}  /* visited link */
+a.anchor:hover {color: #ff00ff}   /* mouse over link */
+a.anchor:active {color: #0000ff}   /* selected link */
+
+.news { background-color: #FFCC99 }
+/*
+     FILE ARCHIVED ON 18:03:31 Jun 30, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 08:30:58 Jul 18, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 48.495
+  exclusion.robots: 0.1
+  exclusion.robots.policy: 0.087
+  RedisCDXSource: 1.147
+  esindex: 0.01
+  LoadShardBlock: 27.863 (3)
+  PetaboxLoader3.datanode: 79.317 (4)
+  load_resource: 109.563
+  PetaboxLoader3.resolve: 39.671
+*/

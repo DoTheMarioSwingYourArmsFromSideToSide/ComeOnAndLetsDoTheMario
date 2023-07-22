@@ -1,0 +1,309 @@
+/* ========== GENERAL CLASSES ========== */
+/* ========== LEFT CLASSES ============= */
+/* ========== RIGHT CLASSES ============ */
+/* ========== NAV CLASSES ============== */
+/* ========== FOOTER CLASSES =========== */
+/* ========== HEADLINE CLASSES ========= */
+/* ========== Link CLASSES ============= */
+/* ======== Special For This Site Or Misc. ====== */
+
+
+
+
+/* ========== GENERAL CLASSES ========== */.
+.form, TABLE.form, TD.form 
+{
+    FONT-SIZE: 11px;
+    COLOR: #000000;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+}
+.warning 
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 12px;
+    COLOR: #ff0000;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+}
+.normal, TABLE.normal, TR.normal, TD.normal, body
+{
+    COLOR: #000000;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+    FONT-SIZE: 10ptnormal;
+    BACKGROUND-COLOR: #FFFFFF
+}
+.shaded
+{
+    COLOR: #000000;
+    FONT-SIZE: 10pt;
+    BACKGROUND-COLOR: #CCCCCC;
+}
+
+
+
+
+/* ========== LEFT CLASSES ============= */
+.contentbox_left, TABLE.contentbox_left, TD.contentbox_left
+{
+    FONT-SIZE: 10pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+    BACKGROUND-COLOR: #999999
+}
+
+.contentboxheader_left, TABLE.contentboxheader_left, TD.contentboxheader_left
+{
+    COLOR: #FFFFFF;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+    BACKGROUND-COLOR: #993300
+}
+.contentbox_left A:link, .contentbox_left A:visited
+{
+    COLOR: #993300;
+    FONT-WEIGHT: bold;
+}
+.searchbox, TABLE.searchbox, TD.searchbox
+{
+    FONT-SIZE: 10pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+    BACKGROUND-COLOR: #999999
+}
+.searchboxheader, TABLE.searchboxheader, TD.searchboxheader
+{
+    COLOR: #FFFFFF;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+    BACKGROUND-COLOR: #993300
+}
+.searchbox A:link, .searchbox A:visited
+{
+    COLOR: #993300;
+    FONT-WEIGHT: bold;
+}
+
+
+
+
+/* ========== RIGHT CLASSES ============ */
+.rightbackground, TABLE.rightbackground, TD.rightbackground 
+{
+    FONT-SIZE: 10pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+    BACKGROUND-COLOR: #999999
+}
+.contentbox_right, TABLE.contentbox_right, TD.contentbox_right 
+{
+    FONT-SIZE: 10pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+    BACKGROUND-COLOR: #999999
+}
+.contentboxheader_right, TABLE.contentboxheader_right, TD.contentboxheader_right
+{
+    COLOR: #FFFFFF;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+    BACKGROUND-COLOR: #993300
+}
+.contentbox_right A:link, .contentbox_right A:visited
+{
+    COLOR: #993300;
+    FONT-WEIGHT: bold;
+}
+.sidebar, TABLE.sidebar, TD.sidebar
+{
+    FONT-SIZE: 10pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+    BACKGROUND-COLOR: #999999
+}
+.sidebarheader, TABLE.sidebarheader, TD.sidebarheader
+{
+    COLOR: #FFFFFF;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+    BACKGROUND-COLOR: #993300
+}
+.sidebar A:link, .sidebar A:visited
+{
+    COLOR: #993300;
+    FONT-WEIGHT: bold;
+}
+
+
+
+
+
+/* ========== NAV CLASSES ============== */
+.navbg, .leftbg
+{
+    BACKGROUND-COLOR: #999999;
+}
+.navbar, A.navbar, TABLE.navbar, TD.navbar
+{
+    FONT-SIZE: 10pt;
+    FONT-WEIGHT: bold;
+    FONT-STYLE: italic;
+    COLOR: #000000; 
+    TEXT-DECORATION: None;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+    BACKGROUND-COLOR: #FFCC66
+}
+.navbarHigh, A.navbarHigh, TABLE.navbarHigh, TD.navbarHigh
+{
+    FONT-SIZE: 10pt;
+    FONT-WEIGHT: bold;
+    FONT-STYLE: italic;
+    COLOR: #000000; 
+    TEXT-DECORATION: None;
+    BACKGROUND-COLOR: #999966;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+}
+.subnavbar, A.subnavbar, TABLE.subnavbar, TD.subnavbar
+{
+    FONT-SIZE: 9pt;
+    FONT-WEIGHT: bold;
+    COLOR: #000000; 
+    TEXT-DECORATION: None;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+    BACKGROUND-COLOR: #999999
+}
+.subnavbarHigh, A.subnavbarHigh, TABLE.subnavbarHigh, TD.subnavbarHigh
+{
+    FONT-SIZE: 9pt;
+    FONT-WEIGHT: bold;
+    TEXT-DECORATION: None;
+    COLOR: #FFFFFF;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+    BACKGROUND-COLOR: #999999
+}
+.navbarLine
+{
+    BACKGROUND-COLOR: #000000;
+}
+
+
+
+
+/* ========== FOOTER CLASSES =========== */
+.footer, TABLE.footer, TD.footer
+{
+    FONT-SIZE: 7.5pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+    BACKGROUND-COLOR: #ffffff
+}
+.footernav, TABLE.footernav, TD.footernav
+{
+    FONT-SIZE: 7.5pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+    BACKGROUND-COLOR: #ffffff
+}
+.footernav A:link, .cookiecrumb A:visited
+{
+    COLOR: #000000;
+    FONT-WEIGHT:bold;
+    FONT-SIZE: 7.5pt;
+    text-decoration: none
+}
+
+
+
+
+/* ========== HEADLINE CLASSES ========= */
+.headline1
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 18pt;
+    COLOR: #993300;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+}
+.headline2
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 14pt;
+    COLOR: #993300;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+}
+.headline3
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 12pt;
+    COLOR: #993300;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+}
+.headline4
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    COLOR: #993300;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+}
+
+
+
+
+/* ========== Link CLASSES ============= */
+.subtext, TABLE.subtext, TD.subtex
+{
+    FONT-SIZE: 7.5pt;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+}
+.subtextlink
+{
+    FONT-SIZE: 7.5pt;
+    COLOR:#000000;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+    VERTICAL-ALIGN:top;
+}
+.link
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    COLOR: #993300;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+}
+
+
+
+
+/* ======== Special For This Site Or Misc. ====== */
+hr
+{	
+	color: #000000;
+}
+.subtextitalics
+{
+    FONT-SIZE: 7.5pt;
+    FONT-STYLE: italic;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+}
+
+
+/*
+     FILE ARCHIVED ON 00:02:59 Mar 07, 2021 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:49:22 Jul 18, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 187.651
+  exclusion.robots: 0.101
+  exclusion.robots.policy: 0.091
+  RedisCDXSource: 10.169
+  esindex: 0.007
+  LoadShardBlock: 158.152 (3)
+  PetaboxLoader3.datanode: 162.657 (4)
+  load_resource: 97.548
+  PetaboxLoader3.resolve: 72.077
+*/

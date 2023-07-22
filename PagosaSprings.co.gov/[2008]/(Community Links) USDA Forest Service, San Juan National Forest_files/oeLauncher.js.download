@@ -1,0 +1,331 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+// Customer: Forest Service - Dept. of Agriculture
+// Version : OnExit 5.0
+// ************ don't modify below this line *************
+
+var popUpURL  = "//web.archive.org/web/20080422172805/http://www.foreseeresults.com/survey/display";
+var FSRImgURL = "//web.archive.org/web/20080422172805/http://www.foreseeresults.com/survey/FSRImg";
+var OTCImgURL = "//web.archive.org/web/20080422172805/http://controller.foreseeresults.com/fsrSurvey/OTCImg";
+var ckAlreadyShown = triggerParms["ascookie"];
+var ckLoyaltyCount = triggerParms["lfcookie"];
+
+var persistentExpires = new Date();
+persistentExpires.setTime(persistentExpires.getTime() + (triggerParms["rw"]*60*1000));
+
+function ForeCStdGetCookie (name) {
+	var arg = name + "=";
+	var alen = arg.length;
+	var clen = document.cookie.length;
+	var i = 0;
+	while (i < clen) {
+		var j = i + alen;
+		if (document.cookie.substring(i, j) == arg) {
+			return ForeCStdGetCookieVal (j);
+		}
+		i = document.cookie.indexOf(" ", i) + 1;
+		if (i == 0) {
+			break;
+		}
+	}
+	return null;
+}
+
+function ForeCStdSetCookie (name, value) {
+	var argv = ForeCStdSetCookie.arguments;
+	var argc = ForeCStdSetCookie.arguments.length;
+	var expires = (argc > 2) ? argv[2] : null;
+	var path = (argc > 3) ? argv[3] : null;
+	var domain = (argc > 4) ? argv[4] : null;
+	var secure = (argc > 5) ? argv[5] : false;
+	document.cookie = name + "=" + escape (value) +
+	((expires == null) ? "" : ("; expires=" + expires.toGMTString())) +
+	((path == null) ? "" : ("; path=" + path)) +
+	((domain == null) ? "" : ("; domain=" + domain)) +
+	((secure == true) ? "; secure" : "");
+}
+
+function ForeCStdGetCookieVal(offset) {
+	var endstr = document.cookie.indexOf (";", offset);
+	if (endstr == -1) {
+		endstr = document.cookie.length;
+	}
+	return unescape(document.cookie.substring(offset, endstr));
+}
+
+function specialEscape(str) {
+	var translated = "";
+	var i; 
+	var found = 0;
+	for(i = 0; (found = str.indexOf('+', found)) != -1; ) {
+		translated += str.substring(i, found) + "%2B";
+		i = found + 1;
+		found++;
+	}
+	translated += str.substring(i, str.length);
+	return translated;
+}
+
+function setFSRSurveyCookie() {
+	if(triggerParms["npc"] == 1) {
+		ForeCStdSetCookie(ckAlreadyShown, 'true',null,"/",triggerParms["domain"]);
+	} else {
+		ForeCStdSetCookie(ckAlreadyShown, 'true', persistentExpires,"/",triggerParms["domain"]);
+	}
+}
+
+function oePoll() { 
+	var randNum = Math.random()*100;
+	var stickyCounter = ForeCStdGetCookie(ckLoyaltyCount); 
+	var alreadyShown = ForeCStdGetCookie(ckAlreadyShown); 
+	var pageCount;
+	
+	if (stickyCounter == null) {
+		pageCount = 1;
+		ForeCStdSetCookie(ckLoyaltyCount, pageCount, null,'/',triggerParms["domain"]);		
+		stickyCounter = ForeCStdGetCookie(ckLoyaltyCount);
+	}
+	if (stickyCounter != null) {
+		pageCount = stickyCounter;
+		if(arguments.length == 1 || pageCount >= triggerParms["dLF"]) {
+			if(alreadyShown == null) {				
+			        if(randNum <= triggerParms["spE"]) {
+					var winOptions = "resizable=yes,scrollbars=yes";
+					var fullURL = popUpURL + "?" + "width=" + triggerParms["width"] +
+					"&height=" + triggerParms["height"] +
+					"&cid=" + specialEscape(escape(triggerParms["cid"])) + "&mid=" + specialEscape(escape(triggerParms["mid"]));
+					
+					var fsr_browser="fsr_nn6";
+					if(document.all || document.getElementById) { 
+						fsr_browser = "fsr_ie";
+					}
+					if(document.layers) {
+						fsr_browser = "fsr_nn";
+					}	
+					if ((triggerParms["omb"] )!=null) {
+						fullURL += "&omb=" + escape(triggerParms["omb"]);
+					}
+					if ((triggerParms["cmetrics"] ) != null) {
+						fullURL += "&cmetrics=" + escape(triggerParms["cmetrics"]);
+					}
+					if (triggerParms["olpu"] == 1) {
+						fullURL += "&olpu=1";
+					}
+					if ((triggerParms["dcUniqueId"]) != null) {
+						fullURL += "&dcUniqueId=" + escape(triggerParms["dcUniqueId"]);
+					}
+					if ((triggerParms["midexp"] ) != null) {
+						fullURL += "&ndc=1&fsexp=5256000&midexp=" + triggerParms["midexp"];
+					}
+					if (triggerParms["capturePageView"] == 1) {
+						triggerParms["cpp_2"] = "PageView:"+ pageCount; // customer parameter 3 - Page View
+					}
+					triggerParms["cpp_3"] = "Browser:OE;"+ cppUrlPatch (navigator.userAgent) + (fsr_browser == "fsr_nn6" ? ";normal" : ";dhtml");
+					var counter=4;
+					for(paramKey in triggerParms) {
+						if(paramKey.substring(0,5) == "oecpp"){
+							var value = triggerParms[paramKey];
+							var session = ForeCStdGetCookie(value);
+							if (session != null) {
+								triggerParms["cpp_"+ counter] = value.substring(8,value.length) + ":" + cppUrlPatch (session);
+								counter++;	
+							}
+						}
+					}
+					var customerParams = "";
+					for(paramKey in triggerParms) {
+						if(paramKey.substring(0,3) == "cpp"){
+							fullURL += "&" + paramKey + "=" + escape(triggerParms[paramKey]);
+						}
+					}					
+					setFSRSurveyCookie();
+					loadWait();
+					var myPopUp = window.open(fullURL, "_self",winOptions);
+					if(myPopUp == null || myPopUp.closed) {return false;}
+					else if(triggerParms["pu"]==0) {myPopUp.focus();}
+					else {myPopUp.blur();}
+					return true;
+				}				
+			}
+		}	
+		pageCount++;
+		ForeCStdSetCookie(ckLoyaltyCount, pageCount, null,'/',triggerParms["domain"]);		
+	}
+	return false;
+}
+var detect = navigator.userAgent.toLowerCase();
+function checkAOL(){
+	if (detect.indexOf("aol") >=0) { return true;}
+	return false;
+}
+
+var runningscout = null;
+var trackerFromClick = false;
+var fsr_aol=null;
+function openTrackerWin()
+{
+	runningscout = null;
+	var sl = (screen.width-triggerParms["trackerWidth"])/2;
+	var st = (screen.height-triggerParms["trackerHeight"])/2;
+	var winOpts = "top=" + st + ",left=" + sl + ",width=" + triggerParms["trackerWidth"] + ",height=" + triggerParms["trackerHeight"] + ",resizable=yes,scrollbars=yes";
+	var rNum = 0.0;
+
+	if(arguments.length == 1) {rNum = arguments[0];}		
+	var scoutTracker = ForeCStdGetCookie(triggerParms["scout_chk"]);	
+	if (scoutTracker == null) {
+		if(rNum > triggerParms["spL"]) {return 1;}		
+		runningscout = window.open(triggerParms["trackerURL"], "SurveyWindowInformative", winOpts);
+	} else {		
+		if (scoutTracker != triggerParms["meas_id"] ) {
+			runningscout = window.open(triggerParms["trackerURL"], "SurveyWindowInformative", winOpts);					
+			if(rNum>triggerParms["spL"] && runningscout != null && !runningscout.closed) {runningscout.close(); return 1;}
+		} else { return 1;}
+	}	
+	if((trackerFromClick == true || arguments.length == 0) && runningscout != null && !runningscout.closed) {runningscout.blur();}
+	self.focus();
+	return 0;	
+}
+
+function inviteDHTMLWin(iw, ih)
+{
+	var il = (screen.width-iw)/2;
+	var it = Math.min((screen.height-ih)/2, 150);	
+	document.write("<div id='FSRInviteWin' style='position:absolute; left:" + il + "; top:" + it 
+	             + "; z-index:1; border:0; visibility:hidden; filter:revealTrans(Duration=0.5, Transition=23)'>"
+	             + "<iframe src='" + triggerParms["dhtmlURL"] + "' width='" + iw + "' height='" + ih + "' frameborder=1></iframe></div>");	
+}
+
+function showDHTMLWin()
+{
+	if(runningscout != null && !runningscout.closed && fsr_aol==false) {return;}
+	if(document.all && document.all.FSRInviteWin.filters) {
+		document.all.FSRInviteWin.filters.revealTrans.transition = 23 ;	
+		document.all.FSRInviteWin.filters.revealTrans.Apply();
+		document.all.FSRInviteWin.style.visibility = 'visible';
+		document.all.FSRInviteWin.filters.revealTrans.Play();
+	}
+	else if(document.all) {document.all.FSRInviteWin.style.visibility = 'visible';}	
+	else if(document.getElementById) {document.getElementById("FSRInviteWin").style.visibility = 'visible';}	
+}
+var dcQString="";
+var OTCImg;
+var FSRImg;
+var surveyProcessCont = 1;
+var newDt;
+var currTime;	// in millisecs
+
+function oeImgProc() {
+	if(triggerParms["compliant508"] == 1) { showDHTMLWin(); }
+	else { setTimeout ( "showDHTMLWin();", 1000, "JavaScript" ); }
+}
+function fsrShowSurvey(){
+	if(dcQString == "") { oeImgProc(); }
+	else {
+		newDt   = new Date();
+		currTime= newDt.getTime(); // in millisecs
+		FSRImg = new Image();
+		FSRImg.src = null;
+		FSRImg.onerror = imgErrorProc;
+		FSRImg.onload = imgOnloadProc;
+		FSRImg.src = FSRImgURL + "?" + dcQString + "&uid="+ currTime;	//for NE/FF Cache Fix
+	}
+}
+function imgOnloadProc() {
+	if(surveyProcessCont == 1 && FSRImg.width == 3) { oeImgProc(); }
+  	return true;
+}
+function imgErrorProc() {
+	surveyProcessCont = 0;
+	return true;
+}
+function otcOnloadProc() {
+	if(surveyProcessCont == 1 && OTCImg.width == 3) { fsrShowSurvey(); }
+	else { surveyProcessCont = 0; }
+  	return true;
+}
+function otcErrorProc() {
+	fsrShowSurvey();
+	return true;
+}
+
+function openFSRTracker()
+{	
+	var alreadyShown = ForeCStdGetCookie(ckAlreadyShown);
+	var excludeBrowserFlag = (navigator.platform.indexOf("Win32")<0) || (navigator.appName.indexOf("Netscape")>=0 && navigator.userAgent.indexOf("6.2")>=0);
+	if(excludeBrowserFlag || triggerParms["dt"] == 1 || alreadyShown!=null) {return;}
+	if(arguments.length == 1) {trackerFromClick = true;}
+	else {trackerFromClick = false;}
+	var rNum = Math.random()*100;
+	var scoutFlag= null;
+	fsr_aol=checkAOL();
+	if (fsr_aol == false){
+		scoutFlag = openTrackerWin(rNum);	
+	}
+
+	if(arguments.length == 0 && (scoutFlag==null || scoutFlag == 0) && triggerParms["dhtml"] == 1 && !(navigator.appName.indexOf("Netscape")>=0 && navigator.userAgent.indexOf("7.0")>=0)) {
+		if(document.getElementById || document.all) {
+			inviteDHTMLWin(triggerParms["dhtmlWidth"], triggerParms["dhtmlHeight"]);
+			
+			//DC I verification
+			if ((triggerParms["midexp"] ) != null) {
+				dcQString = "ndc=1&midexp=" + triggerParms["midexp"] + "&mid=" + specialEscape(escape(triggerParms["mid"]));
+				if(triggerParms["dcUniqueId"]!=null) { dcQString += "&dcUniqueId=" + specialEscape(escape(triggerParms["dcUniqueId"])); }						
+			}
+			
+			// Failover check			
+			surveyProcessCont = 1;
+			var newDt   = new Date();
+			var currTime= newDt.getTime(); // in millisecs
+			OTCImg = new Image();
+			OTCImg.src = null;
+			OTCImg.onerror = otcErrorProc;
+			OTCImg.onload = otcOnloadProc;
+			OTCImg.src = OTCImgURL + "?protocol=" + window.location.protocol + "&uid="+ currTime;	//for NE/FF Cache Fix
+		}
+	}	
+}
+
+function FSRInviteAct(actFlag)
+{
+	if(document.all && document.all.FSRInviteWin.filters) {
+		document.all.FSRInviteWin.filters.revealTrans.Apply();
+		document.all.FSRInviteWin.style.visibility = 'hidden';
+		document.all.FSRInviteWin.filters.revealTrans.Play();
+	}
+	else if(document.all) {document.all.FSRInviteWin.style.visibility = 'hidden';}	
+	else if(document.getElementById) {document.getElementById("FSRInviteWin").style.visibility = 'hidden';}
+	if(actFlag == '1') {openTrackerWin();}
+	else if(triggerParms["dhtmlWinRep"] == 0) { setFSRSurveyCookie(); }
+}
+
+}
+/*
+     FILE ARCHIVED ON 17:28:05 Apr 22, 2008 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 08:14:15 Jul 18, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 144.236
+  exclusion.robots: 0.075
+  exclusion.robots.policy: 0.066
+  cdx.remote: 0.058
+  esindex: 0.009
+  LoadShardBlock: 82.12 (3)
+  PetaboxLoader3.datanode: 110.511 (4)
+  load_resource: 223.659
+  PetaboxLoader3.resolve: 81.612
+*/

@@ -1,0 +1,90 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+
+//global variables
+var imgOn = new Image;
+var imgOff = new Image;
+var srcOn, srcOff, leftButton, midButton, rightButton; 
+
+//preload info (images)
+function preloadInfo(){
+	imgOn.src = "/repository/designs/templates/govoffice_marketing07/images/leftbar-bg_hover.png";
+	imgOff.src = "/repository/designs/templates/govoffice_marketing07/images/leftbar-bg.png";
+	getURLs();
+}
+
+//image variables (urls)
+function getURLs(){
+	srcOn = "url(/repository/designs/templates/govoffice_marketing07/images/leftbar-bg_hover.png)";
+	srcOff = "url(/repository/designs/templates/govoffice_marketing07/images/leftbar-bg.png)";
+}
+
+//set object variables
+function setIdVariables(){
+	leftButton = document.getElementById('sbOne');
+	midButton = document.getElementById('sbTwo');
+	rightButton = document.getElementById('sbThree');
+}
+
+//roll over/out fucntions
+function LeftOver(){
+	setIdVariables();
+	leftButton.style.backgroundImage = srcOn;
+}
+
+function LeftOut(){
+	setIdVariables();
+	leftButton.style.backgroundImage = srcOff;
+}
+
+function MidOver(){
+	setIdVariables();
+	midButton.style.backgroundImage = srcOn;
+}
+
+function MidOut(){
+	setIdVariables();
+	midButton.style.backgroundImage = srcOff;
+}
+
+function RightOver(){
+	setIdVariables();
+	rightButton.style.backgroundImage = srcOn;
+}
+
+function RightOut(){
+	setIdVariables();
+	rightButton.style.backgroundImage = srcOff;
+}
+
+}
+/*
+     FILE ARCHIVED ON 02:51:54 Jan 20, 2013 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 08:30:11 Jul 19, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 167.705
+  exclusion.robots: 0.104
+  exclusion.robots.policy: 0.086
+  RedisCDXSource: 8.329
+  esindex: 0.013
+  LoadShardBlock: 135.239 (3)
+  PetaboxLoader3.datanode: 74.37 (4)
+  PetaboxLoader3.resolve: 122.036 (3)
+  load_resource: 99.068
+*/

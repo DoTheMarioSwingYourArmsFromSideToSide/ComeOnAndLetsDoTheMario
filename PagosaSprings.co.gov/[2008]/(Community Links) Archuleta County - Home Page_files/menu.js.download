@@ -1,0 +1,96 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+stm_bm(["menu1857",650,"","blank.gif",0,"","",1,0,20,10,1000,1,1,0,"","",83886091,0,1,1,"hand","hand",""],this);
+stm_bp("p0",[0,4,0,0,2,2,0,0,100,"",-2,"",-2,100,2,6,"#000000","#FFFFCC","",3,1,2,"#663300"]);
+stm_ai("p0i0",[1,"Home","","",-1,-1,0,"/index.asp","_self","","","","",0,0,0,"","",0,0,0,1,1,"#ffdfaa",0,"#993300",0,"","",3,3,1,1,"#663333","#FFFFF7","#663300","#FFFFFF","bold 8pt Arial","bold 8pt Arial",0,0],45,0);
+stm_aix("p0i1","p0i0",[1,"About  ","","",-1,-1,0,"/About/about.asp","_parent","","","","",0,0,0,"","",0,0,0,1,1,"#ffdfaa",0,"#993300",0,"","",3,3,1,1,"#663333","#FFFFF7","#663300","ffffff"]);
+stm_bp("p1",[1,4,0,0,1,1,0,0,100,"",-2,"",-2,100,2,6,"#000000","#663333","",3,1,1,"#FFFF99"]);
+stm_aix("p1i0","p0i0",[1,"Archuleta County","","",-1,-1,0,"/About/archcounty.asp","_parent","","","","",0,0,0,"","",0,0,0,0]);
+stm_ai("p1i1",[6,1,"#FFFFFF","",0,0,0]);
+stm_aix("p1i2","p1i0",[1,"History","","",-1,-1,0,"/About/history.asp"]);
+stm_aix("p1i3","p1i1",[]);
+stm_aix("p1i4","p1i0",[1,"Community Links","","",-1,-1,0,"/About/clinks.asp"]);
+stm_aix("p1i5","p1i1",[]);
+stm_aix("p1i8","p1i0",[1,"County Facilities","","",-1,-1,0,"/County_Facilities/facilities.asp"]);
+stm_aix("p1i9","p1i1",[]);
+stm_ep();
+stm_aix("p0i2","p1i0",[0,"Departments","","",-1,-1,0,"/Departments/departments.asp"]);
+stm_bpx("p2","p1",[1,4,0,0,1,1,3]);
+stm_aix("p2i0","p1i0",[1,"Administration","","",-1,-1,0,"/administration/admin.asp","_parent","","","","",3,1]);
+stm_aix("p2i1","p1i1",[]);
+stm_aix("p2i2","p2i0",[1,"Airport ","","",-1,-1,0,"/Airport/airport.asp"]);
+stm_aix("p2i3","p1i1",[]);
+stm_aix("p2i4","p2i0",[1,"Assessor","","",-1,-1,0,"/Assessors/assessors.asp"]);
+stm_aix("p2i5","p1i1",[]);
+stm_aix("p2i6","p2i0",[1,"Attorney","","",-1,-1,0,"/Attorney/atty.asp"]);
+stm_aix("p2i7","p1i1",[]);
+stm_aix("p2i8","p2i0",[1,"Buildings & Grounds","","",-1,-1,0,"/Maintenance/maint.asp"]);
+stm_aix("p2i9","p1i1",[]);
+stm_aix("p2i10","p0i0",[1,"Clerk & Recorder","","",-1,-1,0,"/Clerks/clerk.asp","_parent","","","","",3,1,0,"","",0,0,0,0,1,"#ffdfaa",0,"#993300",0,"","",3,3,1,1,"#663333","#FFFFF7","663300"]);
+stm_aix("p2i11","p1i1",[]);
+stm_aix("p2i12","p2i0",[1,"Commissioners","","",-1,-1,0,"/Commissioners/commissioners.asp","_self"]);
+stm_aix("p2i13","p1i1",[]);
+stm_aix("p2i14","p2i0",[0,"CSU Extension Office","","",-1,-1,0,"/CSU_Extension/extension.asp"]);
+stm_aix("p2i15","p1i1",[]);
+stm_aix("p2i16","p2i0",[0,"Development Services","","",-1,-1,0,"/Development_Services/devservices.asp"]);
+stm_aix("p2i17","p1i1",[]);
+stm_aix("p2i18","p2i0",[1,"Finance","","",-1,-1,0,"/finance/finance.asp"]);
+stm_aix("p2i19","p1i1",[]);
+stm_aix("p2i20","p2i0",[1,"Human Resources","","",-1,-1,0,"/Human_Resources/humanresources.asp"]);
+stm_aix("p2i21","p1i1",[]);
+stm_aix("p2i22","p2i0",[1,"Human Services","","",-1,-1,0,"/Human_Services/humanservices.asp"]);
+stm_aix("p2i23","p1i1",[]);
+stm_aix("p2i24","p2i0",[1,"Information Systems","","",-1,-1,0,"/GIS/infosystems.asp"]);
+stm_aix("p2i25","p1i1",[]);
+stm_aix("p2i26","p2i0",[1,"Nutrition","","",-1,-1,0,"/Nutrition/nutrition.asp"]);
+stm_aix("p2i27","p1i1",[]);
+stm_aix("p2i28","p2i0",[1,"Public Works","","",-1,-1,0,"/Publicworks/publicworks.asp"]);
+stm_aix("p2i29","p1i1",[]);
+stm_aix("p2i30","p2i0",[1,"Senior Center","","",-1,-1,0,"/Seniors/seniors.asp"]);
+stm_aix("p2i31","p1i1",[]);
+stm_aix("p2i32","p2i0",[1,"Sheriff","","",-1,-1,0,"/sheriff/sheriff.asp"]);
+stm_aix("p2i33","p1i1",[]);
+stm_aix("p2i34","p2i0",[1,"Treasurer","","",-1,-1,0,"/Treasurer/treasurer.asp"]);
+stm_aix("p2i35","p1i1",[]);
+stm_aix("p2i36","p2i0",[1,"Veterans","","",-1,-1,0,"/Veterans/veterans.asp"]);
+stm_aix("p2i37","p1i1",[]);
+stm_ep();
+stm_aix("p0i3","p1i0",[1,"Online Services","","",-1,-1,0,"/services/onlineservices.asp"]);
+stm_aix("p0i4","p1i0",[1,"Directory","","",-1,-1,0,"/Directory/directory.asp"]);
+stm_aix("p0i5","p1i0",[1,"Employee Login","","",-1,-1,0,"https://web.archive.org/web/20080416213240/http://gisweb.archuletacounty.org/intranet/index.asp"]);
+stm_ep();
+stm_sc(1,["#993300","#993300","","",3,3,1,1,"#FFFFF7","#000000","up_disabled.gif","up_enabled.gif",7,9,0,"down_disabled.gif","down_enabled.gif",7,9,0,0,1]);
+stm_em();
+
+
+}
+/*
+     FILE ARCHIVED ON 21:32:40 Apr 16, 2008 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 07:02:19 Jul 18, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 61.41
+  exclusion.robots: 0.082
+  exclusion.robots.policy: 0.073
+  RedisCDXSource: 1.778
+  esindex: 0.01
+  LoadShardBlock: 34.555 (3)
+  PetaboxLoader3.datanode: 66.98 (4)
+  load_resource: 92.794
+  PetaboxLoader3.resolve: 39.3
+*/

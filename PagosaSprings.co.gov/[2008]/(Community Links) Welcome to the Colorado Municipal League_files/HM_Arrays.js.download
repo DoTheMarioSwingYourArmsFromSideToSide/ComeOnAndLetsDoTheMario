@@ -1,0 +1,122 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+
+HM_Array1 = [
+[150,12,146],
+["Staff","about/staff.html",1,0,0],
+["Board","about/board.html",1,0,0],
+["Committees","about/committees.html",1,0,0],
+["Annual Report <img src='images/pdf_small.gif' alt='This file requires Adobe Acrobat'>","pdf_files/annualreport.pdf",1,0,0],
+["League Building","about/league_building.html",1,0,0]
+]
+
+
+HM_Array2 = [
+[150,92,146], 
+["Statehouse Report","policy_center/statehouse_report.html",1,0,0],
+["Memoranda","policy_center/memoranda.html",1,0,0],
+["General Assembly","policy_center/general_assembly.html",1,0,0],
+["U.S. Congress","policy_center/us_congress.html",1,0,0]
+]
+
+HM_Array3 = [
+[150,201,146],        
+["Calendar","training_events/calendar.html",1,0,0],
+["Leadership Training","training_events/leadership_training.html",1,0,0],
+["Outreach","training_events/outreach.html",1,0,0],
+["Annual Conference","training_events/annual_conference.html",1,0,1]
+]
+
+HM_Array3_4 = [
+[],						   
+["Schedule","training_events/annual_schedule.html",1,0,0],
+["How To Be A Sponsor","training_events/annual_sponsor.html",1,0,0],
+["Advertise","training_events/annual_advertise.html",1,0,1]
+]
+
+HM_Array4 = [
+[150,337,146],        
+["Colorado Municipalities","publications/colorado_municipalities.html",1,0,0],
+["CML Newsletter","publications/newsletter.html",1,0,0],
+["Annual Directory","publications/directory.html",1,0,0],
+["CML Books","publications/books.html",1,0,0],
+["Job Finder","publications/job_finder.html",1,0,0],
+["Special Reports","publications/special_reports.html",1,0,0],
+["More Ways to tell your story","publications/story.html",1,0,1],
+["Civics Curriculum","publications/civics.html",1,0,0]
+]
+
+HM_Array4_7 = [
+[],
+["Annual Conference Advertising","training_events/annual_advertise.html",1,0,0],
+["Annual Conference Sponsorship","training_events/annual_sponsor.html",1,0,0]
+]
+
+HM_Array5 = [
+[150, 444, 146],
+["Amicus Briefs","pdf_files/Amicus_Request_Procedures.pdf",1,0,0],
+["Attorney Listserv","resources/attorney_listserv.html",1,0,0],
+["Clerk Listserv","resources/clerk_listserv.html",1,0,0],
+["Managers Listserv","resources/managers_listserv.html",1,0,0],
+["Civic Awareness Program","resources/cap.html",1,0,0],
+["Purchasing Alliance","resources/purchasing_alliance.html",1,0,0],
+["CCCMA","resources/cccma.html",1,0,0]
+]
+
+HM_Array6 = [
+[150, 556, 146],
+["Associate Members","associate_members/benefits.html",1,0,1],
+["Municipal Members","associate_members/municipal_members.html",1,0,0],
+]
+
+HM_Array6_1 = [
+[],	
+["Benefits","associate_members/benefits.html",1,0,0],
+["Sign-up Form <img src='images/pdf_small.gif' alt='This file requires Adobe Acrobat'>","pdf_files/AssocMmbrOrder.pdf",1,0,0],
+["List of Members","associate_members/associate_members.cfm",1,0,0]
+]
+
+HM_Array7 = [
+[150, 700, 146],
+["Municipal Members","links/members.html",1,0,0],
+["Colorado Government and Organization Links","links/colorado_links.html",1,0,0],
+["Federal Government Links","links/federal_links.html",1,0,0],
+["National Links of Municipal Government Interest","links/national_links.html",1,0,0],
+["Municipal Government Publication Links","links/publications_links.html",1,0,0],
+["Other Links in Colorado","links/other_links.html",1,0,0],
+["Tools and Interesting Sites","links/tools.html",1,0,0]
+]
+
+
+
+}
+/*
+     FILE ARCHIVED ON 10:37:36 Jul 23, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 07:11:56 Jul 18, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 60.82
+  exclusion.robots: 0.079
+  exclusion.robots.policy: 0.069
+  cdx.remote: 0.057
+  esindex: 0.008
+  LoadShardBlock: 32.289 (3)
+  PetaboxLoader3.datanode: 137.482 (4)
+  load_resource: 737.816
+  PetaboxLoader3.resolve: 628.76
+*/

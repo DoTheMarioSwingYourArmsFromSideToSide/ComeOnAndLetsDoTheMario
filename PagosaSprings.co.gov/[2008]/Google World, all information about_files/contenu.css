@@ -1,0 +1,63 @@
+.titre_sites {  font-family: Arial, Helvetica, sans-serif; font-size: 13px; list-style-type: squate; font-weight: normal; list-style-position: outside}
+
+.nav_cat {  font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: bold; color: #666666}
+
+.titre_debut_liste {  font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-weight: normal}
+
+.marge {  padding-right: 35px; padding-left: 0px; font-size: 12px; font-family: Arial, Helvetica, sans-serif}
+
+.nav_tabb {  font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold; color: #FFFFFF}
+
+.tabb_txt {  font-family: Arial, Helvetica, sans-serif; font-size: 12px}
+
+.tabd_t {  font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: bold; color: #FFFFFF}
+
+.tabd_txt {  font-family: Arial, Helvetica, sans-serif; font-size: 12px}
+
+.tab {  font-family: Arial, Helvetica, sans-serif; font-size: 12px}
+
+.depeches {font-size:12px; font-family:Geneva, Arial, Helvetica, san-serif; ; text-decoration: none; color: #000000}
+
+.depeches:visited {font-size:12px; font-family:Geneva, Arial, Helvetica, san-serif; text-decoration:none; ; color: #000000}
+
+.depeches:hover {font-size:12px; font-family:Geneva, Arial, Helvetica, san-serif;
+color:#0000CC; text-decoration:underline; ; font-weight: lighter}
+body {  font-family: Arial, Helvetica, sans-serif; font-size: 12px; background-color: #FFFFFF}
+.theme { font-size:12px; font-family:Geneva, Arial, Helvetica, san-serif; ; text-decoration: none; color: #000000 }
+.theme:hover { font-size:12px; font-family:Geneva, Arial, Helvetica, san-serif; color:#006600; text-decoration:underline; }
+.theme:visited { font-size:12px; font-family:Geneva, Arial, Helvetica, san-serif; ; color: #993399 }
+.espace { font-size:12px; font-family:Geneva, Arial, Helvetica, san-serif; ; text-decoration: none; color: #000000 }
+.espace:hover { font-size:12px; font-family:Geneva, Arial, Helvetica, san-serif; color:#990066; text-decoration:underline; }
+.espace:visited { font-size:12px; font-family:Geneva, Arial, Helvetica, san-serif; ; color: #993399 }
+.Actu {  font-size: 13px; color: #3D5BAD; font-weight: bold}
+.titre_depeches { font-size: 12px; font-weight: bold; color: #FFFFFF; text-decoration: underline }
+.titre_theme {  font-size: 12px; font-weight: bold; color: #FFFFFF}
+.st_depeches {  font-size: 12px; font-style: italic; font-weight: bold; color: #3D5BAD}
+.titre_depeches2 {  font-size: 14px; font-weight: bold; color: #4F6FC1}
+.Actu2 { font-size: 13px; color: #FFFFFF; font-weight: bold }
+.guide {  font-size: 14px; font-weight: bold; color: #367B2D}
+.guide2 { font-size: 13px; font-weight: bold; color: #367B2D; text-decoration: underline}
+.espace_indic {  font-size: 13px; font-weight: bold; color: #A46FA8}
+.actu3 {  font-size: 12px; font-weight: bold; color: #3D5BAD; text-decoration: underline}
+.esp1 {  font-size: 12px; color: #666666; font-weight: bold}
+
+/*
+     FILE ARCHIVED ON 04:23:10 Nov 14, 2008 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 08:31:26 Jul 18, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 104.086
+  exclusion.robots: 0.063
+  exclusion.robots.policy: 0.055
+  cdx.remote: 0.053
+  esindex: 0.009
+  LoadShardBlock: 79.784 (3)
+  PetaboxLoader3.datanode: 97.609 (4)
+  load_resource: 117.52
+  PetaboxLoader3.resolve: 71.054
+*/

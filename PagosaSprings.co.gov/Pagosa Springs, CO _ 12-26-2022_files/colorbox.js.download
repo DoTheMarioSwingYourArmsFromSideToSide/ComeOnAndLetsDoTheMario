@@ -1,0 +1,79 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+/**
+ * @file
+ * Colorbox module init js.
+ */
+
+(function ($) {
+
+Drupal.behaviors.initColorbox = {
+  attach: function (context, settings) {
+    if (!$.isFunction($('a, area, input', context).colorbox) || typeof settings.colorbox === 'undefined') {
+      return;
+    }
+
+    if (settings.colorbox.mobiledetect && window.matchMedia) {
+      // Disable Colorbox for small screens.
+      var mq = window.matchMedia("(max-device-width: " + settings.colorbox.mobiledevicewidth + ")");
+      if (mq.matches) {
+        return;
+      }
+    }
+
+    // Use "data-colorbox-gallery" if set otherwise use "rel".
+    settings.colorbox.rel = function () {
+      if ($(this).data('colorbox-gallery')) {
+        return $(this).data('colorbox-gallery');
+      }
+      else {
+        return $(this).attr('rel');
+      }
+    };
+
+    $('.colorbox', context)
+      .once('init-colorbox').each(function(){
+        $(this).colorbox(settings.colorbox);
+      });
+
+    $(context).bind('cbox_complete', function () {
+      Drupal.attachBehaviors('#cboxLoadedContent');
+    });
+  }
+};
+
+})(jQuery);
+
+
+}
+/*
+     FILE ARCHIVED ON 22:00:45 Dec 26, 2022 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 09:13:15 Jul 18, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 91.964
+  exclusion.robots: 0.066
+  exclusion.robots.policy: 0.058
+  cdx.remote: 0.083
+  esindex: 0.008
+  LoadShardBlock: 61.335 (3)
+  PetaboxLoader3.datanode: 128.67 (5)
+  load_resource: 127.162
+  PetaboxLoader3.resolve: 46.001
+  loaddict: 32.671
+*/

@@ -1,0 +1,97 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+//----------DHTML Menu Created using AllWebMenus PRO ver 3.1-#532---------------
+//Y:\ocs\fires\fires.awm
+var awmMenuName='fires';
+var awmLibraryBuild=532;
+var awmLibraryPath='/awmData-fires';
+var awmImagesPath='/awmData-fires';
+var awmSupported=(navigator.appName + navigator.appVersion.substring(0,1)=="Netscape5" || document.all || document.layers || navigator.userAgent.indexOf('Opera')>-1)?1:0;
+if (awmAltUrl!='' && !awmSupported) window.location.replace(awmAltUrl);
+if (awmSupported){
+var awmMenuPath;
+if (document.layers) mpi=((document.images['awmMenuPathImg-fires'])?document.images['awmMenuPathImg-fires'].src:document.layers['xawmMenuPathImg-fires'].document.images['awmMenuPathImg-fires'].src); else mpi=document.images['awmMenuPathImg-fires'].src;
+awmMenuPath=mpi.substring(0,mpi.length-16);
+while (awmMenuPath.search("'")>-1) {awmMenuPath=awmMenuPath.replace("'", "&#39;");}
+var nua=navigator.userAgent,scriptNo=(nua.indexOf('Safari')>-1)?7:(nua.indexOf('Gecko')>-1)?2:((document.layers)?3:((nua.indexOf('Opera')>-1)?4:((nua.indexOf('Mac')>-1)?5:((nua.indexOf('Konqueror')>-1)?6:1))));
+document.write("<SCRIPT SRC='"+awmMenuPath+awmLibraryPath+"/awmlib"+scriptNo+".js'><\/SCRIPT>");
+var n=null;
+awmzindex=1000;
+}
+
+var awmSubmenusFrame='';
+var awmSubmenusFrameOffset;
+var awmOptimize=0;
+function awmBuildMenu(){
+if (awmSupported){
+awmImagesColl=['s1.gif',88,27,'s1_over.gif',88,27,'s2.gif',88,27,'s2_over.gif',88,27,'s3.gif',89,27,'s3_over.gif',89,27,'s4.gif',88,27,'s4_over.gif',88,27,'s5.gif',87,27,'s5_over.gif',87,27,'s6.gif',88,27,'s6_over.gif',88,27,'s7.gif',88,27,'s7_over.gif',88,27,'s8.gif',91,27,'s8_over.gif',91,27];
+awmCreateCSS(1,2,1,'#000000','#FFFFFF',n,'bold 14px Allegro BT',n,'none',0,'#0F0F0F',0,0);
+awmCreateCSS(0,1,0,n,'#00004F',n,n,n,'solid',0,'#FFFFFF',0,0);
+awmCreateCSS(1,2,1,'#FFFFFF',n,n,'14px Allegro BT',n,'none',0,n,0,1);
+awmCreateCSS(0,2,1,'#FFFFFF',n,n,'14px Allegro BT',n,'none',0,n,0,1);
+awmCreateCSS(1,2,1,'#FFFFFF',n,n,'14px Allegro BT',n,'solid',0,n,0,1);
+awmCreateCSS(0,2,1,'#FFFFFF',n,n,'14px Allegro BT',n,'solid',0,n,0,1);
+awmCreateCSS(1,2,0,'#FFFFFF',n,n,'14px sans-serif',n,'solid',2,'#5B5B5B',0,0);
+awmCreateCSS(0,1,0,n,'#FFFFFF',n,n,n,'solid',1,'#000000',0,0);
+awmCreateCSS(1,2,0,'#000000','#FFFFFF',n,'11px Verdana',n,'none',0,n,2,1);
+awmCreateCSS(0,2,0,'#000000','#FFCC33',n,'11px Verdana',n,'none',0,n,2,1);
+awmCreateCSS(0,2,0,'#FFFFFF','#004000',n,'11px Verdana',n,'outset',0,n,2,1);
+var s0=awmCreateMenu(0,0,0,0,1,0,0,0,0,0,0,0,1,1,0,n,"",n,1,0,0,1,n,n,100,0);
+it=s0.addItemWithImages(2,3,3,"","","","",0,1,1,0,0,0,n,n,n,"",n,n,n,"default.asp",n);
+it=s0.addItemWithImages(2,3,3,"","","","",2,3,3,0,0,0,n,n,n,"",n,n,n,"prevention.htm",n);
+var s1=it.addSubmenu(0,0,0,0,0,0,0,7,6,n,"",n,1,2,1,1,n,n,100);
+it=s1.addItem(8,9,10,"&nbsp;&nbsp;Prevention Resources&nbsp;&nbsp;",n,n,"","",n,n,n,"prevention.htm",n);
+it=s1.addItem(8,9,10,"&nbsp;&nbsp;Wildfire Information Series&nbsp;&nbsp;",n,n,"","",n,n,n,"articles/default.htm",n);
+it=s1.addItem(8,9,10,"&nbsp;&nbsp;County Fire Plans&nbsp;&nbsp;",n,n,"","",n,n,n,"prevention/fireplans.htm",n);
+it=s1.addItem(8,9,10,"&nbsp;&nbsp;Firewise Southwest Colorado&nbsp;&nbsp;",n,n,"","",n,n,n,"firewise/default.htm",n);
+it=s1.addItem(8,9,10,"&nbsp;&nbsp;CSFS Contractor List (PDF)&nbsp;&nbsp;",n,n,"","",n,n,n,"CSFS_Contractors_List.pdf",n);
+it=s1.addItem(8,9,10,"&nbsp;&nbsp;Slash Treatment & Removal&nbsp;&nbsp;",n,n,"","",n,n,n,"slashTreatment.htm",n);
+it=s0.addItemWithImages(4,5,5,"","","","",4,5,5,0,0,0,n,n,n,"",n,n,n,"RD_fireInfo.htm",n);
+var s1=it.addSubmenu(0,0,0,0,0,0,0,7,6,n,"",n,1,2,1,1,n,n,100);
+it=s1.addItem(8,9,10,"&nbsp;&nbsp;Good Fire Info Links&nbsp;&nbsp;",n,n,"","",n,n,n,"RD_fireInfo.htm",n);
+it=s1.addItem(8,9,10,"&nbsp;&nbsp;Wildfire Information Series&nbsp;&nbsp;",n,n,"","",n,n,n,"articles/default.htm",n);
+it=s1.addItem(8,9,10,"&nbsp;&nbsp;People & Fire Report (PDF, 1.1 MB)&nbsp;&nbsp;",n,n,"","",n,n,n,"peopleAndFire.pdf",n);
+it=s0.addItemWithImages(4,5,5,"","","","",6,7,7,0,0,0,n,n,n,"",n,n,n,"pinon.htm",n);
+var s1=it.addSubmenu(0,0,0,0,0,0,0,7,6,n,"",n,1,2,1,1,n,n,100);
+it=s1.addItem(8,9,10,"&nbsp;&nbsp;Pine Beetle Articles&nbsp;&nbsp;",n,n,"","",n,n,n,"pinon.htm",n);
+it=s1.addItem(8,9,10,"&nbsp;&nbsp;CSFS Contractors List (PDF)&nbsp;&nbsp;",n,n,"","",n,n,n,"CSFS_Contractors_List.pdf",n);
+it=s1.addItem(8,9,10,"&nbsp;&nbsp;Slash Treatment & Removal&nbsp;&nbsp;",n,n,"","",n,n,n,"slashTreatment.htm",n);
+it=s0.addItemWithImages(4,5,5,"","","","",8,9,9,0,0,0,n,n,n,"",n,n,n,"mailList.asp",n);
+it=s0.addItemWithImages(4,5,5,"","","","",10,11,11,0,0,0,n,n,n,"",n,n,n,"calendar.asp",n);
+it=s0.addItemWithImages(4,5,5,"","","","",12,13,13,0,0,0,n,n,n,"",n,n,n,"contact.htm",n);
+it=s0.addItemWithImages(2,3,3,"","","","",14,15,15,0,0,0,n,n,n,"",n,n,n,"search_scf.asp",n);
+s0.pm.buildMenu();
+}}
+
+
+}
+/*
+     FILE ARCHIVED ON 08:04:21 Mar 23, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 08:17:23 Jul 18, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 95.525
+  exclusion.robots: 0.132
+  exclusion.robots.policy: 0.115
+  cdx.remote: 0.106
+  esindex: 0.014
+  LoadShardBlock: 60.695 (3)
+  PetaboxLoader3.datanode: 69.441 (4)
+  load_resource: 94.198
+  PetaboxLoader3.resolve: 33.467
+*/

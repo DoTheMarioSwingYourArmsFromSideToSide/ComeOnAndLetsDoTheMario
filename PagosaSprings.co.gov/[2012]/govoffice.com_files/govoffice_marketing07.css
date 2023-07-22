@@ -1,0 +1,755 @@
+/*=====================================================( GLOBALS )===*/
+/*===================================================================*/
+
+BODY, TD.centerColumn, TD.leftColumn, TD.rightColumn, .normal
+{
+    color: #3b3a38;
+    font-family: trebuchet ms, verdana, sans, arial, helvetica, sans-serif;
+    font-size: 9pt;
+}
+BODY
+{
+    background-color: white;
+    background-image: url(/web/20130120025344im_/http://www.govoffice.com/repository/designs/templates/govoffice_marketing07/images/site-gradient.png);
+    background-repeat: repeat-x;
+    background-position: left top;
+    margin-top: 0px;
+}
+#siteShadow
+{
+	width: 820px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-bottom: 38px;
+    background-image: url(/web/20130120025344im_/http://www.govoffice.com/repository/designs/templates/govoffice_marketing07/images/site-shadow.png);
+    background-repeat: no-repeat;
+    background-position: left bottom;
+}
+TABLE#siteContent
+{
+	background-color: white;
+	position: relative;
+	z-index: 1;
+}
+BODY.home .centerColumn
+{
+	padding-bottom: 0em;
+}
+BODY.inner .centerColumn
+{
+	padding: 0.6em 2.3em 1em 2.3em;
+}
+TD.centerColumn
+{
+}
+TD.leftColumn, DIV.leftColumn
+{
+    background-color: white;
+    margin-top: 2em;
+}
+TD.rightColumn
+{
+    background-color: white;
+    background-image: url(/web/20130120025344im_/http://www.govoffice.com/repository/designs/templates/govoffice_marketing07/images/rightcolBG.png);
+    background-repeat: no-repeat;
+    background-position: left bottom;
+}
+BODY.inner TD.rightColumn
+{
+    background-color: #e2e0d9;
+    border: 1px solid #cbc9c6;
+    background-image: none;
+}
+TD.extraCol
+{
+	font-size: 1px;
+	width: 8px;
+	background-color: white;
+}
+
+/*======================================================( BANNER )===*/
+/*===================================================================*/
+
+#govtext, #photobar
+{
+	margin: 0.5em auto 0.5em auto;
+}
+
+/*=======================================================( LINKS )===*/
+/*===================================================================*/
+
+.normal
+{
+}
+.subtext, .subtextlink, .subtextitalics, .subtextItalics
+{
+    font-size: 7.5pt;
+}
+A/*.centerColumn A, .leftColumn A, .rightColumn A, .printView A*/
+{
+    color: #3b3a38;
+    /*font-weight: bold;*/
+}
+A:hover/*.centerColumn A:hover, .leftColumn A:hover, .rightColumn A:hover, .printView A:hover*/
+{
+    color: black;
+}
+.itemLink
+{
+    font-weight: bold;
+}
+
+/*===================================================( HEADLINES )===*/
+/*===================================================================*/
+
+.headline1, .headline2, .headline3, .headline4
+{
+    font-weight: bold;
+    font-size: 12pt;
+    color: #ab1b20;
+    letter-spacing: 1px;
+}
+.headline1
+{
+    font-size: 18pt;
+}
+.headline2
+{
+	float: left;
+    font-size: 12pt;
+    background-color: white;
+    padding-right: 0.25em;
+    text-transform: uppercase;
+}
+.headline3
+{
+	float: left;
+    font-size: 12pt;
+    background-color: white;
+    padding-right: 0.25em;
+    text-transform: uppercase;
+}
+.headline4
+{
+    font-size: 10pt;
+}
+.headlineDisplay A
+{
+    font-weight: bold;
+}
+
+/*==========================================( MAIN COLUMN PIECES )===*/
+/*===================================================================*/
+
+.contentbox_center, .sec, .item
+{
+}
+.contentbox_center_header, .sec_title
+{
+	background-image: url(/web/20130120025344im_/http://www.govoffice.com/repository/designs/templates/govoffice_marketing07/images/dotLine.png);
+	background-repeat: repeat-x;
+	background-position: 0px 15px;
+	overflow: hidden;
+	margin-bottom: 0.75em;
+}
+.contentbox_center_body, .sec_summary
+{
+}
+.attachments
+{
+}
+.centerColumn A
+{
+
+}
+.centerColumn A:hover
+{
+
+}
+
+/*==========================================( LEFT COLUMN PIECES )===*/
+/*===================================================================*/
+
+DIV#triWrapper
+{
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	width: 501px;
+	height: 201px;
+	/*background-color: #eee;*/
+}
+.contentbox_left, #sbOne, #sbTwo, #sbThree
+{
+	width: 164px;
+	height: 211px;
+	background-image: url(/web/20130120025344im_/http://www.govoffice.com/repository/designs/templates/govoffice_marketing07/images/leftbar-bg.png);
+	background-repeat: no-repeat;
+	background-position: left top;
+}
+BODY.inner .contentbox_left
+{
+}
+DIV#sbOne, DIV#sbTwo, DIV#sbThree
+{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+DIV#sbTwo{left: 168px;}
+DIV#sbThree{left: 336px;}
+
+.contentbox_left_header
+{
+    background-color: transparent;
+    margin: 1.35em 0.25em 0.5em 0.25em; /* mac only */
+}
+.leftHeaderStyle
+{
+    color: white;
+    font-weight: bold;
+    font-size: 8pt;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    /*background-image: url(/web/20130120025344im_/http://www.govoffice.com/repository/designs/templates/govoffice_marketing07/images/underline.gif);
+    background-repeat: no-repeat;
+    background-position: left bottom;*/
+}
+.contentbox_left_body
+{
+	height: 172px;
+	text-align: left;
+    background-color: transparent;
+    padding: 1.25em;
+}
+.leftColumn A, #sbOne A, #sbTwo A, #sbThree A
+{
+		text-decoration: none;
+}
+.leftColumn A:hover
+{
+
+}
+
+/*=========================================( RIGHT COLUMN PIECES )===*/
+/*===================================================================*/
+
+#rightTopper
+{
+	font-size: 1px;
+	height: 8px;
+	background-image: url(/web/20130120025344im_/http://www.govoffice.com/repository/designs/templates/govoffice_marketing07/images/rightcolTop.png);
+	background-repeat: repeat-y;
+	background-position: left top;
+}
+.rightMargin
+{
+	margin-left: 5px;
+	margin-right: 10px;
+	padding-top: 1em;
+	padding-bottom: 30px;
+}
+.contentbox_right, .sidebar
+{
+	margin-bottom: 10px;
+	border: none;
+}
+.contentbox_right_header, .sidebar_header, .sidebar_headerHelpful
+{
+    color: #333;
+    font-weight: bold;
+    font-size: 10pt;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+	background-color: transparent;
+    padding: 0.5em;
+}
+.sidebar_headerHelpful
+{
+	background-image: none;
+}
+.contentbox_right_body, .sidebar_body
+{
+    background-color: transparent;
+    padding: 0.25em 1em 1em 1em;
+}
+BODY.inner .rightMargin
+{
+	margin-left: 5px;
+	margin-right: 5px;
+}
+BODY.inner .contentbox_right, BODY.inner .sidebar
+{
+	margin-bottom: 10px;
+	width: 180px;
+}
+BODY.inner .contentbox_right_header, BODY.inner .sidebar_header, BODY.inner .sidebar_headerHelpful
+{
+    color: white;
+    font-size: 8pt;
+	background-image: url(/web/20130120025344im_/http://www.govoffice.com/repository/designs/templates/govoffice_marketing07/images/rightHeader.png);
+	background-repeat: repeat-x;
+	background-position: left top;
+	background-color: #bc2221;
+    padding: 0.75em 0.25em 0.5em 0.25em;
+}
+BODY.inner .sidebar_headerHelpful
+{
+	background-image: url(/web/20130120025344im_/http://www.govoffice.com/repository/designs/templates/govoffice_marketing07/images/helpfulHeader.png);
+	background-color: #6d7684;
+}
+BODY.inner .contentbox_right_body, BODY.inner .sidebar_body
+{
+background-color: #f1f0ec;
+	background-image: url(/web/20130120025344im_/http://www.govoffice.com/repository/designs/templates/govoffice_marketing07/images/rightBody.png);
+	background-repeat: no-repeat;
+	background-position: left top;
+	padding: 1em 1.25em;
+}
+BODY.inner .sidebar_footer
+{
+	font-size: 1px;
+	height: 2px;
+	background-image: url(/web/20130120025344im_/http://www.govoffice.com/repository/designs/templates/govoffice_marketing07/images/rightFooter.png);
+	background-repeat: no-repeat;
+	background-position: left top;
+}
+.rightColumn A
+{
+}
+.rightColumn A:hover
+{
+}
+
+#facebooklink, #twitterlink
+{
+	display: block;
+	margin: 10px;
+	text-decoration: none;
+	text-align: center;
+}
+#facebooklink > * , #twitterlink > * { vertical-align: middle; }
+#facebooklink span , #twitterlink span { text-decoration: underline; }
+#facebooklink img , #twitterlink img { margin-right: 0.5ex; }
+
+
+/*===================================================( SEARCHBOX )===*/
+/*===================================================================*/
+
+.searchbox
+{
+	background-image: url(/web/20130120025344im_/http://www.govoffice.com/repository/designs/templates/govoffice_marketing07/images/searchBG.png);
+	background-repeat: no-repeat;
+	background-position: left top;
+	/*padding: 1em 1.5em 1em 1.5em;*/
+	position: relative;
+	width: 180px;
+	height: 89px;
+}
+.searchMove
+{
+	position: absolute;
+	top: 10px;
+	left: 18px;
+}
+.searchbox_header
+{
+    color: #595857;
+    font-size: 9pt;
+    font-weight: bold;
+    padding-bottom: 0.5em;
+}
+.searchbox_body
+{
+    background-color: transparent;
+}
+input.searchField
+{
+	color: #595857;
+	width: 120px;
+	font-size: 9pt;
+}
+A.goButton, A.goButton:hover
+{
+    display: block;
+    color: #595857;
+    font-weight: bold;
+    font-size: 8pt;
+    width: 15px;
+}
+A.goButton:hover
+{
+	color: #807e7c;
+}
+
+/*===============================================( FOOTER PIECES )===*/
+/*===================================================================*/
+
+#vertLogoWrapper
+{
+	position: relative;
+	background-color: white;
+}
+#footerWrapper
+{
+	text-align: center;
+	margin-right: 0px;
+}
+.footer
+{
+    font-size: 8pt;
+    color: #3b3a38;
+    background-color: white;
+    text-align: center;
+    padding: 3px;
+    margin-top: 10px;
+}
+DIV.footernav
+{
+    text-align: center;
+    margin-top: 7px;
+}
+A.footernav
+{
+    font-size: 8pt;
+    color: #3b3a38;
+}
+A.footernav:hover, .terms A:hover
+{
+	color: black;
+}
+DIV.companyLogo
+{
+	text-align: center;
+	margin-top: 1.5em;
+	margin-right: 225px;
+}
+.companyLogo A
+{
+	color: white;
+	margin-left: 2em;
+	margin-right: 2em;
+}
+
+/*=============================================( MENU NAVIGATION )===*/
+/*===================================================================*/
+
+/*===========================================( ADJUSTABLE STYLES )===*/
+
+A.menuItem, A.menuItem_hi, DIV.menu
+{
+    width: 200px;
+}
+.menuItemPadder, .menuTitle, .menuTitle_hi
+{
+    padding: 6px 10px 6px 10px;
+}
+.menuTitle, .menuTitle_hi
+{
+    padding: 6px 10px 6px 10px;
+}
+.subTriangle
+{
+    top: 6px;
+}
+A.menuTitle, A.menuTitle_hi, A.menuItem, A.menuItem_hi, .subTriangle, A.menuTitleNoLine
+{
+    font-size: 8pt;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/*=========================================( PRIMARY NAVIGATION )===*/
+
+A.menuTitle, A.menuTitle_hi, A.menuTitle:visited, A.menuTitle_hi:visited
+{
+	display: block;
+    color: white;
+    background-color: transparent;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+    white-space: nowrap;
+    text-transform: uppercase;
+    background-image: url(/web/20130120025344im_/http://www.govoffice.com/repository/designs/templates/govoffice_marketing07/images/navDivider.png);
+    background-repeat: no-repeat;
+    background-position: right center;
+}
+A.menuTitle_hi, A.menuTitle:hover, A.menuTitle_hi:hover
+{
+    color: #cccccf;
+    text-decoration: none;
+    background-color: transparent;
+}
+A.menuTitleNoLine, A.menuTitleNoLine:visited
+{
+	display: block;
+    color: white;
+    background-color: transparent;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+    white-space: nowrap;
+    text-transform: uppercase;
+    background-image: none;
+}
+A.menuTitleNoLine:hover
+{
+    color: #cccccf;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+/*=======================================( SECONDARY NAVIGATION )===*/
+
+#secNavBox A.menuTitle, #secNavBox A.menuTitle_hi
+{
+    color: white;
+    background-color: #a1b570;
+}
+#secNavBox A.menuItem:hover, #secNavBox A.menuTitle:hover, #secNavBox A.menuTitle_hi:hover, #secNavBox A.menuTitle_hi
+{
+    background-color: #707e4e;
+}
+
+/*=========================================( SUBSECTION NAVIGATION )===*/
+
+DIV.menu
+{
+  	background-color: #ececed;
+  	border: 2px solid #59606b;
+  	/*padding: 0.25em;*/
+}
+/*#secNavBox DIV.menu
+{
+    background-color: #a1b570;
+  	border: 1px solid white;
+}*/
+A.menuItem, A.menuItem_hi, A.menuItem:visited, A.menuItem_hi:visited
+{
+    color: #444;
+    text-decoration: none;
+}
+A.menuItem_hi
+{
+    background-color: #d7d7d9;
+	/*background-image: url(/web/20130120025344im_/http://www.govoffice.com/repository/designs/templates/govoffice_marketing07/images/subnav-gradient.png);
+	background-repeat: repeat-x;
+	background-position: left bottom;*/
+}
+A.menuItem:hover, A.menuItem_hi:hover
+{
+    text-decoration: none;
+    background-color: #d7d7d9;
+	/*background-image: url(/web/20130120025344im_/http://www.govoffice.com/repository/designs/templates/govoffice_marketing07/images/subnav-gradient.png);
+	background-repeat: repeat-x;
+	background-position: left bottom;*/
+}
+
+/*===================================( SUBSECTION-ONLY NAVIGATION )===*/
+
+.subnavbox
+{
+}
+.subnavbox_header
+{
+    color: white;
+    font-weight: bold;
+    font-size: 8pt;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background-color: transparent;
+	background-image: url(/web/20130120025344im_/http://www.govoffice.com/repository/designs/templates/govoffice_marketing07/images/subsecHeader.png);
+	background-repeat: no-repeat;
+	background-position: left top;
+    padding: 0.75em 0.25em 0.5em 0.25em;
+}
+.subnavbox_body
+{
+    background-color: transparent;
+	background-image: url(/web/20130120025344im_/http://www.govoffice.com/repository/designs/templates/govoffice_marketing07/images/subsecBody.png);
+	background-repeat: repeat-y;
+	background-position: left top;
+   	padding: 1em 1.25em;
+}
+#subnavbox_footer
+{
+	font-size: 1px;
+	height: 2px;
+	background-image: url(/web/20130120025344im_/http://www.govoffice.com/repository/designs/templates/govoffice_marketing07/images/subsecFooter.png);
+	background-repeat: no-repeat;
+	background-position: left top;
+}
+.subnavDivTag
+{
+	position: relative;
+	top: 0px;
+	margin-top: 6px;
+    margin-bottom: 6px;
+    padding-left: 10px;
+}
+.subnavbox A.subSectionLink, .subnavbox A.subSectionLink_high
+{
+    color: #707070;
+    font-weight: normal;
+    text-decoration: underline;
+	/*background-image: url(/web/20130120025344im_/http://www.govoffice.com/repository/designs/templates/govoffice_marketing07/images/arrow.gif);
+	background-repeat: no-repeat;
+	background-position: 0px 4px;*/
+}
+.subnavbox A.subSectionLink_high, .subnavbox A.subSectionLink:hover, .subnavbox A.subSectionLink_high:hover
+{
+    color: #c9312e;
+}
+DIV.subnavArrow
+{
+	position: absolute;
+	top: 5px;
+	left: 0px;
+	width: 4px;
+	height: 7px;
+	background-image: url(/web/20130120025344im_/http://www.govoffice.com/repository/designs/templates/govoffice_marketing07/images/arrow.gif);
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+}
+
+/*=============================================( REQUIRED STYLES )===*/
+/*===================================================================*/
+
+.navVertical A.textButtonLink, .navVertical A.textButtonLink_high { display: block; }
+.navHorizontal A.textButtonLink, .navHorizontal A.textButtonLink_high { display: inline; }
+
+#navGradient
+{
+	font-size: 1px;
+	height: 5px;
+	background-image: url(/web/20130120025344im_/http://www.govoffice.com/repository/designs/templates/govoffice_marketing07/images/navTop.png);
+	background-repeat: repeat-x;
+	background-position: left top;
+}
+.prinavContainer
+{
+	background-image: url(/web/20130120025344im_/http://www.govoffice.com/repository/designs/templates/govoffice_marketing07/images/horizNav.png);
+	background-repeat: repeat-x;
+	background-position: left top;
+	border-bottom: 3px solid #ececed;
+}
+.horizNavBox
+{
+    z-index: 6;
+}
+.vertNavBox
+{
+    z-index: 5;
+    margin-bottom: 1em;
+}
+.menuBar
+{
+    width: 100%;
+}
+DIV.menu
+{
+    z-index: 10;
+    position: absolute;
+    visibility: hidden;
+    top: 0px;
+    left: 0px;
+}
+A.menuTitle, A.menuTitle_hi
+{
+    display: block;
+    position: relative;
+    text-decoration: none;
+    cursor: pointer;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+.vertNavBox A.menuTitle, .vertNavBox A.menuTitle_hi
+{
+    white-space: normal;
+}
+A.menuItem, A.menuItem_hi
+{
+    display: block;
+    cursor: pointer;
+    text-decoration: none;
+}
+DIV.menuItemWrapper
+{
+    /*padding: 5px 1em 5px 7px;*/
+    padding-right: 1.2em;
+}
+.subTriangle, .subTriangle:hover
+{
+    position: absolute;
+    right: 5px;
+    color: #444;
+    text-decoration: none;
+}
+
+/*=================================( CSS CLASSES NEW CALENDAR )===*/
+/*================================================================*/
+
+.calMonth TABLE
+{
+    background-color: #393c45;
+}
+.calMonthName, .calYear
+{
+    font-size: 150%;
+    color: white;
+    font-weight: bold;
+}
+.calDayHeading
+{
+    background-color: #bc2221;
+    color: white;
+    letter-spacing: 0px;
+    text-align: center;
+}
+.calGrayDay
+{
+    background-color: #bfbfbf;
+    color: #333;
+}
+.calToday
+{
+    font-weight: bold;
+    background-color: #edebe2;
+}
+.eventTip
+{
+    border-color: #550;
+    background-color: #edebe2;
+}
+.calendarTable A
+{
+		color: #333333;
+}
+.calendarTable A:hover
+{
+		color: black;
+}
+/*
+     FILE ARCHIVED ON 02:53:44 Jan 20, 2013 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 08:30:11 Jul 19, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 185.554
+  exclusion.robots: 0.062
+  exclusion.robots.policy: 0.055
+  cdx.remote: 0.052
+  esindex: 0.007
+  LoadShardBlock: 164.729 (3)
+  PetaboxLoader3.datanode: 204.376 (4)
+  load_resource: 153.026
+  PetaboxLoader3.resolve: 36.751
+*/

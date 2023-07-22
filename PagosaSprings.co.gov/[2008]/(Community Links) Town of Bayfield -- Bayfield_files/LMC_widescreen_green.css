@@ -1,0 +1,242 @@
+@import url("/web/20151224144021cs_/http://bayfield.govoffice.com/repository/designs/templates/LMC_widescreen/LMC_widescreen_common.css");
+
+
+/*
+====================================================================( global stuff )==
+*/
+
+
+BODY
+{
+
+}
+
+A { color: #525e4a; }
+A:hover { color: #333; }
+
+.headline1, .headline2, .headline3, .headline4
+{
+    color: #798B6D;
+    font-weight: normal;
+    font-family: Arial Black, Arial Bold, sans-serif;
+}
+
+.footer
+{
+    background-color: #000;
+}
+
+
+/*
+====================================================================( banner stuff )==
+*/
+
+
+
+#banner
+{
+    border-bottom-color: #474F42;
+}
+#title
+{
+    color: #474F42;
+}
+#searchBar
+{
+    color: white;
+    background-color: #798B6D;
+}
+#topNav
+{
+    background-color: #9B9E9A;
+    background-image: url( /web/20151224144021im_/http://bayfield.govoffice.com/repository/designs/templates/LMC_widescreen/images/horizGradient_green.jpg );
+    background-position: right top;
+    background-repeat: repeat-y;
+}
+
+
+#stripTable .photo1 DIV
+{
+    background-image: url( /web/20151224144021im_/http://bayfield.govoffice.com/repository/designs/templates/LMC_widescreen/images/set3/girlInFlowers.jpg );
+}
+.photo2
+{
+    /*width: 30%;*/
+}
+.photo2 DIV
+{
+    background-image: url( /web/20151224144021im_/http://bayfield.govoffice.com/repository/designs/templates/LMC_widescreen/images/set3/generationOfLadies.jpg );
+}
+.photo3 DIV
+{
+    background-image: url( /web/20151224144021im_/http://bayfield.govoffice.com/repository/designs/templates/LMC_widescreen/images/set3/boysWithDog.jpg );
+}
+.photo4 DIV
+{
+    background-image: url( /web/20151224144021im_/http://bayfield.govoffice.com/repository/designs/templates/LMC_widescreen/images/set3/fluteGirl.jpg );
+}
+.photo5 DIV
+{
+    background-image: url( /web/20151224144021im_/http://bayfield.govoffice.com/repository/designs/templates/LMC_widescreen/images/set3/seniorsOnBench.jpg );
+}
+
+
+
+/*
+====================================================================( left col )==
+*/
+
+TD.leftColumn
+{
+    background-color: #798B6C;
+    border-bottom: 2px solid white;
+    border-top: 1px solid white;
+    color: white;
+}
+.leftColumn A { color: #CDD9C5; }
+.leftColumn A:hover { color: white; }
+
+/*
+====================================================================( right col )==
+*/
+
+TD.rightColumn
+{
+    font-size: 8pt;
+    background-color: white;
+    border-bottom: 2px solid white;
+}
+.rightColumn .contentPull
+{
+    background-color: white;
+    padding-top: 20px;
+}
+.contentbox_right, .sidebar
+{
+    margin-bottom: 2em;
+    margin-right: 1em;
+}
+
+.contentbox_right_header, .sidebar_header
+{
+    color: #798B6D;
+    font: normal 14pt Arial Black, Arial Bold, sans-serif;
+    background-color: transparent;
+    text-align: left;
+    padding: 0px;
+    border: none;
+    margin-bottom: 1em;
+}
+
+.contentbox_right_body, .sidebar_body
+{
+    background-color: transparent;
+    padding: 0px;
+}
+
+
+
+/*
+====================================================================( nav )==
+*/
+
+DIV.menu
+{
+    background-color: #383D36;
+}
+
+/* primary menu TITLE style */
+A.menuTitle, A.menuTitle_hi
+{
+    color: white;
+    background-color: #383D36;
+}
+A.menuTitle_hi, A.menuTitle:hover, A.menuTitle_hi:hover
+{
+    color: white;
+    background-color: #5F675B;
+}
+
+/* primary menu ITEM style */
+A.menuItem, A.menuItem_hi
+{
+    color: white;
+}
+A.menuItem_hi
+{
+    background-color: #5F675B;
+}
+A.menuItem:hover, A.menuItem_hi:hover
+{
+    background-color: #5F675B;
+}
+
+
+/* secondary nav stuff */
+#secNavBox DIV.menu
+{
+    background-color: #80837E;
+}
+#secNavBox A.menuTitle, #secNavBox A.menuTitle_hi
+{
+    color: white;
+    border: none;
+    border-left: 2px solid white;
+    background-color: transparent;
+}
+#secNavBox A.menuItem:hover, #secNavBox A.menuTitle:hover, #secNavBox A.menuTitle_hi:hover, #secNavBox A.menuTitle_hi
+{
+    background-color: #383D36;
+}
+
+.subnavbox A.subSectionLink_high, .subnavbox A.subSectionLink:hover, .subnavbox A.subSectionLink_high:hover
+{
+    color: white;
+}
+
+
+/*
+====================================================================( calendar stuff )==
+*/
+
+
+.calMonth TABLE, .calDayHeading /* calendar grid color */
+{   
+    background-color: #798B6D;
+}
+
+.calGrayDay {
+    background-color: #E0E5DC;
+    color: #9a9;
+}
+
+.calToday {
+    /*background-color: #FFD;*/
+}
+
+.eventTip
+{   
+    color: black;
+    border-color: #030;
+    background-color: #9a9;
+}
+/*
+     FILE ARCHIVED ON 14:40:21 Dec 24, 2015 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 08:12:22 Jul 18, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 80.572
+  exclusion.robots: 0.125
+  exclusion.robots.policy: 0.112
+  cdx.remote: 0.086
+  esindex: 0.011
+  LoadShardBlock: 46.807 (3)
+  PetaboxLoader3.datanode: 56.864 (4)
+  load_resource: 112.351
+  PetaboxLoader3.resolve: 62.766
+*/

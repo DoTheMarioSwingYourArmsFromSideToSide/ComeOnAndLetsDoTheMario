@@ -1,0 +1,288 @@
+.testborder {
+	border-collapse: collapse;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #663300;
+	border-right-color: #663300;
+	border-bottom-color: #663300;
+	border-left-color: #663300;
+	overflow: hidden;
+}
+
+.newsborder {
+	border-collapse: collapse;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #006699;
+	border-right-color: #006699;
+	border-bottom-color: #006699;
+	border-left-color: #006699;
+	overflow: hidden;
+}
+
+.contentable {
+	background-color: #FFECCC;
+	border-collapse: collapse;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #663300;
+	border-right-color: #663300;
+	border-bottom-color: #663300;
+	border-left-color: #663300;
+	overflow: hidden;
+	color: #663300;
+	font-size: 12px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+}
+
+body {
+	background-color: #C79461;
+}	
+.style2 {
+	color: #663300;
+	font-style: italic;
+	font-weight: bold;
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+}
+
+.style3 {
+	color: #663300;
+	font-style: normal;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+.style3 a:link {
+	color: #006699;
+}
+.style3 a:visited {
+	color: #7D0000;
+}
+.style3 a:hover {
+	color: #249F87;
+}
+.style9 {
+	color: #663300;
+	font-size: 12px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+}
+.style9 a:link {
+	color: #006699;
+}
+.style9 a:visited {
+	color: #7D0000;
+}
+.style9 a:hover {
+	color: #249F87;
+}
+.style19 {font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #663300;
+}
+
+.Labels {
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+}
+.PageTitle {
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-size: 24px;
+	font-weight: bold;
+	background-color: #DDC87D;
+}
+.SectionHeader {
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	color: #006699;
+}
+input {
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+}
+select {
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+}
+.FormText {
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+}
+.resultsText {
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+}
+
+.FormBody {
+	background-color: #E6D69D;
+}
+.LightBkgd {
+	background-color: #FFDFAA;
+}
+textarea {
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+.ClockText {
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #663300;
+}
+
+.style24 {
+	color: #663300;
+	font-weight: bold;
+	font-size: 12px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+div.LeftNavText a:link {
+	color: #996F45;
+}
+
+div.LeftNavText a:active {
+	background-color: #996F45;
+	color: #FFFFFF;
+}
+
+div.LeftNavText a:visited {
+color: #996F45; 
+}
+
+div.LeftNavText a:hover {
+	color: #FFFFFF;
+	background-color: #996F45;
+}
+table.LeftNavText a {
+	display: block;
+	
+} 
+div.LeftNavText a {
+	text-decoration:none;
+	font-size:10px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	padding: 2px 5px;
+	font-style: normal;
+	font-weight: bolder;
+}
+.LeftNavText {
+	text-decoration:none;
+	font-size:10px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;	
+	font-style: normal;
+	font-weight: bolder;
+	color: #FFFFFF;
+	
+}
+
+.QuickButText {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #663300;
+	font-weight: bold;
+	line-height: 10px;
+	position: relative;
+	bottom: -3px;
+	left: 27px;
+}
+.QuickButText a:link {
+	color: #663300;
+	text-decoration: none;
+}
+.QuickButText a:visited {
+	color: #663300;
+	text-decoration: none;
+}
+.QuickButText a:hover {
+	color: #239BA9;
+}
+.LeftNavTextNoLink {
+	text-decoration:none;
+	font-size:10px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	padding: 2px 5px;
+	font-style: normal;
+	font-weight: bolder;
+	color: #FFFFFF;
+	background-color: #C0AB7E;
+}
+.news {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+.news a:link {
+	color: #006699;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+.news a:visited {
+	color: #7D0000;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+.news a:hover {
+	color: #249F87;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+
+.navsearch {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+}
+.navsearch  a:link {
+	color: #006699;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+}
+.navsearch  a:visited {
+	color: #7D0000;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+}
+.navsearch  a:hover {
+	color: #249F87;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+}
+
+/*
+     FILE ARCHIVED ON 21:26:22 Apr 16, 2008 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 07:02:18 Jul 18, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 97.749
+  exclusion.robots: 0.066
+  exclusion.robots.policy: 0.058
+  cdx.remote: 0.053
+  esindex: 0.009
+  LoadShardBlock: 71.846 (3)
+  PetaboxLoader3.datanode: 111.133 (4)
+  load_resource: 121.788
+  PetaboxLoader3.resolve: 49.646
+*/

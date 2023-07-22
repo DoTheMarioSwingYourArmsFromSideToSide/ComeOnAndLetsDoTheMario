@@ -1,0 +1,165 @@
+.text {
+	color: #000000;
+	font-size: 13px;
+	text-decoration: None;
+	font-family: Arial;
+}
+.textsmall {
+	color: #000000;
+	font-size: 11px;
+	text-decoration: None;
+	font-family: Arial;
+}
+.texttiny {
+	color: #000000;
+	font-size: 9px;
+	text-decoration: None;
+	font-family: Arial;
+}
+.texttinywhite {
+	color: White;
+	font-size: 9px;
+	text-decoration: None;
+	font-family: Arial;
+}
+.textwhite {
+	color: #FFFFFF;
+	font-size: 13px;
+	text-decoration: None;
+	font-family: Arial;
+}
+.red {
+	color: Red;
+	font-size: 13px;
+	text-decoration: None;
+	font-family: Arial;
+}
+.redsmall {
+	color: Red;
+	font-size: 11px;
+	text-decoration: None;
+	font-family: Arial;
+}
+.menu {
+	color: #9B72CF;
+	font-size: 11px;
+	text-decoration: None;
+	font-family: Arial;
+	font-weight: None;
+	text-decoration: None;
+}
+.menuA {
+	color: #006600;
+	font-size: 11px;
+	text-decoration: None;
+	font-family: Arial;
+	font-weight: bold;
+	text-decoration: None;
+}
+.menuheader {
+	color: #FFFFFF;
+	font-size: 11px;
+	text-decoration: None;
+	font-family: Arial;
+	font-weight: Bold;
+}
+.bold {
+	color: #000000;
+	font-size: 13px;
+	text-decoration: None;
+	font-family: Arial;
+	font-weight: Bold;
+}
+.boldsmall {
+	color: #000000;
+	font-size: 9px;
+	text-decoration: None;
+	font-family: Arial;
+	font-weight: Bold;
+}
+.boldsmallwhite {
+	color: White;
+	font-size: 9px;
+	text-decoration: None;
+	font-family: Arial;
+	font-weight: Bold;
+}
+.H3 {
+	font-family: Arial;
+	font-size : 20pt;
+}
+.H35 {
+	font-family: Arial;
+	font-size : 18pt;
+}
+.H4 {
+	font-family: Arial;
+	font-size : 16pt;
+}
+.H5 {
+	font-family: Arial;
+	font-size : 12pt;
+}
+.HT6 {
+	font-family : Comic Sans MS;
+	font-size : 25pt;
+	color : White;
+	font : bold;
+}
+.H6 {
+	font-family : Arial;
+	font-size : 25pt;
+	color : Black;
+}
+.H8 {
+	font-family : Arial;
+	font-size : 36pt;
+	color : Black;
+}
+.HTA {
+	font-family : "Tempus Sans ITC";
+	font-size : 25pt;
+	color : White;
+	font : bold;
+}
+A {
+	font-family: Arial;
+	text-decoration : none;
+	color : Black;
+}
+A:hover {
+	font-family: Arial;
+	text-decoration: underline;
+}
+
+.doclink A {
+	font-family: Arial;
+	text-decoration: underline;
+}
+
+.copyright {
+        color: #FFFFFF;
+        font-size: 10;
+        text-decoration: None;
+        font-family: Verdana;
+}
+/*
+     FILE ARCHIVED ON 22:16:01 Aug 26, 2006 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 07:14:32 Jul 18, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 409.965
+  exclusion.robots: 0.066
+  exclusion.robots.policy: 0.057
+  cdx.remote: 0.053
+  esindex: 0.007
+  LoadShardBlock: 385.903 (3)
+  PetaboxLoader3.datanode: 122.807 (4)
+  PetaboxLoader3.resolve: 373.284 (2)
+  load_resource: 210.047
+*/

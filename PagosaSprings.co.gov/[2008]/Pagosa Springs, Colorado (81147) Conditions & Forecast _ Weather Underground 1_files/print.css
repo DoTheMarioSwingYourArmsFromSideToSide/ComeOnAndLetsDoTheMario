@@ -1,0 +1,30 @@
+.TabBox { border-top: 2px solid #FFF; border-right: 1px solid #FFF; border-bottom: 1px solid #FFF; border-left: 1px solid #FFF; }
+#photoBox { border: 0px; }
+#top { visibility: hidden; }
+#printPhoto { display: block; }
+#photoTable { width: 650px; }
+#blogUpdated { border-top: 1px solid #666; background-color: #EEE; margin-top: 5px; margin-bottom: 10px; }
+#checkWeather, #photoRating, #viewComments, #postComment, #blogSort, #blogRead, #blogReport, #more, #blogInfo, #towerAd, #chat, #gutter, #photoTabs, #photoNav, #photoDetails, #photoLinks, #photoBottom, #leftBar, #topNav, #copyNav, #features, #bottomAds, H5 { display: none; }
+
+.noPrint { display: none; }
+
+/*
+     FILE ARCHIVED ON 09:42:25 Dec 27, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 08:30:10 Jul 18, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 176.959
+  exclusion.robots: 0.068
+  exclusion.robots.policy: 0.058
+  RedisCDXSource: 1.374
+  esindex: 0.007
+  LoadShardBlock: 157.849 (3)
+  PetaboxLoader3.datanode: 163.602 (4)
+  load_resource: 186.558
+  PetaboxLoader3.resolve: 140.692
+*/

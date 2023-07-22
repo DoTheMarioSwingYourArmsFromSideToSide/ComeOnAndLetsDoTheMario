@@ -1,0 +1,492 @@
+
+<!-- saved from url=(0062)https://web.archive.org/web/20080419084653/http://www.cml.org/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"><script src="./(Community Links) Welcome to the Colorado Municipal League_files/analytics.js.download" type="text/javascript"></script>
+<script type="text/javascript">window.addEventListener('DOMContentLoaded',function(){var v=archive_analytics.values;v.service='wb';v.server_name='wwwb-app200.us.archive.org';v.server_ms=965;archive_analytics.send_pageview({});});</script>
+<script type="text/javascript" src="./(Community Links) Welcome to the Colorado Municipal League_files/bundle-playback.js.download" charset="utf-8"></script>
+<script type="text/javascript" src="./(Community Links) Welcome to the Colorado Municipal League_files/wombat.js.download" charset="utf-8"></script>
+<script type="text/javascript">
+  __wm.init("https://web.archive.org/web");
+  __wm.wombat("http://www.cml.org:80/","20080419084653","https://web.archive.org/","web","/_static/",
+	      "1208594813");
+</script>
+<link rel="stylesheet" type="text/css" href="./(Community Links) Welcome to the Colorado Municipal League_files/banner-styles.css">
+<link rel="stylesheet" type="text/css" href="./(Community Links) Welcome to the Colorado Municipal League_files/iconochive.css">
+<!-- End Wayback Rewrite JS Include -->
+
+<title>Welcome to the Colorado Municipal League</title>
+
+
+<link href="./(Community Links) Welcome to the Colorado Municipal League_files/nav.css" type="text/css" rel="stylesheet">
+
+<script language="JavaScript" type="text/javascript">
+<!--
+
+if(window.event + "" == "undefined") event = null;
+function HM_f_PopUp(){return false};
+function HM_f_PopDown(){return false};
+popUp = HM_f_PopUp;
+popDown = HM_f_PopDown;
+
+//-->
+</script>
+
+<script language="JavaScript" type="text/javascript">
+<!--
+/**********************************************************************************   
+PageSlideFade 
+*   Copyright (C) 2001 <a href="/dhtmlcentral/michael_van_ouwerkerk.asp">Michael van Ouwerkerk</a>
+*   This script was released at DHTMLCentral.com
+*   Visit for more great scripts!
+*   This may be used and changed freely as long as this msg is intact!
+*   We will also appreciate any links you could give us.
+*
+*   Made by <a href="/dhtmlcentral/michael_van_ouwerkerk.asp">Michael van Ouwerkerk</a> 
+*********************************************************************************/
+
+function lib_bwcheck(){ //Browsercheck (needed)
+	this.ver=navigator.appVersion
+	this.agent=navigator.userAgent
+	this.dom=document.getElementById?1:0
+	this.opera5=this.agent.indexOf("Opera 5")>-1
+	this.ie5=(this.ver.indexOf("MSIE 5")>-1 && this.dom && !this.opera5)?1:0; 
+	this.ie6=(this.ver.indexOf("MSIE 6")>-1 && this.dom && !this.opera5)?1:0;
+	this.ie4=(document.all && !this.dom && !this.opera5)?1:0;
+	this.ie=this.ie4||this.ie5||this.ie6
+	this.mac=this.agent.indexOf("Mac")>-1
+	this.ns6=(this.dom && parseInt(this.ver) >= 5) ?1:0; 
+	this.ns4=(document.layers && !this.dom)?1:0;
+	this.bw=(this.ie6 || this.ie5 || this.ie4 || this.ns4 || this.ns6 || this.opera5)
+	return this
+}
+var bw=new lib_bwcheck()
+
+
+/*** variables to configure... ***/
+
+var numScrollPages = 1         //Set the number of pages (layers) here. Add and remove the pages in the body too. The first layer is called dynPage0, the second is dynPage1, and so on.
+var transitionOut = 1;         //The 'out' effect... 0= no effect, 1= fade
+var transitionIn = 2;          //The 'in' effect... 0= no effect, 1= fade, 2= slide
+var slideAcceleration = 0.2;   //If you use the slide animation, set this somewhere between 0 and 1.
+var transitionOnload = 1       //Use the 'in' transition when the page first loads? If you want the transition fx only when the links are clicked, you can set it to 0.
+
+// NOTE: if you change the position of divScroller1 from absolute to relative, you can put the scroller in a table.
+// HOWEVER it will no longer work in netscape 4. If you wish to support netscape 4, you have to use absolute positioning.
+
+// Please note that there are no effects available in ns4 and ie4, or explorers on the Mac!
+
+/*** There should be no need to change anything beyond this. ***/ 
+
+// A unit of measure that will be added when setting the position of a layer.
+var px = bw.ns4||window.opera?"":"px";
+
+if(document.layers){ //NS4 resize fix...
+	scrX= innerWidth; scrY= innerHeight;
+	onresize= function(){if(scrX!= innerWidth || scrY!= innerHeight){history.go(0)} }
+}
+
+//object constructor...
+function scrollerobj(obj,nest){
+	nest = (!nest)?"":'document.'+nest+'.'
+	this.elm = bw.ie4?document.all[obj]:bw.ns4?eval(nest+'document.'+obj):document.getElementById(obj)
+	this.css = bw.ns4?this.elm:this.elm.style
+	this.doc = bw.ns4?this.elm.document:document
+	this.obj = obj+'scrollerobj'; eval(this.obj+'=this')
+	this.x = (bw.ns4||bw.opera5)?this.css.left:this.elm.offsetLeft
+	this.y = (bw.ns4||bw.opera5)?this.css.top:this.elm.offsetTop
+	this.w = (bw.ie4||bw.ie5||bw.ie6||bw.ns6)?this.elm.offsetWidth:bw.ns4?this.elm.clip.width:bw.opera5?this.css.pixelWidth:0
+	this.h = (bw.ie4||bw.ie5||bw.ie6||bw.ns6)?this.elm.offsetHeight:bw.ns4?this.elm.clip.height:bw.opera5?this.css.pixelHeight:0
+}
+
+//object methods...
+scrollerobj.prototype.moveTo = function(x,y){
+	if(x!=null){this.x=x; this.css.left=x+px}
+	if(y!=null){this.y=y; this.css.top=y+px}
+}
+scrollerobj.prototype.moveBy = function(x,y){this.moveTo(this.x+x,this.y+y)}
+scrollerobj.prototype.hideIt = function(){this.css.visibility='hidden'}
+scrollerobj.prototype.showIt = function(){this.css.visibility='visible'}
+
+/****************************************************************
+scroll functions...
+****************************************************************/
+var scrollTimer = null;
+function scroll(step){
+	clearTimeout(scrollTimer);
+	if ( !busy && (step<0&&activePage.y+activePage.h>scroller1.h || step>0&&activePage.y<0) ){
+		activePage.moveBy(0,step);
+		scrollTimer = setTimeout('scroll('+step+')',40);
+	}
+}
+function stopScroll(){
+	clearTimeout(scrollTimer);
+}
+
+/****************************************************************
+activating the correct layers...
+****************************************************************/
+var activePage = null;
+var busy = 0;
+function activate(num){
+	if (activePage!=pages[num] && !busy){
+		busy = 1;
+		if (transitionOut==0 || !bw.opacity){ activePage.hideIt(); activateContinue(num); }
+		else if (transitionOut==1) activePage.blend('hidden', 'activateContinue('+num+')');
+	}
+}
+function activateContinue(num){
+	busy = 1;
+	activePage = pages[num];
+	activePage.moveTo(0,0);
+	if (transitionIn==0 || !bw.opacity){ activePage.showIt(); busy=0; }
+	else if (transitionIn==1) activePage.blend('visible', 'busy=0');
+	else if (transitionIn==2) activePage.slide(0, slideAcceleration, 40, 'busy=0');
+}
+
+
+/****************************************************************
+Slide methods...
+****************************************************************/
+scrollerobj.prototype.slide = function(target, acceleration, time, fn){
+	this.slideFn= fn?fn:null;
+	this.moveTo(0,scroller1.h);
+	if (bw.ie4&&!bw.mac) this.css.filter = 'alpha(opacity=100)';
+	if (bw.ns6) this.css.MozOpacity = 1;
+	this.showIt();
+	this.doSlide(target, acceleration, time);
+}
+scrollerobj.prototype.doSlide = function(target, acceleration, time){
+	this.step = Math.round(this.y*acceleration);
+	if (this.step<1) this.step = 1;
+	if (this.step>this.y) this.step = this.y;
+	this.moveBy(0, -this.step);
+	if (this.y>0) this.slideTim = setTimeout(this.obj+'.doSlide('+target+','+acceleration+','+time+')', time);
+	else {	
+		eval(this.slideFn);
+		this.slideFn = null;
+	}
+}
+
+
+/****************************************************************
+Opacity methods...
+****************************************************************/
+scrollerobj.prototype.blend= function(vis, fn){
+	if (bw.ie5||bw.ie6 && !bw.mac) {
+		if (vis=='visible') this.css.filter= 'blendTrans(duration=0.9)';
+		else this.css.filter= 'blendTrans(duration=0.6)';
+		this.elm.onfilterchange = function(){ eval(fn); };
+		this.elm.filters.blendTrans.apply();
+		this.css.visibility= vis;
+		this.elm.filters.blendTrans.play();
+	}
+	else if (bw.ns6 || bw.ie&&!bw.mac){
+		this.css.visibility= 'visible';
+		vis=='visible' ? this.fadeTo(100, 7, 40, fn) : this.fadeTo(0, 9, 40, fn);
+	}
+	else {
+		this.css.visibility= vis;
+		eval(fn);
+	}
+};
+
+scrollerobj.prototype.op= 100;
+scrollerobj.prototype.opacityTim= null;
+scrollerobj.prototype.setOpacity= function(num){
+	this.css.filter= 'alpha(opacity='+num+')';
+	this.css.MozOpacity= num/100;
+	this.op= num;
+}
+scrollerobj.prototype.fadeTo= function(target, step, time, fn){
+	clearTimeout(this.opacityTim);
+	this.opacityFn= fn?fn:null;
+	this.op = target==100 ? 0 : 100;
+	this.fade(target, step, time);
+}
+scrollerobj.prototype.fade= function(target, step, time){
+	if (Math.abs(target-this.op)>step){
+		target>this.op? this.setOpacity(this.op+step):this.setOpacity(this.op-step);
+		this.opacityTim= setTimeout(this.obj+'.fade('+target+','+step+','+time+')', time);
+	}
+	else {
+		this.setOpacity(target);
+		eval(this.opacityFn);
+		this.opacityFn= null;
+	}
+}
+
+
+/**************************************************************
+Init function...
+**************************************************************/
+var pageslidefadeLoaded = 0;
+function initPageSlideFade(){
+	scroller1 = new scrollerobj('divScroller1');
+	
+	pages = new Array();
+	for (var i=0; i<numScrollPages; i++){
+		pages[i] = new scrollerobj('dynPage'+i, 'divScroller1');
+		pages[i].moveTo(0,0);
+	}
+	bw.opacity = ( bw.ie && !bw.ie4 && navigator.userAgent.indexOf('Windows')>-1 ) || bw.ns6
+	if (bw.ie5||bw.ie6 && !bw.mac) pages[0].css.filter= 'blendTrans(duration=0.6)'; // Preloads the windows filters.
+	
+	if (transitionOnload) activateContinue(0);
+	else{
+		activePage = pages[0];
+		activePage.showIt();
+	}
+
+	if (bw.ie) for(var i=0;i<document.links.length;i++) document.links[i].onfocus=document.links[i].blur;
+	pageslidefadeLoaded = 1;
+}
+//if the browser is ok, the script is started onload..
+if(bw.bw && !pageslidefadeLoaded) onload = initPageSlideFade;
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</script>
+
+<style type="text/css">
+
+#divScroller1 {
+	position:absolute;
+	overflow:hidden;
+	z-index:9;
+	left:275;
+	top:195px;
+	width: 380px;
+	height:165px;
+	clip:rect(0px, 100%, 100%, 0px);
+	visbility:visible;
+	border-width:0px 0px 0px 0px;
+	border-color:#666666;
+	border-style:dashed;
+}
+
+.dynPage {position:absolute; z-index:10; left:px; top:5px; width:375px; visibility:hidden; padding-left:0px}
+#arrows {position:absolute; z-index:11; left:0px; top:0px; width:12px;}
+#links {position:absolute; z-index:11; left:300px; top:150px; width:20px;}
+</style>
+
+
+
+
+
+
+
+
+</head>
+<body background="./(Community Links) Welcome to the Colorado Municipal League_files/background.gif" bgcolor="#FFFFFF" leftmargin="0" topmargin="0" rightmargin="0" bottommargin="0" marginwidth="0" marginheight="0" data-new-gr-c-s-check-loaded="14.1115.0" data-gr-ext-installed=""><!-- BEGIN WAYBACK TOOLBAR INSERT -->
+<script>__wm.rw(0);</script>
+<div id="wm-ipp-base" lang="en" style="display: block; direction: ltr;">
+</div><div id="wm-ipp-print">The Wayback Machine - https://web.archive.org/web/20080419084653/http://www.cml.org:80/</div>
+<script type="text/javascript">//<![CDATA[
+__wm.bt(700,27,25,2,"web","http://www.cml.org/","20080419084653",1996,"/_static/",["/_static/css/banner-styles.css?v=S1zqJCYt","/_static/css/iconochive.css?v=qtvMKcIJ"], false);
+  __wm.rw(1);
+//]]></script>
+<!-- END WAYBACK TOOLBAR INSERT -->
+ 
+
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+	<tbody><tr>
+		<td rowspan="5">
+			<img src="./(Community Links) Welcome to the Colorado Municipal League_files/INDEX_01.gif" width="28" height="124" alt=""></td>
+		<td colspan="5" rowspan="5">
+			<img src="./(Community Links) Welcome to the Colorado Municipal League_files/INDEX_02.gif" alt="Colorado Municipal League" width="397" height="124" border="0"></td>
+		<td colspan="3" rowspan="5" align="center">
+			<img src="./(Community Links) Welcome to the Colorado Municipal League_files/building_front.jpg" alt="CML Building" width="153" height="124" border="0"></td>
+		<td colspan="3">
+<img src="./(Community Links) Welcome to the Colorado Municipal League_files/INDEX_06.gif" width="208" height="10" alt="">
+			</td></tr><form action="https://web.archive.org/web/20080419084653/http://www.cml.org/search/index.cfm" method="post"></form>
+	<tr><td colspan="3" height="24"><table border="0" cellspacing="0" cellpadding="0"><tbody><tr><td background="./(Community Links) Welcome to the Colorado Municipal League_files/background_dark.gif"><img src="./(Community Links) Welcome to the Colorado Municipal League_files/INDEX_07.gif" alt="Site Search" width="80" height="17" border="0"></td><td background="./(Community Links) Welcome to the Colorado Municipal League_files/background_dark.gif"><input type="text" name="keywords" size="15" maxlength="65"></td><td background="./(Community Links) Welcome to the Colorado Municipal League_files/background_dark.gif"><input type="image" src="./(Community Links) Welcome to the Colorado Municipal League_files/go.gif" alt="Start Search" width="24" height="24" border="0">&nbsp;&nbsp;</td></tr></tbody></table>
+</td></tr>
+<tr><td colspan="3">
+<img src="./(Community Links) Welcome to the Colorado Municipal League_files/INDEX_06.gif" width="208" height="10" alt="">
+			</td></tr>
+	<tr>
+		<td>
+			<a href="https://web.archive.org/web/20080419084653/http://www.cml.org/contact/index.html"><img src="./(Community Links) Welcome to the Colorado Municipal League_files/INDEX_08.gif" alt="Contact Us" width="100" height="20" border="0"></a></td>
+		<td colspan="2">
+			<a href="https://web.archive.org/web/20080419084653/http://www.cml.org/site_map/index.html"><img src="./(Community Links) Welcome to the Colorado Municipal League_files/INDEX_09.gif" alt="Web Site Map" width="100" height="20" border="0"></a></td>
+	</tr>
+	<tr><td colspan="3">
+<img src="./(Community Links) Welcome to the Colorado Municipal League_files/INDEX_06.gif" width="208" height="5" alt="">
+			</td></tr>
+	<tr>
+		<td colspan="12" background="./(Community Links) Welcome to the Colorado Municipal League_files/background_dark.gif">
+			<table border="0" cellspacing="0" cellpadding="0">
+	<tbody><tr>
+		<td width="10"></td><td nowrap="">&nbsp;&nbsp;<a href="https://web.archive.org/web/20080419084653/http://www.cml.org/about/index.html" onmouseover="HM_f_PopUp(&#39;elMenu1&#39;,event)" onmouseout="HM_f_PopDown(&#39;elMenu1&#39;)" onclick="return true">ABOUT CML</a>&nbsp;&nbsp;</td><td><img src="./(Community Links) Welcome to the Colorado Municipal League_files/nav_spacer1.gif" alt="" width="3" height="23" border="0"></td><td nowrap="">&nbsp;&nbsp;<a href="https://web.archive.org/web/20080419084653/http://www.cml.org/policy_center/index.html" onmouseover="HM_f_PopUp(&#39;elMenu2&#39;,event)" onmouseout="HM_f_PopDown(&#39;elMenu2&#39;)" onclick="return true">POLICY CENTER</a>&nbsp;&nbsp;</td><td><img src="./(Community Links) Welcome to the Colorado Municipal League_files/nav_spacer1.gif" alt="" width="3" height="23" border="0"></td>
+		<td nowrap="">&nbsp;&nbsp;<a href="https://web.archive.org/web/20080419084653/http://www.cml.org/training_events/calendar.html" onmouseover="HM_f_PopUp(&#39;elMenu3&#39;,event)" onmouseout="HM_f_PopDown(&#39;elMenu3&#39;)" onclick="return true">TRAINING &amp; EVENTS</a>&nbsp;&nbsp;</td><td><img src="./(Community Links) Welcome to the Colorado Municipal League_files/nav_spacer1.gif" alt="" width="3" height="23" border="0"></td>
+		<td nowrap="">&nbsp;&nbsp;<a href="https://web.archive.org/web/20080419084653/http://www.cml.org/publications/index.html" onmouseover="HM_f_PopUp(&#39;elMenu4&#39;,event)" onmouseout="HM_f_PopDown(&#39;elMenu4&#39;)" onclick="return true">PUBLICATIONS</a>&nbsp;&nbsp;</td><td><img src="./(Community Links) Welcome to the Colorado Municipal League_files/nav_spacer1.gif" alt="" width="3" height="23" border="0"></td>
+		<td nowrap="">&nbsp;&nbsp;<a href="https://web.archive.org/web/20080419084653/http://www.cml.org/resources/index.html" onmouseover="HM_f_PopUp(&#39;elMenu5&#39;,event)" onmouseout="HM_f_PopDown(&#39;elMenu5&#39;)" onclick="return true">MORE SERVICES</a>&nbsp;&nbsp;</td><td><img src="./(Community Links) Welcome to the Colorado Municipal League_files/nav_spacer1.gif" alt="" width="3" height="23" border="0"></td>
+		<td nowrap="">&nbsp;&nbsp;<a href="https://web.archive.org/web/20080419084653/http://www.cml.org/associate_members/index.html" onmouseover="HM_f_PopUp(&#39;elMenu6&#39;,event)" onmouseout="HM_f_PopDown(&#39;elMenu6&#39;)" onclick="return true">MEMBERS</a>&nbsp;&nbsp;</td><td><img src="./(Community Links) Welcome to the Colorado Municipal League_files/nav_spacer1.gif" alt="" width="3" height="23" border="0"></td>
+		<td nowrap="">&nbsp;&nbsp;<a href="https://web.archive.org/web/20080419084653/http://www.cml.org/links/index.html" onmouseover="HM_f_PopUp(&#39;elMenu7&#39;,event)" onmouseout="HM_f_PopDown(&#39;elMenu7&#39;)" onclick="return true">LINKS</a></td></tr></tbody></table></td>
+	</tr>
+	<tr><td colspan="12">
+	<table cellpadding="0" cellspacing="0" border="0" width="894">
+<tbody><tr>
+		<td width="257" align="center" class="mission">
+			<img src="./(Community Links) Welcome to the Colorado Municipal League_files/spacer.gif" width="233" height="1" alt="">
+<br>The Colorado Municipal League, founded in 1923, <br>
+is a nonprofit, nonpartisan organization, that<br> 
+provides advocacy, information and training<br> 
+to build stronger cities and towns.
+<br>
+<br>
+
+<a href="https://web.archive.org/web/20080419084653/http://www.cml.org/privacy_policy.html">CML Privacy Policy</a>
+<br><br>			
+
+
+			
+		  </td>
+
+
+		<td width="432"><br>
+			<table width="410" border="0" cellpadding="0" cellspacing="0">
+	<tbody><tr>
+		<td>
+			<img src="./(Community Links) Welcome to the Colorado Municipal League_files/news_01.gif" width="5" height="30" alt=""></td>
+		<td>
+			<img src="./(Community Links) Welcome to the Colorado Municipal League_files/news_02.gif" width="399" height="30" alt=""></td>
+		<td>
+			<img src="./(Community Links) Welcome to the Colorado Municipal League_files/news_03.gif" width="6" height="30" alt=""></td>
+	</tr>
+	<tr>
+		<td>
+			<img src="./(Community Links) Welcome to the Colorado Municipal League_files/news_04.gif" width="5" height="164" alt="">
+		</td>
+		<td>
+			
+			<!-- DIV Scroller Script created with Spider Webmaster Tools (http://spiderwebmastertools.com). -->
+<div style="overflow-y: scroll; width:385; height:150; border:0 #085BA6 dashed; text-align: left;  padding: 2px">
+<table>
+
+<tbody><tr><td><img src="./(Community Links) Welcome to the Colorado Municipal League_files/menu_arrow.gif" alt="Arrow" width="4" height="7" border="0"></td><td class="headline"><a href="https://web.archive.org/web/20080419084653/http://www.cml.org/pdf_files/0404strep.pdf"><b>Statehouse Report</b></a>&nbsp;&nbsp;&nbsp;<img src="./(Community Links) Welcome to the Colorado Municipal League_files/pdf_small.gif" alt="This file requires Adobe Acrobat" width="10" height="10" border="0"></td></tr>
+<tr><td></td><td class="teaser">Municipal issues as session enters final month. Click on header.</td></tr>
+<tr><td><img src="./(Community Links) Welcome to the Colorado Municipal League_files/menu_arrow.gif" alt="Arrow" width="4" height="7" border="0"></td><td class="headline"><a href="https://web.archive.org/web/20080419084653/http://www.cml.org/pdf_files/08_scr3.pdf"><b>SCR 3 Constitutional reform</b></a>&nbsp;&nbsp;&nbsp;<img src="./(Community Links) Welcome to the Colorado Municipal League_files/pdf_small.gif" alt="This file requires Adobe Acrobat" width="10" height="10" border="0"></td></tr>
+<tr><td></td><td class="teaser">CML supports SCR 3 and good government. Click on header. </td></tr>
+<tr><td><img src="./(Community Links) Welcome to the Colorado Municipal League_files/menu_arrow.gif" alt="Arrow" width="4" height="7" border="0"></td><td class="headline"><a href="https://web.archive.org/web/20080419084653/http://www.cml.org/training_events/calendar.html#spring"><b>CML announces spring meeting dates</b></a>&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td></td><td class="teaser">Get the locations and times and register online. Click on header.</td></tr>
+<tr><td><img src="./(Community Links) Welcome to the Colorado Municipal League_files/menu_arrow.gif" alt="Arrow" width="4" height="7" border="0"></td><td class="headline"><a href="https://web.archive.org/web/20080419084653/http://www.cml.org/pdf_files/08_fml.pdf"><b>Federal mineral lease and severance taxes</b></a>&nbsp;&nbsp;&nbsp;<img src="./(Community Links) Welcome to the Colorado Municipal League_files/pdf_small.gif" alt="This file requires Adobe Acrobat" width="10" height="10" border="0"></td></tr>
+<tr><td></td><td class="teaser">CML explains the issues and our positions. Click on header.</td></tr>
+</tbody></table>
+<!-- Enter Your Content Here -->
+
+</div>
+
+
+			</td>
+		<td align="right">
+			<img src="./(Community Links) Welcome to the Colorado Municipal League_files/news_07.gif" width="6" height="164" alt=""></td>
+	</tr>
+	<tr>
+		<td>
+			<img src="./(Community Links) Welcome to the Colorado Municipal League_files/news_08.gif" width="5" height="6" alt=""></td>
+		<td>
+			<img src="./(Community Links) Welcome to the Colorado Municipal League_files/news_09.gif" width="399" height="6" alt=""></td>
+		<td>
+			<img src="./(Community Links) Welcome to the Colorado Municipal League_files/news_10.gif" width="6" height="6" alt=""></td>
+			<td></td>
+	</tr>
+</tbody></table>
+			</td>
+	    <td width="205"></td>
+
+
+</tr>
+<tr>
+<td>
+
+</td>	      
+
+
+</tr></tbody></table></td></tr>
+	<tr>
+		<td colspan="2" width="130" align="center">			<img src="./(Community Links) Welcome to the Colorado Municipal League_files/INDEX_13.gif" alt="" width="130" height="154" border="0"></td>
+		<td colspan="9"><br>
+		<table width="484" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td width="40"><img src="./(Community Links) Welcome to the Colorado Municipal League_files/spacer.gif" alt="" width="25" height="1" border="0"></td><td align="center" width="160"><img src="./(Community Links) Welcome to the Colorado Municipal League_files/DeltaOperaWEB.jpg" alt="Delta is a City of Murals. One of 12 murals, this one is the Opera House mural in Opera House Park." width="160" height="124" border="0"></td><td><img src="./(Community Links) Welcome to the Colorado Municipal League_files/spacer.gif" alt="" width="10" height="1" border="0"></td>
+		<td align="center" width="124">
+			<img src="./(Community Links) Welcome to the Colorado Municipal League_files/GoldenKayakerWeb.jpg" alt="A kayaker navigates the rocks of Clear Creek near Golden." width="124" height="160" border="0"></td>
+		<td><img src="./(Community Links) Welcome to the Colorado Municipal League_files/spacer.gif" alt="" width="10" height="1" border="0"></td>
+		<td align="center" width="166">
+			<img src="./(Community Links) Welcome to the Colorado Municipal League_files/LaVetadepot.jpg" alt="The La Veta Depot." width="160" height="124" border="0">
+
+
+</td></tr>
+<tr><td colspan="9" align="center"><font face="Verdana,Geneva,Arial,Helvetica,sans-serif" size="1"><b>Hold mouse over photo for details.</b><br><b>Want to see your city or town pictured here?</b> Submit photos for consideration by e-mail to <a href="https://web.archive.org/web/20080419084653/mailto:tstoffel@cml.org">tstoffel@cml.org</a>
+ or mail to 1144 Sherman, Denver, CO 80203. Please include your name, caption and photo credit information.</font></td></tr></tbody></table></td>
+		<td>
+			<img src="./(Community Links) Welcome to the Colorado Municipal League_files/INDEX_17.gif" width="97" height="154" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="12" background="./(Community Links) Welcome to the Colorado Municipal League_files/address_bk.gif" class="nav" align="center" height="35">
+<table background="./(Community Links) Welcome to the Colorado Municipal League_files/none"><tbody><tr><td align="center"><img src="./(Community Links) Welcome to the Colorado Municipal League_files/spacer.gif" alt="" width="100" height="3" border="0"></td></tr>
+<tr><td class="nav">| Colorado Municipal League | 1144 Sherman Street | Denver, CO 80203 | (303) 831-6411 or 866-578-0936 | <a href="https://web.archive.org/web/20080419084653/mailto:cml@cml.org" style="font-family: Verdana; font-size: 11px; color: #000000;">cml@cml.org</a> |</td></tr></tbody></table>
+			
+			</td>
+	</tr>
+	<tr>
+		<td>
+			<img src="./(Community Links) Welcome to the Colorado Municipal League_files/spacer.gif" width="28" height="1" alt=""></td>
+		<td>
+			<img src="./(Community Links) Welcome to the Colorado Municipal League_files/spacer.gif" width="102" height="1" alt=""></td>
+		<td>
+			<img src="./(Community Links) Welcome to the Colorado Municipal League_files/spacer.gif" width="99" height="1" alt=""></td>
+		<td>
+			<img src="./(Community Links) Welcome to the Colorado Municipal League_files/spacer.gif" width="4" height="1" alt=""></td>
+		<td>
+			<img src="./(Community Links) Welcome to the Colorado Municipal League_files/spacer.gif" width="17" height="1" alt=""></td>
+		<td>
+			<img src="./(Community Links) Welcome to the Colorado Municipal League_files/spacer.gif" width="65" height="1" alt=""></td>
+		<td>
+			<img src="./(Community Links) Welcome to the Colorado Municipal League_files/spacer.gif" width="110" height="1" alt=""></td>
+		<td>
+			<img src="./(Community Links) Welcome to the Colorado Municipal League_files/spacer.gif" width="29" height="1" alt=""></td>
+		<td>
+			<img src="./(Community Links) Welcome to the Colorado Municipal League_files/spacer.gif" width="56" height="1" alt=""></td>
+		<td>
+			<img src="./(Community Links) Welcome to the Colorado Municipal League_files/spacer.gif" width="104" height="1" alt=""></td>
+		<td>
+			<img src="./(Community Links) Welcome to the Colorado Municipal League_files/spacer.gif" width="7" height="1" alt=""></td>
+		<td>
+			<img src="./(Community Links) Welcome to the Colorado Municipal League_files/spacer.gif" width="97" height="1" alt=""></td>
+	</tr>
+</tbody></table>
+
+<br>
+<br>
+
+<map name="news_06_Map">
+<area shape="rect" alt="Scroll Down" coords="3,151,14,162" href="https://web.archive.org/web/20080419084653/http://www.cml.org/#" onmouseover="scroll(-6);" onclick="scroll(-6); return false;" onmousedown="scroll(-25)" onmouseout="stopScroll();">
+<area shape="rect" alt="Scroll Up" coords="3,3,14,15" href="https://web.archive.org/web/20080419084653/http://www.cml.org/#" onmouseover="scroll(6);" onclick="scroll(6); return false;" onmousedown="scroll(25)" onmouseout="stopScroll();">
+</map>
+
+
+<script language="JavaScript1.2" src="./(Community Links) Welcome to the Colorado Municipal League_files/HM_Loader.js.download" type="text/javascript"></script><script language="JavaScript1.2" src="./(Community Links) Welcome to the Colorado Municipal League_files/HM_Arrays.js.download" type="text/javascript"></script><script language="JavaScript1.2" src="./(Community Links) Welcome to the Colorado Municipal League_files/HM_ScriptDOM.js.download" type="text/javascript"></script>
+
+
+<div id="HM_Menu1" style="position: absolute; visibility: hidden; left: -500px; top: 0px; width: 148px; border-width: 1px; border-color: rgb(8, 91, 166); border-style: solid; overflow: hidden; cursor: default; height: 84px;"><div id="HM_Item1_1" style="position: absolute; visibility: inherit; cursor: pointer; background-color: rgb(232, 239, 247); color: rgb(0, 0, 0); padding: 2px; font: 8pt Arial, sans-serif; border-bottom: 1px solid rgb(8, 91, 166); left: 0px; width: 144px; top: 0px;">Staff</div><div id="HM_Item1_2" style="position: absolute; visibility: inherit; cursor: pointer; background-color: rgb(232, 239, 247); color: rgb(0, 0, 0); padding: 2px; font: 8pt Arial, sans-serif; border-bottom: 1px solid rgb(8, 91, 166); left: 0px; width: 144px; top: 17px;">Board</div><div id="HM_Item1_3" style="position: absolute; visibility: inherit; cursor: pointer; background-color: rgb(232, 239, 247); color: rgb(0, 0, 0); padding: 2px; font: 8pt Arial, sans-serif; border-bottom: 1px solid rgb(8, 91, 166); left: 0px; width: 144px; top: 34px;">Committees</div><div id="HM_Item1_4" style="position: absolute; visibility: inherit; cursor: pointer; background-color: rgb(232, 239, 247); color: rgb(0, 0, 0); padding: 2px; font: 8pt Arial, sans-serif; border-bottom: 1px solid rgb(8, 91, 166); left: 0px; width: 144px; top: 51px;">Annual Report <img src="./(Community Links) Welcome to the Colorado Municipal League_files/pdf_small(1).gif" alt="This file requires Adobe Acrobat"></div><div id="HM_Item1_5" style="position: absolute; visibility: inherit; cursor: pointer; background-color: rgb(232, 239, 247); color: rgb(0, 0, 0); padding: 2px; font: 8pt Arial, sans-serif; left: 0px; width: 144px; top: 68px;">League Building</div></div><div id="HM_Menu2" style="position: absolute; visibility: hidden; left: -500px; top: 0px; width: 148px; border-width: 1px; border-color: rgb(8, 91, 166); border-style: solid; overflow: hidden; cursor: default; height: 67px;"><div id="HM_Item2_1" style="position: absolute; visibility: inherit; cursor: pointer; background-color: rgb(232, 239, 247); color: rgb(0, 0, 0); padding: 2px; font: 8pt Arial, sans-serif; border-bottom: 1px solid rgb(8, 91, 166); left: 0px; width: 144px; top: 0px;">Statehouse Report</div><div id="HM_Item2_2" style="position: absolute; visibility: inherit; cursor: pointer; background-color: rgb(232, 239, 247); color: rgb(0, 0, 0); padding: 2px; font: 8pt Arial, sans-serif; border-bottom: 1px solid rgb(8, 91, 166); left: 0px; width: 144px; top: 17px;">Memoranda</div><div id="HM_Item2_3" style="position: absolute; visibility: inherit; cursor: pointer; background-color: rgb(232, 239, 247); color: rgb(0, 0, 0); padding: 2px; font: 8pt Arial, sans-serif; border-bottom: 1px solid rgb(8, 91, 166); left: 0px; width: 144px; top: 34px;">General Assembly</div><div id="HM_Item2_4" style="position: absolute; visibility: inherit; cursor: pointer; background-color: rgb(232, 239, 247); color: rgb(0, 0, 0); padding: 2px; font: 8pt Arial, sans-serif; left: 0px; width: 144px; top: 51px;">U.S. Congress</div></div><div id="HM_Menu3" style="position: absolute; visibility: hidden; left: 201px; top: 146px; width: 148px; border-width: 1px; border-color: rgb(8, 91, 166); border-style: solid; overflow: hidden; cursor: default; height: 67px; z-index: 5001;"><div id="HM_Item3_1" style="position: absolute; visibility: inherit; cursor: pointer; background-color: rgb(232, 239, 247); color: rgb(0, 0, 0); padding: 2px 10.5px 2px 2px; font: 8pt Arial, sans-serif; border-bottom: 1px solid rgb(8, 91, 166); left: 0px; width: 136px; top: 0px;">Calendar</div><div id="HM_Item3_2" style="position: absolute; visibility: inherit; cursor: pointer; background-color: rgb(232, 239, 247); color: rgb(0, 0, 0); padding: 2px 10.5px 2px 2px; font: 8pt Arial, sans-serif; border-bottom: 1px solid rgb(8, 91, 166); left: 0px; width: 136px; top: 17px;">Leadership Training</div><div id="HM_Item3_3" style="position: absolute; visibility: inherit; cursor: pointer; background-color: rgb(232, 239, 247); color: rgb(0, 0, 0); padding: 2px 10.5px 2px 2px; font: 8pt Arial, sans-serif; border-bottom: 1px solid rgb(8, 91, 166); left: 0px; width: 136px; top: 34px;">Outreach</div><div id="HM_Item3_4" style="position: absolute; visibility: inherit; cursor: pointer; background-color: rgb(232, 239, 247); color: rgb(0, 0, 0); padding: 2px 10.5px 2px 2px; font: 8pt Arial, sans-serif; left: 0px; width: 136px; top: 51px;"><img src="./(Community Links) Welcome to the Colorado Municipal League_files/menu_arrow(1).gif" hspace="0" vspace="0" width="4" style="position: absolute; top: 6px; left: 140.5px;">Annual Conference</div></div><div id="HM_Menu3_4" style="position: absolute; visibility: hidden; left: -500px; top: 0px; width: 148px; border-width: 1px; border-color: rgb(8, 91, 166); border-style: solid; overflow: hidden; cursor: default; height: 50px;"><div id="HM_Item3_4_1" style="position: absolute; visibility: inherit; cursor: pointer; background-color: rgb(232, 239, 247); color: rgb(0, 0, 0); padding: 2px 10.5px 2px 2px; font: 8pt Arial, sans-serif; border-bottom: 1px solid rgb(8, 91, 166); left: 0px; width: 136px; top: 0px;">Schedule</div><div id="HM_Item3_4_2" style="position: absolute; visibility: inherit; cursor: pointer; background-color: rgb(232, 239, 247); color: rgb(0, 0, 0); padding: 2px 10.5px 2px 2px; font: 8pt Arial, sans-serif; border-bottom: 1px solid rgb(8, 91, 166); left: 0px; width: 136px; top: 17px;">How To Be A Sponsor</div><div id="HM_Item3_4_3" style="position: absolute; visibility: inherit; cursor: pointer; background-color: rgb(232, 239, 247); color: rgb(0, 0, 0); padding: 2px 10.5px 2px 2px; font: 8pt Arial, sans-serif; left: 0px; width: 136px; top: 34px;">Advertise</div></div><div id="HM_Menu4" style="position: absolute; visibility: hidden; left: -500px; top: 0px; width: 148px; border-width: 1px; border-color: rgb(8, 91, 166); border-style: solid; overflow: hidden; cursor: default; height: 135px;"><div id="HM_Item4_1" style="position: absolute; visibility: inherit; cursor: pointer; background-color: rgb(232, 239, 247); color: rgb(0, 0, 0); padding: 2px 10.5px 2px 2px; font: 8pt Arial, sans-serif; border-bottom: 1px solid rgb(8, 91, 166); left: 0px; width: 136px; top: 0px;">Colorado Municipalities</div><div id="HM_Item4_2" style="position: absolute; visibility: inherit; cursor: pointer; background-color: rgb(232, 239, 247); color: rgb(0, 0, 0); padding: 2px 10.5px 2px 2px; font: 8pt Arial, sans-serif; border-bottom: 1px solid rgb(8, 91, 166); left: 0px; width: 136px; top: 17px;">CML Newsletter</div><div id="HM_Item4_3" style="position: absolute; visibility: inherit; cursor: pointer; background-color: rgb(232, 239, 247); color: rgb(0, 0, 0); padding: 2px 10.5px 2px 2px; font: 8pt Arial, sans-serif; border-bottom: 1px solid rgb(8, 91, 166); left: 0px; width: 136px; top: 34px;">Annual Directory</div><div id="HM_Item4_4" style="position: absolute; visibility: inherit; cursor: pointer; background-color: rgb(232, 239, 247); color: rgb(0, 0, 0); padding: 2px 10.5px 2px 2px; font: 8pt Arial, sans-serif; border-bottom: 1px solid rgb(8, 91, 166); left: 0px; width: 136px; top: 51px;">CML Books</div><div id="HM_Item4_5" style="position: absolute; visibility: inherit; cursor: pointer; background-color: rgb(232, 239, 247); color: rgb(0, 0, 0); padding: 2px 10.5px 2px 2px; font: 8pt Arial, sans-serif; border-bottom: 1px solid rgb(8, 91, 166); left: 0px; width: 136px; top: 68px;">Job Finder</div><div id="HM_Item4_6" style="position: absolute; visibility: inherit; cursor: pointer; background-color: rgb(232, 239, 247); color: rgb(0, 0, 0); padding: 2px 10.5px 2px 2px; font: 8pt Arial, sans-serif; border-bottom: 1px solid rgb(8, 91, 166); left: 0px; width: 136px; top: 85px;">Special Reports</div><div id="HM_Item4_7" style="position: absolute; visibility: inherit; cursor: pointer; background-color: rgb(232, 239, 247); color: rgb(0, 0, 0); padding: 2px 10.5px 2px 2px; font: 8pt Arial, sans-serif; border-bottom: 1px solid rgb(8, 91, 166); left: 0px; width: 136px; top: 102px;"><img src="./(Community Links) Welcome to the Colorado Municipal League_files/menu_arrow(1).gif" hspace="0" vspace="0" width="4" style="position: absolute; top: 6px; left: 140.5px;">More Ways to tell your story</div><div id="HM_Item4_8" style="position: absolute; visibility: inherit; cursor: pointer; background-color: rgb(232, 239, 247); color: rgb(0, 0, 0); padding: 2px 10.5px 2px 2px; font: 8pt Arial, sans-serif; left: 0px; width: 136px; top: 119px;">Civics Curriculum</div></div><div id="HM_Menu4_7" style="position: absolute; visibility: hidden; left: -500px; top: 0px; width: 148px; border-width: 1px; border-color: rgb(8, 91, 166); border-style: solid; overflow: hidden; cursor: default; height: 57px;"><div id="HM_Item4_7_1" style="position: absolute; visibility: inherit; cursor: pointer; background-color: rgb(232, 239, 247); color: rgb(0, 0, 0); padding: 2px 10.5px 2px 2px; font: 8pt Arial, sans-serif; border-bottom: 1px solid rgb(8, 91, 166); left: 0px; width: 136px; top: 0px;">Annual Conference Advertising</div><div id="HM_Item4_7_2" style="position: absolute; visibility: inherit; cursor: pointer; background-color: rgb(232, 239, 247); color: rgb(0, 0, 0); padding: 2px 10.5px 2px 2px; font: 8pt Arial, sans-serif; left: 0px; width: 136px; top: 29px;">Annual Conference Sponsorship</div></div><div id="HM_Menu5" style="position: absolute; visibility: hidden; left: -500px; top: 0px; width: 148px; border-width: 1px; border-color: rgb(8, 91, 166); border-style: solid; overflow: hidden; cursor: default; height: 118px;"><div id="HM_Item5_1" style="position: absolute; visibility: inherit; cursor: pointer; background-color: rgb(232, 239, 247); color: rgb(0, 0, 0); padding: 2px; font: 8pt Arial, sans-serif; border-bottom: 1px solid rgb(8, 91, 166); left: 0px; width: 144px; top: 0px;">Amicus Briefs</div><div id="HM_Item5_2" style="position: absolute; visibility: inherit; cursor: pointer; background-color: rgb(232, 239, 247); color: rgb(0, 0, 0); padding: 2px; font: 8pt Arial, sans-serif; border-bottom: 1px solid rgb(8, 91, 166); left: 0px; width: 144px; top: 17px;">Attorney Listserv</div><div id="HM_Item5_3" style="position: absolute; visibility: inherit; cursor: pointer; background-color: rgb(232, 239, 247); color: rgb(0, 0, 0); padding: 2px; font: 8pt Arial, sans-serif; border-bottom: 1px solid rgb(8, 91, 166); left: 0px; width: 144px; top: 34px;">Clerk Listserv</div><div id="HM_Item5_4" style="position: absolute; visibility: inherit; cursor: pointer; background-color: rgb(232, 239, 247); color: rgb(0, 0, 0); padding: 2px; font: 8pt Arial, sans-serif; border-bottom: 1px solid rgb(8, 91, 166); left: 0px; width: 144px; top: 51px;">Managers Listserv</div><div id="HM_Item5_5" style="position: absolute; visibility: inherit; cursor: pointer; background-color: rgb(232, 239, 247); color: rgb(0, 0, 0); padding: 2px; font: 8pt Arial, sans-serif; border-bottom: 1px solid rgb(8, 91, 166); left: 0px; width: 144px; top: 68px;">Civic Awareness Program</div><div id="HM_Item5_6" style="position: absolute; visibility: inherit; cursor: pointer; background-color: rgb(232, 239, 247); color: rgb(0, 0, 0); padding: 2px; font: 8pt Arial, sans-serif; border-bottom: 1px solid rgb(8, 91, 166); left: 0px; width: 144px; top: 85px;">Purchasing Alliance</div><div id="HM_Item5_7" style="position: absolute; visibility: inherit; cursor: pointer; background-color: rgb(232, 239, 247); color: rgb(0, 0, 0); padding: 2px; font: 8pt Arial, sans-serif; left: 0px; width: 144px; top: 102px;">CCCMA</div></div><div id="HM_Menu6" style="position: absolute; visibility: hidden; left: -500px; top: 0px; width: 148px; border-width: 1px; border-color: rgb(8, 91, 166); border-style: solid; overflow: hidden; cursor: default; height: 33px;"><div id="HM_Item6_1" style="position: absolute; visibility: inherit; cursor: pointer; background-color: rgb(232, 239, 247); color: rgb(0, 0, 0); padding: 2px 10.5px 2px 2px; font: 8pt Arial, sans-serif; border-bottom: 1px solid rgb(8, 91, 166); left: 0px; width: 136px; top: 0px;"><img src="./(Community Links) Welcome to the Colorado Municipal League_files/menu_arrow(1).gif" hspace="0" vspace="0" width="4" style="position: absolute; top: 6px; left: 140.5px;">Associate Members</div><div id="HM_Item6_2" style="position: absolute; visibility: inherit; cursor: pointer; background-color: rgb(232, 239, 247); color: rgb(0, 0, 0); padding: 2px 10.5px 2px 2px; font: 8pt Arial, sans-serif; left: 0px; width: 136px; top: 17px;">Municipal Members</div></div><div id="HM_Menu6_1" style="position: absolute; visibility: hidden; left: -500px; top: 0px; width: 148px; border-width: 1px; border-color: rgb(8, 91, 166); border-style: solid; overflow: hidden; cursor: default; height: 50px;"><div id="HM_Item6_1_1" style="position: absolute; visibility: inherit; cursor: pointer; background-color: rgb(232, 239, 247); color: rgb(0, 0, 0); padding: 2px 10.5px 2px 2px; font: 8pt Arial, sans-serif; border-bottom: 1px solid rgb(8, 91, 166); left: 0px; width: 136px; top: 0px;">Benefits</div><div id="HM_Item6_1_2" style="position: absolute; visibility: inherit; cursor: pointer; background-color: rgb(232, 239, 247); color: rgb(0, 0, 0); padding: 2px 10.5px 2px 2px; font: 8pt Arial, sans-serif; border-bottom: 1px solid rgb(8, 91, 166); left: 0px; width: 136px; top: 17px;">Sign-up Form <img src="./(Community Links) Welcome to the Colorado Municipal League_files/pdf_small(1).gif" alt="This file requires Adobe Acrobat"></div><div id="HM_Item6_1_3" style="position: absolute; visibility: inherit; cursor: pointer; background-color: rgb(232, 239, 247); color: rgb(0, 0, 0); padding: 2px 10.5px 2px 2px; font: 8pt Arial, sans-serif; left: 0px; width: 136px; top: 34px;">List of Members</div></div><div id="HM_Menu7" style="position: absolute; visibility: hidden; left: -500px; top: 0px; width: 148px; border-width: 1px; border-color: rgb(8, 91, 166); border-style: solid; overflow: hidden; cursor: default; height: 154px;"><div id="HM_Item7_1" style="position: absolute; visibility: inherit; cursor: pointer; background-color: rgb(232, 239, 247); color: rgb(0, 0, 0); padding: 2px; font: 8pt Arial, sans-serif; border-bottom: 1px solid rgb(8, 91, 166); left: 0px; width: 144px; top: 0px;">Municipal Members</div><div id="HM_Item7_2" style="position: absolute; visibility: inherit; cursor: pointer; background-color: rgb(232, 239, 247); color: rgb(0, 0, 0); padding: 2px; font: 8pt Arial, sans-serif; border-bottom: 1px solid rgb(8, 91, 166); left: 0px; width: 144px; top: 17px;">Colorado Government and Organization Links</div><div id="HM_Item7_3" style="position: absolute; visibility: inherit; cursor: pointer; background-color: rgb(232, 239, 247); color: rgb(0, 0, 0); padding: 2px; font: 8pt Arial, sans-serif; border-bottom: 1px solid rgb(8, 91, 166); left: 0px; width: 144px; top: 46px;">Federal Government Links</div><div id="HM_Item7_4" style="position: absolute; visibility: inherit; cursor: pointer; background-color: rgb(232, 239, 247); color: rgb(0, 0, 0); padding: 2px; font: 8pt Arial, sans-serif; border-bottom: 1px solid rgb(8, 91, 166); left: 0px; width: 144px; top: 63px;">National Links of Municipal Government Interest</div><div id="HM_Item7_5" style="position: absolute; visibility: inherit; cursor: pointer; background-color: rgb(232, 239, 247); color: rgb(0, 0, 0); padding: 2px; font: 8pt Arial, sans-serif; border-bottom: 1px solid rgb(8, 91, 166); left: 0px; width: 144px; top: 92px;">Municipal Government Publication Links</div><div id="HM_Item7_6" style="position: absolute; visibility: inherit; cursor: pointer; background-color: rgb(232, 239, 247); color: rgb(0, 0, 0); padding: 2px; font: 8pt Arial, sans-serif; border-bottom: 1px solid rgb(8, 91, 166); left: 0px; width: 144px; top: 121px;">Other Links in Colorado</div><div id="HM_Item7_7" style="position: absolute; visibility: inherit; cursor: pointer; background-color: rgb(232, 239, 247); color: rgb(0, 0, 0); padding: 2px; font: 8pt Arial, sans-serif; left: 0px; width: 144px; top: 138px;">Tools and Interesting Sites</div></div></body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>

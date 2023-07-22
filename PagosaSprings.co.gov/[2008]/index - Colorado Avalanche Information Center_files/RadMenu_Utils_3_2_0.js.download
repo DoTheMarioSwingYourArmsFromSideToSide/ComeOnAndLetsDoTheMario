@@ -1,0 +1,36 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+if (!Array.prototype.Add){Array.prototype.Add= function (item){ this[this.length]=item; } ; }if (!Array.prototype.InsertAt){Array.prototype.InsertAt= function (index,item){ this[index]=item; } ; }if (!Array.prototype.Remove){Array.prototype.Remove= function (item){var o1y= false; for (var i=0; i<this.length; i++){if (item==this[i]){o1y= true; }if (o1y){ this[i]=this[i+1]; }}if (o1y){ this.length-=1; }} ; }if (!Array.prototype.RemoveAt){Array.prototype.RemoveAt= function (index){for (var i=index; 0<=i && i<this.length; i++){ this[i]=this[i+1]; }if (0<=index && index<this.length){ this.length-=1; }} ; }if (!Array.prototype.Clear){Array.prototype.Clear= function (){ this.length=0; } ; }if (!Array.prototype.O1y){Array.prototype.O1y= function (item){for (var i=0; i<this.length; i++){if (this[i]==item){return i; }}return -1; } ; }if (!Array.prototype.Serialize){Array.prototype.Serialize= function (l1y){var i1y=""; if (typeof(l1y)=="u\x6e\x64efin\x65d" || l1y==null){l1y=","; }if (this.length<=0){return i1y; }for (var i=0; i<this.length; i++){i1y=i1y+((i1y=="")?"":l1y)+this[i].toString(); }return i1y; } ; }if (!Array.prototype.ClassicSort){Array.prototype.ClassicSort= function (){var i,k; for (i=this.length-1; i>=0; i--){for (k=0; k<=i; k++){if (this[k+1]<this[k]){var i1h=this[k]; this[k]=this[k+1]; this[k+1]=i1h; }}}return I1y; };}if (!Array.prototype.ToNumber){Array.prototype.ToNumber= function (o1z){switch (typeof(o1z)){case "\x6eu\x6d\x62er":return o1z; case "stri\x6eg":var O1z=parseInt(o1z); if (!l1z(O1z) && ("C"+O1z=="\x43"+o1z)){return O1z; }break; default:break; }};}if (!Array.prototype.HighestIndex){Array.prototype.HighestIndex= function (){var i1z; for (var i in this ){var I1z=this.ToNumber(i); if ((typeof(I1z)!="\x75n\x64\x65fin\x65d") && ((typeof(i1z)=="un\x64efined") || (I1z>i1z))){i1z=I1z; }}return i1z; };}if (!Array.prototype.push){Array.prototype.push= function (){var i1z=this.HighestIndex(); if (typeof(i1z)=="\x75nd\x65\x66ine\x64"){i1z=-1; }for (var i=0; i<arguments.length; i++){ this[ ++i1z]=arguments[i]; }};}if (!Array.prototype.pop){Array.prototype.pop= function (){var i1z=this.HighestIndex(); var o20; if (typeof(i1z)!="\x75\x6e\x64ef\x69ned"){o20=this[i1z]; delete this[i1z]; }return o20; };}if (!Array.prototype.shift){Array.prototype.shift= function (){var O20=this[0]; for (var i=1; i<this.length; ++i){ this[i-1]=this[i]; } this.length--; return O20; };}if (!Array.prototype.unshift){Array.prototype.unshift= function (){var i=unshift.arguments.length; for (var k=this.length-1; k>=0; --k){ this[k+i]=this[k]; }for (k=0; k<i; ++k){ this[k]=unshift.l20[k]; }};}if (!String.prototype.Format){String.prototype.Format= function (){var i20=this ; for (var i=0; i<this.Format.arguments.length; i++){i20=i20.replace(new RegExp("\x5c\173"+i+"\134\x7d","\x69\x67"),this.Format.arguments[i]); }return i20; };}if (!String.prototype.StartsWith){String.prototype.StartsWith= function (value){if (typeof(value)!="str\x69ng"){return false; }return (0==this.indexOf(value)); };}if (!String.prototype.EndsWith){String.prototype.EndsWith= function (value){if (typeof(value)!="s\x74ring"){return false; }return (this.lastIndexOf(value)+value.length==this.length-1); };}if (!String.prototype.IsEmpty){String.prototype.IsEmpty= function (){var i20=this ; return (i20=="")? true : false; };}function Hashtable(){ this.Keys=new Array(); this.Values=new Array(); }Hashtable.prototype.Add= function (I20){if (!I20.ID){return; }var o21=I20.ID; if (this.IsValidKey(o21)){ this.Values[this.Values.length]=I20; if (this.Keys[o21]){ this.Keys[o21].length++; this.Keys[o21][this.Keys[o21].length-1]=(this.Values.length-1); }else { this.Keys[o21]=new Array(1); this.Keys[o21][0]=(this.Values.length-1); }}};Hashtable.prototype.AddItem= function (O21,l21){if (!O21 || !l21){return; }if (this.IsValidKey(O21)){ this.Values[this.Values.length]=l21; if (this.Keys[O21]){ this.Keys[O21].length++; this.Keys[O21][this.Keys[O21].length-1]=(this.Values.length-1); }else { this.Keys[O21]=new Array(1); this.Keys[O21][0]=(this.Values.length-1); }}};Hashtable.prototype.i21= function (I21){for (var i=0; i<I21.length; i++){ this.Add(I21[i]); }};Hashtable.prototype.Remove= function (o21){ delete this.Values[this.Keys[o21][0]]; delete this.Keys[o21]; };Hashtable.prototype.A= function (o21){if (this.Keys[o21]){return this.Values[(this.Keys[o21][0])]; }else {return null; }};Hashtable.prototype.Set= function (I20){var o21=I20.ID; if (this.Keys[o21]){ this.Values[(this.Keys[o21][0])]=I20; }};Hashtable.prototype.CopyTo= function (o22){for (var i=0; i<this.Values.length; i++){o22[i]=this.Values[i].toSource;}};Hashtable.prototype.O22= function (o22){for (var i=0; i<this.Keys.length; i++){}};Hashtable.prototype.l22= function (o21){if (this.Keys[o21]){var i22=this.Keys[o21]; i22=this.Keys[o21].length; return ((i22<=1)? true : false); }else {return true; }};Hashtable.prototype.IsValidKey= function (I22){var o23=""+I22; var O23=o23.charCodeAt(0); return ((O23<48) || (O23>57)); };Hashtable.prototype.length= function (){return this.Values.length; };
+
+
+}
+/*
+     FILE ARCHIVED ON 20:51:47 May 12, 2008 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 08:30:30 Jul 18, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 281.186
+  exclusion.robots: 0.123
+  exclusion.robots.policy: 0.113
+  RedisCDXSource: 0.587
+  esindex: 0.008
+  LoadShardBlock: 260.827 (3)
+  PetaboxLoader3.datanode: 276.477 (4)
+  load_resource: 56.985
+  PetaboxLoader3.resolve: 28.151
+*/

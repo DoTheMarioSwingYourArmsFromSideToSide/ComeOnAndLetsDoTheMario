@@ -1,0 +1,487 @@
+/*GLOBAL SETTINGS*/
+body, p, caption, td, dd, th 	{font-family: Verdana, Arial, sans-serif; text-decoration: none; color: #000;}
+body 							{background-color:#49572A; margin-top: 0px;}
+
+/* table {width: 100%;} */
+td 								{text-align: left; vertical-align: top;}
+img 							{border: 0;}
+img.banner 						{text-align: center; margin:0px 10px 10px;}
+
+p 								{margin: 5px 10px;}
+p.noscript 						{color: #fff;}
+p.noscript a 					{color: #F3EBA4;}
+
+/* DESIGN ELEMENTS */
+.align-left 					{text-align: left;}
+.align-right 					{text-align: right;}
+.align-center 					{text-align: center;}
+.align-justify 					{text-align: justify;}
+
+.ten-px-pad 					{padding: 10px;}
+.five-px-pad 					{padding: 5px;}
+.ten-px-pad-cen 				{padding: 10px;	text-align: center;}
+.five-px-pad-cen 				{padding: 5px;	text-align: center;}
+.modified 						{font-weight: normal; color: #F3EBA4; padding-top: 5px;}
+
+
+/* WORK AROUND FOR NESTSCAPE IMAGE GAP*/
+img.block 						{display: block;}
+
+/* MORE NN4 SPECIFIC STYLES */
+.hidden, .new-browsers 			{display:none;}
+
+
+/* CLASSES FOR NAV TEXT LINKS - HOVER SETTINGS ARE IN SCREEN.CSS */
+a.main-nav-current 				{text-decoration: none; font-weight: bold; color: #49572A;}
+a.main-nav-not-current 			{text-decoration: none; font-weight: bold; color: #F3EBA4;}
+
+a.sub 							{text-decoration: none; font-weight: bold; color: #49572A;}
+a.sub:hover						{font-weight: bold; color: #000;}
+a.sec 							{font-weight: bold;}
+
+a.internal-page 				{text-decoration: underline; font-weight: bold; color: #000000;}
+a.external-page 				{text-decoration: underline; font-weight: bold; color: #0000ff;}
+a.internal-page2 				{text-decoration: underline; font-weight: bold; color: #F3EBA4;}
+
+a.breadcrumbs 					{/*font-size: 80%; */text-decoration: underline; font-weight: bold; color: #000000;}
+
+/* HEADER TAGS 
+h1 {margin: 0px; font-size: 21px; font-weight: bold; color: #fff;}
+h2 {margin-left: 0px; font-size: large; font-weight: bold; color: #D97C18; margin-top: 0px; margin-bottom: 10px; padding-bottom: 3px;}
+h3 {margin-left: 10px; font-size: medium; font-weight: bolder; color: #49572A; line-height: 18px; padding-bottom: 5px; margin-bottom: 0px;}
+h4 {margin-left: 10px; font-size: small; font-weight: bold; color: #49572A;}
+h5 {font-size: 11px; font-weight: bolder; color: #000000; font-family: Verdana, Arial, Helvetica, sans-serif; line-height: 12px; text-align: center; margin: 8px 0px 5px; padding: 0px;}
+h6 {margin-left: 10px; font-size: small; font-weight: bold; color: #5F7137;}
+*/
+
+/***********************************************************************************/
+/*                               LAYOUT SETTINGS                                   */
+/***********************************************************************************/
+
+/* TABLE ROW 1.0 - GLOBAL NAVIGATION  - NO SETTINGS NEEDED FOR NN4 */
+#glob-nav-left 					{background-color: #49572A;}
+#glob-nav-right 				{background-color: #49572A; vertical-align: bottom; text-align: right; padding-right: 5px; }
+
+/* TABLE ROW 2.0 - HEADER TABLE */
+#header-tr 						{background-color: #788A51;}
+#header-right 					{background-color: #788A51; vertical-align: middle; margin: 0px, 0px, 0px, 0px;}
+#header-center 					{background-color: #788A51; vertical-align: middle; margin: 0px, 0px, 0px, 0px;}
+#header-left 					{background-color: #788A51; vertical-align: middle; margin: 0px, 0px, 0px, 0px;}
+
+/* TABLE ROW 3.0 - SEARCH AND ARCH TABLE */
+#search-table-left-cell 		{background-color: #5F7137; padding-bottom: 5px;}
+#search-table-right-cell 		{background-color: #FBF8E0; vertical-align: top; padding: 0px; margin: 0px;}
+#search-table-right-cell2 		{background-color: #FBF8E0; vertical-align: top; padding: 0px; margin: 0px; text-align: right;}
+#global-nav-right-cell 			{background-color: #788A51; vertical-align: middle; text-align: right; padding-top: 5px; padding-right: 0px;}
+
+/* TABLE ROW 4.0 - MAIN CONTENT AND NAVIGATION TABLE */
+#main-table-left-cell 			{background-color: #DBD594; margin-top: 0px;}
+#main-table-right-cell 			{background-color: #FBF8E0; padding-right: 15px; padding-top: 0px; padding-left: 15px; padding-bottom:0px;}
+#main-table-right-cell-faq 		{background-color: #FBF8E0; padding-right: 15px; padding-top: 0px; padding-left: 15px; padding-bottom:0px;}
+#main-table-rightmost 			{background-color: #FBF8E0; padding-right: 10px; padding-top:10px; padding-left: 10px; }
+#faq-table 						{background-color: #DBD594; padding-right: 15px; padding-top: 0px; padding-left: 15px; padding-bottom:0px; margin: 3px;}
+
+/* TABLE 4.1 - PRIMARY NAVIGATION TABLE CELL AND ROW SETTINGS */
+#prim-nav-table 				{ font-size: 80%; background-color: #5F7137;}
+.p-link-active-tr 				{/* font-size: 90%;*/ background-color: #E0AE49;}
+.p-link-not-active-tr 			{/*font-size: 90%;*/ background-color: #5F7137;}
+.p-sub-link-tr 					{/*font-size: 90%;*/ background-color: #DBD594;}
+
+/* TABLE 4.2 - SECONDARY NAVIGATION TABLE */
+#sec-nav-table 					{background-color: #DBD594; padding-top: 2px; font-size: 80%;}
+#top-space 						{margin-top: 10px; font-size: 90%;}
+#local-top-space 				{margin-top: 10px; font-size: 90%;}
+
+/* TABLE 4.3 - FOREST ADRESS TABLE */
+#address-table 					{background-color: #DBD594; padding-top: 10px;}
+
+/* TABLE 4.4 - MAIN CONTENT WRAPPER - RELATED LINKS - OPTION */
+#content-wrapper 				{margin-top: 0px; padding-top: 0px; padding-right: 10px; padding-left: 15px; background-color: #FBF8E0;}
+#content-table 					{padding-top: 0px; padding-right: 15px; padding-left: 0px;}
+#comment-table 					{padding-top:15px; padding-right: 15px; padding-left: 0px;}
+.content-column 				{padding-top: 0px; padding-right: 15px; padding-left: 0px;}
+
+
+/* TABLE 4.5 - RELATED LINKS TABLE - RELATED LINKS - OPTION */
+#related-nav-table 				{background-color: #cc9; width: 200px; margin-right: 15px;}
+#home-nav-table 				{float: right; font-size: 100%; padding: 10px 0 0 15px;}
+			
+/* TABLE ROW 5.0 - FOOTER TABLE */
+#footer-table-left-cell 		{background-color: #DBD594;	vertical-align: middle;	text-align: left; padding-left: 13px;}
+#footer-table-right-cell 		{background-color: #FBF8E0; vertical-align: middle; text-align: center;}
+
+.clear 							{clear: both;}
+form, select.contract 			{font-family: verdana, arial, helvetica, sans-serif; font-size: 75%;}
+form.contact 					{font-family: verdana, arial, helvetica, sans-serif; font-size: 75%;}
+
+
+/* Main Page */
+#main-image-header 					{
+	vertical-align: middle;
+	text-align: right;
+	padding-left: 13px;
+	background-image: url(/web/20080131204646im_/http://www.fs.fed.us/r2/local-resources/images/headers/mtevans7.png);
+	background-repeat: no-repeat;
+	background-position: left top;
+	border-bottom-width: 3px;
+	border-bottom-style: solid;
+	border-bottom-color: #5F7137;
+	height: 150px;
+	width: 100%;
+}
+
+/* Rec Travel */
+#rec-travel-mgmt 					{
+	vertical-align: middle;
+	text-align: right;
+	padding-left: 13px;
+	background-image: url(/web/20080131204646im_/http://www.fs.fed.us/r2/local-resources/images/headers/travel-mgmt.jpg);
+	background-repeat: no-repeat;
+	background-position: left top;
+	border-bottom-width: 3px;
+	border-bottom-style: solid;
+	border-bottom-color: #5F7137;
+	height: 150px;
+	width: 100%;
+}
+
+/* RECREATION */
+#rec-header 					{
+	vertical-align: middle;
+	text-align: right;
+	padding-left: 13px;
+	background-image: url(/web/20080131204646im_/http://www.fs.fed.us/r2/local-resources/images/recreation/headers/recreation.jpg);
+	background-repeat: no-repeat;
+	background-position: left top;
+	border-bottom-width: 3px;
+	border-bottom-style: solid;
+	border-bottom-color: #5F7137;
+	height: 150px;
+	width: 100%;
+}
+
+#related-nav-table-250 				{background-color: #cc9; width: 250px; margin-right: 15px;}
+
+#rec-14ers 					{
+	vertical-align: middle;
+	text-align: right;
+	padding-left: 13px;
+	background-image: url(/web/20080131204646im_/http://www.fs.fed.us/r2/local-resources/images/recreation/headers/14ers.jpg);
+	background-repeat: no-repeat;
+	background-position: left top;
+	border-bottom-width: 3px;
+	border-bottom-style: solid;
+	border-bottom-color: #5F7137;
+	height: 150px;
+	width: 100%;
+}
+#rec-camping 					{
+	vertical-align: middle;
+	text-align: right;
+	padding-left: 13px;
+	background-image: url(/web/20080131204646im_/http://www.fs.fed.us/r2/local-resources/images/recreation/headers/camping.jpg);
+	background-repeat: no-repeat;
+	background-position: left top;
+	border-bottom-width: 3px;
+	border-bottom-style: solid;
+	border-bottom-color: #5F7137;
+	height: 150px;
+	width: 100%;
+}
+#rec-cabins					{
+	vertical-align: middle;
+	text-align: right;
+	padding-left: 13px;
+	background-image: url(/web/20080131204646im_/http://www.fs.fed.us/r2/local-resources/images/recreation/headers/cabinrentals.jpg);
+	background-repeat: no-repeat;
+	background-position: left top;
+	border-bottom-width: 3px;
+	border-bottom-style: solid;
+	border-bottom-color: #5F7137;
+	height: 150px;
+	width: 100%;
+}
+#rec-christmas					{
+	vertical-align: middle;
+	text-align: right;
+	padding-left: 13px;
+	background-image: url(/web/20080131204646im_/http://www.fs.fed.us/r2/local-resources/images/recreation/headers/christmastrees.jpg);
+	background-repeat: no-repeat;
+	background-position: left top;
+	border-bottom-width: 3px;
+	border-bottom-style: solid;
+	border-bottom-color: #5F7137;
+	height: 150px;
+	width: 100%;
+}
+#rec-fallcolors 					{
+	vertical-align: middle;
+	text-align: right;
+	padding-left: 13px;
+	background-image: url(/web/20080131204646im_/http://www.fs.fed.us/r2/local-resources/images/recreation/headers/fallcolors.jpg);
+	background-repeat: no-repeat;
+	background-position: left top;
+	border-bottom-width: 3px;
+	border-bottom-style: solid;
+	border-bottom-color: #5F7137;
+	height: 150px;
+	width: 100%;
+}
+#rec-fishing 					{
+	vertical-align: middle;
+	text-align: right;
+	padding-left: 13px;
+	background-image: url(/web/20080131204646im_/http://www.fs.fed.us/r2/local-resources/images/recreation/headers/fishing.jpg);
+	background-repeat: no-repeat;
+	background-position: left top;
+	border-bottom-width: 3px;
+	border-bottom-style: solid;
+	border-bottom-color: #5F7137;
+	height: 150px;
+	width: 100%;
+}
+#rec-heritage 					{
+	vertical-align: middle;
+	text-align: right;
+	padding-left: 13px;
+	background-image: url(/web/20080131204646im_/http://www.fs.fed.us/r2/local-resources/images/recreation/headers/heritage.jpg);
+	background-repeat: no-repeat;
+	background-position: left top;
+	border-bottom-width: 3px;
+	border-bottom-style: solid;
+	border-bottom-color: #5F7137;
+	height: 150px;
+	width: 100%;
+}
+#rec-hunting					{
+	vertical-align: middle;
+	text-align: right;
+	padding-left: 13px;
+	background-image: url(/web/20080131204646im_/http://www.fs.fed.us/r2/local-resources/images/recreation/headers/hunting.jpg);
+	background-repeat: no-repeat;
+	background-position: left top;
+	border-bottom-width: 3px;
+	border-bottom-style: solid;
+	border-bottom-color: #5F7137;
+	height: 150px;
+	width: 100%;
+}
+#rec-etiquette 					{
+	vertical-align: middle;
+	text-align: right;
+	padding-left: 13px;
+	background-image: url(/web/20080131204646im_/http://www.fs.fed.us/r2/local-resources/images/recreation/headers/etiquette.jpg);
+	background-repeat: no-repeat;
+	background-position: left top;
+	border-bottom-width: 3px;
+	border-bottom-style: solid;
+	border-bottom-color: #5F7137;
+	height: 150px;
+	width: 100%;
+}
+#rec-sightseeing 					{
+	vertical-align: middle;
+	text-align: right;
+	padding-left: 13px;
+	background-image: url(/web/20080131204646im_/http://www.fs.fed.us/r2/local-resources/images/recreation/headers/sightseeing.jpg);
+	background-repeat: no-repeat;
+	background-position: left top;
+	border-bottom-width: 3px;
+	border-bottom-style: solid;
+	border-bottom-color: #5F7137;
+	height: 150px;
+	width: 100%;
+}
+#rec-trails 					{
+	vertical-align: middle;
+	text-align: right;
+	padding-left: 13px;
+	background-image: url(/web/20080131204646im_/http://www.fs.fed.us/r2/local-resources/images/recreation/headers/trails.jpg);
+	background-repeat: no-repeat;
+	background-position: left top;
+	border-bottom-width: 3px;
+	border-bottom-style: solid;
+	border-bottom-color: #5F7137;
+	height: 150px;
+	width: 100%;
+}
+#rec-wilderness					{
+	vertical-align: middle;
+	text-align: right;
+	padding-left: 13px;
+	background-image: url(/web/20080131204646im_/http://www.fs.fed.us/r2/local-resources/images/recreation/headers/wilderness.jpg);
+	background-repeat: no-repeat;
+	background-position: left top;
+	border-bottom-width: 3px;
+	border-bottom-style: solid;
+	border-bottom-color: #5F7137;
+	height: 150px;
+	width: 100%;
+}
+#rec-wildandscenic 					{
+	vertical-align: middle;
+	text-align: right;
+	padding-left: 13px;
+	background-image: url(/web/20080131204646im_/http://www.fs.fed.us/r2/local-resources/images/recreation/headers/rivers.jpg);
+	background-repeat: no-repeat;
+	background-position: left top;
+	border-bottom-width: 3px;
+	border-bottom-style: solid;
+	border-bottom-color: #5F7137;
+	height: 150px;
+	width: 100%;
+}
+#rec-wildlife 					{
+	vertical-align: middle;
+	text-align: right;
+	padding-left: 13px;
+	background-image: url(/web/20080131204646im_/http://www.fs.fed.us/r2/local-resources/images/recreation/headers/wildlife.jpg);
+	background-repeat: no-repeat;
+	background-position: left top;
+	border-bottom-width: 3px;
+	border-bottom-style: solid;
+	border-bottom-color: #5F7137;
+	height: 150px;
+	width: 100%;
+}
+#rec-winter 					{
+	vertical-align: middle;
+	text-align: right;
+	padding-left: 13px;
+	background-image: url(/web/20080131204646im_/http://www.fs.fed.us/r2/local-resources/images/recreation/headers/winteractivities.jpg);
+	background-repeat: no-repeat;
+	background-position: left top;
+	border-bottom-width: 3px;
+	border-bottom-style: solid;
+	border-bottom-color: #5F7137;
+	height: 150px;
+	width: 100%;
+}
+#rec-passports					{
+	vertical-align: middle;
+	text-align: right;
+	padding-left: 13px;
+	background-image: url(/web/20080131204646im_/http://www.fs.fed.us/r2/local-resources/images/recreation/headers/passports.jpg);
+	background-repeat: no-repeat;
+	background-position: left top;
+	border-bottom-width: 3px;
+	border-bottom-style: solid;
+	border-bottom-color: #5F7137;
+	height: 150px;
+	width: 100%;
+}
+#rec-permits 					{
+	vertical-align: middle;
+	text-align: right;
+	padding-left: 13px;
+	background-image: url(/web/20080131204646im_/http://www.fs.fed.us/r2/local-resources/images/recreation/headers/permits.jpg);
+	background-repeat: no-repeat;
+	background-position: left top;
+	border-bottom-width: 3px;
+	border-bottom-style: solid;
+	border-bottom-color: #5F7137;
+	height: 150px;
+	width: 100%;
+}
+#rec-ohv 					{
+	vertical-align: middle;
+	text-align: right;
+	padding-left: 13px;
+	background-image: url(/web/20080131204646im_/http://www.fs.fed.us/r2/local-resources/images/recreation/headers/ohv.jpg);
+	background-repeat: no-repeat;
+	background-position: left top;
+	border-bottom-width: 3px;
+	border-bottom-style: solid;
+	border-bottom-color: #5F7137;
+	height: 150px;
+	width: 100%;
+}
+#rec-other 					{
+	vertical-align: middle;
+	text-align: right;
+	padding-left: 13px;
+	background-image: url(/web/20080131204646im_/http://www.fs.fed.us/r2/local-resources/images/recreation/headers/other.jpg);
+	background-repeat: no-repeat;
+	background-position: left top;
+	border-bottom-width: 3px;
+	border-bottom-style: solid;
+	border-bottom-color: #5F7137;
+	height: 150px;
+	width: 100%;
+}
+#rec-safety 					{
+	vertical-align: middle;
+	text-align: right;
+	padding-left: 13px;
+	background-image: url(/web/20080131204646im_/http://www.fs.fed.us/r2/local-resources/images/recreation/headers/safety.jpg);
+	background-repeat: no-repeat;
+	background-position: left top;
+	border-bottom-width: 3px;
+	border-bottom-style: solid;
+	border-bottom-color: #5F7137;
+	height: 150px;
+	width: 100%;
+}
+
+#heritage					{
+	vertical-align: middle;
+	text-align: left;
+	background-repeat: no-repeat;
+	background-position: left top;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #000000;
+	width: 100%;
+	font-size: 12px;
+	font-style: normal;
+	text-indent: 0px;
+	font-weight: bold;
+	padding: 3px;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: none;
+	border-left-style: none;
+	border-top-color: #000000;
+	border-right-color: #000000;
+	border-left-color: #000000;
+}
+.tableheader {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: bold;
+	color: #336633;
+	text-decoration: none;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-top-color: #000000;
+	border-right-color: #000000;
+	border-bottom-color: #000000;
+	border-left-color: #000000;
+	border-top-width: 1px;
+	border-top-style: solid;
+}
+
+
+/*
+     FILE ARCHIVED ON 20:46:46 Jan 31, 2008 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 07:25:49 Jul 18, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 246.202
+  exclusion.robots: 0.102
+  exclusion.robots.policy: 0.089
+  RedisCDXSource: 17.772
+  esindex: 0.01
+  LoadShardBlock: 202.622 (3)
+  PetaboxLoader3.datanode: 97.323 (4)
+  PetaboxLoader3.resolve: 65.538 (2)
+  load_resource: 67.788
+*/

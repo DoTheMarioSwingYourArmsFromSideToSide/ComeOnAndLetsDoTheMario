@@ -1,0 +1,77 @@
+#cityTable TR TD { vertical-align: bottom; }
+#cityTable TR TD.extraIcon { padding: 0 0 4px 4px; }
+#cityTable TR TD.extraText { white-space: nowrap; padding: 0 0 3px 4px; }
+
+#tropicNotice { background-color: #FFF; margin-top: 2px; border-top: 1px solid #DDD; border-right: 1px solid #CCC; border-bottom: 1px solid #CCC; border-left: 1px solid #DDD; }
+#alertNotice { background-color: #FFC; margin-top: 2px; border-top: 1px solid #DDD; border-right: 1px solid #CCC; border-bottom: 1px solid #CCC; border-left: 1px solid #DDD; }
+#blogNotice { background-color: #FFC; margin-top: 2px; border-top: 1px solid #DDD; border-right: 1px solid #CCC; border-bottom: 1px solid #CCC; border-left: 1px solid #DDD; }
+
+#radarTable { width: 142px; }
+#radarTable #radarTab .active { background-color: #172C6C; color: #FFF; font-weight: bold; padding: 1px; border-top: 1px solid #666; border-right: 1px solid #333; border-left: 1px solid #666; }
+#radarTable #radarTab .active A { text-decoration: none; color: #FFF; }
+#radarTable #radarTab .inactive { padding: 1px; }
+#radarTable #radarTab .inactive A { color: #213F9A; }
+#radarTable #radarcamBox { border: 1px solid #172C6C; width: 140px; background-color: #000; }
+#radarTable #radarcamBox DIV { background-color: #000; color: #FFF; }
+#radarTable #radarcamBox TABLE { background-color: #000; color: #FFF; }
+#radarTable #radarcamBox #camNav { width: 140px; }
+#radarTable #radarcamBox #camgallery { width: 140px; height: 117px; text-decoration: none; margin: 0; }
+#radarTable #radarcamBox #progress {	height: 15px; border: 1px solid #333; position: relative; top: 50px; }
+#radarTable #radarcamBox #progress .bar { width: 0px; text-align: center; font-size: 10px; height: 15px; white-space: nowrap; }
+#radarTable #radarcamBox #noCams { width: 140px; height: 155px; background-color: #F5F5F5; }
+#radarTable #radarcamBox #noCams P { padding: 0 5px 0 5px; color: #000; background-color: #F5F5F5; }
+#radarTable #radarcamBox #noCams A { color: #00F; }
+
+#hourlyTable TR TD { padding: 2px; }
+#hourlyTable TR.sectionTitle TD { border-bottom: 1px solid #999; font-weight: bold; padding: 2px; background-color: #FFF; }
+
+#sourceSelect SELECT { width: 353px; margin-top: 5px; }
+
+#moonTable { border-top: 1px solid #333; border-right: 1px solid #999; border-bottom: 1px solid #999; border-left: 1px solid #333; }
+#moonTable TR TD { border: 0; background-color: #000; color: #FFF; text-align: center; width: 20%; vertical-align: top; }
+
+#promoTable { border-right: 1px solid #CCC; border-bottom: 1px solid #CCC; border-left: 1px solid #CCC; background-color: #F5F5F5; }
+#promoTable #stickerBox { border: 1px solid #CCC; width: 110px; cursor: pointer; cursor: hand; background-image: url(https://web.archive.org/web/20080708024533im_/http://icons.wxug.com/graphics/wu2/clouds.jpg); background-repeat: no-repeat; padding: 5px; }
+
+#noticeForecast TR TD { border: 0; background-color: #FFF; }
+#noticeForecast TR TD:hover { border: 0; background-color: #FFF; }
+
+#condscript { visibility: hidden; height: 0px; width: 0px; border: 0px; }
+#condboxWindDiv { position: relative; top: 1px; left: 1px; width: 14px; height: 14px; overflow: hidden; }
+#condboxArrowDiv { left: 0px; position: relative; overflow: hidden; }
+
+#iconsLink { color: #F00; font-weight: normal; font-size: 11px; }
+
+.modBox TABLE.open { font-size: 14px; font-weight: bold; background-color: #CDD9FF; border-bottom: 1px solid #172C6C; }
+.modBox TABLE.close { font-size: 14px; font-weight: bold; background-color: #DDD; border: 1px solid #CCC; }
+.modBox TABLE TR TD { vertical-align: middle; }
+
+.selectorBox { background-color: #F5F5F5; border-top: 1px solid #CCC; padding-top: 10px; }
+.selectorBox #typeTable TD { text-align: center; padding: 2px; }
+.selectorBox #typeTable TD.activeTab { color: #000; border-top: 1px solid #9A8221; border-right: 1px solid #9A8221; border-left: 1px solid #9A8221; font-weight: bold; background: #FFF url(https://web.archive.org/web/20080708024533im_/http://icons.wunderground.com/graphics/wu2/brown_gradient.gif) repeat-x top; font-size: 13px; }
+.selectorBox #typeTable TD.activeTab A {text-decoration: none; color: #000}
+.selectorBox #typeTable TD.inactiveTab { border-bottom: 1px solid #9A8221; }
+.selectorBox #typeTable TD.inactiveTab A { color: #6C3917; }
+
+.yToday { background-color: #FFC; border-left: 1px solid #9A8221; border-right: 1px solid #9A8221; }
+
+/*
+     FILE ARCHIVED ON 02:45:33 Jul 08, 2008 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 08:23:32 Jul 18, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 274.875
+  exclusion.robots: 0.07
+  exclusion.robots.policy: 0.061
+  cdx.remote: 0.053
+  esindex: 0.01
+  LoadShardBlock: 238.406 (3)
+  PetaboxLoader3.datanode: 172.165 (4)
+  PetaboxLoader3.resolve: 211.719 (2)
+  load_resource: 280.779
+*/

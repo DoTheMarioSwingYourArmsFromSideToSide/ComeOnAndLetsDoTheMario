@@ -1,0 +1,36 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+function O(processedEvent){if (!processedEvent){var processedEvent=window.event; }var o=null; var Y=RadHelper.I(processedEvent); if (Y && Y.id){o=tlrkContextMenus.A(Y.id); }if (!RadHelper.e(o) && RadHelper.e(Y)){for (var i=0; i<tlrkContextMenus.Values.length; i++){if (RadHelper.U(Y,tlrkContextMenus.Values[i].ContextHtmlElementID, false)){o=tlrkContextMenus.A(tlrkContextMenus.Values[i].ContextHtmlElementID); break; }}}if (!RadHelper.e(o)){if (RadBrowserHelper.Z && RadHelper.z(processedEvent)){return true; }o=tlrkContextMenus.A("def\x61ult"); }if (RadHelper.e(o)){o.OnContext(processedEvent); RadHelper.X(processedEvent); }}function W(processedEvent){OriginalOnResizeStorage(); }function w(processedEvent){OriginalOnLoadStorage(); MenuCopyToBody(); V(); }function V(){var i=0; for (i=0; i<tlrkMenus.length; i++){if (RadHelper.e(tlrkMenus[i].v)){var T=tlrkMenus[i].t.A(tlrkMenus[i].v); if (T!=null){tlrkMenus[i].ClickToOpen= true; tlrkMenus[i].S= true; tlrkMenus[i].R(T, true , false ,""); }}}}function GetStandardMenu(r){return Q(r,tlrkMenus); }function GetContextMenu(r){return Q(r,tlrkContextMenus); }function Q(r,P){if (RadHelper.e(P) && RadHelper.e(P.AddItem)){return P.A(r); }else {var i=0; for (i=0; i<P.length; i++){if (P[i].ID==r){return P[i]; }}}}function MenuCopyToBody(){var N=null; var DefaultMenuRootGroup=null; var n=null; var M=""; var m=document.body; var L=document.getElementsByTagName("F\x4f\x52M")[0]; var i=0; for (i=0; i<tlrkMenus.length; i++){N=tlrkMenus[i]; DefaultMenuRootGroup=N.RootGroup; l=N.K.Values; for (k=0; k<l.length; k++){n=l[k].Container; M=n.id; if (((!N.IsContext) && (l[k].ID!=DefaultMenuRootGroup.ID)) || (N.IsContext)){if (N.TemplateEnabled== true){CopyObjToBody(L,n); }else {CopyObjToBody(m,n); }n=document.getElementById(M); }}}}function CopyObjToBody(J,H){H.parentNode.removeChild(H); if (typeof(J)!="un\x64\x65fined" && J!=null){J.appendChild(H); }}var OriginalOnResizeStorage=(window.onresize)?window.onresize:new Function; window.onresize=W; var OriginalOnLoadStorage=(window.onload)?window.onload:new Function; window.onload=w; var RadBrowserHelper=new Browser(); var RadHelper=new HelperObject(RadBrowserHelper); var RadFiltersHelper=null; if (RadBrowserHelper.h && RadBrowserHelper.HasFilters && RadBrowserHelper.G){RadFiltersHelper=new RadFilters(); }var tlrkKeyboard=new Array(); var tlrkContextMenus=new Hashtable(); var tlrkMenus=new Array(); if ((typeof(document.oncontextmenu)!="u\x6edefine\x64") || (RadBrowserHelper.h) || (RadBrowserHelper.g)){document.oncontextmenu=O; }else {RadHelper.AttachEventListener(document,"mousedow\x6e",O); }F=112; f=113; D=114; d=115; C=116; c=117; B=118; o0=119; O0=120; l0=121; i0=122; I0=123; o1=17; O1=16; l1=18; i1=13; I1=36; o2=35; O2=37; l2=39; i2=38; I2=40; o3=33; O3=34; l3=27; i3=32; I3=9; o4=8; O4=46; l4=45; i4=93; MODE_NORMAL=1; MODE_DISABLED=2; MODE_HILIGHT=4; MODE_CLICKED=8; MODE_SELECTED=16; I4=1; o5=2; O5=4; l5=8; UP_DIRECTION=1; DOWN_DIRECTION=2; LEFT_DIRECTION=4; RIGHT_DIRECTION=8; VERTICAL_DIRECTION=1; HORIZONTAL_DIRECTION=2;
+
+
+}
+/*
+     FILE ARCHIVED ON 20:51:43 May 12, 2008 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 08:30:30 Jul 18, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 163.923
+  exclusion.robots: 0.091
+  exclusion.robots.policy: 0.081
+  cdx.remote: 0.062
+  esindex: 0.01
+  LoadShardBlock: 133.221 (3)
+  PetaboxLoader3.datanode: 57.024 (4)
+  load_resource: 110.921
+  PetaboxLoader3.resolve: 69.805
+*/

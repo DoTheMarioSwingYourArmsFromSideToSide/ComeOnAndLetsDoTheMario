@@ -1,0 +1,153 @@
+margin
+	{ 
+	background: transparent;
+	background-position: 0px 0px;
+	background-attachment: fixed;
+	755px; 0px; 755px; 0px; }
+
+
+img.top_nav_a
+{
+ 	position: absolute;
+	top: 0px;
+	left: 0px;
+
+}
+
+img.top_nav_b
+{
+ 	position: absolute;
+	top: 0px;
+	left: 218px;
+
+}
+
+img.top_nav_1 
+{
+    position: absolute;
+	top: 76px;
+	left: 0px;	
+}
+
+img.top_nav_2 
+{
+    position: absolute;
+	top: 117px;
+	left: 0px;	
+}
+
+img.top_nav_3 
+{
+    position: absolute;
+	top: 151px;
+	left: 0px;	
+}
+
+img.top_nav_4 
+{
+    position: absolute;
+	top: 189px;
+	left: 0px;	
+}
+
+img.top_nav_5 
+{
+    position: absolute;
+	top: 226px;
+	left: 0px;	
+}
+
+img.top_nav_6 
+{
+    position: absolute;
+	top: 262px;
+	left: 0px;	
+}
+
+
+img.blue_curve
+{
+	position : absolute;
+	top : auto;
+	bottom : 0pt;
+	right : 0pt;
+	vertical-align : 0pt;
+
+}
+
+
+div.right
+{
+	color: #006;
+	font-size: 10pt;
+	font-family: Arial;
+	font-weight: bold;
+	white-space: nowrap;
+	position: reletive;
+	right: 0pt;
+	margin: 0 0pt 0 0pt;
+}
+
+p.welcome
+{
+	color: black;
+	font-size: 12pt;
+	font-family: Arial;
+	font-weight: bold;
+	white-space: nowrap;
+}
+
+p.text
+{
+	position: absolute;
+	top: 100pt;
+	left: 135pt;
+	color: black;
+	font-size: 8pt;
+	font-family: Arial;
+	font-weight: normal;
+	white-space: nowrap;
+}
+
+table.text
+{
+	position: absolute;
+	top: 95pt;
+	left: 135pt;
+	font-size: 10pt;
+	font-family: Arial;
+	font-weight: normal;
+
+}
+
+td.td_about
+{
+	border-color: black;
+	border-width: 1px;
+	border-style: solid;
+	color: white;
+	font-size: 10pt;
+	font-weight: bold;
+	padding: 3pt;
+}	
+
+/*
+     FILE ARCHIVED ON 09:25:25 Jul 09, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 08:18:37 Jul 18, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 116.0
+  exclusion.robots: 0.085
+  exclusion.robots.policy: 0.075
+  cdx.remote: 0.063
+  esindex: 0.009
+  LoadShardBlock: 85.147 (3)
+  PetaboxLoader3.datanode: 88.703 (4)
+  load_resource: 134.543
+  PetaboxLoader3.resolve: 100.413
+*/

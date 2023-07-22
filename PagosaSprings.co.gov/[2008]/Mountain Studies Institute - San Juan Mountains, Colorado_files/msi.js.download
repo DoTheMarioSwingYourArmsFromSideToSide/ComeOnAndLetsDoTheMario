@@ -1,0 +1,132 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+//----------DHTML Menu Created using AllWebMenus PRO ver 4.1-#626---------------
+//P:\wwwroot\msi.awm
+var awmMenuName='msi';
+var awmLibraryBuild=626;
+var awmLibraryPath='/awmData-msi';
+var awmImagesPath='/awmdata';
+var awmSupported=(navigator.appName + navigator.appVersion.substring(0,1)=="Netscape5" || document.all || document.layers || navigator.userAgent.indexOf('Opera')>-1 || navigator.userAgent.indexOf('Konqueror')>-1)?1:0;
+if (awmAltUrl!='' && !awmSupported) window.location.replace(awmAltUrl);
+if (awmSupported){
+var awmMenuPath;
+if (document.layers) mpi=((document.images['awmMenuPathImg-msi'])?document.images['awmMenuPathImg-msi'].src:document.layers['xawmMenuPathImg-msi'].document.images['awmMenuPathImg-msi'].src); else mpi=document.images['awmMenuPathImg-msi'].src;
+awmMenuPath=mpi.substring(0,mpi.length-16);
+while (awmMenuPath.search("'")>-1) {awmMenuPath=awmMenuPath.replace("'", "&#39;");}
+var nua=navigator.userAgent,scriptNo=(nua.indexOf('Safari')>-1)?7:(nua.indexOf('Gecko')>-1)?2:((document.layers)?3:((nua.indexOf('Opera')>-1)?4:((nua.indexOf('Mac')>-1)?5:1)));
+document.write("<SCRIPT SRC='"+awmMenuPath+awmLibraryPath+"/awmlib"+scriptNo+".js'><\/SCRIPT>");
+var n=null;
+awmzindex=1000;
+}
+
+var awmSubmenusFrame='';
+var awmSubmenusFrameOffset;
+var awmOptimize=0;
+var awmUseTrs=0;
+var awmSepr=["0","","",""];
+function awmBuildMenu(){
+if (awmSupported){
+awmCreateCSS(0,1,0,n,'#006666',n,n,n,'none',0,'#000000',0,0);
+awmCreateCSS(1,2,1,'#000000','#CCCCFF',n,'12px Verdana',n,'none',0,'#000000','1px 8px 0px 8',1);
+awmCreateCSS(0,2,1,'#000000','#9999FF',n,'12px Verdana',n,'none',0,'#000000','1px 8px 0px 8',1);
+awmCreateCSS(0,1,0,n,'#CCCCFF',n,n,n,'solid',1,'#000066',0,0);
+awmCreateCSS(1,2,0,'#000000','#FFFFFF',n,'11px Verdana',n,'none',0,'#000000','2px 2px 2px 2',1);
+awmCreateCSS(0,2,0,'#000000','#FFCC33',n,'11px Verdana',n,'none',0,'#000000','2px 2px 2px 2',1);
+awmCreateCSS(0,2,0,'#FFFFFF','#004000',n,'11px Verdana',n,'none',0,'#000000','2px 2px 2px 2',1);
+var s0=awmCreateMenu(0,0,0,0,1,0,0,0,0,0,0,0,1,0,1,0,1,n,n,100,1,0,0,0);
+it=s0.addItem(1,2,2,"About MSI",n,n,"","",n,n,n,"AboutMSI/default.htm",n,0,0,2,0);
+var s1=it.addSubmenu(0,0,0,0,0,0,0,3,1,1,0,n,n,100,0,1);
+it=s1.addItem(4,5,6,"  Description  ",n,n,"","",n,n,n,"AboutMSI",n,0,0,2,0);
+it=s1.addItem(4,5,6,"  Organization & Structure  ",n,n,"","",n,n,n,"AboutMSI/Organization.htm",n,0,0,2,0);
+it=s1.addItem(4,5,6,"  Mission/Vision  ",n,n,"","",n,n,n,"AboutMSI/Mission.htm",n,0,0,2,0);
+it=s1.addItem(4,5,6,"  Board of Directors  ",n,n,"","",n,n,n,"AboutMSI/organization.htm#board",n,0,0,2,0);
+it=s1.addItem(4,5,6,"  Advisory Board  ",n,n,"","",n,n,n,"AboutMSI/organization.htm#advisory",n,0,0,2,0);
+it=s1.addItem(4,5,6,"  MSI Staff  ",n,n,"","",n,n,n,"AboutMSI/organization.htm#staff",n,0,0,2,0);
+it=s1.addItem(4,5,6,"  Contact Us  ",n,n,"","",n,n,n,"Contact/default.asp",n,0,0,2,0);
+it=s0.addItem(1,2,2,"News/Events",n,n,"","",n,n,n,"News/default.asp",n,0,0,2,0);
+var s1=it.addSubmenu(0,0,0,0,0,0,0,3,1,1,0,n,n,100,0,2);
+it=s1.addItem(4,5,6,"  MSI News  ",n,n,"","",n,n,n,"News/default.asp",n,0,0,2,0);
+it=s1.addItem(4,5,6,"  MSI Newsletters  ",n,n,"","",n,n,n,"News/newsletters.asp",n,0,0,2,0);
+it=s0.addItem(1,2,2,"Program",n,n,"","",n,n,n,"Research/default.asp",n,0,0,2,0);
+var s1=it.addSubmenu(0,0,0,0,0,0,0,3,1,1,0,n,n,100,0,4);
+it=s1.addItem(4,5,6,"  Overview  ",n,n,"","",n,n,n,"Research/default.asp",n,0,0,2,0);
+it=s1.addItem(4,5,6,"  MSI Projects  ",n,n,"","Research/msiProjects.htm",n,n,n,"Research/msiProjects.htm",n,0,0,2,0);
+it=s1.addItem(4,5,6,"  Progam Brochure, 2MB  ",n,n,"","Research/pdf/MSIPrograms.pdf",n,n,n,"Research/pdf/MSIPrograms.pdf",n,0,0,2,0);
+it=s1.addItem(4,5,6,"  Mini-Grant Program  ",n,n,"","Research/miniGrant.htm",n,n,n,"Research/miniGrant.htm",n,0,0,2,0);
+it=s1.addItem(4,5,6,"  Research Support: Facilities, Infrastructure and Permitting   ",n,n,"","",n,n,n,"Research/facilities.htm",n,0,0,2,0);
+it=s1.addItem(4,5,6,"  Education Programming for Visiting Classes  ",n,n,"","Education/specializedEdPrograms.htm",n,n,n,"Education/specializedEdPrograms.htm",n,0,0,2,0);
+it=s1.addItem(4,5,6,"  Mountain Studies Minor at Fort Lewis College   ",n,n,"","",n,n,n,"https://web.archive.org/web/20070721004551/http://www.fortlewis.edu/departmental_webpages/mtn_studies_minor/default.asp","new",0,0,2,0);
+it=s1.addItem(4,5,6,"  Seminars, Workshops, Field Trips   ",n,n,"","",n,n,n,"Education/seminarSeries.htm",n,0,0,2,0);
+it=s1.addItem(4,5,6,"  Conferences and Meetings  ",n,n,"","Conference/conferences.htm",n,n,n,"Conference/conferences.htm",n,0,0,2,0);
+it=s1.addItem(4,5,6,"  Opportunities at MSI, FLC and Beyond...  ",n,n,"","Research/opportunities.asp",n,n,n,"Research/opportunities.asp",n,0,0,2,0);
+it=s0.addItem(1,2,2,"Hosting Services",n,n,"","",n,n,n,"Research/hosting.htm",n,0,0,2,0);
+var s1=it.addSubmenu(0,0,0,0,0,0,0,3,1,1,0,n,n,100,0,3);
+it=s1.addItem(4,5,6,"  Meetings & Lodging  ",n,n,"","Avon/default.asp",n,n,n,"Avon/default.asp",n,0,0,2,0);
+it=s1.addItem(4,5,6,"  Research Support  ",n,n,"","Research/facilities.htm",n,n,n,"Research/facilities.htm",n,0,0,2,0);
+it=s1.addItem(4,5,6,"  Education Programming for Visiting Classes  ",n,n,"","",n,n,n,"Education/specializedEdPrograms.htm",n,0,0,2,0);
+it=s1.addItem(4,5,6,"  Conferences & Meetings  ",n,n,"","Conference/conferences.htm",n,n,n,"Conference/conferences.htm",n,0,0,2,0);
+it=s0.addItem(1,2,2,"Data Resources",n,n,"","",n,n,n,"DataBank/default.htm",n,0,0,2,0);
+var s1=it.addSubmenu(0,0,0,0,0,0,0,3,1,1,0,n,n,100,0,5);
+it=s1.addItem(4,5,6,"  Air Quality Data  ",n,n,"","",n,n,n,"DataBank/dataLinks.asp?category=Air%20Quality",n,0,0,2,0);
+it=s1.addItem(4,5,6,"  Climate Data  ",n,n,"","",n,n,n,"DataBank/dataLinks.asp?category=Climate",n,0,0,2,0);
+it=s1.addItem(4,5,6,"  Demographic Data  ",n,n,"","",n,n,n,"DataBank/Demographics",n,0,0,2,0);
+it=s1.addItem(4,5,6,"  GIS Data  ",n,n,"","",n,n,n,"DataBank/GIS/memberLogon.asp",n,0,0,2,0);
+it=s1.addItem(4,5,6,"  Water Data  ",n,n,"","",n,n,n,"DataBank/dataLinks.asp?category=Hydrology",n,0,0,2,0);
+it=s0.addItem(1,2,2,"Resource Links",n,n,"","",n,n,n,"DataBank/default.htm",n,0,0,2,0);
+var s1=it.addSubmenu(0,0,0,0,0,0,0,3,1,1,0,n,n,100,0,6);
+it=s1.addItem(4,5,6,"  Avalanche & Snow Science  ",n,n,"","",n,n,n,"DataBank/links.asp?category=Snow%20and%20Avalanche%20Science",n,0,0,2,0);
+it=s1.addItem(4,5,6,"  Biology  ",n,n,"","",n,n,n,"DataBank/links.asp?category=Biology",n,0,0,2,0);
+it=s1.addItem(4,5,6,"  Climate  ",n,n,"","",n,n,n,"DataBank/links.asp?category=Climate",n,0,0,2,0);
+it=s1.addItem(4,5,6,"  Conservation Links  ",n,n,"","",n,n,n,"DataBank/links.asp?category=Conservation",n,0,0,2,0);
+it=s1.addItem(4,5,6,"  Education  ",n,n,"","",n,n,n,"DataBank/links.asp?category=Education",n,0,0,2,0);
+it=s1.addItem(4,5,6,"  Forestry  ",n,n,"","",n,n,n,"DataBank/links.asp?category=Forestry",n,0,0,2,0);
+it=s1.addItem(4,5,6,"  Geology  ",n,n,"","",n,n,n,"DataBank/links.asp?category=Geology",n,0,0,2,0);
+it=s1.addItem(4,5,6,"  History  ",n,n,"","",n,n,n,"DataBank/links.asp?category=History",n,0,0,2,0);
+it=s1.addItem(4,5,6,"  Map Resource Links  ",n,n,"","",n,n,n,"DataBank/links.asp?category=Map",n,0,0,2,0);
+it=s1.addItem(4,5,6,"  Mountains  ",n,n,"","",n,n,n,"DataBank/links.asp?category=Mountains",n,0,0,2,0);
+it=s1.addItem(4,5,6,"  Publications  ",n,n,"","",n,n,n,"DataBank/links.asp?category=Publications",n,0,0,2,0);
+it=s1.addItem(4,5,6,"  Research  ",n,n,"","",n,n,n,"DataBank/links.asp?category=Research",n,0,0,2,0);
+it=s1.addItem(4,5,6,"  Regional Organizations  ",n,n,"","",n,n,n,"Organizations",n,0,0,2,0);
+it=s1.addItem(4,5,6,"  San Juans Overview  ",n,n,"","",n,n,n,"SanJuanMountains",n,0,0,2,0);
+it=s1.addItem(4,5,6,"  Towns  ",n,n,"","",n,n,n,"DataBank/Towns",n,0,0,2,0);
+it=s1.addItem(4,5,6,"  Watersheds  ",n,n,"","",n,n,n,"DataBank/Hydrology",n,0,0,2,0);
+it=s1.addItem(4,5,6,"  Wildfire  ",n,n,"","",n,n,n,"DataBank/Links/WildFireLinks.htm",n,0,0,2,0);
+it=s0.addItem(1,2,2,"Search",n,n,"","",n,n,n,n,n,0,0,2,0);
+var s1=it.addSubmenu(0,0,0,0,0,0,0,3,1,1,0,n,n,100,0,7);
+it=s1.addItem(4,5,6,"  Regional Organizations  ",n,n,"","",n,n,n,"Organizations/default.asp",n,0,0,2,0);
+it=s0.addItem(1,2,2,"Home",n,n,"","",n,n,n,"home.asp",n,0,0,2,0);
+s0.pm.buildMenu();
+}}
+
+
+}
+/*
+     FILE ARCHIVED ON 00:45:51 Jul 21, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 07:17:45 Jul 18, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 160.867
+  exclusion.robots: 0.066
+  exclusion.robots.policy: 0.057
+  cdx.remote: 0.052
+  esindex: 0.008
+  LoadShardBlock: 135.867 (3)
+  PetaboxLoader3.resolve: 85.956 (3)
+  PetaboxLoader3.datanode: 91.282 (4)
+  load_resource: 98.191
+*/

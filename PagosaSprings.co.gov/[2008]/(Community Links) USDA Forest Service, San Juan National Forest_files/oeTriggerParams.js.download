@@ -1,0 +1,90 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+// Customer: Forest Service - Dept. of Agriculture
+// Version : OnExit 5.0
+function cppUrlPatch(s) {
+	var translated = "";
+	var i; 
+	var found = 0;
+	for(i = 0; (found = s.indexOf(':', found)) != -1; ) {
+		translated += s.substring(i, found) + "|";
+		i = found + 1;
+		found++;
+	}
+	translated += s.substring(i, s.length);
+	return translated;
+}
+var triggerParms = new Array();
+triggerParms["trigger_type"] = "OE";
+triggerParms["dt"] = 0; // disable trigger if 1
+triggerParms["meas_id"] = "ODM+3GczvXQrO+qwAkYn0Q=="; 
+triggerParms["mid"] = "ODM+3GczvXQrO+qwAkYn0Q=="; // model instance id
+triggerParms["cid"] = "FBj7lkVIzbwby8Yqj6ymyg=="; // customer id
+triggerParms["dLF"] = 3; //domain loyalty factor - - 5 orig
+//triggerParms["nLF"] = 9; //navigation loyalty factor
+triggerParms["spL"] = 6.0; //  launch sample percentage - - 6.0 orig
+triggerParms["spE"] = 100.0; // execute sample percentage
+triggerParms["lfcookie"] = "ForeseeLoyalty_MID_ODM+3GczvX";
+triggerParms["ascookie"] = "ForeseeSurveyShown_ODM+3GczvX";
+
+triggerParms["npc"] = 1; // no persistent cookies if 1
+triggerParms["rw"] = 129600; // resample wait (value in minutes)
+triggerParms["width"] = 420; 
+triggerParms["height"] = 500; 
+triggerParms["domain"] = ".fed.us"; // domain name
+triggerParms["omb"] = "1505-0186"; // omb number
+triggerParms["pu"] = 0; 
+triggerParms["olpu"] = 1; 
+
+//triggerParms["cmetrics"] = "90010257"; // coremetrics client id
+//triggerParms["dcUniqueId"] = "TEST04JloZZN0k9cI1Ep5d"; //  (22 chars unique Id for double cookie I/II)
+//triggerParms["midexp"] = 129600; // for double cookie (value in minutes)
+triggerParms["use_cpp"] = 1; // value set to 1, if the client wants user url
+triggerParms["capturePageView"] = 1; 
+//triggerParms["oecpp_cppName"]="Foresee_cppName";//Customized cpp
+triggerParms["path"] = "/";
+triggerParms["scout_chk"]= "ScoutRunningCheck";
+
+triggerParms["dhtml"] = 1; //no DHTML window if 0
+triggerParms["dhtmlURL"] = "fsrscripts/oeFSRInvite.html";
+triggerParms["dhtmlWidth"]  = 400;
+triggerParms["dhtmlHeight"] = 290;
+triggerParms["dhtmlWinRep"] = 1;
+triggerParms["compliant508"] = 1; //508 compliant if 1
+triggerParms["trackerURL"]  = "/fsrscripts/site1/surveyTracker.html";
+triggerParms["trackerWidth"]  = 280;
+triggerParms["trackerHeight"] = 240;
+
+var watchList = new Array();   // (only for OnExit)
+
+}
+/*
+     FILE ARCHIVED ON 17:28:03 Apr 22, 2008 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 08:14:15 Jul 18, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 269.677
+  exclusion.robots: 0.069
+  exclusion.robots.policy: 0.06
+  cdx.remote: 0.057
+  esindex: 0.008
+  LoadShardBlock: 228.779 (3)
+  PetaboxLoader3.datanode: 81.224 (4)
+  PetaboxLoader3.resolve: 796.173 (3)
+  load_resource: 773.212
+*/

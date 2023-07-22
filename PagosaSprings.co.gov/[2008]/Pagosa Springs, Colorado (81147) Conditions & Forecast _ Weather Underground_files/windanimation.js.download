@@ -1,0 +1,249 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+
+//
+//  Drawing classes for Wind Guages and Rotators
+//
+
+//
+//  this is the base class that rotates an arrow
+//
+function WindRotate(parrowobj,parrowwidth,pstartangle)
+{
+	if ( arguments.length > 0 ) 
+		this.init(parrowobj,parrowwidth,pstartangle);
+}
+
+WindRotate.prototype.init = function(parrowobj, parrowwidth, pstartangle) 
+{
+	this.curangle=pstartangle;
+	this.new_angle=0;
+	this.arrowObj=parrowobj;
+	this.arrow_width=parrowwidth;
+	this.timer=new Timer(this);
+
+	this.switchArrow(this.curangle);
+}
+
+WindRotate.prototype.setValue = function (val)
+{
+	//this.rotateToNewPosition(parseInt(val));
+	// AJS - speed up older browsers
+	this.switchArrow(parseInt(val));
+}
+
+WindRotate.prototype.switchArrow = function(new_angle)
+{
+	var the_style=this.getStyleObject(this.arrowObj);
+	var new_left=parseInt(new_angle*this.arrow_width*-1);
+
+	if (the_style)
+	{
+    	if (!document.layers) 
+    	{
+    	  	new_left = new_left + "px";
+    	}
+
+    	// now actually move the DIV
+    	//
+    	the_style.left = new_left;
+	}
+}
+
+WindRotate.prototype.rotateToNewPositionCallback = function()
+{
+	if (this.curangle==this.new_angle) return;
+
+	var dir1=(this.new_angle-this.curangle);
+	if (dir1<0) dir1+=360;
+	var dir2=(this.curangle-this.new_angle);
+	if (dir2<0) dir2+=360;
+	if (dir1 < dir2)
+	{
+		this.curangle++;
+	}
+	else
+		this.curangle--;
+
+	if (this.curangle==-1) this.curangle=359;
+	if (this.curangle==360) this.curangle=0;
+
+	this.switchArrow(this.curangle);
+	this.timer.setTimeout("rotateToNewPositionCallback",5);
+
+
+};
+WindRotate.prototype.rotateToNewPosition = function( pnew_angle)
+{
+	if (pnew_angle < 0 || pnew_angle > 360) pnew_angle=0;
+	this.new_angle=pnew_angle;
+	this.rotateToNewPositionCallback();
+};
+
+WindRotate.prototype.getStyleObject = function(objectId) {
+    // cross-browser function to get an object's style object given its
+    if(document.getElementById && document.getElementById(objectId)) {
+	// W3C DOM
+	return document.getElementById(objectId).style;
+    } else if (document.all && document.all(objectId)) {
+	// MSIE 4 DOM
+	return document.all(objectId).style;
+    } else if (document.layers && document.layers[objectId]) {
+	// NN 4 DOM.. note: this won't find nested layers
+	return document.layers[objectId];
+    } else {
+	return false;
+    }
+}; // getStyleObject
+
+
+//
+// WindGuage is a class that rotates and arrow, and moves it around a circle
+//
+
+WindGuage.prototype = new WindRotate();
+WindGuage.prototype.constructor = WindGuage;
+WindGuage.superclass = WindRotate.prototype;
+
+function WindGuage(pwindobj,parrowobj,pradius,pradiusoffset,parrowwidth,pstartangle)
+{
+//var the_timeout;
+	if ( arguments.length > 0 ) 
+		this.init(pwindobj,parrowobj,pradius,pradiusoffset,parrowwidth,pstartangle);
+
+}
+
+
+WindGuage.prototype.init= function (pwindobj,parrowobj,pradius,pradiusoffset,parrowwidth,pstartangle)
+{
+	WindGuage.superclass.init.call(this,parrowobj, parrowwidth,pstartangle);
+	this.radius=pradius;
+	this.radiusoffset=pradiusoffset;
+	this.windObj=pwindobj;
+
+	if (this.curangle==360) this.curangle=0;
+	this.moveElementToAngle(this.curangle);
+}
+	
+WindGuage.prototype.setValue = function (val)
+{
+	this.animateToNewPosition(parseInt(val));
+}
+
+
+
+WindGuage.prototype.moveElement = function( new_left, new_top)
+{
+	var the_style=this.getStyleObject(this.windObj);
+
+    // add the px or don't, depending on the browser
+	if (the_style)
+	{
+    	if (!document.layers) 
+    	{
+      	new_left = new_left + "px";
+      	new_top = new_top + "px";
+    	}
+
+    	// now actually move the DIV
+    	//
+    	the_style.left = new_left;
+    	the_style.top = new_top;
+	}
+}
+
+WindGuage.prototype.moveElementToAngle = function(new_angle)
+{
+	// calculate new position on the circle
+  	var x = this.radius * Math.sin(new_angle * Math.PI / 180);
+  	var y = this.radius * Math.cos(new_angle * Math.PI / 180);
+	y=this.radius-y+this.radiusoffset;
+	x=this.radius+x+this.radiusoffset;
+	x = parseInt(x);
+	y = parseInt(y);
+
+//	var coords=getXY(objectId);
+//	var oldx=coords[0];
+//	var oldy=coords[1];
+
+	this.switchArrow(new_angle);
+
+	x-=this.arrow_width/2;
+	y-=this.arrow_width/2;
+	this.moveElement( x, y);
+//	var newcoords=getXY(objectId);
+//	var newoldx=newcoords[0];
+//	var newoldy=newcoords[1];
+
+//	if (oldx==newoldx && oldy==newoldy) alert('same');
+
+};
+
+
+WindGuage.prototype.animateToNewPositionCallback = function(objectId)
+{
+	if (this.curangle==this.new_angle) return;
+
+	var dir1=(this.new_angle-this.curangle);
+	if (dir1<0) dir1+=360;
+	var dir2=(this.curangle-this.new_angle);
+	if (dir2<0) dir2+=360;
+	if (dir1 < dir2)
+	{
+		this.curangle++;
+	}
+	else
+		this.curangle--;
+
+	if (this.curangle==-1) this.curangle=359;
+	if (this.curangle==360) this.curangle=0;
+
+	this.moveElementToAngle(this.curangle)
+	this.timer.setTimeout("animateToNewPositionCallback",10);
+
+};
+
+WindGuage.prototype.animateToNewPosition = function( pnew_angle)
+{
+	if (pnew_angle < 0 || pnew_angle > 360) pnew_angle=0;
+	this.new_angle=pnew_angle;
+	this.animateToNewPositionCallback();
+
+};
+
+
+
+
+
+
+}
+/*
+     FILE ARCHIVED ON 00:01:07 May 10, 2008 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 08:21:25 Jul 18, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 97.65
+  exclusion.robots: 0.083
+  exclusion.robots.policy: 0.074
+  cdx.remote: 0.066
+  esindex: 0.01
+  LoadShardBlock: 54.689 (3)
+  PetaboxLoader3.datanode: 105.171 (4)
+  load_resource: 216.992
+  PetaboxLoader3.resolve: 121.601
+*/

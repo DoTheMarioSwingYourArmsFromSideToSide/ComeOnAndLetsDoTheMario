@@ -1,0 +1,497 @@
+#placeTop{
+    position: absolute;
+    top: 0px;
+    background-color: #fff;
+}
+
+#topRightNav {
+    position: absolute;
+    top: 0;
+    width: 747px;
+    border: 0;
+    margin: 0px;
+    padding: 2px 0 0 0px;
+    z-index: 2;
+}
+
+    #topRightNavList {
+        border: 0;
+        padding: 0px;
+        margin: 0px;
+        float: right;
+    }
+
+    #topRightNavList li {
+                display: inline;
+        padding-right: .5em;
+    }
+
+    #topRightNav * a {
+        font-size: .9em;
+        text-decoration: none;
+        color: #333;
+    }
+
+    #topRightNav * a:hover {
+        text-decoration: underline;
+    }
+
+#pageHeader {
+    position: absolute;
+    top: 0;
+}
+
+#topNav {
+    position: absolute;
+    top: 68px;
+    width: 747px;
+        background-color: #fff;
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+    #topNavList {
+        margin: 0;
+        padding: 0 0 0 10px;
+        border: 0;
+    }
+
+    #topNavList li {
+        display: inline;
+        float: left;
+        border: 0;
+        margin: 0; 
+        padding: 0;
+    }
+
+    #topNavList * {
+        border: 0;
+        padding: 0;
+        margin: 0;
+    }
+
+/*
+#searchBar {
+    position: absolute;
+    top: 89px;
+    border-top: 1px solid #3C4962;
+    background-color: #B6B6B6;
+    padding: 0;
+    margin: 0;
+    width: 747px;
+    float: left;
+    height: 40px;
+    z-index: 1;
+}
+
+    #searchForm {
+        background-color: #b5b5b5;
+        padding: 3px 12px 0 0 ;
+        border: 0;
+        margin: 0;
+        display: inline;
+        float: right;
+    }
+
+    #searchForm a {
+        color: #333;
+        text-decoration: none;
+        font-size: 11px;
+        padding: 0 1em .5em 0;
+    }
+
+    #searchForm a:hover{
+        text-decoration: underline;
+    }
+
+    #searchBarBox {
+        padding: 0;
+        margin: 0;
+        border: 2px groove #b5b5b5;
+        font-size: 7.5pt;
+    }
+    
+    #searchBarSubmit {
+        vertical-align: top;
+        margin-left: 3px;
+    }
+*/
+/* SEARCH BAR
+-------------------------------------------------------------------------- */
+
+#searchLinksWrapper {
+	position: relative;
+	float:left;
+	left: 22.5em;
+} 
+* html #searchLinksWrapper { /* IE6 Star Hack (Live help coordinates=26em) */
+	left: 26em;}
+
+*+html #searchLinksWrapper { /* IE7 Star Hack (Live help coordinates=26em) */
+	left: 26em;
+}
+
+.searchLinks {
+	position: absolute;
+	padding-top: 2px;
+}
+.searchLinks li a {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #000000;
+	text-decoration: none;
+}
+.searchLinks li a:hover {
+	text-decoration: underline;
+	color: #000000;
+}
+
+.searchLinks ul {
+	font-size: 11px;
+	list-style: none;
+	width: 17em;
+	margin: 0;
+}
+
+.searchLinks li {
+	display: inline;
+	padding-right: 1.8em;
+}
+#liveHelp {
+	position: absolute;
+	top: .25em;
+	right: 36.2em;
+}
+#googleLogo {
+	position: absolute;
+	top: .18em;
+	right: 17.3em;
+}
+
+/* search bar */	
+#searchBar {
+	position: absolute;
+	top: 89px;
+    border-top: 1px solid #3C4962;
+    background-color: #E2E2E2;
+	padding: 0px;
+	margin: 0px;
+	width: 747px;
+}
+* html #searchBar {
+	width: 745px;
+	w\idth: 747px;
+}
+#searchForm { /*container for the search form in the search bar*/
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #333333;
+	padding: 2px 4px 0 0;
+	border: 0;
+	margin: 0;
+	display: inline;
+	float: right;
+}
+#searchForm a {
+    color: #333;
+    text-decoration: none;
+    font-size: 11px;
+    padding: 0 .5em 0 0;
+}
+#searchBarBox { /*container:  the search bar*/
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #666;
+	padding: 1px 0 1px 2px;
+	border-top: 1px solid #818181;
+	border-right: 1px solid #d9d9d9;
+	border-bottom: 1px solid #d9d9d9;
+	border-left: 1px solid #818181;
+}
+#searchBarSubmit {
+	vertical-align: top;
+	padding: 1px;
+}
+#searchBarLiveHelp {
+	vertical-align: top;
+	margin-right: 10px;
+	padding: 2px 0px 0px 0px;
+}
+
+#headerImage {
+    position: absolute;
+    top: 112px;
+    z-index: 2;
+}
+
+#headerImageapp {
+    position: absolute;
+    top: 68px;
+    z-index: 2;
+}
+
+#contentBox {
+    position: absolute;
+    top: 171px;
+    width: 747px;
+    background-image: url(https://web.archive.org/web/20080415210903im_/http://www.colorado.gov/colorado-images/inner/img_1pixel_graySidebar.jpg);
+    background-repeat: repeat-y;
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+#contentBoxNoBgrd {
+    position: absolute;
+    top: 171px;
+    width: 747px;
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+#contentBoxApplication {
+    position: absolute;
+    top: 128px;
+    width: 747px;
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+#footer {
+    width: 747px;
+    padding: 0;
+    margin: 20px 0 0 0 ;
+    float: right;
+    background-color: #fff;
+    border-top: 2px solid #c33;
+    font-size: 10px;
+    color: #666;    
+}
+
+    #footerLine1 {
+        border-bottom: 1px solid #ccc;
+        vertical-align: middle;
+        text-align: center;
+        padding: 4px 0;
+        height: 1.5em;
+    }
+
+    #footerLine2 {
+        height: 1.5em;
+        padding: 4px 0;
+        text-align: center;
+
+    }
+
+#footerNav {
+    padding: 3px 0;
+    margin: 0;
+    text-align: center;
+}   
+
+    #footerNav ul {
+        list-style-image: url(https://web.archive.org/web/20080415210903im_/http://www.colorado.gov/colorado-images/topRightNavDot.gif);
+        list-style-position: inside;text-align: center;
+        width: 747px;
+    }
+
+    #footerNav li {
+        display: inline;
+        font-size: 10px;
+        color: #666;
+        padding: 0 1em 0 0;
+    }
+
+
+#footerLinks {
+    float:left;
+    padding: 3px 0;
+    margin: 0;
+    border: 0px solid;
+}
+
+    #footerLinks li {
+        display: inline;
+        font-size: 10px;
+        color: #666;
+        padding: 0 .25em;
+    }
+
+    #footerNav li a, #footerLinks li a {
+        color: #666;
+    }
+
+#footerRight {
+    font-size: 10px;
+    float: right;
+    color: #666;
+    padding: 3px 5px 3px 0;
+    border: 0px solid;
+}
+
+body {
+	margin:0;
+	padding:0px;
+	text-align:center;
+	background-image: url(https://web.archive.org/web/20080415210903im_/http://www.colorado.gov/colorado-images/body-tile.jpg);
+	font-size: 76%;
+	font-family: Arial, Verdana, sans-serif;
+	line-height: inherit;
+}
+
+form {
+    border:0;
+    padding:0;
+    margin:0;
+}
+
+img {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+    
+a, a:link {
+    color: #03c;
+    text-decoration: none;
+    font-size: 1em;
+}
+
+a:visited {
+    color:#909;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:active{
+    color:#909;
+}
+
+h1 {
+    font-size: 120%;
+    margin: .5em 0;
+    padding: 0;
+    border: 0;
+}
+
+h2 {
+    margin: .5em 0;
+    padding: 0;
+    border: 0;
+    font-size: 110%;
+}
+
+
+
+
+/* START Registered User Website Styles
+-------------------------------------------------------- */
+a.registered  {
+    color: #00529b;
+    text-decoration: underline;
+}
+
+h3 {
+	color: #00529b;
+    font-size: 200%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+h4 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 140%;
+}
+
+h5 {
+	color: #00529b;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 120%;
+}
+
+h6 {
+	margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+}
+h7 {
+margin: 0;
+    padding: 52px 12px 12px 12px;
+    border: 0;
+    font-size: 100%;
+	}
+	
+
+#pdfLink {
+	font-size: 10px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #333;
+	margin:0px;
+    text-align:left;
+	padding:2px;
+	}
+
+/* END Registered User Website Styles
+------------------------------
+}-------------------------- */
+
+
+
+#spacer {
+     width: 747px;
+     height: 15px;
+     background-color: #fff;
+     position: relative;
+     z-index: 2;
+}
+
+
+
+
+#centerPage {
+    width:747px;
+    margin:0px auto;
+    text-align:left;
+    padding:0;
+    border:0;
+    background-color: #fff;
+}
+
+.off-left {
+position: absolute;
+left: -999px;
+width: 990px;
+}
+
+/*
+     FILE ARCHIVED ON 21:09:03 Apr 15, 2008 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 08:20:14 Jul 18, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 72.617
+  exclusion.robots: 0.111
+  exclusion.robots.policy: 0.096
+  cdx.remote: 0.086
+  esindex: 0.014
+  LoadShardBlock: 39.475 (3)
+  PetaboxLoader3.datanode: 58.392 (4)
+  load_resource: 67.896
+  PetaboxLoader3.resolve: 32.519
+*/

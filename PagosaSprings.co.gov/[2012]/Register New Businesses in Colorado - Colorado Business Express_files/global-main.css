@@ -1,0 +1,2203 @@
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td {
+	margin:0;
+	padding:0
+}
+table {
+	border-collapse:collapse;
+	border-spacing:0
+}
+fieldset, img {
+	border:0
+}
+address, caption, cite, code, dfn, th, var {
+	font-style:normal;
+	font-weight:normal
+}
+ol, ul {
+	list-style:none
+}
+caption, th {
+	text-align:left
+}
+h1, h2, h3, h4, h5, h6 {
+	font-size:100%;
+	font-weight:normal
+}
+q:before, q:after {
+	content:''
+}
+abbr, acronym {
+	border:0
+}
+a {
+	color:#3378bb
+}
+a:hover {
+	text-decoration:none
+}
+body {
+	background:#143a57 url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/bg-body.png) 0 0 repeat-x;
+	font:62.5%/1 Arial, Helvetica, sans-serif
+}
+.group {
+	margin:0 auto;
+	padding-top:10px;
+	width:960px
+}
+.header {
+	background:#fff url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/bg-headerTop.png) 0 0 no-repeat;
+	height:68px;
+	padding:5px
+}
+.sliverhead {
+	background:#fff url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/bg-sliverhead.png) 0 0 no-repeat;
+	padding-left:98px;
+	height:68px;
+}
+.sliverhead h1 a {
+	color:#0068b3;
+	font:normal 2.8em/1 Tahoma, Geneva, sans-serif;
+	padding-top:6px;
+	text-decoration:none;
+}
+.sliverhead h2 a {
+	color:#545454;
+	font:normal 2em/1.7 Tahoma, Geneva, sans-serif;
+	text-decoration:none;
+}
+.contentGroup {
+	background:#fff;
+	float:left;
+	width:960px;
+}
+.feedback {
+	height:103px;
+	left:0;
+	position:fixed;
+	top:165px;
+	width:42px;
+	z-index:10
+}
+.feedback a {
+	background:transparent url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/btn-feedbackUp.png) 0 0 no-repeat;
+	display:block;
+	height:103px;
+	width:36px
+}
+.feedback a:hover {
+	background:transparent url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/btn-feedbackDwn.png) 0 0 no-repeat;
+	display:block;
+	height:103px;
+	width:42px
+}
+.help {
+	height:63px;
+	left:0;
+	position:fixed;
+	top:270px;
+	width:42px;
+	z-index:10;
+}
+.help a {
+	background:transparent url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/btn-helpUp.png) 0 0 no-repeat;
+	display:block;
+	height:63px;
+	width:36px
+}
+.help a:hover {
+	background:transparent url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/btn-helpDwn.png) 0 0 no-repeat;
+	display:block;
+	height:63px;
+	width:42px
+}
+/* help page styles  */
+.helpQ_odd {
+	background:#f1f1f1;
+	border:1px solid #92b2d0;
+	padding:.4em;
+	margin:0 0 .75em 0
+}
+.helpQ_even {
+	background:#fff;
+	border:1px solid #92b2d0;
+	padding:.4em;
+	margin:0 0 .75em 0
+}
+.helpQ_even table, .helpQ_odd table {
+	width:500px;
+	background:#fff;
+	font:1.3em Arial, Helvetica, sans-serif;
+	border:1px solid #8393BF;
+}
+.helpQ_even table th, .helpQ_odd table th {
+	background:#8393BF;
+	padding:5px;
+	font-weight:bold;
+	color:#fff;
+}
+.helpQ_even table tr.odd,.helpQ_odd table tr.odd {
+	background:#e3e3e3;
+}
+.helpQ_even table td, .helpQ_odd table td {
+	padding:5px;
+}
+.marginTop1em {
+	margin-top:2em
+}
+.padTop05 {
+	padding-top:.5em
+}
+.padTop2px {
+	padding-top:2px;
+}
+.padTop1em {
+	padding-top:1em
+}
+.padTop2em {
+	padding-top:2em
+}
+.padBtm1em {
+	padding-bottom:1em
+}
+.padBtm0 {
+	padding-bottom:0!important
+}
+.helpLink {
+	margin: 0 0 -4px 0;
+	padding: 0 0 0 3px;
+	height:18px;
+	position:relative;
+}
+.helpInfo {
+	background:#fff url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/bg-helpBubble.png) top left repeat-x;
+	padding:0;
+	border:solid #ccc 2px;
+}
+.helpInfo p {
+	font:1.3em/1.45 Arial, Helvetica, sans-serif;
+	padding:5px 10px 5px 10px;
+	margin:0;
+}
+.helpInfo ul {
+	margin:.5em .2em 0 0;
+}
+.helpInfo ol {
+	list-style-type:decimal;
+	margin:0 .2em 0 2em;
+	padding-bottom:.7em;
+	list-style-position:outside;
+	padding:0 .5em .7em 2em;
+}
+.helpInfo ul li, .helpInfo ol li {
+	font:1.3em/1.7 Arial, Helvetica, sans-serif;
+}
+.contentWrap {
+	background:#fff;
+	float:left;
+	padding:0 5px;
+	width:950px;
+}
+.contentTopGrad {
+	background:transparent url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/bg-contentTopGrad.png) 0 0 no-repeat;
+	height:11px;
+}
+.content {
+	background:transparent url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/bg-contentGrad.png) 0 0 repeat-x;
+	float:left;
+	width:950px;
+}
+.contentLftWrap {
+	display:inline;
+	float:left;
+	margin-top:6px;
+	width:232px;
+}
+.exploreRibbonWrap {
+	background:url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/bg-ribbonCenter.png) 0 0 repeat-x;
+	float:left;
+	position:relative;
+	right:12px;
+	width:244px;
+	z-index:2
+}
+.exploreRibbonWrap h2 {
+	color:#fff;
+	float:left;
+	font:1.9em/1.7 Arial, Helvetica, sans-serif;
+	padding-left:6px;
+}
+.exploreRibbonCnrWrapLft {
+	background:url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/bg-ribbonCnrWrapLft.png) 0 0 no-repeat;
+	float:left;
+	height:39px;
+	width:7px;
+}
+.exploreRibbonCnrRht {
+	background:url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/bg-ribbonCnrRht.png) 0 0 no-repeat;
+	float:right;
+	height:33px;
+	width:2px;
+}
+.exploreLftNav {
+	background:url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/bg-leftNav.png) 0 0 repeat-y;
+	float:left;
+	position:relative;
+	top:-7px;
+	width:232px;
+	z-index:1
+}
+.exploreLftNav li {
+	background:url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/bg-leftNav-li.png) 0 0 repeat-x;
+	float:left;
+	margin:0 2px;
+	padding-top:2px;
+	width:228px
+}
+.exploreLftNav a {
+	color:#555;
+	display:block;
+	font:1.4em/32px Arial, Helvetica, sans-serif;
+	padding-left:15px;
+	text-decoration:none;
+}
+.exploreLftNav a:hover {
+	background:#cbdded url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/bg-leftNav-aHover.png) 0 0 no-repeat;
+	color:#07336c;
+}
+.exploreLftNav .current {
+	background:#cbdded url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/bg-leftNav-aHover.png) 0 0 no-repeat;
+	color:#07336c;
+}
+.exploreLftNav .currentAlt {
+	background:#cbdded url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/bg-leftNavAlt-a.png) 0 0 repeat-x;
+	color:#07336c;
+}
+.exploreLftNav .currentAlt2 {
+	background:#cbdded url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/bg-leftNavAltArrow-a.png) 15px 13px no-repeat;
+	color:#07336c;
+	padding-left:25px
+}
+.exploreLftNav .currentAlt2:hover {
+	background:#cbdded url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/bg-leftNavAltArrow-a.png) 15px 13px no-repeat;
+	color:#07336c;
+	padding-left:25px
+}
+.exploreLftNav .currentAlt3 {
+	padding-left:25px
+}
+.exploreLftNav .currentAlt3:hover {
+	background:#cbdded url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/bg-leftNav-Alt3_sub.png) 0 0 no-repeat;
+	padding-left:25px;
+}
+.exploreLftBtm {
+	background:url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/bg-leftNavBtm.png) 0 0 no-repeat;
+	float:left;
+	height:5px;
+	width:232px
+}
+/* Home Page Elements */ 
+.contentHmRhtWrap {
+	display:inline;
+	float:right;
+	margin-top:6px;
+	width:703px;
+}
+.contentHmRibbonWrap {
+	background:url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/bg-ribbonCenter.png) 0 0 repeat-x;
+	float:left;
+	position:relative;
+	width:715px;
+	z-index:2
+}
+.contentHmRibbonWrap h2 {
+	color:#fff;
+	float:left;
+	font:1.9em/1.7 Arial, Helvetica, sans-serif;
+	padding-left:6px;
+}
+.contentRibbonCnrWrapRht {
+	background:url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/bg-ribbonCnrWrapRht.png) 0 0 no-repeat;
+	float:right;
+	height:39px;
+	width:7px;
+}
+.contentRibbonCnrLft {
+	background:url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/bg-ribbonCnrLft.png) 0 0 no-repeat;
+	float:left;
+	height:33px;
+	width:2px;
+}
+.contentRibbonWrap {
+	background:url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/bg-ribbonCenter.png) 0 0 repeat-x;
+	float:left;
+	position:relative;
+	width:715px;
+	z-index:2
+}
+.hm-pageContent {
+	background:url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/bg-hmPgContent.png) 0 0 repeat-y;
+	float:left;
+	position:relative;
+	top:-7px;
+	width:703px
+}
+/* Home Page Content Elements */
+.hm-pageContent p {
+	font:1.4em/1.5 Arial, Helvetica, sans-serif;
+	padding:8px 13px;
+}
+.hm-pageContentBtm {
+	background:url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/bg-hmPgContentBtm.png) 0 0 no-repeat;
+	float:left;
+	height:5px;
+	width:703px;
+}
+.wizardView {
+	background:url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/bg-wizardView.png) 0 0 no-repeat;
+	display:inline;
+	float:left;
+	height:159px;
+	margin:5px 0 0 26px;
+	padding:22px 24px;
+	width:607px;
+}
+.wizardView h3, .quickFileView h3 {
+	color:#2a78af;
+	font:2.4em/1 Arial, Helvetica, sans-serif
+}
+.wizardView p, .quickFileView p {
+	padding:10px 15px 0 0
+}
+.quickFileView {
+	background:url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/bg-quickFileView.png) 0 0 no-repeat;
+	display:inline;
+	float:left;
+	height:118px;
+	margin:5px 0 15px 26px;
+	padding:22px 24px;
+	width:607px
+}
+.width590 {
+	width:590px!important;
+}
+.width790 {
+	width:790px!important;
+}
+.width95 {
+	width:95%!important;
+}
+.btn-startBusiness {
+	display:inline;
+	float:right;
+	height:34px;
+	margin-top:-8px;
+	width:218px;
+}
+.btn-quickFile {
+	display:inline;
+	float:right;
+	height:26px;
+	margin-top:7px;
+	width:218px;
+}
+.btn-fileManual {
+	display:inline;
+	float:right;
+	height:26px;
+	margin-top:7px;
+	width:163px;
+}
+.marTopLess {
+	margin-top:-8px;
+}
+.hm-pgContentBox {
+	background:url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/bg-hmPgContentBoxCenter.png) 0 0 repeat-y;
+	display:inline;
+	float:left;
+	margin:25px 0 16px 26px;
+	width:655px;
+}
+.hm-pgContentBox h3 {
+	color:#006699;
+	font:bold 1.6em/1 Arial, Helvetica, sans-serif;
+	padding:20px 0 5px 23px;
+}
+.hm-pgContentBox p {
+	line-height:1.4;
+	padding:0 23px 5px;
+}
+.hm-pgContentBox a {
+	line-height:1.8
+}
+.hm-pgContentBox img {
+	margin:5px 0 0 23px
+}
+.hm-pgContentBoxTop {
+	background:url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/bg-hmPgContentBoxTop.png) 0 0 no-repeat;
+	float:left;
+	height:12px;
+	width:655px;
+}
+.hm-pgContentBoxBtm {
+	background:url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/bg-hmPgContentBoxBtm.png) 0 0 no-repeat;
+	float:left;
+	height:16px;
+	width:655px;
+}
+/* Sub Page Elements */
+.contentSubPgWrap {
+	display:inline;
+	float:right;
+	margin-top:6px;
+	width:950px;
+}
+.contentSubPgRibbonWrap {
+	background:url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/bg-ribbonCenter.png) 0 0 repeat-x;
+	float:left;
+	position:relative;
+	width:962px;
+	/*left:12px;*/
+	z-index:2
+}
+.contentSubPgRibbonWrap h2 {
+	color:#fff;
+	float:left;
+	font:1.9em/1.7 Arial, Helvetica, sans-serif;
+	padding-left:6px;
+}
+/* Sub Page Content Elements */ 
+.sub-pgContent {
+	background:url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/bg-subPgContent.png) 0 0 repeat-y;
+	float:left;
+	position:relative;
+	top:-7px;
+	width:950px
+}
+.sub-pgContent p {
+	font:1.4em/1.5 Arial, Helvetica, sans-serif;
+	padding:8px 13px;
+}
+.sub-pgContentBtm {
+	background:url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/bg-subPgContentBtm.png) 0 0 no-repeat;
+	float:left;
+	height:5px;
+	width:950px;
+}
+/* Sub Page Content Box */
+/* sub page header styles  */
+
+.sub-pgContentBox {
+	background:url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/bg-subPgContentBoxCenter.png) 0 0 repeat-y;
+	display:inline;
+	float:left;
+	margin:25px 0 20px 50px;
+	width:852px;
+}
+.sub-pgContentBox h2{
+	font:bold 1.67em Arial, Helvetica, sans-serif;
+	margin:0 0 10px 23px;
+	color:#666;
+}
+.sub-pgContentBox p {
+	padding:0 10px 0 24px;
+}
+.sub-pgContentBoxTop {
+	background:url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/bg-subPgContentBoxTop.png) 0 0 no-repeat;
+	float:left;
+	height:12px;
+	width:852px;
+}
+.sub-pgContentBoxBtm {
+	background:url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/bg-subPgContentBoxBtm.png) 0 0 no-repeat;
+	float:left;
+	height:16px;
+	width:852px;
+}
+.requiredMsg {
+	font-size:0.9em;
+	/*float:left;
+	margin:0 0 10px 3px;*/
+	position:absolute;
+	right:80px;
+	top:39px;
+	margin-bottom: 20px;
+}
+.requiredMsg span {
+	font:1.8em/1.7 Arial, Helvetica, sans-serif;
+	display:block;
+	position:absolute;
+	margin-left:12px;
+	color: #F00
+}
+.requiredMsg p {
+	color:#555;
+}
+.separatorLine {
+	border-top:#86b257 1px dashed;
+	float:left;
+	margin:8px 0 8px 3px;
+	width:844px;
+}
+.userInputRadio {
+	float:left;
+	margin:0 0 .75em 15px!important;
+	width:620px;
+}
+.userInputRadio p {
+	width:610px;
+}
+p.helpLabel {
+	display: inline;
+	font:1.4em Arial, Helvetica, sans-serif;
+	padding:5px 0 3px 27px;
+	cursor: pointer;
+	width:auto;
+}
+p.helpLabelDor {
+	display: inline;
+	font:1.4em Arial, Helvetica, sans-serif;
+	padding:5px 3px 3px 5px!important;
+	cursor: pointer;
+	width:auto;
+	float:left;
+}
+.padLeft5px {
+	padding-left:3px;
+}
+.userInputRadio span {
+	font:1.8em/1.5 Arial, Helvetica, sans-serif;
+	display:block;
+	position:absolute;
+	margin-left:12px;
+	color: #F00
+}
+table.errorMessage{
+	font:1.2em/1.3 Arial, Helvetica, sans-serif!important;
+	color: #F00;
+	background:#fff!important;
+}
+.pTag600 {
+	width:600px!important;
+}
+.mTop0 {
+	margin-top:0
+}
+.mBtm0 {
+	margin-bottom:0!important
+}
+.mBtm10Lft15{
+	margin:0 0 10px 0
+}
+.printerFriendly a {
+	background:#f1f1f1 url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/icon_printer.gif) 7px 5px no-repeat;
+	border:#86b257 1px dashed;
+	border-top:0;
+	color:#000;
+	float:right;
+	font:1.2em/1.4 Arial, Helvetica, sans-serif;
+	margin:0 25px 10px 0;
+	padding:5px 5px 5px 30px
+}
+/*.userInputRadio div {
+	clear:left;
+	float:left;
+	padding:0;
+	line-height:26px;
+	padding-bottom:5px
+}*/
+.userInputRadio input, .userInputRadio label {
+	float:left;
+}
+.userInputRadio input {
+	margin-left:22px;
+	height:13px;
+	width:13px;
+}
+.userInputRadio label {
+	font:1.3em/1 Arial, Helvetica, sans-serif;
+	margin-left:6px;
+}
+.userInput-orSrch {
+	background:url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/bg-orSrch.png) 220px 0 no-repeat;
+	display:inline;
+	float:left;
+	height:29px;
+	margin:0 0 6px 3px;
+	width:620px;
+}
+.userInputBusOrgRadio {
+	margin:3px 0 10px 3px;
+}
+.userInputBusOrgRadio p {
+	float:left;
+	padding-right:0;
+}
+.userInputBusOrgRadio div {
+	position:relative;
+	top:4px
+}
+.userInputBusOrgRadio input {
+	margin-left:10px;
+}
+/*Hidden Radio Select Group */
+#sosRegister,#businessType,#contractLabor {
+	float:left;
+	width:620px;
+	padding:0;
+	clear:both;
+}
+/*#sosRegister .userInputRadio, #businessType .userInputRadio {
+	padding:0 0 0 25px;
+	width:600px
+} */
+.userInput {
+	float:left;
+	margin:0 0 .75em 15px;
+	width:720px
+}
+.warnBox {
+	float:left;
+		margin:0 0 .75em 6px!important;
+	width:838px!important;
+}
+.warnBox span {
+	font:1.8em/1.9 Arial, Helvetica, sans-serif;
+	position:absolute;
+	left:77px;
+	color: #F00
+}
+.warnBox label {
+	float:left;
+	font:1.4em/2.1 Arial, Helvetica, sans-serif;
+	padding-left:23px;
+	/*width:13.25em
+	width:9.5em;*/
+	width:10.25em
+}
+.warnBox select {
+	border:#7f9db9 1px solid;
+	font:normal 1.4em/1.4 Arial, Helvetica, sans-serif;
+	margin:.1em 0 0 12px;
+	padding:.2em .1em;
+}
+.warnBox input[type="button"], .warnBox input[type="submit"] {
+	float:left;
+	font:1.4em Arial, Helvetica, sans-serif;
+	margin:10px 0 0 23px;
+	overflow:visible;
+	padding:0 .25em;
+}
+.warnBox .callMessage p {
+	padding:0;
+	font:1.4em/1.4 Arial, Helvetica, sans-serif;
+}
+.warnBox .callMessage span {
+	color:#c33;
+	font:1em Arial, Helvetica, sans-serif;
+	position:static;
+}
+.reviewEdit {
+	border:#6C8F46 2px solid;
+	padding:.5em 0 .5em 0;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+}
+.reviewEdit .custom-radio label, .reviewEdit .custom-checkbox label {
+	background-position: -10px -114px;
+}
+.reviewEdit input[type="text"],.reviewEdit textarea,.reviewEdit select {
+	background: #FFC;
+}
+.mBtm10Lft15error{
+	margin:0 0 10px 15px;
+	border:#6C8F46 2px solid;
+	padding:.5em 0 .5em 0;
+}
+.errorTextInput input {
+	background: #FFC;
+}
+.sub-pgContentBox .userInput p {
+	padding:0 13px 10px 23px;
+}
+.userInput span {
+	font:1.8em/1.9 Arial, Helvetica, sans-serif;
+	position:absolute;
+	left:77px;
+	color: #F00
+}
+.userInput label {
+	float:left;
+	font:1.4em/2.1 Arial, Helvetica, sans-serif;
+	padding-left:23px;
+	/*width:13.25em
+	width:9.5em;*/
+	width:10.25em
+}
+.auto label, .auto input {
+	width:auto!important;
+	display:inline;
+}
+.auto img {
+	margin:0!important;
+	clear:none!important;
+}
+.userInput img {
+	clear:left;
+	float:left;
+	margin:15px 0 10px 23px
+}
+.userInputTxtArea {
+	float:left;
+	margin:0 0 .75em 15px!important;
+	width:620px;
+}
+.userInputTxtArea span {
+	font:1.8em/1.5 Arial, Helvetica, sans-serif;
+	display:block;
+	position:absolute;
+	margin-left:12px;
+	color: #F00
+}
+.userInputTxtArea p {
+	width:600px;
+}
+.userInputTxtArea textarea {
+	border:1px solid #7F9DB9;
+	float:left;
+	font:1.4em Arial, Helvetica, sans-serif;
+	height:80px;
+	margin-left:25px;
+	padding:0.4em 0.3em;
+	width:600px;
+}
+.userInputTxtAreaContractor {
+	margin:5px 0 8px 15px
+}
+textarea.userInputTxtAreaContractor {
+	width:400px
+}
+.userInputTxtArea select {
+	border:#7f9db9 1px solid;
+	float:left;
+	font:normal 1.4em/1.4 Arial, Helvetica, sans-serif;
+	margin:.1em 0 0 23px;
+	padding:.2em .1em;
+}
+.userInputTxtArea textarea.signDisclaimer  {
+	width:430px;
+	float:left!important;
+	margin:0 0 0 23px;
+	display:inline!important;
+	clear:both;
+}
+.userInputTxtArea input.signDisclaimer  {
+	margin:0 0 0 23px;
+}
+.signDisclaimerAccept {
+	float:left;
+	margin:5px 0 15px 23px;
+	width:500px
+}
+.signDisclaimerAccept input {
+	float:left;
+	position:relative;
+	top:-1px;
+	height:13px;
+	width:13px
+}
+.signDisclaimerAccept label {
+	float:left;
+	font:1.4em/1 Arial, Helvetica, sans-serif;
+	padding-left:5px
+}
+.userInput label.inputExtLabel {
+	width:19.5em
+}
+input[type="text"] {
+	border:#7f9db9 1px solid;
+	float:left;
+	font:1.4em Arial, Helvetica, sans-serif;
+	margin:0 .5em 0 12px;
+	padding:.4em .3em
+}
+input[type="text"]:focus, textarea:focus {
+	background: #FFC;
+}
+.userInput select {
+	border:#7f9db9 1px solid;
+	font:normal 1.4em/1.4 Arial, Helvetica, sans-serif;
+	margin:.1em 0 0 12px;
+	padding:.2em .1em;
+}
+.userInput input[type="button"], .userInput input[type="submit"] {
+	float:left;
+	font:1.4em Arial, Helvetica, sans-serif;
+	margin:10px 0 0 23px;
+	overflow:visible;
+	padding:0 .25em;
+}
+.userInput.srchVariant {
+	background:#f1f1f1;
+	border:#c33 2px solid;
+	/*border-radius:4px;*/
+	font:bold 1em/1 Arial, Helvetica, sans-serif;
+	float:left;
+	margin-left:17px;
+	padding:1em;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	width:600px
+}
+.userInput.srchVariant p {
+	padding:0;
+}
+.userInput.srchVariant span {
+	/*color:#333;*/
+	display:inline;
+	font:bold 1em/1 Arial, Helvetica, sans-serif;
+	margin:0;
+	position:static;
+}
+
+.userInput p.srchOptions-xactMatch {
+	font-weight:bold;
+	margin-top:10px;
+	padding:10px 0 15px 23px
+}
+.userInput input.srchOptions-xactMatch {
+	background:none;
+	border:0;
+	width: 13px;
+	height: 13px;
+	position: relative;
+	top: -1px;
+	margin-left:3px;
+	display:inline;
+}
+.userInput label.srchOptions-xactMatch {
+	line-height:1;
+	width:auto
+}
+.userInput label.input2LineLabel {
+	line-height:1.1;
+}
+.userInput.input2LineLabel span {
+	line-height:1.2
+}
+.userInputOption {
+	float:left;
+	margin:5px 0 .75em 15px;
+	width:750px;
+	height:13px;
+}
+.userInputOption span {
+	font:1.8em/1.2 Arial, Helvetica, sans-serif;
+	position:absolute;
+	left:65px;
+	color: #F00
+}
+.userInputOption input {
+	position:relative;
+	width:13px;
+	margin-left: 5px;
+	line-height:13px;
+}
+.callMessage {
+	float: left;
+  margin: 5px 0 10px;
+  padding: 0 8px 0 18px;
+  width: 90%;
+}
+.callMessage h3 {
+	font:bold 1.6em/1 Arial, Helvetica, sans-serif;
+	padding-bottom:.5em
+}
+.userInput .callMessage p {
+	padding:0;
+	font:1.4em/1.4 Arial, Helvetica, sans-serif;
+}
+
+.userInput .callMessage span {
+	color:#c33;
+	font:1em Arial, Helvetica, sans-serif;
+	position:static;
+}
+.callContact {
+	border-top: 1px dashed #86B257;
+	float: left;
+	padding: 10px 8px 0 12px;
+	width: 98%;
+}
+.callContact p {
+	padding:0 20px 0 0;
+	font:1.4em/1.4 Arial, Helvetica, sans-serif;
+	clear:both;
+	margin-left:-12px;
+}
+.callContact dl {
+	background:#f1f1f1;
+	border:#c33 2px solid;
+	/*border-radius:4px;*/
+	float:left;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	width:auto;
+	margin:0 40px 13px 12px;
+	padding:0.7em;
+	width:auto;
+	clear:both;
+}
+.callContact dt {
+	font:bold 1.4em/1 Arial, Helvetica, sans-serif;
+	padding-bottom:7px
+}
+.callContact dd {
+	font:1.4em/1.5 Arial, Helvetica, sans-serif;
+}
+.userInput.inputProductsServices label {
+	width:13.75em;
+}
+.userInput.inputProductsServices input[type="submit"] {
+	clear:left;
+	margin-left:228px;
+}
+.userInput.inputProductsServices div {
+	float:left;
+	padding-left:228px;
+	width:616px
+}
+.userInput.inputProductsServices div input[type="submit"] {
+	clear:none;
+	margin:10px 10px 0 0
+}
+.userInputOption label {
+	font:1.4em/1 Arial, Helvetica, sans-serif;
+	padding-left: 23px;
+}
+
+.userInputRadio p.srchOptions-resultsWrap {
+	font-weight:bold;
+	padding:10px 0 10px 23px
+}
+.userInputRadio span.srchOptions-resultsWrap {
+	color: #069;
+	display:inline;
+	font:bold 1em/1.4 Arial, Helvetica, sans-serif;
+	position:static;
+	margin:0
+}
+.userInputRadio .srchOptions-results {
+	padding:0
+}
+#employeePaid {
+	border-top:#86b257 1px dashed;
+	float:left;
+	margin:5px 0 0 3px;
+	width:844px;
+	padding-top:4px;
+}
+.userEmployeePaid {
+	float:left;
+	margin:0 0 .75em 15px!important;
+	width:620px;
+}
+.userEmployeePaid p {
+	width:595px;
+}
+.userEmployeePaid span {
+	font:1.8em/1.5 Arial, Helvetica, sans-serif;
+	display:block;
+	position:absolute;
+	margin-left:12px;
+	color: #F00
+}
+.userEmployeePaid-naHolder {
+	width:190px;
+	float:left;
+}
+.userEmployeePaid-na {
+	background: none repeat scroll 0 0 #6D9147;
+	border: 2px solid #CCCCCC;
+	color: #FFF!important;
+	float: left;
+	font: 1.2em Arial, Helvetica, sans-serif;
+	margin: 4px 0 0 20px;
+	padding: 5px 5px 4px;
+	width: auto;
+}
+.userEmployeePaid-na div {
+	color:#9d0000;
+	float:left;
+	padding:2px 0;
+	font:1em Arial, Helvetica, sans-serif;
+}
+.userEmployeePaid-na span {
+	padding:5px;
+}
+/*userEmployeePaid p {
+	padding:0;
+	margin:0
+}*/
+.userEmployeePaid input[type="text"] {
+	/*color: #999;*/
+	clear:left;
+	float:left;
+	margin-left:24px;
+}
+.userEmployeePaid input[type="checkbox"] {
+	height:13px;
+	position:relative;
+	top:-1px;
+	width:13px;
+}
+.userEmployeePaid input[type="text"]:focus {
+	/*color:#000;*/
+	text-transform:uppercase
+}
+.userEmployeePaid .userEmpDateEst {
+	/*background:none;*/
+	border:none;
+	clear:left;
+	float:left;
+	font:1.4em Arial, Helvetica, sans-serif;
+	margin:13px 0 0 23px;
+	padding-bottom:5px;
+	width:620px
+}
+.userEmployeePaid .userEmpDateEst input {
+	float:none;
+	font:1em Arial, Helvetica, sans-serif;
+	margin:0
+}
+/*
+#productsServiceDisplay {
+	float:left;
+	margin:0 0 .75em 15px;
+	width:820px;
+}
+#productsServiceDisplay p {
+	padding-bottom:.5em;
+}
+#productsServiceDisplay span {
+	font:1.8em/1.5 Arial, Helvetica, sans-serif;
+	display:block;
+	position:absolute;
+	margin-left:12px;
+	color: #F00
+}
+#productsServiceDisplay .custom-radio {
+	left: 16px;
+	position: absolute;
+	top: 0;
+	width: 800px;
+}
+#productsServiceDisplay tbody {
+	float:left;
+	position:relative;
+	margin-left:10px;
+	background:#fff;
+}
+#productsServiceDisplay .custom-radio label {
+	display:block;
+	font:100% Arial, Helvetica, sans-serif;
+}
+/*#productsServiceDisplay .trigger {
+	margin:5px 0 4px 0;
+	width:16px;
+	height:16px;
+	line-height:16px;
+}
+#productsServiceDisplay  .trigger a {
+	padding:0 0 0 21px;
+	cursor:pointer;
+	color: #000;
+	font:.54em/1.1 Arial, Helvetica, sans-serif;
+	float:left;
+	text-decoration: none;
+	outline:none;
+}*/
+#productsServiceDisplay table {
+	padding:0;
+	margin:0;
+	float:left;
+	background:none;
+	position:relative;
+	clear:both;
+	width:800px;
+}
+ #productsServiceDisplay {
+ float:left;
+ margin:0 0 .75em 15px;
+ width:620px;
+}
+#productsServiceDisplay .prodRequired{
+	overflow:auto;float:left;position:relative;width:600px;margin-left:5px;
+}
+#productsServiceDisplay .prodRequired span{
+	width: 10px; padding-right: 7px; display: block!important;float:left!important;
+}
+#productsServiceDisplay .prodRequired p{
+	margin-left:0;float:left;display:block;padding-left:0;
+}
+#productsServiceDisplay p {
+	padding-bottom:.5em;
+	float:left;
+	padding-left:29px;
+}
+#productsServiceDisplay span {
+	font:1.8em/1.5 Arial, Helvetica, sans-serif;
+	display:block;
+	margin-left:12px;
+	color: #F00
+}
+#productsServiceDisplay .custom-radio {
+	margin:0 0 0 2px;
+}
+td.nodeIndex {
+		padding:0;
+		margin:0;
+}
+/* employee 20th question styles  */
+.helpLabel20 {
+	width:560px!important;
+}
+.helpImg20 {
+	display:inline;
+	margin:0;
+}
+
+/*
+#productsServiceDisplay span table tr td .trigger {
+	margin:5px 0 4px;
+	/*background:url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/img-showHideTriggerUp.png) 0 0 no-repeat;*/
+	/*
+	height:16px;
+	line-height:16px;
+	margin-left:10px;
+}
+#productsServiceDisplay span table tr td .trigger a{
+	padding:0 0 0 21px;
+	cursor:pointer;
+	color: #000;
+	font:.54em/1.1 Arial, Helvetica, sans-serif;
+	float:left;
+	text-decoration: none;
+	outline:none;
+}*/
+#productsServiceDisplay  span table tbody  tr  td  div.custom-radio label  {
+ 	display: block;
+	position: relative;
+	z-index: 1;
+	font:normal .6em Arial, Helvetica, sans-serif;
+	padding:5px 0 3px 27px;
+	cursor: pointer;
+	color:#000;
+ }
+#productsServiceDisplay span table {
+	padding:0;
+	margin:0;
+	width:500px;
+	background:none;
+}
+#productsServiceDisplay  span  table tbody  tr td {
+ 	padding:0;
+	margin:0;
+}
+ 
+/*#productsServiceDisplay  span  table tbody tr  td  img {
+	display:none;
+}*/
+#productsServiceDisplay  span  table tbody tr  td  div.custom-radio  div.custom-radio  label {
+	display: block;
+	position: relative;
+	z-index: 1;
+	font:.54em Arial, Helvetica, sans-serif;
+	padding:5px 0 3px 27px;
+	cursor: pointer;
+
+}
+.errorMessage2 {
+  font:1.57em Arial, Helvetica, sans-serif!important;
+  margin:10px 0 10px 40px;
+  position:relative!important; 
+  display:block;
+  color:#f00;
+  width:600px;
+}
+.active {
+	clear:left;
+	float:left;
+	margin:0 0 0 12px;
+	padding-left:10px
+}
+.toggle_container {
+	clear:left;
+	float:left;
+	padding-left:20px;
+}
+.toggle_container .block {
+	font:1em/1.3 Arial, Helvetica, sans-serif;
+}
+.toggle_container .block p {
+	padding:0 12px;
+}
+/*.triggerToolBox {
+	margin:5px 0 4px;
+	background:url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/img-showHideTriggerToolBox.png) 0 0 no-repeat;
+	clear:left;
+	float:left;
+	height:34px;
+	line-height:34px;
+	margin-left:24px;
+	width:605px;
+	z-index:1;
+	position:relative
+}
+.triggerToolBox a {
+	color:#fff;
+	cursor:pointer;
+	display:block;
+	float:left;
+	font:1.6em/34px Arial, Helvetica, sans-serif;
+	text-decoration: none;
+	height:34px;
+	outline:none;
+	width:605px
+}
+.triggerToolBox.active {
+	background-position: left bottom;
+}
+.triggerToolBoxTaxForms {
+	margin:5px 0 4px;
+	background:url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/img-showHideTriggerTaxForms.png) 0 0 no-repeat;
+	clear:left;
+	float:left;
+	height:34px;
+	line-height:34px;
+	margin-left:24px;
+	width:605px;
+	z-index:1;
+	position:relative
+}
+.triggerToolBoxTaxForms a {
+	cursor:pointer;
+	display:block;
+	float:left;
+	text-decoration:none;
+	height:34px;
+	outline:none;
+	width:605px
+}
+.triggerToolBoxTaxForms.active {
+	background-position: left bottom;
+}
+.triggerToolBoxGoodStandCert {
+	margin:5px 0 4px;
+	background:url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/img-showHideTriggerGoodStandCert.png) 0 0 no-repeat;
+	clear:left;
+	float:left;
+	height:34px;
+	line-height:34px;
+	margin-left:24px;
+	width:605px;
+	z-index:1;
+	position:relative
+}
+.triggerToolBoxGoodStandCert a {
+	cursor:pointer;
+	display:block;
+	float:left;
+	text-decoration: none;
+	height:34px;
+	outline:none;
+	width:605px
+}
+.triggerToolBoxGoodStandCert.active {
+	background-position: left bottom;
+}
+.toggle_containerToolBox {
+	background:url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/img-showHideToggleBg.png) 0 0 repeat-y;
+	clear:left;
+	float:left;
+	position:relative;
+	margin-left:24px;
+	top:-11px;
+	width:605px;
+	z-index:0;
+}
+.toggle_containerToolBox .block {
+	background:url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/img-showHideToggleBlockBg.png) left bottom no-repeat;
+	padding:5px 0 11px 0
+}
+.toggle_containerToolBox .block p {
+	padding:0 11px
+}
+*/
+.toolBarHeader {
+	background:url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/bg-toolBoxHeader.png) 0 0 no-repeat;
+	border-bottom:#ccc 1px solid;
+	color:#006699;
+	float:left;
+	font:bold 1.6em/2.1 Arial, Helvetica, sans-serif;
+	height:30px;
+	margin-bottom:5px;
+	padding-left:11px;
+	width:594px;
+}
+.toolBoxContainer {
+	background:url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/bg-toolBoxContainer.png) 0 0 repeat-y;
+	float:left;
+	margin:10px 0 10px 24px;
+	width:605px;
+}
+.toolBarMore {
+	float:right;
+	margin:4px 24px 10px 24px;
+	font-size:smaller;
+}
+.toolBoxContainer p {
+	float:left;
+	padding:5px 11px
+}
+.toolBoxContainer p a:hover {
+	border:#006699 1px solid;
+	color:#000
+}
+.toolBoxSeparator {
+	border-top:#86b257 1px dashed;
+	float:left;
+	margin:8px 0 8px 3px;
+	width:647px;
+}
+.toolBarFooter {
+	background:url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/bg-toolBoxFooter.png) 0 0 no-repeat;
+	float:left;
+	height:11px;
+	width:605px;
+}
+.toolBoxContainer dl {
+	font:1.4em/1.6 Arial, Helvetica, sans-serif;
+	padding:15px 0 0 11px
+}
+.toolBoxContainer dt {
+	font-weight:bold
+}
+.toolBoxContainer dd a {
+	background:url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/icon-newWindow.png) right 1px no-repeat;
+	padding-right:20px
+}
+.toolBoxContainer dd a.noIcon {
+	background:none;
+	padding-right:0
+}
+.custom-checkbox, .custom-radio {
+	float:left;
+	/*clear:both;*/
+	clear:left;
+	position: relative;
+	margin-left:9px;
+	width:auto
+}
+.custom-checkbox, .custom-radio {
+	/*clear:left;*/
+	float:left;
+	margin-left:5px;
+	padding:0
+}
+.custom-checkbox a, .custom-radio a {
+	color:#000;
+	display:block;
+	float:left;
+	font:bold 1.3em/1 Arial, Helvetica, sans-serif;/*padding-top:7px*/
+}
+.custom-checkbox a:hover {
+	text-decoration:none
+}
+/* input, label positioning */
+.custom-checkbox input {
+	position: absolute;
+	left:7px;
+	top:5px;
+	margin: 0;
+	z-index: 0;
+}
+.custom-checkbox label {
+	display: block;
+	position: relative;
+	z-index: 1;
+	font:1.4em Arial, Helvetica, sans-serif;
+	padding:6px 0 3px 27px;
+	cursor: pointer;
+}
+.userInputCheckbox p {
+	padding-left:23px;
+	width:620px;
+}
+.userInputCheckbox {
+	float:left;
+	margin:0 0 .75em 15px!important;
+	width:650px;
+}
+.userInputCheckbox .custom-checkbox input {
+	position: absolute;
+	left:7px;
+	top:5px;
+	z-index: 0;
+}
+.userInputCheckbox .custom-checkbox label {
+	padding-left:27px
+}
+.userInputCheckbox span {
+	font:1.8em/1.5 Arial, Helvetica, sans-serif;
+	display:block;
+	position:absolute;
+	margin-left:12px;
+	color: #F00
+}
+.custom-radio input {
+	position: absolute;
+	left:8px;
+	top:5px;
+	margin: 0;
+	z-index: 0;
+}
+.custom-radio label {
+	display: block;
+	position: relative;
+	z-index: 1;
+	font:1.4em Arial, Helvetica, sans-serif;
+	padding:5px 0 3px 27px;
+	cursor: pointer;
+}
+/* USED FOR TEXT THAT MIMICS LABEL STYLE  */
+.text-display {
+		font:0.55em Arial, Helvetica, sans-serif!important;
+		color:#000!important;
+}
+
+/* states */
+/* error states  */
+.custom-radio label.error {
+	background-position: -10px -114px;
+}
+.errorMessage {
+	font:1.57em/2 Arial, Helvetica, sans-serif!important;
+	position:relative!important; 
+	left:10px!important;
+	display:block;
+}
+ .width600{
+	width:600px!important;
+	line-height:1.4!important;
+	margin-bottom:.5em;
+}
+.custom-checkbox label {
+	background: url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/img-checkbox.gif) no-repeat;
+}
+.custom-radio label {
+	background: url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/img-radio.gif) no-repeat;
+}
+.custom-checkbox label, .custom-radio label {
+	background-position: -10px -14px;
+	width:auto;
+}
+.custom-checkbox label.hover, .custom-checkbox label.focus, .custom-radio label.hover, .custom-radio label.focus {
+	background-position: -10px -114px;
+}
+.custom-checkbox label.checked, .custom-radio label.checked {
+	background-position: -10px -214px;
+}
+.custom-checkbox label.checkedHover, .custom-checkbox label.checkedFocus {
+	background-position: -10px -314px;
+}
+.treeSub1List {
+	clear:left;
+	display: none;
+	float:left;
+	margin:0 0 0 12px;
+	padding-left:10px
+}
+.treeSub2List {
+	clear:left;
+	display: none;
+	float:left;
+	margin:0 0 5px 22px;
+	padding:3px 0 0 0;
+}
+/*Tables*/
+.bizCustomReport {
+	float:left;
+	margin:0 0 10px 22px;
+	width:600px;
+	background:#ebebeb url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/bg-evenRows.gif) repeat;
+}
+.bizCustomReport-title {
+	background:#cbdded;
+	border:#468AB4 1px solid;
+	color:#07336c;
+	font:1.5em/1.8 Arial, Helvetica, sans-serif;
+	margin:0;
+	width:599px;
+	position:relative;
+	height:27px;
+}
+.bizCustomReport-title h4{
+	width:464px;
+	float:left;
+	padding-left:6px;
+}
+.toggleLink {
+	background:#468AB4 url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/img-showHideTriggerUp.png) 7px 50% no-repeat;
+	color:#fff;
+	float:right;
+	padding-left:29px;
+	text-decoration:none;
+	width:67px;
+	display:inline;
+}
+.toggleLink-arrowUp {
+	background:#468AB4 url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/img-showHideTriggerDwn.png) 7px 50% no-repeat;
+	color:#fff;
+}
+.bizCustomReport .toggle  {
+	margin:0;
+	position:relative;
+	border-left:#468AB4 1px solid;
+	border-right:#468AB4 1px solid;
+	border-bottom:#468AB4 1px solid;
+	float:none;
+	padding: 0;
+	width:599px;
+}
+.bizCustomReport .even  {
+	background:url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/bg-editRow.png) left top repeat-x!important;
+	/* border-top:#c1ced5 2px solid */
+}
+.bizCustomReport .toggle  p{
+	padding-top:5px;
+}
+.bizCustomReport table th {
+	background:#6c8f46;
+	color:#fff;
+	font:1.5em/1.8 Arial, Helvetica, sans-serif;
+	padding:0 6px
+}
+.bizCustomReport td {
+	font:1.4em/1.8 Arial, Helvetica, sans-serif;
+	padding:0 6px;
+	border-bottom:1px solid #d9d9d9;
+	border-left:none;
+	border-right:none;
+	border-bottom:none;
+}
+.bizCustomReport td.edit {
+	width:49px;
+}
+.bizCustomReport td.edit input {
+	margin:3px auto;
+	border:1px solid #666;
+	padding:2px;
+	background:url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/bg-editBtn.gif) left bottom repeat-x;
+	font:1em Arial, Helvetica, sans-serif;
+	width:50px;
+	vertical-align:top;
+}
+.bizCustomReport tr.odd {
+	background:url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/bg-editRow.png) left top repeat-x;
+	border-top:#c1ced5 2px solid;
+}
+/*.bizCustomReport td a {
+	background: url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/icon-acrobatIcon.gif) right 0 no-repeat;
+	padding-right:20px;
+}
+*/.sub-pgContentBox table {
+	background:#f3f5f8;
+	float:left;
+	margin:8px 0 10px 15px;
+}
+.sub-pgContentBox table th {
+	background:#6c8f46;
+	color:#fff;
+	font:1.5em/1.8 Arial, Helvetica, sans-serif;
+	padding:0 6px
+}
+.sub-pgContentBox td {
+	font:1.4em/1.8 Arial, Helvetica, sans-serif;
+	padding:0 6px;
+}
+/*.ownerListTbl {
+	width:400px
+}
+*/
+table.confirmationTbl {
+	width:820px;
+	margin-bottom:2em;
+	border:#468AB4 1px solid;
+}
+table.confirmationTbl  th{
+	font:1.5em/1.4 Arial, Helvetica, sans-serif;
+	background:#cbdded;
+	color:#07336c;
+	text-align:left;
+}
+.fileNow{
+	background:url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/btn-fileNowLong.png) 0 0 no-repeat;
+	width:119px;
+	height:25px;
+	margin:3px 0;
+	border:none;
+	cursor:default;
+}
+table.confirmationTbl  td a{
+	margin:3px 0;
+	float:right;
+	display:block;
+	background:url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/icon-acrobatIcon.gif) center right no-repeat;
+	padding:2px 18px 0 0;
+	text-decoration:none;
+}
+table.confirmationTbl  td a:hover{
+	text-decoration:underline;
+}
+.tdth60 {
+	width:60%
+}
+.tdth70 {
+	width:70%
+}
+.tdth20 {
+	width:20%
+}
+/* review page styles  */
+
+.reviewCustomReport {
+	float:left;
+	margin:0 0 20px 3px;
+	border:0;
+}
+.reviewCustomReport-title {
+	font:1.5em/1.8 Arial, Helvetica, sans-serif;
+	margin:0 0 0 17px;
+	width:808px;
+	position:relative;
+	height:27px;
+	background:#cbdded url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/bg-leftNav-a.png) 0 0 repeat-x;
+	border:#468AB4 1px solid;
+	color:#07336c;
+}
+.reviewCustomReport-title h4{
+	width:650px;
+	float:left;
+	padding-left:6px;
+
+}
+.reviewCustomReport table {
+	margin:0 0 0 17px;
+	width:810px;
+	position:relative;
+	border-top:none;
+	border-left:#468AB4 1px solid;
+	border-right:#468AB4 1px solid;
+	border-bottom:#468AB4 1px solid;
+	background:#ebebeb url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/bg-evenRows.gif) repeat;
+	float:none;
+	padding: 0;	
+}
+.reviewCustomReport table th {
+	background:#6c8f46;
+	color:#fff;
+	font:1.5em/1.8 Arial, Helvetica, sans-serif;
+	padding:0 6px
+}
+.reviewCustomReport td {
+	font:1.4em/1.8 Arial, Helvetica, sans-serif;
+	padding:0 6px;
+	border-bottom:1px solid #d9d9d9;
+	border-left:none;
+	border-right:none;
+	border-bottom:none;
+}
+.reviewCustomReport td.edit {
+	width:49px;
+}
+.reviewCustomReport td.edit input {
+	margin:3px auto;
+	border:1px solid #666;
+	padding:2px;
+	background:url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/bg-editBtn.gif) left bottom repeat-x;
+	font:1em Arial, Helvetica, sans-serif;
+	width:50px;
+	vertical-align:top;
+}
+.reviewCustomReport tr.odd {
+	background:url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/bg-editRow.png) left top repeat-x;
+	border-top:#c1ced5 2px solid;
+}
+.clear {
+	clear:both;
+}
+#ownerList, #seasonalBusiness {
+	float:left;
+	padding-top:8px;
+	margin:8px 0 0 3px;
+	width:620px
+}
+#seasonalBusiness {
+	float:left;
+	margin:0 0 .75em 15px!important;
+	width:620px;
+}
+#seasonalBusiness p {
+	padding-left:15px
+}
+#ownerList span {
+	float:left;
+	padding:5px 10px 5px 0
+}
+.modal-bg {
+	background:#fff url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/bgrd_contentBox.gif) top repeat-x;/*_width:97.6%*/
+}
+.modal-categoryGroup {
+	padding:.8em
+}
+.modal-info a {
+	text-decoration:none;
+}
+.modal-info a:hover {
+	text-decoration:underline;
+}
+.modal-info ul {
+	list-style:outside disc;
+	margin:.5em 0 1em 0;
+}
+.modal-info ol {
+	list-style:outside decimal;
+	margin:0 0 1em 1em;
+}
+.modal-info ol li {
+	font:1.3em/2 Arial, Helvetica, sans-serif;
+	padding:0
+}
+.modal-info ol li a {
+	color:#000;
+	display:block;
+	padding-left:.3em;
+	text-decoration:underline;
+}
+.modal-info ol li a:hover {
+	background:#bfd5ea;
+	color:#000;
+}
+.modal-info li {
+	font:1.3em/1.5 Arial, Helvetica, sans-serif;
+	margin-left:1.8em;
+}
+.modal-info ul li li {
+	list-style:outside circle;
+	font:1em/1.5 Arial, Helvetica, sans-serif;
+	margin-left:2em
+}
+.modal-info h1 {
+	font:normal 1.9em/1.1 Arial, Helvetica, sans-serif;
+	margin-bottom:.3em;
+	border-bottom:1px solid #9db2c2;
+	padding-bottom:1px
+}
+.modal-info h2 {
+	font:normal 1.5em/1 Arial, Helvetica, sans-serif;
+	margin:.2em 0 .5em 0
+}
+.modal-info p {
+	font:normal 1.3em/1.5 Arial, Helvetica, sans-serif;
+	padding-bottom:.5em
+}
+#modalHelp_fein {
+	padding-left:2px;
+}
+.pgControls.hm {
+	background:url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/bg-pgControls.png) 0 0 repeat-x;
+	border-top:#86b257 1px solid;
+	display:inline;
+	float:left;
+	margin:5px 0 0 3px;
+	padding:12px 0 0 10px;
+	width:637px;
+}
+.pgControls {
+	background:url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/bg-pgControls.png) 0 0 repeat-x;
+	border-top:#86b257 1px solid;
+	display:inline;
+	float:left;
+	margin:5px 0 0 3px;
+	padding:12px 0 0 10px;
+	width:834px;
+}
+.pgControls input {
+	float:left;
+	font:1.4em Arial, Helvetica, sans-serif;
+	margin-right:10px;
+	overflow:visible;
+	padding:0 .25em
+}
+/*FANCY BOX*/
+#fancybox-loading {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	height: 40px;
+	width: 40px;
+	margin-top: -20px;
+	margin-left: -20px;
+	cursor: pointer;
+	overflow: hidden;
+	background: transparent;
+	z-index: 1104;
+	display: none;
+}
+* html #fancybox-loading {	/* IE6 */
+	position: absolute;
+	margin-top: 0;
+}
+#fancybox-loading div {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 40px;
+	height: 480px;
+	background: transparent url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/fancy_loading.png) no-repeat;
+}
+#fancybox-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background: #000;
+	z-index: 1100;
+	display: none;
+}
+* html #fancybox-overlay {	/* IE6 */
+	position: absolute;
+	width: 100%;
+}
+#fancybox-tmp {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	overflow: auto;
+	display: none;
+}
+#fancybox-wrap {
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin: 0;
+	padding: 20px;
+	z-index: 1101;
+	display: none;
+}
+#fancybox-outer {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	background: #FFF;
+}
+#fancybox-inner {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: 0;
+	outline: none;
+	overflow: hidden;
+}
+#fancybox-hide-sel-frame {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: transparent;
+}
+#fancybox-close {
+	position: absolute;
+	top: -15px;
+	right: -15px;
+	width: 32px;
+	height: 32px;
+	background: url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/fancy_close.png) top left no-repeat;
+	cursor: pointer;
+	z-index: 1103;
+	display: none;
+}
+#fancybox_error {
+	color: #444;
+	font: normal 12px/20px Arial;
+}
+#fancybox-content {
+	height: auto;
+	width: auto;
+	padding: 0;
+	margin: 0;
+}
+#fancybox-img {
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	border: none;
+	outline: none;
+	line-height: 0;
+	vertical-align: top;
+	-ms-interpolation-mode: bicubic;
+}
+#fancybox-frame {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	border: none;
+	display: block;
+}
+#fancybox-title {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	font-family: Arial;
+	font-size: 12px;
+	z-index: 1102;
+}
+.fancybox-title-inside {
+	padding: 10px 0;
+	text-align: center;/*color:#333;*/
+}
+.fancybox-title-outside {
+	padding-top: 5px;
+	color: #FFF;
+	text-align: center;
+	font-weight: bold;
+}
+.fancybox-title-over {
+	color: #FFF;
+	text-align: left;
+}
+#fancybox-title-wrap {
+	display: inline-block;
+}
+#fancybox-title-wrap span {
+	height: 32px;
+	float: left;
+}
+#fancybox-title-left {
+	padding-left: 15px;
+	background: transparent url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/fancy_title_left.png) repeat-x;
+}
+#fancybox-title-main {
+	font-weight: bold;
+	line-height: 29px;
+	background: transparent url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/fancy_title_main.png) repeat-x;
+	color: #FFF;
+}
+#fancybox-title-right {
+	padding-left: 15px;
+	background: transparent url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/fancy_title_right.png) repeat-x;
+}
+#fancybox-left, #fancybox-right {
+	position: absolute;
+	bottom: 0px;
+	height: 100%;
+	width: 35%;
+	cursor: pointer;
+	outline: none;
+	background-image: url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/blank.gif);
+	z-index: 1102;
+	display: none;
+}
+#fancybox-left {
+	left: 0px;
+}
+#fancybox-right {
+	right: 0px;
+}
+#fancybox-left-ico, #fancybox-right-ico {
+	position: absolute;
+	top: 50%;
+	left: -9999px;
+	width: 30px;
+	height: 30px;
+	margin-top: -15px;
+	cursor: pointer;
+	z-index: 1102;
+	display: block;
+}
+#fancybox-left-ico {
+	background: transparent url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/fancy_nav_left.png) no-repeat;
+}
+#fancybox-right-ico {
+	background: transparent url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/fancy_nav_right.png) no-repeat;
+}
+#fancybox-left:hover, #fancybox-right:hover {
+	visibility: visible;    /* IE6 */
+}
+#fancybox-left:hover span {
+	left: 20px;
+}
+#fancybox-right:hover span {
+	left: auto;
+	right: 20px;
+}
+div.fancy-bg {
+	position: absolute;
+	padding: 0;
+	margin: 0;
+	border: 0;
+	z-index: 1001;
+}
+div#fancy-bg-n {
+	top: -20px;
+	left: 0;
+	width: 100%;
+	height: 20px;
+	background: transparent url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/fancy_shadow_n.png) repeat-x;
+}
+div#fancy-bg-ne {
+	top: -20px;
+	right: -20px;
+	width: 20px;
+	height: 20px;
+	background: transparent url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/fancy_shadow_ne.png) no-repeat;
+}
+div#fancy-bg-e {
+	top: 0;
+	right: -20px;
+	height: 100%;
+	width: 20px;
+	background: transparent url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/fancy_shadow_e.png) repeat-y;
+}
+div#fancy-bg-se {
+	bottom: -20px;
+	right: -20px;
+	width: 20px;
+	height: 20px;
+	background: transparent url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/fancy_shadow_se.png) no-repeat;
+}
+div#fancy-bg-s {
+	bottom: -20px;
+	left: 0;
+	width: 100%;
+	height: 20px;
+	background: transparent url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/fancy_shadow_s.png) repeat-x;
+}
+div#fancy-bg-sw {
+	bottom: -20px;
+	left: -20px;
+	width: 20px;
+	height: 20px;
+	background: transparent url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/fancy_shadow_sw.png) no-repeat;
+}
+div#fancy-bg-w {
+	top: 0;
+	left: -20px;
+	height: 100%;
+	width: 20px;
+	background: transparent url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/fancy_shadow_w.png) repeat-y;
+}
+div#fancy-bg-nw {
+	top: -20px;
+	left: -20px;
+	width: 20px;
+	height: 20px;
+	background: transparent url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/fancy_shadow_nw.png) no-repeat;
+}
+.footer {
+	background:url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/bg-footer.png) 0 0 no-repeat;
+	float:left;
+	padding-bottom:13px;
+	width:960px
+}
+.foot-links {
+	float:left;
+	padding:17px 0 0 10px;
+}
+.foot-links a {
+	color:#e7eef3;
+	font:1.3em/1 Arial, Helvetica, sans-serif;
+}
+.foot-language {
+	float:right;
+	padding:17px 10px 0 0;
+}
+/* extras  */
+#children,#employees,#intTwoFein,#intTwoSsn {
+	float:left;
+	width:700px;
+}
+#intTwoFein,#intTwoSsn {
+	padding-bottom:3px;
+}
+#intOneQuestTwo,#qualDateAndFirstPaid,#llcType {
+	float:left;
+	width:820px;
+}
+#llcType p {
+	width:710px!important;
+}
+.largerWidth {
+	width:800px;
+}
+/* splash page styles  */
+h3.qualifyCopy {
+	width:70%;
+	float:left;
+	display:inline
+}
+.stepInstructions {
+	clear:both;
+	display:inline-block;
+}
+.doIQualify {
+	float:right;
+	margin-right:8px;
+	border:none;
+}
+.wizardViewBlock {
+	clear:both;display:block;margin-bottom:8px;overflow:auto;
+}
+/* sos page styles  */
+.backBtnInfo {
+	background:#fff url(/web/20120608052303im_/https://www.colorado.gov/apps/jboss/cbe/images/icon-alert.png) 9px 9px no-repeat;
+	border: 1px solid #f00;
+	border-radius: 4px 4px 4px 4px;
+	color: #000;
+	display: inline;
+	float: left;
+	font: 1.4em/1.4 Arial, Helvetica, sans-serif;
+	margin: 20px 0 0 60px;
+	padding: 7px 7px 7px 55px;
+	width: 760px;
+}
+.requiredMsgLong {
+	top: 115px!important;
+}
+
+/*
+     FILE ARCHIVED ON 05:23:03 Jun 08, 2012 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 08:59:20 Jul 20, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 276.829
+  exclusion.robots: 0.074
+  exclusion.robots.policy: 0.065
+  cdx.remote: 0.054
+  esindex: 0.009
+  LoadShardBlock: 210.88 (3)
+  PetaboxLoader3.datanode: 199.579 (4)
+  load_resource: 138.112
+  PetaboxLoader3.resolve: 87.233
+*/
