@@ -1,0 +1,28 @@
+$j(window).on("load", function () {
+    $j(window).on("resize", function (e) {
+        $j("#titleArea").height($j("#pageHeaderImg").height());
+    }).resize();
+    $j("#titleArea").fadeIn();
+});
+
+$j(function() {
+    $j("a[rel=\'singlePhoto\']").prettyPhoto({social_tools:false});
+    $j("#nav li, #stickyNav ul.stickyNavUL > li").hover(
+        function(){
+            $j("ul", this).css("left","auto");
+            var menuWidth = $j("ul", this).width();
+            var menuPos = $j("ul", this).offset();
+            var windowWidth = $j(window).width();
+            if(menuPos && (menuPos.left + menuWidth) > windowWidth){
+                var leftAdjust = menuPos.left + (windowWidth - (menuPos.left + menuWidth));
+                $j("ul", this).css("left",leftAdjust+"px");
+            }
+            $j("ul", this).css("display","none").fadeIn("fast");
+        },
+        function() {$j("ul", this).css("left","-999em");}
+    );
+    //make footer extend to bottom of page
+    $j("#footerBG").height(function(index, height) {
+        return window.innerHeight - $j(this).offset().top;
+    });
+});

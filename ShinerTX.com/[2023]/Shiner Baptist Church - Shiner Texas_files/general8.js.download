@@ -1,0 +1,76 @@
+var onOverlay = false;
+
+function initOverlayLinks(){
+    $j(".oLayLink").each(function(){
+        $j(this).css("cursor","pointer").on("click",function(e){
+            var title = $j(this).text();
+            var height = 300;
+            var width = 500;
+            var itemData = $j(this).data();
+            var url = "/window_"+itemData.page;
+            if(itemData.vars !== undefined){
+            	url = url+"?"+itemData.vars;
+            }
+            if(itemData.title !== undefined){
+            	title = itemData.title;
+            }
+            if(itemData.icon !== undefined){
+				title = '<span class="fas fa-'+itemData.icon+'"></span>&nbsp;'+title;
+			}
+            if(itemData.height !== undefined){
+                height = parseInt(itemData.height);
+            }
+            if(itemData.width !== undefined){
+                width = parseInt(itemData.width);
+            }
+            showOverlay(title,url,height,width);
+            e.preventDefault();
+        });
+    });
+}
+
+function showOverlay(title,url,height,width){
+	$j("#overlayTitle").html('<div class="flR oLayX"><span class="fas fa-times"></span></div>'+title);
+	$j(".oLayX").css("cursor","pointer").on("click",function(){
+        $j("#grayOverlay").hide();
+        $j("body").removeClass("freeze");
+    });
+    $j("#overlayFrame").attr("src", url);
+	$j("#overlayContent").css({"height":(height-40)+"px"});
+	$j("#grayOverlay").fadeIn("fast").click(function(){
+		if(onOverlay == false){$j("#grayOverlay").css("display", "none");}
+	});
+	$j(".overlayWindow").css({"height":height+"px","width":width+"px"}).mouseenter(function(){
+		onOverlay = true;
+	}).mouseleave(function(){
+		onOverlay = false;
+	});
+
+}
+
+function initSearch(churchID){
+	$j(".searchSite").on("click",function(e){
+		$j(".overlayWindow").hide();
+		$j("#grayOverlay").fadeIn("fast").click(function(){
+			if(onOverlay == false){
+				$j(".overlayWindow").show();
+				$j("#grayOverlay, .overlaySearch").css("display", "none");
+			}
+		});
+		$j(".overlaySearch").fadeIn("fast", function(){
+			$j("#siteSearchInput").focus();
+		}).mouseenter(function(){
+			onOverlay = true;
+		}).mouseleave(function(){
+			onOverlay = false;
+		});
+		e.preventDefault();
+	});
+}
+
+$j(function(){
+    initOverlayLinks();
+    $j("video").on('ended', function(){
+	  $j(this).load();
+	});
+});

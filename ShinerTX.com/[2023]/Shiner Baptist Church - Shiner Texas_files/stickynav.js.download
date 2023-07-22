@@ -1,0 +1,10 @@
+$j(window).on("scroll", function(){
+    var navPosition = $j('#navbar').position();
+    var navHeight = $j('#navbar').height();
+    var navBottom = navPosition.top + navHeight;
+    if (document.body.scrollTop > navBottom || document.documentElement.scrollTop > navBottom) {
+        $j("#stickyNav").slideDown("fast");
+      } else {
+        $j("#stickyNav").slideUp("fast");
+      }
+});
