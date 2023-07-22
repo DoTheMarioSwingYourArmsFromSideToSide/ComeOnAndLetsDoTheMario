@@ -1,0 +1,35 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+function createActive(B,D){var A="createblock"+B;var C="createflashobj"+B;$(A).className=D;$(C).gotoOverMode()}function createInactive(B,D){var A="createblock"+B;var C="createflashobj"+B;$(A).className=D;$(C).gotoInitMode()}function initButtons(){$("createblock1").onmouseout=function(B){if(!B){var B=window.event}var A=(B.relatedTarget)?B.relatedTarget:B.toElement;while(A.tagName!="BODY"){if(A.id==this.id){return }A=A.parentNode}createInactive(1,"createblock")};$("createblock2").onmouseout=function(B){if(!B){var B=window.event}var A=(B.relatedTarget)?B.relatedTarget:B.toElement;while(A.tagName!="BODY"){if(A.id==this.id){return }A=A.parentNode}createInactive(2,"createblock")};$("createblock3").onmouseout=function(B){if(!B){var B=window.event}var A=(B.relatedTarget)?B.relatedTarget:B.toElement;while(A.tagName!="BODY"){if(A.id==this.id){return }A=A.parentNode}createInactive(3,"createblock")};$("createblock4").onmouseout=function(B){if(!B){var B=window.event}var A=(B.relatedTarget)?B.relatedTarget:B.toElement;while(A.tagName!="BODY"){if(A.id==this.id){return }A=A.parentNode}createInactive(4,"createblock")}};
+
+}
+/*
+     FILE ARCHIVED ON 22:49:57 May 22, 2010 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:00:29 May 02, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 139.592
+  exclusion.robots: 0.066
+  exclusion.robots.policy: 0.057
+  cdx.remote: 0.056
+  esindex: 0.009
+  LoadShardBlock: 108.69 (3)
+  PetaboxLoader3.datanode: 193.769 (4)
+  load_resource: 206.115
+  PetaboxLoader3.resolve: 103.006
+*/

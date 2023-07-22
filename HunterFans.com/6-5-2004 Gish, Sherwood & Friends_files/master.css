@@ -1,0 +1,33 @@
+
+.creative:link { color: #181ea5; text-decoration: none }
+.creative:hover  { color: #242dfc; text-decoration: none }
+.creative:active { color: #181ea5; text-decoration: none }
+.creative:visited { color: #181ea5; text-decoration: none }
+.friends   { }
+.friends a:link    { color: #a9a9a9; font-size: 11px; font-family: Verdana, Arial, Helvetica; text-decoration: none }
+.friends a:hover   { color: #000; font-size: 11px; font-family: Verdana, Arial, Helvetica; text-decoration: none }
+.friends a:active   { color: #a9a9a9; font-size: 11px; font-family: Verdana, Arial, Helvetica; text-decoration: none }
+.friends a:active:hover   { color: #a9a9a9; font-size: 11px; font-family: Verdana, Arial, Helvetica; text-decoration: none }
+.friends a:visited   { color: #a9a9a9; font-size: 11px; font-family: Verdana, Arial, Helvetica; text-decoration: none }
+.friends a:visited:hover   { color: #a9a9a9; font-size: 11px; font-family: Verdana, Arial, Helvetica; text-decoration: none }
+
+/*
+     FILE ARCHIVED ON 15:02:39 Jun 10, 2004 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 05:05:24 May 05, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 307.912
+  exclusion.robots: 0.068
+  exclusion.robots.policy: 0.059
+  cdx.remote: 0.052
+  esindex: 0.008
+  LoadShardBlock: 281.426 (3)
+  PetaboxLoader3.datanode: 240.91 (4)
+  PetaboxLoader3.resolve: 230.635 (3)
+  load_resource: 241.967
+*/

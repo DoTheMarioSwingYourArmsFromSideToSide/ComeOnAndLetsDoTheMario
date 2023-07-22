@@ -1,0 +1,99 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+
+function zipOnly(objForm, theAction)
+{	var zipval = objForm.zipcode.value; 
+	var ziplen = zipval.length;
+	if(zipval=="")
+		{	alert("Please Provide Your Zip-Code");
+			objForm.zipcode.focus();
+			return false;	}		
+	if (isNaN(zipval))
+		{	alert("The Zip Code You Entered:  " + zipval + "  Contains an ALPHABETIC CHARACTER. \n Please Change It To A Valid 5 Digits US Zip Code. ");
+			objForm.zipcode.focus();
+			return false;	}
+	if(ziplen<5 )
+		{	alert("Zip Code Should Be At Least 5 Digits Long  \n But You've Entered Only  " + ziplen + "  Digits \n Please Provide a Valid 5 digits Zip Code");
+			objForm.zipcode.focus();
+			return false;	}
+	objForm.action = theAction ;
+	objForm.submit();
+return true;}
+
+function USval(objForm, theAction)
+{	var state = objForm.state.value;
+	var city = objForm.city.value;
+	if(city=="")
+	{alert("Please Select A US City For The State Of " + state);
+	return false;}
+
+	objForm.action = theAction ;
+	objForm.submit();
+return true;
+}
+
+function postalOnly(objForm, theAction)
+{	var postal = objForm.pcode.value;
+	if(postal=="")
+		{	alert("Please Provide A Valid Canadian Postal Code");
+			objForm.pcode.focus();
+			return false;}	
+	objForm.action = theAction;
+	objForm.submit();
+return true;}
+
+function CanVal(objForm, theAction)
+{	
+	var prov=objForm.Province.value;
+	var city = objForm.city.value;
+		if(city=="")
+		{alert("Please Select A City The Province Of " + prov);
+		return false;}	
+	objForm.action = theAction;
+	objForm.submit();
+return true;}
+
+function Send_it(objForm, frmAction)
+{	
+	objForm.action=frmAction + ".asp";
+	objForm.submit();
+	return true;
+}
+
+  function  openwindow(name) {
+   aPopup=window.open(name, "circlepop",       "toolbar=no ,resizable=yes,scrollbars=Yes,height=510,width=675,top=0,left=50,        top=yes,alwaysRaised=yes");
+  aPopup.focus();
+ }
+
+
+}
+/*
+     FILE ARCHIVED ON 03:41:58 Jun 14, 2004 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 02:58:25 May 05, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 91.806
+  exclusion.robots: 0.073
+  exclusion.robots.policy: 0.066
+  cdx.remote: 0.052
+  esindex: 0.008
+  LoadShardBlock: 67.537 (3)
+  PetaboxLoader3.datanode: 142.849 (4)
+  load_resource: 204.096
+  PetaboxLoader3.resolve: 109.1
+*/
