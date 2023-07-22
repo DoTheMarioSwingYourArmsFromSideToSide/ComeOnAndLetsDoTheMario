@@ -1,0 +1,1 @@
+(function(){var n=[];var o=false;function r(){if(o){return}o=true;for(var r in n){n[r](jQuery)}}wp.domReady(r);function e(r){if(o){r(jQuery)}else{n.push(r)}}window.wpAutoTermsDomReady=e;var i=window.onerror;window.onerror=function(){r();if(i){i.apply(null,arguments)}};jQuery.readyException=r})();
