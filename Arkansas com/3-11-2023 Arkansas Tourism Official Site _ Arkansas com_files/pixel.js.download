@@ -1,0 +1,36 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+"use strict";!function(){var r="http://",n="https://";window.acuityParseResponse=function(t){var e;(e=t).iframeUrls.forEach(function(t){var e=document.createElement("iframe");e.src=c(t),document.body.appendChild(e)}),e.iframeSnippets.forEach(function(t){document.body.insertAdjacentHTML("beforeend",t)}),e.imageUrls.forEach(function(t){var e=document.createElement("img");e.src=c(t),document.body.append(e)}),e.javascriptSnippets.forEach(function(t){var e=t.replace(' type="text/javascript"',"").replace("<script>","").replace("<\/script>",""),r=document.createElement("script");r.setAttribute("type","text/javascript"),r.innerHTML=e,document.body.appendChild(r)}),e.javascriptUrls.forEach(function(t){var e=document.createElement("script");e.setAttribute("type","text/javascript"),e.src=t,document.body.appendChild(e)})};function c(t){var e=t;return t.startsWith(n)||t.startsWith(r)||(e=n+t),e}var t,e,a,o,i,p,d;a="https://web.archive.org/web/20230315140754/https://e.acuityplatform.com/pj",o=pixelKey,d=function(t){var e=t.err,r=t.topFrame,n="";if(e)try{n=window.top.location.href}catch(t){n=window.location.href}else n=r.location.href;return n}(function(){var t=window,e=!1;try{for(;t.parent.document!==t.document;){if(!t.parent.document){e=!0;break}t=t.parent}}catch(t){e=!0}return{topFrame:t,err:e}}()),i=encodeURIComponent(d),p="undefined"!=typeof payload&&payload?payload:{},t="".concat(a,"?")+["pk=".concat(o),"pu=".concat(i)].concat(Object.keys(p).filter(function(t){return p[t]&&(!Array.isArray(p[t])||0<p[t].length)}).map(function(t){return"".concat(t,"=").concat(Array.isArray(p[t])?p[t].join("~"):p[t])})).join("&"),(e=document.createElement("script")).setAttribute("type","text/javascript"),e.src=t,document.body.appendChild(e)}();
+
+
+}
+/*
+     FILE ARCHIVED ON 14:07:54 Mar 15, 2023 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:54:55 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 166.943
+  exclusion.robots: 0.109
+  exclusion.robots.policy: 0.101
+  cdx.remote: 0.057
+  esindex: 0.009
+  LoadShardBlock: 111.525 (3)
+  PetaboxLoader3.datanode: 71.82 (4)
+  PetaboxLoader3.resolve: 94.094 (2)
+  load_resource: 124.743
+*/

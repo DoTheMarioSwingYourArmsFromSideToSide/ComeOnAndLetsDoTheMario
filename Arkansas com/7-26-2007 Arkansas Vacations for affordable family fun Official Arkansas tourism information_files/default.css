@@ -1,0 +1,200 @@
+* { font-size: 1em;  }
+body, html {
+	margin: 0;
+	padding: 0;	
+	font-size: 100%;
+}
+
+
+/* =CLASSES
+**************************/
+.headinggroup {
+	font: bold 1.9em/1em verdana, tahoma, arial, helvetica, sans-serif;
+	color: #009900;
+}
+.subTable{
+	border: 1px solid #B7B6E0;
+	background-color: #E8E8F2;
+}
+.expander
+{
+	height: 0;
+	overflow: hidden;
+	clear: both;
+}
+
+/* =GLOBAL ELEMENTS
+**************************/
+.heading, .hdr, /* deprecated -> use h1 */
+h1  {
+	font: 1.5em/1.1em verdana, tahoma, arial, helvetica, sans-serif;
+	color: #7F5523;
+}
+
+.subheading, .subhdr, /* deprecated -> use h2*/
+h2 {
+	font: bold 1.2em/1.6em verdana, tahoma, arial, helvetica, sans-serif;
+	color:#7C511E; 
+}
+#localfavorites h2 {
+	font: bold 1.3em/25px Arial, helvetica, sans-serif;
+	color: #FFDD86;
+	text-transform: uppercase;
+	letter-spacing: -1px;
+}
+
+.sshdr, /* deprecated -> use h3 */
+h3 {
+	font: bold 1em verdana, tahoma, arial, helvetica, sans-serif;
+	color:#4745A2; 
+}
+
+img { border: none; }
+
+/* =LINKS
+*****************************/
+a:link { color: #AC2706; }
+a:visited { color: #99A4C0; }
+a:focus, a:hover, a:active { text-decoration: none; }
+
+#page_info a { font-weight: bold; color: #676A9D; text-decoration: none; word-spacing: normal; }
+
+#page_info a:focus, #page_info a:hover, #page_info a.AT { color: #AC2706; text-decoration: underline; }
+#page_info a.AT { text-decoration: none; }
+
+
+
+#copy a, #links a { font-weight: bold; word-spacing: normal; }
+#footer a:link, #footer a:visited {
+	color: #9d9c97;
+	text-decoration: none;
+}
+#footer a:focus, #footer a:hover, #footer a:active {
+	color: #fff;
+	text-decoration: underline;
+}
+
+@media print {
+	#help_box_wrapper, #int_flash, #top_left_links, .nav {
+		display: none;
+	}
+	
+	.sIFR-flash, .sIFR-flash object, .sIFR-flash embed {
+		display: none !important;
+		height: 0;
+		width: 0;
+		position: absolute;
+		overflow: hidden;
+	}
+	
+	span.sIFR-alternate {
+		visibility: visible !important;
+		display: block !important;
+		position: static !important;
+		left: auto !important;
+		top: auto !important;
+	}
+}
+
+a { color:  }
+
+a.sitemap:link { color: #30408B;;}
+
+a.sitemap:visited {color: #c30000;}
+
+a.sitemap:hover {color: #183b95;	text-decoration: none;}
+
+/* =DEPRECATED BELOW (do not use on new pages!)
+****************************/
+.bolditalic, .bold, .footerbold, .golfinfo { font-weight:bold; }
+.footerbold, .golfinfo { font-size:10px; }
+.bolditalic { font-style:italic;}
+
+.headinggroup {
+	font: bold 1.7em/1 verdana, tahoma, arial, helvetica, sans-serif; 
+	color:#009900; 
+}
+
+.copyright { font-size:9px; }
+.photocaption { color:#464C5A; font-weight:normal; font-size:10px; line-height:10px; font-style:italic; }
+.redtext { color:#FF0000; }
+.browntext { color:#B56B45; }
+.redtext { color:#ff0000; }
+
+/******************************
+INTERIOR SUB NAV TABLE
+***************************************/
+.subnavhdr{
+	color:#4745A2;
+	font-size:10px;
+	font-weight:bold;
+}
+
+a.ssnav:link, a.ssnav:visited {
+	color: #4745A2;
+	font-weight:normal;
+	font-size:10px;
+}
+
+a.ssnav:hover {
+	color: #4A9AFB;
+	text-decoration: none;
+	font-weight:normal;
+	font-size:10px;
+}
+
+a.ssnavAT:link,a.ssnavAT:active,a.ssnavAT:visited,a.ssnavAT:hover {
+	color: #343434;
+	background:#ffffff;
+	text-decoration: none;
+	font-weight:normal;
+	font-size:10px;
+}
+
+.subTableHeader {
+    border-bottom: 1px solid #969082;
+    background-color:#FAD411;
+}
+.subTable{
+border: 1px solid #969082;
+background-color:#F9F4E1;
+}
+
+.righSubNavArrow {
+color: #D92434;
+font-size: 9px;
+font-weight: bold;
+white-space: nowrap;
+}
+
+.tblHdr { background: #EAEBF1; }
+.tblHdr, .sitemap_table a { color: #272928; font-weight:bold; }
+.sitemap_table a:visited { color: #AC2706; }
+
+#font_sizer
+{
+	padding: 0 0px;
+	white-space: nowrap;
+    display:inline;
+}
+
+/*
+     FILE ARCHIVED ON 14:26:49 Jul 26, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:33:00 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 156.5
+  exclusion.robots: 0.087
+  exclusion.robots.policy: 0.077
+  cdx.remote: 0.058
+  esindex: 0.008
+  LoadShardBlock: 118.726 (3)
+  PetaboxLoader3.datanode: 135.901 (4)
+  load_resource: 87.546
+  PetaboxLoader3.resolve: 36.298
+*/

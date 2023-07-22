@@ -1,0 +1,408 @@
+/* *******************************************
+NOTE: If you make changes to this file, be sure to also
+make the change to the /_style_ns_mac.css file!
+Except, make the font size one pixel smaller in that file.
+Both the Mac browsers and NS7 make the font size one
+pixel setting too big.
+******************************************* */
+body {font-family:verdana, helvetica, tahoma, arial, sans-serif; font-size:13.5px;
+/*
+scrollbar-3d-light-color:#AEE8F4;
+scrollbar-arrow-color:#E9DECA;
+scrollbar-base-color:#000000;
+scrollbar-dark-shadow-color:#000000;
+scrollbar-face-color:#3A623D;
+scrollbar-highlight-color:#ACACAC;
+scrollbar-shadow-color:#675B43;
+*/
+}
+
+p, li, ul, dt, dd, dl, ol, td, div {color:#464C5A; font-family:verdana, helvetica, tahoma, arial, sans-serif; font-size:13.5px;}
+
+.smWhite {
+font-size: 11px;
+color: #E9ECF3;
+}
+.divider{
+color:#4745A2;
+width:100%;
+
+}
+
+.mptext {color:#464C5A; font-family:verdana, tahoma, arial, helvetica, sans-serif; font-size:11.5px;margin-top:0px;padding-top:0px}
+
+/*.sample {color:#6D6832; font-size:16px; font-family:verdana, tahoma, arial, helvetica, sans-serif;}*/
+
+/*.sampletwo {color:#6D6832; font-size:14px; font-family:verdana, tahoma, arial, helvetica, sans-serif; font-weight:bold;}*/
+
+.maxlength {font-family:verdana, tahoma, arial, helvetica, sans-serif; font-size:10.5px; font-weight:bold;}
+
+.calendartxt {font-family:verdana, tahoma, arial, helvetica, sans-serif; font-size:10.5px;}
+
+.asterisk {color:red; font-weight:bold;}
+
+.subhead {font-family:Verdana, Arial; font-size:16px; font-weight:bold; color:white;}
+
+.subhead2 {font-family:Verdana, Arial; font-size:16px; font-weight:bold; color:#e10000;}
+
+.nav {font-size:11.5px;}
+
+.footer {font-size:10.5px;}
+
+.footDivider {color: #AA924C; font-size: 11.5px; font-weight: normal;}
+
+
+
+.topslant{
+color: #CFC9BD; 
+font-size: 17px;
+}
+
+.footerbold {font-size:10.5px; font-weight:bold;}
+
+.moreInfo {font-size:14.5px;}
+
+.mISubhdr {font-family:tahoma, arial, helvetica, sans-serif; font-weight:bold; font-size:16.5px; color:#524E23; line-height:18px;}
+
+.formfields {font-size:13.5px;}
+
+.midtext {font-size:13.5px;}
+
+.toolboxtext {font-size:10.5px; color:#5A5C8F; font-weight:bold;}
+
+.mpfooter {font-size:10.5px;}
+
+.intFooter {
+font-size: 10.5px;
+color: #C4C8E3;
+}
+
+.strike {font-size:10.5px; color:#C1B195;}
+
+.mpstrike {font-size:10.5px; color:#C1B195;}
+
+.copyright {font-size:9.5px;}
+
+.golfinfo {font-weight:bold; font-size:10.5px;}
+
+.reg {font-family:verdana, tahoma, arial, helvetica, sans-serif; font-size:9.5px}
+
+.bold,b,strong {font-weight:bold;}
+
+.italic,i {font-style:italic;}
+
+.smallitalic {font-style:italic; font-weight:normal; font-size:12.5px;}
+
+.smlitalic {font-style:italic; font-size:11.5px;}
+
+.bolditalic {font-weight:bold; font-style:italic; color:#2D2A0D;}
+
+.heading, h1,.hdr {
+font-weight: normal; 
+font-family:verdana, tahoma, arial, helvetica, sans-serif;
+color:#C4000A; 
+font-size:18.5px; 
+line-height:19.5px;
+}
+
+.subheading, h2,.subhdr {
+font-family:verdana, tahoma, arial, helvetica, sans-serif;
+font-weight:bold; 
+font-size:14.5px; 
+color:#4745A2; 
+line-height:18.5px;
+}
+
+.sshdr, h3 {
+font-family:verdana, tahoma, arial, helvetica, sans-serif;
+font-weight:bold; 
+font-size:12.5px; 
+color:#4745A2; 
+}
+
+.gtptab {font-family:arial, verdana, tahoma, helvetica, sans-serif; font-weight:bold; color:#585C90; font-size:16.5px; text-transform:uppercase; line-height:16px;}
+
+.dropnav {font-family:arial, verdana, tahoma, helvetica, sans-serif; color:#261E20; font-size:10.5px; font-weight:bold;}
+
+.code {font-family:courier, courier-new, arial, times new roman, sans-serif; color:#261E20; font-size:10.5px; font-weight:normal;}
+
+.redtext {color:#FF0000;}
+
+.browntext {color:#B56B45;}
+
+.redtext {color:#ff0000;}
+
+.photocaption {color:#464C5A; font-weight:normal; font-size:10.5px; line-height:10.5px; font-style:italic;}
+
+.smalltext {font-size:10.5px; font-weight:normal;}
+
+input.mpsearchbox {font-size:10.5px; width:77px; background:#EFEFFE; border: 1px #373673 solid;}
+
+input.mpemailbox {font-size:10.5px; width:126px; background:#EFEFFE; border: 1px #373673 solid;}
+
+input.mpzipbox {font-size:10.5px; width:105px; background:#EFEFFE; border: 1px #9D9D9D solid;}
+
+select.mpexploreselect {font-size:10.5px; background:#EFEFFE; border: 1px #373673 solid;}
+
+input.intzipbox {font-size:11.5px; width:100px}
+
+input.intsearchbox {font-size:11.5px; width:80px}
+
+input.toolbox {font-size:10.5px; font-weight:normal;}
+select.toolbox {font-size:10.5px; font-weight:normal;}
+option.toolbox {font-size:10.5px; font-weight:normal;}
+.toolbox {font-size:10.5px; font-weight:normal;}
+
+.righSubNavArrow { color: #D92434; font-size: 9.5px; font-weight: bold; }
+
+.mpdate {font-size:10.5px; font-weight:bold; color:#ACA988;}
+
+.mpcaptiontitle {font-size:10.5px; color:#7D7566; font-weight:bold;}
+.mpcaptiontext {font-size:10.5px; color:#979185; font-weight:normal;}
+
+.mpbodytext {font-size:13.5px; color:#6D6832; font-weight:bold;}
+
+.mpphonenum {font-size:10.5px; color:#A95827;}
+
+.mpcopyright {font-size:10.5px; color:#8684B3; font-weight:normal;}
+
+/*form {font-family:verdana, tahoma, arial, helvetica, sans-serif; font-size:13px; margin-height:0; margin-width:0; spacing:0}*/
+
+/*input {font-family:verdana, tahoma, arial, helvetica, sans-serif; font-size:13px; margin-height:0; margin-width:0; spacing:0}*/
+
+span.correct {background-color:yellow; color:red; font-weight:bold}
+
+input.correct {background-color:yellow;}
+
+td.correct {color:red; font-weight:bold;}
+
+input.error {background-color:yellow;}
+select.error {background-color:yellow;}
+textarea.error {background-color:yellow;}
+td.error {color:#FF0000; font-weight:bold}
+.errormsg {color:#FF0000; font-weight:bold; font-size:10.5px;}
+
+.mapheading {color:#F5F5F5; font-weight:bold; font-size:18.5px;}
+
+a:link  {color:#CB3C20; text-decoration:underline}
+a:visited {color:#008E35; text-decoration:underline}
+a:active {color:#F1664B; text-decoration:none}
+a:hover {color:#0db332; text-decoration:none}
+
+a.attractions:link  {color:#CB3C20; text-decoration:underline; font-size:10.5px;}
+a.attractions:visited {color:#008E35; text-decoration:underline; font-size:10.5px;}
+a.attractions:active {color:#F1664B; text-decoration:none; font-size:10.5px;}
+a.attractions:hover {color:#0db332; text-decoration:none; font-size:10.5px;}
+/*
+a.mptop:link  {color:#CB3C20; text-decoration:none; font-weight:bold;}
+a.mptop:visited {color:#008E35; text-decoration:none; font-weight:bold;}
+a.mptop:active {color:#F1664B; text-decoration:none; font-weight:bold;}
+a.mptop:hover {color:#F1664B; text-decoration:none; font-weight:bold;}
+*/
+a.inttop{
+font-size:13.5px;
+}
+a.inttop:link  {color:#C93B23; text-decoration:none; font-weight:bold;}
+a.inttop:visited {color:#C93B23; text-decoration:none; font-weight:bold;}
+a.inttop:active {color:#C93B23; text-decoration:none; font-weight:bold;}
+a.inttop:hover {color:#C93B23; text-decoration:none; font-weight:bold;}
+
+a.mpbodyheading:link  {color:#CB3C20; text-decoration:underline; font-weight:bold; font-size:11.5px}
+a.mpbodyheading:visited {color:#008E35; text-decoration:underline; font-weight:bold; font-size:11.5px}
+a.mpbodyheading:active {color:#F1664B; text-decoration:none; font-weight:bold; font-size:11.5px}
+a.mpbodyheading:hover {color:#F1664B; text-decoration:none; font-weight:bold; font-size:11.5px}
+
+a.mpbody:link  {color:#CB3C20; text-decoration:underline; font-size:11.5px}
+a.mpbody:visited {color:#008E35; text-decoration:underline; font-size:11.5px}
+a.mpbody:active {color:#F1664B; text-decoration:none; font-size:11.5px}
+a.mpbody:hover {color:#F1664B; text-decoration:none; font-size:11.5px}
+
+a.mpfooter:link {color:#8684B3; text-decoration:underline; font-size:10.5px; font-weight:normal;}
+a.mpfooter:visited {color:#8684B3; text-decoration:underline; font-size:10.5px; font-weight:normal;}
+a.mpfooter:active {color:#A0A0A0; text-decoration:none; font-size:10.5px; font-weight:normal;}
+a.mpfooter:hover {color:#A0A0A0; text-decoration:none; font-size:10.5px; font-weight:normal;}
+
+
+
+a.sitemaphdrlink:link,a.sitemaphdrlink:visited {color:#332F6C; text-decoration:underline;}
+a.sitemaphdrlink:active,a.sitemaphdrlink:hover {color:#A0A0A0; text-decoration:none;}
+
+a.sitemap:link {color:#213078; text-decoration:none;}
+a.sitemap:visited {color:#213078; text-decoration:none;}
+a.sitemap:active,a.sitemap:hover {color:#A0A0A0; text-decoration:none;}
+
+
+
+
+a.foot:link {color:#67695E; text-decoration:underline; font-size:10.5px; font-weight:bold; line-height: 16px;}
+a.foot:visited {color:#67695E; text-decoration:underline; font-size:10.5px; font-weight:bold; line-height: 16px;}
+a.foot:hover {color:#67695E; text-decoration:none; font-size:10.5px; font-weight:bold; line-height: 16px;}
+
+a.intnav:link  {color:#6B6630; font-size:10.5px; text-decoration:none; font-weight:bold; line-height:10.5px}
+a.intnav:visited {color:#6B6630; font-size:10.5px; text-decoration:none; font-weight:bold; line-height:10.5px}
+a.intnav:active {color:#A95827; font-size:10.5px; text-decoration:none; font-weight:bold; line-height:10.5px}
+a.intnav:hover {color:#A95827;; font-size:10.5px; text-decoration:none; font-weight:bold; line-height:10.5px}
+/*
+a.attraction:link {color:#6D6832; text-decoration:underline; font-size:13.5px;}
+a.attraction:visited {color:#59967F; text-decoration:underline; font-size:13.5px;}
+a.attraction:active {color:#A95827; text-decoration:none; font-size:13.5px;}
+a.attraction:hover {color:#A95827; text-decoration:none; font-size:13.5px;}
+*/
+a.intfootleft:link {color:#C9C6E3; text-decoration:underline; font-size:10.5px;}
+a.intfootleft:visited {color:#C9C6E3; text-decoration:underline; font-size:10.5px;}
+a.intfootleft:active {color:#C9C6E3; text-decoration:none; font-size:10.5px;}
+a.intfootleft:hover {color:#C9C6E3; text-decoration:none; font-size:10.5px;}
+
+a.footer:link {color:#6D6832; text-decoration:underline; font-size:10.5px;}
+a.footer:visited {color:#59967F; text-decoration:underline; font-size:10.5px;}
+a.footer:active {color:#A95827; text-decoration:none; font-size:10.5px;}
+a.footer:hover {color:#A95827; text-decoration:none; font-size:10.5px;}
+
+a.footerbold:link {color:#68695B; text-decoration:underline; font-size:10.5px; font-weight:bold;}
+a.footerbold:visited {color:#68695B; text-decoration:underline; font-size:10.5px; font-weight:bold;}
+a.footerbold:active {color:#68695B; text-decoration:none; font-size:10.5px; font-weight:bold;}
+a.footerbold:hover {color:#68695B; text-decoration:none; font-size:10.5px; font-weight:bold;}
+
+a.footernobold:link {color:#68695B; text-decoration:underline; font-size:10.5px; font-weight:normal; line-height:10px;}
+a.footernobold:visited {color:#68695B; text-decoration:underline; font-size:10.5px; font-weight:normal; line-height:10px;}
+a.footernobold:active {color:#68695B; text-decoration:none; font-size:10.5px; font-weight:normal; line-height:10px;}
+a.footernobold:hover {color:#68695B; text-decoration:none; font-size:10.5px; font-weight:normal; line-height:10px;}
+
+a.mpfooterbold:link {color:#6D6832; text-decoration:underline; font-size:10.5px; font-weight:bold;}
+a.mpfooterbold:visited {color:#6D6832; text-decoration:underline; font-size:10.5px; font-weight:bold;}
+a.mpfooterbold:active {color:#A95827; text-decoration:none; font-size:10.5px; font-weight:bold;}
+a.mpfooterbold:hover {color:#A95827; text-decoration:none; font-size:10.5px; font-weight:bold;}
+
+a.mpfooternobold:link {color:#6D6832; text-decoration:underline; font-size:10.5px; font-weight:normal;}
+a.mpfooternobold:visited {color:#6D6832; text-decoration:underline; font-size:10.5px; font-weight:normal;}
+a.mpfooternobold:active {color:#A95827; text-decoration:none; font-size:10.5px; font-weight:normal;}
+a.mpfooternobold:hover {color:#A95827; text-decoration:none; font-size:10.5px; font-weight:normal;}
+
+a.bold:link {text-decoration:underline; font-size: font-size:14.5px; font-weight:bold;}
+a.bold:visited {text-decoration:underline; font-size: font-size:14.5px; font-weight:bold;}
+a.bold:active {text-decoration:none; font-size: font-size:14.5px; font-weight:bold;}
+a.bold:hover {text-decoration:none; font-size: font-size:14.5px; font-weight:bold;}
+
+a.nobold:link {color:#B56B45; text-decoration:underline; font-size: font-size:14.5px; font-weight:normal;}
+a.nobold:visited {color:#59967F; text-decoration:underline; font-size: font-size:14.5px; font-weight:normal;}
+a.nobold:active {color:#9F9D8F; text-decoration:none; font-size: font-size:14.5px; font-weight:normal;}
+a.nobold:hover {color:#9F9D8F; text-decoration:none; font-size: font-size:14.5px; font-weight:normal;}
+
+a.sitemaplg:link {color:#585C90; font-size:20px; font-weight:bold; line-height:20.5px; text-decoration:none;}
+a.sitemaplg:visited {color:#585C90; font-size:20px; font-weight:bold; line-height:20.5px; text-decoration:none;}
+a.sitemaplg:active {color:#A95827; font-size:20px; font-weight:bold; line-height:20.5px; text-decoration:none;}
+a.sitemaplg:hover {color:#A95827; font-size:20px; font-weight:bold; line-height:20.5px; text-decoration:none;}
+
+a.sitemapsm:link {color:#6D6832; text-decoration:underline; font-size:13.5px; font-weight:normal;}
+a.sitemapsm:visited {color:#6D6832; text-decoration:underline; font-size:13.5px; font-weight:normal;}
+a.sitemapsm:active {color:#A95827; text-decoration:none; font-size:13.5px; font-weight:normal;}
+a.sitemapsm:hover {color:#A95827; text-decoration:none; font-size:13.5px; font-weight:normal;}
+
+a.design:link {color:#878564; text-decoration:underline; font-size:9.5px;}
+a.design:visited {color:#878564; text-decoration:underline; font-size:9.5px;}
+a.design:active {color:#A95827; text-decoration:none; font-size:9.5px;}
+a.design:hover {color:#A95827; text-decoration:none; font-size:9.5px;}
+
+a.mapclose:link {color:#F5F5F5; text-decoration:underline; font-size:10.5px; font-weight:bold;}
+a.mapclose:visited {color:#F5F5F5; text-decoration:underline; font-size:10.5px; font-weight:bold;}
+a.mapclose:active {color:#FFFF00; text-decoration:none; font-size:10.5px; font-weight:bold;}
+a.mapclose:hover {color:#FFFF00; text-decoration:none; font-size:10.5px; font-weight:bold;}
+
+TD.rowheader{font-family:verdana,arial; font-size:14.5px; font-weight:bold; background:#218A21; color:#FFFFFF}
+
+
+/**************** NEW STYLES ************************/
+.subNavTable{
+background-color:#4B401D;
+border:1px solid: #6F7E95;
+}
+.tsubnav{
+border-bottom:1px solid #43427D;
+cursor: hand;
+}
+
+.tsubnavAT{
+background-color:#595B66;
+border-bottom:1px solid #43427D;
+cursor: hand;
+}
+
+a.subNav:link,a.subNav:visited,a.subNav:active,a.subNav:hover {color:#FFD05E; text-decoration:none; font-size:11.5px; font-weight:bold;}
+
+div.selectBox{
+visibility:visible;
+}
+
+.note{
+background:#ffff99;
+}
+
+
+/******************************
+INTERIOR SUB NAV TABLE
+***************************************/
+
+.subnavhdr{
+color:#4745A2;
+font-size:10.5px;
+font-weight:bold;
+}
+
+a.ssnav:link,a.ssnav:visited {
+	color: #4745A2;
+	font-weight:normal;
+	font-size:10.5px;
+}
+
+a.ssnav:hover {
+	color: #4A9AFB;
+	text-decoration: none;
+	font-weight:normal;
+	font-size:10.5px;
+}
+
+a.ssnavAT:link,a.ssnavAT:active,a.ssnavAT:visited,a.ssnavAT:hover {
+	color: #343434;
+	background:#ffffff;
+	text-decoration: none;
+	font-weight:normal;
+	font-size:10.5px;
+}
+
+.subTable{
+border: 1px solid #B7B6E0;
+background-color:#E8E8F2;
+}
+
+.righSubNavArrow {
+color: #D92434;
+font-size: 9.5px;
+font-weight: bold;
+}
+
+/******************************
+INTERIOR SUB NAV TABLE
+***************************************/
+
+/**************** /NEW STYLES ************************/
+
+/*
+     FILE ARCHIVED ON 01:14:31 Jun 11, 2004 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:34:26 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 116.371
+  exclusion.robots: 0.065
+  exclusion.robots.policy: 0.055
+  cdx.remote: 0.055
+  esindex: 0.01
+  LoadShardBlock: 79.074 (3)
+  PetaboxLoader3.datanode: 111.647 (4)
+  load_resource: 111.045
+  PetaboxLoader3.resolve: 49.575
+*/

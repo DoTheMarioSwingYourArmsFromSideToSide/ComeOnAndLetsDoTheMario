@@ -1,0 +1,202 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+var $ = DOM.get;
+var Menu = Base.extend({
+
+	constructor: function(rootEl, config) {
+		this.root = $(rootEl);
+		Menu.all.push(this);
+	},
+
+	_items: [],
+	
+	_getActivator: function(n) {
+		while(n.previousSibling) {
+			n=n.previousSibling;
+			if ( n.nodeName=="A" ) return n;
+			if ( !n.getElementsByTagName ) continue;
+			var c = n.getElementsByTagName('a');
+			if (c.length>0) return c[0];
+		} return null;
+	},
+	
+	root: null,
+	
+	config: {
+		active: 'active',
+		selected: 'sel',
+		menu: 'menu',
+		closeDelay: 75,
+		openDelay: 300
+	},
+	
+	addMenu: function(el, parent) {
+		if ( !el.parentNode ) this.root.appendChild( el );
+		var p = el.parentNode;
+		DOM.addClass(p,'parent');
+		var a = this._getActivator(el);
+		DOM.addClass(a,'trigger');
+		var mi = { menu:el, parent:p, activator:a, timer:null }
+		this._items.push(mi);
+		DOM.addClass( mi.menu, this.config.menu );
+		return mi;
+	},
+	
+	closeAll: function() {
+		this._items.forEach( this.closeMenu, this);
+	},
+	
+	onactivate: function (mi) {
+		if (mi.timer) { mi.timer = this.clearTimer( mi.timer ); }
+		mi.timer = setTimeout( function() { this.openMenu(mi) }.bind(this), this.config.openDelay );
+	},
+	
+	ondeactivate: function(mi) {
+		if (mi.timer) { mi.timer = this.clearTimer( mi.timer ); }
+		mi.timer = setTimeout( function() { this.closeMenu(mi) }.bind(this), this.config.closeDelay );
+	},
+	
+	openMenu: function (mi) {
+		DOM.addClass( mi.parent, this.config.active );
+		
+		DOM.addClass( mi.activator, this.config.selected );
+		
+	},
+	
+	closeMenu: function (mi) {
+		DOM.removeClass(mi.parent,this.config.active);
+		//DOM.removeClass(mi.menu,this.config.menu);
+		DOM.removeClass(mi.activator,this.config.selected);
+		mi.timer = this.clearTimer(mi.timer);
+	},
+	
+	clearTimer: function(t) {						
+		clearTimeout(t);
+		return t = null;
+	}
+	
+
+},{ //begin static interface
+	all: []
+});
+
+
+var DropDown = Menu.extend({
+	constructor: function(el, config) {
+		el = DOM.get(el);
+		if (!el) return;
+		var uls = el.getElementsByTagName('UL');
+		$A(uls).forEach( function(ul) { this.addMenu(ul) }, this);
+		this.base();
+	},
+
+	addMenu: function(el, parent) {
+		var mi = this.base(el, parent);
+		Event.add(mi.parent,'mouseover', function(ev) { this.onactivate(mi); }, this);
+		Event.add(mi.parent,'mouseout', function(ev) { this.ondeactivate(mi); }, this);
+		return mi;
+	}
+	
+}, {
+	pageReady: function() {
+		DOM.getElementsByClass('dropdown').forEach( function(ddmenu) {
+			return new DropDown(ddmenu);
+		});
+		
+	}
+});
+
+DOM.adopt = function(o, a) { o.appendChild( a.parentNode.removeChild(a) ); };
+DropDown.implement({ addMenu: function(ul, parent) {
+
+        var lis = ul.getElementsByTagName('li');
+        var max = 8;
+        var liCount = lis.length
+
+        //divide up the content into two halves
+        if ( liCount >= max  )
+			liCount = liCount / 2;
+                       
+        //clone the current dropdown (but not children)
+        var ul2 = ul.cloneNode(false);
+        
+        //divide up the items
+        var count = 0;
+        Array.from(lis).forEach(function(li,idx2) {
+			if ( idx2 >= liCount ) {
+				if (ul2.childNodes.length==0)
+					count = 0;
+				DOM.adopt(ul2,li);
+			}
+			if ( (count % 2) == 0)
+				DOM.addClass(li,'c2');
+			count++;
+        });
+
+        //exit if we are dealing with less than our max
+        if ( ul2.childNodes.length==0)
+			return this.base(ul, parent);
+        
+        //create a container to put our splits into
+        var menuCont = document.createElement('div');
+        ul.parentNode.appendChild(menuCont);
+
+        DOM.addClass(ul, 'col0');
+        DOM.addClass(ul2, 'col1');
+                       
+        //move the current menu into our container along with the new one
+        DOM.adopt(menuCont, ul);
+        menuCont.appendChild(ul2);
+        
+        
+        //now work out height so that both menu's appear the same; make sure the fist menu is wide enough;
+        var d1 = DOM.getDim(ul);
+        var d2 = DOM.getDim(ul2);
+                       
+        if ( d1.height > d2.height )
+                d2.height = d1.height;
+        else
+                d1.height = d2.height;
+        d2.left = (d1.width);
+        forEach(d1, function(val, idx, obj) { obj[idx] = val +'px'; });
+        forEach(d2, function(val, idx, obj) { obj[idx] = val +'px'; });
+        DOM.setStyle(ul, d1);
+        DOM.setStyle(ul2, d2);
+        return this.base(menuCont, menuCont.parentNode);
+		}
+
+});
+
+
+
+}
+/*
+     FILE ARCHIVED ON 03:47:09 Jan 02, 2010 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:31:29 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 172.135
+  exclusion.robots: 0.107
+  exclusion.robots.policy: 0.093
+  cdx.remote: 0.082
+  esindex: 0.011
+  LoadShardBlock: 111.448 (3)
+  PetaboxLoader3.datanode: 131.744 (4)
+  load_resource: 428.128
+  PetaboxLoader3.resolve: 88.314
+*/

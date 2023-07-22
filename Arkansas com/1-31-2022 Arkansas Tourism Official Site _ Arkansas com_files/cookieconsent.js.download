@@ -1,0 +1,59 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+// This file is customized for each site its implemented on!
+window.addEventListener("load", function() {
+  window.cookieconsent.initialise({
+    "palette": {
+      "popup": {
+        "background": "#217BA0",
+        "text": "#FFFFFF"
+      },
+      "button": {
+        "background": "#FDB727",
+        "text": "#FFFFFF"
+      }
+    },
+    "content": {
+      "dismiss": "OK",
+      "link": "GDPR Policy",
+      "href": "https://web.archive.org/web/20220131234104/https://www.arkansas.com/gdpr"
+    },
+    onPopupOpen: function() {
+      var links = document.getElementsByClassName('cc-link');
+      links[0].setAttribute('aria-label', links[0].innerHTML);
+    }
+  });
+});
+
+
+}
+/*
+     FILE ARCHIVED ON 23:41:04 Jan 31, 2022 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:42:08 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 318.261
+  exclusion.robots: 0.154
+  exclusion.robots.policy: 0.143
+  RedisCDXSource: 0.702
+  esindex: 0.01
+  LoadShardBlock: 289.382 (3)
+  PetaboxLoader3.datanode: 49.741 (4)
+  load_resource: 45.648
+  PetaboxLoader3.resolve: 21.153
+*/

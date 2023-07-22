@@ -1,0 +1,143 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+			
+// Copyright 2006-2015 ClickTale Ltd., US Patent Pending
+// PID: 13039
+// WR destination: www08
+// WR version: 14.21
+// Recording ratio: 0.01
+// Generated on: 6/26/2015 8:53:43 PM (UTC 6/27/2015 1:53:43 AM)
+
+if (typeof(ClickTaleHooks) == 'undefined') {
+    ClickTaleHooks = {
+        Hooks : ['PreLoad', 'AfterPreLoad', 'PreRecording', 'AfterPreRecording', 'AdditionalCustomCode', 'AfterAdditionalCustomCode'],
+        RunHook : function (hookName) {
+			if (typeof window["ClickTale" + hookName + "Hook"] === "function") window["ClickTale" + hookName + "Hook"]();
+            var s = 'ClickTaleSettings'; if (!ClickTaleHooks.IsValidHookName(hookName) || !(s in window) || !('PDCHooks' in window[s]) || !(hookName in window[s].PDCHooks)) return;
+            var c = window[s].PDCHooks[hookName]; if (c instanceof Array) for (var i=0;i<c.length;i++) if (typeof(c[i]) == "function") c[i](); 
+            if (typeof(c) == "function") c();
+        },
+		IsValidHookName : function (hookName) {
+			if(Array.prototype.indexOf) { return ClickTaleHooks.Hooks.indexOf(hookName) >= 0; }
+			for(var i = 0; i < ClickTaleHooks.Hooks.length; i++) { if(ClickTaleHooks.Hooks[i] === hookName) { return true; } } return false;
+		}
+    }
+}    
+	
+
+function ClickTaleCDNHTTPSRewrite(u)
+{
+	try
+	{
+		var scripts = document.getElementsByTagName('script');
+		if(scripts.length)
+		{
+			var script = scripts[ scripts.length - 1 ], s='https://web.archive.org/web/20150627015344/https://clicktalecdn.sslcs.cdngc.net/';
+			if(script.src && script.src.substr(0,s.length)==s )
+				return u.replace('https://web.archive.org/web/20150627015344/https://cdnssl.clicktale.net/',s);
+		}
+	}
+	catch(e)
+	{
+	}
+	return u;
+} 
+
+var ClickTaleIsXHTMLCompliant = false;
+
+
+var ClickTalePrevOnReady;
+if(typeof ClickTaleOnReady == 'function')
+{
+	ClickTalePrevOnReady=ClickTaleOnReady;
+	ClickTaleOnReady=undefined;
+}
+
+if (typeof window.ClickTaleScriptSource == 'undefined')
+{
+	window.ClickTaleScriptSource=(document.location.protocol=='https:'
+		?ClickTaleCDNHTTPSRewrite('https://web.archive.org/web/20150627015344/https://cdnssl.clicktale.net/www/')
+		:'https://web.archive.org/web/20150627015344/http://cdn.clicktale.net/www/');
+}
+
+ClickTaleHooks.RunHook('PreLoad');
+// Start of user-defined pre WR code (PreLoad)b
+
+// End of user-defined pre WR code
+ClickTaleHooks.RunHook('AfterPreLoad');
+
+var ClickTaleOnReady = function()
+{
+	var PID=13039, 
+		Ratio=0.01, 
+		PartitionPrefix="www08";
+	
+	if (window.navigator && window.navigator.loadPurpose === "preview") {
+       return; //in preview
+	   };
+		
+	ClickTaleHooks.RunHook('PreRecording');
+	// Start of user-defined header code (PreInitialize)
+	
+	// End of user-defined header code (PreInitialize)
+    ClickTaleHooks.RunHook('AfterPreRecording');
+	
+	
+	
+	
+	ClickTale(PID, Ratio, PartitionPrefix);
+	
+	if((typeof ClickTalePrevOnReady == 'function') && (ClickTaleOnReady.toString() != ClickTalePrevOnReady.toString()))
+	{
+    	ClickTalePrevOnReady();
+	}
+	
+	ClickTaleHooks.RunHook('AdditionalCustomCode');
+	// Start of user-defined footer code
+	
+	// End of user-defined footer code
+	ClickTaleHooks.RunHook('AfterAdditionalCustomCode');
+}; 
+document.write(unescape("%3Cdiv%20id%3D%22ClickTaleDiv%22%20style%3D%22display%3A%20none%3B%22%3E%3C/div%3E"));
+
+if (document.location.protocol != 'https:')
+{
+document.write(unescape("%3Cscript%20src='"+window.ClickTaleScriptSource+"tc/WRe21.js"+"'%20type='text/javascript'%3E%3C/script%3E"));
+
+
+}
+
+
+
+
+}
+/*
+     FILE ARCHIVED ON 01:53:44 Jun 27, 2015 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:29:59 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 260.248
+  exclusion.robots: 0.113
+  exclusion.robots.policy: 0.1
+  cdx.remote: 0.076
+  esindex: 0.011
+  LoadShardBlock: 227.378 (3)
+  PetaboxLoader3.datanode: 73.828 (4)
+  PetaboxLoader3.resolve: 87.348 (2)
+  load_resource: 84.909
+*/

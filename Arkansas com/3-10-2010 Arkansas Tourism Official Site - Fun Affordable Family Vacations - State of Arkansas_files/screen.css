@@ -1,0 +1,493 @@
+﻿@import url(/web/20100102034528cs_/http://arkansas.com/%21includes/css/sIFR-screen.css);
+/* =GENERAL
+*****************************/
+.ir {
+	display: block;
+	height/**/:/**/0!important;
+	overflow: hidden;
+}
+.nav, .nav ul, .nav dd {
+	list-style: none;
+	margin: 0; padding: 0;
+}
+.nav dt {
+	position: absolute;
+	top:0; height: 0;
+	overflow: hidden; visibility: hidden;
+}
+
+
+
+/* =LAYOUT
+****************************/
+body { background: #23231a; color: #fff; }
+form {
+	width: 992px;
+	border: 1px solid #000000;
+	color: #272928;
+	margin: 0 auto;
+	position: relative;
+	z-index: 1;
+}
+
+#mn_sitesearch fieldset { border: 0 none; padding: 0; margin: 0; }
+#mn_sitesearch legend { display: none; position: absolute; height: 0; overflow:hidden; visibility: hidden; }
+#mn_sitesearch label.ir { background: url(/web/20100102034528im_/http://arkansas.com/!images/apt07_search_header.gif) no-repeat; padding-top: 33px; height: 33px; float: left; width: 74px }
+#mn_sitesearch input.keywords { border:1px solid #000000; background:#FFFFFF; width:100px; margin-top: 9px; float: left; }
+
+#masthead .header {
+	background: url(/web/20100102034528im_/http://arkansas.com/!images/int/apt07_int_subphoto_temporary.jpg) no-repeat;
+	width: 773px;
+	height: 209px;
+	float: left;
+}
+#masthead .header .more {
+    position: absolute;
+    top: 8px;
+    left: 749px;
+    width: 15px;
+    height: 0;
+    overflow: hidden;
+    padding-top: 15px;
+    display: block;
+    z-index: 100;	
+}
+#top_left_links { height: 209px; width: 219px; float: right; }
+
+
+#content {
+	background: #FFFFFF;
+	min-height: 100px;
+	clear: left;
+}
+
+#social_wrapper {
+	height:16px;
+	margin-left: 21px;
+	background:url(/web/20100102034528im_/http://arkansas.com/!images/common/centertile.gif) repeat-x;
+	overflow:hidden;
+	display:inline-block;
+}
+
+#social_wrapper #social_wrapper_left 
+{
+    background:url(/web/20100102034528im_/http://arkansas.com/!images/common/lefttile.gif) no-repeat;
+	padding-left:10px;
+}
+
+#social_wrapper #social_wrapper_right
+{
+    background:url(/web/20100102034528im_/http://arkansas.com/!images/common/righttile.gif) no-repeat right top;
+	padding-right:10px;
+}
+
+#social_wrapper td {
+    text-align:center;
+    vertical-align:top;
+    padding:0px 5px;
+}
+
+#social_wrapper a, #social_wrapper span {
+    cursor:pointer;
+    display:inline-block;
+    font-weight:bold;
+    height:16px;
+    line-height:16px;
+    overflow:hidden;
+    text-decoration:none;
+    vertical-align:top;
+    text-decoration:none; 
+    font-size:10px; 
+    color:#000;
+}
+
+#social_wrapper a:visited, #social_wrapper a:link, #social_wrapper a:hover { color:#000; }
+
+
+#main {
+	width: 942px;
+	margin-left: 25px;
+	padding: 10px 0 30px;
+	position: relative;
+	z-index: 1; 
+}	
+
+#page_info {
+	background: #EAEBF1;
+	min-height: 50px;
+	border-bottom: 1px solid #000000;
+	padding: 6px 0 12px 25px;
+}
+#page_info h1 {
+    font: 30px/.8 Arial,Tahoma,Verdana,sans-serif;
+    margin:0; padding: 0;
+    color: #2F3F7A;
+    float:left;
+    width: 339px;
+}
+
+#sub_nav {
+	padding: 3px 25px;
+	color: #959fc3;
+	word-spacing: 2px;
+	font-size: .83em;
+}
+
+#sub_nav a { color: #303F78; text-decoration: none; word-spacing: normal; font-weight: bold; }
+
+
+/* =FOOTER
+****************************/
+#footer {
+	background: #3a3b2b url(/web/20100102034528im_/http://arkansas.com/!images/mp/apt07_footer_tile.gif) repeat-x 0 0;
+	width: 992px;
+	color: #9d9c97;
+	font-size: .83em;
+	overflow:hidden;
+	padding-bottom: 10px;
+}
+	address#company {
+		font-style: normal;
+		width: 280px;
+		float: left;
+		margin: 20px 0 0 25px; display: inline;
+	}
+	#links, #legal {
+		font-size: .9em;
+		margin: 0 10px 0 305px;
+		text-align: right;
+	}
+	#links { padding: 10px 0 10px; word-spacing: 5px; }
+	#legal p { margin: 0; }
+	
+#LinkFooter
+{
+    width:972px;
+    margin:1em auto 1em;
+    font-size:.8em;
+    text-align:center;
+    color:#9D9C97;
+}
+
+#LinkFooter a { color:#9D9C97; white-space:nowrap; }
+#LinkFooter a:focus, #LinkFooter a:hover, #LinkFooter a:active { color:#FFFFFF; }
+
+
+/* =LOCAL FAVORITES
+******************************/
+#localfavorites {
+	background: #303E78;
+	border-top: 1px solid #000;
+	padding: 10px 25px 10px 185px;
+	margin: 1em 0 0;
+	color: #FFF;
+	clear: both;
+}
+#localfavorites p, #localfavorites h2 { margin: 0; }
+#localfavorites p { font-size: .9em; line-height: 1.3; }
+#localfavorites h2 { width: 150px; margin-left: -160px; float: left; display: inline; white-space: nowrap; }
+#localfavorites a { color: #FFDD86; text-decoration: underline; }
+#localfavorites a:hover { text-decoration: none; }
+
+/* =NAVIGATION
+**************************/
+#main_nav {
+	height: 33px;
+	width: 992px;
+	clear: both;
+	background: url(/web/20100102034528im_/http://arkansas.com/!images/mp/apt07_main-nav.gif) no-repeat;
+	position: relative;
+	z-index: 100;
+}
+
+#main_nav dd {
+	background: url(/web/20100102034528im_/http://arkansas.com/!images/mp/apt07_main-nav_hover.gif) no-repeat;
+	float: left;
+	position: relative;
+	z-index: 1;
+}
+#main_nav a.ir {
+	background: #FFF url(/web/20100102034528im_/http://arkansas.com/!images/mp/apt07_main-nav.gif) 0px 0px no-repeat;
+	height: 33px;
+	padding-top: 33px;
+}
+
+dd#mn_todo, #mn_todo a.ir { background-position: 0 0; width: 147px; }
+dd#mn_tostay, #mn_tostay a.ir { background-position: -147px 0px; width: 154px; }
+dd#mn_spas, #mn_spas a.ir { background-position: -301px 0px; width: 68px; }
+dd#mn_golf, #mn_golf a.ir { background-position: -369px 0px; width: 63px; }
+dd#mn_outdoors, #mn_outdoors a.ir { background-position: -432px 0px; width: 108px; }
+dd#mn_parks, #mn_parks a.ir { background-position: -540px 0px; width: 76px; }
+dd#mn_tools, #mn_tools a.ir { background-position: -615px 0px; width: 127px; }
+dd#mn_sitesearch { float: right; background: none; width:220px; height: 33px; overflow: hidden; padding: 0; line-height: 33px; }
+
+#ark_nav {
+	height: 25px;
+	width: 992px;
+	background: url(/web/20100102034528im_/http://arkansas.com/!images/mp/apt07_2nd-nav.gif) no-repeat;
+}
+
+#ark_nav dd {
+	float:left;
+	top: 0;
+	background: url(/web/20100102034528im_/http://arkansas.com/!images/mp/apt07_2nd-nav_hover.gif) no-repeat;
+	position: relative;
+	z-index: 1;
+}
+
+#ark_nav a.ir {
+	background: #FFF url(/web/20100102034528im_/http://arkansas.com/!images/mp/apt07_2nd-nav.gif) 0 0 no-repeat;
+	height: 25px;
+	padding-top: 25px;
+}
+
+dd#an_kids, #an_kids a.ir { background-position: -0px 0px; width: 123px; }
+dd#an_moving, #an_moving a.ir { background-position: -123px 0px; width: 129px; }
+dd#an_tour, #an_tour a.ir { background-position: -252px 0px; width: 90px; }
+dd#an_photos, #an_photos a.ir { background-position: -342px 0px; width: 58px; }
+dd#an_travel, #an_travel a.ir { background-position: -400px 0px; width: 92px; }
+dd#an_brochures, #an_brochures a.ir { background-position: -492px 0px; width: 107px; }
+dd#an_enews, #an_enews a.ir { background-position: -599px 0px; width: 98px; }
+dd#an_media, #an_media a.ir { background-position: -697px 0px; width: 50px; }
+dd#an_info, #an_info a.ir { background-position: -747px 0px; width: 93px; }
+dd#an_rss, #an_rss a.ir { background-position: -840px 0px; width: 74px; }
+dd#an_podcast, #an_podcast a.ir { background-position: -914px 0px; width: 78px; }
+
+#ark_nav a.ir:focus, #ark_nav a.ir:hover, #ark_nav a.ir:active,
+#main_nav a.ir:focus, #main_nav a.ir:hover, #main_nav a.ir:active { background: none; }
+
+
+
+#sitenav {
+	width: 219px;
+	height: 30px;
+}
+
+#sitenav dd {
+	background: url(/web/20100102034528im_/http://arkansas.com/!images/int/apt07_int_topnav.gif);
+	float: left; display: inline;
+}
+
+#sitenav a.ir {
+	height: 30px;
+	padding-top: 30px;
+}
+
+dd#espanol_link, #espanol_link a.ir { width:82px; background-position: 0px 0; }
+dd#sitemap_link, #sitemap_link a.ir { width:76px; background-position: -82px 0; }
+dd#home_link, #home_link a.ir { width:60px; background-position: -158px 0; }
+
+
+#sitenav a.ir:focus,
+#sitenav a.ir:hover,
+#sitenav a.ir:active { background-image: url(/web/20100102034528im_/http://arkansas.com/!images/int/apt07_int_topnav_hover.gif); }
+
+
+#tools_nav {
+	/*width: 509px;*/
+	/*width:615px;*/
+	width:537px;
+	float: right;
+	margin-top: -5px;
+}
+
+#tools_nav li {	float: left; display: inline; 
+	background: url(/web/20100102034528im_/http://arkansas.com/!images/int/apt07_int_tools.gif) no-repeat; height:43px;}
+
+#tools_nav a.ir {
+	padding-top: 43px;
+	height: 43px;
+}
+
+li#share_link{ background:none;}
+li#share_link img {  padding-top:20px; }
+li#maps_link, #maps_link a.ir { width:69px; background-position: 0px 0; }
+li#calendar_link, #calendar_link a.ir { width:86px; background-position: -69px 0; }
+li#printer_link, #printer_link a.ir { width:113px; background-position: -155px 0; }
+li#tofriend_link, #tofriend_link a.ir { width:124px; background-position: -268px 0; }
+
+li#font_sizer { line-height: 43px; width: 75px; text-align: center;  background:none;}
+
+#tools_nav a.ir:focus,
+#tools_nav a.ir:hover,
+#tools_nav a.ir:active { background-image: url(/web/20100102034528im_/http://arkansas.com/!images/int/apt07_int_tools_hover.gif); }
+
+/* =DROPDOWNS
+**************************/
+.dropdown ul {visibility:hidden;}
+.parent ul {visibility:visible;}
+
+.dropdown .menu {
+	overflow: visible;
+	position: absolute; top: -200em;
+	z-index: 10000;
+}
+
+#main_nav ul {
+	color: #4c4c4c;
+	background: #ffffff;
+	border: 1px solid #7f7f7f;
+	border-left: 1px solid #3a3b2b;
+	font-size: .79em;
+	position:absolute;
+	z-index:10000;
+}
+
+#mn_todo ul { width: 170px; }
+#mn_tostay ul { width: 140px; }
+#mn_spas ul, #mn_golf ul { width: 147px; }
+#mn_outdoors ul { width: 235px; }
+#mn_parks ul, #mn_tools ul { width: 175px; }
+
+#main_nav li { display: inline-block; } /* Fixes bug for IE; Do not remove or move. It must come before next line! */
+#main_nav li { display: block; border-bottom: 1px solid #eaeaea; position: relative; z-index: 1; margin: 0; }
+
+#main_nav .active .menu, #int_nav .active .menu { top: 33px; z-index: 10005; }
+#main_nav li.active .menu, #int_nav li.active .menu { left: 100%; top:0; }
+* html #main_nav li.active .menu, * html #int_nav li.active .menu { margin-left: -8px; }
+	
+#main_nav ul li a {
+	display: block;
+	color: #444;
+	padding: 4px 10px 4px 20px;
+	font-size:1em;
+	font-weight: bold;
+	text-indent: -10px;
+	text-decoration: none;
+	border: 0;
+}
+#main_nav li.c2 a { background: #f7f2cc; }	
+#main_nav li a:hover {
+	font-weight: bold;
+	color: #000;
+}
+
+.wallpaperTabs a
+{
+	border: 1px solid #A6AF78;
+	display: block;
+	padding: .5em 1em .5em 1em;
+	background: #EAEBF1;
+	color: #505342;
+	font-weight: bold;
+	zoom: 1;
+}
+.wallpaperTabs a:hover, .wallpaperTabs a.currentPage
+{
+	color: #FFF ! important;
+	background: #303E78;
+}
+
+/* Related Links box under Waterways */
+.RelatedContain {margin: 0 0 10px 10px; float: right; width: 140px; border: 1px solid #969082; background: #F9F4E1;}
+.RelatedContain .LinkHeader {width: 98px; background: #FAD411 url(/web/20100102034528im_/http://arkansas.com/!images/int/apt07_int_header_related-links.gif) top left no-repeat; height: 23px; border-bottom: 1px solid #969082; width: 140px;}
+.RelatedContain .LinkArea {padding: 10px;}
+.RelatedContain .LinkArea a {font-weight: bold;}
+.Spacer {height: 5px;}
+
+
+/* Blog Stuff */
+.blogentry {width: 750px!important;}
+/* Blog Styles */
+.panel { background: #F9F4E1; border: 1px solid #C7C3AA; padding: 5px 8px; margin: 1em 0; }
+dl.related {
+	width: 150px;
+	font-size: .83em;
+	float: right; display: inline;
+	margin-left: 1em; 
+	padding-bottom: 10px;
+	line-height: 1.1;
+}
+
+.related ul { text-indent: 0; margin-left: 1.5em; padding-left: 0; }
+.related dt { font-weight: bold; font-size: 1.1em; padding: 5px 0; letter-spacing: -1px; }
+.related dt.ir { background: #FAD411 url(/web/20100102034528im_/http://arkansas.com/!images/int/apt07_int_header_related-links.gif) no-repeat 0 0; padding: 22px 0 0; height: 22px; border-bottom: 1px solid #C7C3AA; margin: -5px -8px 5px; }
+.related dd { margin:0 0 .4em 5px; padding-left: 1.2em; text-indent: -1.2em;  }
+.related span { color:#D92434; font-weight: bold; font-size:.9em; }
+
+.related a:link, .related a:visited { color: #4745A2; }
+.related a:hover,.related a:focus, .related a:active { color: #4A9AFB; text-decoration: none; }
+
+.related a.AT {
+	color: #343434;
+	background:#ffffff;
+}
+
+.blogentry h1 { margin-bottom: 0; } 
+.blogentry .date { margin: .3em 0 1em; font-style: italic; }
+.blogentry img { border: 1px solid #000; }
+.blogentry img[align=left] { margin-right: 1em; }
+.blogentry img[align=right] { margin-left: 1em; }
+
+
+/* Right side RSS Feed Column Styles */
+#rssFeedCol {float: right; width: 166px; margin-left: 1em;}
+
+/* Blog Comments Styles */
+.req {color: Red; font-weight: bold;}
+
+.OddListing
+{
+	border: 1px solid #C7C3AA; 
+	background-color:#F9F4E1; 
+	padding: 12px; 
+	margin-bottom: 12px;
+}
+
+.EvenListing
+{
+	border: 1px solid #C7C3AA; 
+	background-color:#FFFCEF; 
+	padding: 12px; 
+	margin-bottom: 12px;
+}
+
+.TitleArea
+{
+	font-size: 14px; 
+	font-weight: bold; 
+	padding-bottom: 3px;
+}
+
+.SubmitName
+{
+	font-style: italic; 
+	font-size: 12px; 
+	padding-bottom: 1px;	
+}
+
+.SubmitDate
+{
+	font-style: italic; 
+	font-size: 11px; 
+	padding-bottom: 6px;
+}
+
+.CommentContent
+{
+	font-family: Arial; 
+	font-size: 13px;
+}
+#CommentsForm fieldset {border: 1px solid #ccc; padding: 12px;}
+#CommentsForm fieldset legend {font-weight: bold;}
+
+/*
+     FILE ARCHIVED ON 03:45:28 Jan 02, 2010 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:31:27 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 211.561
+  exclusion.robots: 0.071
+  exclusion.robots.policy: 0.062
+  cdx.remote: 0.057
+  esindex: 0.008
+  LoadShardBlock: 89.918 (3)
+  PetaboxLoader3.datanode: 121.461 (4)
+  load_resource: 117.795
+  PetaboxLoader3.resolve: 50.36
+*/

@@ -1,0 +1,106 @@
+.cr__gallery {
+  width: 100%;
+  font-family: "Helvetica Neue", Helvetica, arial, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: normal;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
+  .cr__gallery .iconWrapper {
+    -ms-flex-preferred-size: 16px;
+        flex-basis: 16px;
+    font-size: 0; }
+  .cr__gallery *,
+  .cr__gallery *:before,
+  .cr__gallery *:after {
+    -webkit-box-sizing: inherit;
+            box-sizing: inherit; }
+  .cr__gallery img {
+    display: block;
+    max-width: 100%; }
+  .cr__gallery a {
+    color: inherit;
+    text-decoration: none; }
+  .cr__gallery ul {
+    margin: 0;
+    padding-left: 0;
+    list-style: none; }
+  .cr__gallery button {
+    width: auto;
+    margin: 0;
+    border: none;
+    background-color: inherit;
+    color: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: normal;
+    cursor: pointer; }
+  .cr__gallery .loadMore:focus, .cr__gallery .loadMore:active,
+  .cr__gallery .cr__asset__button:focus,
+  .cr__gallery .cr__asset__button:active {
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto; }
+  .cr__gallery div,
+  .cr__gallery span,
+  .cr__gallery a,
+  .cr__gallery .infoUser__link {
+    font-family: "Helvetica Neue", Helvetica, arial, sans-serif;
+    font-size: inherit;
+    font-weight: inherit; }
+  .cr__gallery .textLabel {
+    font-family: "Helvetica Neue", Helvetica, arial, sans-serif;
+    font-weight: inherit; }
+  .cr__gallery .clearfix {
+    display: block; }
+
+.cr__gallery .fakeButton {
+  border: none;
+  outline: none; }
+
+body:not(.user__tabbed) .cr__gallery button:focus,
+body:not(.user__tabbed) .cr__gallery input:focus,
+body:not(.user__tabbed) .cr__gallery select:focus,
+body:not(.user__tabbed) .cr__gallery textarea:focus,
+body:not(.user__tabbed) .cr__gallery button:active,
+body:not(.user__tabbed) .cr__gallery input:active,
+body:not(.user__tabbed) .cr__gallery select:active,
+body:not(.user__tabbed) .cr__gallery textarea:active {
+  outline: none; }
+
+.cr__gallery *::-moz-selection {
+  background-color: highlight; }
+
+.cr__gallery *::selection {
+  background-color: highlight; }
+
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: ''; }
+
+.clearfix:after {
+  clear: both; }
+
+
+/*
+     FILE ARCHIVED ON 07:23:47 May 01, 2020 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:43:28 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 86.584
+  exclusion.robots: 0.159
+  exclusion.robots.policy: 0.148
+  cdx.remote: 0.065
+  esindex: 0.012
+  LoadShardBlock: 59.936 (3)
+  PetaboxLoader3.datanode: 439.093 (4)
+  load_resource: 639.208
+  PetaboxLoader3.resolve: 231.167
+*/

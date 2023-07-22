@@ -1,0 +1,59 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+// This file is customized for each site its implemented on!
+window.addEventListener("load", function() {
+  window.cookieconsent.initialise({
+    "palette": {
+      "popup": {
+        "background": "#217BA0",
+        "text": "#FFFFFF"
+      },
+      "button": {
+        "background": "#FDB727",
+        "text": "#FFFFFF"
+      }
+    },
+    "content": {
+      "dismiss": "OK",
+      "link": "GDPR Policy",
+      "href": "https://web.archive.org/web/20230508160935/https://www.arkansas.com/gdpr"
+    },
+    onPopupOpen: function() {
+      var links = document.getElementsByClassName('cc-link');
+      links[0].setAttribute('aria-label', links[0].innerHTML);
+    }
+  });
+});
+
+
+}
+/*
+     FILE ARCHIVED ON 16:09:35 May 08, 2023 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:40:54 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 116.672
+  exclusion.robots: 0.129
+  exclusion.robots.policy: 0.119
+  cdx.remote: 0.056
+  esindex: 0.009
+  LoadShardBlock: 80.326 (3)
+  PetaboxLoader3.datanode: 89.671 (4)
+  load_resource: 97.276
+  PetaboxLoader3.resolve: 30.833
+*/

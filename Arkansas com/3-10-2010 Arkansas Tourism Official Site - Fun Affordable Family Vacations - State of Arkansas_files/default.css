@@ -1,0 +1,286 @@
+* { font-size: 1em;  }
+/* 
+a[href*=".asp"] { background: #FFE97A !important; outline: 2px solid #930; padding: 3px; }
+a[href*=".aspx"], a[href*="hotdeals"] { background: transparent !important; outline: 0 none; padding: 0; }
+*/
+body, html {
+	margin: 0;
+	padding: 0;	
+	font-size: 100%;
+}
+body { font: 12px Verdana, Arial, Helvetica, sans-serif; }
+
+big { font-size: 1.2em; }
+small { font-size: .83em; }
+
+fieldset { border:0 none; padding: 0; margin: 0; }
+
+/* =GENERIC layout (print-safe only!)
+************************************/
+.hasFlash .noflash { display: none; }
+.container {
+	display: inline-block;
+}
+	.container:after {
+		content: '.';
+		clear: both;
+		display: block;
+		height: 0;
+		overflow: hidden;
+		visibility: hidden;
+	}
+.col { float: left; display: inline; }
+.row { clear: left; }
+.layout_2col .col { width: 50%; overflow: hidden; }
+
+.photofact {
+	float: left; display: inline;
+	line-height: 1em;
+	font-size: .83em;
+	max-width: 290px;
+	min-width: 200px;
+	margin: 0 1em 1em 0;
+}
+	.factright { float: right; margin: 0 0 1em 1em; }
+	.photofact span { display: block; font-weight: bold; line-height: 2.1em; vertical-align: middle; }
+	.factright span  { text-align: right; }
+	.photofact a { text-decoration: none; }
+	.photofact p { margin:3px 0 0; text-align: center; color:#464C5A; font-style:italic; }
+
+.panel { background: #F9F4E1; border: 1px solid #C7C3AA; padding: 5px 8px; margin: 1em 0; }
+
+.wimg a:hover span, .wimg a { text-decoration: none; }
+.wimg a span { text-decoration: underline; }
+
+.countymap { font-size: .83em; width: 80px; text-align: center; line-height: 1.1; overflow: hidden; }
+.countymap img { display: block; margin: 0 auto; }
+.countymap b { display: block; }
+.countymap a { text-decoration: none; letter-spacing: -1px; }
+
+
+/* =CLASSES
+**************************/
+.icon { vertical-align: middle; margin: 0 5px; }
+img.facts { height: 21px; width: 19px; }
+
+.btt { text-align: right; }
+.note { font-style: italic; font-size: .9em; }
+
+.subTable {
+	border: 1px solid #B7B6E0;
+	background-color: #E8E8F2;
+}
+.expander {
+	height: 0;
+	overflow: hidden;
+	clear: both;
+}
+
+dl.related {
+	width: 150px;
+	font-size: .83em;
+	float: right; display: inline;
+	margin-left: 1em; 
+	padding-bottom: 10px;
+	line-height: 1.1;
+}
+.related ul { text-indent: 0; margin-left: 1.5em; padding-left: 0; }
+.related dt { font-weight: bold; font-size: 1.1em; padding: 5px 0; letter-spacing: -1px; }
+.related dt.ir { background: #FAD411 url(/web/20100102034411im_/http://arkansas.com/!images/int/apt07_int_header_related-links.gif) no-repeat 0 0; padding: 22px 0 0; height: 22px; border-bottom: 1px solid #C7C3AA; margin: -5px -8px 5px; }
+.related dd { margin:0 0 .4em 5px; padding-left: 1.2em; text-indent: -1.2em;  }
+.related span { color:#D92434; font-weight: bold; font-size:.9em; }
+
+.related a:link, .related a:visited { color: #4745A2; }
+.related a:hover,.related a:focus, .related a:active { color: #4A9AFB; text-decoration: none; }
+
+.related a.AT {
+	color: #343434;
+	background:#ffffff;
+}
+
+#main { line-height: 1.4; }
+
+.lrinfo { display: inline; float: left; margin-right: 1em; line-height: 1.2; }
+
+
+/* =GLOBAL ELEMENTS
+**************************/
+p { margin: .4em 0 1.2em; }
+
+.heading, .hdr, /* deprecated -> use h1 */
+h1  {
+	font: 1.5em/1.1em verdana, tahoma, arial, helvetica, sans-serif;
+	color: #7F5523;
+	margin: 1.5em 0 1em;
+}
+
+.subheading, .subhdr, /* deprecated -> use h2*/
+h2 {
+	font: bold 1.2em/1.6em verdana, tahoma, arial, helvetica, sans-serif;
+	color:#7C511E;
+	margin: 1.5em 0 .5em;
+}
+#localfavorites h2 {
+	font: bold 1.3em/25px Arial, helvetica, sans-serif;
+	color: #FFDD86;
+	text-transform: uppercase;
+	letter-spacing: -1px;
+}
+
+.sshdr, /* deprecated -> use h3 */
+h3 {
+	font: bold 1em verdana, tahoma, arial, helvetica, sans-serif;
+	color:#4745A2; 
+	margin: 1.2em 0 .5em;
+}
+
+img { border: none; }
+
+/* =LINKS
+*****************************/
+a:link { color: #AC2706; }
+a:visited { color: #99A4C0; }
+a:focus, a:hover, a:active { text-decoration: none; }
+
+#page_info a { font-weight: bold; color: #676A9D; text-decoration: none; word-spacing: normal; }
+#page_info a:focus, #page_info a:hover, #page_info a.AT { color: #AC2706; text-decoration: underline; }
+#page_info a.AT { text-decoration: none; }
+
+#sub_nav a:link { color: #303F78; text-decoration: none; word-spacing: normal; font-weight: bold; }
+#sub_nav a:active, #sub_nav a:hover, #sub_nav a:visited { color: #AC2706; }
+#sub_nav a:active, #sub_nav a:hover { text-decoration: underline; }
+
+
+#copy a, #links a { font-weight: bold; word-spacing: normal; }
+#footer a:link, #footer a:visited {
+	color: #9d9c97;
+	text-decoration: none;
+}
+#footer a:focus, #footer a:hover, #footer a:active {
+	color: #fff;
+	text-decoration: underline;
+}
+
+
+/* =DEPRECATED BELOW (do not use on new pages!)
+****************************/
+.bolditalic, .bold, .footerbold, .golfinfo { font-weight:bold; }
+.footerbold, .golfinfo { font-size:10px; }
+.bolditalic { font-style:italic;}
+
+.headinggroup {
+	font: bold 1.7em/1 verdana, tahoma, arial, helvetica, sans-serif; 
+	color:#009900; 
+}
+
+.copyright { font-size:9px; }
+.photocaption { color:#464C5A; font-weight:normal; font-size:10px; line-height:10px; font-style:italic; }
+.redtext { color:#FF0000; }
+.browntext { color:#B56B45; }
+.redtext { color:#ff0000; }
+
+/******************************
+INTERIOR SUB NAV TABLE
+***************************************/
+.subnavhdr{
+	color:#4745A2;
+	font-size:10px;
+	font-weight:bold;
+}
+
+a.ssnav:link, a.ssnav:visited {
+	color: #4745A2;
+	font-weight:normal;
+	font-size:10px;
+}
+
+a.ssnav:hover {
+	color: #4A9AFB;
+	text-decoration: none;
+	font-weight:normal;
+	font-size:10px;
+}
+
+a.ssnavAT:link,a.ssnavAT:active,a.ssnavAT:visited,a.ssnavAT:hover {
+	color: #343434;
+	background:#ffffff;
+	text-decoration: none;
+	font-weight:normal;
+	font-size:10px;
+}
+
+.subTableHeader {
+    border-bottom: 1px solid #969082;
+    background-color:#FAD411;
+}
+.subTable{
+border: 1px solid #969082;
+background-color:#F9F4E1;
+}
+
+.righSubNavArrow {
+color: #D92434;
+font-size: 9px;
+font-weight: bold;
+white-space: nowrap;
+}
+
+.tblHdr { background: #EAEBF1; }
+.tblHdr, .sitemap_table a { color: #272928; font-weight:bold; }
+.sitemap_table a:visited { color: #AC2706; }
+
+#font_sizer {
+	padding: 0 0px;
+	white-space: nowrap;
+    display:inline;
+}
+.print_page .print_hide_this
+{
+    display: none;
+}
+@media print {
+	#help_box_wrapper, #int_flash, #top_left_links, .nav, #coeSearchForm {
+		display: none;
+	}
+	
+	.sIFR-flash, .sIFR-flash object, .sIFR-flash embed {
+		display: none !important;
+		height: 0;
+		width: 0;
+		position: absolute;
+		overflow: hidden;
+	}
+	
+	span.sIFR-alternate {
+		visibility: visible !important;
+		display: block !important;
+		position: static !important;
+		left: auto !important;
+		top: auto !important;
+	}
+}
+
+/* HIDE FROM IE mac \*/
+.container { display: block; }
+* html .container { height: 1%; }
+/* END HIDE */
+/*
+     FILE ARCHIVED ON 03:44:11 Jan 02, 2010 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:31:28 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 426.314
+  exclusion.robots: 0.089
+  exclusion.robots.policy: 0.079
+  cdx.remote: 0.081
+  esindex: 0.01
+  LoadShardBlock: 384.52 (3)
+  PetaboxLoader3.datanode: 393.304 (4)
+  load_resource: 479.359
+  PetaboxLoader3.resolve: 186.912
+*/

@@ -1,0 +1,662 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+var Arkansas = Aris.extend({
+	pageReady: function (contId) {
+		if (DOM.get('mp_flash')) {
+			var fo = new FlashObject("/!images/rotator/SlideShow.swf", "SlideShow", "641", "383", "8.0.22", "#FFFFFF", true);
+			fo.addParam("wmode", "transparent");
+			fo.addVariable("xmlfile","/!images/rotator/slides/SlideShow.xml");
+			fo.write("mp_flash");
+		}
+		if (DOM.get('int_flash')) {
+			var fo = new FlashObject("/!images/int/apt07_int_branding.swf", "Branding", "773", "209", "8.0.22", "#FFFFFF", true);
+			fo.addParam("wmode", "transparent");
+			fo.write("int_flash");
+		}
+		forEach( document.getElementsByTagName('a'), this.popUpSafe );
+		this.setRollovers();
+		
+	    var FS = new FontSizer('body','upsize','downsize','reset');
+	},
+	inputFocus: function() {
+		if (this.getAttribute('oldval') == null){
+			this.setAttribute('oldval',this.value);
+			this.value = '';
+		} else {
+			this.select();
+		}
+	},
+	inputBlur: function() {
+		if (this.value == '')
+			this.value = this.getAttribute('tbkeywords');
+	}, 
+	popUpSafe: function(a) {
+		var _onSite = /(aristotle\.net)|(\barkansas\.com)|(javascript:)|(localhost)|(mailto:)/i;
+		var _files = /\.(pdf|doc)/i;
+		var _rels = "external,sendtofriend,printpage";
+		if ( ( a.href.length > 0 && (  !(_onSite.test(a.href)) || _files.test(a.href) ) )|| (a.rel.length > 0 && _rels.indexOf(a.rel) > -1) ) {
+			a.onclick = function() { return !Aris.popWin(this.href); }	
+		}
+		else if (a.rel.indexOf(':') > 0) {
+			a.onclick = function(e) { args = this.rel.split(':'); return !Aris.popWin(this.href,args[0],args[1],args[2]);  }
+		}
+	},
+	setRollovers: function () {
+		var out = {}, over = {};
+		if (!document.images) return;
+		var rollover = DOM.getElementsByClass('rollover');
+		forEach(rollover, function(ro,idx) {
+			out[ idx ] = new Image();
+			over[ idx ] = new Image();
+			out[ idx ].src = ro.src;
+			over[ idx ].src = ro.getAttribute('rollSrc');
+			var img = ro;
+			img.idx = idx;
+			var a = ro.parentNode;
+			if ((a && a.tagName.toLowerCase() == 'a') ){
+				a.onmouseover = function() { img.src = over[img.idx].src; }
+				a.onmouseout = function() { img.src = out[img.idx].src;  }
+				a.onfocus = function() { img.src = over[img.idx].src; }
+				a.onblur = function() { img.src = out[img.idx].src; }
+			}
+			else if (imgs.tagName.toLowerCase() == 'input') {
+				imgs.onmouseover = function() { this.src = over[this.src].src; }
+				imgs.onmouseout = function() { this.src = out[this.src].src; }
+			}
+		});
+	}
+
+});
+
+// FONT SIZE HANDLER
+////////////////////////////////
+FontSizer.Instances = new Object();
+
+function FontSizer(type,upid,downid,resetid) {
+	this.cookieName = type+"FontSizer";
+	var x = readCookie(this.cookieName);
+	this.currentSize = (x) ? parseInt(x) : 12;
+	if (this.currentSize!=12) this.ChangeSize();
+	this.stepSize = 2;
+	
+	FontSizer.Instances[type] = this;
+	
+	var upObj = getObj(upid);
+	if (upObj) upObj.onclick =  function() { FontSizer.Instances[type].UpSize(); return false; };
+	var downObj = getObj(downid);
+	if (downObj) downObj.onclick =  function() { FontSizer.Instances[type].DownSize(); return false; };
+	var rsObj = getObj(resetid);
+	if (rsObj) rsObj.onclick = function() { FontSizer.Instances[type].Reset(); return false; }
+}
+
+var FSP = FontSizer.prototype;
+FSP.Reset = function() { eraseCookie(this.cookieName); this.currentSize = 12; this.ChangeSize(); }
+FSP.ChangeSize = function() { createCookie(this.cookieName,this.currentSize,7); includeCSS("/!includes/css/fontswitcher.asp?fontsize="+this.currentSize,'screen'); }
+FSP.UpSize = function() { var cs = this.currentSize; cs += this.stepSize; if (cs > 20) cs = 20; this.currentSize = cs; this.ChangeSize(); }
+FSP.DownSize = function() { var cs = this.currentSize; cs -= this.stepSize; if (cs < 9) cs = 9; this.currentSize = cs; this.ChangeSize(); }
+
+function reloadPage(init) {
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.pgW=innerWidth; document.pgH=innerHeight; onresize=reloadPage; }}
+  else if (innerWidth!=document.pgW || innerHeight!=document.pgH) location.reload();
+}
+reloadPage(true);
+
+// COOKIE HANDLERS
+//////////////////////////////
+function createCookie(name,value,days) {
+  if (days) {
+    var date = new Date();
+    date.setTime(date.getTime()+(days*24*60*60*1000));
+    var expires = "; expires="+date.toGMTString();
+  }
+  else expires = "";
+  document.cookie = name+"="+value+expires+"; path=/";
+}
+function readCookie(name) {
+  var nameEQ = name + "=";
+  var ca = document.cookie.split(';');
+  for(var i=0;i < ca.length;i++) {
+    var c = ca[i];
+    while (c.charAt(0)==' ') c = c.substring(1,c.length);
+    if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+  }
+  return null;
+}
+function eraseCookie(name) { createCookie(name,"",-1); }
+
+//UTILITY FUNCTIONS
+///////////////////////////
+function getObj(objId) {
+	if (document.getElementById)
+		obj = document.getElementById(objId);
+	else if (document.all)
+		obj = document.all[objId];
+	else
+		obj = null;
+	return obj;
+}
+
+function includeCSS(file,media){
+	var head = document.getElementsByTagName('head').item(0);
+	var scriptTag = document.getElementById('loadCSS');
+	if(scriptTag) head.removeChild(scriptTag);
+	css = document.createElement('link');
+	css.rel = "stylesheet";
+	css.href = file;
+	css.type = 'text/css';
+	css.id = 'loadCSS';
+	css.media = media;
+	head.appendChild(css)
+}
+
+/******************************
+Explore Arkansas Drop-Down
+load1 function also contained in the _mp_scripts.js file
+*******************************/
+function load1(form) {
+     var url = form.Llisted.options[form.Llisted.selectedIndex].value;
+	     if (url != '') 
+		 {
+		 
+		 	if(url == 'https://web.archive.org/web/20070726142542/http://www.arkansastravel.com/')
+			{
+				window.open('https://web.archive.org/web/20070726142542/http://www.arkansastravel.com/','ArkansasTravel'); /* ,'width=769,height=599,scrollbars=yes,toolbar=yes,location=yes,menubar=yes,status=yes' */
+			}
+			else{
+                location.href = url;
+			}
+			
+	  }
+     return false;
+}
+
+function loadFree(form) {
+     var url = form.Llisted.options[form.Llisted.selectedIndex].value;
+	     if (url != '') 
+		 {
+		 
+		 	if(url == 'https://web.archive.org/web/20070726142542/http://www.arkansastravel.com/')
+			{
+				window.open('https://web.archive.org/web/20070726142542/http://www.arkansastravel.com/','ArkansasTravel'); /*,'width=769,height=599,scrollbars=yes,toolbar=yes,location=yes,menubar=yes,status=yes'*/
+			}
+			//else if(url == '/immersive-tour/')
+			//{
+			//	OpenITourFree('');
+			//}
+			else{
+			    location.href = url;
+			}
+			
+	  }
+     return false;
+}
+
+function load2(form) {
+     var url = form.mlisted.options[form.mlisted.selectedIndex].value;
+	     if (url != '') 
+		 {
+		 
+			location.href = url;
+			
+		  }
+     return false;
+}
+
+
+function getLoc(){
+	if (document.forms['sel'])
+	{
+		var frm = document.forms['sel'].Llisted;
+		var loc = window.location.href;
+		for (i = 0;i < frm.length;i++){
+			if (loc.indexOf(frm[i].value) != -1){
+				frm[i].selected = true;
+				
+				frm.options[frm.selectedIndex].style.backgroundColor = '#FDD663';
+				return true;
+				}
+		}
+	}
+}
+/**************************/
+
+
+function zipredirect() {
+  zip = document.zipform.zip.value;
+  //alert(zip);
+  strWindow = '/zipsearch.asp?zip=' + zip;
+  window.open(strWindow,'zipsearch','width=200,height=220,scrollbars=no,resizable=yes')  
+}
+
+    //IMAGE MOUSEOVER SCRIPT
+    //only have to change the range in the for loop and array definitions to add menu items
+    images_array = new Array(5);
+    images_array_r = new Array(5);
+    for (i=1; i<6; i++)
+    {
+       images_array[i]=new Image();
+       images_array[i].src="/images/mainpage/adpt_horz_nav_" + i + ".gif";
+
+       images_array_r[i]=new Image();
+       images_array_r[i].src="/images/mainpage/adpt_horz_nav_" + i + "m.gif";
+    }
+
+    function swap(num)
+    {
+        image_name = "image" + num;
+        if(document.getElementById) document.getElementById(image_name).src = images_array_r[num].src;
+        else if(document.images) document.images[image_name].src = images_array_r[num].src;
+    }
+
+    function swapOut(num)
+    {
+        image_name = "image" + num;
+        if(document.getElementById) document.getElementById(image_name).src = images_array[num].src;
+        else if(document.images) document.images[image_name].src = images_array[num].src;
+    }
+
+    if (document.images)
+     {
+      flashlight1 = new  Image(259,187);
+      flashlight1.src = "/images/mainpage/adpt_flashlight_off.gif";
+
+      flashlight2 = new  Image(259,187);
+      flashlight2.src = "/images/mainpage/adpt_flashlight_on.gif";
+    }
+
+    function hiLite(name, source) {
+      var bn = navigator.appName;
+      var vn = navigator.appVersion;
+
+    	if (document.images) {
+    		document.images[name].src = eval(source + ".src");
+      }
+    }
+
+    function openBrWindow(theURL,winName,features) { //v2.0
+      if (confirm('NOTE: This page is best viewed on newer browsers (5.0+)\nPlease disable any Pop-up Blockers and click \'OK\' to continue...'))
+      window.open(theURL,winName,features); }
+
+
+
+
+
+
+
+
+/*********************************************************************
+OPEN WINDOW AND CENTER IT
+***********************/
+// JDR 2004-02-06 removed centering commands for WebSage compatability
+//	!!!! removed from ALL functions below.
+
+
+// NewWindow('outage_popup.html','OUT',1100,700,'no')
+var win = null;
+function NewWindow(mypage,myname,w,h,scroll)
+{
+    if (confirm('NOTE: This page is best viewed on newer browsers (5.0+)\nPlease disable any Pop-up Blockers and click \'OK\' to continue...'))
+	LeftPosition = (screen.width) ? (screen.width-w)/2 : 0;
+	TopPosition = (screen.height) ? (screen.height-h)/2 : 0;
+	//settings =  'height='+h+',width='+w+',top='+TopPosition+',left='+LeftPosition+',scrollbars='+scroll+',resizable'
+	settings =  'height='+h+',width='+w+',scrollbars='+scroll+',resizable'
+	win = window.open(mypage,myname,settings)
+	win.focus();
+}
+
+
+
+// OpenPhotoGallery('ID')
+var winit = null;
+function OpenITour(inputID)
+{
+   // if (ShowPopupWarning())
+	//{
+		LeftPosition = (screen.width) ? (screen.width-763)/2 : 0;
+		TopPosition = (screen.height) ? (screen.height-527)/2 : 0;
+		//settings =  'height=527,width=763,top='+TopPosition+',left='+LeftPosition+',scrollbars=no,resizable';
+		settings =  '';//'height=527,width=763,scrollbars=no,resizable';
+		winit = window.open('/immersive-tour/default.asp?id=' + inputID,'ITOUR',settings);
+		if (!winit && winit.closed) {
+			//alert("NOTE: Please disable any Pop-up Blockers and click \'OK\' to continue...");
+			return false;
+		}
+		else{
+			winit.focus();
+			return true;
+		}
+	//}
+}
+
+// OpenPhotoGallery('ID')
+var winit = null;
+function OpenITourFree(inputID)
+{
+		LeftPosition = (screen.width) ? (screen.width-763)/2 : 0;
+		TopPosition = (screen.height) ? (screen.height-527)/2 : 0;
+		//settings =  'height=527,width=763,top='+TopPosition+',left='+LeftPosition+',scrollbars=no,resizable';
+		settings =  'height=527,width=763,scrollbars=no,resizable';
+		winit = window.open('/immersive-tour/default.asp?id=' + inputID,'ITOUR',settings);
+		winit.focus();
+	
+}
+
+
+
+// OpenMap('REGION','FORMAT') format -- 1 = gif 2 = PDF
+var wim = null;
+function OpenMap(inputID,format)
+{
+    if (ShowPopupWarning())
+	{
+		LeftPosition = (screen.width) ? (screen.width-750)/2 : 0;
+		TopPosition = (screen.height) ? (screen.height-500)/2 : 0;
+		//settings =  'height=500,width=750,top='+TopPosition+',left='+LeftPosition+',scrollbars=yes,resizable';
+		settings =  'height=500,width=750,scrollbars=yes,resizable';
+		wim = window.open('/find_map/regionmap.asp?r=' + inputID + '&f=' + format,'MAP',settings);
+		wim.focus();
+	}
+}
+
+// OpenMapHelp()
+var wimh = null;
+function OpenMapHelp()
+{
+    if (ShowPopupWarning())
+	{
+		LeftPosition = (screen.width) ? (screen.width-485)/2 : 0;
+		TopPosition = (screen.height) ? (screen.height-380)/2 : 0;
+		//settings =  'height=380,width=485,top='+TopPosition+',left='+LeftPosition+',scrollbars=yes,resizable';
+		settings =  'height=380,width=485,scrollbars=yes,resizable';
+		wimh = window.open('/find_map/maphelp.html','MAPHELP',settings);
+		wimh.focus();
+	}
+}
+
+
+// OpenPhotoGallery('ID')
+var winpg = null;
+function OpenPhotoGallery(inputCity,inputID,region)
+{
+   // if (ShowPopupWarning())
+	//{
+		LeftPosition = (screen.width) ? (screen.width-772)/2 : 0;
+		TopPosition = (screen.height) ? (screen.height-600)/2 : 0;
+		settings =  'height=600,width=772,top='+TopPosition+',left='+LeftPosition+',scrollbars=no,resizable';
+		//settings =  'height=527,width=763,scrollbars=no,resizable';
+		winpg = window.open('https://web.archive.org/web/20070726142542/http://www.arkansas.com/photo-gallery/default.asp?city=' + inputCity + '&id=' + inputID + '&region=' + region,'PHOTOGALLERY',settings);
+		if (!winpg && winpg.closed) {//alert("NOTE: Please disable any Pop-up Blockers and click \'OK\' to continue...");
+			return false;
+		}
+		else{
+			winpg.focus();
+			return true;
+		}
+	//}
+}
+
+// OpenAdVideoGallery(id)
+var winp = null;
+function OpenAdVideoGallery(id)
+{
+    //if (ShowPopupWarning())
+	//{
+		LeftPosition = (screen.width) ? (screen.width-788)/2 : 0;
+		TopPosition = (screen.height) ? (screen.height-600)/2 : 0;
+		//settings = 'height=540,width=787,top='+TopPosition+',left='+LeftPosition+',scrollbars=yes,resizable';
+		settings = 'height=540,width=787,scrollbars=yes,resizable';
+		winp = window.open('/ad-video-gallery/ad/id/' + id,'ADGALLERY',settings);
+		winp.focus();
+	//}
+}
+
+// OpenAdVideoGallery(id)
+var winp = null;
+function OpenAdVideoGallery2(id)
+{
+    //if (ShowPopupWarning())
+	//{
+		LeftPosition = (screen.width) ? (screen.width-788)/2 : 0;
+		TopPosition = (screen.height) ? (screen.height-600)/2 : 0;
+		//settings = 'height=540,width=787,top='+TopPosition+',left='+LeftPosition+',scrollbars=yes,resizable';
+		settings = 'height=540,width=787,scrollbars=yes,resizable';
+		winp = window.open('/ad-video-gallery/ad2/id/' + id,'ADGALLERY',settings);
+		winp.focus();
+	//}
+}
+
+
+
+function ShowPopupWarning()
+{
+	//alert(getCookie("allowpopups"));
+	if(!getCookie("allowpopups"))
+	{
+		var allow = confirm('NOTE: This page is best viewed on newer browsers (5.0+)\nPlease disable any Pop-up Blockers and click \'OK\' to continue...');
+	
+		if(allow)
+		{
+			with(expDate = new Date()) setDate(getDate() + 90)
+			setCookie("allowpopups", "1", expDate);
+		}
+	
+		return allow;
+	}
+	else
+		return true;
+}
+	
+
+
+/*********************************************************************
+FORM VALIDATION
+***********************/
+
+
+function vAlert()
+{
+
+var MAC= (navigator.platform.indexOf("PPC") > 0); //Mac IE is buggy
+
+var i;
+	for (i = 0;i< formArray.length;i++)
+	{	
+		if	(document.getElementById && MAC == false)
+		{
+			//alert(navigator.userAgent);
+			var thisText = 'form' + formArray[i];
+			document.getElementById('error_text').style.visibility = 'hidden';
+			document.form7[formArray[i]].style.borderWidth = "1px";
+			document.form7[formArray[i]].style.backgroundColor = "";
+			document.form7[formArray[i]].style.borderColor = "#7F9DB9";
+			document.getElementById(thisText).style.color = '';
+		}	
+		
+		if ((formArray[i] == 'email') && ((document.form7[formArray[i]].value.indexOf('@') == -1) || (document.form7[formArray[i]].value.length < 6) || (document.form7[formArray[i]].value.indexOf('.') == -1)))
+		{
+			if (document.getElementById)
+				{
+				document.getElementById("error_text").style.visibility = 'visible';
+				document.getElementById("error_text").innerHTML = formArrayDesc[i] + " is a required field";
+				}
+			else
+				alert('Please enter a properly formatted email address');
+			return vLite(formArray[i])
+		}
+		
+		if (document.form7[formArray[i]].type == 'select-one')
+		{
+			if (document.form7[formArray[i]].selectedIndex == 0)
+			{
+				if (document.getElementById && MAC == false)
+					{
+						document.getElementById('error_text').style.visibility = 'visible';
+						document.getElementById('error_text').innerHTML = formArrayDesc[i] + " is a required field";
+					}
+				else
+					alert(formArrayDesc[i] + ' is a required field');
+				return vLite(formArray[i]);
+			}
+		}
+		
+	 	if (document.form7[formArray[i]].value == '')
+		{
+			
+			if (document.getElementById && MAC == false)
+			{
+				document.getElementById('error_text').style.visibility = 'visible';
+				document.getElementById('error_text').innerHTML = formArrayDesc[i] + " is a required field";
+			}
+			else
+				alert(formArrayDesc[i] + ' is a required field');
+			return vLite(formArray[i]);
+		}
+	}
+	
+		if	(document.getElementById && MAC == false)
+		{
+			for (i = 0;i< document.form7.length;i++) //FORM PASSED :)
+			{
+				document.form7[i].style.backgroundColor = "#E6FBE7";
+			}
+				//document.form7["submit"].style.color = "#ff0000";
+		}
+		return true;
+}
+function vLite(item)
+{
+var MAC= (navigator.platform.indexOf("PPC") > 0);
+	var thisText = 'form' + item;
+	if	(document.getElementById && MAC == false)
+	{
+		location.href = '#formtop';
+		document.form7[item].style.backgroundColor = "#FDD563";
+		document.form7[item].style.borderColor = "#7F9DB9";
+		document.form7[item].style.borderWidth = "1px";
+		document.form7[item].value = document.form7[item].value;
+		document.getElementById(thisText).style.color = "#FF0000";
+	}
+	document.form7[item].focus();
+	return false;
+}
+
+function openBrWindow(theURL,winName,features) { //v2.0
+	window.open(theURL,winName,features);
+}
+
+function gotosite(site) {
+	if (site != "") {
+		location.href=site;
+	} 
+}
+
+function gotositeWindow(site) {
+	if (site != "") {
+        //alert('did I get to here?');
+        window.open(site);
+		//location.href=site;
+	} 
+}
+
+function open_win(hotel_id)
+{
+	window.open("/load_res.asp?hotel_id=" + hotel_id, "res_win", "height=550,width=700,resizable=yes,scrollbars=yes");
+}
+
+function getCookie (name) 
+{
+	var dcookie = document.cookie; 
+	var cname = name + "=";
+	var clen = dcookie.length;
+	var cbegin = 0;
+	
+	while (cbegin < clen) 
+	{
+		var vbegin = cbegin + cname.length;
+		
+		if (dcookie.substring(cbegin, vbegin) == cname) 
+		{ 
+			var vend = dcookie.indexOf (";", vbegin);
+			if (vend == -1) 
+				vend = clen;
+			
+			return unescape(dcookie.substring(vbegin, vend));
+		}
+		
+		cbegin = dcookie.indexOf(" ", cbegin) + 1;
+		
+		if (cbegin == 0) break;
+	}
+	
+	return null;
+}
+
+function setCookie (name, value, expires) 
+{
+	if (!expires)
+		expires = new Date();
+
+	document.cookie = name + "=" + escape (value) + "; expires=" + expires.toGMTString() +  "; path=/";
+}
+
+function delCookie (name) 
+{
+	var expireNow = new Date();
+	
+	document.cookie = name + "=" + "; expires=Thu, 01-Jan-70 00:00:01 GMT" +  "; path=/";
+}
+
+//Linking policy
+function copyText(activeObj) {
+	//select all text in active object
+	activeObj.focus();
+	activeObj.select();
+	
+	//copy selection to clipboard
+	cmdExec('copy');
+}
+
+function cmdExec(cmd,opt) {  
+  document.execCommand(cmd,"",opt);  
+}
+
+function swapImage(source_image_id, mouseover_image_name)
+{
+    if(document.getElementById) document.getElementById(source_image_id).src = mouseover_image_name;
+    else if(document.images) document.images[source_image_id].src = mouseover_image_name;
+}
+
+
+
+}
+/*
+     FILE ARCHIVED ON 14:25:42 Jul 26, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:33:00 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 87.414
+  exclusion.robots: 0.073
+  exclusion.robots.policy: 0.064
+  cdx.remote: 0.061
+  esindex: 0.01
+  LoadShardBlock: 47.261 (3)
+  PetaboxLoader3.datanode: 78.046 (4)
+  load_resource: 95.534
+  PetaboxLoader3.resolve: 58.172
+*/

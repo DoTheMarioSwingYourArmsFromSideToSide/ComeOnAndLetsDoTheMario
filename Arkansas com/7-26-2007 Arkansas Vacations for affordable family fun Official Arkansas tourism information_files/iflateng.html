@@ -1,0 +1,531 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0106)https://web.archive.org/web/20070726142725if_/http://www.arkansas.com/!includes/calendarxp/mp/iflateng.htm -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"><script type="text/javascript" src="./bundle-playback.js.download" charset="utf-8"></script>
+<script type="text/javascript" src="./wombat.js.download" charset="utf-8"></script>
+<script type="text/javascript">
+  __wm.init("https://web.archive.org/web");
+  __wm.wombat("http://www.arkansas.com/!includes/calendarxp/mp/iflateng.htm","20070726142725","https://web.archive.org/","web","/_static/",
+	      "1185460045");
+</script>
+<link rel="stylesheet" type="text/css" href="./banner-styles.css">
+<link rel="stylesheet" type="text/css" href="./iconochive.css">
+<!-- End Wayback Rewrite JS Include -->
+
+<title>FlatCalendarXP 9.6.261 Commercial Edition - Copyright 2003-2005 Idemfactor Solutions, Inc.</title>
+<script id="dynaScript" type="text/javascript"></script>
+<script type="text/javascript">
+// WARNING: Do NOT make any modification to this file without proper permit.
+var gd=new Date(), gToday=[gd.getFullYear(),gd.getMonth()+1,gd.getDate()];
+var ua=navigator.userAgent.toLowerCase();
+var KO=ua.match(/konqueror\/(\d+)/),KO3=KO&&KO[1]==3,SA=ua.match(/safari\/(\d+)/),SA1=SA&&SA[1]<86; KO=!!KO; SA=!!SA;
+var MAC=/mac/.test(ua),OP=!!self.opera,WEBTV=/webtv/.test(ua),IE=/msie/.test(ua)&&!OP&&!WEBTV&&!SA&&!KO,GK=/gecko/.test(ua),OP8=/opera 8/.test(ua)&&OP;
+var NN4=false,NS6=ua.indexOf("netscape6/6.0")!=-1,IE4=IE&&!document.getElementById,IE5=IE&&![].push&&!IE4;
+var gfSelf=fGetById(parent.document,self.name);
+var gTheme=self.name.split(":");
+var gCurMonth=eval(gTheme[0]); gCurMonth=fCalibrate(gCurMonth[0],gCurMonth[1]);
+var gContainer=parent,gDays=[31,31,28,31,30,31,30,31,31,30,31,30,31];
+var fOnResize,fRepaint,fHoliday,fOnChange,fAfterSelected,fOnDrag,gcOtherDayBG,fOnWeekClick,fIsSelected,fParseInput,fFormatInput,fOnDoWClick,fOnload;
+var __agenda=[], popkey=["Lite"], flatkey=["Lite"], __stub=[], _charset=gTheme[5]?" charset='"+gTheme[5]+"' ":"";
+var MILLIDAY=86400000, giInitDelay=200, _lineThru=true, _noBound=false, _mcafee=false, _preferOOR=true, gbHideCalMiddle=false;
+if (![].push) Array.prototype.push=function () {
+	for (var i=0; i<arguments.length; i++)
+		this[this.length]=arguments[i];
+	return this.length;
+}
+
+function varDate() {
+	alert("Missing or invalid licence for FlatCalendarXP!\nPlease make sure the licence file is in the right place.");
+}
+
+function fCalibrate(y,m) {
+	if (m<1) { y--; m+=12; }
+	else if (m>12) { y++; m-=12; }
+	return [y,m];
+}
+
+function fGetById(doc, id) {
+	if (IE4) return doc.all(id);
+	else return doc.getElementById(id);
+}
+
+function fLoadScript(url) {
+	if (!(IE4||IE&&MAC)) fGetById(document, "dynaScript").src=url;
+}
+
+function fFilterNull(str) {
+	return str==null||str=="null"?null:str;
+}
+
+function fAddEvent(y,m,d,message,action,bgcolor,fgcolor,bgimg,boxit,html,etc) {
+	var ag=gbShareAgenda?eval(gsAgShared):__agenda;
+	ag[y+"-"+m+"-"+d]=[message,fFilterNull(action),fFilterNull(bgcolor),fFilterNull(fgcolor),fFilterNull(bgimg),fFilterNull(boxit),fFilterNull(html),etc];
+}
+
+function fGetEvent(y,m,d) {
+	var ag=gbShareAgenda?eval(gsAgShared):__agenda, id=y+"-"+m+"-"+d;
+	return ag[id]?ag[id].slice(0):null;
+}
+
+function fRemoveEvent(y,m,d) {
+	var ag=gbShareAgenda?eval(gsAgShared):__agenda;
+	ag[y+"-"+m+"-"+d]=null;
+}
+
+function fWeekOffset(dow) {
+	return dow<=3?1:0;
+}
+
+function fGetDays(y) {
+	gDays[2]=y%4==0&&y%100!=0||y%400==0?29:28;
+	return gDays;
+}
+
+document.write("<scr"+"ipt type='text/javascript' "+_charset+" src='"+gTheme[1]+".js'></scr"+"ipt>");
+</script><script type="text/javascript" src="./normal.js.download"></script>
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" hspace="0" vspace="0" onload="fInitRange();if(fOnload)fOnload()" onselectstart="return false" ondraggesture="return false" ondragstart="return false" oncontextmenu="return false" onmouseup="fDragIt(0,0,0,2,event)" bgcolor="#FFFFFF" data-new-gr-c-s-check-loaded="14.1108.0" data-gr-ext-installed="">
+<script type="text/javascript">
+var gdBegin,gdEnd,gcbMon,gcbYear,gcTemp,giSat,giSun,gRange=[],__cal=[];
+for (var i=0;i<6;i++) { __cal[i]=[]; for (var j=0;j<7;j++) __cal[i][j]=[]; }
+with (document) {
+	write("<scr"+"ipt type='text/javascript' "+_charset+" src='"+(gTheme[4]?gTheme[4]:"plugins.js")+"'></scr"+"ipt>");
+	write("<lin"+"k rel='stylesheet' type='text/css' "+_charset+" href='"+gTheme[1]+".css'>");
+	write("<scr"+"ipt type='text/javascript' "+_charset+" src='li"+"cen"+"ce.j"+"s'></scr"+"ipt>");
+}
+</script><script type="text/javascript" src="./plugins1.js.download"></script><link rel="stylesheet" type="text/css" href="./normal.css"><script type="text/javascript" src="./licence.js.download"></script>
+<script type="text/javascript">
+giSat=(6-giFirstDOW)%7;
+giSun=(7-giFirstDOW)%7;
+gCurMonth=fCalibrate(gCurMonth[0],gCurMonth[1]);
+gdSelect=gdSelect.slice(0); gBegin=gBegin.slice(0); gEnd=gEnd.slice(0);
+if (!_noBound){if (gCurMonth[0]>gEnd[0]||gCurMonth[0]==gEnd[0]&&gCurMonth[1]>gEnd[1]) gCurMonth=gEnd.slice(0);
+if (gCurMonth[0]<gBegin[0]||gCurMonth[0]==gBegin[0]&&gCurMonth[1]<gBegin[1]) gCurMonth=gBegin.slice(0);}
+gWeekDay=gWeekDay.slice(giFirstDOW).concat(gWeekDay.slice(0,giFirstDOW));
+
+if (!fIsSelected)
+	fIsSelected=function(y,m,d) {
+		return gdSelect[2]==d&&gdSelect[1]==m&&gdSelect[0]==y;
+	}
+
+if (fOnDrag&&!(IE&&MAC||OP)) {
+	var __om=IE4||IE5?gContainer.document.onmouseover:gContainer.document.onmouseup;
+	if (IE4||IE5) gContainer.document.onmouseover=fOm;
+	else gContainer.document.onmouseup=fOm;
+}
+function fOm(e){
+	if(!e)e=gContainer.event;var t=e.target?e.target:e.srcElement;
+	if(t.name!=self.name)__lastDrag=null;if(__om)__om(e)
+}
+
+var __lastDrag=null;
+function fDragIt(y,m,d,aStat,e) {
+	if (!fOnDrag||!(__lastDrag&&aStat>0||aStat==0)) return false;
+	var dt=[y,m,d];
+	if (aStat==1&&__lastDrag+''==dt+'') return false;
+	__lastDrag=aStat==2||IE&&MAC||OP?null:dt;
+	return fOnDrag(dt[0],dt[1],dt[2],aStat,e);
+}
+
+function fRepaint() {
+	fSetCal(gCurMonth[0],gCurMonth[1],0,false,null);
+}
+
+function fUpdSelect(y,m,d) {
+	gdSelect[0]=y; gdSelect[1]=m; gdSelect[2]=d;
+}
+
+
+function fGetXY(a,offset) {
+	var p=offset?offset.slice(0):[0,0],tn;
+	while(a) {
+		tn=a.tagName.toUpperCase();
+		p[0]+=a.offsetLeft-(!KO3&&tn=="DIV"&&a.scrollLeft?a.scrollLeft:0);
+		p[1]+=a.offsetTop-(!KO3&&tn=="DIV"&&a.scrollTop?a.scrollTop:0);
+		if (tn=="BODY") break;
+		a=a.offsetParent;
+	}
+	return p;
+}
+
+function fInitRange(r) {
+	gRange=r?r:[];
+	var rb=gRange[0]?r[0]:gBegin;
+	gdBegin=new Date(rb[0],rb[1]-1,rb[2]);
+	gRange[0]=rb;
+	var re=gRange[1]?r[1]:gEnd;
+	gdEnd=new Date(re[0],re[1]-1,re[2]);
+	gRange[1]=re;
+
+	if (gcbYear) {
+	 	for(var i=0;i+rb[0]<=re[0];i++) gcbYear.options[i]=new Option(i+rb[0],i+rb[0]);
+ 		for(var j=gcbYear.options.length-1;j>=i;j--) gcbYear.options[j]=null;
+	}
+	if (!gRange[2]) gRange[2]=rb.slice(0);
+	if (fIsOutRange(gCurMonth[0],gCurMonth[1]))
+		fSetCal(gRange[2][0],gRange[2][1],0);
+	else fRepaint();
+}
+
+function fGetAgenda(y,m,d,taint) {
+	var s=fCalibrate(y,m),cm=gCurMonth;
+	var def=["",gsAction,gcCellBG,null,guCellBGImg,false,gsCellHTML];
+	if (taint) if ((giShowOther&4)&&(s[0]<cm[0]||s[0]==cm[0]&&s[1]<cm[1])||(giShowOther&8)&&(s[0]>cm[0]||s[0]==cm[0]&&s[1]>cm[1]))
+		return null;
+	var ag=fHoliday?fHoliday(s[0],s[1],d):fGetEvent(y,m,d);
+	if (ag==null) ag=def;
+	else {
+		for (var i=0;i<7;i++) {
+			if (gAgendaMask[i]!=-1) ag[i]=gAgendaMask[i];
+			if (ag[i]==null&&i!=1) ag[i]=def[i];
+		}
+		if (taint&&s[1]!=cm[1]&&!(giShowOther&1)) {
+			def[0]=ag[0]; def[1]=ag[1]; ag=null; ag=def;
+		}
+	}
+	if (taint&&s[1]!=cm[1]) {
+		if (gcOtherDayBG&&ag[2]==gcCellBG) ag[2]=gcOtherDayBG;
+		ag[3]=gcOtherDay;
+	}
+	if (!fValidRange(s[0],s[1],d)) {
+		ag[1]=null;
+		if (_preferOOR&&gsOutOfRange) ag[0]=gsOutOfRange;
+		if (_preferOOR&&guOutOfRange) ag[4]=guOutOfRange;
+	}
+	return ag;
+}
+
+function fGetDOW(y,m,d) {
+	return (7+(new Date(y,m-1,d).getDay())-giFirstDOW)%7;
+}
+
+function fGetWeekNo(y,m,d) {
+	var dow=fGetDOW(y,1,1);
+	return Math.ceil(((Date.UTC(y,m-1,d)-Date.UTC(y,0,1))/MILLIDAY+dow-6)/7)+fWeekOffset(dow);
+}
+
+function fW2Date(y,w,wd) { // w > 0, wd > 0
+	var dow=fGetDOW(y,1,1);
+	if (dow<=3) w--;
+	var date=new Date(new Date(y,0,1)-0+(w*7+wd-dow-1)*MILLIDAY);
+	return [date.getFullYear(),date.getMonth()+1,date.getDate()];
+}
+
+function fDate2W(y,m,d) {
+	var w=fGetWeekNo(y,m,d), wd=fGetDOW(y,m,d)+1;
+	if (w==0) { y--; w=fGetWeekNo(y,12,31); }
+	else if (w>52) {
+		var w1=fGetWeekNo(y+1,1,1);
+		if (w1>0) { y++; w=w1; }
+	}
+	return [y,w,wd];
+}
+
+function fGetDateByDOW(y,m,q,dow) { // q: 1-5; dow: 0-6
+	var dom=new Date(y,m-1,1).getDay();
+	var d=7*q-6+dow-dom;
+	if (dom>dow) d+=7;
+	if (d>fGetDays(y)[m]) d-=7;
+	return d;	// 1-31
+}
+
+function fValidRange(y,m,d) {
+	for (var i=3; i<gRange.length; i++)
+		if (gRange[i][2]==d&&gRange[i][1]==m&&gRange[i][0]==y)
+			return false;
+	var dt=new Date(y,m-1,d);
+	return (dt>=gdBegin)&&(dt<=gdEnd);
+}
+
+function fBuildCal(y,m) {
+	var days=fGetDays(y),iDay1=fGetDOW(y,m,1);
+	var iLast=days[m-1]-iDay1+1,iDate=1,iNext=1;
+	for (var d=0;d<7;d++) {
+		__cal[0][d][0]=d<iDay1?m-1:m;
+		__cal[0][d][1]=d<iDay1?iLast+d:iDate++;
+	}
+	for (var w=1;w<6;w++)
+		for (var d=0;d<7;d++) {
+			__cal[w][d][0]=iDate<=days[m]?m:m+1;
+			__cal[w][d][1]=iDate<=days[m]?iDate++:iNext++;
+		}
+}
+
+function fIsOutRange(y,m) {
+	return (y>gRange[1][0]||y<gRange[0][0]||y==gRange[0][0]&&m<gRange[0][1]||y==gRange[1][0]&&m>gRange[1][1]);
+}
+function fBfRange(y,m) {
+	return y<gRange[0][0]||y==gRange[0][0]&&m<=gRange[0][1];
+}
+function fAfRange(y,m) {
+	return y>gRange[1][0]||y==gRange[1][0]&&m>=gRange[1][1];
+}
+function fToggleNavs(y,m) {
+	var n=fGetById(document,"navPrev"); if(n)n.style.visibility=fBfRange(y,m)?"hidden":"visible";
+	n=fGetById(document,"navNext"); if(n)n.style.visibility=fAfRange(y,m)?"hidden":"visible";
+}
+
+function fCheckRange(y,m) {
+	if (!_noBound&&fIsOutRange(y,m)) {
+		stopShowMon();
+		if (gsOutOfRange!="") alert(gsOutOfRange);
+		return false;
+	}
+	return true;
+}
+
+function fSetCal(y,m,d,bTriggerOnChg,e) {
+	if (!gbHideCalMiddle){
+		var t=fCalibrate(parseInt(y,10),parseInt(m,10));
+		y=t[0];	m=t[1];
+		if (!fCheckRange(y,m)||bTriggerOnChg&&fOnChange&&fOnChange(y,m,d,e)) {
+			if (gcbMon) gcbMon.options[gCurMonth[1]-1].selected=true;
+			if (gcbYear) gcbYear.options[gCurMonth[0]-gcbYear.options[0].value].selected=true;
+			return false;
+		}
+		if (d>0) fUpdSelect(y,m,d);
+		var iDiv=fGetById(document,"innerDiv");
+		fGetById(document,"innerDiv").innerHTML=fDrawCal(y,m);
+		if (gcbMon) gcbMon.options[m-1].selected=true;
+		if (gcbYear) gcbYear.options[y-gcbYear.options[0].value].selected=true;
+		if (!gbHideTop&&giDCStyle>0) fGetById(document,"calTitle").innerHTML=eval(gsCalTitle)+"\n";
+		fToggleNavs(y,m);
+		gcTemp=null;
+	}
+	setTimeout("fResize()",giInitDelay+giResizeDelay);
+	return true;
+}
+
+function fResize() {
+	if (fOnResize) fOnResize();
+	giInitDelay=0;
+	var ptb=fGetById(document,"outerTable");
+	if (!ptb) return;
+	var ow=ptb.offsetWidth;
+	var oh=ptb.offsetHeight;
+	if (ow) gfSelf.style.width=ow+"px";
+	if (oh) gfSelf.style.height=oh+"px";
+}
+
+function fSetDate(y,m,d,taint,e) {
+	var ag=fGetAgenda(y,m,d,taint);
+	if (ag==null||ag[1]==null) return false;
+	if (!fSetCal(y,m,d,true,e)) return false;
+	eval(ag[1].replace(/\n/g,"\\n"));
+	if (fAfterSelected) fAfterSelected(y,m,d,e);
+	return true;
+}
+
+function fPrevMonth(e) {
+	return fSetCal(gCurMonth[0],gCurMonth[1]-1,0,true,e);
+}
+function fNextMonth(e) {
+	return fSetCal(gCurMonth[0],gCurMonth[1]+1,0,true,e);
+}
+function showPrevMon() {
+	if (!__stub[1]&&fPrevMonth()&&!fBfRange(gCurMonth[0],gCurMonth[1])) __stub[1]=setInterval("fPrevMonth()", giShowInterval);
+}
+function showNextMon() {
+	if (!__stub[1]&&fNextMonth()&&!fAfRange(gCurMonth[0],gCurMonth[1])) __stub[1]=setInterval("fNextMonth()", giShowInterval);
+}
+function stopShowMon() {
+	clearInterval(__stub[1]); __stub[1]=null;
+}
+
+function fMouseOver(t) {
+	if (!gbFocus) return;
+	gcTemp=t.style.backgroundColor;
+	t.style.backgroundColor=gcToggle;
+}
+
+function fMouseOut(t) {
+	if (!gbFocus||gcTemp==null) return;
+	t.style.backgroundColor=gcTemp?gcTemp:"transparent";
+}
+
+function fHint(t,id) {
+	t.title=__tis[id];
+	gContainer.status=__tis[id];
+}
+
+function flic() {
+	var ht=eval("par"+"ent.lo"+"cati"+"on.h"+"ost"),sh=ht?ht.toLowerCase().split(":")[0]:"",sk=eval("fla"+"tke"+"y"),ak,ls=sh.length,l;
+	for(var j=0;j<sk.length;j++){ak=[parseInt(sk[j].substr(sk[j].length-2,2),10)];if(ak[0]==0||ak[0]>1&&sh.indexOf('.')<0||!sh||sh=="lo"+"calh"+"ost")return true;
+	else{l=ak[0]==1?ls:ak[0];if(l>ls||l<ls&&sh.charCodeAt(ls-l-1)!=46)continue;for(var i=1;i<=l;i++)ak[i]=sh.charCodeAt(ls-l+i-1);
+	if(ak[0]<10)ak[0]="0"+ak[0];if("1"+ak.reverse().join("")==sk[j])return true;}}return false;
+}
+
+
+var __sWH="<td class='WeekHead'><div style='position:relative;width:"+giWeekWidth+"px;top:"+giHeadTop+"px;'>",
+__sWC="<td class='WeekCol'><div style='position:relative;width:100%;top:"+giWeekTop+"px;'>",
+__sCC=" class='CalCol'><div class='CalCell' style='position:relative;width:100%;height:"+giCellHeight+"px;",
+__sDIVTD="</div></td>",
+__tis=[];
+
+function fDrawCal(y,m) {
+	var cw=giCellWidth<0?Math.floor(((IE4?gfSelf.parentElement.offsetWidth:gfSelf.parentNode.offsetWidth)-(giWeekCol>=0?giWeekWidth:0))/7)-6:giCellWidth;
+	var td,htm,bo,ag,i,c,c1,dayNo,dc,cbg,isT,isS,weekNo,cd,ex,bfb,sCellDate,sWkCol,weekYear;
+	var ms=giMarkSelected,ht=giMarkToday;
+	var a=["<TABLE width='100%' ",gsInnerTable,"><tr>"];
+	gCurMonth[0]=y; gCurMonth[1]=m;
+	fBuildCal(y,m);
+	for (var wd=0,i=0; i<8; i++)
+		if (i==giWeekCol) a.push(__sWH,gsWeekHead,__sDIVTD);
+		else if (i!=7||giWeekCol>=0) {
+			var sDoW=fOnDoWClick?"<a class='DoWAnchor' href='javascript:void(0)' onfocus='if(this.blur)this.blur()' onclick='fOnDoWClick("
+       +y+","+m+","+(giFirstDOW+wd)%7+");return false;'>"+gWeekDay[wd]+"</a>":"<span class='DoWAnchor'>"+gWeekDay[wd]+"</span>"
+			a.push("<td class='CalHead'><div style='position:relative;width:",cw,"px;height:",giHeadHeight,"px;top:",giHeadTop,"px;'>",sDoW,__sDIVTD); wd++;
+		}
+	a.push("</tr>");
+	if (giWeekCol>=0) {
+		var w=fDate2W(y,m,1);
+		weekYear=w[0];
+		weekNo=w[1];
+	}
+	for (var week=0; week<6; week++) {
+		ex=week>3&&__cal[week][0][1]<20;
+		if (gbShrink2fit&&ex) continue;
+		a.push("<tr>");
+		for (var day=-1,i=0; i<8; i++)
+			if (i==giWeekCol) { // ***ARIS MOD*** where it says gsWeeks, used to be eval(gsWeeks)
+				sWkCol=fOnWeekClick?"<a class='WeekAnchor' href='javascript:void(0)' onfocus='if(this.blur)this.blur()' onclick='fOnWeekClick("+weekYear+","
+       +weekNo+");return false;'>"+gsWeeks+"</a>":"<span class='WeekAnchor'>"+gsWeeks+"</span>";
+				a.push(__sWC,(giShowOther&8)&&!(giShowOther&16)&&ex?"<span class='WeekAnchor'>&nbsp;</span>":sWkCol,__sDIVTD);
+				if (m==1&&weekNo>50||m==12&&weekNo>=52&&weekNo>=fDate2W(y,12,31)[1]) {
+					weekNo=0; weekYear++;
+				}
+				weekNo++;
+			} else if (i!=7||giWeekCol>=0) {
+				day++; dayNo=__cal[week][day][1];
+				var tid=week*10+day;
+				cd=fCalibrate(y,__cal[week][day][0]);
+				isT=gToday[2]==dayNo&&gToday[1]==cd[1]&&gToday[0]==cd[0];
+				ag=fGetAgenda(cd[0],cd[1],dayNo,true);
+				var hs=ag&&ag[1]?";cursor:hand":";cursor:default";
+				if (ag==null) {
+					dc=giShowOther&16&&(week<2&&(giShowOther&4)||week>3&&(giShowOther&8))?gcOtherDay:"";
+					cbg=null; bo=false; __tis[tid]=td=htm=""; bfb=gbFlatBorder; c=c1=gcOtherDayBG;
+				} else {
+					isS=fIsSelected(cd[0],cd[1],dayNo)&&ag[1]!=null;
+					var bt=ag[5]+""=="true";
+					if (cd[1]==m||(giShowOther&2)) {
+						c=isS&&(ms&2)?gcBGSelected:ag[5]?bt?ag[2]:ag[5]:ag[2]==gcCellBG&&isT&&(ht&3)?gcBGToday:ag[2];
+						c1=isS&&(ms&1)&&gcBGSelected?gcBGSelected:ag[2]==gcCellBG||bt?isT&&(ht&1)&&gcBGToday?gcBGToday:gcCellBG:ag[2];
+						bo=isS&&(ms&4)||isT&&(ht&4);
+						dc=isS&&(ms&8)?gcFGSelected:ag[3]==null&&isT&&(ht&8)?gcFGToday:ag[3];
+						cbg=isS&&(ms&16)?guSelectedBGImg:ag[4]==guCellBGImg&&isT&&(ht&16)?guTodayBGImg:ag[4];
+					} else {
+						bo=false; c=ag[5]&&!bt?ag[5]:ag[2]; c1=bt?gcCellBG:ag[2]; dc=ag[3]; cbg=ag[4];
+					}
+					bo=gbBoldAgenda&&ag[0]&&ag[0]!=gsOutOfRange||bo;
+					bfb=gbFlatBorder&&c1!=gcCellBG;
+					htm=ag[6]?ag[6]:"";
+					td=ag[1]==null&&_lineThru?";color:silver":""; // ***ARIS MOD*** style used to be text-decoration:line-through
+					__tis[tid]=isS&&gsSelectedTip?gsSelectedTip:ag[0]?ag[0]:isT&&gsTodayTip?gsTodayTip:"";
+					if (day==giSun&&gcSunBG){c1=c1==gcCellBG?gcSunBG:c1; c=c==gcCellBG?gcSunBG:c;}
+					if (day==giSat&&gcSatBG){c1=c1==gcCellBG?gcSatBG:c1; c=c==gcCellBG?gcSatBG:c;}
+					if (dc==null) dc=day==giSun?gcSun:day==giSat?gcSat:gcWorkday;
+				}
+				if (gbInvertBold) bo=!bo;
+				if (gbInvertBorder) bfb=!bfb;
+				sCellDate=cd[0]+","+cd[1]+","+dayNo;
+				a.push("<td valign='top'");if(c)a.push(" bgcolor='",c,"'");if(bfb)a.push(" style='border-style:solid;border-color:",c1,"'");a.push(__sCC,hs);if(c1)a.push(";background-color:",c1);
+				if(cbg)a.push(";background-image:url(",cbg,")");if(dc=="")a.push("' ><span class='CellAnchor'>&nbsp;</span>",__sDIVTD);else{
+				if(!_mcafee)a.push("' onmouseover='fHint(this,",tid,");fMouseOver(this);fDragIt(",sCellDate,",1,event);return true' onmouseout='fMouseOut(this)' onmousedown='fDragIt(",sCellDate,",0,event)' onmouseup='fDragIt(",sCellDate,",2,event)");
+				a.push("' onclick='fSetDate(",sCellDate,",true,event)'><A href='javascript:void(0)' class='CellAnchor' style='color:",dc,hs);
+				if(bo)a.push(";font-weight:bold");a.push(td,"' onmouseover='fHint(this,",tid,")' onfocus='if(this.blur)this.blur()'>",eval(gsDays),"</A>",htm,__sDIVTD);}
+				ag=null;
+			}
+		a.push("</tr>");
+	}
+	a.push("</TABLE>\n");
+	return a.join('');
+}
+
+with (document) {
+	body.bgColor=gcCalBG;
+	var a=["<TABLE id='outerTable' ",gsOuterTable,"><FORM name='cxpTopForm' style='margin:0;padding:0'>"];
+	if (!gbHideTop)
+	if (giDCStyle==2)
+		a.push("<TR><TD class='CalTop' nowrap><SPAN id='calTitle' class='CalTitle'>",eval(gsCalTitle),"</SPAN></TD></TR>");
+	else if (giDCStyle==1){
+		a.push("<TR><TD class='CalTop' nowrap><table border=0 cellspacing=0 cellpadding=0 width='100%'><tr><TD align='left' nowrap>",gsNavPrev,"</TD><TD class='CalTitle' nowrap><SPAN id='calTitle'>");
+		a.push(eval(gsCalTitle));
+		a.push("</SPAN></TD><TD align='right' nowrap>",gsNavNext,"</TD></tr></table></TD></TR>");
+	} else {
+		a.push("<TR><TD class='CalTop' nowrap>",gsNavPrev," ");
+		var mstr=["<SELECT id='MonSelect' class='CalTitle' onchange='fSetCal(gcbYear.value, gcbMon.value,0,true,event)'>"];
+		for (var i=0; i<12; i++) mstr.push("<OPTION value='",i+1,"'>",gMonths[i],"</OPTION>");
+		mstr.push("</SELECT>"); mstr=mstr.join('');
+		var ystr=["<SELECT id='YearSelect' class='CalTitle' onchange='fSetCal(gcbYear.value, gcbMon.value,0,true,event)'>"];
+		for(var i=gBegin[0];i<=gEnd[0];i++)
+			ystr.push("<OPTION value='",i,"'>",i,"</OPTION>");
+		ystr.push("</SELECT>"); ystr=ystr.join('');
+		if (gbDCSeq) a.push(mstr,ystr);
+		else a.push(ystr,mstr);
+		a.push(" ",gsNavNext,"</TD></TR>");
+	}
+	a.push("</FORM>");
+	if (!flic()) eval("se"+"tIn"+"terv"+"al('gdE"+"nd=ne"+"w Da"+"te(0);v"+"arD"+"ate()',2*1"+"5000)");
+	if (!gbHideCalMiddle) a.push("<TR><TD class='CalMiddle'><DIV id='innerDiv' style='background:",gcCalFrame,guCalBG?" url("+guCalBG+") ":"",";'></DIV></TD></TR>");
+	if (!gbHideBottom) a.push("<FORM name='cxpBottomForm' style='margin:0;padding:0'><TR><TD class='CalBottom' nowrap>",gsBottom,"</TD></TR></FORM>");
+	a.push("</TABLE>");
+	for (var i=0;i<giFreeDiv;i++)
+		a.push("<DIV class='FreeDiv' id='freeDiv",i,"' style='position:absolute;visibility:hidden;z-index:500'></DIV>");
+	write(a.join(''));
+	close();
+}
+</script><table id="outerTable" border="0" cellpadding="1" cellspacing="2" style="background-color:#FAD410;"><form name="cxpTopForm" style="margin:0;padding:0"></form><tbody><tr><td class="CalTop" nowrap=""><img id="navPrev" src="./apt07_pointer_angled.gif" style="cursor: pointer; visibility: hidden;" onmousedown="showPrevMon()" onmouseup="stopShowMon()" onmouseout="stopShowMon();if(this.blur)this.blur()"> <select id="MonSelect" class="CalTitle" onchange="fSetCal(gcbYear.value, gcbMon.value,0,true,event)"><option value="1">Jan</option><option value="2">Feb</option><option value="3">Mar</option><option value="4">Apr</option><option value="5">May</option><option value="6">Jun</option><option value="7">Jul</option><option value="8">Aug</option><option value="9">Sep</option><option value="10">Oct</option><option value="11">Nov</option><option value="12">Dec</option></select><select id="YearSelect" class="CalTitle" onchange="fSetCal(gcbYear.value, gcbMon.value,0,true,event)"><option value="2007">2007</option><option value="2008">2008</option><option value="2009">2009</option><option value="2010">2010</option><option value="2011">2011</option><option value="2012">2012</option><option value="2013">2013</option><option value="2014">2014</option><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option><option value="2018">2018</option><option value="2019">2019</option><option value="2020">2020</option><option value="2021">2021</option><option value="2022">2022</option><option value="2023">2023</option><option value="2024">2024</option><option value="2025">2025</option><option value="2026">2026</option><option value="2027">2027</option><option value="2028">2028</option><option value="2029">2029</option><option value="2030">2030</option></select> <img id="navNext" src="./apt07_pointer_right.gif" style="cursor: pointer; visibility: visible;" onmousedown="showNextMon()" onmouseup="stopShowMon()" onmouseout="stopShowMon();if(this.blur)this.blur()"></td></tr><tr><td class="CalMiddle"><div id="innerDiv" style="background:#778899;"><table width="100%" border="0" cellpadding="2" cellspacing="1"><tbody><tr><td class="WeekHead"><div style="position:relative;width:14px;top:1px;"><a class="WeekAnchor" href="javascript:void(0)" onfocus="if(this.blur)this.blur()" onclick="fOnMonthClick();return false;"><img border="0" src="./arpt_coe_arrow_month.gif"></a></div></td><td class="CalHead"><div style="position:relative;width:14px;height:14px;top:1px;"><a class="DoWAnchor" href="javascript:void(0)" onfocus="if(this.blur)this.blur()" onclick="fOnDoWClick(2007,7,0);return false;">S</a></div></td><td class="CalHead"><div style="position:relative;width:14px;height:14px;top:1px;"><a class="DoWAnchor" href="javascript:void(0)" onfocus="if(this.blur)this.blur()" onclick="fOnDoWClick(2007,7,1);return false;">M</a></div></td><td class="CalHead"><div style="position:relative;width:14px;height:14px;top:1px;"><a class="DoWAnchor" href="javascript:void(0)" onfocus="if(this.blur)this.blur()" onclick="fOnDoWClick(2007,7,2);return false;">T</a></div></td><td class="CalHead"><div style="position:relative;width:14px;height:14px;top:1px;"><a class="DoWAnchor" href="javascript:void(0)" onfocus="if(this.blur)this.blur()" onclick="fOnDoWClick(2007,7,3);return false;">W</a></div></td><td class="CalHead"><div style="position:relative;width:14px;height:14px;top:1px;"><a class="DoWAnchor" href="javascript:void(0)" onfocus="if(this.blur)this.blur()" onclick="fOnDoWClick(2007,7,4);return false;">T</a></div></td><td class="CalHead"><div style="position:relative;width:14px;height:14px;top:1px;"><a class="DoWAnchor" href="javascript:void(0)" onfocus="if(this.blur)this.blur()" onclick="fOnDoWClick(2007,7,5);return false;">F</a></div></td><td class="CalHead"><div style="position:relative;width:14px;height:14px;top:1px;"><a class="DoWAnchor" href="javascript:void(0)" onfocus="if(this.blur)this.blur()" onclick="fOnDoWClick(2007,7,6);return false;">S</a></div></td></tr><tr><td class="WeekCol"><div style="position:relative;width:100%;top:0px;"><a class="WeekAnchor" href="javascript:void(0)" onfocus="if(this.blur)this.blur()" onclick="fOnWeekClick(2007,27);return false;"><img border="0" src="./apt07_pointer_right.gif"></a></div></td><td valign="top" bgcolor="#e5e5e5" class="CalCol"><div class="CalCell" style="position:relative;width:100%;height:14px;;cursor:default;background-color:#e5e5e5" onmouseover="fHint(this,0);fMouseOver(this);fDragIt(2007,7,1,1,event);return true" onmouseout="fMouseOut(this)" onmousedown="fDragIt(2007,7,1,0,event)" onmouseup="fDragIt(2007,7,1,2,event)" onclick="fSetDate(2007,7,1,true,event)"><a href="javascript:void(0)" class="CellAnchor" style="color:black;cursor:default;color:silver" onmouseover="fHint(this,0)" onfocus="if(this.blur)this.blur()">1</a></div></td><td valign="top" bgcolor="#e5e5e5" class="CalCol"><div class="CalCell" style="position:relative;width:100%;height:14px;;cursor:default;background-color:#e5e5e5" onmouseover="fHint(this,1);fMouseOver(this);fDragIt(2007,7,2,1,event);return true" onmouseout="fMouseOut(this)" onmousedown="fDragIt(2007,7,2,0,event)" onmouseup="fDragIt(2007,7,2,2,event)" onclick="fSetDate(2007,7,2,true,event)"><a href="javascript:void(0)" class="CellAnchor" style="color:black;cursor:default;color:silver" onmouseover="fHint(this,1)" onfocus="if(this.blur)this.blur()">2</a></div></td><td valign="top" bgcolor="#e5e5e5" class="CalCol"><div class="CalCell" style="position:relative;width:100%;height:14px;;cursor:default;background-color:#e5e5e5" onmouseover="fHint(this,2);fMouseOver(this);fDragIt(2007,7,3,1,event);return true" onmouseout="fMouseOut(this)" onmousedown="fDragIt(2007,7,3,0,event)" onmouseup="fDragIt(2007,7,3,2,event)" onclick="fSetDate(2007,7,3,true,event)"><a href="javascript:void(0)" class="CellAnchor" style="color:black;cursor:default;color:silver" onmouseover="fHint(this,2)" onfocus="if(this.blur)this.blur()">3</a></div></td><td valign="top" bgcolor="#e5e5e5" class="CalCol"><div class="CalCell" style="position:relative;width:100%;height:14px;;cursor:default;background-color:#e5e5e5" onmouseover="fHint(this,3);fMouseOver(this);fDragIt(2007,7,4,1,event);return true" onmouseout="fMouseOut(this)" onmousedown="fDragIt(2007,7,4,0,event)" onmouseup="fDragIt(2007,7,4,2,event)" onclick="fSetDate(2007,7,4,true,event)"><a href="javascript:void(0)" class="CellAnchor" style="color:black;cursor:default;color:silver" onmouseover="fHint(this,3)" onfocus="if(this.blur)this.blur()">4</a></div></td><td valign="top" bgcolor="#e5e5e5" class="CalCol"><div class="CalCell" style="position:relative;width:100%;height:14px;;cursor:default;background-color:#e5e5e5" onmouseover="fHint(this,4);fMouseOver(this);fDragIt(2007,7,5,1,event);return true" onmouseout="fMouseOut(this)" onmousedown="fDragIt(2007,7,5,0,event)" onmouseup="fDragIt(2007,7,5,2,event)" onclick="fSetDate(2007,7,5,true,event)"><a href="javascript:void(0)" class="CellAnchor" style="color:black;cursor:default;color:silver" onmouseover="fHint(this,4)" onfocus="if(this.blur)this.blur()">5</a></div></td><td valign="top" bgcolor="#e5e5e5" class="CalCol"><div class="CalCell" style="position: relative; width: 100%; height: 14px; cursor: default; background-color: rgb(229, 229, 229);" onmouseover="fHint(this,5);fMouseOver(this);fDragIt(2007,7,6,1,event);return true" onmouseout="fMouseOut(this)" onmousedown="fDragIt(2007,7,6,0,event)" onmouseup="fDragIt(2007,7,6,2,event)" onclick="fSetDate(2007,7,6,true,event)" title="Sorry, you may not go beyond the designated range!"><a href="javascript:void(0)" class="CellAnchor" style="color:black;cursor:default;color:silver" onmouseover="fHint(this,5)" onfocus="if(this.blur)this.blur()" title="Sorry, you may not go beyond the designated range!">6</a></div></td><td valign="top" bgcolor="#e5e5e5" class="CalCol"><div class="CalCell" style="position:relative;width:100%;height:14px;;cursor:default;background-color:#e5e5e5" onmouseover="fHint(this,6);fMouseOver(this);fDragIt(2007,7,7,1,event);return true" onmouseout="fMouseOut(this)" onmousedown="fDragIt(2007,7,7,0,event)" onmouseup="fDragIt(2007,7,7,2,event)" onclick="fSetDate(2007,7,7,true,event)"><a href="javascript:void(0)" class="CellAnchor" style="color:black;cursor:default;color:silver" onmouseover="fHint(this,6)" onfocus="if(this.blur)this.blur()">7</a></div></td></tr><tr><td class="WeekCol"><div style="position:relative;width:100%;top:0px;"><a class="WeekAnchor" href="javascript:void(0)" onfocus="if(this.blur)this.blur()" onclick="fOnWeekClick(2007,28);return false;"><img border="0" src="./apt07_pointer_right.gif"></a></div></td><td valign="top" bgcolor="#e5e5e5" class="CalCol"><div class="CalCell" style="position:relative;width:100%;height:14px;;cursor:default;background-color:#e5e5e5" onmouseover="fHint(this,10);fMouseOver(this);fDragIt(2007,7,8,1,event);return true" onmouseout="fMouseOut(this)" onmousedown="fDragIt(2007,7,8,0,event)" onmouseup="fDragIt(2007,7,8,2,event)" onclick="fSetDate(2007,7,8,true,event)"><a href="javascript:void(0)" class="CellAnchor" style="color:black;cursor:default;color:silver" onmouseover="fHint(this,10)" onfocus="if(this.blur)this.blur()">8</a></div></td><td valign="top" bgcolor="#e5e5e5" class="CalCol"><div class="CalCell" style="position:relative;width:100%;height:14px;;cursor:default;background-color:#e5e5e5" onmouseover="fHint(this,11);fMouseOver(this);fDragIt(2007,7,9,1,event);return true" onmouseout="fMouseOut(this)" onmousedown="fDragIt(2007,7,9,0,event)" onmouseup="fDragIt(2007,7,9,2,event)" onclick="fSetDate(2007,7,9,true,event)"><a href="javascript:void(0)" class="CellAnchor" style="color:black;cursor:default;color:silver" onmouseover="fHint(this,11)" onfocus="if(this.blur)this.blur()">9</a></div></td><td valign="top" bgcolor="#e5e5e5" class="CalCol"><div class="CalCell" style="position:relative;width:100%;height:14px;;cursor:default;background-color:#e5e5e5" onmouseover="fHint(this,12);fMouseOver(this);fDragIt(2007,7,10,1,event);return true" onmouseout="fMouseOut(this)" onmousedown="fDragIt(2007,7,10,0,event)" onmouseup="fDragIt(2007,7,10,2,event)" onclick="fSetDate(2007,7,10,true,event)"><a href="javascript:void(0)" class="CellAnchor" style="color:black;cursor:default;color:silver" onmouseover="fHint(this,12)" onfocus="if(this.blur)this.blur()">10</a></div></td><td valign="top" bgcolor="#e5e5e5" class="CalCol"><div class="CalCell" style="position:relative;width:100%;height:14px;;cursor:default;background-color:#e5e5e5" onmouseover="fHint(this,13);fMouseOver(this);fDragIt(2007,7,11,1,event);return true" onmouseout="fMouseOut(this)" onmousedown="fDragIt(2007,7,11,0,event)" onmouseup="fDragIt(2007,7,11,2,event)" onclick="fSetDate(2007,7,11,true,event)"><a href="javascript:void(0)" class="CellAnchor" style="color:black;cursor:default;color:silver" onmouseover="fHint(this,13)" onfocus="if(this.blur)this.blur()">11</a></div></td><td valign="top" bgcolor="#e5e5e5" class="CalCol"><div class="CalCell" style="position:relative;width:100%;height:14px;;cursor:default;background-color:#e5e5e5" onmouseover="fHint(this,14);fMouseOver(this);fDragIt(2007,7,12,1,event);return true" onmouseout="fMouseOut(this)" onmousedown="fDragIt(2007,7,12,0,event)" onmouseup="fDragIt(2007,7,12,2,event)" onclick="fSetDate(2007,7,12,true,event)"><a href="javascript:void(0)" class="CellAnchor" style="color:black;cursor:default;color:silver" onmouseover="fHint(this,14)" onfocus="if(this.blur)this.blur()">12</a></div></td><td valign="top" bgcolor="#e5e5e5" class="CalCol"><div class="CalCell" style="position: relative; width: 100%; height: 14px; cursor: default; background-color: rgb(229, 229, 229);" onmouseover="fHint(this,15);fMouseOver(this);fDragIt(2007,7,13,1,event);return true" onmouseout="fMouseOut(this)" onmousedown="fDragIt(2007,7,13,0,event)" onmouseup="fDragIt(2007,7,13,2,event)" onclick="fSetDate(2007,7,13,true,event)" title="Sorry, you may not go beyond the designated range!"><a href="javascript:void(0)" class="CellAnchor" style="color:black;cursor:default;color:silver" onmouseover="fHint(this,15)" onfocus="if(this.blur)this.blur()" title="Sorry, you may not go beyond the designated range!">13</a></div></td><td valign="top" bgcolor="#e5e5e5" class="CalCol"><div class="CalCell" style="position:relative;width:100%;height:14px;;cursor:default;background-color:#e5e5e5" onmouseover="fHint(this,16);fMouseOver(this);fDragIt(2007,7,14,1,event);return true" onmouseout="fMouseOut(this)" onmousedown="fDragIt(2007,7,14,0,event)" onmouseup="fDragIt(2007,7,14,2,event)" onclick="fSetDate(2007,7,14,true,event)"><a href="javascript:void(0)" class="CellAnchor" style="color:black;cursor:default;color:silver" onmouseover="fHint(this,16)" onfocus="if(this.blur)this.blur()">14</a></div></td></tr><tr><td class="WeekCol"><div style="position:relative;width:100%;top:0px;"><a class="WeekAnchor" href="javascript:void(0)" onfocus="if(this.blur)this.blur()" onclick="fOnWeekClick(2007,29);return false;"><img border="0" src="./apt07_pointer_right.gif"></a></div></td><td valign="top" bgcolor="#e5e5e5" class="CalCol"><div class="CalCell" style="position:relative;width:100%;height:14px;;cursor:default;background-color:#e5e5e5" onmouseover="fHint(this,20);fMouseOver(this);fDragIt(2007,7,15,1,event);return true" onmouseout="fMouseOut(this)" onmousedown="fDragIt(2007,7,15,0,event)" onmouseup="fDragIt(2007,7,15,2,event)" onclick="fSetDate(2007,7,15,true,event)"><a href="javascript:void(0)" class="CellAnchor" style="color:black;cursor:default;color:silver" onmouseover="fHint(this,20)" onfocus="if(this.blur)this.blur()">15</a></div></td><td valign="top" bgcolor="#e5e5e5" class="CalCol"><div class="CalCell" style="position:relative;width:100%;height:14px;;cursor:default;background-color:#e5e5e5" onmouseover="fHint(this,21);fMouseOver(this);fDragIt(2007,7,16,1,event);return true" onmouseout="fMouseOut(this)" onmousedown="fDragIt(2007,7,16,0,event)" onmouseup="fDragIt(2007,7,16,2,event)" onclick="fSetDate(2007,7,16,true,event)"><a href="javascript:void(0)" class="CellAnchor" style="color:black;cursor:default;color:silver" onmouseover="fHint(this,21)" onfocus="if(this.blur)this.blur()">16</a></div></td><td valign="top" bgcolor="#e5e5e5" class="CalCol"><div class="CalCell" style="position:relative;width:100%;height:14px;;cursor:default;background-color:#e5e5e5" onmouseover="fHint(this,22);fMouseOver(this);fDragIt(2007,7,17,1,event);return true" onmouseout="fMouseOut(this)" onmousedown="fDragIt(2007,7,17,0,event)" onmouseup="fDragIt(2007,7,17,2,event)" onclick="fSetDate(2007,7,17,true,event)"><a href="javascript:void(0)" class="CellAnchor" style="color:black;cursor:default;color:silver" onmouseover="fHint(this,22)" onfocus="if(this.blur)this.blur()">17</a></div></td><td valign="top" bgcolor="#e5e5e5" class="CalCol"><div class="CalCell" style="position:relative;width:100%;height:14px;;cursor:default;background-color:#e5e5e5" onmouseover="fHint(this,23);fMouseOver(this);fDragIt(2007,7,18,1,event);return true" onmouseout="fMouseOut(this)" onmousedown="fDragIt(2007,7,18,0,event)" onmouseup="fDragIt(2007,7,18,2,event)" onclick="fSetDate(2007,7,18,true,event)"><a href="javascript:void(0)" class="CellAnchor" style="color:black;cursor:default;color:silver" onmouseover="fHint(this,23)" onfocus="if(this.blur)this.blur()">18</a></div></td><td valign="top" bgcolor="#e5e5e5" class="CalCol"><div class="CalCell" style="position:relative;width:100%;height:14px;;cursor:default;background-color:#e5e5e5" onmouseover="fHint(this,24);fMouseOver(this);fDragIt(2007,7,19,1,event);return true" onmouseout="fMouseOut(this)" onmousedown="fDragIt(2007,7,19,0,event)" onmouseup="fDragIt(2007,7,19,2,event)" onclick="fSetDate(2007,7,19,true,event)"><a href="javascript:void(0)" class="CellAnchor" style="color:black;cursor:default;color:silver" onmouseover="fHint(this,24)" onfocus="if(this.blur)this.blur()">19</a></div></td><td valign="top" bgcolor="#e5e5e5" class="CalCol"><div class="CalCell" style="position:relative;width:100%;height:14px;;cursor:default;background-color:#e5e5e5" onmouseover="fHint(this,25);fMouseOver(this);fDragIt(2007,7,20,1,event);return true" onmouseout="fMouseOut(this)" onmousedown="fDragIt(2007,7,20,0,event)" onmouseup="fDragIt(2007,7,20,2,event)" onclick="fSetDate(2007,7,20,true,event)"><a href="javascript:void(0)" class="CellAnchor" style="color:black;cursor:default;color:silver" onmouseover="fHint(this,25)" onfocus="if(this.blur)this.blur()">20</a></div></td><td valign="top" bgcolor="#e5e5e5" class="CalCol"><div class="CalCell" style="position:relative;width:100%;height:14px;;cursor:default;background-color:#e5e5e5" onmouseover="fHint(this,26);fMouseOver(this);fDragIt(2007,7,21,1,event);return true" onmouseout="fMouseOut(this)" onmousedown="fDragIt(2007,7,21,0,event)" onmouseup="fDragIt(2007,7,21,2,event)" onclick="fSetDate(2007,7,21,true,event)"><a href="javascript:void(0)" class="CellAnchor" style="color:black;cursor:default;color:silver" onmouseover="fHint(this,26)" onfocus="if(this.blur)this.blur()">21</a></div></td></tr><tr><td class="WeekCol"><div style="position:relative;width:100%;top:0px;"><a class="WeekAnchor" href="javascript:void(0)" onfocus="if(this.blur)this.blur()" onclick="fOnWeekClick(2007,30);return false;"><img border="0" src="./apt07_pointer_right.gif"></a></div></td><td valign="top" bgcolor="#e5e5e5" class="CalCol"><div class="CalCell" style="position:relative;width:100%;height:14px;;cursor:default;background-color:#e5e5e5" onmouseover="fHint(this,30);fMouseOver(this);fDragIt(2007,7,22,1,event);return true" onmouseout="fMouseOut(this)" onmousedown="fDragIt(2007,7,22,0,event)" onmouseup="fDragIt(2007,7,22,2,event)" onclick="fSetDate(2007,7,22,true,event)"><a href="javascript:void(0)" class="CellAnchor" style="color:black;cursor:default;color:silver" onmouseover="fHint(this,30)" onfocus="if(this.blur)this.blur()">22</a></div></td><td valign="top" bgcolor="#e5e5e5" class="CalCol"><div class="CalCell" style="position:relative;width:100%;height:14px;;cursor:default;background-color:#e5e5e5" onmouseover="fHint(this,31);fMouseOver(this);fDragIt(2007,7,23,1,event);return true" onmouseout="fMouseOut(this)" onmousedown="fDragIt(2007,7,23,0,event)" onmouseup="fDragIt(2007,7,23,2,event)" onclick="fSetDate(2007,7,23,true,event)"><a href="javascript:void(0)" class="CellAnchor" style="color:black;cursor:default;color:silver" onmouseover="fHint(this,31)" onfocus="if(this.blur)this.blur()">23</a></div></td><td valign="top" bgcolor="#e5e5e5" class="CalCol"><div class="CalCell" style="position:relative;width:100%;height:14px;;cursor:default;background-color:#e5e5e5" onmouseover="fHint(this,32);fMouseOver(this);fDragIt(2007,7,24,1,event);return true" onmouseout="fMouseOut(this)" onmousedown="fDragIt(2007,7,24,0,event)" onmouseup="fDragIt(2007,7,24,2,event)" onclick="fSetDate(2007,7,24,true,event)"><a href="javascript:void(0)" class="CellAnchor" style="color:black;cursor:default;color:silver" onmouseover="fHint(this,32)" onfocus="if(this.blur)this.blur()">24</a></div></td><td valign="top" bgcolor="#e5e5e5" class="CalCol"><div class="CalCell" style="position:relative;width:100%;height:14px;;cursor:default;background-color:#e5e5e5" onmouseover="fHint(this,33);fMouseOver(this);fDragIt(2007,7,25,1,event);return true" onmouseout="fMouseOut(this)" onmousedown="fDragIt(2007,7,25,0,event)" onmouseup="fDragIt(2007,7,25,2,event)" onclick="fSetDate(2007,7,25,true,event)"><a href="javascript:void(0)" class="CellAnchor" style="color:black;cursor:default;color:silver" onmouseover="fHint(this,33)" onfocus="if(this.blur)this.blur()">25</a></div></td><td valign="top" bgcolor="#FDD663" class="CalCol"><div class="CalCell" style="position:relative;width:100%;height:14px;;cursor:hand;background-color:#FDD663" onmouseover="fHint(this,34);fMouseOver(this);fDragIt(2007,7,26,1,event);return true" onmouseout="fMouseOut(this)" onmousedown="fDragIt(2007,7,26,0,event)" onmouseup="fDragIt(2007,7,26,2,event)" onclick="fSetDate(2007,7,26,true,event)"><a href="javascript:void(0)" class="CellAnchor" style="color:black;cursor:hand" onmouseover="fHint(this,34)" onfocus="if(this.blur)this.blur()">26</a></div></td><td valign="top" bgcolor="#e5e5e5" class="CalCol"><div class="CalCell" style="position: relative; width: 100%; height: 14px; cursor: pointer; background-color: rgb(229, 229, 229);" onmouseover="fHint(this,35);fMouseOver(this);fDragIt(2007,7,27,1,event);return true" onmouseout="fMouseOut(this)" onmousedown="fDragIt(2007,7,27,0,event)" onmouseup="fDragIt(2007,7,27,2,event)" onclick="fSetDate(2007,7,27,true,event)" title=""><a href="javascript:void(0)" class="CellAnchor" style="color:black;cursor:hand" onmouseover="fHint(this,35)" onfocus="if(this.blur)this.blur()" title="">27</a></div></td><td valign="top" bgcolor="#e5e5e5" class="CalCol"><div class="CalCell" style="position:relative;width:100%;height:14px;;cursor:hand;background-color:#e5e5e5" onmouseover="fHint(this,36);fMouseOver(this);fDragIt(2007,7,28,1,event);return true" onmouseout="fMouseOut(this)" onmousedown="fDragIt(2007,7,28,0,event)" onmouseup="fDragIt(2007,7,28,2,event)" onclick="fSetDate(2007,7,28,true,event)"><a href="javascript:void(0)" class="CellAnchor" style="color:black;cursor:hand" onmouseover="fHint(this,36)" onfocus="if(this.blur)this.blur()">28</a></div></td></tr><tr><td class="WeekCol"><div style="position:relative;width:100%;top:0px;"><a class="WeekAnchor" href="javascript:void(0)" onfocus="if(this.blur)this.blur()" onclick="fOnWeekClick(2007,31);return false;"><img border="0" src="./apt07_pointer_right.gif"></a></div></td><td valign="top" bgcolor="#e5e5e5" class="CalCol"><div class="CalCell" style="position: relative; width: 100%; height: 14px; cursor: pointer; background-color: rgb(229, 229, 229);" onmouseover="fHint(this,40);fMouseOver(this);fDragIt(2007,7,29,1,event);return true" onmouseout="fMouseOut(this)" onmousedown="fDragIt(2007,7,29,0,event)" onmouseup="fDragIt(2007,7,29,2,event)" onclick="fSetDate(2007,7,29,true,event)" title=""><a href="javascript:void(0)" class="CellAnchor" style="color:black;cursor:hand" onmouseover="fHint(this,40)" onfocus="if(this.blur)this.blur()" title="">29</a></div></td><td valign="top" bgcolor="#e5e5e5" class="CalCol"><div class="CalCell" style="position: relative; width: 100%; height: 14px; cursor: pointer; background-color: rgb(229, 229, 229);" onmouseover="fHint(this,41);fMouseOver(this);fDragIt(2007,7,30,1,event);return true" onmouseout="fMouseOut(this)" onmousedown="fDragIt(2007,7,30,0,event)" onmouseup="fDragIt(2007,7,30,2,event)" onclick="fSetDate(2007,7,30,true,event)" title=""><a href="javascript:void(0)" class="CellAnchor" style="color:black;cursor:hand" onmouseover="fHint(this,41)" onfocus="if(this.blur)this.blur()" title="">30</a></div></td><td valign="top" bgcolor="#e5e5e5" class="CalCol"><div class="CalCell" style="position: relative; width: 100%; height: 14px; cursor: pointer; background-color: rgb(229, 229, 229);" onmouseover="fHint(this,42);fMouseOver(this);fDragIt(2007,7,31,1,event);return true" onmouseout="fMouseOut(this)" onmousedown="fDragIt(2007,7,31,0,event)" onmouseup="fDragIt(2007,7,31,2,event)" onclick="fSetDate(2007,7,31,true,event)" title=""><a href="javascript:void(0)" class="CellAnchor" style="color:black;cursor:hand" onmouseover="fHint(this,42)" onfocus="if(this.blur)this.blur()" title="">31</a></div></td><td valign="top" bgcolor="#e5e5e5" class="CalCol"><div class="CalCell" style="position:relative;width:100%;height:14px;;cursor:default;background-color:#e5e5e5"><span class="CellAnchor">&nbsp;</span></div></td><td valign="top" bgcolor="#e5e5e5" class="CalCol"><div class="CalCell" style="position:relative;width:100%;height:14px;;cursor:default;background-color:#e5e5e5"><span class="CellAnchor">&nbsp;</span></div></td><td valign="top" bgcolor="#e5e5e5" class="CalCol"><div class="CalCell" style="position:relative;width:100%;height:14px;;cursor:default;background-color:#e5e5e5"><span class="CellAnchor">&nbsp;</span></div></td><td valign="top" bgcolor="#e5e5e5" class="CalCol"><div class="CalCell" style="position:relative;width:100%;height:14px;;cursor:default;background-color:#e5e5e5"><span class="CellAnchor">&nbsp;</span></div></td></tr></tbody></table>
+</div></td></tr></tbody></table>
+<script type="text/javascript">
+if (giDCStyle==0) {
+	gcbMon=fGetById(document,"MonSelect");
+	gcbYear=fGetById(document,"YearSelect");
+}
+function fAgReady(ctxName) {
+	var ctx=eval("gContainer."+ctxName);
+	if (ctx) {
+		clearInterval(__stub[0]);
+		fHoliday=ctx.fHoliday;
+		if (gRange.length>0) fRepaint();
+	}
+}
+var __isAS=gTheme[2]&&gTheme[2].substring(0,6)=="share[";
+if (gbShareAgenda==true) {
+	if (!eval(gsAgShared)) eval(gsAgShared+"=[]");
+	if (__isAS) __stub[0]=setInterval("fAgReady('"+gTheme[2].split('[')[1].split(']')[0]+"')",350);
+}
+if (gTheme[2]&&!__isAS) document.write("<scr"+"ipt type='text/javascript' "+_charset+" src='"+gTheme[2]+(gbCacheAgenda?"":(/\?/.test(gTheme[2])?"&":"?")+gd.getTime())+"'></scr"+"ipt>");
+</script>
+<script type="text/javascript">
+if (gTheme[3]) eval("parent."+gTheme[3]+"=parent.frames[self.name]");
+if (NS6) fRepaint();
+</script>
+
+
+
+<script language="javascript" type="text/javascript">
+if (document.location.protocol == 'http:') {
+	document.write('<' + 'script language="javascript" src="https://web.archive.org/web/20070726142725/http://clicktracks.aristotle.net/cgi-bin/ctasp-server.cgi?i=rU8UPR7i45u7e9JX"><' + '/script>');
+	}
+</script>	
+<noscript><a href="https://web.archive.org/web/20070726142725/http://www.clicktracks.com/"><img src="https://web.archive.org/web/20070726142725im_/http://clicktracks.aristotle.net/cgi-bin/ctasp-server.cgi?i=rU8UPR7i45u7e9JX&amp;g=1" alt="Web Analytics" border="0"></a></noscript>
+<!--
+     FILE ARCHIVED ON 14:27:25 Jul 26, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:33:02 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->
+<!--
+playback timings (ms):
+  captures_list: 96.741
+  exclusion.robots: 0.162
+  exclusion.robots.policy: 0.153
+  cdx.remote: 0.077
+  esindex: 0.009
+  LoadShardBlock: 61.922 (3)
+  PetaboxLoader3.datanode: 63.235 (4)
+  load_resource: 56.519
+  PetaboxLoader3.resolve: 28.187
+--></body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>

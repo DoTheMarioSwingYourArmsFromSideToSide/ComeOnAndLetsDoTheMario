@@ -1,0 +1,211 @@
+@import url(/web/20070726142658cs_/http://www.arkansas.com/!includes/css/main_nav.css);
+@import url(/web/20070726142658cs_/http://www.arkansas.com/!includes/css/help_box.css);
+/* =GENERAL PURPOSE
+****************************/
+.ir {
+	display: block;
+	height/**/:/**/0!important;
+	overflow: hidden;
+}
+.nav, .nav ul, .nav dd {
+	list-style: none;
+	margin: 0; padding: 0;
+}
+.nav dt {
+	position: absolute;
+	top:0;
+	height: 0;
+	overflow: hidden; visibility: hidden;
+}
+
+/* Page Styles*/
+
+body {
+	background: #23231a;
+	font: 12px Verdana, Arial, Helvetica, sans-serif;
+}
+
+#canvas {
+	width: 992px;
+	border: 1px solid #000000;
+	color: #272928;
+	margin: 0 auto;
+	position: relative;
+}
+
+#mp_flash {
+	height: 383px;
+	width: 641px;
+	float: left;
+}
+
+#top_right {
+	background: url(/web/20070726142658im_/http://www.arkansas.com/!images/mp/apt07_mp_top_base.gif) top center no-repeat;
+	height: 383px;
+	width: 351px;
+	float: right;
+}
+
+#calXp {
+    background:url(/web/20070726142658im_/http://www.arkansas.com/!images/mp/apt07_mp_calendar_base_temp.gif) top right no-repeat;
+    width:351px;
+    height:176px;
+}
+
+#main_nav {
+	height: 33px;
+	width: 992px;
+	clear: both;
+}
+
+#sub_main_nav {
+	height: 25px;
+	width: 992px;
+	clear: both;
+}
+
+#main_body {
+	background: #FFD423 url(/web/20070726142658im_/http://www.arkansas.com/!images/mp/apt07_mp_yellow-fade.gif) top center no-repeat;
+	width: 992px;
+	padding-top: 13px;
+}
+
+/* Body Area Image Rules */
+
+#this_month {
+	background: url(/web/20070726142658im_/http://www.arkansas.com/!images/mp/apt07_mp_thismonth_riverboat.jpg) bottom no-repeat;
+	margin-left: 20px;
+	float: left;
+	clear: both;
+	height: 143px;
+	width: 159px;
+}
+#hot_deals {
+	background: url(/web/20070726142658im_/http://www.arkansas.com/!images/mp/apt07_mp_promo-title_hotdeals.gif) bottom center no-repeat;
+	margin-left: 18px;
+	float: left;
+	height: 143px;
+	width: 136px;
+}
+#city_listings {
+	background: url(/web/20070726142658im_/http://www.arkansas.com/!images/mp/apt07_mp_promo-title_listings.gif) bottom center no-repeat;
+	margin-left: 18px;
+	float: left;
+	height: 143px;
+	width: 136px;
+}
+#lakes_rivers {
+	background: url(/web/20070726142658im_/http://www.arkansas.com/!images/mp/apt07_mp_promo-title_lakes.gif) bottom center no-repeat;
+	margin-left: 18px;
+	float: left;
+	height: 143px;
+	width: 136px;
+}
+#book_room {
+	background: url(/web/20070726142658im_/http://www.arkansas.com/!images/mp/apt07_mp_promo-title_book.gif) bottom center no-repeat;
+	margin-left: 18px;
+	float: left;
+	height: 143px;
+	width: 136px;
+}
+#vac_kit {
+	background: url(/web/20070726142658im_/http://www.arkansas.com/!images/mp/apt07_mp_vacationkit.gif) no-repeat;
+	margin-left: 16px;
+	float: left;
+	height: 143px;
+	width: 159px;
+}
+
+/* Content Area */
+
+#content_area {
+	width: 955px;
+	clear: both;
+	margin: 0 auto;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+
+/* Footer Area */
+
+#footer {
+	background: #3a3b2b url(/web/20070726142658im_/http://www.arkansas.com/!images/mp/apt07_footer_tile.gif) repeat-x 0 0;
+	width: 992px;
+	color: #9d9c97;
+	font-size: .83em;
+	overflow:hidden;
+	padding-bottom: 10px;
+}
+	address#company {
+		font-style: normal;
+		width: 280px;
+		float: left;
+		margin: 20px 0 0 25px; display: inline;
+	}
+	#links, #legal {
+		font-size: .9em;
+		margin: 0 10px 0 305px;
+		text-align: right;
+	}
+	#links { padding: 10px 0 10px; word-spacing: 5px; }
+	#legal p { margin: 0; }
+
+
+#top_right_nav {
+    background-image: url(/web/20070726142658im_/http://www.arkansas.com/!images/mp/apt07_mp_top-nav.gif);
+	width: 351px;
+	height: 29px;
+	position: relative;
+	margin: 0 auto;
+}
+
+#top_right_nav dd {
+	background-image: url(/web/20070726142658im_/http://www.arkansas.com/!images/mp/apt07_mp_top-nav.gif);
+	float: left;
+	width: auto!important;
+	margin-right: -1px;
+	display: inline;
+}
+
+#top_right_nav a.nav_link {
+	display: block;
+	width: 100%;
+	height: 29px;
+	text-decoration: none;
+	text-indent: -9999px;
+	position: relative;
+	z-index: 10000;
+}
+
+#photos_link { margin-left:0px; }
+#espanol_link, #sitemap_link { margin-left:1px; }
+#photos_link, #photos_link a.nav_link { width:140px; background-position: 0px 0; }
+#espanol_link, #espanol_link a.nav_link { width:78px; background-position: -140px 0; }
+#sitemap_link, #sitemap_link a.nav_link { width:75px; background-position: -218px 0; }
+
+
+#top_right_nav a.nav_link:focus,
+#top_right_nav a.nav_link:hover,
+#top_right_nav a.nav_link:active,
+#top_right_nav dd:hover a.nav_link,
+#top_right_nav .item:hover { background-image: url(/web/20070726142658im_/http://www.arkansas.com/!images/mp/apt07_mp_top-nav_hover.gif); z-index: 10000; }
+/*
+     FILE ARCHIVED ON 14:26:58 Jul 26, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:33:00 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 77.337
+  exclusion.robots: 0.086
+  exclusion.robots.policy: 0.077
+  RedisCDXSource: 1.057
+  esindex: 0.01
+  LoadShardBlock: 50.12 (3)
+  PetaboxLoader3.datanode: 87.136 (4)
+  load_resource: 88.472
+  PetaboxLoader3.resolve: 37.94
+*/

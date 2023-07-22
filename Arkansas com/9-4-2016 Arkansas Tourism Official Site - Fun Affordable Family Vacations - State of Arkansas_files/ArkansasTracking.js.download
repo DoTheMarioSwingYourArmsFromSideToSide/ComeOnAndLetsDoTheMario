@@ -1,0 +1,86 @@
+﻿var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+///web.archive.org/web/20160914181716/http://module depends on _gaq, but not passed in because it likes to live at the bottom of the head. Just rely on common name.
+//var ArkansasTracking = (function ($) {
+//    var module = {};
+
+//    module.trackAldEvent = function (el, category, action, label) {
+//        var dataElement = $(el).closest('[data-ald-listing-id]');
+//        var id = dataElement.data('aldListingId');
+//        var businessName = dataElement.data('aldListingBusinessName');
+//        _gaq.push(['_trackEvent', category, action, businessName, id]);
+//    };
+
+//    //track coupon detail printing
+//    module.trackPrint = function (id) {
+//        $.ajax({
+//            type: "POST",
+//            url: "/CouponPrintTracking.asmx/DetailPrint",
+//            contentType: "application/json",
+//            data: JSON.stringify({ ID: id }),
+//            error: function (xmlRequest) { alert("An error occurred while we were processing your request.") }
+//        });
+//    }
+
+//    return module;
+//})(jQuery);
+
+function trackOutboundLink2(category, action, label) {
+    try {
+        ga('send', 'event', category, action, label);
+    } catch (err) { }
+}
+
+$(document).ready(function () {
+    $("a").each(function () {
+        if (this.href && this.href.match(/\.pdf\??/i))
+            $(this).click(function () {
+                trackOutboundLink2('PDF Download', this.href, $(this).text());
+            });
+    })
+
+
+    $(".gatrack").on('click', function () {
+       
+        var $that = $(this);
+        var category = $that.closest('[data-ga_category]').data('ga_category');
+        var action = $that.closest('[data-ga_action]').data('ga_action');
+        var label = $that.closest('[data-ga_label]').data('ga_label');
+       
+        trackOutboundLink2(category, action, label);
+        console.info(category, action, label);
+    });
+});
+
+
+}
+/*
+     FILE ARCHIVED ON 18:17:16 Sep 14, 2016 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:48:24 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 62.624
+  exclusion.robots: 0.064
+  exclusion.robots.policy: 0.056
+  cdx.remote: 0.054
+  esindex: 0.008
+  LoadShardBlock: 37.833 (3)
+  PetaboxLoader3.datanode: 63.256 (5)
+  load_resource: 152.349 (2)
+  PetaboxLoader3.resolve: 80.269 (2)
+*/

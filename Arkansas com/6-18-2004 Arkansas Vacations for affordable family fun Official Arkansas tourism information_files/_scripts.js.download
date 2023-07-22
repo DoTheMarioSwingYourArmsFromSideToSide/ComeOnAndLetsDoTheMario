@@ -1,0 +1,643 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+
+
+//**************************************
+// ARKANSAS.COM NAV
+//**************************************
+
+var visShow, visHide;
+
+function showLayer(layerID) {	
+	var selectBox = document.getElementById('selectBox');
+	var hideObject = document.getElementById('hideObject');
+	var hideObject2 = document.getElementById('hideObject2');
+	var hideObject3 = document.getElementById('hideObject3');
+
+	for (i=0; i<menuArray.length; i++) {			
+		if (document.getElementById) {			
+			document.getElementById(menuArray[i]).style.visibility = "hidden";
+			
+			if(selectBox != null)
+				selectBox.style.visibility = 'visible';
+			if(hideObject != null)
+				hideObject.style.visibility = 'visible';
+			if(hideObject2 != null)
+				hideObject2.style.visibility = 'visible';
+			if(hideObject3 != null)
+				hideObject3.style.visibility = 'visible';
+		}
+		else if (document.layers) {			
+			document.layers[menuArray[i]].visibility = "hide";			
+		}
+		else {
+			document.all(menuArray[i]).style.visibility = "hidden";
+		}			
+	}
+	
+	if (layerID != "") {
+	
+		if (document.getElementById || document.all) {
+			if (document.getElementById) 
+			{
+				layerVis = document.getElementById(layerID).style;
+				if ((layerID == "things" || layerID == "places") && selectBox != null) 
+					document.getElementById('selectBox').style.visibility = 'hidden';
+				if (hideObject != null) 
+					document.getElementById('hideObject').style.visibility = 'hidden';
+				if (hideObject2 != null) 
+					document.getElementById('hideObject2').style.visibility = 'hidden';
+				if (hideObject3 != null) 
+					document.getElementById('hideObject3').style.visibility = 'hidden';
+				//if (layerID == "things") document.getElementById('selectBox').style.visibility = 'hidden';
+			}
+			else
+			{
+				if ((layerID == "things" || layerID == "places") && selectBox != null) 
+					document.all('selectBox').style.visibility = 'hidden';
+				if (hideObject != null) 
+					document.all('hideObject').style.visibility = 'hidden';
+				if (hideObject2 != null) 
+					document.all('hideObject2').style.visibility = 'hidden';
+				if (hideObject3 != null) 
+					document.all('hideObject3').style.visibility = 'hidden';
+				
+					
+				layerVis = document.all(layerID).style;
+			}
+			visShow = "visible";
+			visHide = "hidden";
+		}	
+		else if (document.layers) {
+			layerVis = document.layers[layerID];	
+			visShow = "show";
+			visHide = "hide";	
+		}
+    
+		if (layerVis == visShow) {
+			layerVis.visibility = visHide;		
+		}
+		else {
+			layerVis.visibility = visShow;
+		}
+	}	
+}
+
+function reloadPage(init) {
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.pgW=innerWidth; document.pgH=innerHeight; onresize=reloadPage; }}
+  else if (innerWidth!=document.pgW || innerHeight!=document.pgH) location.reload();
+}
+reloadPage(true);
+
+/******************************
+Explore Arkansas Drop-Down
+load1 function also contained in the _mp_scripts.js file
+*******************************/
+function load1(form) {
+     var url = form.Llisted.options[form.Llisted.selectedIndex].value;
+	     if (url != '') 
+		 {
+		 
+		 	if(url == '/photo-gallery/')
+			{
+				OpenPhotoGallery('');
+			}
+			else if(url == 'https://web.archive.org/web/20040611010042/http://www.arkansastravel.com/')
+			{
+				window.open('https://web.archive.org/web/20040611010042/http://www.arkansastravel.com/','ArkansasTravel','width=769,height=599,scrollbars=yes,toolbar=yes,location=yes,menubar=yes,status=yes');
+			}
+			else if(url == '/immersive-tour/')
+			{
+				OpenITour('');
+			}
+			else{
+			location.href = url;
+			}
+			
+	  }
+     return false;
+}
+
+function loadFree(form) {
+     var url = form.Llisted.options[form.Llisted.selectedIndex].value;
+	     if (url != '') 
+		 {
+		 
+		 	if(url == '/photo-gallery/')
+			{
+				OpenPhotoGallery('');
+			}
+			else if(url == 'https://web.archive.org/web/20040611010042/http://www.arkansastravel.com/')
+			{
+				window.open('https://web.archive.org/web/20040611010042/http://www.arkansastravel.com/','ArkansasTravel','width=769,height=599,scrollbars=yes,toolbar=yes,location=yes,menubar=yes,status=yes');
+			}
+			//else if(url == '/immersive-tour/')
+			//{
+			//	OpenITourFree('');
+			//}
+			else{
+			location.href = url;
+			}
+			
+	  }
+     return false;
+}
+
+function load2(form) {
+     var url = form.mlisted.options[form.mlisted.selectedIndex].value;
+	     if (url != '') 
+		 {
+		 
+			location.href = url;
+			
+		  }
+     return false;
+}
+
+
+function getLoc(){
+	if (document.forms['sel'])
+	{
+		var frm = document.forms['sel'].Llisted;
+		var loc = window.location.href;
+		for (i = 0;i < frm.length;i++){
+			if (loc.indexOf(frm[i].value) != -1){
+				frm[i].selected = true;
+				
+				frm.options[frm.selectedIndex].style.backgroundColor = '#FDD663';
+				return true;
+				}
+		}
+	}
+}
+/**************************/
+
+
+function zipredirect() {
+  zip = document.zipform.zip.value;
+  //alert(zip);
+  strWindow = '/zipsearch.asp?zip=' + zip;
+  window.open(strWindow,'zipsearch','width=200,height=220,scrollbars=no,resizable=yes')  
+}
+
+    //IMAGE MOUSEOVER SCRIPT
+    //only have to change the range in the for loop and array definitions to add menu items
+    images_array = new Array(5);
+    images_array_r = new Array(5);
+    for (i=1; i<6; i++)
+    {
+       images_array[i]=new Image();
+       images_array[i].src="/images/mainpage/adpt_horz_nav_" + i + ".gif";
+
+       images_array_r[i]=new Image();
+       images_array_r[i].src="/images/mainpage/adpt_horz_nav_" + i + "m.gif";
+    }
+
+    function swap(num)
+    {
+        image_name = "image" + num;
+        if(document.getElementById) document.getElementById(image_name).src = images_array_r[num].src;
+        else if(document.images) document.images[image_name].src = images_array_r[num].src;
+    }
+
+    function swapOut(num)
+    {
+        image_name = "image" + num;
+        if(document.getElementById) document.getElementById(image_name).src = images_array[num].src;
+        else if(document.images) document.images[image_name].src = images_array[num].src;
+    }
+
+    var bn = navigator.appName;
+    var vn = navigator.appVersion;
+
+    if ((bn!="Microsoft Internet Explorer") || (vn.substring(0,3)!="2.0"))
+     {
+      flashlight1 = new  Image(259,187);
+      flashlight1.src = "/images/mainpage/adpt_flashlight_off.gif";
+
+      flashlight2 = new  Image(259,187);
+      flashlight2.src = "/images/mainpage/adpt_flashlight_on.gif";
+    }
+
+    function hiLite(name, source) {
+      var bn = navigator.appName;
+      var vn = navigator.appVersion;
+
+    	if ((bn!="Microsoft Internet Explorer") || (vn.substring(0,3)!="2.0")) {
+    		document.images[name].src = eval(source + ".src");
+      }
+    }
+
+    function openBrWindow(theURL,winName,features) { //v2.0
+      if (confirm('NOTE: This page is best viewed on newer browsers (5.0+)\nPlease disable any Pop-up Blockers and click \'OK\' to continue...'))
+      window.open(theURL,winName,features); }
+
+
+
+
+
+
+
+
+/*********************************************************************
+OPEN WINDOW AND CENTER IT
+***********************/
+// JDR 2004-02-06 removed centering commands for WebSage compatability
+//	!!!! removed from ALL functions below.
+
+
+// NewWindow('outage_popup.html','OUT',1100,700,'no')
+var win = null;
+function NewWindow(mypage,myname,w,h,scroll)
+{
+    if (confirm('NOTE: This page is best viewed on newer browsers (5.0+)\nPlease disable any Pop-up Blockers and click \'OK\' to continue...'))
+	LeftPosition = (screen.width) ? (screen.width-w)/2 : 0;
+	TopPosition = (screen.height) ? (screen.height-h)/2 : 0;
+	//settings =  'height='+h+',width='+w+',top='+TopPosition+',left='+LeftPosition+',scrollbars='+scroll+',resizable'
+	settings =  'height='+h+',width='+w+',scrollbars='+scroll+',resizable'
+	win = window.open(mypage,myname,settings)
+	win.focus();
+}
+
+
+
+// OpenPhotoGallery('ID')
+var winit = null;
+function OpenITour(inputID)
+{
+   // if (ShowPopupWarning())
+	//{
+		LeftPosition = (screen.width) ? (screen.width-763)/2 : 0;
+		TopPosition = (screen.height) ? (screen.height-527)/2 : 0;
+		//settings =  'height=527,width=763,top='+TopPosition+',left='+LeftPosition+',scrollbars=no,resizable';
+		settings =  '';//'height=527,width=763,scrollbars=no,resizable';
+		winit = window.open('/immersive-tour/default.asp?id=' + inputID,'ITOUR',settings);
+		winit.focus();
+	//}
+}
+
+
+/*
+// OpenPhotoGallery('ID')
+var winit = null;
+function OpenITour(inputID)
+{
+   // if (ShowPopupWarning())
+	//{
+		LeftPosition = (screen.width) ? (screen.width-763)/2 : 0;
+		TopPosition = (screen.height) ? (screen.height-527)/2 : 0;
+		//settings =  'height=527,width=763,top='+TopPosition+',left='+LeftPosition+',scrollbars=no,resizable';
+		settings =  'height=527,width=763,scrollbars=no,resizable';
+		winit = window.open('/immersive-tour/default.asp?id=' + inputID,'ITOUR',settings);
+		winit.focus();
+	//}
+}
+*/
+
+
+// OpenPhotoGallery('ID')
+var winit = null;
+function OpenITourFree(inputID)
+{
+		LeftPosition = (screen.width) ? (screen.width-763)/2 : 0;
+		TopPosition = (screen.height) ? (screen.height-527)/2 : 0;
+		//settings =  'height=527,width=763,top='+TopPosition+',left='+LeftPosition+',scrollbars=no,resizable';
+		settings =  'height=527,width=763,scrollbars=no,resizable';
+		winit = window.open('/immersive-tour/default.asp?id=' + inputID,'ITOUR',settings);
+		winit.focus();
+}
+
+
+
+// OpenMap('REGION','FORMAT') format -- 1 = gif 2 = PDF
+var wim = null;
+function OpenMap(inputID,format)
+{
+    if (ShowPopupWarning())
+	{
+		LeftPosition = (screen.width) ? (screen.width-750)/2 : 0;
+		TopPosition = (screen.height) ? (screen.height-500)/2 : 0;
+		//settings =  'height=500,width=750,top='+TopPosition+',left='+LeftPosition+',scrollbars=yes,resizable';
+		settings =  'height=500,width=750,scrollbars=yes,resizable';
+		wim = window.open('/find_map/regionmap.asp?r=' + inputID + '&f=' + format,'MAP',settings);
+		wim.focus();
+	}
+}
+
+// OpenMapHelp()
+var wimh = null;
+function OpenMapHelp()
+{
+    if (ShowPopupWarning())
+	{
+		LeftPosition = (screen.width) ? (screen.width-485)/2 : 0;
+		TopPosition = (screen.height) ? (screen.height-380)/2 : 0;
+		//settings =  'height=380,width=485,top='+TopPosition+',left='+LeftPosition+',scrollbars=yes,resizable';
+		settings =  'height=380,width=485,scrollbars=yes,resizable';
+		wimh = window.open('/find_map/maphelp.html','MAPHELP',settings);
+		wimh.focus();
+	}
+}
+
+// OpenPhotoGallery('ID')
+var winp = null;
+function OpenPhotoGallery(Region)
+{
+    if (ShowPopupWarning())
+	{
+		LeftPosition = (screen.width) ? (screen.width-788)/2 : 0;
+		TopPosition = (screen.height) ? (screen.height-600)/2 : 0;
+		//settings =  'height=600,width=772,top='+TopPosition+',left='+LeftPosition+',scrollbars=no,resizable';
+		settings =  'height=600,width=772,scrollbars=no,resizable';
+        if (Region == undefined) {
+    		winp = window.open('/photo-gallery/default.asp','GALLERY',settings);
+        }
+        else {
+    		winp = window.open('/photo-gallery/default.asp?region=' + Region,'GALLERY',settings);
+        }
+		winp.focus();
+	}
+}
+
+// OpenPhotoGallery('ID')
+var winp = null;
+function OpenPhotoGalleryFree(Region)
+{
+		LeftPosition = (screen.width) ? (screen.width-788)/2 : 0;
+		TopPosition = (screen.height) ? (screen.height-600)/2 : 0;
+		//settings =  'height=600,width=772,top='+TopPosition+',left='+LeftPosition+',scrollbars=no,resizable';
+		settings =  'height=600,width=772,scrollbars=no,resizable';
+        if (Region == undefined) {
+    		winp = window.open('/photo-gallery/default.asp','GALLERY',settings);
+        }
+        else {
+    		winp = window.open('/photo-gallery/default.asp?region=' + Region,'GALLERY',settings);
+        }
+		winp.focus();
+}
+
+// OpenAdVideoGallery(id)
+var winp = null;
+function OpenAdVideoGallery(id)
+{
+    //if (ShowPopupWarning())
+	//{
+		LeftPosition = (screen.width) ? (screen.width-788)/2 : 0;
+		TopPosition = (screen.height) ? (screen.height-600)/2 : 0;
+		//settings = 'height=540,width=787,top='+TopPosition+',left='+LeftPosition+',scrollbars=yes,resizable';
+		settings = 'height=540,width=787,scrollbars=yes,resizable';
+		winp = window.open('/ad-video-gallery/ad/id/' + id,'ADGALLERY',settings);
+		winp.focus();
+	//}
+}
+
+
+
+function ShowPopupWarning()
+{
+	//alert(getCookie("allowpopups"));
+	if(!getCookie("allowpopups"))
+	{
+		var allow = confirm('NOTE: This page is best viewed on newer browsers (5.0+)\nPlease disable any Pop-up Blockers and click \'OK\' to continue...');
+	
+		if(allow)
+		{
+			with(expDate = new Date()) setDate(getDate() + 90)
+			setCookie("allowpopups", "1", expDate);
+		}
+	
+		return allow;
+	}
+	else
+		return true;
+}
+	
+//script for sub nav
+var ns6=document.getElementById&&!document.all
+var ie=document.all
+
+function over(e,highlightcolor){
+source=ie? event.srcElement : e.target
+if (source.tagName=="TR"||source.tagName=="TABLE")
+return
+while(source.tagName!="TD"&&source.tagName!="HTML")
+source=ns6? source.parentNode : source.parentElement
+if (source.style.backgroundColor!=highlightcolor&&source.id!="ignore"){
+source.style.backgroundColor=highlightcolor;
+source.style.coursor='hand';
+source.style.borderBottom = '1px solid #1CAA51';
+}
+}
+
+function contains_ns6(master, child) {
+while (child.parentNode)
+if ((child = child.parentNode) == master)
+return true;
+return false;
+}
+
+function out(e,originalcolor){
+if
+(ie&&(event.fromElement.contains(event.toElement)||source.contains(event.toElement)||source.id=="ignore")||source.tagName=="TR"||source.tagName=="TABLE")
+return
+else if (ns6&&(contains_ns6(source, e.relatedTarget)||source.id=="ignore"))
+return
+if (ie&&event.toElement!=source||ns6&&e.relatedTarget!=source)
+source.style.backgroundColor=originalcolor;
+source.style.coursor='hand';
+source.style.borderBottom = '1px solid #43427D';
+}
+
+
+
+/*********************************************************************
+FORM VALIDATION
+***********************/
+
+
+function vAlert()
+{
+
+var MAC= (navigator.platform.indexOf("PPC") > 0); //Mac IE is buggy
+
+var i;
+	for (i = 0;i< formArray.length;i++)
+	{	
+		if	(document.getElementById && MAC == false)
+		{
+			//alert(navigator.userAgent);
+			var thisText = 'form' + formArray[i];
+			document.getElementById('error_text').style.visibility = 'hidden';
+			document.form7[formArray[i]].style.borderWidth = "1px";
+			document.form7[formArray[i]].style.backgroundColor = "";
+			document.form7[formArray[i]].style.borderColor = "#7F9DB9";
+			document.getElementById(thisText).style.color = '';
+		}	
+		
+		if ((formArray[i] == 'email') && ((document.form7[formArray[i]].value.indexOf('@') == -1) || (document.form7[formArray[i]].value.length < 6) || (document.form7[formArray[i]].value.indexOf('.') == -1)))
+		{
+			if (document.getElementById)
+				{
+				document.getElementById("error_text").style.visibility = 'visible';
+				document.getElementById("error_text").innerHTML = formArrayDesc[i] + " is a required field";
+				}
+			else
+				alert('Please enter a properly formatted email address');
+			return vLite(formArray[i])
+		}
+		
+		if (document.form7[formArray[i]].type == 'select-one')
+		{
+			if (document.form7[formArray[i]].selectedIndex == 0)
+			{
+				if (document.getElementById && MAC == false)
+					{
+						document.getElementById('error_text').style.visibility = 'visible';
+						document.getElementById('error_text').innerHTML = formArrayDesc[i] + " is a required field";
+					}
+				else
+					alert(formArrayDesc[i] + ' is a required field');
+				return vLite(formArray[i]);
+			}
+		}
+		
+	 	if (document.form7[formArray[i]].value == '')
+		{
+			
+			if (document.getElementById && MAC == false)
+			{
+				document.getElementById('error_text').style.visibility = 'visible';
+				document.getElementById('error_text').innerHTML = formArrayDesc[i] + " is a required field";
+			}
+			else
+				alert(formArrayDesc[i] + ' is a required field');
+			return vLite(formArray[i]);
+		}
+	}
+	
+		if	(document.getElementById && MAC == false)
+		{
+			for (i = 0;i< document.form7.length;i++) //FORM PASSED :)
+			{
+				document.form7[i].style.backgroundColor = "#E6FBE7";
+			}
+				//document.form7["submit"].style.color = "#ff0000";
+		}
+		return true;
+}
+function vLite(item)
+{
+var MAC= (navigator.platform.indexOf("PPC") > 0);
+	var thisText = 'form' + item;
+	if	(document.getElementById && MAC == false)
+	{
+		location.href = '#formtop';
+		document.form7[item].style.backgroundColor = "#FDD563";
+		document.form7[item].style.borderColor = "#7F9DB9";
+		document.form7[item].style.borderWidth = "1px";
+		document.form7[item].value = document.form7[item].value;
+		document.getElementById(thisText).style.color = "#FF0000";
+	}
+	document.form7[item].focus();
+	return false;
+}
+
+function openBrWindow(theURL,winName,features) { //v2.0
+	window.open(theURL,winName,features);
+}
+
+function gotosite(site) {
+	if (site != "") {
+		location.href=site;
+	} 
+}
+
+function gotositeWindow(site) {
+	if (site != "") {
+        //alert('did I get to here?');
+        window.open(site);
+		//location.href=site;
+	} 
+}
+
+function open_win(hotel_id)
+{
+	window.open("/load_res/hotel_id/" + hotel_id, "res_win", "height=550,width=700,resizable=yes,scrollbars=yes");
+}
+
+function getCookie (name) 
+{
+	var dcookie = document.cookie; 
+	var cname = name + "=";
+	var clen = dcookie.length;
+	var cbegin = 0;
+	
+	while (cbegin < clen) 
+	{
+		var vbegin = cbegin + cname.length;
+		
+		if (dcookie.substring(cbegin, vbegin) == cname) 
+		{ 
+			var vend = dcookie.indexOf (";", vbegin);
+			if (vend == -1) 
+				vend = clen;
+			
+			return unescape(dcookie.substring(vbegin, vend));
+		}
+		
+		cbegin = dcookie.indexOf(" ", cbegin) + 1;
+		
+		if (cbegin == 0) break;
+	}
+	
+	return null;
+}
+
+function setCookie (name, value, expires) 
+{
+	if (!expires)
+		expires = new Date();
+
+	document.cookie = name + "=" + escape (value) + "; expires=" + expires.toGMTString() +  "; path=/";
+}
+
+function delCookie (name) 
+{
+	var expireNow = new Date();
+	
+	document.cookie = name + "=" + "; expires=Thu, 01-Jan-70 00:00:01 GMT" +  "; path=/";
+}
+
+
+}
+/*
+     FILE ARCHIVED ON 01:00:42 Jun 11, 2004 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:34:26 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 800.776
+  exclusion.robots: 0.089
+  exclusion.robots.policy: 0.08
+  cdx.remote: 0.068
+  esindex: 0.009
+  LoadShardBlock: 759.108 (3)
+  PetaboxLoader3.datanode: 782.66 (4)
+  load_resource: 117.926
+  PetaboxLoader3.resolve: 29.584
+*/
