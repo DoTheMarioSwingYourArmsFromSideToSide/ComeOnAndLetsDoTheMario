@@ -1,0 +1,978 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+/*	Copyright (c) ???? Macromedia Inc.
+	Dynamic UI Javascript (in development)
+	$Revision: 1.11.4.2 $
+*/
+function makePodElem(elem,bodyID,stylefirst,handleContentAsText)
+{
+var
+prevElem = null,
+skinElements = {
+'nw':{"elem":elem.cloneNode(false),"cssname":(elem.className.replace("dyn-pod","pod")+' nw')},
+'ne':{"elem":document.createElement('DIV'),"cssname":'ne'},
+'se':{"elem":document.createElement('DIV'),"cssname":'se'},
+'sw':{"elem":document.createElement('DIV'),"cssname":'sw'},
+'n':{"elem":document.createElement('DIV'),"cssname":'n'},
+'s':{"elem":document.createElement('DIV'),"cssname":'s'},
+'w':{"elem":document.createElement('DIV'),"cssname":'w'},
+'e':{"elem":((handleContentAsText)? document.createElement('DIV') : elem.cloneNode(true)),"cssname":'pod-body e'}
+};
+if(!handleContentAsText)
+{
+for(var i=0,len=skinElements.e.elem.attributes.length;i<len;i++)
+{
+skinElements.e.elem.removeAttribute(skinElements.e.elem.attributes[i].nodeName);
+}
+}
+if(bodyID) 
+{
+skinElements.e.elem.setAttribute('id',bodyID);
+}	
+if(stylefirst)
+{
+var firsttag = getFirstTag(((handleContentAsText) ? elem : skinElements.e.elem));
+var str = (!firsttag.className) ? 'first-child' : firsttag.className+' first-child';
+firsttag.className = str;
+if(firsttag.nodeName == 'DL' || firsttag.nodeName == 'UL'  || firsttag.nodeName == 'OL')
+{
+var firstItem = getFirstTag(firsttag);
+var str = (!firstItem.className) ? 'first-child' : (firstItem.className+' first-child');
+firstItem.className = str;
+}
+}
+if(handleContentAsText) skinElements.e.elem.innerHTML = elem.innerHTML;
+for(prop in skinElements)
+{	 
+skinElements[prop].elem.className =  skinElements[prop].cssname;
+if(prevElem) prevElem.elem.appendChild(skinElements[prop].elem); 
+prevElem = skinElements[prop];
+}
+return { rootelem:skinElements.nw.elem, bodyelem:skinElements.e.elem };
+}
+function balanceContentToPod()
+{
+var 
+C1 = $('C1'),
+C1b = $('C1-body'),
+C2 = $('C2');
+if(C1&&C1b&&C2)
+{
+var 
+C1h = C1.offsetHeight,
+C1bh = C1b.offsetHeight,
+C2h = C2.offsetHeight;		
+if(C1h<C2h)
+{
+var h = ((C1bh-C1h)+C2h)+"px";
+if(com.adobe.cssprofile.features.layout == true)
+{
+C1b.style.height = h;
+}
+else
+{
+C1b.style.minHeight = h;
+}
+}
+return true;
+}	
+return false;
+}
+ToggleLinkText = function()
+{
+this.state;
+this.txt;
+this.init = function(a,state)
+{
+var text = (a.text || ""); 
+this.state = (state || 0);
+this.txt = [(a.title+text),(a.rev+text)];
+a.removeAttribute('rev');
+a.removeAttribute('title');
+return this.txt[this.state];
+}
+this.run = function()
+{
+this.state = (this.state) ? 0 : 1;
+return this.txt[this.state];
+}
+return this;
+}
+function buildPodLib(roots)
+{
+var handleContentAsText = (browser.ax);
+var stylefirst = (com.adobe.cssprofile.features.firstchild == false); 
+var i=roots.length-1;
+do
+{
+var pod = makePodElem($(roots[i].id),roots[i].id+'-body',stylefirst,handleContentAsText);
+$(roots[i].id).parentNode.replaceChild(pod.rootelem,$(roots[i].id));
+}
+while (i--);
+return roots;
+}
+function buildDDLib(roots)
+{
+var i=roots.length-1;
+do
+{
+DropDownBehavior($(roots[i].id));
+}
+while (i--);
+return roots;
+}
+com.adobe.ui = {
+dAttrBindings : {
+"pods": { 
+registered:0,
+id:'root', 
+key: 'className', 
+value:'dyn-pod', 
+tags: ['div'], 
+method: buildPodLib
+},
+"tabs": { 
+registered:0,
+id: 'root', 
+key: 'className', 
+value:'dyn-tabsection', 
+tags: ['div'], 
+method: buildSwitchLib
+},
+"trees": { 
+registered:0,
+id: 'root', 
+key: 'className', 
+value:'dyn-treelist', 
+tags: ['dl'], 
+method: buildToggleLib
+},
+"explodes": { 
+registered:0,
+id: 'root', 
+key: 'rel', 
+value:'dyn-explodetree',
+tags: ['a'], 
+method: buildExplodeLib
+},
+"maps": { 
+registered:0,
+id:'root', 
+key: 'rel', 
+value:'d-accent', 
+tags: ['a','area'], 
+method: buildAccentLib
+},
+"dropdowns": {
+registered:0,
+id:'root', 
+key: 'className', 
+value:'d-dropdown', 
+tags: ['ul'], 
+method: buildDDLib
+}
+},
+build : function(data)
+{
+for(prop in data) 
+{
+if(!data[prop].registered) continue;
+var tagnames = data[prop].tags;
+var rootIDs = [];
+var tags = this.tags2.apply(rootIDs, [ tagnames, data[prop].key, data[prop].value ]);
+if(!tags) continue;
+this[prop] = data[prop].method(rootIDs); 
+}
+return this;
+},
+tags2 : function ( tags, attr, value )
+{
+var 
+len = tags.length-1,
+value = attrExp(value);
+do 
+{
+var name = tags[len];
+for(var i = 0; (t = document.getElementsByTagName(name)[i]); i++)
+{
+if(getAttrValue(t, attr).search(value) == -1) continue;
+this.push({id:resolveElemId(t)});
+}
+}
+while (len--);
+return this.length;
+},
+init:function()
+{
+this.lib = this.build(this.dAttrBindings);
+balanceContentToPod();
+var af = com.adobe.cssprofile.features.after;
+var dp = document.getElementById('depthpath');
+if(!af)
+{
+if(dp)
+{
+var paths = children._all(dp,'LI');
+if (paths.length != 0) {					
+paths[paths.length-1].className = "last-child";
+var pathsA = children._all(paths,'A');
+marker.apply(pathsA,[contentAfter,"/","1ex"]);
+}
+}
+}
+var ddmask = function ()
+{
+if(browser.ax && !browser.isSafari)
+{
+for(var i = 0; (s = document.getElementsByTagName("select")[i]); i++)
+{
+var e=getOverlapId(resolveElemId(s));
+if(!e) continue;
+var dom = $(e);
+if(dom.masks) 
+{
+dom.masks.push(s);
+continue;
+}
+else
+{
+dom.masks = new Array(s);
+dom.onmouseover = function()
+{
+var i = this.masks.length-1;
+if(i>=0)
+{
+do
+{
+this.masks[i].style.visibility = "hidden";
+}
+while(i--);
+}
+}
+dom.onmouseout = function()
+{
+var i = this.masks.length-1;
+if(i>=0)
+{
+do
+{
+this.masks[i].style.visibility = "visible";
+}
+while(i--);
+}
+}
+}
+}
+}
+}
+registerOnLoadFunc(ddmask);
+},
+register:function()
+{
+for(var i=0,len=arguments.length;i<len;i++)
+{
+var p =  this.dAttrBindings[arguments[i]];
+if(p) p.registered = 1;
+}
+}
+}
+function DropDownBehavior(ul)
+{
+if(typeof ul == 'string') ul = $(ul);
+if(!ul) return null;
+ul.styles = new StyleEvent(ul);
+ul.styles.add('keymode','mousemode');
+ul.onkeyup = function() {	this.styles.toggle('keymode','mousemode')};
+ul.onmousemove = function() { this.styles.toggle('mousemode','keymode')};
+masks = new Masks();
+for(var i = 0; (mask = document.getElementsByName('objectMask')[i]); i++)
+{
+masks.add(mask);
+}
+var fc = com.adobe.cssprofile.features.firstchild;
+if(!fc)
+{
+var f = getFirstTag(ul);
+if(f)
+{
+f.styles = new StyleEvent(f);
+f.styles.add('first-child');
+f.styles.enable('first-child');
+}
+}
+for(var i=0,len=ul.childNodes.length;i<len;i++)
+{
+var node = ul.childNodes[i];
+if(!node || node.nodeType != 1) continue;
+var menu = getFirstTag(node,'UL');
+menu = (menu) ? menu : getFirstTag(node,'DL');
+if(!menu) continue;
+if(masks.elements.length)
+{
+menu.hasMask = true;
+menu.onmouseover = function(evt)
+{
+masks.setState(1);
+}
+menu.onmouseout = function(evt)
+{
+masks.setState(0);
+}
+}
+if(!fc)
+{
+var f = getFirstTag(menu);
+if(f)
+{
+f.styles = new StyleEvent(getFirstTag(menu));
+f.styles.add('first-child');
+f.styles.enable('first-child');
+}
+}
+node.styles = new StyleEvent(node);
+if(com.adobe.cssprofile.features.directchild == false) 
+{
+node.styles.add('over');
+var mouseIN = (typeof document.body.onmouseenter == 'object') ? 'onmouseenter' : 'onmouseover';
+var mouseOUT = (typeof document.body.onmouseleave == 'object') ? 'onmouseleave' : 'onmouseout';
+node[mouseIN] = function()
+{
+this.styles.enable('over');
+}
+node[mouseOUT] = function()
+{
+this.styles.disable('over');
+}
+}
+node.styles.add('focus');
+var anchors = node.getElementsByTagName('A');
+for(var a=0,len=anchors.length;a<len;a++)
+{
+var atag = anchors[a];
+atag.ref = node.styles;
+atag.onfocus = function()
+{
+this.ref.toggle('focus','first-child');
+}
+atag.onblur = function()
+{
+this.ref.toggle('first-child','focus');
+}
+}
+}
+return ul;
+}
+Masks = function(){return this;};
+Masks.prototype = {
+elements : [],
+stateStyles : ['off','on'],
+add : function(mask)
+{
+var maskobj = new StyleEvent(mask);
+maskobj.add('on');
+this.elements.push(maskobj);
+return this.elements.length;
+},
+setState : function(state)
+{
+switch(state)
+{
+case 0:
+this.doStyle(this.stateStyles[0],this.stateStyles[1]);
+break;
+case 1:
+this.doStyle(this.stateStyles[1],this.stateStyles[0]);
+break;
+default: return;
+}
+},
+doStyle : function(s0,s1)
+{
+var i=this.elements.length-1;
+do 
+{
+this.elements[i].toggle(s0,s1);
+}
+while (i--);
+}	
+};
+ToggleState = function(num)
+{
+this.state = (num || 0);
+this.toggle = function()
+{
+this.state = (this.state) ? 0 : 1;
+return this.state;
+}
+return this;
+}
+function buildToggleLib(roots)
+{
+for(i=0,len=roots.length;i<len;i++)
+{
+var 
+root = roots[i],
+styleObjects = {},
+rootelem = $(root.id);
+for(var k=0,node; node = rootelem.childNodes[k]; k++)
+{			
+if(node.nodeType==3) continue;
+switch(node.nodeName)
+{
+case "DT":
+dtID = resolveElemId(node);
+styleObjects[dtID] = new Array();
+var styles = new StyleEvent(node);
+styles.add('on','off');
+styleObjects[dtID].push(styles);
+if(node.firstChild && (node.firstChild.nodeType==3))
+{
+var cloneTXT = node.firstChild.cloneNode(false);
+var a = document.createElement('a');
+var initnum = (styles.styles['on']) ? 1 : 0;
+a.togglestate = new ToggleState(initnum);
+a.styles = styleObjects[dtID];
+a.onclick = function()
+{
+var i;
+this.togglestate.toggle();
+switch(this.togglestate.state)
+{
+case 0:
+for(i=0;i<this.styles.length;i++)
+{
+this.styles[i].toggle('off','on');
+}
+break;
+case 1:
+for(i=0;i<this.styles.length;i++)
+{
+this.styles[i].toggle('on','off');
+}
+break;
+}
+return void(0);
+}
+a.appendChild(cloneTXT);
+node.replaceChild(a, node.firstChild);
+}
+break;
+case "DD":
+var ddID = resolveElemId(node);
+var styles = new StyleEvent(node);
+styleObjects[dtID].push(styles);
+break;
+}	
+}
+rootelem.className = rootelem.className.replace("dyn-","");
+root['styleObjects'] = styleObjects;
+}
+return roots;
+}
+function buildExplodeLib(roots)
+{
+for(var i=0,len = roots.length;i<len;i++)
+{
+var root = roots[i];
+var elem = $(root.id);
+makeTreeExplode(elem);
+}
+return roots;
+}
+function buildAccentLib(objIDs)
+{
+for(var i=0,len=objIDs.length;i<len; i++)
+{
+var elem = $(objIDs[i].id);
+var accentIds = getAttributesAtMarker(elem.getAttribute('rel'),'d-','accent');
+elem['hovers'] = accentIds;
+elem.onmouseover = function(evt)
+{
+dAccentEvent(evt);
+}
+elem.onmouseout = function(evt)
+{
+dAccentEvent(evt);
+}
+}		
+return objIDs;
+}
+function makeTreeExplode(elem)
+{	
+var attrIds = getAttributesAtMarker(elem.getAttribute('rel'),'dyn-','explodetree');
+if(!attrIds.length) return false;
+var treeobjs = [];
+for(var i=0,len=com.adobe.ui.trees.length;i<len;i++)
+{
+var tree = com.adobe.ui.trees[i];
+for(var id=0,idlen=attrIds.length;id<idlen;id++)
+{
+attrId = attrIds[id];
+if(tree.id != attrId) continue;
+for(prop in tree.styleObjects)
+{
+treeobjs = treeobjs.concat(tree.styleObjects[prop]);
+}
+attrIds.splice(id,1);
+}
+}
+var gg = new ToggleLinkText();
+var itxt = gg.init(elem,1);
+elem.gg = gg;
+if(!elem.firstChild)
+{
+elem.appendChild(document.createTextNode(itxt));
+}
+elem.styles = treeobjs;
+elem.style.cursor = "pointer";
+elem.onclick = function()
+{
+this.firstChild.nodeValue = this.gg.run();
+var s = (this.gg.state) ? ['on','off'] : ['off','on'];
+for(var i=0,len=this.styles.length;i<len;i++)
+{
+var style = this.styles[i];
+style.toggle(s[0],s[1]);
+}
+};
+elem.firstChild.nodeValue = elem.gg.run();
+return elem;
+}
+function buildSwitchLib(objIDs)
+{
+for(var i=0,len = objIDs.length;i<len; i++)
+{
+var
+objID = objIDs[i],
+newtab,
+nontab,
+rootelem = $(objID.id),
+frag = document.createDocumentFragment(),
+nav = document.createElement('UL'),
+navstyle = "tab menu compact",
+tabManager = new TabManager(),
+subtags = rootelem.childNodes;
+nav.setAttribute('class', navstyle); 
+if(!nav.className) nav.className = navstyle; 
+for(var s=0,klen = subtags.length;s<klen;s++)
+{
+var kid=subtags[s];
+if(!kid || (kid.nodeType != 1)) continue; 
+switch(kid.className)
+{
+case "tabtitle":
+var titleId = resolveElemId(kid); 
+var contentDIVtitle = kid.firstChild; 
+var menuItem = document.createElement('LI'); 
+var menuLink = document.createElement('A'); 
+menuItem.setAttribute('id', titleId); 
+newtab = tabManager.addTab( titleId, 0 ); 
+var referencestyle = new StyleEvent(menuItem); 
+referencestyle.add('on','off'); 
+tabManager.styleObjects[titleId] = referencestyle; 
+menuLink['tabkey'] = titleId; 
+menuLink.tab = tabManager; 
+menuLink.onclick = function()
+{
+var winUpdate = false;
+if(window.tabparams)
+{
+var a = 'tab:'+this.tab.states.current+'=1';
+var b = 'tab:'+this.tabkey+'=1';
+winUpdate = window.tabparams.update(a,b);
+}
+if(!winUpdate) 
+{
+this.tab.setState(this.tabkey);
+}
+}
+menuLink.appendChild(contentDIVtitle); 
+menuItem.appendChild(menuLink); 
+nav.appendChild(menuItem); 
+break;
+case "tabcontent":
+var clone = kid.cloneNode(true);
+var contentId = resolveElemId(clone); 
+tabManager.bindContent(newtab,contentId); 
+var contentstyle = new StyleEvent(clone); 
+contentstyle.add('hide'); 
+tabManager.styleObjects[contentId] = contentstyle; 
+frag.appendChild(clone); 
+break;
+default:
+if(!nontab) nontab = document.createDocumentFragment();
+nontab.appendChild(kid); 
+continue;
+}
+}
+frag.insertBefore(nav, frag.firstChild); 
+if(nontab) frag.appendChild(nontab); 
+rootelem.parentNode.replaceChild(frag, rootelem); 
+var pick = 0; 
+if(window.tabparams)
+{
+for(var i=0,len = tabManager.states.items.length; i<len; i++)
+{
+var state = tabManager.states.items[i];
+for(prop in window.tabparams.lookup)
+{
+if(prop == state.key) pick = i;
+}
+}
+}
+if(!tabManager.states.items.length)
+{
+continue;
+}
+var pickID = tabManager.states.items[pick].key;
+tabManager.setState(pickID);	
+this[objID.id] = tabManager; 
+}	
+return objIDs;
+}
+function doTabEvent(evt)
+{
+evt = (evt) ? evt : event;
+var elem = ( evt.srcElement ) ? evt.srcElement : evt.target;
+if(elem.nodeType == 3) { elem = elem.parentNode }
+if( elem ) 
+{
+return (this.state=='on') ? false : elem.referto.doSwitch(elem.id);
+}
+}
+function dAccentEvent(evt)
+{
+evt = (evt) ? evt : event;
+var elem = ( evt.srcElement ) ? evt.srcElement : evt.target;
+if(elem.nodeType == 3) { elem = elem.parentNode }
+if( elem ) 
+{
+switch(evt.type)
+{
+case "mouseover":
+state="on";
+break;
+case "mouseout":
+state="";
+break;
+}
+for(var i=0,hover; hover=elem.hovers[i]; i++)
+{
+$(hover).className=state;
+}
+}
+}
+TabManager = function()
+{
+this.styleObjects = {};
+this.contents = {};
+this.states = new StateSwitch();
+this.setState = function(id)
+{
+var newstate = this.states.setCurrent(id);
+if(newstate)
+{
+this.setStyles(this.states.items);
+}
+}
+this.addTab = function(key, value)
+{
+this.contents[key] = [];
+var result = this.states.addItem(key,value);
+return result;
+}
+this.bindContent = function(obj, contentId)
+{
+if(!this.contents[obj.key]) return null; 
+this.contents[obj.key].push(contentId); 
+return this.contents[obj.key].length;
+}
+this.setStyles = function(elements)
+{
+for(var i=0,element; element = elements[i]; i++)
+{
+switch(element.value)
+{
+case 0: 
+this.styleObjects[element.key].toggle('off','on');
+for(var c=0,content; content=this.contents[element.key][c]; c++)
+{
+this.styleObjects[content].enable('hide');
+}
+break;
+case 1: 
+this.styleObjects[element.key].toggle('on','off');
+for(var c=0,content; content=this.contents[element.key][c]; c++)
+{
+this.styleObjects[content].disable('hide');
+}
+break;
+}
+}
+}
+}
+StateSwitch = function()
+{
+this.current = '';
+this.items = [];
+this.addItem = function(id, value)
+{
+var obj = {'key':id, 'value':value};
+this.items.push(obj);
+return obj;
+}
+this.setCurrent = function(id)
+{
+if(this.current == id) return false;
+var len = this.items.length;
+for(var i=0;i<len;i++)
+{
+this.items[i].value = (this.items[i].key == id) ? 1 : 0;
+}
+this.current = id;
+return true;
+}
+return this;
+}
+TabLocation = function()
+{
+this.location = window.location.toString();
+this.tabsyntax = ['tab:','=1'];
+this.initLookup = function(obj)
+{
+this.lookup = {};
+for(prop in obj)
+{
+var pos = prop.indexOf(this.tabsyntax[0]);
+if(pos == -1) continue;
+var n = prop.substring(pos+this.tabsyntax[0].length);
+var v = obj[prop];
+this.lookup[n]=v;
+}
+return true;
+}
+this.update = function(currStr,newStr)
+{
+if(this.location.indexOf(newStr) > -1) return false; 
+if(this.location.indexOf(currStr) == -1) return false; 
+this.location = this.location.replace(window.location.hash,'');
+this.location = this.location.replace(currStr,newStr);
+return window.location = this.location;
+}
+}
+function explodeQueryString(str,div,assign)
+{
+var output={};
+var pairs = str.split(div);
+for(var i=0;i<pairs.length;i++)
+{
+var pos = pairs[i].indexOf(assign);
+if(pos == -1) continue;
+var n = pairs[i].substring(0,pos);
+var v = pairs[i].substring(pos+1);
+output[n] = v;
+}	
+return output;
+}
+var winquery = window.location.search;
+if(winquery.length) 
+{
+var pos = winquery.indexOf('tab:');
+if(pos > -1)
+{
+var winquery = winquery.substring(1);
+var queryObject = explodeQueryString(winquery,'&','=');
+this['tabparams'] = new TabLocation();
+this.tabparams.initLookup(queryObject);
+}
+}
+function contentBefore()
+{
+var str = arguments[0];	
+if(arguments[1])
+{
+obj = spaceSpan(str);
+obj.className = "space";
+obj.style.position = "relative";
+obj.style.right = arguments[1];
+}
+else
+{
+obj = document.createTextNode(str);
+}
+this.insertBefore(obj,this.firstChild);
+return;
+}
+function contentAfter()
+{
+var str = arguments[0];
+var obj;
+if(arguments[1])
+{
+obj = spaceSpan(str);
+obj.className = "space";
+obj.style.position = "relative";
+obj.style.left = arguments[1];
+}
+else
+{
+obj = document.createTextNode(str);
+}
+this.appendChild(obj);
+return;
+}
+function spaceSpan(str)
+{
+var span = document.createElement('SPAN');
+span.appendChild(document.createTextNode(str));
+return span;
+}
+function adjacent()
+{
+this.shift();
+return this;
+}
+function last()
+{
+return this[this.length-1];
+}
+function marker(method,mark,marg)
+{
+if(isArray(this))
+{
+for(var i = 0,len=this.length;i<len;i++)
+{
+method.apply(this[i],[mark,marg]);
+}
+}
+else if(isObject(this))
+{
+method.apply(this,[mark,marg]);
+}
+}
+Children = function()
+{
+this.method;
+this.setMethod = function(a)
+{
+return (document.body.children) ? 'children' : 'childNodes'; 
+}
+this.checkName = function(n,v)
+{
+return n.nodeName == v;
+}
+this.checkNone = function()
+{
+return true;
+}
+}
+Children.prototype._all = function(root,name)
+{
+if(!this.method) this.method = this.setMethod();
+name = (name || "");
+var o = new Array();
+var checkName = (name) ? this.checkName : this.checkNone;
+if(isTag(root))
+{
+for(var i=0; (node=root[this.method][i]); i++)
+{
+if(isTag(node) && checkName(node,name)) o.push(node);
+}
+}
+else if(isArray(root) || isNodeList(root))
+{
+var len=root.length-1;
+do
+{
+if(isTag(root[len]))
+{
+var n = this._all.apply(this,[root[len], name]);
+o = o.concat(n.reverse());
+} 
+}
+while (len--);
+}
+return o;
+}
+Children.prototype.first = function(root, name)
+{
+if(!this.method) this.method = this.setMethod();
+name = (name || "");
+var checkName = (name) ? this.checkName : this.checkNone;
+if(isTag(root))
+{
+if(this.method=="children")
+{
+return (checkName(root.children[0],name)) ? root.children[0] : null;
+}
+else if(this.method=="childNodes")
+{
+for(var i=0; (node=root.childNodes[i]); i++)
+{
+if(isTag(node) && checkName(node,name))
+{
+return node;
+}
+}
+}
+}
+return null;
+}
+Children.prototype.last = function(root,name)
+{
+if(!this.method) this.method = this.setMethod();
+name = (name || "");
+var checkName = (name) ? this.checkName : this.checkNone;
+if(isTag(root))
+{
+if(this.method=="children")
+{
+var last = root.children[root.children.length-1];
+return (checkName(last,name)) ? last : null;
+}
+else if(this.method=="childNodes")
+{
+for(var i=root.childNodes.length-1; (node=root.childNodes[i]); i--)
+{
+if(isTag(node) && checkName(node,name))
+{
+return node;
+}
+}
+}
+}
+}
+children = new Children();
+
+
+}
+/*
+     FILE ARCHIVED ON 03:14:25 May 18, 2006 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 18:16:21 Jul 12, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 187.031
+  exclusion.robots: 0.111
+  exclusion.robots.policy: 0.094
+  cdx.remote: 0.089
+  esindex: 0.015
+  LoadShardBlock: 40.584 (3)
+  PetaboxLoader3.datanode: 67.805 (4)
+  load_resource: 93.002
+  PetaboxLoader3.resolve: 39.395
+*/

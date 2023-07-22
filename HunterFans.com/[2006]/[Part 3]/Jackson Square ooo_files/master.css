@@ -1,0 +1,157 @@
+
+body     { background: #e1bea4 no-repeat fixed }
+td { font-size: 11px; font-family: Verdana, Arial, Helvetica }
+.bBorderPTitlePsum    { padding-left: 8px; border-style: solid; border-width: 0 0 1px; border-color: #656565 }
+.boldText { font-weight: bold }
+.captions { color: #837573; font-style: italic; font-size: 9px; font-family: Verdana, Arial, Helvetica; padding-top: 2px; padding-bottom: 4px }
+.captions a:link  { color: #c38e63; font-size: 9px; font-family: Verdana, Arial, Helvetica; font-style: italic; text-decoration: none; padding-top: 2px }
+.captions a:hover  { color: #c38e63 !important; font-size: 9px; font-family: Verdana, Arial, Helvetica; font-style: italic; text-decoration: underline; padding-top: 2px }
+.captions a:active { color: #e1b375; font-style: italic; font-size: 9px; font-family: Verdana, Arial, Helvetica; text-decoration: none; padding-top: 2px }
+.captions a:active:hover  { color: #c38e63 !important; font-size: 9px; font-family: Verdana, Arial, Helvetica; font-style: italic; text-decoration: underline; padding-top: 2px }
+.captions a:visited { color: #e1b375; font-style: italic; font-size: 9px; font-family: Verdana, Arial, Helvetica; text-decoration: none; padding-top: 2px }
+.captions a:visited:hover  { color: #c38e63 !important; font-size: 9px; font-family: Verdana, Arial, Helvetica; font-style: italic; text-decoration: underline; padding-top: 2px }
+.crumbPad      { color: white; font-size: 10px; font-family: Verdana, Arial, Helvetica; background-color: #3c3c3c; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; height: 22px }
+.bNav { padding: 5px }
+.lNav  { padding: 3px 0px }
+.lNav img { margin-top: 3px; margin-bottom: 3px }
+.crumbPad a:link   { color: white; font-size: 10px; font-family: Verdana, Arial, Helvetica; text-decoration: none; padding-left: 5px }
+.crumbPad a:hover  { color: #c38e63; font-size: 10px; font-family: Verdana, Arial, Helvetica; text-decoration: underline; padding-left: 5px }
+.crumbPad a:active   { color: white; font-size: 10px; font-family: Verdana, Arial, Helvetica; text-decoration: none; padding-left: 5px }
+.crumbPad a:active:hover  { color: #c38e63; font-size: 10px; font-family: Verdana, Arial, Helvetica; text-decoration: underline; padding-left: 5px }
+.crumbPad a:visited   { color: white; font-size: 10px; font-family: Verdana, Arial, Helvetica; text-decoration: none; padding-left: 5px }
+.crumbPad a:visited:hover  { color: #c38e63; font-size: 10px; font-family: Verdana, Arial, Helvetica; text-decoration: underline; padding-left: 5px }
+.crumbPadWhere   { color: white; font-size: 10px; font-family: Verdana, Arial, Helvetica; font-weight: bold; padding-top: 5px; padding-bottom: 5px; padding-left: 5px }
+.customSearchBox  { color: #021610; font-size: 9px; font-family: Verdana, Arial, Helvetica }
+.customSearchBox input   { font-size: 10px; font-family: Verdana, Arial, sans-serif; background-color: #e1bea4 }
+.customSearchBox select   { font-size: 10px; font-family: Verdana, Arial, sans-serif; background-color: #e1bea4 }
+.customSearchBox td { padding: 2px }
+.customSearchBoxTitle { font-weight: bold }
+.dealerLeft { padding-top: 5px; padding-bottom: 5px; padding-left: 5px }
+.eightPixelPadd { padding: 8px }
+.fanKeySwatch    { padding-top: 2px; padding-right: 2px; border-bottom: 1px solid #656565 }
+.floatingBoxBack    { background-color: #e6d0c0; border: solid 1px #656565 }
+.floatingBoxBack table { margin: 5px }
+.headerGraphics { background-image: url(/web/20060508055415im_/http://www.hunterprestige.com/media/global/header_MainLogo.jpg) }
+.homeBack { background: url(/web/20060508055415im_/http://www.hunterprestige.com/media/home/bigBack.jpg) no-repeat fixed }
+.homeHeader { background: url(/web/20060508055415im_/http://www.hunterprestige.com/media/home/homeTopGraphic.jpg) no-repeat fixed }
+.leftPad   { padding-left: 8px; border-bottom: 1px solid #656565 }
+.leftSideBack { background: url(/web/20060508055415im_/http://www.hunterprestige.com/media/global/leftSide_back.jpg) no-repeat scroll }
+.logos  { padding: 5px }
+.logos img  { }
+.mainPicPSum { padding-top: 8px; padding-left: 8px }
+.mainPicPSum img    { border: solid 2px #656565 }
+.ninePixelType { font-size: 9px }
+.noBoldText { font-weight: normal }
+.otherFeatures { font-weight: bold; font-size: 9px; padding-top: 5px; padding-bottom: 5px; padding-left: 8px }
+.otherFinishesBottomBorder    { font-size: 9px; font-weight: bold; padding-top: 5px; padding-bottom: 5px; padding-left: 8px; border-style: none none solid; border-width: 0 0 1px; border-color: #656565 }
+.otherLinksTopBorder    { font-size: 9px; font-weight: bold; text-decoration: none; padding-top: 5px; padding-bottom: 5px; border-style: solid none none; border-width: 1px 0 0; border-color: #656565 }
+.otherLinksTopBorder a:link { color: #837573; font-size: 9px; text-decoration: none }
+.otherLinksTopBorder a:hover   { color: #e1b375; font-size: 9px; text-decoration: underline }
+.otherLinksTopBorder a:active { color: #837573; font-size: 9px; text-decoration: none }
+.otherLinksTopBorder a:active:hover { color: #e1b375; font-size: 9px; text-decoration: underline }
+.otherLinksTopBorder a:visited { color: #837573; font-size: 9px; text-decoration: none }
+.otherLinksTopBorder a:visited:hover  { color: #e1b375; font-size: 9px; text-decoration: underline }
+a.default:link { color: #837573; font-size: 9px; text-decoration: none }
+a.default:hover     { color: #c38e63; font-size: 9px; text-decoration: underline }
+a.default:active { color: #837573; font-size: 9px; text-decoration: none }
+a.default:active:hover   { color: #c38e63; font-size: 9px; text-decoration: underline }
+a.default:visited { color: #837573; font-size: 9px; text-decoration: none }
+a.default:visited:hover   { color: #c38e63; font-size: 9px; text-decoration: none }
+.prestigeFan  { background-color: #e6d0c0; width: 128px }
+.prestigeFan img  { background-color: #e6d0c0; padding-top: 4px }
+.prestigeFanBorder   { background-color: #e6d0c0; border: solid 5px #656565 }
+.productBladesPSum { font-size: 10px; padding-left: 8px }
+.productBladesSwatchesPSum { font-size: 10px; padding-top: 4px; padding-left: 8px }
+.productBladesSwatchesSmallPSum { font-size: 10px; padding-left: 4px }
+.productBladesSwatchesSmallPSum img { font-size: 10px; padding-bottom: 2px }
+.productFinishPSum { font-size: 10px; padding-top: 8px; padding-left: 8px }
+.productTitle { font-weight: bold; font-size: 12px; font-family: Verdana, Arial, Helvetica }
+.productTitleModelNum { font-size: 10px; font-family: Verdana, Arial, Helvetica }
+.productTitleModelNumBold { font-weight: bold; font-size: 10px; font-family: Verdana, Arial, Helvetica }
+.repeater { background-image: url(/web/20060508055415im_/http://www.hunterprestige.com/media/home/wave_stretch.jpg) }
+.rightBar   { background-color: #c38e63 }
+.rightPad { padding-right: 5px }
+.tagFeatureCopy    { color: black; font-weight: bold; font-size: 12px; font-family: Verdana, Arial, Helvetica; padding-top: 8px; padding-left: 8px }
+.tenPixelType { font-size: 10px }
+.titlePadder { font-weight: bold; font-size: 9px; padding-top: 5px; padding-bottom: 5px }
+.background       { background: #e1bea4 url("/web/20060508055415im_/http://www.hunterprestige.com/media/global/background.jpg") no-repeat }
+.bNav a:link  { color: #c38e63; font-family: Verdana, Arial, Helvetica; line-height: 10px }
+.bNav a:hover  { color: #e1bea4; font-family: Verdana, Arial, Helvetica; line-height: 10px }
+.bNav a:active  { color: #c38e63; font-family: Verdana, Arial, Helvetica; line-height: 10px }
+.bNav a:active:hover  { color: #e1bea4; font-family: Verdana, Arial, Helvetica; line-height: 10px }
+.bNav a:visited  { color: #c38e63; font-family: Verdana, Arial, Helvetica; line-height: 10px }
+.bNav a:visited:hover  { color: #e1bea4; font-family: Verdana, Arial, Helvetica; line-height: 10px }
+.content   { color: #000; font-size: 12px; font-family: Verdana, Arial, Helvetica; text-decoration: none; padding: 10px }
+.content-bold   { color: #021610; font-weight: bold; font-size: 12px; font-family: Verdana, Arial, Helvetica; text-decoration: none }
+.contentsmall  { color: #021610; font-weight: normal; font-size: 11px; font-family: Verdana, Arial, Helvetica; text-decoration: none }
+.content-text   { color: #000; font-size: 10px; font-family: Verdana, Arial, Helvetica; font-weight: normal; text-decoration: none }
+.content a:link   { color: #021610; font-size: 10px; font-family: Verdana, Arial, Helvetica; text-decoration: underline }
+.content a:hover   { color: #c38e63; font-size: 10px; font-family: Verdana, Arial, Helvetica; text-decoration: underline }
+.content a:active   { color: #021610; font-size: 10px; font-family: Verdana, Arial, Helvetica; text-decoration: underline }
+.content a:active:hover   { color: #c38e63; font-size: 10px; font-family: Verdana, Arial, Helvetica; text-decoration: underline }
+.content a:visited   { color: #021610; font-size: 10px; font-family: Verdana, Arial, Helvetica; text-decoration: underline }
+.content a:visited:hover   { color: #c38e63; font-size: 10px; font-family: Verdana, Arial, Helvetica; text-decoration: underline }
+.shoppingList  { color: #3b433a; padding: 3px 2px 3px 3px }
+.shoppingList td { padding: 3px }
+.shoppingList a:link    { color: #3c3c3c !important; font-size: 9px; text-decoration: none; padding: 3px 2px 3px 3px }
+.shoppingList a:hover  { color: #3b433a; font-size: 9px; text-decoration: underline; padding: 3px 2px 3px 3px }
+.shoppingList a:active    { color: #3c3c3c !important; font-size: 9px; text-decoration: none; padding: 3px 2px 3px 3px }
+.shoppingList a:active:hover  { color: #3b433a; font-size: 9px; text-decoration: underline; padding: 3px 2px 3px 3px }
+.shoppingList a:visited    { color: #3c3c3c !important; font-size: 9px; text-decoration: none; padding: 3px 2px 3px 3px }
+.shoppingList a:visited:hover  { color: #3b433a; font-size: 9px; text-decoration: underline; padding: 3px 2px 3px 3px }
+.shoppingList td   { background-color: #c38e63 }
+.shoppingItemList  { color: #3b433a; font-size: 10px; padding-bottom: 3px }
+.printList    { border-top: 2px solid #656565; border-bottom: 2px solid #656565; border-left: 2px solid #656565 }
+.printList td    { border-right: 2px solid #656565 }
+.TitleArea { font-size: 12px; text-decoration: none; padding: 8px }
+.TitleArea a:link  { color: #3b433a; font-size: 12px; text-decoration: none }
+.TitleArea a:hover   { color: #c38e63; font-size: 12px; text-decoration: underline }
+.TitleArea a:active  { color: #3b433a; font-size: 12px; text-decoration: none }
+.TitleArea a:active:hover   { color: #c38e63; font-size: 12px; text-decoration: underline }
+.TitleArea a:visited  { color: #3b433a; font-size: 12px; text-decoration: none }
+.TitleArea a:visited:hover   { color: #c38e63; font-size: 12px; text-decoration: underline }
+.TitleAreaTopBorder     { font-size: 12px; text-decoration: none; padding: 8px; border-top: 2px solid #656565 }
+.TitleAreaTopBorder a:link  { color: #3b433a; font-size: 12px; text-decoration: none }
+.TitleAreaTopBorder a:hover   { color: #c38e63; font-size: 12px; text-decoration: underline }
+.TitleAreaTopBorder a:active  { color: #3b433a; font-size: 12px; text-decoration: none }
+.TitleAreaTopBorder a:active:hover   { color: #c38e63; font-size: 12px; text-decoration: underline }
+.TitleAreaTopBorder a:visited  { color: #3b433a; font-size: 12px; text-decoration: none }
+.TitleAreaTopBorder a:visited:hover   { color: #c38e63; font-size: 12px; text-decoration: underline }
+.rightbar  { color: white; font-size: 11px; font-family: Verdana, Arial, Helvetica; text-decoration: none; padding: 5px }
+.rightbar a:link  { color: white; font-size: 11px; font-family: Verdana, Arial, Helvetica; text-decoration: underline }
+.rightbar a:hover   { color: #99653a; font-size: 11px; font-family: Verdana, Arial, Helvetica; text-decoration: underline }
+.rightbar a:active  { color: white; font-size: 11px; font-family: Verdana, Arial, Helvetica; text-decoration: underline }
+.rightbar a:active:hover   { color: #99653a; font-size: 11px; font-family: Verdana, Arial, Helvetica; text-decoration: underline }
+.rightbar a:visited  { color: white; font-size: 11px; font-family: Verdana, Arial, Helvetica; text-decoration: underline }
+.rightbar a:visited:hover   { color: #99653a; font-size: 11px; font-family: Verdana, Arial, Helvetica; text-decoration: underline }
+.rightbarbold  { color: white; font-size: 11px; font-family: Verdana, Arial, Helvetica; font-weight: bold; text-decoration: none }
+.5pad { padding: 5px }
+.featureC { font-size: 10px; font-weight: normal }
+.featuresContainer  { color: #c38e63; font-size: 9px; font-weight: bold; padding: 10px; border: solid 1px #656565 }
+.finishesContainer { color: #c38e63; font-size: 9px; font-weight: bold; border: solid 1px #656565 }
+.subtitles  { color: black; font-size: 10px; font-weight: bold; padding-top: 10px; padding-bottom: 5px }
+.subtitles1 { color: black; font-size: 10px; font-weight: bold; padding-top: 10px }
+.doclinkstd { color: #c49167; font-size: 10px; font-weight: bold; padding-top: 10px; height: 15px }
+.rowOdd { background-color: #ffd8ba; border-top: 1px dotted #630; border-bottom: 1px dotted #630 }
+.rule { border: solid 1px #630 }
+
+/*
+     FILE ARCHIVED ON 05:54:15 May 08, 2006 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 01:45:47 Jul 11, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 102.217
+  exclusion.robots: 0.136
+  exclusion.robots.policy: 0.123
+  cdx.remote: 0.095
+  esindex: 0.012
+  LoadShardBlock: 53.063 (3)
+  PetaboxLoader3.datanode: 70.917 (4)
+  load_resource: 66.776
+  PetaboxLoader3.resolve: 35.808
+*/

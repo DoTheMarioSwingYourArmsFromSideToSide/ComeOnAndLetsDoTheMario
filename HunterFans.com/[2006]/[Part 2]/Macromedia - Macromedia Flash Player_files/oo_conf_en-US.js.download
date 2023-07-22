@@ -1,0 +1,39 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+/* OnlineOpinion (F3c,en-US) */
+/* This product and other products of OpinionLab, Inc. are protected by U.S. Patent No. 6606581, 6421724, 6785717 B1 and other patents pending. */
+var O_pth='/onlineopinionF3c/',O_color='black',O_tmoff=3600000;_aLg=new Array("en-US","","Please click here to give us feedback.","Comments?", "0");O_lang=_aLg[4];O_pth+=_aLg[0]+'/';O_pth+=O_color;
+_top=0;_fb=1;O_GoC('<table cellspacing="0" cellpadding="0" border="0"><tr><td align="center" style="text-align:center"><a href="#" onMouseOver="_stop=0" onMouseOut="_stop=1;_Sh(\'O_c\',0);_Sh(\'O_o\',1);return 1"><img src="'+O_pth+'_oo.gif" border="0" width="19" height="17" alt="'+_aLg[1]+'" title="'+_aLg[1]+'"></a></td></tr><tr><td align="center" style="text-align:center"><a href="#" onMouseOver="_stop=1" onMouseOut="_stop=1;_Sh(\'O_c\',0);_Sh(\'O_o\',1);return 1"><img src="'+O_pth+'_fb_'+_aLg[0]+'.gif" border="0"></a></td></tr></table></div><br><div id="O_c" style="position:absolute;top:0px;left:0px;visibility:hidden;z-index:999"><table cellpadding="0" cellspacing="0" border="0" valign="top" align="left" width="138"><tr><td>'+_alk+'<img src="'+O_pth+'_popns_'+_aLg[0]+'.gif" alt="'+_aLg[2]+'" title="'+_aLg[2]+'" border="0" width="115" height="56"></a>'+_alk+'<img src="'+O_pth+'_dot.gif" alt="" title="" width="4" height="17" border="0"><img src="'+O_pth+'_comment.gif" alt="'+_aLg[3]+'" title="'+_aLg[3]+'" border="0" width="19" height="17"></a>');
+
+
+}
+/*
+     FILE ARCHIVED ON 03:13:57 May 18, 2006 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 18:16:25 Jul 12, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 287.738
+  exclusion.robots: 0.123
+  exclusion.robots.policy: 0.11
+  cdx.remote: 0.085
+  esindex: 0.016
+  LoadShardBlock: 162.843 (3)
+  PetaboxLoader3.datanode: 207.457 (4)
+  load_resource: 134.286
+  PetaboxLoader3.resolve: 80.718
+*/

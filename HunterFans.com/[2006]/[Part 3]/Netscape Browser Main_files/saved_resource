@@ -1,0 +1,241 @@
+
+
+
+
+<!-- Init: 0 -->
+
+
+
+
+<html>
+<head>
+<title>Netscape Browser Main</title>
+<link rel="stylesheet" href="http://cdn-channels.netscape.com/ns8/i/stylesheet.css" type="text/css">
+<script LANGUAGE="Javascript1.1" SRC="http://ar.atwola.com/file/adsWrapper.js"></SCRIPT>
+<style type="text/css">
+.bar425 {  font-family: arial, sans-serif; font-size: 18px; font-weight: bold; color: #000000; background-image: url(http://cdn-channels.netscape.com/ns8/i/bar_425.gif); height: 26px; padding: 3px 0px 0px 10px;background-repeat: no-repeat;}
+</style>
+</head>
+<body link=#374FD5 alink=#374FD5 vlink=#374FD5 text=000000 leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+
+
+<div id='omniture' style='position:absolute; top:0; right:0; z-index:-100;'>
+<script type='text/javascript'>
+// <![CDATA[
+var s_account = "aolnsbrows,aolsvc";
+var s_linkInternalFilters = "javascript:,netscape.com";
+var s_pfxID = "nsb";
+var s_channel = "ns.browser";
+var s_prop1 = "";
+var s_prop2 = "";
+var s_prop12 = document.URL.replace(/\?.*/, "");
+var s_prop17 = "";
+var s_pageName = "Netscape Browser - Netscape Browser Main";
+// ]]>
+</script>
+<script type='text/javascript' src='http://cdn.netscape.com/metrics/wp_omniture_v1.js'></script>
+</div>
+
+
+<!--begin tempalte top-->
+<!-- toolbar -->
+<style type="text/css">
+#tbBG {
+    background: url("http://cdn-channels.netscape.com/ns8/i/tb_tile.gif");
+    background-repeat: repeat-x;
+    background-color: #000000;
+    height: 75px;
+}
+
+#mainBG {
+    background: url("http://cdn-channels.netscape.com/ns8/i/nav_bg.gif");
+    background-repeat: no-repeat;
+}
+.bar {  font-family: arial, sans-serif; font-size: 18px; font-weight: bold; color: #000000; background-image: url(http://cdn-channels.netscape.com/ns8/i/bar.gif); height: 26px; padding: 3px 0px 0px 10px;background-repeat: no-repeat;}
+</style>
+<div id=tbBG oncontextmenu="return false;">
+    <div id=mainBG>
+<a href="http://www.netscape.com/"><img src="http://cdn-channels.netscape.com/ns8/i/logo_ns_0x0.gif" border=0  alt=""></a>
+    </div>
+</div>
+<!-- end toolbar -->
+
+<div class=vs1x>&nbsp;</div>
+<table width="770" border="0" cellspacing="0" cellpadding="0">
+<tr>
+    <td width=15 valign=top>&nbsp;</td>
+    <td width=61 valign=top><img src="http://cdn-channels.netscape.com/ns8/i/x.gif" width=5 height=1 border=0><a href=/ns8/><img src="http://cdn-channels.netscape.com/ns8/i/home_on.gif" alt="Home" title="Home" width="37" height="31" border="0"></a></td>
+    <td width=86 valign=top align=center><a href=/ns8/product/default.jsp><img src="http://cdn-channels.netscape.com/ns8/i/info_off.gif" alt="Product Info" title="Product Info" width="37" height="31" border="0"></a></td>
+    <td width=83 valign=top align=center><a href=/ns8/download/default.jsp><img src="http://cdn-channels.netscape.com/ns8/i/dwnld_off.gif" alt="Downloads" title="Downloads" width="37" height="31" border="0"></a></td>
+    <td width=91 valign=top align=center><a href=/ns8/community/default.jsp><img src="http://cdn-channels.netscape.com/ns8/i/comm_off.gif" alt="Community" title="Community" width="37" height="31" border="0"></a></td>
+    <td width=111 valign=top align=center><a href=/ns8/security/default.jsp><img src="http://cdn-channels.netscape.com/ns8/i/secur_off.gif" alt="Security Center" title="Security Center" width="37" height="31" border="0"></a></td>
+    <td width=66 valign=top align=center><a href=/ns8/support/default.jsp><img src="http://cdn-channels.netscape.com/ns8/i/support_off.gif" alt="Support" title="Support" width="37" height="31" border="0"></a></td>
+    <td width=257 valign=top>&nbsp;</td>
+</tr>
+<tr height=1>
+    <td width=15 height=1 valign=top><img src="http://cdn-channels.netscape.com/ns8/i/x.gif" width=1 height=1 border=0></td>
+    <td valign=top colspan=7 height=1 background="http://cdn-channels.netscape.com/ns8/i/nav_rule.gif"><img src="http://cdn-channels.netscape.com/ns8/i/x.gif" alt="" title="" width="1" height="1" border="0"><br clear=all></td>
+</tr>
+<tr>
+    <td valign=top>&nbsp;</td>
+    <td valign=top><a href=/ns8/><img src="http://cdn-channels.netscape.com/ns8/i/home_txt.gif" alt="Home" title="Home" border="0"></a></td>
+    <td valign=top><a href=/ns8/product/default.jsp><img src="http://cdn-channels.netscape.com/ns8/i/info_txt.gif" alt="Product Info" title="Product Info" border="0"></a></td>
+    <td valign=top><a href=/ns8/download/default.jsp><img src="http://cdn-channels.netscape.com/ns8/i/dwnld_txt.gif" alt="Downloads" title="Downloads" border="0"></a></td>
+    <td valign=top><a href=/ns8/community/default.jsp><img src="http://cdn-channels.netscape.com/ns8/i/comm_txt.gif" alt="Community" title="Community" border="0"></a></td>
+    <td valign=top><a href=/ns8/security/default.jsp><img src="http://cdn-channels.netscape.com/ns8/i/secur_txt.gif" alt="Security Center" title="Security Center" border="0"></a></td>
+    <td valign=top><a href=/ns8/support/default.jsp><img src="http://cdn-channels.netscape.com/ns8/i/support_txt.gif" alt="Support" title="Support" border="0"></a></td>
+    <td>&nbsp;</td>
+</tr>    
+</table>
+<div class=vs1x>&nbsp;</div>
+<!--end tempalte top-->
+<!-- Top: 0 -->
+
+
+  
+<!-- Start of DoubleClick Spotlight Tag: Please do not remove-->
+<!-- Activity Name for this tag is:Browser Download -->
+<!-- Web site URL where tag should be placed: http://browser.netscape.com -->
+<!-- This tag must be placed within the opening <body> tag, as close to the beginning of it as possible-->
+<!-- Creation Date:5/4/2005 -->
+<SCRIPT language="JavaScript">
+var axel = Math.random()+"";
+var a = axel * 10000000000000;
+document.write('<IMG SRC="http://ad.doubleclick.net/activity;src=1021117;type=2005c162;cat=brows524;ord='+ a + '?" WIDTH=1 HEIGHT=1 BORDER=0><br clear=all>');
+</SCRIPT>
+<NOSCRIPT>
+<IMG SRC="http://ad.doubleclick.net/activity;src=1021117;type=2005c162;cat=brows524;ord=1?" WIDTH=1 HEIGHT=1 BORDER=0><br clear=all>
+</NOSCRIPT>
+<!-- End of DoubleClick Spotlight Tag: Please do not remove-->
+
+
+<!-- ----------------- DO NOT REMOVE THIS CODING Advertising.com Landing Page------------------------ -->
+<img src="http://servedby.advertising.com/site=695501/mnum=1516/bins=1/rich=0/logs=0/betr=ntscp_cs=1" height=1 width=1 border=0><br clear=all>
+<!-- ----------------- DO NOT REMOVE THIS CODING Advertising.com Landing Page------------------------ -->
+
+
+<div class=padl20>
+<table width="745" cellspacing="0" cellpadding="0" border="0">
+<tr><td valign=top><img src=http://cdn-channels.netscape.com/ns8/i/rnd_box_top.gif alt="" border="0"></td></tr>
+<tr><td valign=top background=http://cdn-channels.netscape.com/ns8/i/rnd_box_mid.gif align=center>
+    <div class=vs1x>&nbsp;</div>
+	<table width="745" cellspacing="0" cellpadding="0" border="0" background="">
+	<tr> 
+	    <td width=30>&nbsp;&nbsp;&nbsp;</td>
+	    <td width=200 valign=top>
+			<img src=http://cdn-channels.netscape.com/ns8/i/animation.gif alt="" border="0" NAME="slide">
+		</td>	
+	    <td width=15>&nbsp;</td>			
+	    <td width=200 valign=top>
+			<div class=text14>The All-New</div>
+            <div class=text14b>Netscape Browser 8.1</div>
+			<div class=vs1x>&nbsp;</div>
+            <div class=text14><font color=#377582>Speed, Flexibility and <br>More Security Choices <br>Than Any Other Browser</font></div>
+		    <div class=vs1x>&nbsp;</div>
+       		<span class=text10>Whats Included in the Download? Installation may include Netscape 8.1 Browser, Netscape ISP, McAfee, Rhapsody, Real Arcade and WeatherBug.</span>            
+		</td>
+	    <td width=50>&nbsp;&nbsp;&nbsp;</td>
+	    <td width=250 valign=top>	
+            
+                <div class=text12>
+        		<a href=http://ftp.netscape.com/pub/netscape8/english/8.1/windows/win32/nsb-setup.exe><image src="http://cdn-channels.netscape.com/ns8/i/free_dnl.gif" border=0 alt="Download Now" title="Download Now"></a>
+        		<div class=vs6>&nbsp;</div>
+            		&nbsp;<font color=#377582>For Windows XP, English (658K)</font>
+                	<div class=vs6>&nbsp;</div>
+            		&nbsp;&nbsp;&#149;&nbsp;<a href=/ns8/download/sysreq.jsp class=link>System Requirements</a><br>
+            		&nbsp;&nbsp;&#149;&nbsp;<a href=/ns8/support/relnotes.jsp class=link>Release Notes</a><br>
+            		&nbsp;&nbsp;&#149;&nbsp;<a href=/ns8/download/ class=link>More Download Options</a><br>
+            		&nbsp;&nbsp;&#149;&nbsp;<a href=http://www.netscapestore.com/ class=link>Buy on CD-ROM</a><br>
+
+            	</div>
+                
+		</td>
+	</tr>
+	</table>
+    <div class=vs1x>&nbsp;</div>    
+</td></tr>
+<tr><td valign=top><img src=http://cdn-channels.netscape.com/ns8/i/rnd_box_bttm.gif alt="" border="0"></td></tr>
+</table>
+</div>
+
+<div class=vs1x>&nbsp;</div>
+<table width="770" cellspacing="0" cellpadding="0" border="0">
+<tr>
+	<td width=18>&nbsp;&nbsp;&nbsp;</td>
+    <td width=432 valign=top>
+        <div class=bar425>Features</div>
+        <br>
+        <table width="432" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+            <td width=200 valign=top><a href=product/security.jsp><img src=http://cdn-channels.netscape.com/ns8/i/81g_securitycenter.gif alt="Security Center" title="Security Center" border="0" align=left hspace=7></a><span class=text14b><a href=product/security.jsp>Security Center</a></span>&nbsp;<img src=http://cdn-channels.netscape.com/ns8/i/new.gif alt="new" border=0><div class=vs1>&nbsp;</div></td>
+            <td width=20>&nbsp;&nbsp;</td>
+            <td valign=top><a href=product/spyware.jsp><img src=http://cdn-channels.netscape.com/ns8/i/81g_spyware.gif alt="Spyware & Adware Protection" title="Spyware & Adware Protection" border="0" align=left hspace=7></a>&nbsp;<span class=text14b><a href=product/spyware.jsp>Spyware & Adware Protection*</a></span>&nbsp;<img src=http://cdn-channels.netscape.com/ns8/i/new.gif alt="new" border=0><div class=vs1>&nbsp;</div></td>
+        </tr>
+        <tr>
+            <td valign=top><a href=product/rss.jsp><img src=http://cdn-channels.netscape.com/ns8/i/81g_rss.gif alt="Real-Time Feeds" title="Real-Time Feeds" border="0" vspace=0 align=left hspace=7></a><span class=text14b><a href=product/rss.jsp>Real-Time Feeds</a></span>&nbsp;<img src=http://cdn-channels.netscape.com/ns8/i/new.gif alt="new" border=0><div class=vs1>&nbsp;</div></td>
+            <td>&nbsp; </td>
+            <td valign=top><a href=product/profiles.jsp><img src=http://cdn-channels.netscape.com/ns8/i/81g_profiles.gif alt="Profiles" title="Profiles" border="0" align=left hspace=7></a>&nbsp;<span class=text14b><a href=product/profiles.jsp>Profiles</a></span>&nbsp;<img src=http://cdn-channels.netscape.com/ns8/i/new.gif alt="new" border=0></td>
+        </tr>
+        </table>
+</td>
+    <td width=320 align=right valign=top>
+<map name="Map1">
+<area shape="rect" coords="160,60,290,100" title="Order Now" alt="Order Now" href="http://www.netscapestore.com/">
+</map>
+<img src=http://cdn-channels.netscape.com/ns8/i/guidebook81.gif alt="Order Now" title="Order Now" border="0" vspace=0 usemap=#Map1>
+        </td>    
+</tr>
+<tr><td colspan=3><div class=vs6>&nbsp;</div><div class=vs2>&nbsp;</div></td></tr>
+<tr>
+	<td width=18>&nbsp;&nbsp;&nbsp;</td>
+    <td width=432 valign=top>
+
+
+<div class=bar425>Tip of the Day</div>
+<div class=vs6>&nbsp;</div> 
+<img src=http://cdn-channels.netscape.com/ns8/i/tip_rss_feed.jpg width=70 height=70 border=0 alt="Subscribe to 'RSS Feed'" hspace=5 align=left><div class=text12><b>Subscribe to 'RSS Feed'</b><br> Add dynamic news feeds from supporting websites directly to your browser toolbar. <span=text11><a href=help/customize_help.jsp#add_rss_feed>Learn More</a></span><br clear=all></div><div class=vs1x>&nbsp;</div>
+
+<br><br><br><br><br><br><br><br><br>
+<div class=text10>*Separate activation is required for the spyware scan to take place.</div>
+</td>
+    <td width=320 align=right valign=top><script language="javascript1.1">
+                    <!--
+                    htmlAdWH('93206646','300','250');
+                    //-->
+                    </script>
+                    <noscript>
+                    <a href="http://ar.atwola.com/link/93206646/aol/">
+                    <img src="http://ar.atwola.com/image/93206646/aol" width="300" height="250" border=0 vspace=4></a>
+                    </noscript></td>
+</tr>
+</table>
+
+
+
+
+
+<!--begin tempalte bottom-->
+<p>&nbsp;</p>
+<table width=770 cellpadding=0 cellspacing=0 border=0>
+<tr><td width=15>&nbsp;</td><td colspan=2><img src=http://cdn-channels.netscape.com/ns8/i/dot_D2C9AB.gif height=1 width=755></td></tr>
+<tr><td width=15>&nbsp;</td>
+<td width=162><a href="http://www.netscape.com"><img src=http://cdn-channels.netscape.com/g/i/ns/logo_ns40.gif border=0 alt="Netscape"></a></td>
+<td valign=middle width=593 class=text10>
+<a href=http://channels.netscape.com/info/tos.jsp class=footerlink>Terms of Service</a>&nbsp;|&nbsp;<a href=http://channels.netscape.com/info/privacy.jsp class=footerlink>Privacy Policy</a>&nbsp;&nbsp;<br>&nbsp;&copy;&nbsp;2006&nbsp;Netscape Communications Corp. All rights reserved.
+</td></tr></table>
+<p>&nbsp;</p>
+<!--end tempalte bottom-->
+<!-- Bottom: 0 -->
+
+
+<!-- Total: 1 -->
+
+<script LANGUAGE="Javascript1.1" SRC="http://ar.atwola.com/file/adsEnd.js"></SCRIPT>
+      
+
+
+
+</body>
+</html>
+
+

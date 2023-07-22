@@ -1,0 +1,130 @@
+/*
+Copyright 2005 Adobe Systems Incorporated.
+Print CSS
+$Revision: 1.16 $
+*/
+#globalnav,
+#footerlinks,
+#googlebadge,
+#depthpath,
+#pod,
+#promo,
+#sc-util,
+#accesslink,
+#terms,
+#searchengine,
+.menu,
+.nav-up,
+.nav {
+display: none !important;
+}
+#layoutLogic,
+#gecko,
+#capBottom,
+#infoPod {
+width: auto !important;
+padding: 0pt;
+margin: auto;
+background: #fff none !important;
+}
+#contentBody {
+margin: 10pt 16pt !important;
+padding: 0pt !important;
+width: auto !important;
+}
+#contentBody div {
+width: auto !important;
+float: none !important;
+padding: 0 !important;
+}
+#contentBody a[href^="/"]:after {
+content: " (http://www.macromedia.com" attr(href) ") ";
+font-size: xx-small;
+}
+.url {
+color: #787878;
+}
+#globalfooter {
+margin: 24pt 0pt 8pt;
+padding: 0;
+width: auto !important;
+}
+#copyright {
+width: 80%;
+}
+#contentFooter,
+#contentFooter a {
+color: #000 !important;
+}
+#fma { 
+margin-left: 0 !important;
+margin-top: -16pt !important;
+width: auto !important;
+}
+#sc-intro img {
+float: left;
+margin-right: 10px;	
+margin-bottom: 0pt;
+}
+html*#sc-intro img {
+margin-bottom: 10pt !important;
+margin-bottom: 0;
+}
+#sc-intro h3 {
+background-color: #fff;
+}
+#sc-body {
+clear: both;
+}
+body {
+background: #fff none !important;
+}
+#layoutLogic h1 { 
+padding: 7pt 16pt;
+}
+pre {
+font-size: 8pt;
+white-space: normal; 
+}
+div.preWrapper {
+width: auto !important;
+}
+div.preWrapper pre {
+word-wrap: break-word;
+white-space: -o-pre-wrap;
+white-space: -moz-pre-wrap;
+white-space: pre-wrap;
+}
+table,
+input,
+select {
+width: auto !important;
+}
+select
+{
+max-width: 25ex;
+}
+.form-columns .columns-2-AB-A {
+text-align: left !important;
+}
+
+/*
+     FILE ARCHIVED ON 22:48:42 May 16, 2006 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 18:16:30 Jul 12, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 200.853
+  exclusion.robots: 0.111
+  exclusion.robots.policy: 0.1
+  cdx.remote: 0.066
+  esindex: 0.01
+  LoadShardBlock: 74.902 (3)
+  PetaboxLoader3.datanode: 75.521 (4)
+  load_resource: 147.502
+  PetaboxLoader3.resolve: 132.633
+*/

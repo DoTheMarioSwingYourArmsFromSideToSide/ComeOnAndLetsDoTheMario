@@ -1,0 +1,77 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+// JavaScript Document
+wssEvent = {
+wssRef:[],
+wssRel:"",
+init : function(elem)
+{
+this.wssRel = elem.getAttribute('rel');
+this.wssRef = getAttributesAtMarker(this.wssRel,'_','WSS');
+return true;
+},
+exec : function(elem)
+{
+var o =  this.wssRef && this.wssRef.length == 2 && (elem.getAttribute('rel') == this.wssRel);
+if(o) _hbLink(this.wssRef[0],this.wssRef[1]); 
+return true;
+}
+};
+var gn = $('globalnav');
+if(gn && window.hbx)
+{
+gnlinks = gn.getElementsByTagName('a');
+for(var i=0,len=gnlinks.length;i<len;i++)
+{
+var gnlink = gnlinks[i];
+gnlink.onmousedown = function()
+{
+wssEvent.init(this);
+}
+gnlink.onkeydown = function()
+{
+wssEvent.init(this);
+}
+gnlink.onmouseup = function()
+{
+wssEvent.exec(this);
+}
+gnlink.onkeyup = function()
+{
+wssEvent.exec(this);	
+}
+}
+}
+
+
+}
+/*
+     FILE ARCHIVED ON 03:17:04 May 18, 2006 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 18:16:25 Jul 12, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 105.207
+  exclusion.robots: 0.079
+  exclusion.robots.policy: 0.071
+  cdx.remote: 0.056
+  esindex: 0.009
+  LoadShardBlock: 64.87 (3)
+  PetaboxLoader3.datanode: 55.806 (4)
+  load_resource: 66.449
+  PetaboxLoader3.resolve: 28.748
+*/

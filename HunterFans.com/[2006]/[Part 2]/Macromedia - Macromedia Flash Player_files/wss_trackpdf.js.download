@@ -1,0 +1,86 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+// Track PDF clicks as PV (CUSTOMIZED FOR ADOBE)
+// Function WSS_detectPDF
+// Purpose: If a link is to a PDF, call _hbPageView(), to register click as a PV
+function WSS_detectPDF(e) {
+var tg;
+if (!e) var e = window.event;
+if (e.target) tg = e.target;
+else if (e.srcElement) tg = e.srcElement;
+if (tg.nodeType == 3) tg = tg.parentNode; 
+if (tg.href) {
+var tg_pathname = tg.href.toLowerCase();
+if ((tg_pathname.indexOf(".pdf")!= -1) && (tg_pathname.indexOf("adobe") != -1)) {
+var tg_path = tg_pathname.substring(tg_pathname.indexOf("//") + 2, tg_pathname.lastIndexOf("/"));
+var tg_filename = tg_pathname.substring(tg_pathname.lastIndexOf("/")+1, tg_pathname.lastIndexOf("."));
+tg_filename=tg_filename+".pdf";
+tg_path = "/PDFs/" + tg_path + "/" + tg_filename;
+_hbPageView(tg_filename, tg_path); 
+}
+}
+}
+function WSS_addLoadEvent(func) {
+registerOnLoadFunc( func );
+}
+WSS_addLoadEvent(function() {
+if (!document.getElementsByTagName) return; 
+var WSS_checkAllLinks = document.getElementsByTagName("a");
+var WSS_checkLink;
+for (var i=0; i<WSS_checkAllLinks.length; i++) {
+WSS_checkLink = WSS_checkAllLinks[i];
+if (WSS_checkLink.getAttribute("href")) {
+if (! WSS_checkLink.getAttribute("onclick")) {
+WSS_checkAllLinks[i].onclick = WSS_detectPDF;
+}
+}
+}
+var WSS_checkImapLinks = document.getElementsByTagName("area");
+var WSS_checkImapLink;
+for (var i=0; i<WSS_checkImapLinks.length; i++) {
+WSS_checkImapLink = WSS_checkImapLinks[i];
+if (WSS_checkImapLink.getAttribute("href")) {
+if (! WSS_checkImapLink.getAttribute("onclick")) {
+WSS_checkImapLinks[i].onclick = WSS_detectPDF;
+}
+}
+}
+});
+if (!window.hbx) {
+var _hbEC=0,_hbE=new Array;function _hbEvent(a,b){b=_hbE[_hbEC++]=new Object();b._N=a;b._C=0;return b;}
+var hbx=_hbEvent("pv");hbx.vpc="HBX0103u";hbx.gn=location.hostname;
+hbx.acct="DM550215EESA"; 
+}
+
+
+}
+/*
+     FILE ARCHIVED ON 03:16:03 May 18, 2006 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 18:16:25 Jul 12, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 100.786
+  exclusion.robots: 0.068
+  exclusion.robots.policy: 0.058
+  cdx.remote: 0.053
+  esindex: 0.008
+  LoadShardBlock: 64.497 (3)
+  PetaboxLoader3.datanode: 69.541 (4)
+  load_resource: 572.277
+  PetaboxLoader3.resolve: 540.779
+*/

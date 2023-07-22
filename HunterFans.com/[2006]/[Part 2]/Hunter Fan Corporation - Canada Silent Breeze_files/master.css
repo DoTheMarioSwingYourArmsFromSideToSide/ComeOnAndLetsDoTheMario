@@ -1,0 +1,338 @@
+
+body    { background: #fff1bd no-repeat fixed }
+td   { font-size: 11px; font-family: Verdana, Arial, Helvetica }
+.bBorderPTitlePsum { padding-left: 8px; border-style: solid; border-width: 0px 0px 1px 0px; border-color: #e7c391 }
+.boldText { font-weight: bold }
+.captions { color: #837573; font-style: italic; font-size: 9px; font-family: Verdana, Arial, Helvetica; padding-top: 2px; padding-bottom: 4px }
+.captions a:link { color: #9b5547; font-style: italic; font-size: 9px; font-family: Verdana, Arial, Helvetica; text-decoration: none; padding-top: 2px }
+.captions a:hover { color: #457462; font-style: italic; font-size: 9px; font-family: Verdana, Arial, Helvetica; text-decoration: underline; padding-top: 2px }
+.captions a:active { color: #e1b375; font-style: italic; font-size: 9px; font-family: Verdana, Arial, Helvetica; text-decoration: none; padding-top: 2px }
+.captions a:active:hover { color: #457462; font-style: italic; font-size: 9px; font-family: Verdana, Arial, Helvetica; text-decoration: underline; padding-top: 2px }
+.captions a:visited { color: #e1b375; font-style: italic; font-size: 9px; font-family: Verdana, Arial, Helvetica; text-decoration: none; padding-top: 2px }
+.captions a:visited:hover { color: #457462; font-style: italic; font-size: 9px; font-family: Verdana, Arial, Helvetica; text-decoration: underline; padding-top: 2px }
+.carefreeHumid  { font-weight: bold; font-size: 9px; text-decoration: none; background-color: #e0ffff; width: 128px }
+.carefreeHumid img { background-color: #e0ffff; padding-top: 4px }
+.carefreeplusHumid  { background-color: #b0e0e6; width: 128px }
+.carefreeplusHumid img { background-color: #b0e0e6; padding-top: 4px }
+.crumbPad   { color: #9b5547; font-size: 10px; font-family: Verdana, Arial, Helvetica; background-color: #e7c391; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; height: 22px }
+.bNav { padding: 5px }
+.lNav  { padding: 3px 0px }
+.lNav div { margin-top: 3px; margin-bottom: 3px }
+.crumbPad a:link { color: #9b5547; font-size: 10px; font-family: Verdana, Arial, Helvetica; text-decoration: none; padding-left: 5px }
+.crumbPad a:hover { color: #457462; font-size: 10px; font-family: Verdana, Arial, Helvetica; text-decoration: underline; padding-left: 5px }
+.crumbPad a:active { color: #9b5547; font-size: 10px; font-family: Verdana, Arial, Helvetica; text-decoration: none; padding-left: 5px }
+.crumbPad a:active:hover { color: #457462; font-size: 10px; font-family: Verdana, Arial, Helvetica; text-decoration: underline; padding-left: 5px }
+.crumbPad a:visited { color: #9b5547; font-size: 10px; font-family: Verdana, Arial, Helvetica; text-decoration: none; padding-left: 5px }
+.crumbPad a:visited:hover { color: #457462; font-size: 10px; font-family: Verdana, Arial, Helvetica; text-decoration: underline; padding-left: 5px }
+.crumbPadExclusive     { color: #6767ac; font-size: 10px; font-family: Verdana, Arial, Helvetica; background-color: #99f; padding-top: 5px; padding-bottom: 5px; padding-left: 5px }
+.crumbPadExclusive a:link  { color: #6767ac; font-size: 10px; font-family: Verdana, Arial, Helvetica; text-decoration: none; padding-left: 5px }
+.crumbPadExclusive a:hover  { color: #ccf; font-size: 10px; font-family: Verdana, Arial, Helvetica; text-decoration: underline; padding-left: 5px }
+.crumbPadExclusive a:active  { color: #6767ac; font-size: 10px; font-family: Verdana, Arial, Helvetica; text-decoration: none; padding-left: 5px }
+.crumbPadExclusive a:active:hover  { color: #ccf; font-size: 10px; font-family: Verdana, Arial, Helvetica; text-decoration: underline; padding-left: 5px }
+.crumbPadExclusive a:visited  { color: #6767ac; font-size: 10px; font-family: Verdana, Arial, Helvetica; text-decoration: none; padding-left: 5px }
+.crumbPadExclusive a:visited:hover  { color: #ccf; font-size: 10px; font-family: Verdana, Arial, Helvetica; text-decoration: underline; padding-left: 5px }
+.crumbPadWhere  { color: #9b5547; font-weight: bold; font-size: 10px; font-family: Verdana, Arial, Helvetica; padding-top: 5px; padding-bottom: 5px; padding-left: 5px }
+.crumbPadWhereEx { color: #6767ac; font-weight: bold; font-size: 10px; font-family: Verdana, Arial, Helvetica; padding-top: 5px; padding-bottom: 5px; padding-left: 5px }
+.customSearchBox { color: #9b5547; font-size: 9px; font-family: Verdana, Arial, Helvetica }
+.customSearchBox input { font-size: 10px; font-family: Verdana, Arial, sans-serif; background-color: #e7c391 }
+.customSearchBox select { font-size: 10px; font-family: Verdana, Arial, sans-serif; background-color: #e7c391 }
+.customSearchBox td { padding: 2px }
+.customSearchBoxTitle { font-weight: bold }
+.dealerLeft { padding-top: 5px; padding-bottom: 5px; padding-left: 5px }
+.eightPixelPadd { padding: 8px }
+.exclusive      { color: #000; font-size: 10px; font-family: Verdana, Arial, Helvetica; font-weight: bold }
+.exclusive p { padding: 5px }
+.exclusive img  { font-family: Verdana, Arial, Helvetica; padding: 5px }
+.exclusiveLogo img { font-family: Verdana, Arial, Helvetica; padding: 5px }
+.exclusiveLogo  { padding: 5px }
+.exclusiveFan  { background-color: #ccf; width: 128px }
+.exclusiveFan img  { background-color: #ccf; padding-top: 4px }
+
+.exclusiveFanBorder  { background-color: #ccf; border: solid 5px #efdcdc }
+.fanKeySwatch { padding-top: 2px; padding-right: 2px; border-bottom: 1px solid #e7c391 }
+.fanKeySwatchDC { padding-top: 2px; padding-right: 2px; border-bottom: 1px solid #254652 }
+.floatingBoxBack { background-color: #fff3e0; border: solid 1px #e1b375 }
+.floatingBoxBack table { margin: 5px }
+.hepatechAir  { background-color: #87cefa; width: 128px }
+.hepatechAir img { background-color: #87cefa; padding-top: 2px }
+.leftPad { padding-left: 8px; border-bottom: 1px solid #e7c391 }
+.leftPadDC { padding-left: 8px; border-bottom: 1px solid #254652 }
+.logos   { padding: 2px }
+.logos img   { padding: 2px }
+.mainPicPSum { padding-top: 8px; padding-left: 8px }
+.mainPicPSum img { border: solid 2px #e1b375 }
+.mainPicPSumEx { padding-top: 8px; padding-left: 8px }
+.mainPicPSumEx img  { border: solid 2px #ccf }
+.ninePixelType { font-size: 9px }
+.noBoldText { font-weight: normal }
+.otherFeatures { font-weight: bold; font-size: 9px; padding-top: 5px; padding-bottom: 5px; padding-left: 8px }
+.otherFinishesBottomBorder { font-weight: bold; font-size: 9px; padding-top: 5px; padding-bottom: 5px; padding-left: 8px; border-style: none none solid none; border-width: 0px 0px 1px 0px; border-color: #e7c391 }
+.otherFinishesBottomBorderDC { font-weight: bold; font-size: 9px; padding-top: 5px; padding-bottom: 5px; padding-left: 8px; border-style: none none solid none; border-width: 0px 0px 1px 0px; border-color: #254652 }
+.otherFinishesBottomBorderGE { font-weight: bold; font-size: 9px; padding-top: 5px; padding-bottom: 5px; padding-left: 8px; border-style: none none solid none; border-width: 0px 0px 1px 0px; border-color: #f9cb79 }
+.otherLinksTopBorder { font-weight: bold; font-size: 9px; text-decoration: none; padding-top: 5px; padding-bottom: 5px; border-style: solid none none none; border-width: 1px 0px 0px 0px; border-color: #e7c391 }
+.otherLinksTopBorderDC { font-weight: bold; font-size: 9px; text-decoration: none; padding-top: 5px; padding-bottom: 5px; border-style: solid none none none; border-width: 1px 0px 0px 0px; border-color: #254652 }
+.otherLinksTopBorder a:link { color: #837573; font-size: 9px; text-decoration: none }
+.otherLinksTopBorder a:hover   { color: #e1b375; font-size: 9px; text-decoration: underline }
+.otherLinksTopBorder a:active { color: #837573; font-size: 9px; text-decoration: none }
+.otherLinksTopBorder a:active:hover { color: #e1b375; font-size: 9px; text-decoration: underline }
+.otherLinksTopBorder a:visited { color: #837573; font-size: 9px; text-decoration: none }
+.otherLinksTopBorder a:visited:hover  { color: #e1b375; font-size: 9px; text-decoration: underline }
+a.default:link { color: #837573; font-size: 9px; text-decoration: none }
+a.default:hover   { color: #e1b375; font-size: 9px; text-decoration: underline }
+a.default:active { color: #837573; font-size: 9px; text-decoration: none }
+a.default:active:hover  { color: #e1b375; font-size: 9px; text-decoration: underline }
+a.default:visited { color: #837573; font-size: 9px; text-decoration: none }
+a.default:visited:hover  { color: #e1b375; font-size: 9px; text-decoration: none }
+.prestigeFan { background-color: #e1e8d7; width: 128px }
+.prestigeFan img { background-color: #e1e8d7; padding-top: 4px }
+.prestigeFanBorder { background-color: #e1e8d7; border: solid 5px #e1e8d7 }
+.productBladesPSum { font-size: 10px; padding-left: 8px }
+.productBladesSwatchesPSum { font-size: 10px; padding-top: 4px; padding-left: 8px }
+.productBladesSwatchesSmallPSum { font-size: 10px; padding-left: 4px }
+.productBladesSwatchesSmallPSum img { font-size: 10px; padding-bottom: 2px }
+.productFinishPSum { font-size: 10px; padding-top: 8px; padding-left: 8px }
+.productTitle { font-weight: bold; font-size: 12px; font-family: Verdana, Arial, Helvetica }
+.productTitleModelNum { font-size: 10px; font-family: Verdana, Arial, Helvetica }
+.productTitleModelNumBold { font-weight: bold; font-size: 10px; font-family: Verdana, Arial, Helvetica }
+.quietfloAir  { background-color: #afeeee; width: 128px }
+.quietfloAir img { background-color: #afeeee; padding-top: 2px }
+.regularFan  { background-color: #fef1bd; width: 128px }
+.regularFan img { background-color: #fef1bd; padding-top: 4px }
+.regularFanBorder { background-color: #fef1bd; border: solid 5px #fef1bd }
+.rightBarBack { background-color: #e7cca5 }
+.rightBarExclusive  { background-color: #ccf }
+.rightPad { padding-right: 5px }
+.tagFeatureCopy    { color: black; font-weight: bold; font-size: 12px; font-family: Verdana, Arial, Helvetica; padding-top: 8px; padding-left: 8px }
+.tenPixelType { font-size: 10px }
+.titlePadder { font-weight: bold; font-size: 9px; padding-top: 5px; padding-bottom: 5px }
+.background        { background: #fff1bd url(/web/20060315131607im_/http://www.hunterfan.com/media/global/back_tile.jpg) no-repeat }
+.backgroundGE { background: #ffe4b5 no-repeat fixed }
+.bNav a:link  { color: #021610; line-height: 10px; font-family: Verdana, Arial, Helvetica; text-decoration: none }
+.bNav a:hover  { color: #91a89e; line-height: 10px; font-family: Verdana, Arial, Helvetica; text-decoration: none }
+.bNav a:active  { color: #021610; line-height: 10px; font-family: Verdana, Arial, Helvetica; text-decoration: none }
+.bNav a:active:hover  { color: #021610; line-height: 10px; font-family: Verdana, Arial, Helvetica; text-decoration: none }
+.bNav a:visited  { color: #021610; line-height: 10px; font-family: Verdana, Arial, Helvetica; text-decoration: none }
+.bNav a:visited:hover  { color: #021610; line-height: 10px; font-family: Verdana, Arial, Helvetica; text-decoration: none }
+.content   { color: #000; font-size: 12px; font-family: Verdana, Arial, Helvetica; text-decoration: none; padding: 10px }
+.content-bold  { color: #000; font-weight: bold; font-size: 12px; font-family: Verdana, Arial, Helvetica; text-decoration: none }
+.contentsmall { color: #000; font-weight: normal; font-size: 10px; font-family: Verdana, Arial, Helvetica; text-decoration: none }
+.contentEnergyStar { color: #000; font-weight: normal; font-size: 14px; font-family: Verdana, Arial, Helvetica; text-decoration: none }
+.content a:link   { color: #021610; font-size: 12px; font-family: Verdana, Arial, Helvetica; text-decoration: underline }
+.content a:hover   { color: #91a89e; font-size: 12px; font-family: Verdana, Arial, Helvetica; text-decoration: underline }
+.content a:active   { color: #021610; font-size: 12px; font-family: Verdana, Arial, Helvetica; text-decoration: underline }
+.content a:active:hover   { color: #91a89e; font-size: 12px; font-family: Verdana, Arial, Helvetica; text-decoration: underline }
+.content a:visited   { color: #021610; font-size: 12px; font-family: Verdana, Arial, Helvetica; text-decoration: underline }
+.content a:visited:hover   { color: #91a89e; font-size: 12px; font-family: Verdana, Arial, Helvetica; text-decoration: underline }
+.TitleArea { font-size: 12px; text-decoration: none; padding: 8px }
+.TitleArea a:link { color: #837573; font-size: 12px; text-decoration: none }
+.TitleArea a:hover { color: #e1b375; font-size: 12px; text-decoration: underline }
+.TitleArea a:active { color: #837573; font-size: 12px; text-decoration: none }
+.TitleArea a:active:hover { color: #e1b375; font-size: 12px; text-decoration: underline }
+.TitleArea a:visited { color: #837573; font-size: 12px; text-decoration: none }
+.TitleArea a:visited:hover { color: #e1b375; font-size: 12px; text-decoration: underline }
+.TitleAreaTopBorder  { font-size: 12px; text-decoration: none; padding: 8px; border-top: 2px solid #e7c391 }
+.TitleAreaTopBorderDC { font-size: 12px; text-decoration: none; padding: 8px; border-top: 2px solid #242424 }
+.TitleAreaTopBorder a:link { color: #837573; font-size: 12px; text-decoration: none }
+.TitleAreaTopBorder a:hover { color: #e1b375; font-size: 12px; text-decoration: underline }
+.TitleAreaTopBorder a:active { color: #837573; font-size: 12px; text-decoration: none }
+.TitleAreaTopBorder a:active:hover { color: #e1b375; font-size: 12px; text-decoration: underline }
+.TitleAreaTopBorder a:visited { color: #837573; font-size: 12px; text-decoration: none }
+.TitleAreaTopBorder a:visited:hover { color: #e1b375; font-size: 12px; text-decoration: underline }
+.shoppingList { color: #9b5547; padding: 3px 2px 3px 3px }
+.shoppingList a:link { color: #9b5547; font-size: 9px; text-decoration: none; padding: 3px 2px 3px 3px }
+.shoppingList a:hover { color: #457462; font-size: 9px; text-decoration: underline; padding: 3px 2px 3px 3px }
+.shoppingList a:active { color: #9b5547; font-size: 9px; text-decoration: none; padding: 3px 2px 3px 3px }
+.shoppingList a:active:hover { color: #457462; font-size: 9px; text-decoration: underline; padding: 3px 2px 3px 3px }
+.shoppingList a:visited { color: #9b5547; font-size: 9px; text-decoration: none; padding: 3px 2px 3px 3px }
+.shoppingList a:visited:hover { color: #457462; font-size: 9px; text-decoration: underline; padding: 3px 2px 3px 3px }
+.shoppingList td { background-color: #e7c391 }
+.shoppingItemList { color: #a98658; font-size: 10px; padding-bottom: 3px }
+.printList { border-top: 2px solid #a98658; border-bottom: 2px solid #a98658; border-left: 2px solid #a98658 }
+.printList td { border-right: 2px solid #a98658 }
+.content-text  { color: #000; font-size: 12px; font-family: Verdana, Arial, Helvetica; text-decoration: none }
+.featureC { font-weight: normal; font-size: 10px }
+.sdpOutContainer { font-size: 9px; padding: 3px }
+.sdpInContainer { font-size: 9px; background-color: #e2e4ea; border-right: 1px solid #505153; border-bottom: 1px solid #505153; border-left: 1px solid #505153 }
+.sdpInContainer td { padding: 2px; border-top: 1px solid #505153 }
+.sdpTitle  { color: #505153; font-weight: bold }
+.sdpRating { color: #505153; font-weight: bold }
+.rowTitle  { color: #e2e4ea; font-weight: bold; background-color: #505153 }
+.rowOdd { }
+.rowEven { background-color: #f7f9ff }
+.CADRRatingIn { font-size: 9px; background-color: #fff5d5; border-right: 1px solid #9b5547; border-bottom: 1px solid #9b5547; border-left: 1px solid #9b5547 }
+.CADRRatingIn td  { border-top: 1px solid #9b5547 }
+.CADRRatingOut { padding: 3px }
+.cadrTitle  { font-weight: bold; background-color: #9b5547 }
+.cadrRate { color: #9b5547; font-weight: bold; font-size: 12px }
+.rowTitleBrown { color: #fff5d5; font-weight: bold; font-size: 9px; background-color: #9b5547 }
+.rowOddBrown  { color: #fff5d5; font-weight: bold; font-size: 9px }
+.largeBoldText { color: black; font-weight: bold; font-size: 10px; padding-left: 8px }
+.plainCopy { font-size: 9px; padding: 0px 0px 0px 16px }
+.topBorder { border-top: 1px solid #9b5547 }
+.compBorder { border-left: 1px solid #9b5547 }
+.compTitle { color: #9b5547; font-weight: bold; font-size: 18px; background-color: #e1b375; border-top: 1px solid #9b5547; border-right: 1px solid #9b5547; border-bottom: 1px solid #9b5547 }
+.roomSize { color: #9b5547; font-weight: bold; font-size: 9px; background-color: #e7c391; border-top: 1px solid #9b5547; border-bottom: 1px solid #9b5547 }
+.roomSize td { font-weight: bold; border-right: 1px solid #9b5547 }
+.CADRRow { border-top: 1px solid #9b5547; border-right: 0px; border-bottom: 1px solid #9b5547; border-left: 0px }
+.CADRRow td { color: #9b5547; background-color: #e7c391; border-top: 1px solid #9b5547; border-right: 1px solid #9b5547; border-bottom: 1px solid #9b5547 }
+.modelTitleRow { color: #9b5547; font-weight: bold; background-color: #e7c391 }
+.modelTitleRowBig { background-color: #e7c391; border-right: 1px solid #9b5547; border-bottom: 1px solid #9b5547 }
+.rightDottedB   { font-weight: bold; border-right: 1px dotted #e1d0cb; border-bottom: 1px solid #9b5547 }
+.rightFinal  { font-weight: bold; border-right: 1px solid #9b5547; border-bottom: 1px solid #9b5547 }
+.default2  { color: #534a49; font-weight: bold; font-size: 9px }
+a.default2:link   { color: #837573; font-weight: bold; font-size: 9px; text-decoration: none }
+a.default2:hover     { color: #e1b375; font-weight: bold; font-size: 9px; text-decoration: underline }
+a.default2:active  { color: #837573; font-weight: bold; font-size: 9px; text-decoration: none }
+a.default2:active:hover   { color: #e1b375; font-weight: bold; font-size: 9px; text-decoration: underline }
+a.default2:visited  { color: #837573; font-weight: bold; font-size: 9px; text-decoration: none }
+a.default2:visited:hover  { color: #e1b375; font-size: 9px; text-decoration: none }
+.replaceFilterOutCont { padding: 3px }
+.replaceFilterInCont { background-color: #ebedf3; border-right: 1px solid #af000b; border-bottom: 1px solid #af000b; border-left: 1px solid #af000b }
+.replaceFilterInCont td { padding: 2px; border-top: 1px solid #af000b }
+.rowTitleRed { color: #ebedf3; font-weight: bold; font-size: 9px; background-color: #af000b }
+.repTitle { color: #af000b; font-weight: bold }
+.repNum { color: #af000b }
+.rowSpacer { padding-bottom: 5px }
+.otherLinksNoTopBorder  { font-weight: bold; font-size: 9px; text-decoration: none; padding-top: 5px; padding-bottom: 5px }
+.otherLinksNoTopBorder p { text-decoration: none; padding-top: 5px; padding-bottom: 5px; padding-left: 8px }
+.otherLinksNoTopBorder a:link  { color: #837573; font-size: 9px; text-decoration: none }
+.otherLinksNoTopBorder a:hover    { color: #e1b375; font-size: 9px; text-decoration: underline }
+.otherLinksNoTopBorder a:active  { color: #837573; font-size: 9px; text-decoration: none }
+.otherLinksNoTopBorder a:active:hover  { color: #e1b375; font-size: 9px; text-decoration: underline }
+.otherLinksNoTopBorder a:visited  { color: #837573; font-size: 9px; text-decoration: none }
+.otherLinksNoTopBorder a:visited:hover   { color: #e1b375; font-size: 9px; text-decoration: underline }
+.otherLinksTopBorderThick   { font-weight: bold; font-size: 12px; text-decoration: none; background-color: #fef1bd; padding-top: 2px; padding-bottom: 2px; padding-left: 5px; border-style: solid none none none; border-width: 2px 0px 0px 0px; border-color: #e7c391 }
+.otherLinksTopBorderThick a:link { color: #837573; font-size: 9px; text-decoration: none }
+.otherLinksTopBorderThick a:hover   { color: #e1b375; font-size: 9px; text-decoration: underline }
+.otherLinksTopBorderThick a:active { color: #837573; font-size: 9px; text-decoration: none }
+.otherLinksTopBorderThick a:active:hover { color: #e1b375; font-size: 9px; text-decoration: underline }
+.otherLinksTopBorderThick a:visited { color: #837573; font-size: 9px; text-decoration: none }
+.otherLinksTopBorderThick a:visited:hover  { color: #e1b375; font-size: 9px; text-decoration: underline }
+.otherLinksNoTopBorderThick   { font-weight: bold; font-size: 12px; text-decoration: none; background-color: #fef1bd; padding-top: 2px; padding-bottom: 2px; padding-left: 5px }
+.otherLinksNoTopBorderThick a:link { color: #837573; font-size: 9px; text-decoration: none }
+.otherLinksNoTopBorderThick a:hover   { color: #e1b375; font-size: 9px; text-decoration: underline }
+.otherLinksNoTopBorderThick a:active { color: #837573; font-size: 9px; text-decoration: none }
+.otherLinksNoTopBorderThick a:active:hover { color: #e1b375; font-size: 9px; text-decoration: underline }
+.otherLinksNoTopBorderThick a:visited { color: #837573; font-size: 9px; text-decoration: none }
+.otherLinksNoTopBorderThick a:visited:hover  { color: #e1b375; font-size: 9px; text-decoration: underline }
+.rightbar  { color: #000; font-size: 11px; font-family: Verdana, Arial, Helvetica; text-decoration: none; padding: 5px }
+.rightbar a:link { color: #021610; font-size: 11px; font-family: Verdana, Arial, Helvetica; text-decoration: underline }
+.rightbar a:hover { color: #91a89e; font-size: 11px; font-family: Verdana, Arial, Helvetica; text-decoration: underline }
+.rightbar a:active { color: #021610; font-size: 11px; font-family: Verdana, Arial, Helvetica; text-decoration: underline }
+.rightbar a:active:hover { color: #021610; font-size: 11px; font-family: Verdana, Arial, Helvetica; text-decoration: underline }
+.rightbar a:visited { color: #021610; font-size: 11px; font-family: Verdana, Arial, Helvetica; text-decoration: underline }
+.rightbar a:visited:hover { color: #021610; font-size: 11px; font-family: Verdana, Arial, Helvetica; text-decoration: underline }
+.rightbarBold { color: #021610; font-weight: bold; font-size: 11px; font-family: Verdana, Arial, Helvetica; text-decoration: none }
+.bottomtext  { color: #d2b48c; font-size: 10px; font-family: Verdana, Arial, Helvetica; text-decoration: none; padding: 2px }
+.5pad { padding: 5px }
+.SmallRoomAirP  { background-color: #c88383; width: 128px }
+.SmallRoomAirP img  { background-color: #c88383; padding: 4px }
+.MediumRoomAirP  { background-color: #dbb580; width: 128px }
+.MediumRoomAirP img  { background-color: #dbb580; padding: 4px }
+.LargeRoomAirP  { background-color: #9c9dc3; width: 128px }
+.LargeRoomAirP img  { background-color: #9c9dc3; padding: 4px }
+.Digital  { background-color: #80cbb8; width: 128px }
+.Digital img  { background-color: #80cbb8; padding: 4px }
+.Mechanical  { background-color: #cb809a; width: 128px }
+.Mechanical img  { background-color: #cb809a; padding: 4px }
+.Programmable  { background-color: #80cfde; width: 128px }
+.Programmable img  { background-color: #80cfde; padding: 4px }
+.literLinks { font-weight: bold; font-size: 9px; text-decoration: none; padding-top: 5px; padding-bottom: 5px; border-style: solid none none none; border-width: 1px 0px 0px 0px; border-color: #e7c391 }
+.literLinks a:link  { color: #efefef; font-size: 9px; text-decoration: none }
+.literLinks a:hover   { color: #e1b375; font-size: 9px; text-decoration: underline }
+.literLinks a:active  { color: #efefef; font-size: 9px; text-decoration: none }
+.literLinks a:active:hover { color: #e1b375; font-size: 9px; text-decoration: underline }
+.literLinks a:visited  { color: #efefef; font-size: 9px; text-decoration: none }
+.literLinks a:visited:hover  { color: #e1b375; font-size: 9px; text-decoration: underline }
+.literLinksNoBorder  { font-weight: bold; font-size: 9px; text-decoration: none; padding-top: 5px; padding-bottom: 5px }
+.literLinksNoBorder a:link  { color: #efefef; font-size: 9px; text-decoration: none }
+.literLinksNoBorder a:hover   { color: #e1b375; font-size: 9px; text-decoration: underline }
+.literLinksNoBorder a:active  { color: #efefef; font-size: 9px; text-decoration: none }
+.literLinksNoBorder a:active:hover { color: #e1b375; font-size: 9px; text-decoration: underline }
+.literLinksNoBorder a:visited  { color: #efefef; font-size: 9px; text-decoration: none }
+.literLinksNoBorder a:visited:hover  { color: #e1b375; font-size: 9px; text-decoration: underline }
+.miniKey   { position: relative; left: 0px }
+.recall  { color: #f00; font-size: 12px; font-family: Verdana, Arial, Helvetica }
+.recall a:link  { color: #f00; font-size: 12px; font-family: Verdana, Arial, Helvetica; text-decoration: underline }
+.designerChoiceFan    { background-color: #426777; width: 128px }
+.designerChoiceFan a { color: silver; width: 128px }
+.designerChoiceFan img    { background-color: #426777; padding-top: 4px }
+.designerChoiceFanBorder   { background-color: #426777; border: solid 5px #e1e8d7 }
+.galleryEditionFan   { background-color: #f9cb79; width: 128px }
+.galleryEditionFan img   { background-color: #f9cb79; padding-top: 4px }
+.galleryEditionFanBorder   { background-color: #f9cb79; border: solid 5px #e1e8d7 }
+.crumbPadGallery   { color: #fff; font-size: 10px; font-family: Verdana, Arial, Helvetica; background-color: #723901; padding-top: 5px; padding-bottom: 5px; padding-left: 5px }
+.crumbPadGalleryWhereGE { color: #fff; font-weight: bold; font-size: 10px; font-family: Verdana, Arial, Helvetica; background-color: #723901; padding-top: 5px; padding-bottom: 5px; padding-left: 5px }
+.crumbPadGallery a:link   { color: #fff; font-size: 10px; font-family: Verdana, Arial, Helvetica; text-decoration: none; padding-left: 5px }
+.crumbPadGallery a:hover   { color: #f9cb79; font-size: 10px; font-family: Verdana, Arial, Helvetica; text-decoration: underline; padding-left: 5px }
+.crumbPadGallery a:active   { color: #fff; font-size: 10px; font-family: Verdana, Arial, Helvetica; text-decoration: none; padding-left: 5px }
+.crumbPadGallery a:active:hover   { color: #f9cb79; font-size: 10px; font-family: Verdana, Arial, Helvetica; text-decoration: underline; padding-left: 5px }
+.crumbPadGallery a:visited   { color: #fff; font-size: 10px; font-family: Verdana, Arial, Helvetica; text-decoration: none; padding-left: 5px }
+.crumbPadGallery a:visited:hover   { color: #f9cb79; font-size: 10px; font-family: Verdana, Arial, Helvetica; text-decoration: underline; padding-left: 5px }
+.rightbarGE   { color: #000; font-size: 11px; font-family: Verdana, Arial, Helvetica; text-decoration: none; background-color: #f9cb79; padding: 5px }
+.rightbarDC  { color: #fff; font-size: 11px; font-family: Verdana, Arial, Helvetica; text-decoration: none; background-color: #242424; padding: 5px }
+.rightbarGE a:link { color: #021610; font-size: 11px; font-family: Verdana, Arial, Helvetica; text-decoration: underline }
+.rightbarGE a:hover { color: #91a89e; font-size: 11px; font-family: Verdana, Arial, Helvetica; text-decoration: underline }
+.rightbarGE a:active { color: #021610; font-size: 11px; font-family: Verdana, Arial, Helvetica; text-decoration: underline }
+.rightbarGE a:active:hover { color: #021610; font-size: 11px; font-family: Verdana, Arial, Helvetica; text-decoration: underline }
+.rightbarGE a:visited { color: #021610; font-size: 11px; font-family: Verdana, Arial, Helvetica; text-decoration: underline }
+.rightbarGE a:visited:hover { color: #021610; font-size: 11px; font-family: Verdana, Arial, Helvetica; text-decoration: underline }
+.rightbarBoldGE { color: #021610; font-weight: bold; font-size: 11px; font-family: Verdana, Arial, Helvetica; text-decoration: none }
+.mainPicPSumGE { padding-top: 8px; padding-left: 8px }
+.mainPicPSumGE img   { border: solid 2px #723901 }
+.otherLinksTopBorderGE { font-weight: bold; font-size: 9px; padding-top: 5px; padding-bottom: 5px; padding-left: 8px; border-style: solid none none none; border-width: 1px 0px 0px 0px; border-color: #e7c391 }
+.otherLinksTopBorderGECopy { font-size: 9px; padding-top: 5px; padding-bottom: 5px; padding-left: 8px; border-style: solid none none none; border-width: 1px 0px 0px 0px; border-color: #e7c391 }
+.otherLinksTopBorderDC  { font-weight: bold; font-size: 9px; padding-top: 5px; padding-bottom: 5px; padding-left: 8px; border-style: solid none none none; border-width: 1px 0px 0px 0px; border-color: #254652 }
+.otherLinksTopBorderDCCopy  { font-size: 9px; padding-top: 5px; padding-bottom: 5px; padding-left: 8px; border-style: solid none none none; border-width: 1px 0px 0px 0px; border-color: #254652 }
+.backgroundDC   { background: #426877 no-repeat fixed }
+.backgroundHomeDC  { background: #242424 url(/web/20060315131607im_/http://www.hunterfan.com/designersChoice/images/curve.jpg) no-repeat scroll }
+.rightbarDC a:link  { color: #fff; font-size: 11px; font-family: Verdana, Arial, Helvetica; text-decoration: underline }
+.rightbarDC a:hover  { color: #dcdcdc; font-size: 11px; font-family: Verdana, Arial, Helvetica; text-decoration: underline }
+.rightbarDC a:active  { color: #fff; font-size: 11px; font-family: Verdana, Arial, Helvetica; text-decoration: underline }
+.rightbarDC a:active:hover  { color: #dcdcdc; font-size: 11px; font-family: Verdana, Arial, Helvetica; text-decoration: underline }
+.rightbarDC a:visited  { color: #fff; font-size: 11px; font-family: Verdana, Arial, Helvetica; text-decoration: underline }
+.rightbarDC a:visited:hover  { color: #dcdcdc; font-size: 11px; font-family: Verdana, Arial, Helvetica; text-decoration: underline }
+.rightbarBoldDC  { color: #fff; font-weight: bold; font-size: 11px; font-family: Verdana, Arial, Helvetica; text-decoration: none }
+.mainPicPSumDC { padding-top: 8px; padding-left: 8px }
+.mainPicPSumDC img    { border: solid 2px #254652 }
+.crumbPadDesigner    { color: #fff; font-size: 10px; font-family: Verdana, Arial, Helvetica; background-color: #254652; padding-top: 5px; padding-bottom: 5px; padding-left: 5px }
+.crumbPadDesignerWhere  { color: #fff; font-weight: bold; font-size: 10px; font-family: Verdana, Arial, Helvetica; padding-top: 5px; padding-bottom: 5px; padding-left: 5px }
+.crumbPadDesigner a:link   { color: #fff; font-size: 10px; font-family: Verdana, Arial, Helvetica; text-decoration: none; padding-left: 5px }
+.crumbPadDesigner a:hover    { color: #dcdcdc; font-size: 10px; font-family: Verdana, Arial, Helvetica; text-decoration: underline; padding-left: 5px }
+.crumbPadDesigner a:active   { color: #fff; font-size: 10px; font-family: Verdana, Arial, Helvetica; text-decoration: none; padding-left: 5px }
+.crumbPadDesigner a:active:hover    { color: #dcdcdc; font-size: 10px; font-family: Verdana, Arial, Helvetica; text-decoration: underline; padding-left: 5px }
+.crumbPadDesigner a:visited   { color: #fff; font-size: 10px; font-family: Verdana, Arial, Helvetica; text-decoration: none; padding-left: 5px }
+.crumbPadDesigner a:visited:hover    { color: #dcdcdc; font-size: 10px; font-family: Verdana, Arial, Helvetica; text-decoration: underline; padding-left: 5px }
+.odd  { background-color: #ffebd6 }
+.even  { background-color: #fff }
+.specBold  { color: #8c594b; font-weight: bold; font-size: 10px }
+.fullBorder { border-top: 1px solid #e7c391; border-left: 1px solid #e7c391 }
+.rowLine { border-bottom: 1px solid #e7c391 }
+.tentxt { color: #333; font-size: 10px; font-family: Verdana, Arial, Helvetica, sans-serif; font-style: normal; font-weight: normal; line-height: 12px; text-decoration: none; text-align: left; margin: 0; padding: 0 }
+.rowLine td { border-right: 1px solid #e7c391; border-bottom: 1px solid #e7c391 }
+#leftMarg { border-right: 1px solid #e7c391; border-bottom: 1px solid #e7c391; border-left: 1px solid #e7c391 }
+#botMarg { border-right: 1px solid #e7c391; border-bottom: 1px solid #e7c391 }
+#topMarg { border-top: 1px solid #e7c391 }
+#rightTopMarg { border-top: 1px solid #e7c391; border-right: 1px solid #e7c391; border-bottom: 1px solid #e7c391 }
+#botRightMarg { border-right: 1px solid #e7c391; border-bottom: 1px solid #e7c391 }
+
+/*
+     FILE ARCHIVED ON 13:16:07 Mar 15, 2006 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 08:06:10 Jul 11, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 131.803
+  exclusion.robots: 0.068
+  exclusion.robots.policy: 0.059
+  cdx.remote: 0.055
+  esindex: 0.008
+  LoadShardBlock: 100.48 (3)
+  PetaboxLoader3.datanode: 124.182 (4)
+  PetaboxLoader3.resolve: 67.389 (2)
+  load_resource: 103.106
+*/

@@ -1,0 +1,89 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+/* Copyright (c) 2003 Macromedia Inc. $Revision: 1.56.4.1 $ */
+Globalnav = {
+membershipElements: [], 
+initMembership: function () 
+{
+this.membershipElements['greeting'] = $('greeting');
+this.membershipElements['screen_name'] = $('screenName');
+this.membershipElements['account_link'] = $('account');
+this.membershipElements['signout'] = $('signout');
+for (var e in this.membershipElements) if (this.membershipElements[e] == null) return;
+var authLevel = 0;
+authLevel = (getCookie('RMID') != null) ? 1: authLevel;
+authLevel = (getCookie('AUID') != null) ? 2: authLevel;
+this.showScreenName = function () {
+var name = getCookie('SCREENNAME');
+if (name != null && (name != '' || name != 'undefined')) {
+this.membershipElements['screen_name'].innerHTML = name;
+}
+}
+var listitem = ((browser.ua.indexOf('mac') != -1) && (browser.appN.indexOf('microsoft') != -1)) ? 'inline-block' : 'block';
+switch (authLevel) {
+case 0:
+this.membershipElements.greeting.style.display = 'none';
+this.membershipElements.account_link.style.display = listitem;
+break;
+case 1:
+this.showScreenName();
+this.membershipElements.greeting.style.display = listitem;
+break;
+case 2:
+this.showScreenName();
+this.membershipElements.greeting.style.display = listitem;
+this.membershipElements.signout.style.display = listitem;
+break;
+default: break;
+}
+},
+init:function ()
+{
+var domElement = $("globalnav");
+if(domElement)
+{
+if($('user-menu') != null && location.hostname.indexOf('adobe.com') != -1) 
+{
+Globalnav.initMembership();
+}
+}
+}
+}
+var browser = new BrowserDescription();
+if ((!window.opera && browser.ua.indexOf('netscape6') == -1) || 
+(window.opera && browser.appV >= 7)) { 
+registerOnLoadFunc(Globalnav.init);
+}
+
+
+}
+/*
+     FILE ARCHIVED ON 03:17:42 May 18, 2006 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 18:16:21 Jul 12, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 178.949
+  exclusion.robots: 0.11
+  exclusion.robots.policy: 0.096
+  RedisCDXSource: 1.104
+  esindex: 0.01
+  LoadShardBlock: 79.228 (3)
+  PetaboxLoader3.datanode: 52.777 (4)
+  PetaboxLoader3.resolve: 83.608 (2)
+  load_resource: 99.265
+*/

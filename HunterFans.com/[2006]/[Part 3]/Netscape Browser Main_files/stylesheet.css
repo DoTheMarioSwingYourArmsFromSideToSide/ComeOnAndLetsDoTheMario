@@ -1,0 +1,97 @@
+TD		{font-family:arial,sans-serif; font-size: 11px;}
+A.nav {font-family: arial, sans-serif; font-size: 11px; color: #7299AA; text-decoration: none; line-height:150%}
+A.nav:hover {font-family: arial, sans-serif; font-size: 11px; color: #7299AA; text-decoration: underline; line-height:150%}
+A.navhighlight {font-family: arial, sans-serif; font-size: 11px; font-weight: bold; color: #FF8700; text-decoration: none; line-height:150%}
+A.navhighlight:hover {font-family: arial, sans-serif; font-size: 11px; font-weight: bold; color: #FF8700; text-decoration: underline; line-height:150%}
+A.helpnav {font-family: arial, sans-serif; font-size: 11px; color: #FF8700; text-decoration: none; line-height:150%}
+A.helpnav:hover {font-family: arial, sans-serif; font-size: 11px; color: #FF8700; text-decoration: underline; line-height:150%}
+A.footerlink {font-family: arial, sans-serif; font-size: 10px;  text-decoration: none}
+A.footerlink:hover {font-family: arial, sans-serif; font-size:  10px; text-decoration: underline}
+A.subnav {font-family: arial, sans-serif; font-size: 10px;  color: #868686; text-decoration: none; line-height: 16px;}
+A.subnav:hover {font-family: arial, sans-serif; font-size:  10px; color: #868686; text-decoration: underline; line-height: 16px;}
+A.subnavhighlight {font-family: arial, sans-serif; font-size: 10px;  font-weight: bold; color: #FF8700; text-decoration: none; line-height: 16px;}
+A.subnavhighlight:hover {font-family: arial, sans-serif; font-size:  10px; font-weight: bold; color: #FF8700; text-decoration: underline; line-height: 16px;}
+A.link {text-decoration: none}
+A.link:hover {text-decoration: underline}
+A.ulink {text-decoration: underline}
+A.ulink:hover {text-decoration: none}
+
+.nav {font-family: arial, sans-serif; font-size: 11px; color: #7299AA; text-decoration: none; line-height:150%}
+
+
+.text {  font-family: arial, sans-serif; font-size: 10px; color: #000000; line-height:150%}
+.text10 {  font-family: arial, sans-serif; font-size: 10px; color: #000000;}
+.text10g {  font-family: arial, sans-serif; font-size: 10px; color: #868686;}
+.text11 {  font-family: arial, sans-serif; font-size: 11px; color: #000000;}
+.text11g {  font-family: arial, sans-serif; font-size: 11px; color: #868686;}
+.text12 {  font-family: arial, sans-serif; font-size: 12px; color: #000000;}
+.text13 {  font-family: arial, sans-serif; font-size: 13px; color: #000000;}
+.text14 {  font-family: arial, sans-serif; font-size: 14px; color: #000000;}
+.text14b {  font-family: arial, sans-serif; font-size: 14px; font-weight: bold; color: #000000;}
+.text15b {  font-family: arial, sans-serif; font-size: 15px; font-weight: bold; color: #000000;}
+.text16 {  font-family: arial, sans-serif; font-size: 16px; color: #000000;}
+.text18 {  font-family: arial, sans-serif; font-size: 18px; color: #000000;}
+.text20 {  font-family: arial, sans-serif; font-size: 20px; font-weight: bold; color: #000000;}
+.text23 {  font-family: arial, sans-serif; font-size: 23px; font-weight: bold; color: #000000;}
+.text25 {  font-family: arial, sans-serif; font-size: 25px; font-weight: bold; color: #000000;}
+.text26 {  font-family: arial, sans-serif; font-size: 27px; font-weight: bold; color: #000000;}
+
+.iconText {
+    color: #FF6600;
+    font-family: arial;
+    font-size: 14px;
+	font-weight: bold;
+	position:relative;
+	top: 5px;
+    padding: 00px 0px 0px 0px;
+}
+.iconText2 {
+    color: #FF6600;
+    font-family: arial;
+    font-size: 14px;
+	font-weight: bold;
+	position:relative;
+	top: 10px;
+    padding: 00px 0px 0px 0px;
+}
+.iconText3 {
+    color: #FF6600;
+    font-family: arial;
+    font-size: 14px;
+	font-weight: bold;
+	position:relative;
+    padding: 00px 0px 0px 0px;
+}
+.listA		{text-indent: -9px; margin-left: 9px; font-family: arial,sans-serif; font-size: 12px; color: #374FD5; line-height: 16px;}
+.listAblk		{text-indent: -9px; margin-left: 9px; font-family: arial,sans-serif; font-size: 12px; color: #000000; line-height: 16px;}
+.orangeBullet {font-weight:bold; font-size: 30px; color: #ff6633; position:relative; top: -10px;}
+
+.padl20		{padding-left: 20px;}
+.pad30010	{padding: 3px 0px 0px 10px;}
+.pad5005		{padding: 5px 0px 0px 5px;}
+.pad55510	{padding: 5px 5px 5px 10px;}
+.pad50010	{padding: 5px 0px 0px 10px;}
+.vs6		{font-size: 6px; height: 6px;}
+.vs1x		{font-size: 15px; height: 15px;}
+.vs2x		{font-size: 20px; height: 20px;}
+
+/*
+     FILE ARCHIVED ON 07:16:41 May 15, 2006 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 18:17:12 Jul 12, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 149.578
+  exclusion.robots: 0.118
+  exclusion.robots.policy: 0.102
+  RedisCDXSource: 25.379
+  esindex: 0.01
+  LoadShardBlock: 99.938 (3)
+  PetaboxLoader3.datanode: 84.67 (4)
+  load_resource: 736.218
+  PetaboxLoader3.resolve: 157.504
+*/

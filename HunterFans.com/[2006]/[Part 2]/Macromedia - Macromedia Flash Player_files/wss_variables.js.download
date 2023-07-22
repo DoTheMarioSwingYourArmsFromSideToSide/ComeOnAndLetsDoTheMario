@@ -1,0 +1,232 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+var _hbEC=0,_hbE=new Array;function _hbEvent(a,b){b=_hbE[_hbEC++]=new Object();b._N=a;b._C=0;return b;}
+var hbx=_hbEvent("pv");hbx.vpc="HBX0103u";hbx.gn="metrics.adobe.com";
+var docAccounts=""; 
+var docHost=window.location.hostname.toLowerCase(); 
+var docHref=window.location.pathname.toLowerCase(); 
+var docURL=document.URL.toLowerCase();
+var wssRegion;
+var docContentGroup;
+if ((docHref.substring(0,1)) == "/") {
+var docHrefTmp=docHref.substring(1, docHref.length);
+wssRegion=docHrefTmp.substring(0, docHrefTmp.indexOf('/'));
+docContentGroup=docHref;
+}  
+else {
+wssRegion=docHref.substring(0, docHref.indexOf('/'));
+docContentGroup="/"+docHref;
+}
+if ((docHost=="") || (docHost=="null") || (docHost.indexOf("stage.") != -1) || (docHost.indexOf(".corp.adobe.") != -1) || (docHost.indexOf("ntbe.adobe") != -1) || (docHost.indexOf("staging.") != -1)) {
+docAccounts="DM560130IGFZ"; 
+} 
+else if ((docHost.indexOf("adobe.com") != -1) || (docHost.indexOf("macromedia.com") != -1) || (docHost.indexOf("shockwave.com") != -1)) {
+docAccounts="DM55021616AA"; 
+switch(wssRegion) {
+case("uk"):
+docAccounts="DM5507191JCN;DM550720LFDM;DM550309MEAD;" + docAccounts;
+break;
+case("de"):
+docAccounts="DM55071922EE;DM5507209KDC;DM550309MEAD;" + docAccounts;
+break;
+case("fr"):
+docAccounts="DM550720IODE;DM550720IMBN;DM550309MEAD;" + docAccounts; 
+break;
+case("jp"):
+docAccounts="DM550720D9DD;DM550309AEWA;" + docAccounts;
+break;
+case("ap"):
+docAccounts="DM550824BGRZ;DM550826K6RE;" + docAccounts;
+break;
+case("br"):
+docAccounts="DM550824PDBV;DM550826OPNE;" + docAccounts;
+break;
+case("hk"):
+case("cn"):
+docAccounts="DM5508249ACD;DM550826K6RE;" + docAccounts;
+break;
+case("dk"):
+docAccounts="DM550831N7AC;DM550309MEAD;" + docAccounts;
+break;
+case("es"):
+docAccounts="DM5508269GDA;DM550309MEAD;" + docAccounts;
+break;
+case("fi"):
+docAccounts="DM5508311LDB;DM550309MEAD;" + docAccounts;
+break;
+case("it"):
+docAccounts="DM550826J8AV;DM550309MEAD;" + docAccounts;
+break;
+case("kr"):
+docAccounts="DM5508240LER;DM550826K6RE;" + docAccounts;
+break;
+case("la"):
+docAccounts="DM550824MEEM;DM550826OPNE;" + docAccounts;
+break;
+case("nl"):
+docAccounts="DM550831A0RF;DM550309MEAD;" + docAccounts;
+break;
+case("no"):
+docAccounts="DM55083148CV;DM550309MEAD;" + docAccounts;
+break;
+case("se"):
+docAccounts="DM5508262FRB;DM550309MEAD;" + docAccounts;
+break;
+case("tw"):
+docAccounts="DM55082485SA;DM550826K6RE;" + docAccounts;
+break;
+case("za"):
+docAccounts="DM5508245EAD;DM550309MEAD;" + docAccounts;
+break;
+case("be"):
+case("ceea"):
+case("ch"):
+case("ie"):
+case("lu"):
+case("pt"):
+docAccounts="DM550309MEAD;" + docAccounts; 
+break;
+default: docAccounts="DM550218AGBS;DM550218GGSF;" + docAccounts; 
+}
+}
+else {
+hbx.gn=location.hostname;
+}
+if (docHost.indexOf("store.adobe") != -1) {
+docAccounts="DM550218GGSF;DM5502166FVS;DM55021616AA"; 
+}
+else if (docURL.indexOf("/products/acrobat/readstep") != -1) {
+var docAccountsTmp=docAccounts.substring(docAccounts.indexOf(';'), docAccounts.length);
+docAccounts="DM5502158EDW" + docAccountsTmp; 
+}
+else if ((docURL.indexOf("/resourcecenter/") != -1) || (docURL.indexOf("/designcenter/") != -1) || (docURL.indexOf("/motiondesign/") != -1)) {
+if ((docURL.indexOf("adobe.com/resourcecenter/") != -1) || (docURL.indexOf("adobe.com/designcenter/") != -1) || (docURL.indexOf("adobe.com/motiondesign/") != -1)) {
+docAccounts="DM5502184DSM;DM550218GGSF;DM55021616AA"; 
+}
+else if ((docURL.indexOf("adobe.com/uk/resourcecenter/") != -1) || (docURL.indexOf("adobe.com/uk/designcenter/") != -1) || (docURL.indexOf("adobe.com/uk/motiondesign/") != -1)) {
+docAccounts="DM5507193JWF;DM550720LFDM;DM550309MEAD;DM55021616AA"; 
+}
+else if ((docURL.indexOf("adobe.com/de/resourcecenter/") != -1) || (docURL.indexOf("adobe.com/de/designcenter/") != -1) || (docURL.indexOf("adobe.com/de/motiondesign/") != -1)) {
+docAccounts="DM550719CBEC;DM5507209KDC;DM550309MEAD;DM55021616AA"; 
+}
+else if ((docURL.indexOf("adobe.com/fr/resourcecenter/") != -1) || (docURL.indexOf("adobe.com/fr/designcenter/") != -1) || (docURL.indexOf("adobe.com/fr/motiondesign/") != -1)) {
+docAccounts="DM55071932VN;DM550720IMBN;DM550309MEAD;DM55021616AA"; 
+}
+else if ((docURL.indexOf("adobe.com/jp/resourcecenter/") != -1) || (docURL.indexOf("adobe.com/jp/designcenter/") != -1) || (docURL.indexOf("adobe.com/jp/motiondesign/") != -1)) {
+docAccounts="DM55021513RA;DM550309AEWA;DM55021616AA"; 
+}
+}
+var docCustomMetric1="";
+var docPageName=docHref.substring(docHref.lastIndexOf("/")+1, docHref.length);
+if (docPageName.indexOf(";")!= -1) { 
+docContentGroup=docContentGroup.substring(0, docContentGroup.indexOf(";"));
+docPageName=docPageName.substring(0, docPageName.indexOf(";")); 
+}
+if ((docPageName == "") || (docPageName == "null")) {
+docContentGroup=docContentGroup+"index.html";
+docPageName="index.html";
+}
+if (window.WSS_docError) {
+docContentGroup="/Error+Pages";
+docPageName=docHost+docHref;
+var docReferrer=document.referrer;
+if (docReferrer.indexOf("//") != -1) { 
+docReferrer=docReferrer.substring(docReferrer.indexOf("//")+2); 
+}
+docReferrer=_hbxStrip(docReferrer);
+docCustomMetric1=docPageName+"|"+document.referrer; 
+docPageName="File+Not+Found";
+}
+hbx.acct=docAccounts;
+hbx.pn=docPageName;
+hbx.mlc=docContentGroup;
+hbx.pndef="index.html";
+hbx.ctdef="full";
+hbx.fv="";
+hbx.lt="auto";
+hbx.lvm="300";
+hbx.dlf=".bin,.hqx,.dmg,.aom!.pdf";
+hbx.dft="n";
+hbx.elf="n";
+if ((document.cookie.indexOf("AdobePermanent=") != -1) || (document.cookie.indexOf("WECUIDCookie=") != -1)) {
+hbx.seg="--2,1";
+}
+else {
+hbx.seg="2";
+}
+hbx.fnl="";
+hbx.cmp="";
+hbx.cmpn="";
+hbx.dcmp="";
+hbx.dcmpn="";
+hbx.dcmpe="";
+hbx.dcmpre="";
+hbx.hra="";
+hbx.hqsr="";
+hbx.hqsp="";
+hbx.hlt="";
+hbx.hla="";
+hbx.gp="";
+hbx.gpn="";
+hbx.hcn="";
+hbx.hcv="";
+hbx.cp="null";
+hbx.cpd="";
+hbx.ci="";
+hbx.hc1=docCustomMetric1;
+hbx.hc2="";
+hbx.hc3="";
+hbx.hc4="";
+hbx.hrf="";
+hbx.pec="";
+function _hbxStrip(a) {
+a = a.split("|").join("");
+a = a.split("&").join("-");
+a = a.split("'").join("");
+a = a.split("#").join("");
+a = a.split("$").join("");
+a = a.split("%").join("");
+a = a.split("^").join("");
+a = a.split("*").join("");
+a = a.split(":").join("");
+a = a.split("!").join("");
+a = a.split("<").join("");
+a = a.split(">").join("");
+a = a.split("~").join("");
+a = a.split(";").join("");
+a = a.split(" ").join("+");
+return a;
+}
+
+
+}
+/*
+     FILE ARCHIVED ON 13:06:42 May 18, 2006 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 18:16:26 Jul 12, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 132.46
+  exclusion.robots: 0.073
+  exclusion.robots.policy: 0.064
+  RedisCDXSource: 0.548
+  esindex: 0.008
+  LoadShardBlock: 100.307 (3)
+  PetaboxLoader3.datanode: 132.457 (4)
+  load_resource: 601.998
+  PetaboxLoader3.resolve: 546.045
+*/
