@@ -1,0 +1,45 @@
+$(document).ready(function() {
+    var clickCount = 0;
+	$('a').click(function (e) {
+		//Disable for clicks on the main-slideshow
+		if ($(this).parents(".slideshow-main").is("div.slideshow-main") || $(this).parents(".slideshow-promo").is("div.slideshow-promo")) return;
+
+        //Disable for dropdown toggles on menus
+        if($(this).hasClass("dropdown-toggle") || $(this).attr("data-toggle") === "dropdown" ) return;
+
+		// Stores clicked href in a variable
+        var url = $(e.currentTarget).attr('href');
+        var isModal = $(e.currentTarget).attr('ismodal');
+
+        // Prevent firing on modal pop-ups
+        if (url.indexOf("--xt-") === -1 && !isModal) {
+            // Fires modal on 1st click
+            if (clickCount < 1) {
+                clickCount++;
+                // If the cookie doesn't already exist, set it - this will avoid the form pop-up from firing again for 24 hours.
+                if (!(document.cookie.indexOf("dsLeadPopResponsive") != -1)) {
+                    var dt = new Date();
+                    dt.setDate(dt.getDate() + (DSP.DaysToExpireLeadPop ? DSP.DaysToExpireLeadPop : 1));
+                    document.cookie = "dsLeadPopResponsive=1; expires=" + dt.toGMTString();
+                }
+                // Loads custom lead pop form in modal with h1
+                $('#modalBox .modal-content').load('/--xt-xleadpop_responsive', function() {
+                    var h1 = $('#modalBox .modal-content .form-header h1').html();
+                    $('#modalBox .modal-header .modal-title').html(h1);
+                });
+                $('#modalBox').modal();
+                // redirects to the page the user clicked after modal is closed
+                $('#modalBox').on('hidden.bs.modal', function (e) {
+                    if (url) { 
+                        if (url.indexOf("--xt-") > -1) {
+                            window.location = url.replace('--xt-', '--');
+                        } else {
+                            window.location = url;
+                        }
+                    }
+                });
+                e.preventDefault ? e.preventDefault() : e.returnValue = true;
+            }
+        }
+	});
+});

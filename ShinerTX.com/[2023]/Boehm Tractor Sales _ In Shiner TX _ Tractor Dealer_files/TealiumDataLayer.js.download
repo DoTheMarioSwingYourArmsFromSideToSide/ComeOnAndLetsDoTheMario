@@ -1,0 +1,1140 @@
+// Client-side
+// This file contains all event bindings for sending user events to Tealium
+// uses utag.js methods to fire these events
+//
+
+var TealiumDataLayer = function() {
+	var _vehicles = [];
+	var _searchFilters = [];
+	var _searchKeyword = "";
+	var _promotions = [];
+	var _loadedForm = null;
+	var _platformVersion = window.platformVersion;
+
+	var getPageForm = function() {
+		if (_loadedForm) return $(_loadedForm).first();
+
+		return $("#content form").first();
+	};
+
+
+	var getAggregatedVehicleDataByPredicate = function(predicate) {
+		var values = [];
+
+		if (typeof predicate !== "function") {
+			predicate = function() {
+				return "";
+			};
+		}
+
+		for (var i = 0; i < _vehicles.length; i++) {
+			var vehicle = _vehicles[i];
+			var value = predicate(vehicle);
+
+			values.push(String(value || ""));
+		}
+
+		return values;
+	};
+
+	var getAggregatedVehicleDataByProperty = function(property) {
+		var values = [];
+		for (var i = 0; i < _vehicles.length; i++) {
+			var value = _vehicles[i][property];
+
+			if (value) {
+				values.push(String(value));
+			} else {
+				values.push("");
+			}
+		}
+		return values;
+	};
+
+	var getAggregatedPromotionDataByAttribute = function(property) {
+		var values = [];
+		for (var i = 0; i < _promotions.length; i++) {
+			var value = _promotions[i].getAttribute(property);
+
+			if (value) {
+				values.push(String(value));
+			} else {
+				values.push("");
+			}
+		}
+		return values;
+	};
+
+	var getFirstTextForSelector = function(selector) {
+		var matches = $(selector);
+
+		if (matches.length > 0) {
+			return matches.first().text();
+		}
+
+		return;
+	};
+
+	var getSelectorTextNodes = function(selector) {
+		var textStrings = [];
+		var wrapperElements = $(selector);
+		var elements = wrapperElements.contents().filter(function() {
+			var parentElementIsWrapper = wrapperElements.has($(this).parent());
+			var hasContent = !!$(this)
+				.text()
+				.trim();
+			return parentElementIsWrapper && this.nodeType === 3 && hasContent;
+		});
+
+		if (elements.length) {
+			elements.each(function(index, element) {
+				var text = String($(element).text()).trim();
+				if (text.length) {
+					textStrings.push(text);
+				}
+			});
+		}
+
+		return textStrings;
+	};
+
+	var getSelectorTextStrings = function(wrapperSelector) {
+		return getSelectorTextNodes(wrapperSelector);
+	};
+
+	var getSelectorTextCharacterCounts = function(wrapperSelector) {
+		var charCounts = [];
+		var textStrings = getSelectorTextNodes(wrapperSelector);
+		for (var i = 0; i < textStrings.length; i++) {
+			charCounts.push(String(textStrings[i].length));
+		}
+		return charCounts;
+	};
+
+	var getSelectorHrefs = function(selector) {
+		var hrefs = [];
+		var elements = $(selector);
+		if (elements.length) {
+			elements.each(function(index, element) {
+				var href = $(element).attr("href");
+				hrefs.push(href);
+			});
+		}
+		return hrefs;
+	};
+
+	var TealiumProperties = {
+		CustomerCity: { key: "customer_city", scrape: function(pageType) {} },
+		CustomerCountry: { key: "customer_country", scrape: function(pageType) {} },
+		CustomerCountryCode: {
+			key: "customer_country_code",
+			scrape: function(pageType) {}
+		},
+		CustomerLanguageCode: {
+			key: "customer_language_code",
+			scrape: function(pageType) {}
+		},
+		CustomerPostalCode: {
+			key: "customer_postal_code",
+			scrape: function(pageType) {}
+		},
+		CustomerState: { key: "customer_state", scrape: function(pageType) {} },
+		FormId: {
+			key: "form_id",
+			scrape: function() {
+				return $('[name="form_id"]', getPageForm()).val();
+			}
+		},
+		FormName: {
+			key: "form_name",
+			scrape: function() {
+				var form = getPageForm();
+				return (
+					$('[name="formpage"]', form).val() ||
+					$('[name="SourcePage"]', form).val() ||
+					form.attr("name")
+				);
+			}
+		},
+		FormType: {
+			key: "form_type",
+			scrape: function() {
+				var form = getPageForm();
+				return (
+					$('[name="formpage"]', form).val() ||
+					$('[name="SourcePage"]', form).val() ||
+					form.attr("name")
+				);
+			}
+		},
+		FormSubmissionAddress: {
+			key: "form_submission_address",
+			scrape: function() {
+				return $('[name="address"]', getPageForm()).val();
+			}
+		},
+		FormSubmissionCity: {
+			key: "form_submission_city",
+			scrape: function() {
+				return $('[name="city"]', getPageForm()).val();
+			}
+		},
+		FormSubmissionEmail: {
+			key: "form_submission_email",
+			scrape: function() {
+				return $('[name="email"]', getPageForm()).val();
+			}
+		},
+		FormSubmissionFirstName: {
+			key: "form_submission_first_name",
+			scrape: function() {
+				return $('[name="fname"]', getPageForm()).val();
+			}
+		},
+		FormSubmissionId: {
+			key: "form_submission_id",
+			scrape: function() {
+				var $form = getPageForm();
+				return (
+					$('[name="cust_id"]', $form).val() ||
+					$('[name="PiwikVisitorId"]', $form).val() ||
+					$('[name="LOG_ID"]', $form).val()
+				);
+			}
+		},
+		FormSubmissionLastName: {
+			key: "form_submission_last_name",
+			scrape: function() {
+				return $('[name="lname"]', getPageForm()).val();
+			}
+		},
+		FormSubmissionLocationName: {
+			key: "form_submission_location_name",
+			scrape: function() {
+				return $('[name="location"]', getPageForm()).val();
+			}
+		},
+		FormSubmissionPartsRequired: {
+			key: "form_submission_parts_required",
+			scrape: function() {
+				var $form = getPageForm();
+				var value = $('[name="partnumber"]', $form).val() || "";
+				value =
+					(value ? " " : "") + ($('[name="partsneeded"]', $form).val() || "");
+				return value;
+			}
+		},
+		FormSubmissionPhoneNumber: {
+			key: "form_submission_phone_number",
+			scrape: function() {
+				return $('[name="telephone"]', getPageForm()).val();
+			}
+		},
+		FormSubmissionPostalCode: {
+			key: "form_submission_postal_code",
+			scrape: function() {
+				return $('[name="zip"]', getPageForm()).val();
+			}
+		},
+		FormSubmissionServiceRequired: {
+			key: "form_submission_service_required",
+			scrape: function() {
+				return $('[name="serviceneeds"]', getPageForm()).val();
+			}
+		},
+		FormSubmissionState: {
+			key: "form_submission_state",
+			scrape: function() {
+				return $('[name="state"]', getPageForm()).val();
+			}
+		},
+		FormSubmissionTradeInAccessories: {
+			key: "form_submission_trade_in_accessories",
+			scrape: function() {
+				return $('[name="accessories"]', getPageForm()).val();
+			}
+		},
+		FormSubmissionTradeInMake: {
+			key: "form_submission_trade_in_make",
+			scrape: function() {
+				return $('[name="currentmake"]', getPageForm()).val();
+			}
+		},
+		FormSubmissionTradeInMiles: {
+			key: "form_submission_trade_in_miles",
+			scrape: function() {
+				return $('[name="currentmileage"]', getPageForm()).val();
+			}
+		},
+		FormSubmissionTradeInModel: {
+			key: "form_submission_trade_in_model",
+			scrape: function() {
+				return $('[name="currentmodel"]', getPageForm()).val();
+			}
+		},
+		FormSubmissionTradeInYear: {
+			key: "form_submission_trade_in_year",
+			scrape: function() {
+				return $('[name="currentyear"]', getPageForm()).val();
+			}
+		},
+		FormSubmissionVehicleForTestRide: {
+			key: "form_submission_vehicle_for_test_ride",
+			scrape: function() {
+				return $('[name="bike_desc"]', getPageForm()).val();
+			}
+		},
+		PageH1: {
+			key: "page_h1",
+			scrape: function(pageType) {
+				switch (pageType) {
+					case PageTypes.BlogDetail:
+						return getFirstTextForSelector(".blog-h1");
+						break;
+					default:
+						return getFirstTextForSelector("h1");
+						break;
+				}
+			}
+		},
+		BlogArticleH2CharCounts: {
+			key: "blog_article_h2_char_counts",
+			scrape: function() {
+				return getSelectorTextCharacterCounts(".blog__content h2");
+			}
+		},
+		BlogArticleH2Strings: {
+			key: "blog_article_h2_strings",
+			scrape: function() {
+				return getSelectorTextStrings(".blog__content h2");
+			}
+		},
+		BlogArticlePCharCounts: {
+			key: "blog_article_p_char_counts",
+			scrape: function() {
+				return getSelectorTextCharacterCounts(".blog__content p");
+			}
+		},
+		ProductListCategories: {
+			key: "product_list_categories",
+			scrape: function() {
+				return getAggregatedVehicleDataByProperty("vehtypename");
+			}
+		},
+		ProductListCategoryIds: {
+			key: "product_list_category_ids",
+			scrape: function() {
+				return getAggregatedVehicleDataByProperty("vehtype");
+			}
+		},
+		ProductListBrands: {
+			key: "product_list_brands",
+			scrape: function() {
+				return getAggregatedVehicleDataByProperty("brand");
+			}
+		},
+		ProductListBrandIds: {
+			key: "product_list_brand_ids",
+			scrape: function() {
+				return getAggregatedVehicleDataByProperty("brandid");
+			}
+		},
+		ProductListIds: {
+			key: "product_list_ids",
+			scrape: function() {
+				return getAggregatedVehicleDataByProperty("id");
+			}
+		},
+		ProductListIndustries: {
+			key: "product_list_industries",
+			scrape: function() {
+				return getAggregatedVehicleDataByProperty("vertical");
+			}
+		},
+		ProductListMakes: {
+			key: "product_list_makes",
+			scrape: function() {
+				return getAggregatedVehicleDataByProperty("manuf");
+			}
+		},
+		ProductListMakeIds: {
+			key: "product_list_make_ids",
+			scrape: function() {
+				return getAggregatedVehicleDataByProperty("makeid");
+			}
+		},
+		ProductListYears: {
+			key: "product_list_years",
+			scrape: function() {
+				return getAggregatedVehicleDataByProperty("bike_year");
+			}
+		},
+		ProductListTypes: {
+			key: "product_list_types",
+			scrape: function(pageType) {
+				var types = [];
+
+				var productType = "";
+
+				switch (pageType) {
+					case PageTypes.InventoryList:
+					case PageTypes.ShowroomList:
+						productType = "Inventory";
+						break;
+					default:
+						return [];
+				}
+
+				for (var i = 0; i < _vehicles.length; i++) {
+					types.push(productType);
+				}
+				return types;
+			}
+		},
+		ProductListPrices: {
+			key: "product_list_prices",
+			scrape: function() {
+				return getAggregatedVehicleDataByProperty("price");
+			}
+		},
+		ProductListMSRP: {
+			key: "product_list_msrp",
+			scrape: function() {
+				var MSRPValues = [];
+				for (var i = 0; i < _vehicles.length; i++) {
+					var RetailValue = _vehicles[i]["retail_price"];
+					var MSRPValue = _vehicles[i]["MSRP"];
+					if (RetailValue) {
+						MSRPValues.push(String(RetailValue));
+					} else if (MSRPValue) {
+						MSRPValues.push(String(MSRPValue));
+					} else {
+						MSRPValues.push("");
+					}
+				}
+				return MSRPValues;
+			}
+		},
+		ProductListOnSale: {
+			key: "product_list_on_sale",
+			scrape: function() {
+				return getAggregatedVehicleDataByPredicate(function(v) {
+					var isNumAndGtZero =
+						!isNaN(v.sale_price) && parseInt(v.sale_price) > 0;
+					var isOnSale = isNumAndGtZero || !!v.cb;
+
+					return String(isOnSale ? 1 : 0);
+				});
+			}
+		},
+		ProductListNames: {
+			key: "product_list_names",
+			scrape: function() {
+				return getAggregatedVehicleDataByProperty("vehtitle");
+			}
+		},
+		ProductListFooterH2CharCounts: {
+			key: "product_list_footer_h2_char_counts",
+			scrape: function(pageType) {
+				var selector = "h2";
+
+				switch (pageType) {
+					case PageTypes.InventoryList:
+					case PageTypes.ShowroomList:
+						selector = '[data-snippetid="pagefooter"] h2';
+						break;
+					default:
+						return [];
+				}
+
+				return getSelectorTextCharacterCounts(selector);
+			}
+		},
+		ProductListFooterH2Strings: {
+			key: "product_list_footer_h2_strings",
+			scrape: function(pageType) {
+				var selector = "h2";
+
+				switch (pageType) {
+					case PageTypes.InventoryList:
+					case PageTypes.ShowroomList:
+						selector = '[data-snippetid="pagefooter"] h2';
+						break;
+					default:
+						return [];
+				}
+
+				return getSelectorTextStrings(selector);
+			}
+		},
+		ProductListFooterH3CharCounts: {
+			key: "product_list_footer_h3_char_counts",
+			scrape: function(pageType) {
+				var selector = "h3";
+
+				switch (pageType) {
+					case PageTypes.InventoryList:
+					case PageTypes.ShowroomList:
+						selector = '[data-snippetid="pagefooter"] h3';
+						break;
+					default:
+						return [];
+				}
+
+				return getSelectorTextCharacterCounts(selector);
+			}
+		},
+		ProductListFooterH3Strings: {
+			key: "product_list_footer_h3_strings",
+			scrape: function(pageType) {
+				var selector = "h3";
+
+				switch (pageType) {
+					case PageTypes.InventoryList:
+					case PageTypes.ShowroomList:
+						selector = '[data-snippetid="pagefooter"] h3';
+						break;
+					default:
+						return [];
+				}
+
+				return getSelectorTextStrings(selector);
+			}
+		},
+		ProductListFooterPCharCounts: {
+			key: "product_list_footer_p_char_counts",
+			scrape: function(pageType) {
+				var wrapperSelector = "body";
+
+				switch (pageType) {
+					case PageTypes.InventoryList:
+					case PageTypes.ShowroomList:
+						wrapperSelector =
+							'[data-snippetid="pagefooter"], [data-snippetid="pagefooter"] p, [data-snippetid="pagefooter"] div';
+						break;
+					default:
+						return [];
+				}
+				return getSelectorTextCharacterCounts(wrapperSelector);
+			}
+		},
+		ProductListHeaderButtonsUris: {
+			key: "product_list_header_buttons_uris",
+			scrape: function(pageType) {
+				var selector = "a";
+
+				switch (pageType) {
+					case PageTypes.InventoryList:
+					case PageTypes.ShowroomList:
+						selector = '[data-snippetid^="featuredbanner"] a';
+						break;
+					default:
+						return [];
+				}
+
+				return getSelectorHrefs(selector);
+			}
+		},
+		ProductListHeaderPCharCounts: {
+			key: "product_list_header_p_char_counts",
+			scrape: function(pageType) {
+				var wrapperSelector = "";
+
+				switch (pageType) {
+					case PageTypes.InventoryList:
+					case PageTypes.ShowroomList:
+						wrapperSelector =
+							'[data-snippetid^="featuredbanner"], [data-snippetid^="featuredbanner"] p, [data-snippetid^="featuredbanner"] div';
+						break;
+					default:
+						return [];
+				}
+
+				return getSelectorTextCharacterCounts(wrapperSelector);
+			}
+		},
+		ProductListExternalColors: {
+			key: "product_list_external_colors",
+			scrape: function() {
+				return getAggregatedVehicleDataByProperty("color");
+			}
+		},
+		ProductListVins: {
+			key: "product_list_vins",
+			scrape: function() {
+				return getAggregatedVehicleDataByProperty("vin");
+			}
+		},
+		ProductDescriptionCharCounts: {
+			key: "product_description_char_count",
+			scrape: function() {
+				var wrapperSelector = 'body';
+				var productType = window.utag_data.product_type;
+				switch (productType) {
+					case "Inventory":
+						if(_platformVersion === 6)
+						{
+							wrapperSelector = '#dvDetailsInfo';
+						}
+						else{
+							wrapperSelector = '#accordionInfo';
+						}
+						
+						break;
+					case "Showroom":
+						wrapperSelector = '.dr-features';
+						break;
+					default:
+						return "0";
+				}
+
+				return $(wrapperSelector).get(0)?.innerText.replace(/[\r\n\t]/g,"").length.toString() || "0";
+			}
+		},
+		ProductMake: {
+			key: 'product_make',
+			scrape: function() {
+				return $('[name="make"]', getPageForm()).val();
+			}
+		},
+		ProductMiles: {
+			key: 'product_miles',
+			scrape: function() {
+				return $('[name="mileage"]', getPageForm()).val();
+			}
+		},
+		ProductModel: {
+			key: 'product_model',
+			scrape: function() {
+				return $('[name="model"]', getPageForm()).val();
+			}
+		},
+		ProductYear: {
+			key: 'product_year',
+			scrape: function() {
+				return $('[name="year"]', getPageForm()).val();
+			}
+		},
+		SearchFilters: {
+			key: 'search_filters',
+			scrape: function() {
+				return _searchFilters;
+			}
+		},
+		SearchKeyword: {
+			key: 'search_keyword',
+			scrape: function() {
+				return _searchKeyword;
+			}
+		},
+		SearchResultCount: {
+			key: 'search_result_count',
+			scrape: function() {
+				return String(WorkingVehicles.length || 0);
+			}
+		},
+		PromotionCategory: {
+			key: "promotion_category",
+			scrape: function() {
+				var promoCategories = [];
+				promoCategories = getAggregatedPromotionDataByAttribute('data-tealium-category');
+				return promoCategories;
+			}
+		},
+		PromotionCategoryId: {
+			key: "promotion_category_id",
+			scrape: function() {
+				var promoCategoryIds = [];
+				promoCategoryIds = getAggregatedPromotionDataByAttribute('data-tealium-category-id');
+				return promoCategoryIds;
+			}
+		},
+		PromotionId: {
+			key: "promotion_id",
+			scrape: function() {
+				var promoIds = [];
+				promoIds = getAggregatedPromotionDataByAttribute('data-tealium-id');
+				return promoIds;
+			}
+		},
+		PromotionMake: {
+			key: "promotion_make",
+			scrape: function() {
+				var promoMakes = [];
+				promoMakes = getAggregatedPromotionDataByAttribute('data-tealium-make');
+				return promoMakes;
+			}
+		},
+		PromotionMakeId: {
+			key: "promotion_make_id",
+			scrape: function() {
+				var promoMakeIds = [];
+				promoMakeIds = getAggregatedPromotionDataByAttribute('data-tealium-make-id');
+				return promoMakeIds;
+			}
+		},
+		PromotionName: {
+			key: "promotion_name",
+			scrape: function() {
+				var promoNames = [];
+				promoNames = getAggregatedPromotionDataByAttribute('data-tealium-promotion-name');
+				return promoNames;
+			}
+		}
+	};
+
+	// setup classList jQuery function
+	$.fn.classList = function() {
+		return this[0].className.split(/\s+/);
+	};
+
+	var GetPageType = function() {
+		var dspPageType = window.dspPageType;
+
+		// if the pagetype is set by the server, no need to try to detect it client-side
+		if (!isNaN(dspPageType)) {
+			return dspPageType;
+		}
+
+		// if the pagetype isn't set by the server-side,
+		// we need to detect it via the DOM
+		var bodyClasses = $("body").classList();
+		if (bodyClasses.indexOf("xbloglist") > -1) {
+			return PageTypes.BlogList;
+		} else if (bodyClasses.indexOf("xblogdetail") > -1) {
+			return PageTypes.BlogDetail;
+		}
+
+		return PageTypes.Standard;
+	};
+
+	var GetScrapablePageProperties = function(pageType) {
+		var scrapableProperties = [
+			TealiumProperties.CustomerCity,
+			TealiumProperties.CustomerCountry,
+			TealiumProperties.CustomerCountryCode,
+			TealiumProperties.CustomerLanguageCode,
+			TealiumProperties.CustomerPostalCode,
+			TealiumProperties.CustomerState,
+			TealiumProperties.PageH1
+		];
+
+		switch (pageType) {
+			case PageTypes.Form:
+				scrapableProperties = scrapableProperties.concat([
+					TealiumProperties.FormId,
+					TealiumProperties.FormName,
+					TealiumProperties.FormType,
+					TealiumProperties.FormSubmissionAddress,
+					TealiumProperties.FormSubmissionCity,
+					TealiumProperties.FormSubmissionEmail,
+					TealiumProperties.FormSubmissionFirstName,
+					TealiumProperties.FormSubmissionId,
+					TealiumProperties.FormSubmissionLastName,
+					TealiumProperties.FormSubmissionLocationName,
+					TealiumProperties.FormSubmissionPartsRequired,
+					TealiumProperties.FormSubmissionPhoneNumber,
+					TealiumProperties.FormSubmissionPostalCode,
+					TealiumProperties.FormSubmissionServiceRequired,
+					TealiumProperties.FormSubmissionState,
+					TealiumProperties.FormSubmissionTradeInAccessories,
+					TealiumProperties.FormSubmissionTradeInMake,
+					TealiumProperties.FormSubmissionTradeInMiles,
+					TealiumProperties.FormSubmissionTradeInModel,
+					TealiumProperties.FormSubmissionTradeInYear,
+					TealiumProperties.FormSubmissionVehicleForTestRide,
+					TealiumProperties.ProductMake,
+					TealiumProperties.ProductMiles,
+					TealiumProperties.ProductModel,
+					TealiumProperties.ProductYear
+				]);
+				break;
+			case PageTypes.BlogDetail:
+				scrapableProperties = scrapableProperties.concat([
+					TealiumProperties.BlogArticleH2CharCounts,
+					TealiumProperties.BlogArticleH2Strings,
+					TealiumProperties.BlogArticlePCharCounts
+				]);
+				break;
+			case PageTypes.InventoryList:
+				scrapableProperties = scrapableProperties.concat([
+					TealiumProperties.ProductListFooterH2CharCounts,
+					TealiumProperties.ProductListFooterH2Strings,
+					TealiumProperties.ProductListFooterH3CharCounts,
+					TealiumProperties.ProductListFooterH3Strings,
+					TealiumProperties.ProductListFooterPCharCounts,
+					TealiumProperties.ProductListHeaderButtonsUris,
+					TealiumProperties.ProductListHeaderPCharCounts
+				]);
+
+				// only scrape inventory data from client if on V6 platform
+				if (_platformVersion == 6) {
+					scrapableProperties = scrapableProperties.concat([
+						TealiumProperties.ProductListCategories,
+						TealiumProperties.ProductListCategoryIds,
+						TealiumProperties.ProductListBrands,
+						TealiumProperties.ProductListBrandIds,
+						TealiumProperties.ProductListIds,
+						TealiumProperties.ProductListIndustries,
+						TealiumProperties.ProductListMakes,
+						TealiumProperties.ProductListMakeIds,
+						TealiumProperties.ProductListYears,
+						TealiumProperties.ProductListTypes,
+						TealiumProperties.ProductListPrices,
+						TealiumProperties.ProductListMSRP,
+						TealiumProperties.ProductListOnSale,
+						TealiumProperties.ProductListNames,
+						TealiumProperties.ProductListExternalColors,
+						TealiumProperties.ProductListVins,
+						TealiumProperties.SearchFilters,
+						TealiumProperties.SearchKeyword,
+						TealiumProperties.SearchResultCount
+					]);
+				}
+				break;
+			case PageTypes.Promotion:
+				scrapableProperties = scrapableProperties.concat([
+					TealiumProperties.PromotionCategory,
+					TealiumProperties.PromotionCategoryId,
+					TealiumProperties.PromotionId,
+					TealiumProperties.PromotionMake,
+					TealiumProperties.PromotionMakeId,
+					TealiumProperties.PromotionName
+				]);
+				break;
+			case PageTypes.InventoryDetail:
+					scrapableProperties = scrapableProperties.concat([
+						TealiumProperties.ProductDescriptionCharCounts
+					]);
+				break;
+			default:
+				break;
+		}
+
+		return scrapableProperties;
+	};
+
+	var ValidSearchFilter = function(name) {
+		switch (name) {
+			case "p":
+			case "make":
+			case "at":
+			case "ac":
+			case "af":
+			case "am":
+			case "amd":
+			case "ay":
+			case "vc":
+			case "s":
+			case "d":
+			case "l":
+			case "t":
+			case "sq":
+			case "vg":
+			case "vt":
+			case "family":
+			case "brand":
+			case "year":
+			case "model":
+			case "fAmtRange":
+			case "floorplan":
+			case "length":
+			case "weight":
+			case "lat":
+			case "lng":
+			case "miles":
+			case "sleeps":
+			case "fueltype":
+			case "disp":
+				return true;
+		}
+		return false;
+	}
+
+	var AddSearchFilter = function(name, value) {
+
+		if (!ValidSearchFilter(name)) return;
+
+		var filterString = name + ':' + value;
+		_searchFilters.push(filterString);
+	}
+
+	var SetSearchKeyword = function(value) {
+		_searchKeyword = value;
+	}
+
+	var ClearSearchFilters = function() {
+		_searchKeyword = "";
+		_searchFilters = [];
+	}
+
+	var AddPromotion = function(promotion) {
+		_promotions.push(promotion);
+	};
+
+	var ClearPromotions = function() {
+		_promotions = [];
+	};
+
+
+	var AddVehicle = function(vehicle) {
+		_vehicles.push(vehicle);
+	};
+
+	var ClearVehicles = function() {
+		_vehicles = [];
+	};
+
+	var ScrapePageData = function(pageTypeForced) {
+		var pageType;
+		if (pageTypeForced >= 0) {
+			pageType = pageTypeForced;
+		} else {
+			pageType = GetPageType()
+		}
+
+		var properties = GetScrapablePageProperties(pageType);
+		var data = {};
+
+		for (var propName in properties) {
+			var property = properties[propName];
+			var key = property.key;
+			var value = property.scrape(pageType);
+
+			if (value !== undefined) {
+				data[key] = value;
+			}
+		}
+
+		return data;
+	};
+
+	var MergeScrapedData = function(pageTypeForced) {
+		var scrapedData = ScrapePageData(pageTypeForced);
+
+		for (var key in scrapedData) {
+			window.utag_data[key] = scrapedData[key];
+		}
+	}
+
+	var TriggerUserActionEvent = function() {
+		if (!window.utag) return;
+
+		MergeScrapedData();
+
+		if (!window.utag_event_data) window.utag_event_data = {};
+		for (var key in window.utag_data) {
+			if(window.utag_event_data[key] === undefined){
+				window.utag_event_data[key] = window.utag_data[key];
+			}
+		}
+		if (window.utag_event_data["tealium_event"] == "form_interaction"){
+			for (strKey in window.utag_event_data) {
+				if (strKey.substr(0,16) == "form_submission_") {
+					delete window.utag_event_data[strKey];
+				}
+			}
+		}
+
+		CleanObjectProperties(window.utag_event_data);
+		window.utag.link(window.utag.data = window.utag_event_data);
+	};
+
+	var TriggerOEMBrandedZoneActionEvent = function(action, oem, pageMake, clickModel, searchCondition, searchModel, searchYear) {
+		if (!window.utag) return;
+		switch(String(oem).toLowerCase()) {
+			case "brp":
+				window.utag_data["oem_brp_branded_zone_action"] = action;
+
+				if (clickModel) {
+					window.utag_data["oem_brp_branded_zone_click_model"] = clickModel;
+				} else {
+					delete window.utag_data["oem_brp_branded_zone_click_model"];
+				}
+
+				if (searchCondition || searchModel || searchYear) {
+					window.utag_data["oem_brp_branded_zone_search_condition"] = searchCondition;
+					window.utag_data["oem_brp_branded_zone_search_model"] = searchModel;
+					window.utag_data["oem_brp_branded_zone_search_year"] = searchYear;
+				} else {
+					delete window.utag_data["oem_brp_branded_zone_search_condition"];
+					delete window.utag_data["oem_brp_branded_zone_search_model"];
+					delete window.utag_data["oem_brp_branded_zone_search_year"];
+				}
+
+				window.utag_data["tealium_event"] = "oem_brp_branded_zone_click";
+				break;
+			default:
+				window.utag_data["oem_branded_zone_action"] = action;
+				window.utag_data["oem_branded_zone_click_model"] = clickModel;
+				window.utag_data["oem_branded_zone_search_condition"] = searchCondition;
+				window.utag_data["oem_branded_zone_search_model"] = searchModel;
+				window.utag_data["oem_branded_zone_search_year"] = searchYear;
+				window.utag_data["tealium_event"] = "oem_branded_zone_click";
+				break;
+		}
+		window.utag_data["page_make"] = pageMake;
+
+    	CleanObjectProperties(window.utag_data);
+		window.utag.link(window.utag.data = window.utag_data);
+	}
+
+	var TriggerOEMBrandedOverlayActionEvent = function(action, oem, pageMake, clickModel) {
+		if (!window.utag) return;
+		switch(String(oem).toLowerCase()){
+			case "brp":
+				window.utag_data["oem_brp_branded_overlay_action"] = action;
+				window.utag_data["oem_brp_branded_overlay_click_model"] = clickModel;
+				window.utag_data["tealium_event"] = "oem_brp_branded_overlay_click";
+			break;
+			default:
+				window.utag_data["oem_branded_overlay_action"] = action;
+				window.utag_data["oem_branded_overlay_click_model"] = clickModel;
+				window.utag_data["tealium_event"] = "oem_branded_overlay_click";
+		}
+		window.utag_data["page_make"] = pageMake;
+    
+    	CleanObjectProperties(window.utag_data);
+		window.utag.link(window.utag.data = window.utag_data);
+	}
+
+	var TriggerFormSubmit = function (form) {
+		_loadedForm = form;
+		var $form = getPageForm();
+		if (!window.utag || ($form && !$form.valid())) return;
+
+		MergeScrapedData(PageTypes.Form);
+
+		window.utag.data = JSON.parse(JSON.stringify(window.utag_data));
+		window.utag.data.tealium_event = 'form_submit';
+
+		FilterOutProperties(window.utag.data);
+    	CleanObjectProperties(window.utag.data);
+		window.utag.link(window.utag.data);
+	}
+
+	var TriggerFormLoad = function(form) {
+		_loadedForm = form;
+		var $form = getPageForm();
+		if (!window.utag || !$form) return;
+
+		MergeScrapedData(PageTypes.Form);
+
+		// window.utag_data.tealium_event = 'form_load';
+		window.utag.data = JSON.parse(JSON.stringify(window.utag_data));
+		window.utag.data.tealium_event = 'form_load';
+
+		FilterOutProperties(window.utag.data);
+    	CleanObjectProperties(window.utag.data);
+		window.utag.link(window.utag.data);
+	}
+
+	var TriggerPageView = function(callback) {
+		if (!window.utag) return;
+
+		MergeScrapedData();
+
+		var callbackIsFunction = typeof callback === "function";
+
+    	CleanObjectProperties(window.utag_data);
+		window.utag.view(
+			(window.utag.data = window.utag_data),
+			callbackIsFunction ? callback : function() {}
+		);
+	};
+
+	var CleanObjectProperties = function(datalayerObject)
+	{
+		for(key in datalayerObject)
+		{
+			if(typeof(datalayerObject[key]) === "string")
+			{
+				datalayerObject[key] = RemoveDisallowedValuesFromString(datalayerObject[key]);
+			}
+			else if(Array.isArray(datalayerObject[key]))
+			{
+				for (var i = 0; i < datalayerObject[key].length; i++) 
+				{
+					if(typeof(datalayerObject[key][i]) === "string")
+					{
+						datalayerObject[key][i] = RemoveDisallowedValuesFromString(datalayerObject[key][i]);
+					}
+				}
+			}
+		}
+	};
+
+	var FilterOutProperties = function(datalayerObject) {
+		switch(datalayerObject.tealium_event) {
+			case 'form_load':
+			case 'form_interaction':
+				RemoveProperties(datalayerObject, 'product_list_*');
+				RemoveProperties(datalayerObject, 'form_submission_*');
+				break;
+			case 'form_submit':
+				RemoveProperties(datalayerObject, 'product_list_*');
+				break;
+		}
+	}
+
+	var RemoveProperties = function(datalayerObject, removeKeysCSV) {
+		var aRemoveKeys = removeKeysCSV.split(',');
+		if (aRemoveKeys.length > 0) {
+			var aRemoveSearchKeys = [];
+			var strKey = '';
+			var searchKey = '';
+			var i = 0;
+			for (i = 0; i < aRemoveKeys.length; i++) {
+				strKey = aRemoveKeys[i].trim();
+				if (strKey[strKey.length -1] == "*") {
+					aRemoveSearchKeys.push(strKey.replace("*",""));
+				} else {
+					delete datalayerObject[strKey];
+				}
+			}
+			if (aRemoveSearchKeys.length > 0) {
+				for (i = 0; i < aRemoveSearchKeys.length; i++) {
+					searchKey = aRemoveSearchKeys[i];
+					for (strKey in datalayerObject) {
+						if (strKey.includes(searchKey)) {
+							delete datalayerObject[strKey];
+						}
+					}
+				}
+			}
+		}
+	};
+
+  
+	var RemoveDisallowedValuesFromString = function(value)
+	{
+		var disallowedValues = [
+				"®",
+				"™",
+				"&reg;",
+				"&trade;"
+			];
+		
+		var searchRegex = new RegExp(disallowedValues.join("|"),"ig");
+		
+		return value.replace(searchRegex,"");
+	};
+
+	return {
+		AddVehicle: AddVehicle,
+		ClearVehicles: ClearVehicles,
+		AddPromotion : AddPromotion,
+		ClearPromotions: ClearPromotions,
+		AddSearchFilter: AddSearchFilter,
+		SetSearchKeyword: SetSearchKeyword,
+		ClearSearchFilters: ClearSearchFilters,
+		CleanObjectProperties: CleanObjectProperties,
+		MergeScrapedData: MergeScrapedData,
+		TriggerPageView: TriggerPageView,
+		TriggerUserActionEvent: TriggerUserActionEvent,
+		TriggerOEMBrandedZoneActionEvent: TriggerOEMBrandedZoneActionEvent,
+		TriggerOEMBrandedOverlayActionEvent: TriggerOEMBrandedOverlayActionEvent,
+		TriggerFormLoad: TriggerFormLoad,
+		TriggerFormSubmit: TriggerFormSubmit
+	};
+};

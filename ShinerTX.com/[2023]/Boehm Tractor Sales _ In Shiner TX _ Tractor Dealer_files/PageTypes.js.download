@@ -1,0 +1,15 @@
+var PageTypes = {
+    Standard: 0,
+    Custom: 1,
+    Form: 2,
+    InventoryList: 3,
+    InventoryDetail: 4,
+    ShowroomList: 5,
+    ShowroomDetail: 6,
+    BlogList: 7,
+    BlogDetail: 8,
+    Promotion: 9,
+    Oem: 10,
+    BrandedZone: 11,
+    ErrorPage: 12
+};

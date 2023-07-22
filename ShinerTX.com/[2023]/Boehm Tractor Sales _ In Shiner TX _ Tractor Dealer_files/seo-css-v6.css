@@ -1,0 +1,533 @@
+/* For Inventory List Pages - resize text */
+
+body .xcontent.xinventory.xallinventory p,
+body .xcontent.xinventory.xnewinventory p,
+body .xcontent.xinventory.xpreownedinventory p,
+body .xcontent.xinventory.xclearanceinventory p,
+body .xcontent.xinventory.xrentalinventory p,
+body .xcontent.xinventory.xallinventory div[data-snippetid="featuredbannerbelowh1"] div,
+body .xcontent.xinventory.xnewinventory div[data-snippetid="featuredbannerbelowh1"] div,
+body .xcontent.xinventory.xpreownedinventory div[data-snippetid="featuredbannerbelowh1"] div,
+body .xcontent.xinventory.xclearanceinventory div[data-snippetid="featuredbannerbelowh1"] div,
+body .xcontent.xinventory.xrentalinventory div[data-snippetid="featuredbannerbelowh1"] div,
+body .xcontent.xinventory.xallinventory div[data-snippetid="featuredbannerbelowh1"],
+body .xcontent.xinventory.xnewinventory div[data-snippetid="featuredbannerbelowh1"],
+body .xcontent.xinventory.xpreownedinventory div[data-snippetid="featuredbannerbelowh1"],
+body .xcontent.xinventory.xclearanceinventory div[data-snippetid="featuredbannerbelowh1"],
+body .xcontent.xinventory.xrentalinventory div[data-snippetid="featuredbannerbelowh1"],
+body .xcontent.xinventory.xallinventory div[data-snippetid="featuredbanner"] div,
+body .xcontent.xinventory.xnewinventory div[data-snippetid="featuredbanner"] div,
+body .xcontent.xinventory.xpreownedinventory div[data-snippetid="featuredbanner"] div,
+body .xcontent.xinventory.xclearanceinventory div[data-snippetid="featuredbanner"] div,
+body .xcontent.xinventory.xrentalinventory div[data-snippetid="featuredbanner"] div,
+body .xcontent.xinventory.xallinventory div[data-snippetid="featuredbanner"],
+body .xcontent.xinventory.xnewinventory div[data-snippetid="featuredbanner"],
+body .xcontent.xinventory.xpreownedinventory div[data-snippetid="featuredbanner"],
+body .xcontent.xinventory.xclearanceinventory div[data-snippetid="featuredbanner"],
+body .xcontent.xinventory.xrentalinventory div[data-snippetid="featuredbanner"] {
+  font-size:16px;line-height:18px;
+}
+
+/* Resize H1's for Mobile and Normalize Desktop */
+
+/* Medium Devices, Desktops ++++ */
+@media only screen and (max-width : 992px) {
+  body .xcontent.xinventory.xallinventory div.content-header h1,
+  body .xcontent.xinventory.xnewinventory div.content-header h1,
+  body .xcontent.xinventory.xpreownedinventory div.content-header h1,
+  body .xcontent.xinventory.xclearanceinventory div.content-header h1,
+  body .xcontent.xinventory.xrentalinventory div.content-header h1,
+  body .xcontent.xinventorypageslist h1,
+  .seo-mobile-h1  {
+    font-size:36px;line-height:40px;
+  }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+  body .xcontent.xinventory.xallinventory div.content-header h1,
+  body .xcontent.xinventory.xnewinventory div.content-header h1,
+  body .xcontent.xinventory.xpreownedinventory div.content-header h1,
+  body .xcontent.xinventory.xclearanceinventory div.content-header h1,
+  body .xcontent.xinventory.xrentalinventory div.content-header h1,
+  body .xcontent.xinventorypageslist h1,
+  .seo-mobile-h1	{
+    font-size:30px;line-height:34px;
+  }
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px) {
+body .xcontent.xinventory.xallinventory div.content-header h1,
+body .xcontent.xinventory.xnewinventory div.content-header h1,
+body .xcontent.xinventory.xpreownedinventory div.content-header h1,
+body .xcontent.xinventory.xclearanceinventory div.content-header h1,
+body .xcontent.xinventory.xrentalinventory div.content-header h1,
+body .xcontent.xinventorypageslist h1,
+.seo-mobile-h1 {
+  font-size:18px;line-height:20px;
+  }
+}
+
+/* For Inventory List Pages - Images For Desktop */
+
+@media only screen and (min-width: 480px) {
+
+body .xcontent.xinventory.xallinventory div[data-snippetid="pagefooter"] img,
+body .xcontent.xinventory.xnewinventory div[data-snippetid="pagefooter"] img,
+body .xcontent.xinventory.xpreownedinventory div[data-snippetid="pagefooter"] img,
+body .xcontent.xinventory.xclearanceinventory div[data-snippetid="pagefooter"] img,
+body .xcontent.xinventory.xrentalinventory div[data-snippetid="pagefooter"] img,
+body .xcontent.xinventory.xallinventory div[data-snippetid="disclaimer"] img,
+body .xcontent.xinventory.xnewinventory div[data-snippetid="disclaimer"] img,
+body .xcontent.xinventory.xpreownedinventory div[data-snippetid="disclaimer"] img,
+body .xcontent.xinventory.xclearanceinventory div[data-snippetid="disclaimer"] img,
+body .xcontent.xinventory.xrentalinventory div[data-snippetid="disclaimer"] img,
+body .xcontent.xinventory.xallinventory div[data-snippetid="featuredbannerbelowh1"] img,
+body .xcontent.xinventory.xnewinventory div[data-snippetid="featuredbannerbelowh1"] img,
+body .xcontent.xinventory.xpreownedinventory > div[data-snippetid="featuredbannerbelowh1"] img,
+body .xcontent.xinventory.xclearanceinventory div[data-snippetid="featuredbannerbelowh1"] img
+body .xcontent.xinventory.xrentalinventory div[data-snippetid="featuredbannerbelowh1"] img,
+body .xcontent.xinventory.xallinventory div[data-snippetid="featuredbannerbelowh1"] span img,
+body .xcontent.xinventory.xnewinventory div[data-snippetid="featuredbannerbelowh1"] span img,
+body .xcontent.xinventory.xpreownedinventory div[data-snippetid="featuredbannerbelowh1"] span img,
+body .xcontent.xinventory.xclearanceinventory div[data-snippetid="featuredbannerbelowh1"] span img,
+body .xcontent.xinventory.xrentalinventory div[data-snippetid="featuredbannerbelowh1"] span img {
+  max-width: 20%;
+  padding-bottom:20px;
+  padding-top:0px;
+  padding-right:10px;
+  padding-left:0px;
+  float:left;
+  margin: 0px 0px 0px 0px;
+}
+}
+/* For Inventory List Pages - 25% Size Images For Desktop */
+
+@media only screen and (min-width: 480px) {
+
+body .xcontent.xinventory.xallinventory div[data-snippetid="pagefooter"] img.twentyfive,
+body .xcontent.xinventory.xnewinventory div[data-snippetid="pagefooter"] img.twentyfive,
+body .xcontent.xinventory.xpreownedinventory div[data-snippetid="pagefooter"] img.twentyfive,
+body .xcontent.xinventory.xclearanceinventory div[data-snippetid="pagefooter"] img.twentyfive,
+body .xcontent.xinventory.xrentalinventory div[data-snippetid="pagefooter"] img.twentyfive,
+body .xcontent.xinventory.xallinventory div[data-snippetid="disclaimer"] img.twentyfive,
+body .xcontent.xinventory.xnewinventory div[data-snippetid="disclaimer"] img.twentyfive,
+body .xcontent.xinventory.xpreownedinventory div[data-snippetid="disclaimer"] img.twentyfive,
+body .xcontent.xinventory.xclearanceinventory div[data-snippetid="disclaimer"] img.twentyfive,
+body .xcontent.xinventory.xrentalinventory div[data-snippetid="disclaimer"] img.twentyfive,
+body .xcontent.xinventory.xallinventory div[data-snippetid="featuredbannerbelowh1"] img.twentyfive,
+body .xcontent.xinventory.xnewinventory div[data-snippetid="featuredbannerbelowh1"] img.twentyfive,
+body .xcontent.xinventory.xpreownedinventory div[data-snippetid="featuredbannerbelowh1"] img.twentyfive,
+body .xcontent.xinventory.xclearanceinventory div[data-snippetid="featuredbannerbelowh1"] img.twentyfive,
+body .xcontent.xinventory.xrentalinventory div[data-snippetid="featuredbannerbelowh1"] img.twentyfive,
+body .xcontent.xinventory.xallinventory div[data-snippetid="featuredbannerbelowh1"] span img.twentyfive,
+body .xcontent.xinventory.xnewinventory div[data-snippetid="featuredbannerbelowh1"] span img.twentyfive,
+body .xcontent.xinventory.xpreownedinventory div[data-snippetid="featuredbannerbelowh1"] span img.twentyfive,
+body .xcontent.xinventory.xclearanceinventory div[data-snippetid="featuredbannerbelowh1"] span img.twentyfive,
+body .xcontent.xinventory.xrentalinventory div[data-snippetid="featuredbannerbelowh1"] span img.twentyfive {
+  max-width: 25%;
+  padding-bottom:20px;
+  padding-top:0px;
+  padding-right:10px;
+  padding-left:0px;
+  float:left;
+  margin: 0px 0px 0px 0px;
+}
+
+body .xcontent.xinventory.xallinventory div[data-snippetid="pagefooter"] img.twentyfiveright,
+body .xcontent.xinventory.xnewinventory div[data-snippetid="pagefooter"] img.twentyfiveright,
+body .xcontent.xinventory.xpreownedinventory div[data-snippetid="pagefooter"] img.twentyfiveright,
+body .xcontent.xinventory.xclearanceinventory div[data-snippetid="pagefooter"] img.twentyfiveright,
+body .xcontent.xinventory.xrentalinventory div[data-snippetid="pagefooter"] img.twentyfiveright,
+body .xcontent.xinventory.xallinventory div[data-snippetid="disclaimer"] img.twentyfiveright,
+body .xcontent.xinventory.xnewinventory div[data-snippetid="disclaimer"] img.twentyfiveright,
+body .xcontent.xinventory.xpreownedinventory div[data-snippetid="disclaimer"] img.twentyfiveright,
+body .xcontent.xinventory.xclearanceinventory div[data-snippetid="disclaimer"] img.twentyfiveright,
+body .xcontent.xinventory.xrentalinventory div[data-snippetid="disclaimer"] img.twentyfiveright,
+body .xcontent.xinventory.xallinventory div[data-snippetid="featuredbannerbelowh1"] img.twentyfiveright,
+body .xcontent.xinventory.xnewinventory div[data-snippetid="featuredbannerbelowh1"] img.twentyfiveright,
+body .xcontent.xinventory.xpreownedinventory div[data-snippetid="featuredbannerbelowh1"] img.twentyfiveright,
+body .xcontent.xinventory.xclearanceinventory div[data-snippetid="featuredbannerbelowh1"] img.twentyfiveright,
+body .xcontent.xinventory.xrentalinventory div[data-snippetid="featuredbannerbelowh1"] img.twentyfiveright,
+body .xcontent.xinventory.xallinventory div[data-snippetid="featuredbannerbelowh1"] span img.twentyfiveright,
+body .xcontent.xinventory.xnewinventory div[data-snippetid="featuredbannerbelowh1"] span img.twentyfiveright,
+body .xcontent.xinventory.xpreownedinventory div[data-snippetid="featuredbannerbelowh1"] span img.twentyfiveright,
+body .xcontent.xinventory.xclearanceinventory div[data-snippetid="featuredbannerbelowh1"] span img.twentyfiveright,
+body .xcontent.xinventory.xrentalinventory div[data-snippetid="featuredbannerbelowh1"] span img.twentyfiveright {
+  max-width: 25%;
+  padding-bottom:20px;
+  padding-top:0px;
+  padding-right:10px;
+  padding-left:0px;
+  float:right;
+  margin: 0px 0px 0px 0px;
+}
+
+body .xcontent.xinventory.xallinventory div[data-snippetid="pagefooter"] img.right,
+body .xcontent.xinventory.xnewinventory div[data-snippetid="pagefooter"] img.right,
+body .xcontent.xinventory.xpreownedinventory div[data-snippetid="pagefooter"] img.right,
+body .xcontent.xinventory.xclearanceinventory div[data-snippetid="pagefooter"] img.right,
+body .xcontent.xinventory.xrentalinventory div[data-snippetid="pagefooter"] img.right,
+body .xcontent.xinventory.xallinventory div[data-snippetid="disclaimer"] img.right,
+body .xcontent.xinventory.xnewinventory div[data-snippetid="disclaimer"] img.right,
+body .xcontent.xinventory.xpreownedinventory div[data-snippetid="disclaimer"] img.right,
+body .xcontent.xinventory.xclearanceinventory div[data-snippetid="disclaimer"] img.right,
+body .xcontent.xinventory.xrentalinventory div[data-snippetid="disclaimer"] img.right,
+body .xcontent.xinventory.xallinventory div[data-snippetid="featuredbannerbelowh1"] img.right,
+body .xcontent.xinventory.xnewinventory div[data-snippetid="featuredbannerbelowh1"] img.right,
+body .xcontent.xinventory.xpreownedinventory div[data-snippetid="featuredbannerbelowh1"] img.right,
+body .xcontent.xinventory.xclearanceinventory div[data-snippetid="featuredbannerbelowh1"] img.right,
+body .xcontent.xinventory.xrentalinventory div[data-snippetid="featuredbannerbelowh1"] img.right {
+  max-width: 20%;
+  padding-bottom:20px;
+  padding-top:0px;
+  padding-right:0px;
+  padding-left:10px;
+  float:right;
+  margin: 0px 0px 0px 0px;
+}
+
+body .xcontent.xinventory.xallinventory div[data-snippetid="pagefooter"] img.nopadding,
+body .xcontent.xinventory.xnewinventory div[data-snippetid="pagefooter"] img.nopadding,
+body .xcontent.xinventory.xpreownedinventory div[data-snippetid="pagefooter"] img.nopadding,
+body .xcontent.xinventory.xclearanceinventory div[data-snippetid="pagefooter"] img.nopadding,
+body .xcontent.xinventory.xrentalinventory div[data-snippetid="pagefooter"] img.nopadding,
+body .xcontent.xinventory.xallinventory div[data-snippetid="disclaimer"] img.nopadding,
+body .xcontent.xinventory.xnewinventory div[data-snippetid="disclaimer"] img.nopadding,
+body .xcontent.xinventory.xpreownedinventory div[data-snippetid="disclaimer"] img.nopadding,
+body .xcontent.xinventory.xclearanceinventory div[data-snippetid="disclaimer"] img.nopadding,
+body .xcontent.xinventory.xrentalinventory div[data-snippetid="disclaimer"] img.nopadding,
+body .xcontent.xinventory.xallinventory div[data-snippetid="featuredbannerbelowh1"] img.nopadding,
+body .xcontent.xinventory.xnewinventory div[data-snippetid="featuredbannerbelowh1"] img.nopadding,
+body .xcontent.xinventory.xpreownedinventory div[data-snippetid="featuredbannerbelowh1"] img.nopadding,
+body .xcontent.xinventory.xclearanceinventory div[data-snippetid="featuredbannerbelowh1"] img.nopadding,
+body .xcontent.xinventory.xrentalinventory div[data-snippetid="featuredbannerbelowh1"] img.nopadding  {
+  max-width: 20%;
+  padding-bottom:0px;
+  padding-top:0px;
+  padding-right:10px;
+  padding-left:0px;
+  float:left;
+  margin: 0px 0px 0px 0px;
+}
+
+body .xcontent.xinventory.xallinventory div[data-snippetid="pagefooter"] img.nopaddingright,
+body .xcontent.xinventory.xnewinventory div[data-snippetid="pagefooter"] img.nopaddingright,
+body .xcontent.xinventory.xpreownedinventory div[data-snippetid="pagefooter"] img.nopaddingright,
+body .xcontent.xinventory.xclearanceinventory div[data-snippetid="pagefooter"] img.nopaddingright,
+body .xcontent.xinventory.xrentalinventory div[data-snippetid="pagefooter"] img.nopaddingright,
+body .xcontent.xinventory.xallinventory div[data-snippetid="disclaimer"] img.nopaddingright,
+body .xcontent.xinventory.xnewinventory div[data-snippetid="disclaimer"] img.nopaddingright,
+body .xcontent.xinventory.xpreownedinventory div[data-snippetid="disclaimer"] img.nopaddingright,
+body .xcontent.xinventory.xclearanceinventory div[data-snippetid="disclaimer"] img.nopaddingright,
+body .xcontent.xinventory.xrentalinventory div[data-snippetid="disclaimer"] img.nopaddingright,
+body .xcontent.xinventory.xallinventory div[data-snippetid="featuredbannerbelowh1"] img.nopaddingright,
+body .xcontent.xinventory.xnewinventory div[data-snippetid="featuredbannerbelowh1"] img.nopaddingright,
+body .xcontent.xinventory.xpreownedinventory div[data-snippetid="featuredbannerbelowh1"] img.nopaddingright,
+body .xcontent.xinventory.xclearanceinventory div[data-snippetid="featuredbannerbelowh1"] img.nopaddingright,
+body .xcontent.xinventory.xrentalinventory div[data-snippetid="featuredbannerbelowh1"] img.nopaddingright {
+  max-width: 20%;
+  padding-bottom:0px;
+  padding-top:0px;
+  padding-right:0px;
+  padding-left:10px;
+  float:right;
+  margin: 0px 0px 0px 0px;
+}
+
+}
+
+/* For Inventory List Pages - Images For Mobile */
+
+@media only screen and (max-width: 480px) {
+
+  body .xcontent.xinventory.xallinventory div[data-snippetid="pagefooter"] img,
+  body .xcontent.xinventory.xnewinventory div[data-snippetid="pagefooter"] img,
+  body .xcontent.xinventory.xpreownedinventory div[data-snippetid="pagefooter"] img,
+  body .xcontent.xinventory.xclearanceinventory div[data-snippetid="pagefooter"] img,
+  body .xcontent.xinventory.xrentalinventory div[data-snippetid="pagefooter"] img,
+  body .xcontent.xinventory.xallinventory div[data-snippetid="disclaimer"] img,
+  body .xcontent.xinventory.xnewinventory div[data-snippetid="disclaimer"] img,
+  body .xcontent.xinventory.xpreownedinventory div[data-snippetid="disclaimer"] img,
+  body .xcontent.xinventory.xclearanceinventory div[data-snippetid="disclaimer"] img,
+  body .xcontent.xinventory.xrentalinventory div[data-snippetid="disclaimer"] img,
+  body .xcontent.xinventory.xallinventory div[data-snippetid="featuredbannerbelowh1"] img,
+  body .xcontent.xinventory.xnewinventory div[data-snippetid="featuredbannerbelowh1"] img,
+  body .xcontent.xinventory.xpreownedinventory > div[data-snippetid="featuredbannerbelowh1"] img,
+  body .xcontent.xinventory.xclearanceinventory div[data-snippetid="featuredbannerbelowh1"] img,
+  body .xcontent.xinventory.xrentalinventory div[data-snippetid="featuredbannerbelowh1"] img,
+  body .xcontent.xinventory.xallinventory div[data-snippetid="featuredbannerbelowh1"] span img,
+  body .xcontent.xinventory.xnewinventory div[data-snippetid="featuredbannerbelowh1"] span img,
+  body .xcontent.xinventory.xpreownedinventory div[data-snippetid="featuredbannerbelowh1"] span img,
+  body .xcontent.xinventory.xclearanceinventory div[data-snippetid="featuredbannerbelowh1"] span img,
+  body .xcontent.xinventory.xrentalinventory div[data-snippetid="featuredbannerbelowh1"] span img {
+    min-width: 100%;
+    padding-bottom:5px;
+    padding-top:0px;
+    padding-right:0px;
+    padding-left:0px;
+    float:none;
+    margin: 0px 0px 0px 0px;
+  }
+
+  body .xcontent.xinventory.xallinventory div[data-snippetid="pagefooter"] img.right,
+  body .xcontent.xinventory.xnewinventory div[data-snippetid="pagefooter"] img.right,
+  body .xcontent.xinventory.xpreownedinventory div[data-snippetid="pagefooter"] img.right,
+  body .xcontent.xinventory.xclearanceinventory div[data-snippetid="pagefooter"] img.right,
+  body .xcontent.xinventory.xrentalinventory div[data-snippetid="pagefooter"] img.right,
+  body .xcontent.xinventory.xallinventory div[data-snippetid="disclaimer"] img.right,
+  body .xcontent.xinventory.xnewinventory div[data-snippetid="disclaimer"] img.right,
+  body .xcontent.xinventory.xpreownedinventory div[data-snippetid="disclaimer"] img.right,
+  body .xcontent.xinventory.xclearanceinventory div[data-snippetid="disclaimer"] img.right,
+  body .xcontent.xinventory.xrentalinventory div[data-snippetid="disclaimer"] img.right,
+  body .xcontent.xinventory.xallinventory div[data-snippetid="featuredbannerbelowh1"] img.right,
+  body .xcontent.xinventory.xnewinventory div[data-snippetid="featuredbannerbelowh1"] img.right,
+  body .xcontent.xinventory.xpreownedinventory div[data-snippetid="featuredbannerbelowh1"] img.right,
+  body .xcontent.xinventory.xclearanceinventory div[data-snippetid="featuredbannerbelowh1"] img.right,
+  body .xcontent.xinventory.xrentalinventory div[data-snippetid="featuredbannerbelowh1"] img.right  {
+    min-width: 100%;
+    padding-bottom:5px;
+    padding-top:0px;
+    padding-right:0px;
+    padding-left:0px;
+    float:none;
+    margin: 0px 0px 0px 0px;
+  }
+
+  body .xcontent.xinventory.xallinventory div[data-snippetid="pagefooter"] img.nopadding,
+  body .xcontent.xinventory.xnewinventory div[data-snippetid="pagefooter"] img.nopadding,
+  body .xcontent.xinventory.xpreownedinventory div[data-snippetid="pagefooter"] img.nopadding,
+  body .xcontent.xinventory.xclearanceinventory div[data-snippetid="pagefooter"] img.nopadding,
+  body .xcontent.xinventory.xrentalinventory div[data-snippetid="pagefooter"] img.nopadding,
+  body .xcontent.xinventory.xallinventory div[data-snippetid="disclaimer"] img.nopadding,
+  body .xcontent.xinventory.xnewinventory div[data-snippetid="disclaimer"] img.nopadding,
+  body .xcontent.xinventory.xpreownedinventory div[data-snippetid="disclaimer"] img.nopadding,
+  body .xcontent.xinventory.xclearanceinventory div[data-snippetid="disclaimer"] img.nopadding,
+  body .xcontent.xinventory.xrentalinventory div[data-snippetid="disclaimer"] img.nopadding,
+  body .xcontent.xinventory.xallinventory div[data-snippetid="featuredbannerbelowh1"] img.nopadding,
+  body .xcontent.xinventory.xnewinventory div[data-snippetid="featuredbannerbelowh1"] img.nopadding,
+  body .xcontent.xinventory.xpreownedinventory div[data-snippetid="featuredbannerbelowh1"] img.nopadding,
+  body .xcontent.xinventory.xclearanceinventory div[data-snippetid="featuredbannerbelowh1"] img.nopadding,
+  body .xcontent.xinventory.xrentalinventory div[data-snippetid="featuredbannerbelowh1"] img.nopadding  {
+    min-width: 100%;
+    padding-bottom:5px;
+    padding-top:0px;
+    padding-right:0px;
+    padding-left:0px;
+    float:none;
+    margin: 0px 0px 0px 0px;
+  }
+
+  body .xcontent.xinventory.xallinventory div[data-snippetid="pagefooter"] img.nopaddingright,
+  body .xcontent.xinventory.xnewinventory div[data-snippetid="pagefooter"] img.nopaddingright,
+  body .xcontent.xinventory.xpreownedinventory div[data-snippetid="pagefooter"] img.nopaddingright,
+  body .xcontent.xinventory.xclearanceinventory div[data-snippetid="pagefooter"] img.nopaddingright,
+  body .xcontent.xinventory.xrentalinventory div[data-snippetid="pagefooter"] img.nopaddingright,
+  body .xcontent.xinventory.xallinventory div[data-snippetid="disclaimer"] img.nopaddingright,
+  body .xcontent.xinventory.xnewinventory div[data-snippetid="disclaimer"] img.nopaddingright,
+  body .xcontent.xinventory.xpreownedinventory div[data-snippetid="disclaimer"] img.nopaddingright,
+  body .xcontent.xinventory.xclearanceinventory div[data-snippetid="disclaimer"] img.nopaddingright,
+  body .xcontent.xinventory.xrentalinventory div[data-snippetid="disclaimer"] img.nopaddingright,
+  body .xcontent.xinventory.xallinventory div[data-snippetid="featuredbannerbelowh1"] img.nopaddingright,
+  body .xcontent.xinventory.xnewinventory div[data-snippetid="featuredbannerbelowh1"] img.nopaddingright,
+  body .xcontent.xinventory.xpreownedinventory div[data-snippetid="featuredbannerbelowh1"] img.nopaddingright,
+  body .xcontent.xinventory.xclearanceinventory div[data-snippetid="featuredbannerbelowh1"] img.nopaddingright,
+  body .xcontent.xinventory.xrentalinventory div[data-snippetid="featuredbannerbelowh1"] img.nopaddingright  {
+    min-width: 100%;
+    padding-bottom:5px;
+    padding-top:0px;
+    padding-right:0px;
+    padding-left:0px;
+    float:none;
+    margin: 0px 0px 0px 0px;
+  }
+
+}
+
+/* SEO Article CSS */
+
+.seocenter {
+	text-align: center;
+}
+@media only screen and (max-width : 992px) {
+	.seoh1 {
+	font-size:36px;line-height:40px;
+	}
+}
+
+@media only screen and (max-width : 768px) {
+	.seoh1 {
+	font-size:30px;line-height:34px;
+	}
+}
+
+@media only screen and (max-width : 480px) {
+	.seoh1 {
+	font-size:18px;line-height:20px;
+	}
+}
+
+.seoh2 {
+	font-size: 22px;
+}
+
+.seoh3 {
+	font-size: 18px;
+}
+
+.seosideimage {
+	text-align:center;
+	display:inline;
+	max-width: 90%;
+}
+
+@media only screen and (max-width: 900px) {
+  .seopage {
+    margin-left: 20px;
+	margin-right: 20px;
+  }
+}
+@media only screen and (min-width: 990px) {
+  .seopage {
+    margin-left: 120px;
+	margin-right: 120px;
+  }
+}
+
+/* End of SEO Article CSS */
+
+/* Start of SEO Button Global Settings */
+.seobutton {
+  text-align: center;
+  padding: 1em;
+}
+.seobutton > ul {
+  padding-left: 0;
+  list-style: none;
+  margin-left: -5px;
+}
+.seobutton > ul > li {
+  padding: 2px;
+  display: inline-block;
+}
+.seobutton > ul > li > .lead-button {
+  min-width: 170px;
+  text-transform: none;
+  font-size: 16px;
+  padding: 9px 12px;
+  margin-bottom: 3px;
+}
+@media (min-width:125px) {
+  .seobutton > ul > li > .lead-button {
+    min-width: 110px;
+  }
+}
+@media (min-width:410px) {
+  .seobutton > ul > li > .lead-button {
+    min-width: 170px;
+  }
+}
+.buttonsbelow {
+  display: inline-grid;
+}
+/* End of Global Button Settings */ 
+
+/* Start of Grade-Us Review Us Page CSS Fix */
+#main.review-us, #main.review-us #content {
+ padding-left: 0;
+ padding-right: 0;
+}
+/* End of Grade-Us Review Us Page CSS Fix */
+
+/* Additional White Space fix*/
+@media only screen and (min-width: 100px) and (max-width: 768px) {
+  body .xcontent.xinventory.xallinventory div[data-snippetid="pagefooter"] br,
+  body .xcontent.xinventory.xnewinventory div[data-snippetid="pagefooter"] br,
+  body .xcontent.xinventory.xpreownedinventory div[data-snippetid="pagefooter"] br,
+  body .xcontent.xinventory.xrentalinventory div[data-snippetid="pagefooter"] br {
+    display: none;
+  }
+  body .xcontent.xinventory.xallinventory div[data-snippetid="pagefooter"] h3,
+  body .xcontent.xinventory.xnewinventory div[data-snippetid="pagefooter"] h3,
+  body .xcontent.xinventory.xpreownedinventory div[data-snippetid="pagefooter"] h3,
+  body .xcontent.xinventory.xrentalinventory div[data-snippetid="pagefooter"] h3 {
+    padding-top: 15px;
+  }
+}
+/* End of White Space Fix */
+
+/* Page Footer Fixes */
+body .xcontent.xinventory.xallinventory div[data-snippetid="pagefooter"],
+body .xcontent.xinventory.xnewinventory div[data-snippetid="pagefooter"],
+body .xcontent.xinventory.xpreownedinventory div[data-snippetid="pagefooter"],
+body .xcontent.xinventory.xclearanceinventory div[data-snippetid="pagefooter"],
+body .xcontent.xinventory.xrentalinventory div[data-snippetid="pagefooter"] {
+	padding: 1em;
+}
+/* For H2 Page Footer Fixes */
+@media only screen and (max-width : 992px) {
+  body .xcontent.xinventory.xallinventory div[data-snippetid="pagefooter"] h2,
+  body .xcontent.xinventory.xnewinventory div[data-snippetid="pagefooter"] h2,
+  body .xcontent.xinventory.xpreownedinventory div[data-snippetid="pagefooter"] h2,
+  body .xcontent.xinventory.xclearanceinventory div[data-snippetid="pagefooter"] h2,
+  body .xcontent.xinventory.xrentalinventory div[data-snippetid="pagefooter"] h2 {
+    font-size:2em;
+  }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+  body .xcontent.xinventory.xallinventory div[data-snippetid="pagefooter"] h2,
+  body .xcontent.xinventory.xnewinventory div[data-snippetid="pagefooter"] h2,
+  body .xcontent.xinventory.xpreownedinventory div[data-snippetid="pagefooter"] h2,
+  body .xcontent.xinventory.xclearanceinventory div[data-snippetid="pagefooter"] h2,
+  body .xcontent.xinventory.xrentalinventory div[data-snippetid="pagefooter"] h2 {
+    font-size:1.75em;
+  }
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px) {
+body .xcontent.xinventory.xallinventory div[data-snippetid="pagefooter"] h2,
+body .xcontent.xinventory.xnewinventory div[data-snippetid="pagefooter"] h2,
+body .xcontent.xinventory.xpreownedinventory div[data-snippetid="pagefooter"] h2,
+body .xcontent.xinventory.xclearanceinventory div[data-snippetid="pagefooter"] h2,
+body .xcontent.xinventory.xrentalinventory div[data-snippetid="pagefooter"] h2 {
+  font-size:1.5em;
+  }
+}
+/* End For H2 Page Footer Fixes */
+/* Start For H3 Page Footer Fixes */
+@media only screen and (max-width : 992px) {
+  body .xcontent.xinventory.xallinventory div[data-snippetid="pagefooter"] h3,
+  body .xcontent.xinventory.xnewinventory div[data-snippetid="pagefooter"] h3,
+  body .xcontent.xinventory.xpreownedinventory div[data-snippetid="pagefooter"] h3,
+  body .xcontent.xinventory.xclearanceinventory div[data-snippetid="pagefooter"] h3,
+  body .xcontent.xinventory.xrentalinventory div[data-snippetid="pagefooter"] h3 {
+    font-size:1.9em;
+  }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+  body .xcontent.xinventory.xallinventory div[data-snippetid="pagefooter"] h3,
+  body .xcontent.xinventory.xnewinventory div[data-snippetid="pagefooter"] h3,
+  body .xcontent.xinventory.xpreownedinventory div[data-snippetid="pagefooter"] h3,
+  body .xcontent.xinventory.xclearanceinventory div[data-snippetid="pagefooter"] h3,
+  body .xcontent.xinventory.xrentalinventory div[data-snippetid="pagefooter"] h3 {
+    font-size:1.6em;
+  }
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px) {
+body .xcontent.xinventory.xallinventory div[data-snippetid="pagefooter"] h3,
+body .xcontent.xinventory.xnewinventory div[data-snippetid="pagefooter"] h3,
+body .xcontent.xinventory.xpreownedinventory div[data-snippetid="pagefooter"] h3,
+body .xcontent.xinventory.xclearanceinventory div[data-snippetid="pagefooter"] h3,
+body .xcontent.xinventory.xrentalinventory div[data-snippetid="pagefooter"] h3 {
+  font-size:1.4em;
+  }
+}
+/*End of For H3 Page Footer Fixes */

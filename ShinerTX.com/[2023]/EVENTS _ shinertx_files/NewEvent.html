@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<!-- saved from url=(1042)https://cdn.boomte.ch/calendar/NewEvent.html?csCompId=comp-l9yrgef0&pageId=cuy8&compId=tpapopup-1689828126472_rtby_comp-l9yrgef0&viewerCompId=tpapopup-1689828126472_rtby_comp-l9yrgef0&siteRevision=1718&viewMode=site&deviceType=desktop&locale=en&tz=America%2FChicago&regionalLanguage=en&width=900&height=860&isInPopup=true&origCompId=comp-l9yrgef0&instance=pxSS2hLU72F6_avgZ5XTRfPTXvDFXY1_kmcPvRA8x6w.eyJpbnN0YW5jZUlkIjoiNWQ4YmEwOTItNzhkNC00NDA2LWJmYmYtMzExYjAzYTE4MjcyIiwiYXBwRGVmSWQiOiIxM2I0YTAyOC0wMGZhLTcxMzMtMjQyZi00NjI4MTA2YjhjOTEiLCJzaWduRGF0ZSI6IjIwMjMtMDctMjBUMDQ6NDA6MzUuNzgwWiIsInZlbmRvclByb2R1Y3RJZCI6IlByZW1pdW0iLCJkZW1vTW9kZSI6ZmFsc2UsImFpZCI6Ijk2YzQ1MTU3LWY1ZDAtNGNmZi04NzAwLWMxNWFjODI1MjQ0YiIsInNpdGVPd25lcklkIjoiZGMzNjZmZDQtYWJmNy00ODkyLWJiZTAtZTc2MTliOGQyODA5In0&currency=USD&currentCurrency=USD&commonConfig=%7B%22brand%22%3A%22wix%22%2C%22bsi%22%3A%2285548786-5749-4f1d-a42d-010a29d20cf0%7C5%22%2C%22BSI%22%3A%2285548786-5749-4f1d-a42d-010a29d20cf0%7C5%22%7D&currentRoute=.%2Fevents&vsi=1b364c3c-9858-446d-88a5-9ede1d134d59 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta id="wixMobileViewport" name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="./moment.min.js(1).download"></script>
+<script src="./localemoment.js(1).download"></script>
+<script type="text/javascript" src="./wix.min.js(1).download"></script>
+<script src="./event.min.js.download"></script><style data-emotion=""></style><style type="text/css">.description p{
+  margin:  0;
+  font-family: 'Lato';
+  font-style: normal;
+  font-size: 17px;
+  line-height: 30px;
+  letter-spacing: 0.02em;
+  color: #2B5672;
+}
+
+.description img, .description iframe{
+  max-width: 45%
+}
+
+.description * {
+  margin-block-end: 0
+}
+</style><style type="text/css">.shareHeader, .addHeader{
+  font-family: 'Lato';
+  font-weight: 300;
+  float: left;
+  color: #2B5672;
+}
+.addShare:empty{ display: none }
+
+.addShare{
+  display: grid;
+  grid-template-columns:  auto  minmax(auto, 30px)  minmax(auto, 30px)  minmax(auto, 30px)  minmax(auto, 30px);
+  grid-template-rows: auto auto;
+  grid-template-areas:
+      "shh f t l c"
+      "adh g y i o";
+  width: max-content;
+  grid-row-gap: 10px;
+  grid-column-gap: 5px;
+  max-width: 100%;
+}
+
+.add, .share{
+  width: 100%;
+  height: 30px;
+  float: left;
+}
+
+.facebook, .twitter, .linkedin, .copyLink, .google, .yahoo, .icalendar, .outlook { height: 14px }
+.facebook{ margin-right: 3px }
+
+.shareIcons,.addIcons{
+  justify-content: center;
+  align-self: center;
+  display: grid;
+}
+.shareIcons img,.addIcons img{ cursor: pointer }
+
+.gog{ grid-area: g }
+.yah{ grid-area: y }
+.app{ grid-area: i }
+.out{ grid-area: o }
+.shareHeader{ grid-area: shh }
+.addHeader{ grid-area: adh }
+.fb{
+  grid-area: f;
+  margin-left: 3px;
+}
+.twit{
+  grid-area: t;
+  margin-left: 2px;
+}
+.lkd{ grid-area: l }
+.cop{ grid-area: c }
+
+.guests {
+  margin-top: 10px;
+}
+.tooltip{
+  position: relative;
+}
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: max-content;
+  max-width: 300px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 20px;
+  right: -5px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  margin-left: -105px;
+  font-family: "Lato";
+  margin-bottom: 6px;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: calc(100% - 1px);
+  right: 15px;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+.tooltiptext{
+  visibility: hidden;
+  opacity: 0
+}
+
+.tooltip .copyLink:hover + .tooltiptext{
+  visibility: visible;
+  opacity: 1
+}
+</style><style type="text/css">.reg_button{
+  width: 100%;
+  bottom: -1px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  cursor: pointer;
+  right: 0;
+  filter: drop-shadow(rgba(0, 0, 0, 0.25) 0 -5px 8px);
+}
+
+.reg_button div{
+  text-align: center;
+  min-height: 38px;
+  padding: 10px;
+  width: 100%;
+}
+
+.event_image + .event_info + .reg_button{
+  position: absolute;
+  width: 60%;
+}
+
+.reg_button p{
+  font-family: 'Lato';
+  font-size: 20px;
+  color: white;
+  margin: 0
+}
+</style><style type="text/css">.header{
+  font-family: 'Lato';
+  font-weight: 700;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 26px;
+  align-items: flex-end;
+  letter-spacing: 0.02em;
+  margin-bottom: 12px;
+  color: #242E4C;
+}
+
+.title{
+  font-size: min(26px) !important;
+  line-height: 1 !important;
+  margin-bottom: 18px;
+}
+.title::before{
+  content: '' !important
+}
+
+.details{
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 17px;
+  line-height: min(24px) !important;
+  letter-spacing: 0.04em;
+  color: #2B5672;
+  display: flex;
+}
+
+.details p{
+  margin: 0
+}
+
+.name, .phone, .email, .website, .start, .end, .address, .category{
+  margin-right: 12px;
+}
+
+.link{
+  width: fit-content
+}
+
+.start:before, .start.onlyDate:before, .end:before, .end.onlyTime:before, .address:before, .name:before, .category:before, .phone:before, .email:before, .website:before{
+  font-family: 'icomoon';
+}
+
+.start:before {
+  content: "\E91B";
+}
+.start.onlyDate:before {
+  content: "\E911";
+}
+.end:before {
+  content: "\E90A"
+}
+.end.onlyTime:before {
+  content: "\E91B"
+}
+.address:before {
+  content: "\E90F";
+  margin-left: 2px;
+}
+.category:before {
+  content: "\E935";
+  line-height: 26px;
+}
+.name:before {
+  content: "\E916";
+}
+.phone:before {
+  content: "\E91A";
+}
+.email:before {
+  content: "\E909";
+}
+.website:before {
+  content: "\E902";
+}
+</style><style type="text/css">.open {
+  animation: openM 200ms ease-in-out;
+}
+.close {
+  animation: closeM 200ms ease-in-out;
+}
+
+@keyframes openM {
+  0% {
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    opacity: 100%;
+  }
+}
+
+
+@keyframes closeM {
+  0% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    opacity: 100%;
+  }
+
+  90% {
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+  }
+}
+</style><style type="text/css">@media only screen and (max-width: 1300px) {
+  .modal_window .content {
+    max-width: 80%
+  }
+}
+</style><style type="text/css">@media only screen and (max-width: 1024px) {
+  .content .event_info{
+    padding: 36px 32px !important;
+    width: 100%
+  }
+  .reg_button{
+    width: 100% !important;
+    position: unset;
+    padding: 20px;
+  }
+  .content{
+    flex-direction: column !important;
+  }
+  .event_image.desktopImage{
+    display: none;
+  }
+  .event_info .event_image.mobileImage{
+    display: block;
+    height: 280px;
+    width: calc(100% + 64px);
+    margin: 0 -32px 10px -32px;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 82%);
+  }
+  .event_image + .event_info + .reg_button div{
+    width: 100%
+  }
+}
+</style><style type="text/css">@media only screen and (max-width: 425px) {
+  .modal_window{
+    height: unset !important
+  }
+  .content{
+    padding-bottom: var(--reg-button-height);
+    border-radius: 24px 24px 0 0 !important;
+  }
+  .event_info{
+    padding: 36px 24px 0px !important;
+  }
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  body.js-focus-visible{
+    background: transparent
+  }
+  #root > .reg_button{
+    position: fixed;
+    z-index: 15;
+    padding: 10px
+  }
+  .modal_element .modal_window .content{
+    max-width: unset
+  }
+}
+</style><style type="text/css">:root {
+  --reg-button-height: 0px;
+}
+
+::-webkit-scrollbar-track {
+  display: none;
+}
+::-webkit-scrollbar {
+  width: 5px;
+  border-radius: 10px;
+  height: 5px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+}
+
+* {
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+  /* position: unset */
+}
+
+html, body, #root, .modal_window {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+body{
+	background-color: rgba(0,0,0,0.3);
+}
+
+a {
+  text-decoration: none;
+}
+
+#root {
+  margin: auto;
+  /* padding: 136px 14.5% 136px 14.5%; */
+  padding: 8% 0 8% 0;
+  animation-duration: 0.2s;
+  animation-fill-mode: forwards;
+}
+.content {
+  max-height: 100%;
+  max-width: 1100px;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 5px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  position: relative;
+}
+.modal_window {
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+
+.event_image{
+  width: 40%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  object-fit: cover;
+  object-position: center;
+  z-index: 1;
+  margin-bottom: -1px;
+}
+
+.event_info{
+  width: 60%;
+  overflow: auto;
+  padding: 40px 50px 40px 26px;
+  padding-bottom: calc(var(--reg-button-height) + 40px);
+}
+
+.event_info :last-child {
+  margin-bottom: 0 !important;
+}
+
+.event_image.mobileImage{
+  display: none;
+}
+
+.close_button{
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 15px;
+  top: 0;
+  z-index: 1;
+}
+.close_button img{
+  cursor: pointer;
+}
+
+.section{
+  margin-bottom: 20px;
+}
+
+.modal_element {
+  position: absolute;
+  top: 28px;
+  background-color: white;
+  width: 100%;
+  min-height: 100%;
+  border-radius: 24px 24px 0 0;
+  height: 100%;
+}
+</style>
+
+<style wix-style="">.Title{ font:normal normal normal 19px/1.1em times new roman,times,serif; } .Menu{ font:normal normal normal 11px/1.1em noticia text,serif; } .Page-title{ font:normal normal normal 33px/1.1em times new roman,times,serif; } .Heading-XL{ font:normal normal normal 60px/1.1em open sans,sans-serif; } .Heading-L{ font:normal normal normal 40px/1.3em lobster,cursive; } .Heading-M{ font:normal normal normal 20px/1.4em open sans,sans-serif; } .Heading-S{ font:normal normal normal 18px/1.3em open sans,sans-serif; } .Body-L{ font:normal normal normal 16px/1.3em open sans,sans-serif; } .Body-M{ font:normal normal normal 14px/1.3em open sans,sans-serif; } .Body-S{ font:normal normal normal 12px/1.3em verdana,geneva,sans-serif; } .Body-XS{ font:normal normal normal 10px/1.3em verdana,geneva,sans-serif; } }</style><link type="text/css" rel="stylesheet" href="./css" id="wix-google-fonts"><link type="text/css" rel="stylesheet" href="./languages-woff2.css"><link type="text/css" rel="stylesheet" href="./wixMadefor.css"><style>:focus {
+    outline: none;
+}
+
+.js-focus-visible .focus-visible:focus,
+.js-focus-visible .focus-visible:focus ~ .wixSdkShowFocusOnSibling
+{
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.9), 0 0 1px 2px #3899EC;
+}
+</style><script src="./focus-visible.min.js.download" id="dynamic_script_FOCUS_VISIBLE"></script></head>
+<body class="js-focus-visible">
+<style wix-style="">
+			@font-face {
+				font-family: 'icomoon';
+				src:  url('./css/fonts/icomoon/icomoon.eot?v=3');
+				src:  url('./css/fonts/icomoon/icomoon.eot?v=3') format('embedded-opentype'),
+				url('./css/fonts/icomoon/icomoon.ttf?v=3') format('truetype'),
+				url('./css/fonts/icomoon/icomoon.otf?v=3') format('opentype'),
+				url('./css/fonts/icomoon/icomoon.woff?v=3') format('woff');
+				font-weight: normal;
+				font-style: normal;
+				font-display: block;
+			}
+			
+			@font-face {
+				font-family: "Lato";
+				src: url("./css/fonts/Lato.ttf");
+				src: url("./css/fonts/Lato.ttf") format("truetype"),
+			}
+
+			::-webkit-scrollbar-thumb{
+				background-color: #000000;
+			}
+			
+			.event_info {
+				overflow-x: hidden;
+				scrollbar-width: thin;
+				scrollbar-color: #000000 transparent;
+			}
+			
+			.description p, .addHeader, .details, .shareHeader, .name, .category, .start, .end, .guest_limit p { 
+				style.fontDescription;
+				color:#000000;
+			}
+			#root{
+				width: 71%
+			}
+			.details span{
+				style.fontDescription;
+			}
+			
+			.header{
+				style.fontInfoTitle;
+				color:#000000;
+			}
+			
+			.content, .modal_element{
+				background-color: #FFFFFF
+			}
+			
+			.link, a[href]{
+				color: #9E2614 !important;
+				cursor: pointer;
+			}
+			
+			.reg_button{
+				background-color: #FFFFFF !important;
+				padding: 0 !important;
+				/* border-radius: 4px !important; */
+			}
+			.reg_button div{
+				background-color: #DE371D !important;
+			}
+			.reg_button[data-hook="disabled"]{
+				cursor: unset
+			}
+			.reg_button[data-hook="disabled"] div{
+				opacity: .5;
+				pointer-events: none;
+			}
+			.reg_button p{
+				color: #FFFFFF !important;
+				style.buttonsFontStyle;
+			} 
+			
+		</style>
+<div id="root"></div>
+<script>
+
+			var csCompId = window.location.href.split('csCompId=')[1].split('&')[0];
+			var deviceType = Wix.Utils.getDeviceType();
+			var content_id = "root";
+			var root = document.getElementById(content_id);
+			
+			Wix.PubSub.subscribe('NewEvent'+csCompId, function(data) {
+				console.log(data)
+
+				var eventColor = /[a-zA-Z]+[?-][0-9]+/.test(data.data.color) ? Wix.Styles.getColorByreference(data.data.color).value : data.data.color; 
+				var styleParams = Wix.Styles.getStyleParams();
+				console.log(styleParams)
+				eventData = data.data;
+				eventData.showTZone = styleParams.booleans.showTZone ?? false;
+				eventData.addTo = styleParams.booleans.addCalendarButton ?? true;
+				eventData.shareEvents = styleParams.booleans.shareEvents ?? true;
+				eventData.eventColor = eventColor;
+				eventData.content_id = content_id;
+				eventData.deviceType = deviceType;
+				eventData.startDate = eventData.start;
+				eventData.endDate = eventData.end || eventData.start;
+				eventData.allDay = eventData.all_day;
+				eventData.description = eventData.desc;
+				eventData.imageURL = eventData.image;
+				eventData.venue.organizer = eventData.organizer;
+				eventData.evTitle = eventData.title;
+				eventData.instance_short = Wix.Utils.getInstanceId();
+
+				if(deviceType == 'desktop'){
+					root.classList.remove('close');
+					root.classList.add('open');
+				}
+
+				Wix.resizeWindow('100%','100%');
+
+				runEvent(eventData, closeModal ,'_WIX');
+			})
+
+			if(deviceType == 'desktop'){
+
+				document.addEventListener('click', function(evt){
+					let modal_window = document.getElementsByClassName('content')[0];
+					if(!modal_window.contains(evt.target)){
+						closeModal();
+					}
+				});
+			}
+
+			function closeModal(){
+				if(deviceType == 'desktop'){
+					root.classList.remove('open'); 
+					root.classList.add('close');
+				}
+				setTimeout(function(){
+					Wix.resizeWindow(0, 0);
+					window.UnmountDOM(content_id);
+				},215)
+			}
+		</script>
+
+
+</body></html>

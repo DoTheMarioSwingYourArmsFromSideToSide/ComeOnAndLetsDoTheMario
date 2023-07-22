@@ -1,0 +1,131 @@
+function PlayPauseToggle() {
+	var $carousel = $(this).parents(".carousel");
+	if( $carousel.attr("data-ride") ){
+		$carousel.removeClass("paused");
+	}
+	else{
+		$carousel.addClass("paused");
+	}
+	$(this).bind("click",function( event ){
+		if( $carousel.hasClass("paused") ){
+			$carousel.removeClass("paused");
+		}
+		else{
+			$carousel.addClass("paused");
+		}
+		$carousel.carousel( $carousel.hasClass("paused") ? 'pause' :'cycle' );
+		event.stopImmediatePropagation();
+		return false;
+	});
+}
+$(function() {
+	$( $(".carousel-control.pause").each(PlayPauseToggle) );
+});
+( function($){
+	if( !$.fn.DSCarousel ){
+		// Prevent unnecessary recreation
+		$.fn.DSCarousel = function (options){
+			if( !this.length ){
+				// there is only this to instantiate
+				return $(this).DSSingleCarousel(options);
+			}
+			// this is an array of elements to instantiate
+			for(var index=0; index<this.length; index++){
+				$(this[index]).DSSingleCarousel(options);
+			}
+			return this;
+		}
+		$.fn.DSSingleCarousel = function(options){
+			var data = $(this).data();
+			if( data.instantiated ){
+				// in case there are multiple calls to instantiate this
+				return;
+			}
+			$(".carousel-indicators .item").removeClass("item");
+			var defaults = $.extend({interval:data.interval,pause:data.pause},options);
+			// Used to control the number of slides visible at various media sizes
+			if( !$(this).attr("data-sizeControlElement") ){
+				$(this).attr("data-sizeControlElement", defaults.sizeControlElement);
+			}
+			if( !$(this).attr("data-sizeControlElement") ){
+				// only assign 'body .dvSIZECONTROL' when it is empty
+				$(this).attr("data-sizeControlElement","body > .dvSIZECONTROL");
+				if( !$( $(this).attr("data-sizeControlElement") ).length ){
+				// only create a '.dvSIZECONTROL' div off the body if one does not exist
+					$("body").append("<div class='dvSIZECONTROL'/>");
+				}
+			}
+			$(this)
+				.carousel(defaults)
+				.data("instantiated",true);
+			
+		}
+		function onPromoResize( imagesPerRow ){
+			var currentImagesPerRow=$('div.item:first >ul>li',this).length;
+			if( imagesPerRow == currentImagesPerRow ){
+				if( !$(".carousel-inner .item.active",this).length ){
+					$(".carousel-inner .item:first",this).addClass("active");
+				}
+				return;
+			}
+			var self = this;
+			// Set the first node in the active slide.item to active so we can make it active when the redraw is complete
+			if( $(".item.active",this).length ) {
+				$(".item.active >ul>li:first",this).addClass("active");
+			}
+			var $nodes = $('div.item >ul>li',this).detach();
+			$('div.item',this).remove();
+			var $theItemsUL = null,item=0;
+			$.each($nodes, function(index){
+				var $node = $(this);
+				if( (index % imagesPerRow) == 0 ){ 
+					var $theItem = $("<div/>").addClass("item").attr("data-slide-number",item++);
+					$theItemsUL = $("<ul />");
+					$theItem.append($theItemsUL)
+					$(".carousel-inner", self).append($theItem);
+				}
+				$theItemsUL.append($node);
+			});
+			//console.log("onPromoResize | nodes :" + $nodes.length + " imagesPerRow :" + imagesPerRow);
+			if( $nodes.length % imagesPerRow ){
+				// clone the missing remainder and prepend in reverse order, to the last slide Item
+				var start = $nodes.length - imagesPerRow;
+				var stop = $nodes.length-($nodes.length % imagesPerRow)-1;
+				var runAddThis = $($nodes[stop]).find(".addthis_toolbox").length > 0;
+				for(; stop >= start; stop--){
+					$theItemsUL.prepend( $( $nodes[stop] ).clone() );
+				}
+				if( runAddThis ){
+					addthis.toolbox('.addthis_toolbox');
+				}
+			}
+			if( $(".item >ul>li.active",this).length ){
+				$(".item >ul>li.active",this).parents(".item").addClass("active");
+				$(".item >ul>li.active",this).removeClass("active");
+			}
+			else{
+				$(".item:first",this).addClass("active");
+			}
+		}
+		function ResizingStopped(){
+			ResizeCarousels.prototype.resizeStarted = null;
+			$(".carousel-promo").each(function(){
+				//console.log("ResizingStopped | sizeControlElement :" + $(this).attr("data-sizeControlElement") + " imagesPerRow :" + $($(this).attr("data-sizeControlElement")).innerWidth())
+				onPromoResize.call(this, $($(this).attr("data-sizeControlElement")).innerWidth() )
+				$(this).carousel("cycle");
+			});
+		}
+		function ResizeCarousels(){
+			if( !ResizeCarousels.prototype.resizeStarted ){
+				$(".carousel-promo").carousel("pause");
+			}
+			else{
+				window.clearTimeout(ResizeCarousels.prototype.resizeStarted);
+			}
+			// Stopped dragging or resizing the window 
+			ResizeCarousels.prototype.resizeStarted = window.setTimeout(ResizingStopped,200);
+		}
+		ResizeCarousels.prototype.resizeStarted = null;
+		$(window).bind("load",ResizeCarousels).bind("resize",ResizeCarousels);
+	}
+})(jQuery);

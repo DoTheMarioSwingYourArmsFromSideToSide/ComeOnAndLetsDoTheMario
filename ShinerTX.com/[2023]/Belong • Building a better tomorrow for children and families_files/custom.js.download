@@ -1,0 +1,494 @@
+
+// Mobile Menu Start
+(function() { jQuery.fatNav(); }());
+jQuery(document).ready(function() {
+    var fatContent = jQuery( '.main-menu ul').html();
+    var loginBtn = jQuery( '.header-top-content ul').html();
+    var fatNav = '<div class="fat-nav__wrapper" id="fatmenu"><ul>' + fatContent + '<div class="header-top-content"><ul>' + loginBtn + '</ul></ul></div>';
+    jQuery( '.fat-nav' ).html( fatNav );
+    jQuery('#fatmenu ul li.menu-item-has-children').append("<span class='toggle_button'><small></small></span>");
+    jQuery('#fatmenu ul ul').hide();
+    jQuery('ul li.menu-item-has-children > .toggle_button').click(function() {
+        if(jQuery(this).parent().children('ul').hasClass('submenu') ) {
+            jQuery(this).parent().children('ul').removeClass("submenu").slideUp(400);
+            jQuery(this).removeClass( 'active_item' );
+        }
+        else{
+            jQuery(this).parent().children('ul').addClass("submenu").slideDown(400);
+            jQuery(this).addClass( 'active_item' );
+        }
+    });
+
+});
+
+// Mobile Menu resize js
+jQuery(window).resize(function() {
+    var win_width = jQuery(window).width();
+    if (win_width > 940) {
+        jQuery('.fat-nav').removeClass('active').css("display", "none");
+        jQuery('.hamburger').removeClass('active');
+    }
+});
+
+var totalItemsVal = jQuery('.inquiry-slider .item').length;
+var totalItems = ('0' + totalItemsVal).slice(-2);
+
+jQuery(document).ready(function() {
+
+    // owl carousel js
+    if (jQuery('.home-slider .owl-carousel').length > 0) {
+        jQuery('.home-slider .owl-carousel').owlCarousel({
+            items:1,
+            margin: 0,
+            loop: true,
+            nav: false,
+            pagination: false,
+            autoplay: true,
+            dots: false,
+            slideBy: 1,
+            animateIn: 'fadeIn',
+        });
+    }
+
+    // dropkick js
+    if (jQuery('.filter-select').length > 0) {
+        jQuery(".filter-select").dropkick({
+            mobile: true
+        });
+    }
+
+    // footer toggle
+    jQuery('.footer-col:first-child').children('.open_list').addClass('open_list_show');
+
+    // countup initialization
+    initialCountUp();
+
+    // inquiry slider call
+    inquirySlider();
+
+    // Requirements accordion js
+    jQuery( '.requirement-item .collapsed' ).click( function() {
+        if ( jQuery( this ).parents( '.requirement-item' ).hasClass( 'active-requirement' ) ) {
+            jQuery( this ).parents( '.requirement-item' ).removeClass( 'active-requirement' );
+            jQuery( this ).next( '.collapse' ).slideUp(300);
+        } else {
+            jQuery( '.requirement-item.active-requirement .collapse' ).slideUp( 300 );
+            jQuery( '.requirement-item.active-requirement' ).removeClass( 'active-requirement' );
+            jQuery( this ).parents( '.requirement-item' ).addClass( 'active-requirement' );
+            jQuery( this ).next( '.collapse' ).slideDown( 300 );
+        }
+    });
+
+    jQuery('a.skip_swing').click(function () {
+        var Lochref = jQuery(this).attr('href');
+        jQuery("html, body").stop().animate({
+            scrollTop: jQuery(Lochref).offset().top
+        }, 1500);
+        return false;
+    });
+
+    // Start Events Search by category with ajax
+    jQuery('.evnt-cat-item a, .clear-all').on('click', function() {
+
+        var catSlug = jQuery(this).attr("cat_slug");
+        var catSlug = jQuery(this).attr("cat_slug");
+
+        var data = {
+            'action' : 'search_by_cat',
+            'catSlug' : catSlug,
+        };
+
+        jQuery.ajax({
+            type: "POST", 
+            url: search_by_cat_ajax_url.ajaxurl, 
+            dataType: "text", 
+            data: data, 
+            success: function(data) {
+                if( data ) {
+                    jQuery('.event-content').html(data);                  
+                }
+            }
+        });
+
+    });
+    // End Events Search by category with ajax
+
+    // Event Popup
+    jQuery(document).on('click', '.event-content .evnt-more, .event-content .event-item h4 a, .feature-events-cont h3 a', function(e) {
+        e.preventDefault();
+
+        // For Home page event details
+        var ftrEvntCat  = jQuery(this).parents('.feature-events-cont').find('.ftr-event-cat-name-area').html();
+        var ftrEvntTitle  = jQuery(this).parents('.feature-events-cont').find('h3 a').html();
+        var ftrEvntMeta  = jQuery(this).parents('.feature-events-cont').find('.ftr-evnt-meta').html();
+        var ftrEvntCont  = jQuery(this).parents('.feature-events-cont').find('.ftr-event-cont').html();
+
+        jQuery('.modal .feature-events-cont .ftr-event-cat-name-area').html( ftrEvntCat );
+        jQuery('.modal .feature-events-cont h3').html( ftrEvntTitle );
+        jQuery('.modal .feature-events-cont .ftr-evnt-meta').html( ftrEvntMeta );
+        jQuery('.modal .feature-events-cont .evnt-cont').html( ftrEvntCont );
+
+        // For Event Page event details
+        var evntCat   = jQuery(this).parents('.event-item').find('.evnt-catname-area').html();
+        var evntTitle = jQuery(this).parents('.event-item').find('h4 a').html();
+        var evntMeta  = jQuery(this).parents('.event-item').find('.evnt-meta').html();
+        var evntCont  = jQuery(this).parents('.event-item').find('.evnt-cont').html();
+
+        jQuery('.modal .evnt-catname-area').html( evntCat );
+        jQuery('.modal h4').html( evntTitle );
+        jQuery('.modal .evnt-meta').html( evntMeta );
+        jQuery('.modal .evnt-cont').html( evntCont );
+
+        jQuery('.modal').toggleClass('is-visible');
+    });
+
+    // close event popup
+    jQuery('.event-close, .modal').on('click', function(e) {
+      jQuery('.modal').removeClass('is-visible');
+    });
+    jQuery('.event-popup').on('click', function(e) {
+      e.stopPropagation();
+    });
+
+    // event siblings categories inactive when click one
+    jQuery('.evnt-cat-item a, .clear-all').on('click', function(e) {
+        e.preventDefault();
+        jQuery(this).parent().siblings().addClass('inactive');
+        jQuery(this).parent().removeClass('inactive');
+        jQuery(this).siblings('.event-categories').find('.evnt-cat-item').removeClass('inactive');
+    });
+
+    // Start Agency filter by category with ajax
+    jQuery('.filter-item label').on('click', function() {
+
+        var agencyCatSlug = jQuery(this).siblings('input[type="radio"]').val();
+        var data = {
+            'action' : 'filter_agency_by_cat',
+            'agencyCatSlug' : agencyCatSlug,
+        };
+
+        jQuery.ajax({
+            type: "POST", 
+            url: filter_agency_by_cat_ajax_url.ajaxurl, 
+            dataType: "text", 
+            data: data, 
+            success: function(data) {
+                if( data ) {
+                    jQuery('.search-result').html(data);                  
+                }
+            }
+        });
+
+    });
+    // End Agency filter by category with ajax
+
+
+    // Start Agency filter by category with ajax & checkboxes
+    jQuery('.filter-check input[type="checkbox"').on('change', function() {
+        var filterCheckboxes = jQuery('.filter-check input[type="checkbox"]');
+        var thisChecked = jQuery(this);
+        var agencyCatSlug = [];
+
+        if (thisChecked.attr('id') === 'all_agencies') {
+            jQuery('.filter-check input[type="checkbox"]').not(this).prop( "checked", false );
+            agencyCatSlug = [];
+        } else {
+            jQuery('#all_agencies').prop( "checked", false );
+            filterCheckboxes.each(function(){
+                if (jQuery(this).is(':checked')) {
+                    agencyCatSlug.push(jQuery(this).val());
+                }
+            });
+        }
+
+        if (jQuery('.filter-check input[type="checkbox"]:checked').length == 0 ) {
+            jQuery('#all_agencies').prop( "checked", true );            
+        }
+
+        
+
+        var data = {
+            'action' : 'filter_agency_by_cat',
+            'agencyCatSlug' : agencyCatSlug,
+        };
+
+        jQuery.ajax({
+            type: "POST", 
+            url: filter_agency_by_cat_ajax_url.ajaxurl, 
+            dataType: "text", 
+            data: data, 
+            success: function(data) {
+                if( data ) {
+                    jQuery('.search-result').html(data);                  
+                }
+            }
+        });
+
+    });
+    // End Agency filter by category with ajax    
+
+
+    sticky_sidebar();    
+    
+});
+
+
+// footer toggle
+var winW= jQuery(window).innerWidth();
+jQuery(".footer-col:first-child h2").removeClass('open');
+jQuery( ".footer-col h2" ).click(function() {
+    var winW= jQuery(window).innerWidth();
+    if(winW <= 767) {
+        jQuery(this).toggleClass('open');
+        jQuery(this).next('.open_list').slideToggle( "slow" );
+    }
+});
+
+// Parenting Support Mobile Toggle
+jQuery( ".parenting-toggle-item h4" ).click(function() {
+    var winW= jQuery(window).innerWidth();
+    if(winW <= 767) {
+        jQuery(this).toggleClass('parenting-toogle-cont-open');
+        jQuery(this).next('.parenting-toggle-cont').slideToggle( "slow" );
+    }
+});
+
+// Sidebar Menu Toggle
+jQuery( ".sidebar-cont .sidebar-menu" ).click(function() {
+    var winW= jQuery(window).innerWidth();
+    if(winW <= 767) {
+        jQuery(this).siblings('ul').slideToggle(300);
+    }
+});
+
+// countup initialization
+function initialCountUp($) {
+    if (jQuery.fn.counterUp) {
+        jQuery('.counter').counterUp({
+            delay: 7,
+            time: 1500
+        });
+    }
+}(jQuery);
+
+function inquirySlider() {
+
+    jQuery('.inquiry-slider').owlCarousel({
+        items:1,
+        stagePadding: 263,
+        loop:true,
+        margin:115,
+        nav:true,
+        dots:true,
+        mouseDrag:false,
+        onInitialized: startCount,
+        onTranslated: startCount,
+        responsive:{
+            0:{
+                stagePadding: 0,
+            },
+            768:{
+                stagePadding: 100,
+                margin:60,
+            },
+            992:{
+                stagePadding: 160,
+                margin:60,
+            },
+            1101:{
+                stagePadding: 263,
+                margin:115,
+            },
+        }
+    });
+}
+
+function startCount() {
+    var currentIndexVal = jQuery('.inquiry-slider .owl-dot.active').index()+1;
+    var currentIndex = ('0' + currentIndexVal).slice(-2);
+    jQuery('.inquiry-left-cont h2 small').html(currentIndex);
+    jQuery('.slide-counter').html(''+currentIndex+'/'+totalItems+'');
+}
+
+jQuery(window).on('resize', function(event) {
+
+    setTimeout(function(){
+        inquirySlider();
+    },300);
+
+    sticky_sidebar();
+    
+});
+
+// Sticky Sidebar
+function sticky_sidebar() {
+
+    var stickyTop = jQuery('.sidebar-cont-area').offset().top();
+    jQuery(window).scroll(function() {
+        var windowTop = jQuery(window).scrollTop();
+        if (stickyTop <= windowTop && jQuery(".right-content-area").height() + jQuery(".right-content-area").offset().top - jQuery(".sidebar-cont-area").height() >= windowTop) {
+          jQuery('.sidebar-cont-area').addClass('sticky-sidebar');
+        } else {
+          jQuery('.sidebar-cont-area').removeClass('sticky-sidebar');
+        }
+    });
+
+}
+
+jQuery(document).ready(function(){
+    var video = document.querySelector('.banner-video');
+    video.addEventListener('click', function(){
+        video.controls = true;
+    }, false);
+})
+
+
+
+// announcement bar
+jQuery(document).ready(function(){
+    // show annoucement/alert bar if cookie has not been created | 
+    //or comment this to turn it off
+    if (document.cookie.indexOf('close-alertbar=') < 0) {
+        jQuery('.announce-banner').slideDown();
+    }
+
+    // close banner
+    jQuery('.belong-close-banner').on('click', function(e){
+        e.preventDefault();
+        jQuery('.announce-banner').slideUp();
+
+        // set cookie
+        var date = new Date();
+        date.setTime(date.getTime()+(1*24*60*60*1000)); // will expire in 1 days
+        var expires = "expires="+date.toGMTString();
+        document.cookie = 'close-alertbar=true; '+expires+'; path=/';
+
+        // if need to remove cookie run below:
+        // document.cookie = "close-alertbar=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    })
+
+
+    // Global site modal notification window / comment-out to deactivate
+    if (document.cookie.indexOf('modalOff=') < 0 ) {
+        jQuery('.global-modal').addClass('modal-open');
+    }
+
+    jQuery('.close-global-modal').on('click', function(e){
+        e.preventDefault();
+        jQuery('.modal-back').removeClass('modal-open');
+        setModalCookie();
+    })
+
+    jQuery('.modal-container .yellow-btn').on('click', function(){
+        setModalCookie();
+    })
+
+    function setModalCookie(){
+        var date = new Date();
+        date.setTime(date.getTime()+(60*60*1000)); // will expire in 30 minutes
+        var expires = "expires="+date.toGMTString();
+        document.cookie = 'modalOff=true; '+expires+'; path=/';        
+    }
+
+
+    // show hide resources categories
+    let resourceCatBtn = jQuery('.resource-label');
+    resourceCatBtn.on('click', function(e){
+        // e.stopPropagation();
+        // clean up
+        let el = jQuery(this);
+        el.toggleClass('flip-arrow-up'); // flip arrow up
+        // el.parent().siblings().find('.resources-categories').removeClass('open'); //TF? haha it worked!
+        // el.parent().siblings().find('.resource-label').removeClass('flip-arrow-up'); //TF? haha it worked!
+        jQuery(".resources-categories").toggleClass('open'); //open checkboxes container        
+    });
+
+    // close resources dropdown when clicking outside.
+    jQuery(document).on('mouseup', function(e) {
+        // e.stopPropagation();
+        if (jQuery(".resources-categories").hasClass('open') && !jQuery(e.target).closest('.resources-categories').length && !jQuery(e.target).hasClass('resource-label')) {
+            e.preventDefault(); // Prevent the default action of the event
+            jQuery(".resources-categories").toggleClass('open');
+            resourceCatBtn.toggleClass('flip-arrow-up');
+        }
+    });
+
+    // resources checkboxes add/clean checked and activate parent buttons
+    let resourcesCatsChBx = jQuery('.resources-cat-checkbox');
+    resourcesCatsChBx.on('change', function(){
+        let el = jQuery(this);
+        let otherCatsParent = el.parent().siblings();
+        // clean all selected cats if show all is selected
+        if(el.hasClass('all-resource-cat')){ // if is all cats, remove checked from rest
+            otherCatsParent.find('.resources-cat-checkbox').prop('checked', false);
+        }else { //singular cat remove checked from all cats
+            otherCatsParent.find('.all-resource-cat').prop('checked', false);            
+        }
+
+        // let's check if this or any other sibling cats are selected and let's add 
+        //active class the button
+        if(el.is(':checked') || otherCatsParent.find('.resources-cat-checkbox').is(':checked')) {
+            el.closest('.resource-category').find('.resource-label').addClass('has-cats-selected');
+        //    console.log(el.closest('.resource-category').find('.resource-label'));
+        } else {
+            el.closest('.resource-category').find('.resource-label').removeClass('has-cats-selected');
+        }
+
+    });
+    // reset resources selections
+    jQuery('.reset-resources-btn').on('click', function(){
+        resourcesCatsChBx.prop('checked', false);
+        jQuery('.resource-label').removeClass('has-cats-selected');
+        resourcesAjaxLoop();
+        jQuery('.search-result-heading').html('Results: '); // reset results title
+
+    })
+    
+    // Start resource filter by category with ajax    
+    let searchResourceBtn = jQuery('#search-resources');
+    searchResourceBtn.on('click', function(){
+        let commaSpacing = ' '; // first itme don't need coma
+        // update results title to show what are they searching for
+        jQuery('.search-result-heading').html('Results for: ');
+        // hide any open checkboxes containers
+        jQuery('.resources-categories').removeClass('open');
+        // let resourceCategoryBox = jQuery('.resource-category-box');
+        let resourceCatChbx = jQuery('.resources-cat-checkbox');        
+        let searchResourcesValues = [];
+        resourceCatChbx.each(function(el){
+            el = jQuery(this);
+            if(el.is(':checked')){
+                searchResourcesValues.push(el.val());
+                var resourceLabel = el.next().text(); // get county name to later add it to the results display
+                
+                jQuery('.search-result-heading').append(commaSpacing + resourceLabel); 
+                commaSpacing = ', '; // set the comma for more than one item              
+            }
+        });        
+
+        resourcesAjaxLoop(searchResourcesValues);
+
+        
+    });
+    // end resource filter by category with ajax
+})
+
+function resourcesAjaxLoop(searchResourcesValues){
+    jQuery.ajax({
+        type: "POST", 
+        url: filter_resource_by_cat_func.ajaxurl, 
+        // dataType: "text", 
+        data: {
+            action : 'filter_resource_by_cat_func',
+            searchResourcesValues : searchResourcesValues,
+        }, 
+        success: function(data) {
+            if( data ) {                
+                jQuery('.search-result').html(data);                  
+            }
+        },
+        error: function(data){
+            alert("something wen't wrong", data);
+        }
+    });
+}
