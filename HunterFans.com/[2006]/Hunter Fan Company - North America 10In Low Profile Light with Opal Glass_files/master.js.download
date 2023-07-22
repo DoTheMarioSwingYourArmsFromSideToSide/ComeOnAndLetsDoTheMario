@@ -1,0 +1,180 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+function lPicOpen(pType,pic)
+	{
+		if(pType == 'fan')
+			{
+				w = 750;
+				h = 391;
+			}
+		else if(pType == 'fin')
+			{
+				w = 140;
+				h = 116;
+			}
+		else
+			{
+				w = 350;
+				h = 350;
+			}
+		var url = pic;
+		window.open(url,"LargePic","width="+w+",height="+h+",location=0,menubar=0,resizable=0,scrollbars=0,status=0,directories=0,toolbar=0");
+	}
+	
+function bSwatchOpen(pic)
+	{
+		var url = "https://web.archive.org/web/20060701082108/http://hfadmin.smithmicro.net/media/bladesLarge/"+pic+".jpg";
+		window.open(url,"BladeSwatches","width=300,height=300,location=0,menubar=0,resizable=0,scrollbars=0,status=0,directories=0,toolbar=0");
+	}
+	
+	function rOver(NewImage, NewSrc){
+  var objStr,obj;
+  /*
+    Changes the source of an image.
+    Usage: rOver(originalImage, 'newSourceUrl');
+  */
+
+  // Check to make sure that images are supported in the DOM.
+  if(document.images){
+    // Check to see whether you are using a name, number, or object
+    if (typeof(NewImage) == 'string') {
+      // This whole objStr nonesense is here solely to gain compatability
+      // with ie3 for the mac.
+      objStr = 'document.' + NewImage;
+      obj = eval(objStr);
+      obj.src = NewSrc;
+    } else if ((typeof(NewImage) == 'object') && NewImage && NewImage.src) {
+      NewImage.src = NewSrc;
+    }
+  }
+}
+
+function listOpen()
+	{
+		window.open("https://web.archive.org/web/20060701082108/http://www.hunterfan.com/showList.php","ShowList","width=595,location=0,menubar=1,resizable=0,scrollbars=1,status=0,directories=0,toolbar=1");
+
+	}
+	
+function iconShow(url)
+	{
+		window.open("https://web.archive.org/web/20060701082108/http://www.hunterfan.com/media/global/iconPopUps/"+url+".jpg","IconPic","width=482,height=226,location=0,menubar=0,resizable=0,scrollbars=0,status=0,directories=0,toolbar=0");
+	}
+	
+function airPRoomComp(sortResultsURL)
+	{
+		window.open("airP_roomSizeComp.php?srURL="+sortResultsURL,"RoomComp","width=640,height=450,location=0,menubar=1,resizable=1,scrollbars=1,status=0,directories=0,toolbar=1");
+	}
+	
+function wName(winName) //names current window
+	{
+		window.name = winName;
+	}
+	
+function filterComp()
+	{
+		window.open("airP_filterComp.php","RoomComp","width=550,height=450,location=0,menubar=1,resizable=1,scrollbars=1,status=0,directories=0,toolbar=1");
+	}
+	
+function commentsOff()
+	{
+		var comm = document.contact.comments;
+		var pull = document.contact.interest.options[contact.interest.selectedIndex].value;
+		
+		if(pull ==  "support")
+			{
+				comm.disabled = 0;
+			}
+		else
+			{
+				comm.disabled = 1;
+			}
+	}
+	
+function wName(winName) //names current window
+	{
+		window.name = winName;
+	}
+	
+/*
+Title: Reduced Alert
+Desc: Easier way to specify an alert message.
+*/
+function sAlert(message)
+	{
+		window.alert(message);
+	}
+
+
+
+
+/*
+Title: Retrieve Window Name
+Desc: Function that retrieves the window name...
+Use for variable setting.
+*/
+
+function gWName() //gets window currentname
+	{
+		var x = window.name;
+		//sAlert(x);
+		return x;
+	}
+	
+function navCountry() {
+	var win = gWName();
+	var nav = document.navCnt.countryNav;
+	var cntvalue = nav.options[nav.selectedIndex].value;
+	
+	if(cntvalue == "USA" || cntvalue == "Can" || cntvalue > 0) {
+	
+		switch(cntvalue) {
+			case "USA":
+				window.location="action/cinit.php?c=1";
+				break;
+			case "Can":
+				window.location="action/cinit.php?c=2";
+				break;
+			
+			default:
+				window.open("https://web.archive.org/web/20060701082108/http://www.hunterfaninternational.com/index1.php?c=" + cntvalue,"HunterFanInternational","width=800,location=1,menubar=1,resizable=1,scrollbars=1,status=1,directories=1,toolbar=1");
+				break;
+		}
+	
+	} else {
+		return;
+	}
+	
+	
+}
+
+}
+/*
+     FILE ARCHIVED ON 08:21:08 Jul 01, 2006 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 01:38:52 Jul 12, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 107.599
+  exclusion.robots: 0.097
+  exclusion.robots.policy: 0.085
+  cdx.remote: 0.073
+  esindex: 0.011
+  LoadShardBlock: 74.71 (3)
+  PetaboxLoader3.datanode: 99.701 (4)
+  load_resource: 61.49
+  PetaboxLoader3.resolve: 32.334
+*/

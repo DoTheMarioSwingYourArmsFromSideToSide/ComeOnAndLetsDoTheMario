@@ -1,0 +1,38 @@
+/*
+CSS Profile Assets
+Notes: 
+I attach these DIV elements to body with com.adobe.htmltempalte.loadCondAssets
+Then I generate a profile with com.adobe.cssprofile
+$Revision: 1.5 $
+*/
+#testelem0{position:absolute;left:-9999px;top:0;height:1px;width:1px;visibility:hidden;overflow:hidden;font:normal 1px/1 monospace}  
+#testelem1{height:2px}
+#testelem2{width:2px;height:10px;padding:0 1px}
+#testelem3:after{content:".";display:block;height: 5px;clear: both}
+#testelem4:before{content:".";display:block;height: 4px;clear: both}
+#testelem4{float: left}
+*[id="testelem1"]{cursor/**/:crosshair} 
+#testelem1>*{overflow:hidden} 
+#testelem1 div+div{clear: right} 
+#testelem1 *:first-child{direction:rtl} 
+#testelem1 *:last-child{direction:rtl} 
+/*
+     FILE ARCHIVED ON 19:09:06 Jun 19, 2006 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 04:33:02 Jul 12, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 138.849
+  exclusion.robots: 0.06
+  exclusion.robots.policy: 0.053
+  cdx.remote: 0.049
+  esindex: 0.007
+  LoadShardBlock: 57.902 (3)
+  PetaboxLoader3.datanode: 57.536 (4)
+  load_resource: 291.049
+  PetaboxLoader3.resolve: 268.185
+*/

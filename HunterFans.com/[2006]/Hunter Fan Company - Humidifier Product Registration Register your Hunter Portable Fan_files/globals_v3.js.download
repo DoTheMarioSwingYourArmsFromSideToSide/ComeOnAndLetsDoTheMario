@@ -1,0 +1,99 @@
+<!--
+// Global Variables
+
+//This style sheet resets the whitespace size on all cards to a global value.
+document.write('<link rel="stylesheet" href="../styles/global.css" type="text/css">');
+
+// Sweeps Rules Auto change requires some variable to be set on the page itself.
+var standardRulesLink = 0;
+if(Year_Now <= 2005){ 
+var sweepsnum = "V";
+var sweepstitle = "$100,000 Give Away V";
+var sweepsurl = "https://web.archive.org/web/20060313192957/http://www.prodregister.com/winners/winrules_v.html";
+}
+else {
+var sweepsnum = "VI";
+var sweepstitle = "$100,000 Give Away VI";
+var sweepsurl = "https://web.archive.org/web/20060313192957/http://www.prodregister.com/winners/winrules_vi.html";
+} 
+
+// This code will open the rules page.
+    function openRules()
+			{
+			if (standardRulesLink == 1){customRulesLink();}
+			else {
+			rulesWindow=window.open(sweepslink,'Official_Rules','width=643,height=420,scrollbars=yes');
+			rulesWindow.focus();
+				}
+			}				
+	
+
+
+//base64 encryption code
+function encode64(str) {
+var b64c="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_";
+var a1,a2,a3,out="",tlen=0, ndx=0;
+var packet;
+var data = str;
+packet=data.substring(0,3);
+ while (packet.length) {
+	a1=packet.charCodeAt(0);
+	if (packet.length>=2)
+	 a2=packet.charCodeAt(1);
+	else
+	 a2=0;
+	if (packet.length>=3)
+	 a3=packet.charCodeAt(2);
+	else
+	 a3=0;
+	out += b64c.charAt((a1/4)) + b64c.charAt((a1%4)*16+(a2/16))
+	if (packet.length > 1) {
+		out+=b64c.charAt(((a2%16)*4)+(a3/64));
+		if (packet.length > 2)
+			out+=b64c.charAt((a3%64));
+		else
+			out+="=";
+	}
+	else
+		out += "==";
+	ndx+=3;
+	packet=data.substring(ndx,ndx+3);
+ }
+ 
+ return out;
+}
+
+// Q and C link 
+// Use together with the qandc.html include statment
+
+function openQC()
+{
+var coidv = document.iRegForm.COID.value;
+var pageURL = encode64(location.href);
+var subV = "";
+var qcurl;
+var elements = document.iRegForm.elements.length
+	for (var i = 0; i <= elements - 1; i++)
+	{
+	if(document.iRegForm.elements[i].name == "SubVers"){
+	subV=document.iRegForm.elements[i].value; break;}
+	}	
+ if (subV != ""){var qcurl = "https://web.archive.org/web/20060313192957/http://www.prodregister.com/qandc.jsp?pURL="+pageURL+"&COID=" + coidv+subV;}
+else {
+qcurl = "https://web.archive.org/web/20060313192957/http://www.prodregister.com/qandc.jsp?pURL="+pageURL+"&COID=" + coidv;
+}
+qandcWindow=window.open(qcurl,'qandc','width=600,height=400,scrollbars=yes');
+qandcWindow.focus();
+}
+
+
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+
+
+//-->
+

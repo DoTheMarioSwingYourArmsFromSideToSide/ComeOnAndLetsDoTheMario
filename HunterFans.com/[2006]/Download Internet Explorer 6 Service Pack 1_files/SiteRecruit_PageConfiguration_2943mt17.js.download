@@ -1,0 +1,300 @@
+﻿var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+// //
+// Copyright 2005 SurveySite. All rights reserved.
+
+// Frequency of the popup.
+SiteRecruit_Config.frequency = 0.00025;
+
+// Skips the cookie test. Use for debugging.
+SiteRecruit_Config.useCookie = true;
+
+// Invitation constructor - sets necessary defaults.
+function SiteRecruit_InvitationConfiguration()
+{
+    this.otherCookies = new Array();
+    this.otherVariables = new Array();    
+}
+
+// The array of survey configurations.
+SiteRecruit_Config.invitations = new Array();
+
+// Iterate through the survey configurations.
+
+    
+            
+        SiteRecruit_Config.invitations[0] = new SiteRecruit_InvitationConfiguration();
+        SiteRecruit_Config.invitations[0].weight = 100;
+    
+        SiteRecruit_Config.invitations[0].projectId = '2943mt17';
+        SiteRecruit_Config.invitations[0].invitationType = 2;
+        
+        SiteRecruit_Config.invitations[0].acceptUrl = 'https://web.archive.org/web/20060601011217/http://web.survey-poll.com/bin/survey.asp';
+        SiteRecruit_Config.invitations[0].viewUrl = 'https://web.archive.org/web/20060601011217/http://web.survey-poll.com/bin/survey.asp';
+        SiteRecruit_Config.invitations[0].acceptParams = 'survey=/2900/2943mt&page=2943mta-page1.xml&log=accept-2943mt17.log&site=17';
+        SiteRecruit_Config.invitations[0].viewParams = 'survey=/2900/2943mt&page=close.xml&log=view-2943mt17.log&site=17';
+        
+        SiteRecruit_Config.invitations[0].invitationContent = '<table width="360" cellpadding="3" cellspacing="0" border="0" bgcolor="#FFFFFF"><tr><td> <table width="100%" cellpadding="1" cellspacing="0" border="0" bgcolor="#999999"><tr><td> <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF"><tr valign="top"><td> <img src="/library/svy/logo-stripe.gif" /><a href="Close" onclick="@declineHandler"><img border="0" src="/library/svy/close.gif" /></a><br /> <img src="/library/svy/top-stripe.gif" /> <table width="100%" cellpadding="5"><tr><td>  <div style="font-family: Verdana, Arial, Helvetica, sans-serif;	font-size: 11px; color: #000000; margin: 0 0 15px 0;">Microsoft is conducting an online survey to understand use of the Microsoft Internet Explorer Web site.  We’d like to see which pages you visit today and then have you complete a survey when you leave the Microsoft Internet Explorer Web site.  Would you like to participate?</div>  <div align="center" style="margin: 0; padding: 0"> <form id="SiteRecruit_invitationForm" onsubmit="@acceptHandler" style="margin: 0; padding: 0"> <input style="margin: 0; padding: 0" type="submit" value="  Yes  " />&nbsp;&nbsp; <input style="margin: 0; padding: 0"  type="button" value=" No " onclick="@declineHandler" /> </form> </div>  <div style="font-family: Verdana, Arial, Helvetica, sans-serif;	font-size: 11px; color: #000000; margin: 15px 0 2px 0;"><a href="https://web.archive.org/web/20060601011217/http://www.microsoft.com/info/privacy.mspx" target="_blank">Privacy Statement</a></div>  </td></tr></table> <img src="/library/svy/bottom-stripe.gif" /></td></tr></table> </td></tr></table> </td></tr></table>   '; 
+
+        SiteRecruit_Config.invitations[0].invitationHeight = 210;
+        SiteRecruit_Config.invitations[0].invitationWidth = 390;
+        SiteRecruit_Config.invitations[0].revealDelay = 1000;
+        SiteRecruit_Config.invitations[0].horizontalAlignment = 1;
+        SiteRecruit_Config.invitations[0].verticalAlignment = 0;
+        SiteRecruit_Config.invitations[0].horizontalMargin = 0;
+        SiteRecruit_Config.invitations[0].verticalMargin = 0;
+        SiteRecruit_Config.invitations[0].hideBlockingElements = true;
+        SiteRecruit_Config.invitations[0].autoCentering = true;
+    
+            
+            
+                    SiteRecruit_Config.invitations[0].trackerUrl = '/library/svy/SiteRecruit_Tracker_2943mt17.htm';
+                
+        SiteRecruit_Config.invitations[0].useRapidCookie = false;
+        
+                
+    
+// //
+// Copyright 2005 SurveySite. All rights reserved.
+
+// Class to read and write cookies.
+function SiteRecruit_CookieUtilities()
+{
+    // Cookie duration factor, set to days.
+    this.cookieDurationFactor = 1000 * 60 * 60 * 24;
+    
+    // Cookie removal date.
+    this.cookieRemovalDate = 'Fri, 02-Jan-1970 00:00:00 GMT';
+
+    // Attach methods.
+    this.setSurveyCookie = CookieUtilities_setSurveyCookie;
+    this.setSurveyCookieX = CookieUtilities_setSurveyCookieX;
+    this.getSurveyCookie = CookieUtilities_getSurveyCookie;
+    this.removeSurveyCookie = CookieUtilities_removeSurveyCookie;
+    this.surveyCookieExists = CookieUtilities_surveyCookieExists;
+
+    // Set the cookie to the standard cookie string.
+    function CookieUtilities_setSurveyCookie(cookieType)
+    {
+        this.setSurveyCookieX(cookieType, false);
+    }
+
+    // New cookie method to optionally support rapid cookies.
+    function CookieUtilities_setSurveyCookieX(cookieType, useRapidCookie)
+    {
+        var currentDate = new Date();  
+        var expireDate = new Date();
+        
+        var duration = SiteRecruit_Config.cookieDuration;
+        if (useRapidCookie)
+        {
+            duration = SiteRecruit_Config.rapidCookieDuration;
+        }
+        
+        if (SiteRecruit_Config.cookieLifetimeType == SiteRecruit_Constants.cookieLifetimeType.duration)
+        {
+            expireDate.setTime(currentDate.getTime()
+                + (duration * this.cookieDurationFactor));
+        }
+        else
+        {
+            expireDate.setTime(Date.parse(SiteRecruit_Config.cookieExpireDate));
+        }        
+        
+        var c = '=' + cookieType;
+        
+        if (cookieType == SiteRecruit_Constants.cookieType.inProgress)
+        {
+            var j = SiteRecruit_Constants.cookieJoinChar;
+            c += j + escape(document.location)
+                + j + currentDate.getTime()
+                + j + '0';
+        }
+        
+        c += '; path=' + SiteRecruit_Config.cookiePath;
+
+        if (cookieType == SiteRecruit_Constants.cookieType.alreadyAsked)
+        {
+            c += '; expires=' + expireDate.toGMTString();
+        }
+            
+        if (SiteRecruit_Config.cookieDomain != '')
+        {
+            c += '; domain=' + SiteRecruit_Config.cookieDomain;
+        }
+
+        document.cookie = SiteRecruit_Config.cookieName + c;
+        
+        return true;
+    }
+    
+    // Grabs the value of the survey cookie.
+    function CookieUtilities_getSurveyCookie()
+    {
+        var c = '';
+        
+        c = document.cookie.toString();
+
+        var index = c.indexOf(SiteRecruit_Config.cookieName);
+        var endc = c.length;
+        c = c.substring(index, endc);
+
+        var ind1 = c.indexOf(';');
+        if (ind1 != -1)
+        {   
+            c = c.substring(0, ind1);
+        }
+
+        var ind2 = c.indexOf('=');
+        c = c.substring(ind2 + 1);
+
+        if (index == -1) return null;
+        
+        return c;
+    }
+        
+    // Removes the cookie by setting to an expired date.
+    function CookieUtilities_removeSurveyCookie()
+    {
+        var c = SiteRecruit_Config.cookieName + '='
+            + '; path=' + SiteRecruit_Config.cookiePath
+            + '; expires=' + this.cookieRemovalDate;
+
+        if (SiteRecruit_Config.cookieDomain != '')
+        {
+            c += '; domain=' + SiteRecruit_Config.cookieDomain;
+        }
+
+        document.cookie = c;
+    }
+
+    // Returns true if a survey cookie exists. Call optionally with a type.
+    function CookieUtilities_surveyCookieExists(cookieType)
+    {
+        var t = '';
+        if (cookieType)
+        {
+            t = cookieType;
+        }
+        
+        return (document.cookie.indexOf(SiteRecruit_Config.cookieName + '=' + t) != -1)
+    }
+}
+
+// Create an instance of the utils.
+SiteRecruit_Globals.cookieUtils = new SiteRecruit_CookieUtilities();
+// //
+// Copyright 2005 SurveySite. All rights reserved.
+
+// Class to test for frequencies and eligibility and start surveys.
+function SiteRecruit_Primer()
+{
+    // Attach methods.
+    this.isEligible = Primer_isEligible;
+    this.srandom = Primer_srandom;
+
+    // Custom random number generator.
+    function Primer_srandom()
+    {
+        var n = 1000000000;
+        
+        function ugen(old, a, q, r, m)
+        {
+            var t = Math.floor(old / q);
+            t = a * (old - (t * q)) - (t * r);
+            return Math.round((t < 0) ? (t + m) : t);
+        }
+        
+        var m1 = 2147483563;
+        var m2 = 2147483399;
+        var a1 = 40014;
+        var a2 = 40692;
+        var q1 = 53668;
+        var q2 = 52774;
+        var r1 = 12211;
+        var r2 = 3791;
+        var x = 67108862;
+        var shuffle = new Array(32);
+        var g1 = (Math.round(((new Date()).getTime() % 100000)) & 0x7FFFFFFF);
+        var g2 = g1;
+        var i = 0;
+        
+        for (; i < 19; i++)
+        {
+            g1 = ugen(g1, a1, q1, r1, m1);
+        }
+        for (i = 0; i < 32; i++)
+        {
+            g1 = ugen(g1, a1, q1, r1, m1);
+            shuffle[31 - i] = g1;
+        }
+        g1 = ugen(g1, a1, q1, r1, m1);
+        g2 = ugen(g2, a2, q2, r2, m2);
+        var s = Math.round((shuffle[Math.floor(shuffle[0] / x)] + g2) % m1);
+    
+        return Math.floor(s / (m1 / (n + 1))) / n;
+    }
+
+    // Decide whether to hit the user with the invitation.
+    function Primer_isEligible()
+    {
+        if (!SiteRecruit_Config.useCookie || !SiteRecruit_Globals.cookieUtils.surveyCookieExists())
+        {
+            // Roll the dice, and inject the survey scripts if the user is chosen.
+            if (SiteRecruit_Config.frequency > Math.random())
+            {
+                return true;
+            }
+        }
+        
+        return false;
+    }
+}
+
+// Run the builder only if it qualifies below.
+SiteRecruit_Globals.startBuilder = false;
+
+// Only kick things off if it's a known browser.
+if (SiteRecruit_Globals.isInternetExplorer || SiteRecruit_Globals.isMozilla)
+{
+    // Create a primer and try to run a survey.
+    SiteRecruit_Globals.primer = new SiteRecruit_Primer();
+    if (SiteRecruit_Globals.primer.isEligible())
+    {  
+        SiteRecruit_Globals.startBuilder = true;
+        
+                    document.write('<script language="JavaScript" src="/library/svy/SiteRecruit_InvitationBuilder.js"></script>');
+            }
+}
+
+}
+/*
+     FILE ARCHIVED ON 01:12:17 Jun 01, 2006 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 18:18:01 Jul 12, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 81.675
+  exclusion.robots: 0.081
+  exclusion.robots.policy: 0.071
+  cdx.remote: 0.059
+  esindex: 0.01
+  LoadShardBlock: 52.987 (3)
+  PetaboxLoader3.datanode: 70.512 (4)
+  load_resource: 209.449
+  PetaboxLoader3.resolve: 167.53
+*/

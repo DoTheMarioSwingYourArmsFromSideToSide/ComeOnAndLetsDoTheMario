@@ -1,0 +1,141 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+/*
+	HTML Template Utility
+	$Revision: 1.23 $
+*/
+if( typeof com.adobe.htmltemplate == "undefined" ) com.adobe.htmltemplate = {
+cssloaded:0,
+featureTestReady: function()
+{
+return ($("test-css") && com.adobe.css);
+},
+loadCondAssets: function()
+{
+var head = document.getElementsByTagName('HEAD')[0]; 
+if(!head) return;
+var csspaths = new Array();
+if(this.featureTestReady())
+{
+com.adobe.cssprofile.init();
+if(browser.ua.indexOf('msie 5.2') == -1)  {
+for(var i=0,len=arguments.length;i<len;i++)
+{
+var arg = arguments[i];
+switch(arg)
+{
+case "pod": 
+csspaths.push("/css/layout/units/pod.css");
+if(com.adobe.cssprofile.features.iebox) csspaths.push("/css/layout/units/pod_ie.css");
+com.adobe.ui.register('pods');
+break;
+case "tree": 
+csspaths.push("/css/layout/modules/treelist.css");
+com.adobe.ui.register('trees','explodes');
+break;
+case "map": 
+csspaths.push("/css/layout/modules/map.css");
+com.adobe.ui.register('maps');
+break;
+case "tab": 
+csspaths.push("/css/layout/modules/tabsection.css");
+if(com.adobe.cssprofile.features.stretch) csspaths.push("/css/layout/modules/tabsection_ie.css");
+com.adobe.ui.register('tabs');
+break;
+case "dropdown": 
+if(!com.adobe.cssprofile.features.directchild) csspaths.push("/css/layout/units/dropdown_help.css");
+com.adobe.ui.register('dropdowns');
+break;
+case "backcompat": 
+var compatmode = true;
+break;
+}
+}
+}
+if(com.adobe.cssprofile.isIE7)
+{
+csspaths.push("/css/layout/modules/globalnav_ie7.css");
+csspaths.push("/css/layout/units/pod_ie7.css");
+}			
+if(!com.adobe.cssprofile.features.after)
+{
+csspaths.push("/css/layout/units/compact_noafter.css");	
+com.adobe.ui.register('markers');	
+}
+if(com.adobe.cssprofile.features.stretch)
+{
+csspaths.push("/css/layout/units/compact_ie.css");
+csspaths.push("/css/layout/units/pullout_ie.css");
+}
+if(!com.adobe.cssprofile.features.adjacent)
+{
+csspaths.push("/css/themes/markers_help.css");	
+}
+if(com.adobe.cssprofile.features.iebox)
+{
+csspaths.push("/css/layout/units/menu_ie.css"); 
+if(!compatmode)
+{
+csspaths.push("/css/layout/master_ie.css"); 
+}
+}
+if(!com.adobe.cssprofile.features.directchild) 
+{
+csspaths.push("/css/layout/modules/globalnav_ie.css");
+if(com.adobe.www.isSecure == true) csspaths.push("/css/layout/modules/globalnav_ie_secure.css");
+}
+if(browser.isSafari && browser.kitV < 420)
+{
+csspaths.push("/css/layout/units/swfcontent_help.css");	
+}
+if(browser.ua.indexOf('msie 5.2') != -1) {		
+csspaths.push("/css/layout/master_macie.css");
+csspaths.push("/css/layout/modules/tabsection.css");
+}		
+}
+if(!com.adobe.www.is && csspaths.length) 
+{
+var i = csspaths.length-1;
+do 
+{
+csspaths[i] = "https://web.archive.org/web/20060619190835/http://www.adobe.com"+csspaths[i];
+}
+while (i--);
+}
+this.cssloaded = com.adobe.css.attachCssToDOM(csspaths,head);
+return true;
+}
+};
+
+
+}
+/*
+     FILE ARCHIVED ON 19:08:35 Jun 19, 2006 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 04:33:04 Jul 12, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 242.462
+  exclusion.robots: 0.066
+  exclusion.robots.policy: 0.057
+  cdx.remote: 0.056
+  esindex: 0.009
+  LoadShardBlock: 141.487 (3)
+  PetaboxLoader3.datanode: 77.393 (4)
+  PetaboxLoader3.resolve: 86.966 (2)
+  load_resource: 74.022
+*/

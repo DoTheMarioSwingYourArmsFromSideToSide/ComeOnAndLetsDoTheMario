@@ -1,0 +1,355 @@
+/*	
+Copyright 2006 Adobe Systems Incorporated.
+Pod CSS
+$Revision: 1.9 $ 
+*/
+.pod,
+.promo-pod
+{
+margin-bottom: 1em;
+}
+.p2 h3 {
+background: none;
+border: none;
+}
+.w
+{
+margin-left: -6px;
+}
+.e
+{
+margin-right: -6px;
+margin-left: 2px;
+padding-bottom: 1px;
+}
+.n
+{
+margin-left: 6px;
+margin-right: 6px;
+padding-top: 6px;
+}
+.s
+{
+padding-bottom: 8px;
+}
+.p0 .pod-body
+{
+padding-left: 16px;
+padding-right: 18px;
+}
+.p1 .pod-body,
+.p2 .pod-body
+{
+padding-left: 8px;
+padding-right: 10px;
+}
+#C1.p0 #C1-body .pod-body {
+padding-right: 10px;
+}
+.p0 .pod-body>*:first-child
+{
+margin-left: -16px;
+padding-left: 16px;
+margin-right: -15px;
+padding-right: 16px;
+}
+.p0 .pod-body .first-child
+{
+margin-left: -16px;
+padding-left: 16px;
+margin-right: -15px;
+padding-right: 16px;
+}
+.p1 .pod-body>*:first-child,
+.p2 .pod-body>*:first-child
+{
+margin-top: 0;
+padding-top: 1px;	
+margin-left: -8px;
+margin-right: -8px;
+margin-bottom: 6px;	
+padding-top: 2px;
+padding-right: 8px;
+padding-bottom: 6px;
+padding-left: 8px;
+}
+.p1 .pod-body .first-child,
+.p2 .pod-body .first-child
+{
+margin-top: 0;
+padding-top: 1px;	
+margin-left: -8px;
+margin-right: -8px;
+margin-bottom: 6px;
+padding-top: 2px;
+padding-right: 8px;
+padding-bottom: 6px;
+padding-left: 8px;
+}
+/* nested p1 */
+#C1.p0 #C1-body .pod-body>*:first-child  {
+margin-right: -8px;
+}
+#C1.p0 #C1-body .pod-body .first-child  {
+margin-right: -8px;
+}
+.nw,
+.ne,
+.se,
+.sw
+{
+background-repeat: no-repeat;
+}
+.nw,
+.w,
+.n
+{
+background-position: 0 0;
+}
+.ne,
+.e
+{
+background-position: right 0;
+}
+.se
+{
+background-position: right bottom;
+}
+.sw,
+.s
+{
+background-position: 0 bottom;
+}
+.w,
+.e
+{
+background-repeat: repeat-y;
+}
+.n,
+.s
+{
+background-repeat: repeat-x;
+}
+.nw.p0 /* AKA .p0.nw -- IE needs nw unspecified */
+{
+background-image: url("/web/20060619191136im_/http://www.adobe.com/images/master/layouts/units/pod/p0/nw.gif");
+}
+.p0 .ne
+{
+background-image: url("/web/20060619191136im_/http://www.adobe.com/images/master/layouts/units/pod/p0/ne.gif");
+}
+.p0 .se
+{
+background-image: url("/web/20060619191136im_/http://www.adobe.com/images/master/layouts/units/pod/p0/se.gif")
+}
+.p0 .sw
+{
+background-image: url("/web/20060619191136im_/http://www.adobe.com/images/master/layouts/units/pod/p0/sw.gif");
+}
+.p0 .w
+{
+background-image: url("/web/20060619191136im_/http://www.adobe.com/images/master/layouts/units/pod/p0/w.gif");
+}
+.p0 .e
+{
+background-color: #FFF;
+background-image: url("/web/20060619191136im_/http://www.adobe.com/images/master/layouts/units/pod/p0/e.gif");
+}
+.p0 .n
+{
+background-color: #FFF;
+background-image: url("/web/20060619191136im_/http://www.adobe.com/images/master/layouts/units/pod/p0/n.gif");
+}
+.p0 .s
+{
+background-color: #FFF;
+background-image: url("/web/20060619191136im_/http://www.adobe.com/images/master/layouts/units/pod/p0/s.gif");
+}
+.p0 .pod-body>*:first-child
+{
+background-color: #FFF;
+}
+.p0 .first-child
+{
+background-color: #FFF;
+}
+#gecko.pod-p0 ol#depthpath
+{
+margin-top: 0;
+margin-left: 2px;
+padding-left: 0;
+margin-right: 0;
+padding-right: 0;
+padding-top: 1px;	
+}
+ 
+/* kind of hilarious Mac IE bug, somehow elements without the pod-top class are picking these styles up. FUBAR. */
+.p0-top .n
+{
+background-image: url("/web/20060619191136im_/http://www.adobe.com/images/master/layouts/units/pod/p0/header/n.gif");
+}
+.nw.p0-top /*AKA .p0-top.nw*/
+{
+background-image: url("/web/20060619191136im_/http://www.adobe.com/images/master/layouts/units/pod/p0/header/nw.gif");
+}
+.p0-top .ne
+{
+background-image: url("/web/20060619191136im_/http://www.adobe.com/images/master/layouts/units/pod/p0/header/ne.gif");
+}
+/* \*/
+.p0-top .pod-body>*:first-child
+{
+background-color: #DDD;
+}
+.p0-top .first-child
+{
+background-color: #DDD;
+}
+/* */
+.nw.p1,
+.nw.p2 /* AKA .p2.nw -- IE needs nw unspecified */
+{
+background-image: url("/web/20060619191136im_/http://www.adobe.com/images/master/layouts/units/pod/p2/nw.gif");
+}
+.p1 .ne,
+.p2 .ne
+{
+background-image: url("/web/20060619191136im_/http://www.adobe.com/images/master/layouts/units/pod/p2/ne.gif");
+}
+.p1 .se,
+.p2 .se
+{
+background-image: url("/web/20060619191136im_/http://www.adobe.com/images/master/layouts/units/pod/p2/se.gif")
+}
+.p1 .sw,
+.p2 .sw
+{
+background-image: url("/web/20060619191136im_/http://www.adobe.com/images/master/layouts/units/pod/p2/sw.gif");
+}
+.p1 .w,
+.p2 .w
+{
+background-image: url("/web/20060619191136im_/http://www.adobe.com/images/master/layouts/units/pod/p2/w.gif");
+}
+.p1 .e,
+.p2 .e
+{
+background-color: #F3F3F3;
+background-image: url("/web/20060619191136im_/http://www.adobe.com/images/master/layouts/units/pod/p2/e.gif");
+}
+.p1 .n,
+.p2 .n
+{
+background-color: #F3F3F3;
+background-image: url("/web/20060619191136im_/http://www.adobe.com/images/master/layouts/units/pod/p2/n.gif");
+}
+.p1 .s,
+.p2 .s
+{
+background-color: #F3F3F3;
+background-image: url("/web/20060619191136im_/http://www.adobe.com/images/master/layouts/units/pod/p2/s.gif");
+}
+.p1 .pod-body>*:first-child
+{
+background-color: #F3F3F3;
+}
+.p1 .first-child {
+background-color: #F3F3F3;
+}
+ 
+/* kind of hilarious Mac IE bug, somehow elements without the pod-top class are picking these styles up. FUBAR. */
+.p1-top .n
+{
+background-image: url("/web/20060619191136im_/http://www.adobe.com/images/master/layouts/units/pod/p1/header/n.gif");
+}
+.nw.p1-top  /*AKA .p0-top.nw*/
+{
+background-image: url("/web/20060619191136im_/http://www.adobe.com/images/master/layouts/units/pod/p1/header/nw.gif");
+}
+.p1-top .ne
+{
+background-image: url("/web/20060619191136im_/http://www.adobe.com/images/master/layouts/units/pod/p1/header/ne.gif");
+}
+.p1-top .pod-body>*:first-child
+{
+background-color: #777;
+color: #fff;
+}
+.p1-top .first-child {
+color: #fff;
+}
+.p1-top .first-child,
+.p1-top .n
+{
+background-color: #777;
+}
+ 
+/* kind of hilarious Mac IE bug, somehow elements without the pod-top class are picking these styles up. FUBAR. */
+.p2-top .n
+{
+background-color: #DEDEDE;
+background-image: url("/web/20060619191136im_/http://www.adobe.com/images/master/layouts/units/pod/p2/header/n.gif");
+}
+.nw.p2-top /*AKA .nw*/
+{
+background-image: url("/web/20060619191136im_/http://www.adobe.com/images/master/layouts/units/pod/p2/header/nw.gif");
+}
+.p2-top .ne
+{
+background-image: url("/web/20060619191136im_/http://www.adobe.com/images/master/layouts/units/pod/p2/header/ne.gif");
+}
+.p2-top .pod-body>*:first-child
+{
+background-color: #DEDEDE;
+}
+.p2-top .first-child
+{
+background-color: #DEDEDE;
+}
+ 
+.top-acc .pod-body>*:first-child
+{
+border-bottom: 2px solid #C00;
+}
+.top-acc .first-child
+{
+border-bottom: 2px solid #C00;
+}
+/* untransformed state */
+.dyn-pod,
+.dyn-pod .n,
+.dyn-pod .ne
+{
+background-image: none;
+}
+.p2 ul li a 
+{
+display: block;
+}
+.p2 div.hr {
+padding: 0 8px;
+font-size: 1px;
+line-height: 1px;
+height: 1px;
+margin: 8px -8px;
+}
+/*
+     FILE ARCHIVED ON 19:11:36 Jun 19, 2006 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 04:33:07 Jul 12, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 67.953
+  exclusion.robots: 0.063
+  exclusion.robots.policy: 0.055
+  RedisCDXSource: 0.816
+  esindex: 0.007
+  LoadShardBlock: 47.748 (3)
+  PetaboxLoader3.datanode: 86.615 (4)
+  load_resource: 482.262
+  PetaboxLoader3.resolve: 439.866
+*/
