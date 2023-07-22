@@ -1,0 +1,335 @@
+(function () {
+  this.site = "hunterfan.com"
+  this.gte_send()
+
+  // { kind: :tsc, options: {"token"=>"yRi", "no_auto_open"=>"1", "selector"=>"#thrive_present", "relative"=>"after"} }
+  this.new_nodes["e47fe42f99a056e5a016100872be6f45"] = document.createElement("div")
+  this.new_nodes["e47fe42f99a056e5a016100872be6f45"].setAttribute("id",'tsc_wrapper')
+  this.new_nodes["e47fe42f99a056e5a016100872be6f45"].setAttribute("class",'')
+  this.new_nodes["e47fe42f99a056e5a016100872be6f45"].setAttribute("data-bot-height",'50px')
+  this.new_nodes["e47fe42f99a056e5a016100872be6f45"].setAttribute("data-top-height",'50px')
+  this.new_nodes["e47fe42f99a056e5a016100872be6f45"].setAttribute("style",'visibility:hidden; position:fixed; border:none; border-radius:3px; bottom:0; right:0; left:0; z-index:9999; margin: 0 auto;')
+  this.new_nodes["e47fe42f99a056e5a016100872be6f45"].setAttribute("data-mod-by",'thrive')
+  this.functions["5bad55185fe91bd4763121032af7ffb7"] = function() { (function(){
+    var nodes = document.querySelectorAll("#thrive_present")
+    if (nodes && nodes.length>0) {
+            this.observers["5bad55185fe91bd4763121032af7ffb7"].disconnect()
+        nodes[0].parentNode.insertBefore(this.new_nodes["e47fe42f99a056e5a016100872be6f45"],nodes[0].nextSibling)
+    }
+  } ).call(window.thrive) }
+  this.observers["5bad55185fe91bd4763121032af7ffb7"] = new MutationObserver(this.functions["5bad55185fe91bd4763121032af7ffb7"])
+  this.observers["5bad55185fe91bd4763121032af7ffb7"].observe(document.querySelector('html'),{childList:true,subtree:true})
+  this.functions["5bad55185fe91bd4763121032af7ffb7"].call()
+
+  this.new_nodes["de9f851fe5c7a668a938b6318f62e6cd"] = document.createElement("style")
+  this.new_nodes["de9f851fe5c7a668a938b6318f62e6cd"].innerHTML='@media (min-width: 480px) { #tsc_wrapper { width: 310px; height: 50px } }'
+  this.new_nodes["de9f851fe5c7a668a938b6318f62e6cd"].setAttribute("data-mod-by",'thrive')
+  this.functions["1ddb4343344618392268be3f4d114f8e"] = function() { (function(){
+    var nodes = document.querySelectorAll("head")
+    if (nodes && nodes.length>0) {
+            this.observers["1ddb4343344618392268be3f4d114f8e"].disconnect()
+        nodes[0].appendChild(this.new_nodes["de9f851fe5c7a668a938b6318f62e6cd"])
+    }
+  } ).call(window.thrive) }
+  this.observers["1ddb4343344618392268be3f4d114f8e"] = new MutationObserver(this.functions["1ddb4343344618392268be3f4d114f8e"])
+  this.observers["1ddb4343344618392268be3f4d114f8e"].observe(document.querySelector('html'),{childList:true,subtree:true})
+  this.functions["1ddb4343344618392268be3f4d114f8e"].call()
+
+  this.new_nodes["0f28b402ca6a0256ee4a9171864a04a3"] = document.createElement("div")
+  this.new_nodes["0f28b402ca6a0256ee4a9171864a04a3"].setAttribute("id",'db_desktop_location')
+  this.new_nodes["0f28b402ca6a0256ee4a9171864a04a3"].setAttribute("class",'bot')
+  this.new_nodes["0f28b402ca6a0256ee4a9171864a04a3"].setAttribute("data-mod-by",'thrive')
+  this.functions["39056bf99df48c290c2c08c2c8828ff7"] = function() { (function(){
+    var nodes = document.querySelectorAll("body")
+    if (nodes && nodes.length>0) {
+            this.observers["39056bf99df48c290c2c08c2c8828ff7"].disconnect()
+        nodes[0].insertBefore(this.new_nodes["0f28b402ca6a0256ee4a9171864a04a3"],nodes[0].firstChild)
+    }
+  } ).call(window.thrive) }
+  this.observers["39056bf99df48c290c2c08c2c8828ff7"] = new MutationObserver(this.functions["39056bf99df48c290c2c08c2c8828ff7"])
+  this.observers["39056bf99df48c290c2c08c2c8828ff7"].observe(document.querySelector('html'),{childList:true,subtree:true})
+  this.functions["39056bf99df48c290c2c08c2c8828ff7"].call()
+
+  this.new_nodes["750b11fcbb4baf57e388cacee002857f"] = document.createElement("style")
+  this.new_nodes["750b11fcbb4baf57e388cacee002857f"].innerHTML='@media (max-width: 480px) { #tsc_wrapper { width:100%; height: 50px} }'
+  this.new_nodes["750b11fcbb4baf57e388cacee002857f"].setAttribute("data-mod-by",'thrive')
+  this.functions["03f0775f65be685dd2ad6be645efdfa5"] = function() { (function(){
+    var nodes = document.querySelectorAll("head")
+    if (nodes && nodes.length>0) {
+            this.observers["03f0775f65be685dd2ad6be645efdfa5"].disconnect()
+        nodes[0].appendChild(this.new_nodes["750b11fcbb4baf57e388cacee002857f"])
+    }
+  } ).call(window.thrive) }
+  this.observers["03f0775f65be685dd2ad6be645efdfa5"] = new MutationObserver(this.functions["03f0775f65be685dd2ad6be645efdfa5"])
+  this.observers["03f0775f65be685dd2ad6be645efdfa5"].observe(document.querySelector('html'),{childList:true,subtree:true})
+  this.functions["03f0775f65be685dd2ad6be645efdfa5"].call()
+
+  this.new_nodes["f27aa4a1e14cbb8870ecfcb9d4fba3db"] = document.createElement("div")
+  this.new_nodes["f27aa4a1e14cbb8870ecfcb9d4fba3db"].setAttribute("id",'db_mobile_location')
+  this.new_nodes["f27aa4a1e14cbb8870ecfcb9d4fba3db"].setAttribute("class",'bot')
+  this.new_nodes["f27aa4a1e14cbb8870ecfcb9d4fba3db"].setAttribute("data-mod-by",'thrive')
+  this.functions["f542602d87194e44875cc4317527972d"] = function() { (function(){
+    var nodes = document.querySelectorAll("body")
+    if (nodes && nodes.length>0) {
+            this.observers["f542602d87194e44875cc4317527972d"].disconnect()
+        nodes[0].insertBefore(this.new_nodes["f27aa4a1e14cbb8870ecfcb9d4fba3db"],nodes[0].firstChild)
+    }
+  } ).call(window.thrive) }
+  this.observers["f542602d87194e44875cc4317527972d"] = new MutationObserver(this.functions["f542602d87194e44875cc4317527972d"])
+  this.observers["f542602d87194e44875cc4317527972d"].observe(document.querySelector('html'),{childList:true,subtree:true})
+  this.functions["f542602d87194e44875cc4317527972d"].call()
+
+
+    this.token = "yRi"
+    this.gte_tsc = function(caveat) {
+      if (caveat===undefined) {
+        caveat = null
+      }
+      this.gte("tsc", {
+        'token':    "yRi",
+        'category': "all",
+        'site':     "hunterfan.com",
+        'tsckind':  "dbtsc",
+        'caveat':   caveat
+      } )
+      this.gte_send()
+      
+        document.querySelector('#tsc').contentWindow.postMessage({type: "fetchOffersAvailable"}, "https://tcapi.io");
+           
+    }
+    
+
+    this.reveal = function(offer_id, title, instore, no_ga) {
+      if (instore===undefined) {
+        instore = false
+      }
+      if (no_ga===undefined) {
+        no_ga = false
+      }
+      var reveal   = document.createElement('iframe')
+      reveal.src   = 'https://tcapi.io/yRi/offers/' + offer_id + '/' + (no_ga?'no_ga_':'') + (instore?'instore_':'') + 'reveal' +
+        '?consumer=' + this.get_cookie('va6uyAb') +
+        '&pv_uuid=' + this.pv_uuid +
+        '&window_location_href=' + encodeURIComponent(window.location.href)
+      reveal.id    = 'tsc' + (instore?'-instore':'') + '-reveal'
+      reveal.style.cssText = 'position: fixed; top: 0px; left: 0px; bottom: 0px; height: 100%; width: 100%; z-index: 9999999; border: none;'
+      document.querySelector('body').appendChild(reveal)
+
+    }
+    this.aacFunction = function(code, callback) {
+      
+    }
+    window.addEventListener('message', function (msg) {
+    
+    if (msg.origin != "https://tcapi.io") return
+        
+      switch (msg.data.type) {
+        case 'gteOffersAvailable':
+          thrive.gte("offers_available", { "site": "hunterfan.com", "offer_ids": msg.data.offer_ids, "tsc_uuid": ( "tsc_uuid" in thrive ? thrive.tsc_uuid : '' ) } )
+          thrive.gte_send()
+          break
+        case 'activateDealbar':
+          
+          thrive.functions["dbtsc_activate"] = function() {
+            var nodes = document.querySelectorAll("#tsc_wrapper")
+            if (nodes && nodes.length>0) {
+              thrive.observers["dbtsc_activate"].disconnect()
+              nodes[0].style.visibility = 'visible';
+              
+              /* first visit cookie stuff, but also critical setup stuff unrelated to first visit cookie: */
+              var firstVisitCookie = window.thrive.get_cookie('firstVisit');
+              if (true) {
+                firstVisitCookie = false;
+              } else if (typeof(firstVisitCookie) == 'undefined') {
+                var domain = window.thrive.get_top_cookieable_domain();
+                window.thrive.set_cookie('firstVisit', false, domain, 0);
+                firstVisitCookie = true;
+                thrive.mtsc_esc_listener = function(event){
+                  if (event.key == 'Escape' || event.keyCode == 27) {
+                    document.querySelector('#tsc').contentWindow.postMessage({type: 'closeSmartBar', data: {}}, 'https://tcapi.io');
+                    window.removeEventListener('keydown', thrive.mtsc_esc_listener);
+                  }
+                }
+                window.addEventListener('keydown', thrive.mtsc_esc_listener);
+              }
+              var db_desktop_location = document.querySelector('#db_desktop_location').classList.contains('top');
+              var db_mobile_location = document.querySelector('#db_mobile_location').classList.contains('top');
+              var db_top_height = document.querySelector('#tsc_wrapper').dataset.topHeight;
+              var db_bot_height = document.querySelector('#tsc_wrapper').dataset.botHeight;
+              document.querySelector('#tsc').contentWindow.postMessage({type: 'firstVisitResponse', data: { isFirst: firstVisitCookie, isMobile: (window.innerWidth < 480), dbDesktopLocation: db_desktop_location, dbMobileLocation: db_mobile_location, dbTopHeight: db_top_height, dbBotHeight: db_bot_height }}, 'https://tcapi.io');
+            }
+          }
+          thrive.observers["dbtsc_activate"] = new MutationObserver(thrive.functions["dbtsc_activate"])
+          thrive.observers["dbtsc_activate"].observe(document.querySelector("html"),{childList:true,subtree:true})
+          thrive.functions["dbtsc_activate"].call()
+
+          break
+        case 'openDealbar':
+          document.querySelector('#tsc_wrapper').style.cssText = 'position: fixed; top: 0; bottom: 0; left: 0; right: 0; width: 100%; height: 100%; z-index: 9999; background-color: rgba(0,0,0,0.8); transition: background-color 0.7s ease;';
+          document.querySelector('#tsc').style.cssText = 'height: 100%; width: 100%; overflow-y: hidden;';
+          var thrive_scroll_stop = document.createElement("style")
+          thrive_scroll_stop.innerHTML='html { overflow:hidden !important }'
+          thrive_scroll_stop.setAttribute("data-mod-by",'thrive')
+          thrive_scroll_stop.setAttribute("id",'thrive_scroll_stop')
+          if (document.querySelector("body")) { document.querySelector("body").appendChild(thrive_scroll_stop) }
+          window.thrive.gte_tsc( msg.data.caveat );
+          break
+        case 'fadeDealbar':
+          document.querySelector('#tsc_wrapper').style.backgroundColor = 'unset';
+          break
+        case 'closeDealbar':
+          document.querySelector('#tsc_wrapper').style.cssText = 'position: fixed; bottom: 0; left: 0; right: 0; height: '+msg.data.height+'; z-index: 9999; margin: 0 auto;';
+          if (document.querySelector('#thrive_scroll_stop')) { document.querySelector('#thrive_scroll_stop').remove() }
+          break
+        case 'printmarkup':    var popup = window.open('about:blank', '_new'); popup.document.write(msg.data.data.markup); popup.focus();                               break
+    
+        case 'height':         document.querySelector('#tsc').style.cssText = 'height:' + msg.data.data.height.toString() + 'px !important; min-height:120px !important; width: 100%; overflow-y: hidden;';  break
+        
+        case 'gte':
+          if (msg.data.gte_class_name=='offer_engagement') { msg.data.gte_object["site"] = "hunterfan.com" };
+          window.thrive.gte(msg.data.gte_class_name, msg.data.gte_object); window.thrive.gte_send();
+          break
+        case 'ga':             window.thrive.ga(msg.data.data.action, msg.data.data.label, msg.data.data.value, msg.data.data.nonInteraction);        break
+        case 'instorereveal':  window.thrive.reveal(msg.data.data.offerId, msg.data.data.offerTitle, true);                                           break
+        case 'reveal':         window.thrive.reveal(msg.data.data.offerId, msg.data.data.offerTitle);                                                 break
+        case 'modalclose':     var m = document.querySelector('#tsc-reveal, #tsc-instore-reveal'); m.parentNode.removeChild(m);                       break
+        case 'applyCode':
+          var aac_offer_id = msg.data.data.offer_id;
+          window.thrive.aacFunction(msg.data.data.code, function(success, msg) {
+            document.querySelector('#tsc').contentWindow.postMessage( { type: success ? 'aacSuccess' : 'aacFailure', data: { msg: msg, offer_id: aac_offer_id } }, "https://tcapi.io");
+          });
+          break
+        case 'focusSmartbuttonX':
+          document.querySelector('#mtsc_modal_x').focus();
+          break;
+        case 'closeSmartbutton':
+          close_modal();
+          break
+        case 'toggleSmartbuttonX':
+          if ( document.querySelector('#mtsc_modal_x').style.display=='none' ) {
+            document.querySelector('#mtsc_modal_x').style.display=''
+          } else {
+            document.querySelector('#mtsc_modal_x').style.display='none'
+          }
+          break
+        case 'openSmartbuttonSubModal':
+          window.thrive_offers_scroll = document.querySelector('#mtsc_modal').scrollTop
+          document.querySelector('#mtsc_modal').scrollTop = 0
+          var thrive_sub_modal_takeover = document.createElement('style')
+          thrive_sub_modal_takeover.innerHTML='#mtsc_modal { margin-top:0px !important; margin-bottom:0px !important; max-height:100% !important; border-radius:0px !important; overflow-y: hidden !important }'
+          thrive_sub_modal_takeover.setAttribute('data-mod-by','thrive')
+          thrive_sub_modal_takeover.setAttribute('id','thrive_sub_modal_takeover')
+          document.querySelector('head').appendChild( thrive_sub_modal_takeover )
+          break
+        case 'closeSmartbuttonSubModal':
+          document.querySelector('#mtsc_modal').scrollTop = window.thrive_offers_scroll
+          document.querySelector('#thrive_sub_modal_takeover').remove()
+          break
+      }
+    })
+    
+    if (this.get_fragment_param('thrive_reveal'                )) this.reveal(this.get_fragment_param('thrive_reveal'                ), '')
+    if (this.get_fragment_param('thrive_instore_reveal'        )) this.reveal(this.get_fragment_param('thrive_instore_reveal'        ), '', true)
+    if (this.get_fragment_param('thrive_no_ga_reveal'          )) this.reveal(this.get_fragment_param('thrive_no_ga_reveal'          ), '', false, true)
+    if (this.get_fragment_param('thrive_no_ga_instore_reveal'  )) this.reveal(this.get_fragment_param('thrive_no_ga_instore_reveal'  ), '', true, true)
+  this.new_nodes["3c025d463aabec6d867ddc94ace74047"] = document.createElement("style")
+  this.new_nodes["3c025d463aabec6d867ddc94ace74047"].innerHTML="#tsc { width:100%; !important; display:block !important; margin:auto !important; height: 100%; }"
+  this.new_nodes["3c025d463aabec6d867ddc94ace74047"].setAttribute("data-mod-by",'thrive')
+  this.functions["8dae8914f6cc8d280b72ac8d3911e840"] = function() { (function(){
+    var nodes = document.querySelectorAll("head")
+    if (nodes && nodes.length>0) {
+            this.observers["8dae8914f6cc8d280b72ac8d3911e840"].disconnect()
+        nodes[0].appendChild(this.new_nodes["3c025d463aabec6d867ddc94ace74047"])
+    }
+  } ).call(window.thrive) }
+  this.observers["8dae8914f6cc8d280b72ac8d3911e840"] = new MutationObserver(this.functions["8dae8914f6cc8d280b72ac8d3911e840"])
+  this.observers["8dae8914f6cc8d280b72ac8d3911e840"].observe(document.querySelector('html'),{childList:true,subtree:true})
+  this.functions["8dae8914f6cc8d280b72ac8d3911e840"].call()
+
+  this.new_nodes["0c596a19a25319921828fedb680d2e35"] = document.createElement("iframe")
+  this.new_nodes["0c596a19a25319921828fedb680d2e35"].setAttribute("id","tsc")
+  this.new_nodes["0c596a19a25319921828fedb680d2e35"].setAttribute("frameborder",0)
+  this.new_nodes["0c596a19a25319921828fedb680d2e35"].setAttribute("scrolling","no")
+  this.new_nodes["0c596a19a25319921828fedb680d2e35"].setAttribute("src",'https://tcapi.io/yRi/i' +
+                '?thrive_category=all&noi=0&consumer=' + this.get_cookie('va6uyAb') + '&window_location_href='+encodeURIComponent(window.location.href) + '&remote_ip=73.136.138.237&user_agent=Mozilla%2F5.0+%28Windows+NT+10.0%3B+Win64%3B+x64%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F109.0.0.0+Safari%2F537.36')
+  this.new_nodes["0c596a19a25319921828fedb680d2e35"].setAttribute("data-mod-by",'thrive')
+  this.functions["d14b543f1e3db1c836e4be97311aea41"] = function() { (function(){
+    var nodes = document.querySelectorAll("#tsc_wrapper")
+    if (nodes && nodes.length>0) {
+            this.observers["d14b543f1e3db1c836e4be97311aea41"].disconnect()
+        var subnodes = document.querySelectorAll("#tsc_wrapper \u003e *")
+      for (var i=0; i<subnodes.length; i++) {
+        var subnode = subnodes[i]
+        subnode.parentNode.removeChild(subnode)
+      }
+
+      nodes[0].appendChild(this.new_nodes["0c596a19a25319921828fedb680d2e35"])
+    }
+  } ).call(window.thrive) }
+  this.observers["d14b543f1e3db1c836e4be97311aea41"] = new MutationObserver(this.functions["d14b543f1e3db1c836e4be97311aea41"])
+  this.observers["d14b543f1e3db1c836e4be97311aea41"].observe(document.querySelector('html'),{childList:true,subtree:true})
+  this.functions["d14b543f1e3db1c836e4be97311aea41"].call()
+
+
+  // { kind: :js, options: {"js"=>"thrive.functions[\"add_ada_accessible_label\"] = function() {\n  if ( document.querySelector(\"#tsc\") ) {\n    thrive.observers[\"add_ada_accessible_label\"].disconnect();\n    document.querySelector(\"#tsc\").setAttribute( \"aria-label\", \"TODAY'S OFFERS\" )\n  }\n}\nthrive.observers[\"add_ada_accessible_label\"] = new MutationObserver(thrive.functions[\"add_ada_accessible_label\"])\nthrive.observers[\"add_ada_accessible_label\"].observe(document.querySelector('html'),{childList:true,subtree:true})\nthrive.functions[\"add_ada_accessible_label\"].call()"} }
+  thrive.functions["add_ada_accessible_label"] = function() {
+    if ( document.querySelector("#tsc") ) {
+      thrive.observers["add_ada_accessible_label"].disconnect();
+      document.querySelector("#tsc").setAttribute( "aria-label", "TODAY'S OFFERS" )
+    }
+  }
+  thrive.observers["add_ada_accessible_label"] = new MutationObserver(thrive.functions["add_ada_accessible_label"])
+  thrive.observers["add_ada_accessible_label"].observe(document.querySelector('html'),{childList:true,subtree:true})
+  thrive.functions["add_ada_accessible_label"].call()
+
+  this.gte_objects_standard = [
+    {
+      "gte_class_name":"pageview",
+      "uuid":this.pv_uuid,
+      "msec":this.pv_msec,
+      "site":"hunterfan.com",
+      "effective_url":"https://www.hunterfan.com/collections/ceiling-fans?sort_by=created-descending",
+      "request_url":"https://www.hunterfan.com/",
+      "referer":document.referrer,
+      "remote_ip":"73.136.138.237",
+      "user_agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+      "tsc_available":"yRi",
+      "tsckind":"dbtsc",
+      "ab":""
+    },{
+      "gte_class_name":"consumer_identification",
+      "identifier_type":"tp_cookie_uuid",
+      "identifier":"AAAAAYfLlqoVFucdgrOdpHcS-0Bo361J0djA5XYVgBQS9B1uZF-96-97"
+    },{
+      "gte_class_name":"consumer_identification",
+      "identifier_type":"fp_cookie_uuid",
+      "identifier":this.get_cookie("va6uyAb")
+    }
+  ]
+  for (var i=0; i<this.gte_objects_standard.length; i++) {
+    if ( this.gte_objects_standard[i]['gte_class_name'] != 'consumer_identification' || this.gte_objects_standard[i]['identifier'] != null ) {
+      this.gte( this.gte_objects_standard[i]['gte_class_name'], this.gte_objects_standard[i] )
+      this.gte_send()
+    }
+  }
+
+  this.functions["13226893836deef650b6cabae40f267f"] = function() { (function(){
+    this.gte_objects_custom = [
+      
+    ]
+    for (var i=0; i<this.gte_objects_custom.length; i++) {
+      if ( this.gte_objects_custom[i]['gte_class_name'] != 'consumer_identification' || this.gte_objects_custom[i]['identifier'] != null ) {
+        this.gte( this.gte_objects_custom[i]['gte_class_name'], this.gte_objects_custom[i] )
+        this.gte_send()
+      }
+    }
+  }).call(window.thrive) }
+
+  if (document.readyState=='loading' || "DOMContentLoaded" != 'DOMContentLoaded') {
+    document.addEventListener("DOMContentLoaded", this.functions["13226893836deef650b6cabae40f267f"])
+  } else {
+    this.functions["13226893836deef650b6cabae40f267f"].call()
+  }
+
+
+}).call(window.thrive);
