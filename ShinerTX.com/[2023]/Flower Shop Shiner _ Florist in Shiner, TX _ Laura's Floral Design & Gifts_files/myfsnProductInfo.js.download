@@ -1,0 +1,50 @@
+$j(function () {
+
+    //override defaults
+    alertify.defaults.movable = false;
+    alertify.defaults.padding = false;
+    alertify.defaults.transition = "slide";
+    alertify.defaults.theme.ok = "ui positive button";
+    alertify.defaults.theme.cancel = "ui black button";
+    alertify.defaults.glossary.title = "Product Information";
+
+    alertify.minimalDialog || alertify.dialog('minimalDialog',function(){
+        return {
+            main:function(content){
+                this.setContent(content);
+            },
+            setup:function(){
+
+                return {
+                    focus:{
+                        element:function(){
+                            return this.elements.body.querySelector(this.get('selector'));
+                        },
+                        select:true
+                    },
+                    options:{
+                        basic:true,
+                        maximizable:false,
+                        resizable:false,
+                        padding:false,
+                        modal: true
+                    }
+                };
+            }
+        };
+    });
+
+    $j('.infoPopoutTrigger').on('click', function (e) {
+        e.preventDefault();
+        var template = this.parentElement.querySelector('.productPopContainer');
+        var div = document.createElement('div');
+        if (template.content instanceof DocumentFragment) {
+            div.appendChild(template.content.cloneNode(true));
+        } else {
+            // IE 11
+            div.innerHTML = template.innerHTML;
+        }
+        alertify.minimalDialog(div);
+    });
+
+});

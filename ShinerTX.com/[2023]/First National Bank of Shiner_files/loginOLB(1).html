@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!-- saved from url=(0096)https://www.fnbshiner.com/Portals/FNBShiner/Skins/Skin_IndustryBancshares/LoginOLB/loginOLB.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Cache-Control" content="no-store">
+<style>
+	@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
+.visually-hidden {
+    position: absolute !important;
+    clip: rect(1px 1px1px1px); /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
+    padding: 0 !important;
+    border: 0 !important;
+    height: 1px !important;
+    width: 1px !important;
+    overflow: hidden;
+}
+#username {
+  /*  height: 24px;*/
+}
+#_buttonContinue {
+    position: relative;
+    top: 10px;
+	max-height: 29px;
+}
+	.buttonEnroll {
+		position: relative;
+    top: 10px;
+	max-height: 29px;
+	}
+#olb_login {
+    margin-top: 1%;
+    max-height: 48px;
+}
+.loginHeight {
+    height: 43px;
+    width: max-content;
+}
+input[type=text] {
+    border-color: #cccccc;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
+    padding: 7px;
+    color: #383838;
+    font-size: 13px;
+	max-width: 125px;
+}
+	
+a, a:visited {
+	text-decoration: underline;
+	font-family: 'Open Sans', sans-serif;
+		color:#000;
+	font-size: 13px;
+}
+a:hover, a:active, a:focus {color: #d80818;  text-decoration:none; }
+	
+</style>
+<script language="JavaScript">
+
+function clickclear(thisfield, defaulttext) {
+if (thisfield.value == defaulttext) {
+thisfield.value = "";
+}
+}
+function clickrecall(thisfield, defaulttext) {
+if (thisfield.value == "") {
+thisfield.value = defaulttext;
+}
+}
+	
+	function ValidateFields(theForm)
+{
+ if (document.frmLogin.username.value == "Username")
+  {
+   alert("Please enter your username.");
+    document.frmLogin.username.focus();
+    return (false);
+  }
+
+}
+</script>
+<title>OLB Login</title>
+</head>
+<body>
+<center>
+  <form name="frmLogin" action="https://olb.fnbshiner.com/LoginAdv.aspx" method="post" onsubmit="return ValidateFields(this.form, this)" target="_parent">
+    <div class="loginHeight">
+      <label for="username"><span class="visually-hidden">Username</span></label>
+      <input name="username" id="username" autocomplete="off" class="loginBox" value="Username" type="text" onclick="clickclear(this, &#39;Username&#39;)" onblur="clickrecall(this,&#39;Username&#39;)">
+      <input name="_buttonContinue" type="image" id="_buttonContinue" alt="Login" src="./loginButton.png">&nbsp;<a href="https://olb.fnbshiner.com/Enrollment/EnrollmentAdv.aspx" target="_parent"><img src="./enrollButton.png" class="buttonEnroll" alt="Enroll"></a>
+    </div>
+    <input type="hidden" name="forceauth" value="true">
+  </form>
+
+</center>
+
+</body></html>

@@ -1,0 +1,298 @@
+body {
+  background-color: rgb(242, 242, 242) !important;
+}
+
+.controlPanel {
+  z-index: 30;
+}
+
+.carousel-inner .item a {
+  height: 100%;
+  width: 100%;
+  display: block;
+  background-position: top center;
+  background-size: cover;
+}
+
+div#dnn_BannerPane {
+  overflow: hidden !important;
+}
+
+div.carousel-inner div.item {
+  height: 100%;
+}
+
+.carousel-overflow {
+  height: 100%;
+}
+
+div[data-ride="carousel"]+div a.btn-rounded {
+  position: absolute;
+  top: 230px;
+  z-index: 1000;
+}
+
+.slideshowGhost {
+  background: none !important;
+  text-align: left !important;
+  display: inline !important;
+}
+
+.alert {
+  background-color: #1a3f20 !important;
+  color: #fff;
+  padding: 0 !important;
+  position: relative;
+  margin-bottom: 0px !important;
+  border-radius: 0px !important;
+}
+
+.alert-content p {
+  padding-top: 10px;
+  color: #fff !important;
+  font-size: 1em;
+  line-height: 1.25;
+}
+
+.alert .fas {
+  /*  float: left;*/
+  margin-right: .5em;
+}
+
+.alert a {
+  color: #fff !important;
+  text-decoration: underline !important;
+}
+
+.alert a:hover {
+  color: #fff !important;
+  text-decoration: none !important;
+}
+
+.alert button {
+  color: #fff;
+  margin-top: 8px;
+  padding: .5em;
+  font-size: 1.25em;
+  background-color: transparent !important;
+  border: none;
+}
+
+.alert button:hover {
+  background: 0;
+  color: #ccc;
+}
+
+@media only screen and (min-width: 992px) {
+  section#main_content {
+    margin-top: -255px;
+  }
+  .controlPanel {
+    width: 100px !important;
+    position: absolute !important;
+    bottom: 250px !important;
+    left: 45vw !important;
+    margin: 4.5vh auto !important;
+  }
+  #gradientBG {
+    padding: 0 !important;
+    margin: 0 !important;
+    background: rgba(255, 255, 255, .55) !important;
+  }
+  .homemask,
+  .homemask img {
+    height: 100% !important;
+    width: 100% !important;
+  }
+  .carousel.slide {
+    height: 850px;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .alert button {
+    font-size: 20px;
+    float: right;
+  }
+  .alert-content p {
+    font-size: .9em;
+    padding-top: 10px;
+    color: #fff !important;
+    line-height: 1.05;
+  }
+  h1>.rotatorLarge,
+  span.rotatorLarge,
+  h1>.rotatorLargeWhite,
+  span.rotatorLargeWhite {
+    font-size: 30px !important;
+  }
+  span.rotatorMedium {
+    font-size: 24px !important;
+  }
+  span.rotatorSmall {
+    font-size: 15px !important;
+  }
+  button.navbar-toggle.olb-mobile-btn {
+    background: transparent;
+    color: gray;
+    margin-right: 25px;
+    border: 1px solid gray;
+    padding: 20px;
+    font-size: 20px;
+  }
+  section#header.header {
+    position: relative !important;
+    padding-bottom: 0;
+    background: #fff !important;
+  }
+  div#top-bar {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+  }
+  .main_menu ul.nav.sf-menu li:not(:last-child) {
+    border-bottom: 1px solid #e4e4e4;
+  }
+  #top-bar #TopBarPane.TopBarPane {
+    float: right;
+    right: 75px;
+  }
+  .carousel-inner {
+    overflow: hidden !important;
+  }
+  .controlPanel {
+    width: 100px;
+    position: absolute !important;
+    left: 45vw;
+    margin: 2.5vh 0 !important;
+    bottom: 2vw;
+    z-index: 1000;
+  }
+  .carousel-inner .item .carousel-caption {
+    padding: 0;
+    margin: 0;
+    position: relative;
+    text-align: left;
+    width: 100%;
+    left: 0;
+  }
+  #gradientBG,
+  #gradientBG .CTA_index {
+    margin-top: 0 !important;
+    padding: 0 !important;
+  }
+  #animatedNav .inner-content {
+    margin: 0 auto !important;
+  }
+  #gradientBG,
+  #gradientBG .CTA_index {
+    background-color: white !important;
+  }
+  #gradientBG .container {
+    width: 100% !important;
+  }
+  #gradientBG .container .CTA_index .Normal {
+    padding: 0 !important;
+  }
+  .homemask img {
+    display: none !important;
+  }
+  .carousel-caption {
+    top: 20px !important;
+  }
+  .carousel.slide {
+    height: 275px;
+  }
+}
+
+@media only screen and (max-width: 610px) {
+  div#top-bar {
+    position: relative;
+  }
+  #top-bar #TopBarPane.TopBarPane {
+    right: 0;
+  }
+  .carousel.slide {
+    /*        height: 75vw;*/
+  }
+}
+
+@media only screen and (max-width: 399px) {
+  .controlPanel {
+    left: 35vw;
+  }
+  .homemask img {
+    height: 575px;
+  }
+}
+
+
+/***********************          iphone           *************************************/
+
+
+/* Portrait iPhone X */
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
+  #banner {
+    padding-top: 17.5vh;
+  }
+  .homepage #banner {
+    padding-top: 0;
+  }
+  .homepage .carousel.slide {
+    height: inherit;
+  }
+  .wsc_generic_skin #dnn_ContentPane {
+    top: 0vh;
+  }
+}
+
+@media screen and (max-width:812px)and (orientation:landscape) {
+  .TopBarPane,
+  .wsc_top_bar_logins {
+    float: unset;
+  }
+}
+
+
+/* Portrait iPhone 8 */
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 677px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+  .homepage #banner {
+    padding-top: 0;
+  }
+}
+
+@media all and (-ms-high-contrast: none),
+(-ms-high-contrast: active) {
+  .CTA_index .icon-personal:before {
+    content: url('/portals/FNBShiner/icons/personal-cropped.png') !important;
+    line-height: 125px !important;
+  }
+  .CTA_index .icon-business:before {
+    content: url('/portals/FNBShiner/icons/business-cropped.png') !important;
+    line-height: 120px !important;
+  }
+  .CTA_index .icon-lending:before {
+    content: url('/portals/FNBShiner/icons/lending-cropped.png') !important;
+    line-height: 135px !important;
+  }
+  .carousel .fa-arrow-left:before {
+    content: url('/portals/FNBShiner/icons/left.png') !important;
+  }
+  .carousel .fa-arrow-right:before {
+    content: url('/portals/FNBShiner/icons/right.png') !important;
+  }
+  .carousel .fa-play:before {
+    content: url('/portals/FNBShiner/icons/play.png') !important;
+  }
+  .carousel .fa-pause:before {
+    content: url('/portals/FNBShiner/icons/pause.png') !important;
+  }
+  .fa-times-circle:before {
+    content: url('/portals/FNBShiner/icons/close.png') !important;
+  }
+  .controlPanel {
+    width: 120px !important;
+  }
+}

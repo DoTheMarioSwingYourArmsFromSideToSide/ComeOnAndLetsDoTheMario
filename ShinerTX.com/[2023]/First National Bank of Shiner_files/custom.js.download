@@ -1,0 +1,41 @@
+﻿jQuery(document).ready(function()  {
+    $("a.external").each(function () {
+
+        $(this).click(function (e) {
+            e.preventDefault();
+            exUrl = $(this).attr("href");
+
+            if ($(this).attr("target") == "_blank") {
+                $('#thirdPartyNewWindow').modal('show');
+            } else {
+                $('#thirdParty').modal('show');
+            }
+        });
+
+    });
+
+    jQuery("a.email").each(function () {
+
+        $(this).click(function (e) {
+            e.preventDefault();
+            exUrl = $(this).attr("href");
+            $('#email').modal('show');
+        });
+
+    });
+    //jQuery("a.wealth").each(function () {
+////
+////        $(this).click(function (e) {
+////            e.preventDefault();
+////            exUrl = $(this).attr("href");
+////
+////            if ($(this).attr("target") == "_blank") {
+////                $('#thirdPartyNewWindow').modal('show');
+////            } else {
+////                $('#thirdParty').modal('show');
+////            }
+////        });
+////
+////    });
+//
+});

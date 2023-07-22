@@ -1,0 +1,55 @@
+.retirement-container {
+    margin: 0;
+    font-size: 14px;
+}
+
+.retirement-container td {
+    outline: solid 2px #fff;
+    padding: 10px;
+}
+
+.retirement-container td:nth-child(1) {
+    font-weight: bold;
+    color: black;
+    background-color: #ccc;
+    min-width: 25%;
+}
+
+.retirement-container td:nth-child(2) {
+    background-color: #eee;
+    color: black;
+    min-width: 75%;
+}
+
+.retirement-container tr {
+    margin: 2px;
+}
+
+.retirement-container section {
+    margin-top: 30px;
+}
+
+.retirement-container .disclosures, .retirement-container .disclosures p, .retirement-container p.disclosures {
+    font-size: 11px;
+    margin-top: 10px;
+}
+
+.retirement-container img {
+    max-width: 800px;
+    width: 90%;
+    display: block;
+    margin: 20px 0 0 0;
+}
+
+.retirement-container h2 {
+    font-size: 18px;
+}
+
+.retirement-container h3 {
+    margin-top: 20px;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+.retirement-container h2, .retirement-container h3, .retirement-container h4, .retirement-container p, .retirement-container td, .retirement-container li {
+    line-height: 1.5em;
+}

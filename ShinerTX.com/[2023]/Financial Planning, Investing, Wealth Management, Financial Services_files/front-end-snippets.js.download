@@ -1,0 +1,189 @@
+// ------------------------------------------------------------------
+// Link Topbar Address to Google Map 1.0
+// ------------------------------------------------------------------
+
+function topbarMapLink(googleLink) {
+	var mapLink = '<a href="' + googleLink + '"></a>';
+	// Wrap Address with Link
+	$('.c-topbar-address--link').wrapAll(mapLink);
+}
+
+// ------------------------------------------------------------------
+// Link Footer Address to Google Map 1.0
+// ------------------------------------------------------------------
+
+function footerMapLink(googleLink) {
+	var mapLink = '<a href="' + googleLink + '"></a>';
+	// Wrap Address with Link
+	$('.moonlight-address_block').wrapAll(mapLink);
+}
+
+// ------------------------------------------------------------------
+// Function for Injecting Emails into the Contact Page 1.0
+// ------------------------------------------------------------------
+
+function addContactEmails(emails, location) {
+	$('.page-contact .contact-block').each(function () {
+		var $this = $(this);
+		// Hendersonville
+		if ($this.find('h2').is(':contains(' + location + ')')) {
+			for (var i = 0, l = emails.length; i < l; i++) {
+				var emailLink = '<p><a href="mailto:' + emails[i] + '">' + emails[i] + '</a></p>';
+				$this.find('h2').after(emailLink);
+			}
+		};
+	});
+};
+
+// ------------------------------------------------------------------
+// Generic Model Popup
+// ------------------------------------------------------------------
+
+function genericPopup() {
+	jQuery(document).ready(function () {
+
+		/* Check for Model Popup Content */
+		if ($('#generic-popup').length > 0) {
+			console.log("Generic Model Pop-up Activated!");
+
+			// Add Uncertain Times Banner Model CSS
+			$('head').append('<link rel="stylesheet" type="text/css" href="https://fmg-websites-custom.s3.amazonaws.com/front-end-snippets/css/generic-popup.css">');
+
+			/* Model Control and Animation */
+
+			// Get the modal
+			var genericPopup = $("#generic-popup");
+
+			// Get the <span> element that closes the modal
+			var close = $("#generic-popup .generic-popup__close");
+
+			// When the user clicks on <span> (x), close the modal
+			close.click(function () {
+				genericPopup.fadeOut();
+			});
+
+			// When the user clicks anywhere outside of the modal, close it
+			$(window).click(function (e) {
+				if (e.target.id == "generic-popup") {
+					$(genericPopup).fadeOut();
+				}
+			});
+
+			// Fade in Model when the page is loaded
+			$(window).load(function () {
+				$("#generic-popup").fadeIn();
+			});
+		} else {
+			console.log("Generic Model Pop-up not found!");
+			return
+		}
+	});
+}
+
+// ------------------------------------------------------------------
+// Custom Form Popup
+// ------------------------------------------------------------------
+
+function formPopup(page) {
+	jQuery(document).ready(function () {
+
+		// Target Last Section=
+		var target = $(page).find('#content section:last-of-type');
+
+		/* Check id last section is a Form */
+		if (target.hasClass('section_Form')) {
+			// Add Class to Form
+			target.addClass('form-popup__content').wrap('<div id="form-popup"></div>');
+			// Add Close Button
+			target.prepend('<span class="form-popup__close">x</span>');
+
+			console.log("Custom Form Popup Activated!");
+
+			// Add Uncertain Times Banner Model CSS
+			$('head').append('<link rel="stylesheet" type="text/css" href="https://fmg-websites-custom.s3.amazonaws.com/front-end-snippets/css/form-popup.css">');
+
+			/* Model Control and Animation */
+
+			// Get the modal
+			var formPopup = $("#form-popup");
+
+			// Get the <span> element that closes the modal
+			var close = $("#form-popup .form-popup__close");
+
+			// When the user clicks on <span> (x), close the modal
+			close.click(function () {
+				formPopup.fadeOut();
+				$("html").css("overflow", "auto");
+			});
+
+			// When the user clicks anywhere outside of the modal, close it
+			$(window).click(function (e) {
+				if (e.target.id == "form-popup") {
+					$(formPopup).fadeOut();
+					$('html').css('overflow', '');
+				}
+			});
+
+			// Fade in Model when the page is loaded
+			$(window).load(function () {
+				$('html').css('overflow', 'hidden');
+				$("#form-popup").fadeIn();
+			});
+		} else {
+			console.log("Form not found, Popup Inactive.");
+			return
+		}
+	});
+}
+
+function videoEmbed(page) {
+	jQuery(document).ready(function () {
+		// Add Video Side by Side Embed CSS
+		$('head').append('<link rel="stylesheet" type="text/css" href="https://fmg-websites-custom.s3.amazonaws.com/front-end-snippets/css/video-sbs-embed.css">');
+
+		if ($(page)[0]) {
+			// Do something if class exists
+			console.log("Video Embed Locator Activated");
+
+			var videoEmbed = '<div class="video-sbs-embed-container"></div>',
+				videoEmbedCOB = '<div class="cob-video-embed"><div class="video-sbs-embed-container"></div></div>';
+
+			// Check for Side by Side with Video
+			$('.section_SideBySide').each(function () {
+				var $this = $(this);
+
+				if ($this.find('iframe').length > 0) {
+					console.log("Side by Side Video Embed Found");
+
+					$this.find('.c-image__crop').remove();
+
+					$this.find('iframe').appendTo($this.find('.wrap')).wrap(videoEmbed);
+				}
+			});
+
+			//  Check COBs for video
+			$('.section_Boxes .box').each(function () {
+				var $this = $(this);
+
+				if ($this.find('.c-box__paragraph iframe').length > 0) {
+					console.log("COB Video Embed Found");
+
+					// $this.find('.c-box-image img').remove();
+					var imgHeight = $this.find('.c-box-image img').height(),
+						videoHeight = $this.find('.cob-video-embed').outerHeight(),
+						embedMarginHeight = ((imgHeight - videoHeight) / 2);
+
+					// Remove Image from COB
+					$this.find('.c-box-image img').remove();
+
+					// Move Video to replace Image
+					$this.find('iframe').prependTo($this.find('.c-box-image')).wrap(videoEmbedCOB);
+
+					// Match original images height, and add margin.
+					$this.find('.c-box-image').css('height', imgHeight);
+					// console.log(videoHeight);
+				}
+			});
+		}
+	});
+}
