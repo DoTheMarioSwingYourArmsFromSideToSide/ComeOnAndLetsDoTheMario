@@ -1,0 +1,876 @@
+
+
+
+
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Google Tag Manager -->
+    <script>
+      dataLayer = [];
+
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+          'gtm.start': new Date().getTime(),
+          event: 'gtm.js'
+        });
+        var f = d.getElementsByTagName(s)[0], j = d
+            .createElement(s), dl = l != 'dataLayer' ? '&l='
+            + l : '';
+        j.async = true;
+        j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-NCTJZH');
+    </script>
+    <!-- End Google Tag Manager -->
+<title>Montana’s Official Tourism, Travel &amp; Vacation Info Site</title>
+<meta name="description" content="Montana is untamed, wild and natural. Glacier and Yellowstone National Parks are just the beginning; in between discover spectacular places, people and things to do."/>
+<meta name="title" content="Social Sharing"/>
+<meta name="twitter:card" content="Montana’s Official Tourism, Travel &amp; Vacation Info Site"/>
+<meta name="twitter:site" content="@mtot"/>
+<meta name="twitter:title" content="Montana’s Official Tourism, Travel &amp; Vacation Info Site"/>
+<meta name="twitter:description" content="Montana is untamed, wild and natural. Glacier and Yellowstone National Parks are just the beginning; in between discover spectacular places, people and things to do."/>
+<meta name="twitter:image" content="https://www.visitmt.com/binaries/content/gallery/MTOT/photos/summer/2019/kevinleaguesilencecorelife_web.jpg"/>
+<meta property="og:title" content="Montana’s Official Tourism, Travel &amp; Vacation Info Site"/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="https://www.visitmt.com/"/>
+<meta property="og:image" content="https://www.visitmt.com/binaries/content/gallery/MTOT/photos/summer/2019/kevinleaguesilencecorelife_web.jpg"/>
+<meta property="og:description" content="Montana is untamed, wild and natural. Glacier and Yellowstone National Parks are just the beginning; in between discover spectacular places, people and things to do."/>
+<meta property="og:site_name" content="Montana"/>
+<meta property="fb:admins" content="Montana"/>
+<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"/>
+<link rel="schema.DCTERMS" href="http://purl.org/dc/terms/"/>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+  <meta name="author" content="">
+  <link rel="icon" href="/webfiles/1561399914073/images/favicon-MT.ico">
+    <link rel="canonical" href="https://www.visitmt.com/">
+
+  <!-- bootstrap atest compiled and minified CSS -->
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> -->
+
+  <!-- Custom styles  -->
+  <link href="/webfiles/1561399914073/css/site.css" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lte IE 9]>
+	<link href="/webfiles/1561399914073/css/site_page_1.css" rel="stylesheet">
+	<link href="/webfiles/1561399914073/css/site_page_2.css" rel="stylesheet">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.0.6/es5-shim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.0.6/es5-sham.min.js"></script>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+  <!--  Alias  -->
+    <link href="/webfiles/1561399914073/css/site-us.css" rel="stylesheet">
+
+
+  <!-- outputting the dynamic socialFaceBookAppID -->
+    <script>
+      var socialFaceBookAppID = "2205655259448904",
+          mountContentPath = "/content/documents/MTOT",
+          contextPath = "/";
+    </script>
+  <script>
+    defaultResultMessageLocation = "Montana";
+    searchFilterContentFolders = "";
+    searchFilterCities = "";
+    searchPageProperURL = "/search.html";
+  </script>
+
+  <script>
+    //April 26, 2017 by Limei. javascript variables for page types. Used to dynamically display messages
+    var isCityDetailPage = false;
+    var isGeneralDetailPage = false;
+    var isEventDetailPage = false;
+    var isSkiDetailPage = false;
+    var cmsRequest;
+    var hstRequestPathInfo;
+    var hstSiteMapItemId;
+		cmsRequest = false;
+  </script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <!-- ski area map -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/smoothness/jquery-ui.css" />
+</head>
+
+
+
+<body data-context-path="" class="no-breadcrumbs">
+<!-- Google Tag Manager -->
+<noscript>
+  <iframe src="//www.googletagmanager.com/ns.html?id=GTM-NCTJZH" height="0" width="0" style="display: none; visibility: hidden;"></iframe>
+</noscript>
+<!-- End Google Tag Manager -->
+
+<a class="sr-only" href="#section1">Skip to main content</a>
+<div class="fav-overlay"><img class="gif" src=""></div>
+<div class="fluid-container mtot-main-container resp-size">
+
+
+
+<!-- BEGIN header component -->
+<header id="siteHeader" class="navbar-fixed-top">
+	<h1 class="title sr-only">
+MONTANA	</h1>
+
+
+	<nav class="navbar" role="navigation">
+		<div class="logoWrap">
+			<h1 class="logo" role="banner">
+				<a href="/">MONTANA</a>
+			</h1>
+		</div>
+		<button type="button" class="btn btn-primary btn-xs menuBtn" data-toggle="offcanvas">
+			<span class="visible-lg">MENU</span>
+			<i class="hidden-lg hamburger glyphicon glyphicon-align-justify"></i>
+		</button>
+		<div class="wrapRight" role="navigation">
+			<ul class="navRight visible-lg">
+
+					<li class="search">
+						<span class="magnifying-glass"></span>
+
+						<form type="GET" action="/search.html" role="Search">
+							<a href=""> SEARCH</a>
+							<input type="search" name="search" autocomplete="off" aria-label="Search"/>
+							<div class="suggest-results"></div>
+						</form>
+					</li>
+					<li class="help">
+						<a href="" data-toggle="dropdown" class="dropdown-toggle">
+						HELP
+						</a>
+
+						<div class="helpWindow dropdown-menu">
+							<div class="liveChat"><a href="#" class="chat-link">LIVE CHAT</a></div><hr>
+							<span>1 (800) 847-4868</span>
+							<span><a href="/contact.html">CONTACT US</a></span>
+						</div>
+					</li>
+					<li class="share">
+						<a href="" data-toggle="dropdown" class="dropdown-toggle">
+						SHARE
+						</a>
+
+						<div class="shareWindow dropdown-menu">
+							<span>share this page</span>
+							<ul class="social-links">
+								<li class="facebook"><a href="#">
+									<img src="/binaries/content/gallery/MTOT/icons/social-media/header-facebook.png"
+											 title="facebook" alt="Share on Facebook" /></a>
+								</li>
+								<li class="twitter"><a href="#">
+									<img src="/binaries/content/gallery/MTOT/icons/social-media/header-twitter.png"
+											 title="twitter" alt="Share on Twitter" /></a>
+								</li>
+								<li class="pinterest"><a href="#">
+									<img src="/binaries/content/gallery/MTOT/icons/social-media/header-pinterest.png"
+											 title="pinterest" alt="Share on Pinterest" /></a>
+								</li>
+								<li class="email"><a href="#">
+									<img src="/binaries/content/gallery/MTOT/icons/social-media/header-email.png"
+											 title="email" alt="Share page via email" /></a>
+								</li>
+							</ul>
+						</div>
+					</li>
+			</ul>
+				<div class="location hidden-lg">
+					<a href="/location-search.html"></a>
+				</div>
+		</div>
+	</nav>
+
+</header>
+<!-- END header component -->
+
+	<div class="sidebar-offcanvas mtot-menu resp-size" id="sidebar" role="navigation">
+
+
+<div class="closeBar">
+    <form class="search hidden-lg" action="/search.html" type="GET">
+      <span class="magnifying-glass"></span>
+      <input type="search" name="search" autocomplete="off"/>
+      <button type="button" class="close pull-right search-close">
+				<span aria-hidden="true">
+        	<img src="/img/search/close.png" alt="Close" />
+        </span>
+        <span class="sr-only">Close</span>
+      </button>
+      <div class="suggest-results"></div>
+    </form>
+</div>
+
+<div class="menu-outer-wrapper">
+  <ul class="list-group menu panel-group" id="home_menu">
+          <li><a href="/glacier.html" class="list-group-item">GLACIER NATIONAL PARK</a></li>
+          <li><a href="/yellowstone.html" class="list-group-item">YELLOWSTONE NATIONAL PARK</a></li>
+        <li>
+            <a href="#SubMenu2" class="collapsed list-group-item category-cont menu-dropdown-toggle" data-url="/places-to-go.html"
+              data-toggle="collapse" data-parent="#home_menu" data-menu="hasSub"> PLACES TO GO </a>
+        </li>
+
+        <div class="panel panel-default">
+          <ul class="collapse list-group-submenu panel-collapse" id="SubMenu2">
+              <li>
+                  <a href="/places-to-go/trip-ideas.html" class="list-group-item"
+                  	data-parent="#SubMenu2"> TRIP IDEAS </a>
+              </li>
+              <li>
+                  <a href="/places-to-go/national-parks.html" class="list-group-item"
+                  	data-parent="#SubMenu2"> NATIONAL PARKS </a>
+              </li>
+              <li>
+                  <a href="/places-to-go/state-parks.html" class="list-group-item"
+                  	data-parent="#SubMenu2"> STATE PARKS </a>
+              </li>
+              <li>
+                  <a href="/places-to-go/cities-and-towns.html" class="list-group-item"
+                  	data-parent="#SubMenu2"> CITIES & TOWNS </a>
+              </li>
+              <li>
+                  <a href="/places-to-go/indian-country.html" class="list-group-item"
+                     data-parent="#SubMenu2"> INDIAN COUNTRY </a>
+              </li>
+              <li>
+                  <a href="/places-to-go/regions.html" class="list-group-item"
+                  	data-parent="#SubMenu2"> TOURISM REGIONS </a>
+              </li>
+              <li>
+                  <a href="/places-to-go/ski-areas-and-resorts.html" class="list-group-item"
+                  	data-parent="#SubMenu2"> SKI AREAS & RESORTS </a>
+              </li>
+          </ul>
+        </div>
+        <li>
+            <a href="#SubMenu3" class="collapsed list-group-item category-cont menu-dropdown-toggle" data-url="/things-to-do.html"
+              data-toggle="collapse" data-parent="#home_menu" data-menu="hasSub"> THINGS TO DO </a>
+        </li>
+
+        <div class="panel panel-default">
+          <ul class="collapse list-group-submenu panel-collapse" id="SubMenu3">
+              <li>
+                  <a href="/things-to-do/outdoor-and-adventure.html" class="list-group-item"
+                  	data-parent="#SubMenu3"> OUTDOOR & ADVENTURE </a>
+              </li>
+              <li>
+                  <a href="/things-to-do/family-fun.html" class="list-group-item"
+                  	data-parent="#SubMenu3"> FAMILY FUN </a>
+              </li>
+              <li>
+                  <a href="/things-to-do/hot-spring-resorts-and-pools.html" class="list-group-item"
+                     data-parent="#SubMenu3"> HOT SPRINGS </a>
+              </li>
+              <li>
+                  <a href="/things-to-do/guides-and-tours.html" class="list-group-item"
+                  	data-parent="#SubMenu3"> SPECIALTY TOURS </a>
+              </li>
+              <li>
+                  <a href="/things-to-do/food-and-drink.html" class="list-group-item"
+                  	data-parent="#SubMenu3"> FOOD & DRINK </a>
+              </li>
+              <li>
+                  <a href="/things-to-do/shopping-and-leisure.html" class="list-group-item"
+                  	data-parent="#SubMenu3"> SHOPPING & LEISURE </a>
+              </li>
+              <li>
+                  <a href="/things-to-do/arts-and-culture.html" class="list-group-item"
+                  	data-parent="#SubMenu3"> ARTS & CULTURE </a>
+              </li>
+              <li>
+                  <a href="/things-to-do/history.html" class="list-group-item"
+                  	data-parent="#SubMenu3"> HISTORY </a>
+              </li>
+              <li>
+                  <a href="/things-to-do/winter-activities.html" class="list-group-item"
+                  	data-parent="#SubMenu3"> WINTER ACTIVITIES </a>
+              </li>
+              <li>
+                  <a href="/things-to-do/events.html" class="list-group-item"
+                  	data-parent="#SubMenu3"> EVENTS </a>
+              </li>
+          </ul>
+        </div>
+          <li><a href="/plan-your-trip.html" class="list-group-item">PLAN YOUR TRIP</a></li>
+          <li><a href="/places-to-stay.html" class="list-group-item">PLACES TO STAY</a></li>
+          <li><a href="/campaign/montana-tv.html" class="list-group-item">MONTANA TV</a></li>
+          <li><a href="http://www.visitmt.com/guidebook.html" class="list-group-item">GET A GUIDEBOOK</a></li>
+  </ul>
+    <div class="menuGroup">
+      <hr/>
+      <div class="phone"><a href="tel:1 (800) 847-4868">1 (800) 847-4868</a></div>
+        <div class="chat">
+          <div class="link liveChat"><a href="#" class="chat-link">LIVE CHAT</a></div>
+        </div>
+    </div>
+  <div class="menuGroup">
+    <hr/>
+    <div class="link"><a href="http://www.montana.gov" target="_blank">MONTANA.GOV</a></div>
+  </div>
+
+  <div class="menuGroup">
+    <hr>
+    <div class="social">
+      <span>FOLLOW US</span>
+
+
+  <ul class="social-links">
+        <li><a class="share-icon" href="https://www.facebook.com/visitmontana" target="_blank">
+          <img src="/binaries/content/gallery/MTOT/icons/social-media/menu-facebook.png"
+               title="facebook"/>
+        </a></li>
+        <li><a class="share-icon" href="https://twitter.com/visitmontana" target="_blank">
+          <img src="/binaries/content/gallery/MTOT/icons/social-media/menu-twitter.png"
+               title="twitter"/>
+        </a></li>
+        <li><a class="share-icon" href="https://www.youtube.com/c/visitmontana" target="_blank">
+          <img src="/binaries/content/gallery/MTOT/icons/social-media/menu-youtube.png"
+               title="youtube"/>
+        </a></li>
+        <li><a class="share-icon" href="http://montanamoment.tumblr.com/" target="_blank">
+          <img src="/binaries/content/gallery/MTOT/icons/social-media/menu-tumblr.png"
+               title="tumblr"/>
+        </a></li>
+        <li><a class="share-icon" href="https://www.instagram.com/visitmontana/" target="_blank">
+          <img src="/binaries/content/gallery/MTOT/icons/social-media/menu-instagram.png"
+               title="instagram"/>
+        </a></li>
+  </ul>
+    </div>
+  </div>
+</div>
+  </div>
+  
+  <div class="row-offcanvas row-offcanvas-left panels mtot-top">
+    <div class="visible-print">
+      <h1>MONTANA</h1>
+      <h3>visitmt.com</h3>
+    </div>
+    
+    
+
+
+
+    <div>
+                <div>
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </div>
+                <div>
+                    
+<section class="one-item-carousel" aria-label="Montana Feature Carousel">
+    <div class="owl-carousel">
+        <div class="carousel-item">
+          <picture>
+            <source media="(max-width: 420px)" srcset="/binaries/content/gallery/MTOT/photos/summer/2019/kevinleaguesilencecorelife_web.jpg/kevinleaguesilencecorelife_web.jpg/MTOT%3A420w-square">
+            <source media="(max-width: 767px)" srcset="/binaries/content/gallery/MTOT/photos/summer/2019/kevinleaguesilencecorelife_web.jpg/kevinleaguesilencecorelife_web.jpg/MTOT%3A840w-square">
+            <source media="(max-width: 840px)" srcset="/binaries/content/gallery/MTOT/photos/summer/2019/kevinleaguesilencecorelife_web.jpg/kevinleaguesilencecorelife_web.jpg/MTOT%3A840w-horizontal">
+            <source media="(min-width: 841px)" srcset="/binaries/content/gallery/MTOT/photos/summer/2019/kevinleaguesilencecorelife_web.jpg/kevinleaguesilencecorelife_web.jpg/MTOT%3A1680w-horizontal">
+            <img
+                src="/binaries/content/gallery/MTOT/photos/summer/2019/kevinleaguesilencecorelife_web.jpg/kevinleaguesilencecorelife_web.jpg/MTOT%3A840w-horizontal"
+                class="carousel-item-image"
+                alt="Two Camps Vista overlook"
+                aria-label="Slide 1 of 1, Two Camps Vista overlook">
+          </picture>
+          <div class="overlay shadowed">
+              <div class="text-center">
+                <img class="overlay-icon" 
+                    src="/binaries/content/gallery/MTOT/icons/trip-ideas-1.png" 
+                    alt=""
+                />
+              </div>
+              <div class="text-center">
+                <div class="divider"></div>
+              </div>
+            <div class="text-center text-uppercase">
+              <h3 class="overlay-title">Discover Your #MontanaMoment</h3>
+            </div>
+            <p class="overlay-subtitle text-center">
+                Easy to get to, hard to leave
+            </p>
+            <div class="text-center overlay-button">
+                <a 
+                    class="text-uppercase overlay-button-link"
+                    href="/places-to-go/trip-ideas.html"
+                    target="_self">
+                    Explore<span class="glyphicon glyphicon-play"></span>
+                </a>
+            </div>
+          </div><!-- end of overlay -->
+        </div>
+    </div>
+</section>
+
+                </div>
+                <div>
+                    
+<section class="two-item-carousel" aria-label="Montana Feature Carousel">
+    <div class="owl-carousel">
+        <div class="carousel-item">
+          <picture>
+            <source media="(max-width: 420px)" srcset="/binaries/content/gallery/MTOT/photos/summer/2019/dap_mtsummer-18-2431_web_square.jpg/dap_mtsummer-18-2431_web_square.jpg/MTOT%3A420w-square">
+            <source media="(max-width: 767px)" srcset="/binaries/content/gallery/MTOT/photos/summer/2019/dap_mtsummer-18-2431_web_square.jpg/dap_mtsummer-18-2431_web_square.jpg/MTOT%3A840w-square">
+            <source media="(max-width: 784px)" srcset="/binaries/content/gallery/MTOT/photos/summer/2019/dap_mtsummer-18-2431_web_square.jpg/dap_mtsummer-18-2431_web_square.jpg/MTOT%3A840w-square">
+            <source media="(max-width: 840px)" srcset="/binaries/content/gallery/MTOT/photos/summer/2019/dap_mtsummer-18-2431_web_square.jpg/dap_mtsummer-18-2431_web_square.jpg/MTOT%3A420w-square">
+            <source media="(min-width: 841px)" srcset="/binaries/content/gallery/MTOT/photos/summer/2019/dap_mtsummer-18-2431_web_square.jpg/dap_mtsummer-18-2431_web_square.jpg/MTOT%3A840w-square">
+            <img
+                src="/binaries/content/gallery/MTOT/photos/summer/2019/dap_mtsummer-18-2431_web_square.jpg/dap_mtsummer-18-2431_web_square.jpg/MTOT%3A840w-square"
+                class="carousel-item-image"
+                alt="Seeley-Swan area"
+                aria-label="Slide 1 of 7, Seeley-Swan area">
+          </picture>
+          <div class="overlay shadowed">
+              <div class="text-center">
+                <img class="overlay-icon" 
+                    src="/binaries/content/gallery/MTOT/icons/trip-ideas-1.png"
+                    alt="Seeley-Swan area"
+                />
+              </div>
+              <div class="text-center">
+                <div class="divider"></div>
+              </div>
+            <div class="text-center text-uppercase">
+              <h3 class="overlay-title">Trip Ideas</h3>
+            </div>
+            <p class="overlay-subtitle text-center">
+                Find the last best places to go
+            </p>
+            <div class="text-center overlay-button">
+                <a 
+                    class="text-uppercase overlay-button-link"
+                    href="/places-to-go/trip-ideas.html"
+                    target="_self">
+                    Explore<span class="glyphicon glyphicon-play"></span>
+                </a>
+            </div>
+          </div><!-- end of overlay -->
+        </div>
+        <div class="carousel-item">
+          <picture>
+            <source media="(max-width: 420px)" srcset="/binaries/content/gallery/MTOT/photos/summer/2019/hidden_lake_goat_color_web_square.jpg/hidden_lake_goat_color_web_square.jpg/MTOT%3A420w-square">
+            <source media="(max-width: 767px)" srcset="/binaries/content/gallery/MTOT/photos/summer/2019/hidden_lake_goat_color_web_square.jpg/hidden_lake_goat_color_web_square.jpg/MTOT%3A840w-square">
+            <source media="(max-width: 784px)" srcset="/binaries/content/gallery/MTOT/photos/summer/2019/hidden_lake_goat_color_web_square.jpg/hidden_lake_goat_color_web_square.jpg/MTOT%3A840w-square">
+            <source media="(max-width: 840px)" srcset="/binaries/content/gallery/MTOT/photos/summer/2019/hidden_lake_goat_color_web_square.jpg/hidden_lake_goat_color_web_square.jpg/MTOT%3A420w-square">
+            <source media="(min-width: 841px)" srcset="/binaries/content/gallery/MTOT/photos/summer/2019/hidden_lake_goat_color_web_square.jpg/hidden_lake_goat_color_web_square.jpg/MTOT%3A840w-square">
+            <img
+                src="/binaries/content/gallery/MTOT/photos/summer/2019/hidden_lake_goat_color_web_square.jpg/hidden_lake_goat_color_web_square.jpg/MTOT%3A840w-square"
+                class="carousel-item-image"
+                alt="Glacier National Park"
+                aria-label="Slide 2 of 7, Glacier National Park">
+          </picture>
+          <div class="overlay shadowed">
+              <div class="text-center">
+                <img class="overlay-icon" 
+                    src="/binaries/content/gallery/MTOT/icons/national-parks.png"
+                    alt="Glacier National Park"
+                />
+              </div>
+              <div class="text-center">
+                <div class="divider"></div>
+              </div>
+            <div class="text-center text-uppercase">
+              <h3 class="overlay-title">National Parks</h3>
+            </div>
+            <p class="overlay-subtitle text-center">
+                Explore natural wonders
+            </p>
+            <div class="text-center overlay-button">
+                <a 
+                    class="text-uppercase overlay-button-link"
+                    href="/places-to-go/national-parks.html"
+                    target="_self">
+                    Explore<span class="glyphicon glyphicon-play"></span>
+                </a>
+            </div>
+          </div><!-- end of overlay -->
+        </div>
+        <div class="carousel-item">
+          <picture>
+            <source media="(max-width: 420px)" srcset="/binaries/content/gallery/MTOT/photos/summer/2019/0066mt_beartooth_couser_rgbrf_web_square.jpg/0066mt_beartooth_couser_rgbrf_web_square.jpg/MTOT%3A420w-square">
+            <source media="(max-width: 767px)" srcset="/binaries/content/gallery/MTOT/photos/summer/2019/0066mt_beartooth_couser_rgbrf_web_square.jpg/0066mt_beartooth_couser_rgbrf_web_square.jpg/MTOT%3A840w-square">
+            <source media="(max-width: 784px)" srcset="/binaries/content/gallery/MTOT/photos/summer/2019/0066mt_beartooth_couser_rgbrf_web_square.jpg/0066mt_beartooth_couser_rgbrf_web_square.jpg/MTOT%3A840w-square">
+            <source media="(max-width: 840px)" srcset="/binaries/content/gallery/MTOT/photos/summer/2019/0066mt_beartooth_couser_rgbrf_web_square.jpg/0066mt_beartooth_couser_rgbrf_web_square.jpg/MTOT%3A420w-square">
+            <source media="(min-width: 841px)" srcset="/binaries/content/gallery/MTOT/photos/summer/2019/0066mt_beartooth_couser_rgbrf_web_square.jpg/0066mt_beartooth_couser_rgbrf_web_square.jpg/MTOT%3A840w-square">
+            <img
+                src="/binaries/content/gallery/MTOT/photos/summer/2019/0066mt_beartooth_couser_rgbrf_web_square.jpg/0066mt_beartooth_couser_rgbrf_web_square.jpg/MTOT%3A840w-square"
+                class="carousel-item-image"
+                alt="Beartooth Highway overlook"
+                aria-label="Slide 3 of 7, Beartooth Highway overlook">
+          </picture>
+          <div class="overlay shadowed">
+              <div class="text-center">
+                <img class="overlay-icon" 
+                    src="/binaries/content/gallery/MTOT/icons/outdoor-adventure.png"
+                    alt="Beartooth Highway overlook"
+                />
+              </div>
+              <div class="text-center">
+                <div class="divider"></div>
+              </div>
+            <div class="text-center text-uppercase">
+              <h3 class="overlay-title">Outdoor & Adventure</h3>
+            </div>
+            <p class="overlay-subtitle text-center">
+                There are no limits to outdoor adventure in Montana
+            </p>
+            <div class="text-center overlay-button">
+                <a 
+                    class="text-uppercase overlay-button-link"
+                    href="/things-to-do/outdoor-and-adventure.html"
+                    target="_self">
+                    Explore<span class="glyphicon glyphicon-play"></span>
+                </a>
+            </div>
+          </div><!-- end of overlay -->
+        </div>
+        <div class="carousel-item">
+          <picture>
+            <source media="(max-width: 420px)" srcset="/binaries/content/gallery/MTOT/photos/summer/2019/dap_mtsummer18-1764_web_square.jpg/dap_mtsummer18-1764_web_square.jpg/MTOT%3A420w-square">
+            <source media="(max-width: 767px)" srcset="/binaries/content/gallery/MTOT/photos/summer/2019/dap_mtsummer18-1764_web_square.jpg/dap_mtsummer18-1764_web_square.jpg/MTOT%3A840w-square">
+            <source media="(max-width: 784px)" srcset="/binaries/content/gallery/MTOT/photos/summer/2019/dap_mtsummer18-1764_web_square.jpg/dap_mtsummer18-1764_web_square.jpg/MTOT%3A840w-square">
+            <source media="(max-width: 840px)" srcset="/binaries/content/gallery/MTOT/photos/summer/2019/dap_mtsummer18-1764_web_square.jpg/dap_mtsummer18-1764_web_square.jpg/MTOT%3A420w-square">
+            <source media="(min-width: 841px)" srcset="/binaries/content/gallery/MTOT/photos/summer/2019/dap_mtsummer18-1764_web_square.jpg/dap_mtsummer18-1764_web_square.jpg/MTOT%3A840w-square">
+            <img
+                src="/binaries/content/gallery/MTOT/photos/summer/2019/dap_mtsummer18-1764_web_square.jpg/dap_mtsummer18-1764_web_square.jpg/MTOT%3A840w-square"
+                class="carousel-item-image"
+                alt="Holland Lake Falls trail"
+                aria-label="Slide 4 of 7, Holland Lake Falls trail">
+          </picture>
+          <div class="overlay shadowed">
+              <div class="text-center">
+                <img class="overlay-icon" 
+                    src="/binaries/content/gallery/MTOT/icons/hiking-backpacking.png"
+                    alt="Holland Lake Falls trail"
+                />
+              </div>
+              <div class="text-center">
+                <div class="divider"></div>
+              </div>
+            <div class="text-center text-uppercase">
+              <h3 class="overlay-title">Hiking & Backpacking</h3>
+            </div>
+            <p class="overlay-subtitle text-center">
+                Summit one of Montana's great peaks
+            </p>
+            <div class="text-center overlay-button">
+                <a 
+                    class="text-uppercase overlay-button-link"
+                    href="/things-to-do/outdoor-and-adventure/hiking-and-backpacking.html"
+                    target="_self">
+                    Explore<span class="glyphicon glyphicon-play"></span>
+                </a>
+            </div>
+          </div><!-- end of overlay -->
+        </div>
+        <div class="carousel-item">
+          <picture>
+            <source media="(max-width: 420px)" srcset="/binaries/content/gallery/MTOT/photos/summer/2019/0067mt_gnp_hertzler_rgbrm_web_square.jpg/0067mt_gnp_hertzler_rgbrm_web_square.jpg/MTOT%3A420w-square">
+            <source media="(max-width: 767px)" srcset="/binaries/content/gallery/MTOT/photos/summer/2019/0067mt_gnp_hertzler_rgbrm_web_square.jpg/0067mt_gnp_hertzler_rgbrm_web_square.jpg/MTOT%3A840w-square">
+            <source media="(max-width: 784px)" srcset="/binaries/content/gallery/MTOT/photos/summer/2019/0067mt_gnp_hertzler_rgbrm_web_square.jpg/0067mt_gnp_hertzler_rgbrm_web_square.jpg/MTOT%3A840w-square">
+            <source media="(max-width: 840px)" srcset="/binaries/content/gallery/MTOT/photos/summer/2019/0067mt_gnp_hertzler_rgbrm_web_square.jpg/0067mt_gnp_hertzler_rgbrm_web_square.jpg/MTOT%3A420w-square">
+            <source media="(min-width: 841px)" srcset="/binaries/content/gallery/MTOT/photos/summer/2019/0067mt_gnp_hertzler_rgbrm_web_square.jpg/0067mt_gnp_hertzler_rgbrm_web_square.jpg/MTOT%3A840w-square">
+            <img
+                src="/binaries/content/gallery/MTOT/photos/summer/2019/0067mt_gnp_hertzler_rgbrm_web_square.jpg/0067mt_gnp_hertzler_rgbrm_web_square.jpg/MTOT%3A840w-square"
+                class="carousel-item-image"
+                alt="Going-to-the-Sun Road"
+                aria-label="Slide 5 of 7, Going-to-the-Sun Road">
+          </picture>
+          <div class="overlay shadowed">
+              <div class="text-center">
+                <img class="overlay-icon" 
+                    src="/binaries/content/gallery/MTOT/icons/scenic-drives.png"
+                    alt="Going-to-the-Sun Road"
+                />
+              </div>
+              <div class="text-center">
+                <div class="divider"></div>
+              </div>
+            <div class="text-center text-uppercase">
+              <h3 class="overlay-title">Scenic Drives</h3>
+            </div>
+            <p class="overlay-subtitle text-center">
+                Hit the open road
+            </p>
+            <div class="text-center overlay-button">
+                <a 
+                    class="text-uppercase overlay-button-link"
+                    href="/things-to-do/guides-and-tours/scenic-drives.html"
+                    target="_self">
+                    Explore<span class="glyphicon glyphicon-play"></span>
+                </a>
+            </div>
+          </div><!-- end of overlay -->
+        </div>
+        <div class="carousel-item">
+          <picture>
+            <source media="(max-width: 420px)" srcset="/binaries/content/gallery/MTOT/photos/summer/2019/dsc00179.jpg/dsc00179.jpg/MTOT%3A420w-square">
+            <source media="(max-width: 767px)" srcset="/binaries/content/gallery/MTOT/photos/summer/2019/dsc00179.jpg/dsc00179.jpg/MTOT%3A840w-square">
+            <source media="(max-width: 784px)" srcset="/binaries/content/gallery/MTOT/photos/summer/2019/dsc00179.jpg/dsc00179.jpg/MTOT%3A840w-square">
+            <source media="(max-width: 840px)" srcset="/binaries/content/gallery/MTOT/photos/summer/2019/dsc00179.jpg/dsc00179.jpg/MTOT%3A420w-square">
+            <source media="(min-width: 841px)" srcset="/binaries/content/gallery/MTOT/photos/summer/2019/dsc00179.jpg/dsc00179.jpg/MTOT%3A840w-square">
+            <img
+                src="/binaries/content/gallery/MTOT/photos/summer/2019/dsc00179.jpg/dsc00179.jpg/MTOT%3A840w-square"
+                class="carousel-item-image"
+                alt="Giant Springs State Park"
+                aria-label="Slide 6 of 7, Giant Springs State Park">
+          </picture>
+          <div class="overlay shadowed">
+              <div class="text-center">
+                <img class="overlay-icon" 
+                    src="/binaries/content/gallery/MTOT/icons/state-parks.png"
+                    alt="Giant Springs State Park"
+                />
+              </div>
+              <div class="text-center">
+                <div class="divider"></div>
+              </div>
+            <div class="text-center text-uppercase">
+              <h3 class="overlay-title">State Parks</h3>
+            </div>
+            <p class="overlay-subtitle text-center">
+                Each state park in Montana has something unique to offer
+            </p>
+            <div class="text-center overlay-button">
+                <a 
+                    class="text-uppercase overlay-button-link"
+                    href="/places-to-go/state-parks.html"
+                    target="_self">
+                    Explore<span class="glyphicon glyphicon-play"></span>
+                </a>
+            </div>
+          </div><!-- end of overlay -->
+        </div>
+        <div class="carousel-item">
+          <picture>
+            <source media="(max-width: 420px)" srcset="/binaries/content/gallery/MTOT/photos/summer/2019/photo-42-50p_web_square.jpg/photo-42-50p_web_square.jpg/MTOT%3A420w-square">
+            <source media="(max-width: 767px)" srcset="/binaries/content/gallery/MTOT/photos/summer/2019/photo-42-50p_web_square.jpg/photo-42-50p_web_square.jpg/MTOT%3A840w-square">
+            <source media="(max-width: 784px)" srcset="/binaries/content/gallery/MTOT/photos/summer/2019/photo-42-50p_web_square.jpg/photo-42-50p_web_square.jpg/MTOT%3A840w-square">
+            <source media="(max-width: 840px)" srcset="/binaries/content/gallery/MTOT/photos/summer/2019/photo-42-50p_web_square.jpg/photo-42-50p_web_square.jpg/MTOT%3A420w-square">
+            <source media="(min-width: 841px)" srcset="/binaries/content/gallery/MTOT/photos/summer/2019/photo-42-50p_web_square.jpg/photo-42-50p_web_square.jpg/MTOT%3A840w-square">
+            <img
+                src="/binaries/content/gallery/MTOT/photos/summer/2019/photo-42-50p_web_square.jpg/photo-42-50p_web_square.jpg/MTOT%3A840w-square"
+                class="carousel-item-image"
+                alt="Indian Country"
+                aria-label="Slide 7 of 7, Indian Country">
+          </picture>
+          <div class="overlay shadowed">
+              <div class="text-center">
+                <img class="overlay-icon" 
+                    src="/binaries/content/gallery/MTOT/icons/indian-nations2.png"
+                    alt="Indian Country"
+                />
+              </div>
+              <div class="text-center">
+                <div class="divider"></div>
+              </div>
+            <div class="text-center text-uppercase">
+              <h3 class="overlay-title">Indian Country</h3>
+            </div>
+            <p class="overlay-subtitle text-center">
+                Experience indigenous languages, cultures and traditions
+            </p>
+            <div class="text-center overlay-button">
+                <a 
+                    class="text-uppercase overlay-button-link"
+                    href="/places-to-go/indian-country.html"
+                    target="_self">
+                    Explore<span class="glyphicon glyphicon-play"></span>
+                </a>
+            </div>
+          </div><!-- end of overlay -->
+        </div>
+    </div>
+</section>
+
+                </div>
+                <div>
+                    
+        <script id="cr-init__ec37679e9e59600d" src="https://starling.crowdriff.com/js/crowdriff.js" async></script>
+ 
+
+                </div>
+    </div>
+
+    <section id="section5">
+      <!-- BEGIN placeholder component -->
+<footer class="slide resp-size">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <h3 class="text-center title"><a href="/">MONTANA</a></h3>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+        <div class="separator"></div>
+    </div>
+    
+
+	<div class="text-center col-xs-12 col-md-12 col-lg-12 col-sm-12">
+		<ul class="share-icons">
+					<li><a class="share-icon" href="https://www.facebook.com/visitmontana" target="_blank">
+						<img src="/binaries/content/gallery/MTOT/icons/social-media/footer-facebook.png"
+							title="facebook"/>
+					</a></li>
+					<li><a class="share-icon" href="https://twitter.com/visitmontana" target="_blank">
+						<img src="/binaries/content/gallery/MTOT/icons/social-media/footer-twitter.png"
+							title="twitter"/>
+					</a></li>
+					<li><a class="share-icon" href="https://www.youtube.com/c/visitmontana" target="_blank">
+						<img src="/binaries/content/gallery/MTOT/icons/social-media/footer-youtube.png"
+							title="youtube"/>
+					</a></li>
+					<li><a class="share-icon" href="http://montanamoment.tumblr.com/" target="_blank">
+						<img src="/binaries/content/gallery/MTOT/icons/social-media/footer-tumblr.png"
+							title="tumblr"/>
+					</a></li>
+					<li><a class="share-icon" href="https://www.instagram.com/visitmontana/" target="_blank">
+						<img src="/binaries/content/gallery/MTOT/icons/social-media/footer-instagram.png"
+							title="instagram"/>
+					</a></li>
+    </ul>
+	</div>
+<ul class="contact-links hidden-xs col-sm-12 text-center col-lg-12 col-md-12">
+					<li class="telephone-number text-center col-sm-6 col-md-6 col-lg-3 col-sm-offset-3 col-md-offset-3 col-lg-offset-3">
+			            <a href="tel:1 (800) 847-4868"><span class="tx-label"><span class="tel-icon"></span>1 (800) 847-4868</span></a>
+			        </li>
+			        <li class="live-chat col-sm-4 col-md-3 col-lg-4 text-center hidden-xs hidden-sm hidden-md">
+			            <div class="liveChat">
+			            	<span class="chat-icon"></span>
+				            <div class="chat" id="LiveChatOnline">
+				            	<a href="#" class="chat-link">LIVE CHAT</a>
+				            </div>
+			            </div>
+			        </li>
+		        </ul>
+			
+<div class="text-center col-xs-12 col-xs-offset-0 col-sm-offset-0 col-md-offset-0 col-lg-offset-0 col-md-12 col-lg-12 col-sm-12">
+	<ul class="related-links">
+        <li class="xs-col-12">
+						<a href="https://www.visitmt.com/about-us/letter-from-the-governor.html" target="_blank"> GOVERNOR'S WELCOME </a>
+        </li>
+        <li class="xs-col-12">
+						<a href="/contact.html"> CONTACT US </a>
+        </li>
+        <li class="xs-col-12">
+						<a href="/about-us/privacy-policy.html"> PRIVACY POLICY </a>
+        </li>
+        <li class="xs-col-12">
+						<a href="http://mt.gov/" target="_blank"> MONTANA.GOV </a>
+        </li>
+        <li class="xs-col-12">
+						<a href="/about-us/related-links.html"> RELATED LINKS </a>
+        </li>
+        <li class="xs-col-12">
+						<a href="/montana-stories/montana-pressroom/montana-pressroom.html"> PRESSROOM </a>
+        </li>
+        <li class="xs-col-12">
+						<a href="https://business.visitmt.com" target="_blank"> BUSINESS </a>
+        </li>
+	</ul>
+</div><div class="col-xs-12 visible-xs text-center">
+        <ul class="contact-links">
+            <li class="telephone-number text-center">
+                <a href="tel:1 (800) 847-4868"><span class="tx-label"><span class="tel-icon"></span>1 (800) 847-4868</span></a>
+            </li>
+        </ul>
+    </div>
+    
+
+<div class="col-md-offset-3 col-lg-offset-0 col-md-6 col-lg-12 col-sm-12 col-xs-12">
+  <ul class="lang-icons">
+      <li class="col-sm-offset-0 col-md-offset-0 col-md-2 col-sm-2 col-lg-2">
+        <a class="flag-icon" href="/binaries/content/assets/mtot/pdfs/footer-pdfs/visitmt.com_pdf_international_italian.pdf" target="_blank">
+          <img src="/binaries/content/gallery/MTOT/icons/flags/italy.png" />
+        </a>
+      </li>
+      <li class="col-sm-offset-0 col-md-offset-0 col-md-2 col-sm-2 col-lg-2">
+        <a class="flag-icon" href="/binaries/content/assets/mtot/pdfs/footer-pdfs/visitmt.com_pdf_international_german.pdf" target="_blank">
+          <img src="/binaries/content/gallery/MTOT/icons/flags/germany.png" />
+        </a>
+      </li>
+      <li class="col-sm-offset-0 col-md-offset-0 col-md-2 col-sm-2 col-lg-2">
+        <a class="flag-icon" href="/binaries/content/assets/mtot/pdfs/footer-pdfs/visitmt.com_pdf_international_french.pdf" target="_blank">
+          <img src="/binaries/content/gallery/MTOT/icons/flags/france.png" />
+        </a>
+      </li>
+      <li class="col-sm-offset-0 col-md-offset-0 col-md-2 col-sm-2 col-lg-2">
+        <a class="flag-icon" href="/binaries/content/assets/mtot/pdfs/footer-pdfs/visitmt.com_pdf_international_japanese.pdf" target="_blank">
+          <img src="/binaries/content/gallery/MTOT/icons/flags/japan.png" />
+        </a>
+      </li>
+      <li class="col-sm-offset-0 col-md-offset-0 col-md-2 col-sm-2 col-lg-2">
+        <a class="flag-icon" href="/binaries/content/assets/mtot/pdfs/footer-pdfs/visitmt.com_pdf_international_chinese.pdf" target="_blank">
+          <img src="/binaries/content/gallery/MTOT/icons/flags/china.png" />
+        </a>
+      </li>
+      <li class="col-sm-offset-0 col-md-offset-0 col-md-2 col-sm-2 col-lg-2">
+        <a class="flag-icon" href="/binaries/content/assets/mtot/pdfs/footer-pdfs/chinese_traditional.pdf" target="_blank">
+          <img src="/binaries/content/gallery/MTOT/icons/flags/china-traditional.png" />
+        </a>
+      </li>
+  </ul>
+</div>
+<div class="discover col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+	        <a href="https://www.visittheusa.com/state/montana" target="_blank"> <img src="/binaries/content/gallery/MTOT/icons/brand-usa/brandusa_large2.jpg" alt="Visit Montana USA"></a>
+	    </div>
+    <div class="copyright col-xs-12 col-md-12 col-xs-12 col-sm-12 col-lg-12 text-center">
+        <small>
+            <span class="year">© 2019 Montana Office of Tourism</span>
+            <span class="hidden-xs">|</span>
+            <span>All Rights Reserved</span>
+        </small>
+    </div>
+<script type="text/plain" data-cookieconsent="marketing">
+    var _adara_script = document.createElement("script");
+    var pathName = location.pathname;
+    _adara_script.setAttribute("src", "//tag.yieldoptimizer.com/ps/ps?t=s&p=1553&pg=px&ph=" + pathName);
+    document.getElementsByTagName("head")[0].appendChild(_adara_script);
+</script>
+</footer>
+
+      <!-- END placeholder component -->
+    </section>
+  </div>
+  <!--offcanvas left container-->
+</div>
+<!--fluid-container-->
+
+<!-- Bootstrap core JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+<!-- Modernizr CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.min.js"></script>
+
+<!-- custom js -->
+<script src="/js/application.js"></script>
+</body>
+</html>
