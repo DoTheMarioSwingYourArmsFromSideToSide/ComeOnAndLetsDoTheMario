@@ -1,0 +1,184 @@
+
+/******MAIN NAVIGATION BAR *******/
+div#mainNav {
+  margin:0px;
+  padding:0px;
+  height:39px;
+  background-color: #FFF;
+}
+
+div#mainNav ul {
+  list-style-type:none;
+  margin:0px;
+  padding:0px;
+  height:39px;
+  background-color: #FFF;
+  width:100%;
+  
+}
+
+div#mainNav ul li {
+ float:left;
+ margin: 0px 1px 0px 0px;
+
+ /*padding:0px;*/
+ height:39px;
+
+}
+ 
+
+div#mainNav ul.summer li
+{ padding:12px 4px 0px 4px;  
+  font-size:11pt;
+}
+
+div#mainNav ul.winter li
+{ padding:12px 2px 0px 2px;
+font-size:10.5pt;
+}
+
+
+div#mainNav ul li a, 
+div#mainNav ul li a:link {
+  color:#FFF;
+  font-weight: bold;
+  text-decoration:none;
+  margin:10px 1px;
+  line-height:100%;
+  padding:5px 1px;
+}
+
+div#mainNav ul li.summerlink {
+  background-image:url('/web/20070921161832im_/http://www.durangomountainresort.com/assets/lay/nav/link_off.gif');
+  background-repeat:repeat-x;
+
+}
+div#mainNav ul  li.winterlink {
+  background-image:url('/web/20070921161832im_/http://www.durangomountainresort.com/assets/lay/nav/winterlink_off.gif');
+  background-repeat:repeat-x;
+
+}
+
+div#mainNav ul li.link a, 
+div#mainNav ul li.link a:link  {
+ padding-left:3px; 
+}
+/*
+div#mainNav ul li.li1 {
+  background-image:url('/web/20070921161832im_/http://www.durangomountainresort.com/assets/lay/nav/li1_off.gif');
+  background-repeat:no-repeat;
+  width:64px;
+  
+}
+
+div#mainNav ul li.li1 a, 
+div#mainNav ul li.li1 a:link  {
+ padding-left:5px; 
+}
+div#mainNav ul li.li2 {
+  background-image:url('/web/20070921161832im_/http://www.durangomountainresort.com/assets/lay/nav/li2_off.gif');
+  background-repeat:no-repeat;
+  width:141px;
+}
+div#mainNav ul li.li3 {
+  background-image:url('/web/20070921161832im_/http://www.durangomountainresort.com/assets/lay/nav/li3_off.gif');
+  background-repeat:no-repeat;
+  width:71px;
+  
+}
+div#mainNav ul li.li4 {
+  background-image:url('/web/20070921161832im_/http://www.durangomountainresort.com/assets/lay/nav/li4_off.gif');
+  background-repeat:no-repeat;
+  width:60px;
+}
+div#mainNav ul li.li5 {
+  background-image:url('/web/20070921161832im_/http://www.durangomountainresort.com/assets/lay/nav/li5_off.gif');
+  background-repeat:no-repeat;
+  width:65px;
+}
+
+div#mainNav ul li.li6 {
+  background-image:url('/web/20070921161832im_/http://www.durangomountainresort.com/assets/lay/nav/li6_off.gif');
+  background-repeat:no-repeat;
+  width:88px;
+}
+div#mainNav ul li.li7 {
+  background-image:url('/web/20070921161832im_/http://www.durangomountainresort.com/assets/lay/nav/li7_off.gif');
+  background-repeat:no-repeat;
+  width:95px;
+}
+div#mainNav ul li.li8 {
+  background-image:url('/web/20070921161832im_/http://www.durangomountainresort.com/assets/lay/nav/li8_off.gif');
+  background-repeat:no-repeat;
+  width:72px;
+}*/
+div#mainNav ul li.winter {
+  background-image:url('/web/20070921161832im_/http://www.durangomountainresort.com/assets/lay/nav/winter_off.gif');
+  background-repeat:no-repeat;
+  width:162px;
+  
+  
+}
+div#mainNav ul li.winter, 
+div#mainNav ul li.li8
+ {
+ margin-right:0px;
+}
+
+div#mainNav ul li.winter a, 
+div#mainNav ul li.winter a:link {
+  margin-left:55px;
+  font-size:.8em;
+  background-image:url('/web/20070921161832im_/http://www.durangomountainresort.com/assets/lay/nav/bg_winter.gif');
+  background-position:left 50%;
+  background-repeat: no-repeat;
+  padding-left:24px;
+  
+}
+
+div#mainNav ul li.summer {
+  background-image:url('/web/20070921161832im_/http://www.durangomountainresort.com/assets/lay/nav/summer_off.gif');
+  background-repeat:no-repeat;
+  width:104px;
+  
+  
+}
+div#mainNav ul li.summer, 
+div#mainNav ul li.li8
+ {
+ margin-right:0px;
+}
+
+div#mainNav ul li.summer a, 
+div#mainNav ul li.summer a:link {
+  margin-left:6px;
+  font-size:.8em;
+  background-image:url('/web/20070921161832im_/http://www.durangomountainresort.com/assets/lay/nav/bg_summer.gif');
+  background-position:left 50%;
+  background-repeat: no-repeat;
+  padding-left:22px;
+  
+}
+
+
+/****** END NAVIGATION ****/
+/*
+     FILE ARCHIVED ON 16:18:32 Sep 21, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 00:25:45 Jul 16, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 73.904
+  exclusion.robots: 0.059
+  exclusion.robots.policy: 0.052
+  cdx.remote: 0.049
+  esindex: 0.008
+  LoadShardBlock: 45.243 (3)
+  PetaboxLoader3.datanode: 52.258 (4)
+  load_resource: 688.081
+  PetaboxLoader3.resolve: 677.05
+*/

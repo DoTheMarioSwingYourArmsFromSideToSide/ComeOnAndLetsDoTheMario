@@ -1,0 +1,136 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+var navNS4   = (navigator.appName.indexOf("Netscape") >= 0 && parseFloat(navigator.appVersion) >= 4) ? 1 : 0;
+//var navNS6   = (navigator.appName.indexOf("Netscape") >= 0 && parseFloat(navigator.appVersion) == 6) ? 1 : 0;
+var navNS6   = (navigator.appName.indexOf("Netscape") >= 0 && navigator.appVersion.indexOf("5.")  >= 0) ? 1 : 0;
+var navIE4   = (document.all) ? 1 : 0;
+var navIE5   = (navIE4 && navigator.appVersion.indexOf("5.")  >= 0) ? 1 : 0;
+var navIE55  = (navIE55 && navigator.appVersion.indexOf("5.5") >= 0) ? 1 : 0;
+
+function wndOpenHotDeals(url, memid, hdid) {
+	if (hdid > 0) {
+		window.open(url + "?memid=" + memid + "&hdid=" + hdid, "HotDeals", "toolbar=0,location=0,width=640,height=435,resizable=1,scrollbars=1");
+	} else {
+		window.open(url + "?memid=" + memid, "HotDeals", "toolbar=0,location=0,width=640,height=435,resizable=1,scrollbars=1");
+	}
+}
+
+function wndOpenAvailability(nMemID,nRoomTypeID) {
+	if (nRoomTypeID == null) {
+		window.open("jsp/lodging/RoomAvailability.jsp?rt=" + nRoomTypeID, "LodgingAvailability" + nMemID, "width=520,height=480,resizable=1");
+	} else {
+		window.open("jsp/lodging/RoomAvailability.jsp", "LodgingAvailability" + nMemID, "width=520,height=480,resizable=1");
+	}
+}
+
+function wndOpenAvailabilityGrid(nMemID,nRoomTypeID) {
+	if (nRoomTypeID == null) {
+		window.open("jsp/lodging/FacilityAvailability.jsp?rt=" + nRoomTypeID, "LodgingAvailability" + nMemID, "width=620,height=480,resizable=1");
+	} else {
+		window.open("jsp/lodging/FacilityAvailability.jsp", "LodgingAvailability" + nMemID, "width=620,height=480,resizable=1");
+	}
+}
+
+function wndOpenCCMap(url, Kiosk) {
+	if (Kiosk == 1) {
+		window.open(url, "AreaMap", "toolbar=0,location=0,width=640,height=435,resizable=1,scrollbars=1,menubar=no,fullscreen=yes");
+	} else {
+		window.open(url, "AreaMap", "toolbar=0,location=0,width=640,height=435,resizable=1,scrollbars=1");
+	}
+}
+
+function wndOpenReport(url, title) {
+	if (title == null) { title = ""; }
+	window.open(url, title, "menubar=1,toolbar=0,location=0,width=640,height=435,resizable=1,scrollbars=1");
+}
+
+function wndOpen(url, title, flags) {
+	if (title == null) { title = ""; }
+	if (flags == null) { flags = ""; }
+	window.open(url, title, flags);
+}
+
+function dlgOpen(sURL) {
+	window.open(sURL, "ChamberMaster", "width=400,height=340,scrollbars=1,resizable=1");
+}
+
+function wndPrint(navType, navVer, url) {
+	if ((navType == "Microsoft Internet Explorer") && (navVer < 5)) {
+		alert("Printing in IE 4.0 must be done through the File/Print menu.  When the Print control window is displayed, verify that the 'Only the selected frame' option is selected before hitting OK to start the print job.");
+	} else if ((navType == "Microsoft Internet Explorer") && (navVer >= 5.5)) {
+		//alert("Under Construction:\n\nPrinting in IE 5.5 must be done through the File/Print menu.  When the Print control window is displayed, go to the 'Options' tab and select the 'As laid out on screen' option is selected before hitting OK to start the print job.\n\nWe hope to have this issue resolved soon.  Thank you for your patience.");
+		var wnd = window.open(url);
+		wnd.print();
+		wnd.close();
+	} else {
+		window.print();
+	}
+}
+
+function resizeToStandard() {
+	var x, y
+	
+	if (window.screen.availWidth > 800) {
+		x = 800;
+	} else {
+		x = window.screen.availWidth;
+	}
+	if (window.screen.availHeight > 600) {
+		y = 600;
+	} else {
+		y = window.screen.availHeight;
+	}
+	
+	
+	window.resizeTo(x, y);
+}
+
+function resize(x, y) {
+}
+
+function limitLen(ctrl, len) {
+	if (ctrl.value.length > len) {
+		ctrl.value = ctrl.value.substring(0, len);
+	}
+}
+
+function limitLen(ctrl, len, txtCtrl) {
+	if (ctrl.value.length > len) {
+		ctrl.value = ctrl.value.substring(0, len);
+	}
+	if ( !isOSMac() )
+		txtCtrl.value = (len - ctrl.value.length) + "";
+}
+
+
+}
+/*
+     FILE ARCHIVED ON 22:08:52 Jul 25, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 00:08:07 Jul 16, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 108.819
+  exclusion.robots: 0.059
+  exclusion.robots.policy: 0.052
+  RedisCDXSource: 0.493
+  esindex: 0.006
+  LoadShardBlock: 89.961 (3)
+  PetaboxLoader3.datanode: 449.709 (4)
+  load_resource: 439.526
+  PetaboxLoader3.resolve: 53.018
+*/

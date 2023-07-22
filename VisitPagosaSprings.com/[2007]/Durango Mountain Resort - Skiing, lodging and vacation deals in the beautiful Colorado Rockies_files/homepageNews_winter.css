@@ -1,0 +1,211 @@
+
+/**** HOME PAGE NEWS BOXES ****/
+
+div#homePageNews {
+    margin:0px;
+	margin-top:-14px;
+	padding:0px;
+    background-image:url('/web/20070921161830im_/http://www.durangomountainresort.com/assets/lay/bg_transparent.png');
+	background-position:top left;
+	background-repeat: repeat-y;
+	width:823px;
+	float:left;
+}
+
+div#homePageNews table td#resForm,
+div#homePageNews table td#whatsHappening,
+div#homePageNews td#quicklinks
+{
+ background-color:#FFF;
+ color:#000;
+ margin:10px;
+ border: 1px solid #8F7A62;
+ vertical-align:top;
+ font-size:.8em;
+}
+
+div#homePageNews table td#whatsHappening {
+  border-right: none;
+  width:465px;
+  margin:0px;
+}
+
+div#homePageNews table td#quicklinks {
+  width:155px;
+} 
+
+div#homePageNews table td#quicklinks div#qlimg{
+  text-align:center;
+} 
+div#homePageNews table td#whatsHappening img#newboxspic {
+border-left: 1px solid #8F7A62;
+margin:0px;
+padding:0px;
+float:right;
+}
+
+div#homePageNews table td#whatsHappening div#randPckg {
+float:right;
+width:180px;
+margin:0px;
+padding:0px;
+}
+div#homePageNews table td#whatsHappening div#randPckg div {
+  border-left: 1px solid #8F7A62;
+  margin:0px;
+}
+
+div#homePageNews table td#whatsHappening div#randPckg a#moreLink
+{
+  background-image:url('/web/20070921161830im_/http://www.durangomountainresort.com/assets/lay/icons/leftArrow_red.gif');
+  background-position:left;
+  background-repeat: no-repeat;
+  padding-left:10px;
+  margin-right:5px;
+  color:#99322B;
+ font-weight:bold;
+ text-decoration:none;
+}
+
+div#homePageNews table td#resForm {
+ width:160px;
+}
+
+div#homePageNews table td#resForm h3,
+div#homePageNews td#whatsHappening h3,
+div#homePageNews td#quicklinks h3{
+  color:#FFF;
+  background-image:url('/web/20070921161830im_/http://www.durangomountainresort.com/assets/lay/homepage/newsbox/bg_brown.gif');
+  background-repeat: repeat-x;
+  background-position: top left;
+  margin:0px;
+  padding:5px;
+  font-size:1.1em;
+  height:26px;
+ 
+}
+
+
+div#homePageNews td#resForm form#resrvForm {
+ margin:5px;
+}
+div#homePageNews td#resForm p {
+ margin:10px 3px 0px 3px;
+}
+div#homePageNews td#resForm p#resFormPhone {
+ color:#8F7A62;
+ font-weight:bold;
+ margin:10px 0px 3px 10px;
+}
+
+/*** WHATS HAPPENING ****/
+div#homePageNews td#whatsHappening dl {
+ margin:0px;
+ padding:0px;
+}
+/*div#homePageNews td#whatsHappening dt*/
+div#homePageNews td#whatsHappening h4 {
+ color:#99322B;
+ font-weight:bold;
+ font-size:1.2em;
+ margin:0px;
+ padding:0px 4px;
+}
+div#homePageNews td#whatsHappening div, div#homePageNews td#whatsHappening p{
+ margin:0px 0px 5px 0px;
+ padding:0px 3px;
+}
+
+div#homePageNews td#whatsHappening h4 a,
+div#homePageNews td#whatsHappening h4 a:link,
+div#homePageNews td#whatsHappening li a,
+div#homePageNews td#whatsHappening li a:link,
+div#homePageNews td#quicklinks li a,
+div#homePageNews td#quicklinks li a:link
+{
+ color:#99322B;
+ font-weight:bold;
+ text-decoration:none;
+}
+
+div#homePageNews td#whatsHappening h4 a:hover,
+div#homePageNews td#quicklinks li a:hover,
+div#homePageNews td#whatsHappening li a:hover {
+  color:#8B9BB8;
+}
+
+
+div#homePageNews td#whatsHappening li a:link {
+ font-size:.9em;
+}
+div#homePageNews td#whatsHappening ul {
+ list-style-type:none;
+ margin:10px 5px 0px 5px;
+ padding:0px;
+}
+
+div#homePageNews td#whatsHappening li {
+  float:left;
+  background-image:url('/web/20070921161830im_/http://www.durangomountainresort.com/assets/lay/icons/leftArrow_red.gif');
+  background-position:left;
+  background-repeat: no-repeat;
+  padding-left:10px;
+  margin-right:5px;
+}
+
+
+/***** QUICK LINKS *****/
+div#homePageNews td#quicklinks ul {
+  list-style-type:none;
+  margin:5px 5px 10px 10px;
+  padding:0px;
+
+}
+
+div#homePageNews td#quicklinks li {
+  background-image:url('/web/20070921161830im_/http://www.durangomountainresort.com/assets/lay/icons/leftArrow_red.gif');
+  background-position:left;
+  background-repeat: no-repeat;
+  padding-left:10px;
+  margin-right:5px;
+}
+/***** form controls css ****/
+div#homePageNews td#resForm form#resrvForm  input.formButton {
+	BORDER-RIGHT: 1px outset;
+	BORDER-TOP: 1px outset;
+	FONT-WEIGHT: bold;
+	FONT-SIZE: .9em;
+	BORDER-LEFT: 1px outset;
+	COLOR: white;
+	text-transform:uppercase;
+	BORDER-BOTTOM: 1px outset;
+	BACKGROUND-COLOR: #99322B;
+	text-align : center;
+}
+
+div#homePageNews td#resForm form#resrvForm .formField {
+	BACKGROUND-COLOR: #FFF;
+	BORDER:  1px solid #91905F;
+	COLOR: #000;
+	FONT-SIZE: .8em;
+}
+/*
+     FILE ARCHIVED ON 16:18:30 Sep 21, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 00:25:46 Jul 16, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 76.519
+  exclusion.robots: 0.071
+  exclusion.robots.policy: 0.062
+  RedisCDXSource: 1.166
+  esindex: 0.011
+  LoadShardBlock: 54.883 (3)
+  PetaboxLoader3.datanode: 65.236 (4)
+  load_resource: 104.256
+  PetaboxLoader3.resolve: 81.586
+*/

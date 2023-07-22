@@ -1,0 +1,64 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+// JavaScript Document
+
+//pathToScript="assets/javascript/nav/" ;// for hier menus
+
+
+//this is the drop down menu script
+
+if(window.event + "" == "undefined") event = null;
+function HM_f_PopUp(){return false};
+function HM_f_PopDown(){return false};
+PopUp = HM_f_PopUp;
+popDown = HM_f_PopDown;
+
+
+
+function popWin(URL,name,w,h){
+    window.open(URL,name,'scrollbars=1,toolbar=0,menubar=0,statusbar=0,addressbar=0,resizable=1,width=' + w + ',height= ' + h)
+  }
+
+// displays status bar message
+var showMsg = navigator.userAgent != "Mozilla/4.0 (compatible; MSIE 4.0; Mac_PowerPC)";
+function dmim(msgStr) {
+  document.returnValue = false;
+  if (showMsg) {
+    window.status = msgStr;
+    document.returnValue = true;
+  }
+}
+			
+ 
+
+}
+/*
+     FILE ARCHIVED ON 16:18:41 Sep 21, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 00:25:45 Jul 16, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 179.576
+  exclusion.robots: 0.07
+  exclusion.robots.policy: 0.061
+  cdx.remote: 0.056
+  esindex: 0.01
+  LoadShardBlock: 154.079 (3)
+  PetaboxLoader3.datanode: 167.034 (4)
+  load_resource: 72.807
+  PetaboxLoader3.resolve: 46.024
+*/

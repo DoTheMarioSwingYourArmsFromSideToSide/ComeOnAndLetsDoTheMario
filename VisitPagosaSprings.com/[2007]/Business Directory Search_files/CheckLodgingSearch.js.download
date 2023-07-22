@@ -1,0 +1,208 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+//pre-load images
+var imgSearchOn = new Image();		imgSearchOn.src = "/images/buttons/grey/VacancySearch.gif";
+var imgSearchOff = new Image();		imgSearchOff.src = "/images/buttons/grey/VacancySearch.gif";
+var imgClearOn = new Image();		imgClearOn.src = "/images/buttons/grey/NewSearch.gif";
+var imgClearOff = new Image();		imgClearOff.src = "/images/buttons/grey/NewSearch.gif";
+var imgHotDealOn = new Image();		imgHotDealOn.src= "/images/icons/HotDealPill.gif";
+var imgHotDealOff = new Image();	imgHotDealOff.src= "/images/icons/HotDealPill.gif";
+var aRoomNames = new Array();
+var aRoomText = new Array();
+var aRoomChecked = new Array();
+var aRoomIDs = new Array();
+var aRoomAssoc = new Array();
+
+function imgOn(elemName, imgName)	{ document[elemName].src = eval("img" + imgName + "On.src"); }
+function imgOff(elemName, imgName)	{ document[elemName].src = eval("img" + imgName + "Off.src"); }
+function setSmokingOption(oCtrl, sSmokingCtrl) {
+	if (oCtrl.options[oCtrl.selectedIndex].name == "optSmokingYes") {
+		document.formMain.elements[sSmokingCtrl].value = "on";
+	} else {
+		document.formMain.elements[sSmokingCtrl].value = "off";
+	}
+}
+		
+function bracketTokenizer(sIn, cTok) {
+	var nIdx = 0;
+	var i = 0;
+	var aOut = new Array();
+
+	if (sIn == "") return aOut;
+				
+	while (nIdx >= 0) {
+		if (i != 0) { nIdx++; }
+		nTemp = sIn.indexOf(cTok, nIdx)
+		if (nTemp < 0) {
+			aOut[i] = sIn.substring(nIdx+1);		//assumes a preceding bracket character
+		} else {
+			aOut[i] = sIn.substring(nIdx+1, nTemp);	//assumes a preceding bracket character
+		}
+		nIdx = nTemp;
+		i++;
+	}
+	return aOut;
+}
+		
+function simpTokenizer(sIn, cTok) {
+	var nIdx = 0;
+	var i = 0;
+	var aOut = new Array();
+
+	if (sIn == "") return aOut;
+				
+	while (nIdx >= 0) {
+		if (i != 0) { nIdx++; }
+		nTemp = sIn.indexOf(cTok, nIdx)
+		if (nTemp < 0) {
+			aOut[i] = sIn.substring(nIdx);
+		} else {
+			aOut[i] = sIn.substring(nIdx, nTemp);
+		}
+		nIdx = nTemp;
+		i++;
+	}
+	return aOut;
+}
+		
+function buildRoomArrays() {
+	var sRoomNames = new String(document.formMain.roomNames.value);
+	var sRoomText = new String(document.formMain.roomText.value);
+	var sRoomChecked = new String(document.formMain.roomChecked.value);
+	var sRoomIDs = new String(document.formMain.roomIDs.value);
+	var sRoomAssoc = new String(document.formMain.roomAssoc.value);
+
+	aRoomNames = bracketTokenizer(sRoomNames, "]");
+	aRoomText = bracketTokenizer(sRoomText, "]");
+	aRoomChecked = bracketTokenizer(sRoomChecked, "]");
+	aRoomIDs = bracketTokenizer(sRoomIDs, "]");
+	aRoomAssoc = bracketTokenizer(sRoomAssoc, "]");
+}
+		
+function updateRoomTypes() {
+	var form = document.formMain;
+
+	//determine selected facility types
+	var sFacs = new String();
+	for (var i=0; i < form.elements.length; i++) {
+		if ((form.elements[i].name.substring(0, 10) == "chkFacType") && (form.elements[i].checked)) {
+			sFacs += "[" + form.elements[i].name.substring(10) + "]";		//remove 'chkFacType' to get fac type id, enclose with "[]"
+		}
+	}
+	var aAssoc = new Array();			
+	var bFound = false;
+	var oOption;
+	var nIdx = 0;
+	var sCurOpt = form.lstRoomTypes.options[form.lstRoomTypes.selectedIndex].value;
+
+	for (var i=0; i < aRoomNames.length; i++) {
+		if (sFacs == "") {
+			bFound = true;
+		} else {
+			bFound = false;
+			aAssoc = simpTokenizer(aRoomAssoc[i], ":");
+			for (var j=0; !bFound && j < aAssoc.length; j++) {
+				bFound = (sFacs.indexOf("[" + aAssoc[j] + "]") >= 0);
+			}
+		}
+		if (bFound) {
+			oOption = new Option(aRoomText[i], aRoomNames[i], false, aRoomChecked[i]);
+			form.lstRoomTypes.options[++nIdx] = oOption;
+		}
+	}
+	nIdx++;
+
+	//Clear old options from the list.		
+	while (form.lstRoomTypes.length > nIdx) {
+		form.lstRoomTypes.options[form.lstRoomTypes.length-1] = null
+	}
+	
+	bFound = false;
+	for (var i=0; !bFound && i < form.lstRoomTypes.length; i++) {
+		if (form.lstRoomTypes.options[i].value == sCurOpt) {
+			form.lstRoomTypes.options[i].selected = true;
+			bFound = true;
+		}
+	}
+
+	if (!bFound) { form.lstRoomTypes.options[0].selected = true; }
+}
+
+function loadRoomTypes() {
+	var form = document.formMain;
+
+	//determine selected facility types
+	var sFacs = new String();
+	for (var i=0; i < form.elements.length; i++) {
+		if ((form.elements[i].name.substring(0, 10) == "chkFacType") && (form.elements[i].checked)) {
+			sFacs += "[" + form.elements[i].name.substring(10) + "]";		//remove 'chkFacType' to get fac type id, leave trailing ']'
+		}
+	}
+
+	var aAssoc = new Array();			
+	var bFound = false;
+	var oOption;
+	var nIdx = 0;
+	var nSelIdx = 0;
+
+	for (var i=0; i < aRoomNames.length; i++) {
+		if (sFacs == "") {
+			bFound = true;
+		} else {
+			bFound = false;
+			aAssoc = simpTokenizer(aRoomAssoc[i], ":");
+			for (var j=0; !bFound && j < aAssoc.length; j++) {
+				bFound = (sFacs.indexOf("[" + aAssoc[j] + "]") >= 0);
+			}
+		}
+		if (bFound) {
+			oOption = new Option(aRoomText[i], aRoomNames[i], false, aRoomChecked[i]);
+			form.lstRoomTypes.options[++nIdx] = oOption;
+			if (aRoomChecked[i] == "true") {
+				nSelIdx = nIdx;
+			}
+		}
+	}
+	nIdx++;
+
+	//Clear old options from the list.		
+	while (form.lstRoomTypes.length > nIdx) {
+		form.lstRoomTypes.options[form.lstRoomTypes.length-1] = null
+	}
+	
+	form.lstRoomTypes.options[nSelIdx].selected = true;
+}
+
+
+
+}
+/*
+     FILE ARCHIVED ON 07:47:01 Jul 17, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 00:08:07 Jul 16, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 232.006
+  exclusion.robots: 0.118
+  exclusion.robots.policy: 0.104
+  cdx.remote: 0.066
+  esindex: 0.009
+  LoadShardBlock: 146.728 (3)
+  PetaboxLoader3.datanode: 125.82 (4)
+  load_resource: 146.257
+  PetaboxLoader3.resolve: 94.273
+*/

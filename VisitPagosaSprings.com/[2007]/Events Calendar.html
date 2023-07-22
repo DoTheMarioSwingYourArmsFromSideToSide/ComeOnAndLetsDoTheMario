@@ -1,0 +1,411 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0101)https://web.archive.org/web/20071027040119/http://www.chambermaster.com/directory/events.jsp?ccid=293 -->
+<html><script type="text/javascript" src="chrome-extension://mdnleldcmiljblolnjhpnblkcekpdkpa/libs/customElements.js" class="__REQUESTLY__SCRIPT"></script><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"><script src="./Events Calendar_files/analytics.js.download" type="text/javascript"></script>
+<script type="text/javascript">window.addEventListener('DOMContentLoaded',function(){var v=archive_analytics.values;v.service='wb';v.server_name='wwwb-app221.us.archive.org';v.server_ms=967;archive_analytics.send_pageview({});});</script>
+<script type="text/javascript" src="./Events Calendar_files/bundle-playback.js.download" charset="utf-8"></script>
+<script type="text/javascript" src="./Events Calendar_files/wombat.js.download" charset="utf-8"></script>
+<script type="text/javascript">
+  __wm.init("https://web.archive.org/web");
+  __wm.wombat("http://www.chambermaster.com:80/directory/events.jsp?ccid=293","20071027040119","https://web.archive.org/","web","/_static/",
+	      "1193457679");
+</script>
+<link rel="stylesheet" type="text/css" href="./Events Calendar_files/banner-styles.css">
+<link rel="stylesheet" type="text/css" href="./Events Calendar_files/iconochive.css">
+<!-- End Wayback Rewrite JS Include -->
+
+		<title>Events Calendar</title>
+
+		<meta name="generator" content="Microsoft Visual Studio 6.0">
+		<link rel="stylesheet" href="./Events Calendar_files/_public.css">
+		<script type="text/javascript" src="./Events Calendar_files/tigra_calendar.js.download"></script>
+		<script type="text/javascript">
+/*			function getQS_Location() {
+				var form = document.formMain;
+				var qs	 = "";
+				if (form.city && form.area) {
+					if (form.city.selectedIndex > 0) qs = "&a="+form.city.options[form.city.selectedIndex].value;
+					if (form.area.selectedIndex > 0) qs += "&a2="+form.area.options[form.area.selectedIndex].value;
+				} else if (form.city) {
+					if (form.city.selectedIndex > 0) qs = "&a="+form.city.options[form.city.selectedIndex].value;
+				} else if (form.area) {
+					if (form.area.selectedIndex > 0) qs = "&a="+form.area.options[form.area.selectedIndex].value;
+				}
+				return qs;
+			}
+*/			
+			function search() {
+				var form = document.formMain;
+				var qs = "ccid=293&visibility=2";
+				
+				//build query string
+				if (form.category && form.category.selectedIndex > 0)	qs += "&catgid="+form.category.options[form.category.selectedIndex].value;
+				if (form.keyword && form.keyword.value.length >= 2)		qs += "&keyword="+form.keyword.value;
+//				if (form.dateFrom && form.dateFrom.value.length >= 6)	qs += "&dtFrom="+form.dateFrom.value;
+//				if (form.dateThru && form.dateThru.value.length >= 6)	qs += "&dtThru="+form.dateThru.value;
+				if (form.monthOffset && form.monthOffset.selectedIndex > 0)	{
+					var idx = Number(form.monthOffset.options[form.monthOffset.selectedIndex].value);
+					idx += (new Date()).getMonth();
+					var month = idx % 12;
+					var year = (new Date()).getYear() + Math.floor(idx / 12);
+					if (year < 1900) year += 1900;
+					qs += "&year="+year+"&month="+month;
+				} else if (form.monthOffset) {
+					qs += "&context=all";
+				}
+				if (form.location && form.location.selectedIndex > 0)	qs += "&location="+form.location.options[form.location.selectedIndex].value;
+				if (parent.frames["events_list"]) {
+					parent.frames["events_list"].location = "https://web.archive.org/web/20071027040119/http://www.chambermaster.com/directory/events_list.jsp?"+qs;
+				} else {
+					window.frames["events_list"].location = "https://web.archive.org/web/20071027040119/http://www.chambermaster.com/directory/events_list.jsp?"+qs;
+				}
+				if (parent.frames["events_calendar"]) {
+					parent.frames["events_calendar"].location = "https://web.archive.org/web/20071027040119/http://www.chambermaster.com/directory/events_calendar.jsp?"+qs;
+				} else {
+					window.frames["events_calendar"].location = "https://web.archive.org/web/20071027040119/http://www.chambermaster.com/directory/events_calendar.jsp?"+qs;
+				}
+				form.qsListing.value = qs;
+				if (document.getElementById("aPrintSummary")) document.getElementById("aPrintSummary").href = "https://web.archive.org/web/20071027040119/http://www.chambermaster.com/directory/jsp/events/dlg/Public_PrintSummary.jsp?"+qs;
+			}
+			
+			function viewHotDeals() {
+				window.location.href = "https://web.archive.org/web/20071027040119/http://www.chambermaster.com/directory/jsp/hotdeals/Search.jsp;jsessionid=B1FF06AD6E7312B2EB57D80D50D13E5A?ccid=293";
+				//window.location.href = "https://web.archive.org/web/20071027040119/http://www.chambermaster.com/directory/Coupons.jsp;jsessionid=B1FF06AD6E7312B2EB57D80D50D13E5A?ccid=293";
+			}
+			
+			function cmOnload() {
+//				document.location.hash = "";
+				if (!document.all) document.captureEvents(Event.KEYDOWN);
+				try {
+					if (parent.doIFrameOnLoad) parent.doIFrameOnLoad();
+				} catch(err) { } 
+			}
+			
+			if (window.addEventListener) { 
+				window.addEventListener("load",cmOnload,false);
+				window.addEventListener("keydown",cmKeydown,true);
+			}else if (window.attachEvent) {
+				window.attachEvent("onload", cmOnload);
+				document.attachEvent("onkeydown", cmKeydown);
+			} else {
+				if (window.onload == "") window.onload = cmOnload();
+				if (window.onkeydown)  window.onkeydown = cmKeydown;
+			}
+			
+			function cmKeydown(e) {
+				var nKey = 0;
+				if (document.all) {
+					nKey = event.keyCode;
+				} else {
+					nKey = e.which;
+				}
+				if (nKey == 13) {
+					search();
+					if (navigator.appVersion.indexOf("MSIE") != -1) {
+						window.event.cancelBubble = true;
+						window.event.keyCode = 0;
+						return false;	//I couldn't find any other way to prevent the form submit -- james 4/4/2007
+					} else {
+						e.preventDefault();
+					}
+				}
+			}
+			
+			function setQS(qs) {
+				
+				if (document.getElementById("aPrintSummary")) document.getElementById("aPrintSummary").href = "https://web.archive.org/web/20071027040119/http://www.chambermaster.com/directory/jsp/events/dlg/Public_PrintSummary.jsp?"+qs;
+			}
+			
+			/*** Calendars ***/
+			var calFrom = null;
+			var calThru = null;
+
+			function initCalendars() {
+				calFrom = new calendar2(document.formMain.elements['dateFrom']);
+				calFrom.year_scroll = true;
+				calFrom.time_comp = false;
+				calThru = new calendar2(document.formMain.elements['dateThru']);
+				calThru.year_scroll = true;
+				calThru.time_comp = false;
+			}
+			/*** End Calendars ***/
+		</script>
+
+	</head>	
+	<body style="margin:10px;" class="cm_eventBody_EventPage" data-new-gr-c-s-check-loaded="14.1115.0" data-gr-ext-installed=""><!-- BEGIN WAYBACK TOOLBAR INSERT -->
+<script>__wm.rw(0);</script>
+<div id="wm-ipp-base" lang="en" style="display: block; direction: ltr;">
+</div><div id="wm-ipp-print">The Wayback Machine - https://web.archive.org/web/20071027040119/http://www.chambermaster.com:80/directory/events.jsp?ccid=293</div>
+<script type="text/javascript">//<![CDATA[
+__wm.bt(700,27,25,2,"web","http://www.chambermaster.com/directory/events.jsp?ccid=293","20071027040119",1996,"/_static/",["/_static/css/banner-styles.css?v=S1zqJCYt","/_static/css/iconochive.css?v=qtvMKcIJ"], false);
+  __wm.rw(1);
+//]]></script>
+<!-- END WAYBACK TOOLBAR INSERT -->
+ 
+
+	<div class="cm_eventBody_EventPage">
+		<a name="cm_top"></a>
+		<form name="formMain" method="post" action="https://web.archive.org/web/20071027040119/http://www.chambermaster.com/directory/events.jsp?ccid=293">
+			<input type="hidden" name="command" value="">
+			<input type="hidden" name="qualifier" value="">
+			<input type="hidden" name="page" value="/directory/events.jsp">
+			<input type="hidden" name="qsListing" value="ccid=293">
+			
+			<table style="width:600px;" cellpadding="0" cellspacing="0">
+				<tbody><tr>
+					
+					<td class="cm_eventHeading" style="width:240px;vertical-align:bottom;">Events Calendar</td>
+					
+					
+				</tr>
+				<tr><td colspan="2"><img class="cm_eventNavBar" src="./Events Calendar_files/spacer.gif" alt=""></td></tr>
+				<tr><td colspan="2" style="height:12px;"></td></tr>
+			</tbody></table>
+			
+			<table class="cm_eventNormal" style="width:600px;" cellpadding="0" cellspacing="0">
+				<tbody><tr>
+					<td style="width:270px;border-right:1px solid #003366;vertical-align:top;">
+						<div style="text-align:center;">
+						<iframe id="events_calendar" name="events_calendar" src="./Events Calendar_files/events_calendar.html" class="cm_eventIFRAME" style="width:250px;height:260px;" allowtransparency="true" frameborder="0"></iframe>
+						</div>
+						
+						<img src="./Events Calendar_files/spacer.gif" style="margin:6px;width:258px;height:1px;background-color:#003366;" alt=""><br><br>
+						<span class="cm_eventSectionHead">Upcoming Events</span>
+						<iframe id="events_upcoming" name="events_upcoming" src="./Events Calendar_files/events_upcoming.html" class="cm_eventIFRAME" style="width:270px;" allowtransparency="true" frameborder="0"></iframe>
+						
+						
+					</td>
+					<td style="width:330px;vertical-align:top;">
+						<div id="events_list_heading" class="cm_eventSectionHead" style="padding-left:4px;">Events for September 2007</div>
+						
+						<iframe id="events_list" name="events_list" src="./Events Calendar_files/events_list.html" class="cm_eventIFRAME" style="width:330px;height:260px;" allowtransparency="true" frameborder="0" height="323"></iframe>
+						
+						<table cellspacing="0" cellpadding="0" width="100%" class="cm_eventNormal">
+							<tbody><tr style="padding-top:2px;">
+								<td style="width:50%;padding-left:8px;vertical-align:top;"><a id="aPrintSummary" href="https://web.archive.org/web/20071027040119/http://www.chambermaster.com/directory/jsp/events/dlg/Public_PrintSummary.jsp?ccid=293" target="_blank" class="cm_txtLinkOvr">Printable Summary</a></td>
+								
+								<td style="width:50%;text-align:right;padding-right:8px;vertical-align:top;"><a href="https://web.archive.org/web/20071027040119/http://www.chambermaster.com/directory/jsp/events/dlg/Public_AddEvent.jsp?ccid=293" target="_blank" class="cm_txtLinkOvr">Submit New Event</a></td>
+								
+							</tr>
+						</tbody></table>
+						<br><img src="./Events Calendar_files/spacer.gif" style="margin:6px;width:318px;height:1px;background-color:#003366;" alt=""><br><br>
+						<table class="cm_eventNormal" style="width:320px;" cellpadding="1" cellspacing="0">
+							<tbody><tr style="height:1px;"><td style="width:66px;"></td><td style="width:254px;"></td></tr>
+							
+							<tr>
+								<td style="font-weight:700;text-align:right;">Category:&nbsp;</td>
+								<td>
+									<select name="category" class="cm_eventNormal" style="width:250px;">
+									<option value="0" selected="">Any Category</option>
+									
+									<option value="2">Arts &amp; Culture</option>
+									
+									<option value="6">Chamber Of Commerce</option>
+									
+									<option value="9">Clubs/Organizations</option>
+									
+									<option value="3">Community Services</option>
+									
+									<option value="7">Continuing Education</option>
+									
+									<option value="1">Festivals &amp; Celebrations</option>
+									
+									<option value="4">Government</option>
+									
+									<option value="8">Holiday</option>
+									
+									<option value="10">Recreation &amp; Sports</option>
+									
+									<option value="5">Schools</option>
+									
+									</select>
+								</td>
+							</tr>
+							
+							
+							<tr>
+								<td style="font-weight:700;text-align:right;">Keyword:&nbsp;</td>
+								<td><input type="text" name="keyword" class="cm_eventNormal" style="width:246px;" value=""></td>
+							</tr>
+							
+							
+							
+							<tr>
+								<td style="font-weight:700;text-align:right;">Month:&nbsp;</td>
+								<td>
+									<select name="monthOffset" class="cm_eventNormal" style="width:250px;">
+										<option value="-1" selected="">Any Month</option>
+									
+										<option value="0">2007 - October</option>
+										
+									
+										<option value="1">2007 - November</option>
+										
+									
+										<option value="2">2007 - December</option>
+										
+									
+										<option value="3">2008 - January</option>
+										
+									
+										<option value="4">2008 - February</option>
+										
+									
+										<option value="5">2008 - March</option>
+										
+									
+										<option value="6">2008 - April</option>
+										
+									
+										<option value="7">2008 - May</option>
+										
+									
+										<option value="8">2008 - June</option>
+										
+									
+										<option value="9">2008 - July</option>
+										
+									
+										<option value="10">2008 - August</option>
+										
+									
+										<option value="11">2008 - September</option>
+										
+									
+										<option value="12">2008 - October</option>
+										
+									
+										<option value="13">2008 - November</option>
+										
+									
+										<option value="14">2008 - December</option>
+										
+									
+										<option value="15">2009 - January</option>
+										
+									
+										<option value="16">2009 - February</option>
+										
+									
+										<option value="17">2009 - March</option>
+										
+									
+									</select>
+								</td>
+							</tr>
+							
+<!--							
+							
+							<tr>
+								<td style="font-weight:700;text-align:right;">From:&nbsp;</td>
+								<td>
+									<input type="text" name="dateFrom" class="cm_eventNormal" maxlength="50" style="width:70px" value="">&nbsp;
+									<a href="javascript:calFrom.popup();" style="font-size:11px" class="lnkNormalOvr"><img src="http://www.chambermaster.com/directory/images/calendar/cal.gif" width="16" height="16" border="0" alt="select FROM date"></a>
+									<span style="font-weight:700;">&nbsp;&nbsp;&nbsp;To:&nbsp;</span>
+									<input type="text" name="dateThru" class="cm_eventNormal" maxlength="50" style="width:70px" value="">&nbsp;
+									<a href="javascript:calThru.popup();" style="font-size:11px" class="lnkNormalOvr"><img src="http://www.chambermaster.com/directory/images/calendar/cal.gif" width="16" height="16" border="0" alt="select TO date"></a>
+								</td>
+							</tr>
+							
+-->
+							<tr>
+								<td colspan="4" style="text-align:center;padding-top:8px;">
+									<span onclick="search();" class="cm_btnOut" onmouseover="this.className=&#39;cm_btnOvr&#39;;" onmouseout="this.className=&#39;cm_btnOut&#39;;">Search</span>
+								</td>
+							</tr>
+						</tbody></table>
+					</td>
+				</tr>
+			</tbody></table>
+		</form>
+
+		<div style="width:600px;">
+			
+
+
+
+
+
+
+
+		<script type="text/javascript">
+		<!--
+			function go(context) {
+				if (context == 0) 								{ window.parent.location = "https://web.archive.org/web/20071027040119/http://www.pagosachamber.com"; }
+/*	THIS IS THE DESIRED STRUCTURE - BUT THE PAGES MUST BE IMPLEMENTED FIRST - james 1/10/2007
+				else if (context == 1)		{ window.location = "https://web.archive.org/web/20071027040119/http://www.chambermaster.com/directory/business.jsp;jsessionid=B1FF06AD6E7312B2EB57D80D50D13E5A?ccid=293"; }
+				else if (context == 2)		{ window.location = "https://web.archive.org/web/20071027040119/http://www.chambermaster.com/directory/events.jsp;jsessionid=B1FF06AD6E7312B2EB57D80D50D13E5A?ccid=293"; }
+				else if (context == 4)		{ window.location = "https://web.archive.org/web/20071027040119/http://www.chambermaster.com/directory/coupons.jsp;jsessionid=B1FF06AD6E7312B2EB57D80D50D13E5A?ccid=293"; }
+				else if (context == 8)			{ window.location = "https://web.archive.org/web/20071027040119/http://www.chambermaster.com/directory/jobs.jsp;jsessionid=B1FF06AD6E7312B2EB57D80D50D13E5A?ccid=293"; }
+				else if (context == 16)		{ window.location = "https://web.archive.org/web/20071027040119/http://www.chambermaster.com/directory/weather.jsp;jsessionid=B1FF06AD6E7312B2EB57D80D50D13E5A?ccid=293"; }
+				else if (context == 32)	{ window.location = "https://web.archive.org/web/20071027040119/http://www.chambermaster.com/directory/contactUs.jsp;jsessionid=B1FF06AD6E7312B2EB57D80D50D13E5A?ccid=293"; }
+				else if (context == 64)		{ window.location = "https://web.archive.org/web/20071027040119/http://www.chambermaster.com/directory/infoReq.jsp;jsessionid=B1FF06AD6E7312B2EB57D80D50D13E5A?ccid=293"; }
+				else if (context == 128)		{ window.location = "https://web.archive.org/web/20071027040119/http://www.chambermaster.com/directory/lodging.jsp;jsessionid=B1FF06AD6E7312B2EB57D80D50D13E5A?ccid=293"; }
+*/
+				else if (context == 1)		{ window.location = "https://web.archive.org/web/20071027040119/http://www.chambermaster.com/directory/jsp/busdir/Search.jsp;jsessionid=B1FF06AD6E7312B2EB57D80D50D13E5A?ccid=293"; }
+				else if (context == 2)		{ window.location = "https://web.archive.org/web/20071027040119/http://www.chambermaster.com/directory/events.jsp;jsessionid=B1FF06AD6E7312B2EB57D80D50D13E5A?ccid=293"; }
+				else if (context == 4)		{ window.location = "https://web.archive.org/web/20071027040119/http://www.chambermaster.com/directory/jsp/hotdeals/Search.jsp;jsessionid=B1FF06AD6E7312B2EB57D80D50D13E5A?ccid=293"; }
+				else if (context == 8)			{ window.location = "https://web.archive.org/web/20071027040119/http://www.chambermaster.com/directory/jsp/jobs/Search.jsp;jsessionid=B1FF06AD6E7312B2EB57D80D50D13E5A?ccid=293"; }
+				else if (context == 16)		{ window.location = "https://web.archive.org/web/20071027040119/http://www.chambermaster.com/directory/weather.jsp;jsessionid=B1FF06AD6E7312B2EB57D80D50D13E5A?ccid=293"; }
+				else if (context == 32)	{ window.location = "https://web.archive.org/web/20071027040119/http://www.chambermaster.com/directory/jsp/inforeq/ContactUs.jsp;jsessionid=B1FF06AD6E7312B2EB57D80D50D13E5A?ccid=293"; }
+				else if (context == 64)		{ window.location = "https://web.archive.org/web/20071027040119/http://www.chambermaster.com/directory/jsp/inforeq/qryInterests.jsp;jsessionid=B1FF06AD6E7312B2EB57D80D50D13E5A?ccid=293"; }
+				
+				else if (context == 128)		{ window.location = "https://web.archive.org/web/20071027040119/http://www.chambermaster.com/directory/jsp/busdir/SearchResults.jsp;jsessionid=B1FF06AD6E7312B2EB57D80D50D13E5A?ccid=293&command=loadCatg&catgid=155"; }
+				
+			}
+		//-->
+		</script>
+	<div style="width:100%px;text-align:center;">
+		
+			<span onclick="go(1);" class="cm_lnkModuleNavOut" onmouseover="this.className=&#39;cm_lnkModuleNavOvr&#39;;" onmouseout="this.className=&#39;cm_lnkModuleNavOut&#39;;" style="padding-left:4px;">Business Directory</span>
+		
+		
+			<span onclick="go(2);" class="cm_lnkModuleNavOut" onmouseover="this.className=&#39;cm_lnkModuleNavOvr&#39;;" onmouseout="this.className=&#39;cm_lnkModuleNavOut&#39;;" style="padding-left:4px;">Events Calendar</span>
+		
+		
+		
+			<span onclick="go(4);" class="cm_lnkModuleNavOut" onmouseover="this.className=&#39;cm_lnkModuleNavOvr&#39;;" onmouseout="this.className=&#39;cm_lnkModuleNavOut&#39;;" style="padding-left:4px;">Hot Deals</span>
+		
+		
+			<span onclick="go(8);" class="cm_lnkModuleNavOut" onmouseover="this.className=&#39;cm_lnkModuleNavOvr&#39;;" onmouseout="this.className=&#39;cm_lnkModuleNavOut&#39;;" style="padding-left:4px;">Job Postings</span>
+		
+		
+			<span onclick="go(32);" class="cm_lnkModuleNavOut" onmouseover="this.className=&#39;cm_lnkModuleNavOvr&#39;;" onmouseout="this.className=&#39;cm_lnkModuleNavOut&#39;;" style="padding-left:4px;">Contact Us</span>
+		
+		
+		
+			<span onclick="go(16);" class="cm_lnkModuleNavOut" onmouseover="this.className=&#39;cm_lnkModuleNavOvr&#39;;" onmouseout="this.className=&#39;cm_lnkModuleNavOut&#39;;" style="padding-left:4px;">Weather</span>
+		
+		<span onclick="go(0);" class="cm_lnkModuleNavOut" onmouseover="this.className=&#39;cm_lnkModuleNavOvr&#39;;" onmouseout="this.className=&#39;cm_lnkModuleNavOut&#39;;" style="padding-left:4px;">Home</span>
+	</div>
+
+			
+
+
+
+	<!--backward support-->
+
+
+
+
+<p align="center"><a href="https://web.archive.org/web/20071027040119/http://www.chambermaster.com/" target="_blank"><img src="./Events Calendar_files/PoweredBy.gif" border="0" alt=""></a></p>
+
+
+		</div>
+		</div>
+
+	
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>

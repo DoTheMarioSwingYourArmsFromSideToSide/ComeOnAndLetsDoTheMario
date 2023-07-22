@@ -1,0 +1,279 @@
+.cm_linksBlue
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 12px;
+    COLOR: #00009f;
+    FONT-FAMILY: Arial, Helvetica, 'MS Sans Serif', sans-serif;
+    TEXT-DECORATION: underline
+}
+.cm_linksBlueOvr
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 12px;
+    COLOR: #003366;
+    FONT-FAMILY: Arial, Helvetica, 'MS Sans Serif', sans-serif;
+    TEXT-DECORATION: underline
+}
+.cm_linksMain
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 12px;
+    COLOR: #000000;
+    FONT-FAMILY: Arial, Helvetica, 'MS Sans Serif', sans-serif;
+    TEXT-DECORATION: none
+}
+.cm_linksMainOvr
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 12px;
+    COLOR: #ffffff;
+    FONT-FAMILY: Arial, Helvetica, 'MS Sans Serif', sans-serif;
+    BACKGROUND-COLOR: #003366;
+    TEXT-DECORATION: none
+}
+.cm_linksMainLtBlue
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 12px;
+    COLOR: #006699;
+    FONT-FAMILY: Arial, Helvetica, 'MS Sans Serif', sans-serif;
+    TEXT-DECORATION: none
+}
+.cm_linksNormal
+{
+    FONT-SIZE: 12px;
+    COLOR: #000000;
+    FONT-FAMILY: Arial, Helvetica, 'MS Sans Serif', sans-serif;
+    TEXT-DECORATION: none
+}
+.cm_linksNormalOvr
+{
+    FONT-SIZE: 12px;
+    COLOR: #ffffff;
+    FONT-FAMILY: Arial, Helvetica, 'MS Sans Serif', sans-serif;
+    BACKGROUND-COLOR: #003366;
+    TEXT-DECORATION: none
+}
+.cm_linksWhite
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 12px;
+    BACKGROUND-IMAGE: url(/web/20070725220816im_/http://www.chambermaster.com/directory/images/ChamberMaster/nav/headerBG.gif);
+    COLOR: #ffffff;
+    FONT-FAMILY: Arial, Helvetica, 'MS Sans Serif', sans-serif;
+    TEXT-DECORATION: underline
+}
+.cm_linksWhiteOvr
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 12px;
+    COLOR: #ffffe0;
+    FONT-FAMILY: Arial, Helvetica, 'MS Sans Serif', sans-serif;
+    TEXT-DECORATION: none
+}
+.cm_linksWhiteOvr2
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 12px;
+    COLOR: #a0a0ff;
+    FONT-FAMILY: Arial, Helvetica, 'MS Sans Serif', sans-serif;
+    TEXT-DECORATION: none
+}
+.cm_memberPageHeader
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 18px;
+    COLOR: #ffffff;
+    FONT-FAMILY: Arial, Helvetica, 'MS Sans Serif', sans-serif;
+    TEXT-DECORATION: none
+}
+.cm_tboxBorderlessBlue10
+{
+    BORDER-RIGHT: medium none;
+    BORDER-TOP: medium none;
+    FONT-WEIGHT: bolder;
+    FONT-SIZE: 10px;
+    BORDER-LEFT: medium none;
+    COLOR: blue;
+    BORDER-BOTTOM: medium none;
+    FONT-FAMILY: Arial, Helvetica, 'MS Sans Serif', sans-serif;
+    TEXT-ALIGN: right
+}
+.cm_text10
+{
+    FONT-SIZE: 10px;
+    COLOR: #000000;
+    FONT-FAMILY: Arial, Helvetica, 'MS Sans Serif', sans-serif
+}
+.cm_text11
+{
+    FONT-SIZE: 11px;
+    COLOR: #000000;
+    FONT-FAMILY: Arial, Helvetica, 'MS Sans Serif', sans-serif
+}
+.cm_textHeading
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 16px;
+    COLOR: #000000;
+    FONT-FAMILY: Arial, Helvetica, 'MS Sans Serif', sans-serif
+}
+.cm_textNormal
+{
+    FONT-SIZE: 12px;
+    COLOR: #000000;
+    FONT-FAMILY: Arial, Helvetica, 'MS Sans Serif', sans-serif
+}
+.cm_textNormalWhite
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 12px;
+    BACKGROUND-IMAGE: url(/web/20070725220816im_/http://www.chambermaster.com/directory/images/ChamberMaster/nav/headerBG.gif);
+    COLOR: #ffffff;
+    FONT-FAMILY: Arial, Helvetica, 'MS Sans Serif', sans-serif;
+    TEXT-DECORATION: none
+}
+.cm_textNote
+{
+    FONT-SIZE: 9px;
+    COLOR: #000000;
+    FONT-FAMILY: Arial, Helvetica, 'MS Sans Serif', sans-serif
+}
+.cm_textSectionHeading
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 13px;
+    COLOR: #000000;
+    FONT-FAMILY: Arial, Helvetica, 'MS Sans Serif', sans-serif
+}
+.cm_linksWhite A:visited
+{
+    COLOR: #ffffff
+}
+.cm_linksWhite A:active
+{
+    COLOR: #a0a0ff;
+    TEXT-DECORATION: none
+}
+.cm_linksWhite A:hover
+{
+    COLOR: #a0a0ff
+}
+.cm_linksWhite A:link
+{
+    COLOR: #ffffff
+}
+.cm_links10
+{
+    FONT-SIZE: 10px;
+    COLOR: #000000;
+    FONT-FAMILY: Arial, Helvetica, 'MS Sans Serif', sans-serif;
+    TEXT-DECORATION: none
+}
+.cm_links10Ovr
+{
+    FONT-SIZE: 10px;
+    COLOR: #003366;
+    FONT-FAMILY: Arial, Helvetica, 'MS Sans Serif', sans-serif;
+    TEXT-DECORATION: none
+}
+.cm_resultBar
+{
+    BACKGROUND-COLOR: #003366
+}
+.cm_buttonOvr
+{
+    BORDER-RIGHT: #003366 1px solid;
+    PADDING-RIGHT: 9px;
+    BORDER-TOP: #e0e0e0 1px solid;
+    PADDING-LEFT: 9px;
+    FONT-SIZE: 10pt;
+    PADDING-BOTTOM: 3px;
+    BORDER-LEFT: #e0e0e0 1px solid;
+    CURSOR: pointer;
+    COLOR: #003366;
+    PADDING-TOP: 1px;
+    BORDER-BOTTOM: #003366 1px solid;
+    FONT-FAMILY: Arial, 'MS Sans Serif', sans-serif, Helvetica;
+    POSITION: relative;
+    TOP: -2px;
+    BACKGROUND-COLOR: #ffffff;
+    TEXT-DECORATION: none
+}
+.cm_buttonOut
+{
+    BORDER-RIGHT: #003366 1px solid;
+    PADDING-RIGHT: 9px;
+    BORDER-TOP: #6699cc 1px solid;
+    PADDING-LEFT: 9px;
+    FONT-SIZE: 10pt;
+    PADDING-BOTTOM: 3px;
+    BORDER-LEFT: #6699cc 1px solid;
+    COLOR: white;
+    PADDING-TOP: 1px;
+    BORDER-BOTTOM: #003366 1px solid;
+    FONT-FAMILY: Arial, 'MS Sans Serif', sans-serif, Helvetica;
+    POSITION: relative;
+    TOP: -2px;
+    BACKGROUND-COLOR: #6699cc;
+    TEXT-DECORATION: none
+}
+.cm_BusDirBody
+{
+    MARGIN-LEFT:10px;
+    MARGIN-RIGHT:10px;
+}
+.cm_inforeqPubsRow1
+{
+    BACKGROUND-COLOR: #f0f8ff
+}
+.cm_inforeqPubsRow2
+{
+    BACKGROUND-COLOR: #ffffff
+}
+.errorbgcolor
+{
+	background-color : #ff9999;
+}
+.errorbordercolor /*This should be the same color as errorbgcolor if no border is wanted*/
+{
+	background-color : #003366;
+}
+.errortext /*Use to create type in error message box*/
+{
+	color : #333333;
+	font-family : arial,verdana,helvetica;
+	font-size : 12px;
+	text-decoration : none;
+}
+.errortextbold /*Use to create type in error message box*/
+{
+	color : #333333;
+	font-family : arial,verdana,helvetica;
+	font-size : 12px;
+	font-weight : bold;
+	text-align : left;
+	text-decoration : none;
+}
+
+
+/*
+     FILE ARCHIVED ON 22:08:16 Jul 25, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 00:08:07 Jul 16, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 138.947
+  exclusion.robots: 0.068
+  exclusion.robots.policy: 0.059
+  RedisCDXSource: 4.294
+  esindex: 0.01
+  LoadShardBlock: 116.024 (3)
+  PetaboxLoader3.datanode: 118.3 (4)
+  load_resource: 133.365
+  PetaboxLoader3.resolve: 31.726
+*/

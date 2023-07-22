@@ -1,0 +1,175 @@
+<!--
+
+/* SITE LOOK */
+
+body { font: 10pt Arial, Helvetica, sans-serif; }
+
+div { text-align:left;  }
+
+.centered,.center { text-align: center; }
+.smaller { font-size: 0.9em; }
+.smallest, table td { font-size: 0.8em; }
+.sitemap, table.sitemap tr td { font-size: 0.87em; }
+.large { font-size:1.1em; }
+.larger { font-size:1.2em; }
+.largest { font-size:1.4em; }
+.tabletextsmall { font-size: 0.7em; } 
+.lhn-hilite { color:#FFEA00; }
+
+p { margin-left: 33px; margin-right: 20px; }
+p.pindent { margin-left: 0; margin-right: 0; padding-left: 3em; text-align: left; color:red; }
+
+.normwidth { width:585px; margin-left: 33px; } 
+.normwidth h1 { width:100%; margin-left: 0; }
+.normwidth p, .normwidth .normwidth { margin-left: 0px; }
+.pickerbox .normwidth { margin-left: 0px; width:100%; }
+.destdropdown { width:255px; }
+
+h1, h2, h3, h4, h5, h6 { font-weight: bold; }
+
+H1 { font-size: 1.6em; color:#FFFFFF; text-align:center; width:651px; height:56px; background: url(/web/20071117201601im_/http://www.go-colorado.com/NV/images/detail/header-h1.gif) no-repeat; padding-top:3px; }
+
+h2 { text-align:center; font-size: 1.4em; margin-top:-30px; }
+h3 { font-size: 1.3em; margin-left:33px; }
+	h3.cruiseheader { background: url(/web/20071117201601im_/http://www.go-colorado.com/images/detail/orange-line.gif) no-repeat center; }
+h4 { font-size: 1.2em; }
+h5 { font-size: 1.1em; }
+h6 { }
+
+.red { color: #f00; }
+.blue { color: blue; }
+.green { color: green; }
+.white { color: white; }
+
+/* HEADER AND FOOTER */
+
+.top-header { margin-left: 15px; text-align:left; width:780px; }
+.bodytable, .bodyfooter  { margin-left: 15px; width:780px; }
+.sidenav { width:129px; }
+
+.banner-ad { float:right; display:inline; width:470px; position:relative; z-index:2; text-align: center; height:82px; }
+.banner-ad p { font-size: 0.8em; margin-top:0; margin-bottom:0; }
+
+.state-logo {  }
+
+.intro-img { text-align:center; }
+
+.topbar-line { padding-top:5px; }
+
+.topbar-container { width:780px; height:41px; position:relative; top: -7px; }	
+.topbar-container form { position:relative;top:18px;left:37px; }
+.topbar-container form select { font-size:0.9em; padding:0; margin:0; line-height: 0.8em; }
+.topbar-container a { position:absolute; top:20px; height:18px; }
+
+table.new-header-table td { margin-left:auto;margin-right:auto;text-align:center; }
+table.new-header-table img { margin-top:2px; }
+.footer { background-repeat: no-repeat; }
+p.p-footer a, p.p-footer a:link, p.p-footer a:visited { color:#FFFFFF;}
+p.p-footer { margin-top:20px; color: #FFFFFF; margin-left: 129px; text-align:center; }
+
+.pageNotFound { color:#FFED88; background-color: #113C66; font-weight: bold; font-style: italic;  width:645px; text-align:center; margin:0; padding-bottom:0.5em; }
+
+
+/* LEFT HAND NAVBAR */
+
+.sidenav a, .lhnlink { font-size: 0.85em; font-weight: bold; line-height: 1.8em; }
+.sidenav a:link, .sidenav a:visited, .lhnlink { color:#E4DFC6; }
+.sidenav a:hover { color:#ffff99; }
+.lhnheader1 { font-size: 0.9em; color:#f9fcfb; font-weight: bold; }
+.lhnheader2 { font-size: 1em; color:#f9fcfb; font-weight: bold; }
+.lhntitle { font-size:1.1em; width:129px; color:white; font-weight: bold; letter-spacing: -0.05em; text-align: center; margin-left: auto; margin-right: auto;  }
+
+
+/* OTHER SITE DISPLAY TAGS */
+
+TD.tabletitle { font-weight: bold; color:#ffffff; border-top: 2px solid #003300; border-bottom: 2px solid #003300; }
+.basictitle { color:#000066; font-size:0.66em; font-weight: bold; }
+.otherinfotitle { font-weight: bold; color:#000066; }
+.room-master-desc { font: 0.85em/2em Tahoma sans-serif; letter-spacing: 0.1em; text-align: justify; }
+.room-master-type-desc { text-align: left; }
+.nobannertxt { font-weight: bold; font-style: italic; padding-top: 1em; }
+.testing { width:775px; text-align:center;  margin-bottom:12px; border:1px solid grey; color:#333333; font-weight: bold; font-style: italic; margin-left: 15px;}
+
+table.weatherchart td { border-right: 1px solid gray; padding:3px; text-align:center; }
+.weatherchartheader { font-weight: bold; }
+table.weatherchart td.weatherchartnote { border:0; font-style:italic; }
+
+tr.s1 td { background-color: #FFE8C8;}
+tr.s2 td { background-color: #EFD1A5;}
+tr td.condo-season { font-weight:bold; vertical-align:top;}
+
+.custom-lodging { }
+.custom-lodging th { font-size: 10pt; text-decoration: underline; background: #EFD1A5; }
+.custom-lodging td { text-align:center; background: #FFE8C8; padding: 5px; }
+.aleft td { text-align:left; ! important } 
+
+.cl-div p  { padding: 10px; border: 1px solid #ccc; }
+.cl-div p p { padding: 0; border: 0; }
+.cl-div p span.title { font-size:12pt; font-weight:bold; width:565px;  }
+.amenities td { vertical-align:top; padding: 3px; text-align:left; ! important }
+
+.scenic_drive_poi h4 { font-size:10pt; font-weight: bold; text-decoration:underline; }
+.scenic_drive_poi h5 { font-size:10pt; font-weight:normal; font-style:italic; padding-left:1em; }
+
+/* HOUSEBOAT */
+h2.boat-page-headers { padding-top: 1.5em; }
+.boat-price-table, table.seasondates { text-align:center; width: 550px; margin-left:auto; margin-right:auto; }
+.bpt-header { font-weight: bold; }
+.bpt-tax p { margin-top: 12px; font-style: italic; color: grey; }
+.bpt-year { font-weight:bold; font-size:1.2em; }
+.line1 { background-color: #E0E5EF; }
+td.bpt-price:before { content: "$"}
+	.deposit { text-align:center; font-style:italic; }
+	.smallprint { padding-top: 1em; font-size: 0.8em; font-style:italic; text-align:center; }
+
+#trailimageid
+{
+	font-size: 0.75em;
+	position: absolute;
+	visibility: hidden;
+	left: 0px;
+	top: 0px;
+	width: 275px;
+	height: 80px;
+	z-index: 200;
+}
+
+/* CRUISE on GO-SITES */
+.cruisetablehdr { font-weight: bold; text-align: center; }
+
+/* CONDO */
+.condo-deal { margin-left: 33px; margin-right: 33px; background-color: #F4EBC3; }
+.condo-deal h3 { text-align:center; font-size: 1.5em; color: blue; }
+.smallprint { font-size: 0.8em; }
+
+/* ADMIN */
+.adminLabel { border-bottom: dotted 1px #bbb; text-decoration: none; }
+.tt {
+position:absolute;
+border:1px solid gray;
+width:300px;
+margin:1em;
+padding:1em;
+background:#FFFCDF;
+}
+-->
+/*
+     FILE ARCHIVED ON 20:16:01 Nov 17, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 00:30:03 Jul 16, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 688.104
+  exclusion.robots: 0.065
+  exclusion.robots.policy: 0.057
+  cdx.remote: 0.05
+  esindex: 0.009
+  LoadShardBlock: 659.028 (3)
+  PetaboxLoader3.datanode: 716.477 (4)
+  load_resource: 144.166
+  PetaboxLoader3.resolve: 23.485
+*/

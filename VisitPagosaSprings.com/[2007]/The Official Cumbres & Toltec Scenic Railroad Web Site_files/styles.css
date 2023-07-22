@@ -1,0 +1,516 @@
+body, p, ul, ol, li
+		{ font-size: 12px; font-family: Verdana, Arial, Helvetica, Sans-serif; line-height: 150%; color: #21201B; margin-top: 6px; margin-bottom: 8px }
+table, td
+		{ font-size: 12px; font-family: Verdana, Arial, Helvetica, Sans-serif; color: #21201B; }
+h1		{ font: italic bold 28px georgia,serif; color: #708090; }
+h2		{ font-size: 12px; font-family: verdana, arial, helvetica; font-weight: bold; color: #424026; margin-top: 10px; margin-bottom: 6px }
+h3		{ font-size: 11px; font-family: verdana, arial, helvetica; font-weight: bold; color: #21201B; margin-top: 10px; margin-bottom: 6px }
+h4		{ font-size: 11px; font-family: verdana, arial, helvetica; font-weight: bold; color: #21201B; margin-top: 8px; margin-bottom: 8px }
+
+.inlineHead	{ font-weight: bold; color: #424026; }
+
+.dropCap	{
+				float:left;
+				font-size: 62px;
+				font-family: Verdana, Arial, Helvetica, Sans-serif;
+				line-height: 52px;
+				color: #335E8C;
+				margin-top: 0px;
+				margin-bottom: 0px;
+				width: auto;
+				text-align: top;
+			}
+
+a			{ color: #1A2237; }
+a:link		{ color: #1A2237; }
+a:visited	{ color: #1A2237; }
+a:hover		{ color: #663333; }
+
+.menuTable		{ margin: 0px 0px; line-height: normal }
+.body			{ font-size: 12px; font-family: Verdana, Arial, Helvetica, Sans-serif; color: #21201B; line-height: 150%; margin-top: 6px; margin-bottom: 8px }
+.bodyTight		{ font-size: 12px; font-family: Verdana, Arial, Helvetica, Sans-serif; color: #21201B; line-height: 120%; margin-top: 2px; margin-bottom: 4px }
+.reduced		{ font-size: 11px; font-family: Verdana, Arial, Helvetica, Sans-serif; color: #21201B; line-height: 150%; margin: 4px 0px; }
+.reducedTight	{ font-size: 11px; font-family: Verdana, Arial, Helvetica, Sans-serif; color: #21201B; line-height: normal; margin: 4px 0px; }
+.menu 			{ font-family: verdana, arial, helvetica; font-size: 8px; }
+.menuItem		{ font-family: verdana, arial, helvetica; font-size: 11px; font-weight: bold; color: #3A455E; }
+.photoCredit	{ font-size: 10px; font-family: Verdana, Arial, Helvetica, Sans-serif; color: #606C84; letter-spacing: normal; line-height: 120%; margin: 4px 0px; }
+.fineprint		{ font-size: 10px; font-family: Verdana, Arial, Helvetica, Sans-serif; letter-spacing: normal; line-height: 120%; margin: 0px 0px }
+.masthead		{ font-size: 10px; font-family: Verdana, Arial, Helvetica, Sans-serif; color: #506070; letter-spacing: normal; line-height: normal; margin: 4px 0px }
+.mastheadPhone	{ font-size: 11px; font-family: Verdana, Arial, Helvetica, Sans-serif; color: #506070; font-weight: bold; letter-spacing: normal; line-height: normal; margin: 4px 0px }
+
+.caption		{ font-size: 10px; font-family: Verdana, Arial, Helvetica, Sans-serif; color: #606C84; letter-spacing: normal; line-height: 120%; margin: 4px 0px; }
+a.caption:link, a.copyright:visited
+				{ font-size: 10px; font-family: Verdana, Arial, Helvetica, Sans-serif; color: #606C84; letter-spacing: normal; line-height: 120%; margin: 4px 0px; }
+a.caption:hover
+				{ font-size: 10px; font-family: Verdana, Arial, Helvetica, Sans-serif; color: #663333; letter-spacing: normal; line-height: 120%; margin: 4px 0px; }
+
+.siteCredit		{ font-size: 10px; font-family: Verdana, Arial, Helvetica, Sans-serif; color: #757064; letter-spacing: normal; line-height: 120%; margin: 4px 0px; }
+a.siteCredit:link, a.siteCredit:visited
+				{ font-size: 10px; font-family: Verdana, Arial, Helvetica, Sans-serif; color: #757064; letter-spacing: normal; line-height: 120%; margin: 4px 0px; }
+a.siteCredit:hover
+				{ font-size: 10px; font-family: Verdana, Arial, Helvetica, Sans-serif; color: #663333; letter-spacing: normal; line-height: 120%; margin: 4px 0px; }
+
+.copyright		{ font-size: 9px; font-family: Verdana, Arial, Helvetica, Sans-serif; color: #FFFAD6; letter-spacing: normal; text-decoration: none; }
+a.copyright:link, a.copyright:visited
+				{ font-size: 9px; font-family: Verdana, Arial, Helvetica, Sans-serif; color: #FFFAD6; letter-spacing: normal; text-decoration: none; }
+a.copyright:hover
+				{ font-size: 9px; font-family: Verdana, Arial, Helvetica, Sans-serif; color: #F6CD0C; letter-spacing: normal; text-decoration: none; }
+
+.menuSubItem, a.menuSubItem, a.menuSubItem:link, a.subMenuItem:visited
+	{ font-family: verdana, arial, helvetica; font-size: 10px; font-weight: bold; color: #3A455E; text-decoration: none }
+a.menuSubItem:hover
+	{ font-family: verdana, arial, helvetica; font-size: 10px; font-weight: bold; color: #663333; text-decoration: none }
+
+.formTitle { font-size: 12px; font-weight: bold; color:#663333 }
+.formInst { font-weight: bold; }
+
+.storeItemTitle { font-weight: bold; color:#663333; }
+.storeItemDesc { }
+
+.newsBlurb		{ font-size: 10px; font-family: Verdana, Arial, Helvetica, Sans-serif; color: #506070; font-weight: normal; letter-spacing: normal; line-height: 13px; margin: 4px 8px; }
+a.newsBlurb:link, a.newsBlurb:visited
+				{ font-size: 10px; font-family: Verdana, Arial, Helvetica, Sans-serif; color: #506070; font-weight: normal; letter-spacing: normal; line-height: 13px; margin: 4px 0px; }
+a.newsBlurb:hover
+				{ font-size: 10px; font-family: Verdana, Arial, Helvetica, Sans-serif; color: #663333; font-weight: normal; letter-spacing: normal; line-height: 13px; margin: 4px 0px; }
+
+.newsSep		{ display: block; margin: 7px 0px }
+
+.tripNumber 	{ font-size: 20px; font-family: Arial, Helvetica, Sans-serif; color:#506070; line-height: normal; margin: 0px }
+.tripTitle 		{ font-size: 12px; font-family: Verdana, Arial, Helvetica, Sans-serif; font-weight: bold; color:#506070; line-height: 120%; margin: 0px 0px 4px 0px }
+.tripDesc 		{ font-size: 11px; font-family: Verdana, Arial, Helvetica, Sans-serif; color:#21201B; line-height: 120%; margin: 4px 0px }
+.tripInput 		{ font-size: 11px; font-family: Verdana, Arial, Helvetica, Sans-serif; color:#21201B; line-height: normal; margin: 0px 0px }
+.tripTime 		{ font-size: 11px; font-family: Verdana, Arial, Helvetica, Sans-serif; color:#506070; font-weight: bold; line-height: normal }
+.tripInst 		{ font-size: 12px; font-family: Verdana, Arial, Helvetica, Sans-serif; font-weight: bold; color:#506070; line-height: normal; margin: 2px 0px }
+
+.partnerName 	{ font-size: 12px; font-family: Verdana, Arial, Helvetica, Sans-serif; font-weight:bold; line-height: 120% }
+.partnerLoc 	{ font-size: 12px; font-family: Verdana, Arial, Helvetica, Sans-serif; font-weight:bold; text-decoration:underline; line-height: 120% }
+.partnerBody 	{ font-size: 12px; font-family: Verdana, Arial, Helvetica, Sans-serif; line-height: 120% }
+.partnerLink 	{ font-size: 12px; font-family: Verdana, Arial, Helvetica, Sans-serif; line-height: 120% }
+.partnerLinkReduced 	{ font-size: 11px; font-family: Verdana, Arial, Helvetica, Sans-serif; line-height: 120% }
+
+.ttDate	 	{
+					color: #757064;
+					font-size: 12px; font-family: Verdana, Arial, Helvetica, Sans-serif; 
+					font-weight: bold;
+					line-height: normal;
+					margin-top: 2px;
+					margin-bottom: 2px;
+					text-align: left;
+					vertical-align: baseline;
+				}
+
+.ttInst	 	{
+					color: #757064;
+					font-size: 10px; font-family: Verdana, Arial, Helvetica, Sans-serif; 
+					font-weight: bold;
+					line-height: normal;
+					margin-top: 2px;
+					margin-bottom: 8px;
+					text-align: left;
+					vertical-align: baseline;
+				}
+
+.ttLegend	 	{
+					color: #757064;
+					font-size: 11px; font-family: Verdana, Arial, Helvetica, Sans-serif; 
+					font-weight: bold; 
+					line-height: normal;
+					margin: 0px 0px;
+					text-align: left;
+					vertical-align: baseline;
+				}
+
+.ttHeading	 	{ 
+					background-color: #808080; 
+					font-size: 10px; font-family: Verdana, Arial, Helvetica, Sans-serif; 
+					color:#FFFAD6; 
+					font-weight: bold; 
+					line-height: normal;
+					margin: 4px 0px;
+					text-align: center;
+					vertical-align: top;
+				}
+
+.ttHeadingLeft	 { 
+					background-color: #808080; 
+					font-size: 10px; font-family: Verdana, Arial, Helvetica, Sans-serif; 
+					color:#FFFAD6; 
+					font-weight: bold; 
+					line-height: normal;
+					margin: 4px 0px;
+					text-align: left;
+					vertical-align: top;
+				}
+
+.coTripNumber { 
+					background-color: #9098b0; 
+					font-size: 12px; font-family: Verdana, Arial, Helvetica, Sans-serif; 
+					color:#FFFAD6; 
+					font-weight: bold; 
+					line-height: normal; 
+					margin: 0px 0px;
+					text-align: center;
+					vertical-align: top;
+					text-decoration: none;
+				}
+a.coTripNumber:link,
+a.coTripNumber:visited
+				{
+					background-color: #9098b0; 
+					font-size: 12px; font-family: Verdana, Arial, Helvetica, Sans-serif; 
+					color:#FFFAD6; 
+					font-weight: bold; 
+					line-height: normal; 
+					margin: 0px 0px;
+					text-align: center;
+					vertical-align: top;
+					text-decoration: none;
+				}
+a.coTripNumber:hover
+				{
+					background-color: #9098b0; 
+					font-size: 12px; font-family: Verdana, Arial, Helvetica, Sans-serif; 
+					color:#F6CD0C; 
+					font-weight: bold; 
+					line-height: normal; 
+					margin: 0px 0px;
+					text-align: center;
+					vertical-align: top;
+					text-decoration: none;
+				}
+
+.coTripTitle 	{ 
+					background-color: #9098b0; 
+					font-size: 11px; 
+					font-family: Verdana, Arial, Helvetica, Sans-serif; 
+					color:#FFFAD6; 
+					line-height: normal; 
+					margin: 2px;
+					text-align: left;
+					vertical-align: top;
+					text-decoration: none;
+				}
+a.coTripTitle:link,
+a.coTripTitle:visited
+				{
+					background-color: #9098b0; 
+					font-size: 11px; font-family: Verdana, Arial, Helvetica, Sans-serif; 
+					color:#FFFAD6; 
+					line-height: normal; 
+					margin: 2px;
+					text-align: left;
+					vertical-align: top;
+					text-decoration: none;
+				}
+a.coTripTitle:hover
+				{
+					background-color: #9098b0; 
+					font-size: 11px; font-family: Verdana, Arial, Helvetica, Sans-serif; 
+					color:#F6CD0C; 
+					line-height: normal; 
+					margin: 2px 4px;
+					text-align: left;
+					vertical-align: top;
+					text-decoration: none;
+				}
+
+.xcoTripTitle 	{ 
+					background-color: #9098b0; 
+					font-size: 11px; 
+					font-family: Verdana, Arial, Helvetica, Sans-serif; 
+					color:#FFFAD6; 
+					text-decoration: none;
+					line-height: normal; 
+					margin: 2px 4px;
+				}
+a.xcoTripTitle:link,
+a.xcoTripTitle:visited
+				{
+					background-color: #9098b0; 
+					font-size: 11px; font-family: Verdana, Arial, Helvetica, Sans-serif; 
+					color:#FFFAD6; 
+					text-decoration: none;
+					line-height: normal; 
+					margin: 2px 4px;
+				}
+a.xcoTripTitle:hover
+				{
+					background-color: #9098b0; 
+					font-size: 11px; font-family: Verdana, Arial, Helvetica, Sans-serif; 
+					color:#F6CD0C; 
+					text-decoration: none;
+					line-height: normal; 
+					margin: 2px 4px;
+				}
+
+.coTripTime 	{ 
+					background-color: #9098b0; 
+					font-size: 11px; 
+					font-family: Verdana, Arial, Helvetica, Sans-serif; 
+					color:#FFFAD6; 
+					line-height: normal; 
+					margin: 2px 4px;
+					text-align: center;
+					vertical-align: top;
+				}
+
+.coTripAvail 	{
+					background-color: #9098b0;
+					font-size: 11px;
+					font-family: Verdana, Arial, Helvetica, Sans-serif;
+					color:#FFFAD6;
+					line-height: normal;
+					text-align: center;
+					vertical-align: center;
+				}
+
+.nmTripNumber { 
+					background-color: #b09090; 
+					font-size: 12px; font-family: Verdana, Arial, Helvetica, Sans-serif; 
+					color:#FFFAD6; 
+					font-weight: bold; 
+					line-height: normal; 
+					margin: 0px 0px;
+					text-align: center;
+					vertical-align: top;
+				}
+a.nmTripNumber:link,
+a.nmTripNumber:visited
+				{
+					background-color: #b09090; 
+					font-size: 12px; font-family: Verdana, Arial, Helvetica, Sans-serif; 
+					color:#FFFAD6; 
+					font-weight: bold; 
+					line-height: normal; 
+					margin: 0px 0px;
+					text-align: center;
+					vertical-align: top;
+					text-decoration: none;
+				}
+a.nmTripNumber:hover
+				{
+					background-color: #b09090; 
+					font-size: 12px; font-family: Verdana, Arial, Helvetica, Sans-serif; 
+					color:#F6CD0C; 
+					font-weight: bold; 
+					line-height: normal; 
+					margin: 0px 0px;
+					text-align: center;
+					vertical-align: top;
+					text-decoration: none;
+				}
+
+.nmTripTitle 	{ 
+					background-color: #b09090; 
+					font-size: 11px; 
+					font-family: Verdana, Arial, Helvetica, Sans-serif; 
+					color:#FFFAD6; 
+					line-height: normal; 
+					margin: 2px 4px;
+					text-align: left;
+					vertical-align: top;
+				}
+a.nmTripTitle:link,
+a.nmTripTitle:visited
+				{
+					background-color: #b09090; 
+					font-size: 11px; font-family: Verdana, Arial, Helvetica, Sans-serif; 
+					color:#FFFAD6; 
+					line-height: normal; 
+					margin: 2px 4px;
+					text-align: left;
+					vertical-align: top;
+					text-decoration: none;
+				}
+a.nmTripTitle:hover
+				{
+					background-color: #b09090; 
+					font-size: 11px; font-family: Verdana, Arial, Helvetica, Sans-serif; 
+					color:#F6CD0C; 
+					line-height: normal; 
+					margin: 2px 4px;
+					text-align: left;
+					vertical-align: top;
+					text-decoration: none;
+				}
+
+.xnmTripTitle 	{ 
+					background-color: #b09090; 
+					font-size: 11px; 
+					font-family: Verdana, Arial, Helvetica, Sans-serif; 
+					color:#FFFAD6; 
+					line-height: normal; 
+					margin: 2px 4px;
+				}
+a.xnmTripTitle:link,
+a.xnmTripTitle:visited
+				{
+					background-color: #b09090; 
+					font-size: 11px; font-family: Verdana, Arial, Helvetica, Sans-serif; 
+					color:#FFFAD6; 
+					line-height: normal; 
+					margin: 2px 4px;
+					text-decoration: none;
+				}
+a.xnmTripTitle:hover
+				{
+					background-color: #b09090; 
+					font-size: 11px; font-family: Verdana, Arial, Helvetica, Sans-serif; 
+					color:#F6CD0C; 
+					line-height: normal; 
+					margin: 2px 4px;
+					text-decoration: none;
+				}
+
+.nmTripTime 	{ 
+					background-color: #b09090; 
+					font-size: 11px; 
+					font-family: Verdana, Arial, Helvetica, Sans-serif; 
+					color:#FFFAD6; 
+					line-height: normal; 
+					margin: 2px 4px;
+					text-align: center;
+					vertical-align: top;
+				}
+
+.nmTripAvail 	{
+					background-color: #b09090;
+					font-size: 11px;
+					font-family: Verdana, Arial, Helvetica, Sans-serif;
+					color:#FFFAD6;
+					line-height: normal;
+					text-align: center;
+					vertical-align: center;
+				}
+
+.wtTitle	 	{
+					color: #757064;
+					font-size: 11px; font-family: Verdana, Arial, Helvetica, Sans-serif; 
+					font-weight: bold;
+					line-height: normal;
+					margin: 4px 0px;
+					text-align: center;
+					vertical-align: baseline;
+				}
+
+.wtHead	 		{ 
+					background-color: #b0b0b0; 
+					font-size: 11px; font-family: Verdana, Arial, Helvetica, Sans-serif; 
+					color:#FFFAD6; 
+					font-weight: bold; 
+					line-height: normal;
+					margin: 4px 0px;
+					text-align: center;
+					vertical-align: top;
+				}
+
+.wtLow	 		{ 
+					background-color: #9098b0; 
+					font-size: 11px; font-family: Verdana, Arial, Helvetica, Sans-serif; 
+					color:#FFFAD6; 
+					font-weight: bold; 
+					line-height: normal;
+					margin: 4px 0px;
+					text-align: center;
+					vertical-align: top;
+				}
+
+.wtHigh	 		{ 
+					background-color: #b09090; 
+					font-size: 11px; font-family: Verdana, Arial, Helvetica, Sans-serif; 
+					color:#FFFAD6; 
+					font-weight: bold; 
+					line-height: normal;
+					margin: 4px 0px;
+					text-align: center;
+					vertical-align: top;
+				}
+
+.wtPrecip	 		{ 
+					background-color: #a0c8a0; 
+					font-size: 11px; font-family: Verdana, Arial, Helvetica, Sans-serif; 
+					color:#FFFAD6; 
+					font-weight: bold; 
+					line-height: normal;
+					margin: 4px 0px;
+					text-align: center;
+					vertical-align: top;
+				}
+
+.faqQ			{ font-size: 12px; font-family: Verdana, Arial, Helvetica, Sans-serif; color: #424026; line-height: 150%; margin-top: 12px; margin-bottom: 0px; font-weight: bold }
+.faqA			{ font-size: 12px; font-family: Verdana, Arial, Helvetica, Sans-serif; color: #21201B; line-height: 150%; margin-top: 4px; margin-bottom: 12px }
+
+.seDate	 		{
+					color: #335E8C;
+					font-size: 12px; font-family: Verdana, Arial, Helvetica, Sans-serif; 
+					font-weight: bold;
+					line-height: 150%;
+					margin-top: 8px;
+					margin-bottom: 8px;
+					text-align: left;
+					vertical-align: top;
+				}
+
+.seTitle	 		{
+					color: #335E8C;
+					font-size: 12px; font-family: Verdana, Arial, Helvetica, Sans-serif; 
+					font-weight: bold;
+					line-height: normal;
+					margin-top: 2px;
+					margin-bottom: 2px;
+					text-align: left;
+					vertical-align: top;
+				}
+a.seTitle:link,
+a.seTitle:visited
+				{
+					color: #335E8C;
+					font-size: 12px; font-family: Verdana, Arial, Helvetica, Sans-serif; 
+					font-weight: bold;
+					text-decoration: none;
+					line-height: normal;
+					margin-top: 2px;
+					margin-bottom: 2px;
+					text-align: left;
+					vertical-align: top;
+				}
+a.seTitle:hover
+				{
+					color: #663333;
+					font-size: 12px; font-family: Verdana, Arial, Helvetica, Sans-serif; 
+					font-weight: bold;
+					text-decoration: none;
+					line-height: normal;
+					margin-top: 2px;
+					margin-bottom: 2px;
+					text-align: left;
+					vertical-align: top;
+				}
+
+.seDesc	
+				{ font-size: 11px; font-family: Verdana, Arial, Helvetica, Sans-serif; line-height: 150%; color: #21201B; vertical-align: top; margin-top: 4px; margin-bottom: 4px }
+
+.galleryCaption	
+				{ font-size: 11px; font-family: Verdana, Arial, Helvetica, Sans-serif; line-height: 150%; color: #21201B; vertical-align: top; text-align: center; margin-top: 4px; margin-bottom: 4px }
+
+
+/*
+     FILE ARCHIVED ON 19:37:02 Jul 03, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 00:27:26 Jul 16, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 92.434
+  exclusion.robots: 0.081
+  exclusion.robots.policy: 0.071
+  RedisCDXSource: 0.891
+  esindex: 0.01
+  LoadShardBlock: 70.316 (3)
+  PetaboxLoader3.datanode: 101.826 (4)
+  load_resource: 109.444
+  PetaboxLoader3.resolve: 49.464
+*/

@@ -1,0 +1,163 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+/***********************************************************************************
+*	(c) Ger Versluis 2000 version 5.411 24 December 2001 (updated Jan 31st, 2003 by Dynamic Drive for Opera7)
+*	For info write to menus@burmees.nl		          *
+*	You may remove all comments for faster loading	          *		
+***********************************************************************************/
+
+	var NoOffFirstLineMenus=9;			// Number of first level items
+	var LowBgColor='white';			// Background color when mouse is not over
+	var LowSubBgColor='#F3EDE4';			// Background color when mouse is not over on subs
+	var HighBgColor='#829ECE';			// Background color when mouse is over
+	var HighSubBgColor='#595959';			// Background color when mouse is over on subs
+	var FontLowColor='white';			// Font color when mouse is not over
+	var FontSubLowColor='#595959';			// Font color subs when mouse is not over
+	var FontHighColor='black';			// Font color when mouse is over
+	var FontSubHighColor='#F3EDE4';			// Font color subs when mouse is over
+	var BorderColor='#E8E2DB';			// Border color
+	var BorderSubColor='#FFFFFF';			// Border color for subs
+	var BorderWidth=0;				// Border width
+	var BorderBtwnElmnts=0;			// Border between elements 1 or 0
+	var FontFamily="verdana"	// Font family menu items
+	var FontSize=8;				// Font size menu items
+	var FontBold=0;				// Bold menu items 1 or 0
+	var FontItalic=0;				// Italic menu items 1 or 0
+	var MenuTextCentered='left';			// Item text position 'left', 'center' or 'right'
+	var MenuCentered='center';			// Menu horizontal position 'left', 'center' or 'right'
+	var MenuVerticalCentered='top';		// Menu vertical position 'top', 'middle','bottom' or static
+	var ChildOverlap=.1;				// horizontal overlap child/ parent
+	var ChildVerticalOverlap=.2;			// vertical overlap child/ parent
+	var StartTop=0;				// Menu offset x coordinate
+	var StartLeft=0;				// Menu offset y coordinate
+	var VerCorrect=0;				// Multiple frames y correction
+	var HorCorrect=0;				// Multiple frames x correction
+	var LeftPaddng=5;				// Left padding
+	var TopPaddng=3;				// Top padding
+	var FirstLineHorizontal=1;			// SET TO 1 FOR HORIZONTAL MENU, 0 FOR VERTICAL
+	var MenuFramesVertical=0;			// Frames in cols or rows 1 or 0
+	var DissapearDelay=250;			// delay before menu folds in
+	var TakeOverBgColor=1;			// Menu frame takes over background color subitem frame
+	var FirstLineFrame='self';			// Frame where first level appears
+	var SecLineFrame='self';			// Frame where sub levels appear
+	var DocTargetFrame='self';			// Frame where target documents appear
+	var TargetLoc='MenuPos';				// span id for relative positioning
+	var HideTop=0;				// Hide first level when loading new document 1 or 0
+	var MenuWrap=1;				// enables/ disables menu wrap 1 or 0
+	var RightToLeft=0;				// enables/ disables right to left unfold 1 or 0
+	var UnfoldsOnClick=0;			// Level 1 unfolds onclick/ onmouseover
+	var WebMasterCheck=0;			// menu tree checking on or off 1 or 0
+	var ShowArrow=0;				// Uses arrow gifs when 1
+	var KeepHilite=1;				// Keep selected path highligthed
+	var Arrws=['tri.gif',5,10,'tridown.gif',10,5,'trileft.gif',5,10];	// Arrow source, width and height
+
+function BeforeStart(){return}
+function AfterBuild(){return}
+function BeforeFirstOpen(){return}
+function AfterCloseAll(){return}
+
+
+// Menu tree
+//	MenuX=new Array(Text to show, Link, background image (optional), number of sub elements, height, width);
+//	For rollover images set "Text to show" to:  "rollover:Image1.jpg:Image2.jpg"
+if (!lclRoot) var lclRoot = "/";
+
+Menu1=new Array("rollover:"+lclRoot+"_images/nav/about.gif:"+lclRoot+"_images/nav/about_mo.gif","https://web.archive.org/web/20070630124343/http://pagosahotsprings.com/about_springs_resort/pagosa_springs_resort.htm","",4,25,115);
+	Menu1_1=new Array("History of the Great Springs","https://web.archive.org/web/20070630124343/http://pagosahotsprings.com/about_springs_resort/history.htm","",0,17,200);
+	Menu1_2=new Array("About the Water","https://web.archive.org/web/20070630124343/http://pagosahotsprings.com/about_springs_resort/about_water.htm","",0);
+	Menu1_3=new Array("Testimonials & Guest Comments","https://web.archive.org/web/20070630124343/http://pagosahotsprings.com/about_springs_resort/testimonials.htm","",0);
+	Menu1_4=new Array("Oprah Winfrey Visit's The Springs","https://web.archive.org/web/20070630124343/http://pagosahotsprings.com/about_springs_resort/Oprah.htm","",0);
+	Menu1_5=new Array("Directions","https://web.archive.org/web/20070630124343/http://pagosahotsprings.com/about_springs_resort/directions.htm","",0);
+	Menu1_6=new Array("Job Opportunities","https://web.archive.org/web/20070630124343/http://pagosahotsprings.com/about_springs_resort/Jobopportunities.htm","",0);
+
+Menu2=new Array("rollover:"+lclRoot+"_images/nav/pools.gif:"+lclRoot+"_images/nav/pools_mo.gif","https://web.archive.org/web/20070630124343/http://www.pagosahotsprings.com/pools/pools.htm","",6,25,49);
+	Menu2_1=new Array("Pools","https://web.archive.org/web/20070630124343/http://pagosahotsprings.com/pools/pools.htm","",0,17,125);
+	Menu2_2=new Array("Guidelines","https://web.archive.org/web/20070630124343/http://pagosahotsprings.com/pools/guidelines.htm","",0);
+	Menu2_3=new Array("Map of the Pools","https://web.archive.org/web/20070630124343/http://pagosahotsprings.com/pools/map.htm","",0);
+    Menu2_4=new Array("The Bathhouse","https://web.archive.org/web/20070630124343/http://pagosahotsprings.com/pools/the_bathhouse.htm","",0);
+    Menu2_5=new Array("Pricing/Hours","https://web.archive.org/web/20070630124343/http://pagosahotsprings.com/pools/pricing_hours.htm","",0);
+    Menu2_6=new Array("FAQs","https://web.archive.org/web/20070630124343/http://pagosahotsprings.com/pools/faqs.htm","",0);
+
+Menu3=new Array("rollover:"+lclRoot+"_images/nav/lodging.gif:"+lclRoot+"_images/nav/lodging_mo.gif","https://web.archive.org/web/20070630124343/http://www.pagosahotsprings.com/lodging/lodging.htm","",4,25,62);
+	Menu3_1=new Array("Lodging Details","","",4,17,150);
+		Menu3_1_1=new Array("Standard Rooms","https://web.archive.org/web/20070630124343/http://pagosahotsprings.com/lodging/standard_rooms.htm","",0,17,150);
+		Menu3_1_2=new Array("Deluxe Rooms","https://web.archive.org/web/20070630124343/http://pagosahotsprings.com/lodging/deluxe_rooms.htm","",0);
+		Menu3_1_3=new Array("Grande Rooms/Suites","https://web.archive.org/web/20070630124343/http://pagosahotsprings.com/lodging/grande_rooms.htm","",0);
+		Menu3_1_4=new Array("Rewards","https://web.archive.org/web/20070630124343/http://pagosahotsprings.com/lodging/rewards.htm","",0);
+	Menu3_2=new Array("Groups/Meetings","","",3,17,150);
+		Menu3_2_1=new Array("Conference Room","https://web.archive.org/web/20070630124343/http://pagosahotsprings.com/groups_meetings/conference_room.htm","",0,17,165);
+		Menu3_2_2=new Array("Community Center","https://web.archive.org/web/20070630124343/http://pagosahotsprings.com/groups_meetings/community_center.htm","",0);
+		Menu3_2_3=new Array("Contact","https://web.archive.org/web/20070630124343/http://pagosahotsprings.com/contact/","",0);
+	Menu3_3=new Array("Pricing and Reservations","https://web.archive.org/web/20070630124343/https://www.welcometorsi.org/east/reslinxII/request2.asp?image=thesprings.jpg&image_width=500&image_height=108&url=www.pagosahotsprings.com&inn_alias=0000008708","",0);
+	Menu3_4=new Array("Special Deals","https://web.archive.org/web/20070630124343/http://pagosahotsprings.com/lodging/special_offers.htm","",0);
+
+Menu4=new Array("rollover:"+lclRoot+"_images/nav/packages.gif:"+lclRoot+"_images/nav/packages_mo.gif","","",5,25,65);
+	Menu4_1=new Array("Seasonal Packages","","",5,17,145);
+		Menu4_1_1=new Array("Golf Packages","https://web.archive.org/web/20070630124343/http://pagosahotsprings.com/packages/golf.htm","",0,17,125);
+		Menu4_1_2=new Array("Rafting","https://web.archive.org/web/20070630124343/http://pagosahotsprings.com/packages/rafting.htm","",0);
+		Menu4_1_3=new Array("Western","https://web.archive.org/web/20070630124343/http://pagosahotsprings.com/packages/saddle_up_package.htm","",0);
+		Menu4_1_4=new Array("Ski Packages","https://web.archive.org/web/20070630124343/http://pagosahotsprings.com/packages/ski.htm","",0);
+		Menu4_1_5=new Array("Snomobile Packages","https://web.archive.org/web/20070630124343/http://pagosahotsprings.com/packages/snowmobile.htm","",0);
+	Menu4_2=new Array("Getaway Packages","https://web.archive.org/web/20070630124343/http://pagosahotsprings.com/packages/getaway.htm","",0);
+	Menu4_3=new Array("Add an Adventure","https://web.archive.org/web/20070630124343/http://pagosahotsprings.com/packages/adventures.htm","",0);
+	Menu4_4=new Array("Romance Packages","https://web.archive.org/web/20070630124343/http://pagosahotsprings.com/packages/romance.htm","",0);
+	Menu4_5=new Array("Yoga Packages","https://web.archive.org/web/20070630124343/http://pagosahotsprings.com/packages/yoga_htm.htm","",0);
+
+Menu5=new Array("rollover:"+lclRoot+"_images/nav/groups.gif:"+lclRoot+"_images/nav/groups_mo.gif","https://web.archive.org/web/20070630124343/http://pagosahotsprings.com/packages/adventures.htm","",0,25,108);
+
+Menu6=new Array("rollover:"+lclRoot+"_images/nav/pagosa.gif:"+lclRoot+"_images/nav/pagosa_mo.gif","https://web.archive.org/web/20070630124343/http://pagosahotsprings.com/pagosa_springs_colorado/pagosa_springs_colorado.htm","",4,25,97);
+	Menu6_1=new Array("Local Links","https://web.archive.org/web/20070630124343/http://pagosahotsprings.com/pagosa_springs_colorado/local_links.htm","",0,17,125);
+	Menu6_2=new Array("Weather","https://web.archive.org/web/20070630124343/http://pagosahotsprings.com/pagosa_springs_colorado/weather.htm","",0);
+	Menu6_3=new Array("Maps & Directions","https://web.archive.org/web/20070630124343/http://pagosahotsprings.com/pagosa_springs_colorado/maps_directions.htm","",0);
+	Menu6_4=new Array("Wolf Creek Ski Area","https://web.archive.org/web/20070630124343/http://pagosahotsprings.com/pagosa_springs_colorado/wolf_creek_ski_area.htm","",0);
+
+Menu7=new Array("rollover:"+lclRoot+"_images/nav/come_inside.gif:"+lclRoot+"_images/nav/come_inside_mo.gif","","",5,25,77);
+	Menu7_1=new Array("Online Store","https://web.archive.org/web/20070630124343/http://pagosahotsprings.com/store","",0,17,125);
+	Menu7_2=new Array("Video","https://web.archive.org/web/20070630124343/http://pagosahotsprings.com/come_inside/video.htm","",0);
+	Menu7_3=new Array("Photo Gallery","https://web.archive.org/web/20070630124343/http://pagosahotsprings.com/come_inside/photo_gallery.htm","",0);
+	Menu7_4=new Array("Feature Articles","https://web.archive.org/web/20070630124343/http://pagosahotsprings.com/come_inside/feature_articles.htm","",0);
+	Menu7_5=new Array("Web Cam","https://web.archive.org/web/20070630124343/http://pagosahotsprings.com/come_inside/webcam.htm","",0);
+	
+Menu8=new Array("rollover:"+lclRoot+"_images/nav/media.gif:"+lclRoot+"_images/nav/media_mo.gif","https://web.archive.org/web/20070630124343/http://pagosahotsprings.com/media/index.htm","",2,25,76);
+	Menu8_1=new Array("Media","https://web.archive.org/web/20070630124343/http://pagosahotsprings.com/media/index.htm","",0,17,125);
+	Menu8_2=new Array("Press Photos","https://web.archive.org/web/20070630124343/http://pagosahotsprings.com/media/photos.htm","",0);
+
+Menu9=new Array("rollover:"+lclRoot+"_images/nav/amenities.gif:"+lclRoot+"_images/nav/amenities_mo.gif","","",4,25,68);
+	Menu9_1=new Array("Spa","https://web.archive.org/web/20070630124343/http://pagosahotsprings.com/amenities/spa.htm","",0,17,100);
+	Menu9_2=new Array("Salon","https://web.archive.org/web/20070630124343/http://pagosahotsprings.com/amenities/salon.htm","",0);
+	Menu9_3=new Array("Boutique","https://web.archive.org/web/20070630124343/http://pagosahotsprings.com/amenities/boutique.htm","",0);
+	Menu9_4=new Array("Cafe","https://web.archive.org/web/20070630124343/http://pagosahotsprings.com/amenities/cafe.htm","",0);
+
+
+
+}
+/*
+     FILE ARCHIVED ON 12:43:43 Jun 30, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 00:22:13 Jul 16, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 109.173
+  exclusion.robots: 0.098
+  exclusion.robots.policy: 0.085
+  cdx.remote: 0.075
+  esindex: 0.011
+  LoadShardBlock: 73.036 (3)
+  PetaboxLoader3.datanode: 87.695 (4)
+  load_resource: 465.199
+  PetaboxLoader3.resolve: 395.786
+*/

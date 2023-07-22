@@ -1,0 +1,89 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+<!-- Hide from old browsers
+var NN3 = false;
+image0= new Image();
+image0.src = "webedit/webedit_templates/_template_files/_images/nav/about.gif";
+image0on = new Image();
+image0on.src = "webedit/webedit_templates/_template_files/_images/nav/about_mo.gif";
+image1= new Image();
+image1.src = "webedit/webedit_templates/_template_files/_images/nav/pools.gif";
+image1on = new Image();
+image1on.src = "webedit/webedit_templates/_template_files/_images/nav/pools_mo.gif";
+image2= new Image();
+image2.src = "webedit/webedit_templates/_template_files/_images/nav/lodging.gif";
+image2on = new Image();
+image2on.src = "webedit/webedit_templates/_template_files/_images/nav/lodging_mo.gif";
+image3= new Image();
+image3.src = "webedit/webedit_templates/_template_files/_images/nav/packages.gif";
+image3on = new Image();
+image3on.src = "webedit/webedit_templates/_template_files/_images/nav/packages_mo.gif";
+image4= new Image();
+image4.src = "webedit/webedit_templates/_template_files/_images/nav/groups.gif";
+image4on = new Image();
+image4on.src = "webedit/webedit_templates/_template_files/_images/nav/groups_mo.gif";
+image5= new Image();
+image5.src = "webedit/webedit_templates/_template_files/_images/nav/pagosa.gif";
+image5on = new Image();
+image5on.src = "webedit/webedit_templates/_template_files/_images/nav/pagosa_mo.gif";
+image6= new Image();
+image6.src = "webedit/webedit_templates/_template_files/_images/nav/multimedia.gif";
+image6on = new Image();
+image6on.src = "webedit/webedit_templates/_template_files/_images/nav/multimedia_mo.gif";
+image7= new Image();
+image7.src = "webedit/webedit_templates/_template_files/_images/nav/newsletter.gif";
+image7on = new Image();
+image7on.src = "webedit/webedit_templates/_template_files/_images/nav/newsletter_mo.gif";
+image8= new Image();
+image8.src = "webedit/webedit_templates/_template_files/_images/nav/home.gif";
+image8on = new Image();
+image8on.src = "webedit/webedit_templates/_template_files/_images/nav/home_mo.gif";
+
+function on3(name)   {
+        document[name].src = eval(name + "on.src");
+}
+function off3(name)  {
+        document[name].src = eval(name + ".src");
+}
+NN3 = true;
+
+function on(name)  {
+        if (NN3) on3(name);
+}
+function off(name)  {
+        if (NN3) off3(name);
+}
+// -->
+
+
+}
+/*
+     FILE ARCHIVED ON 12:43:00 Jun 30, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 00:22:13 Jul 16, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 151.623
+  exclusion.robots: 0.119
+  exclusion.robots.policy: 0.106
+  cdx.remote: 0.082
+  esindex: 0.012
+  LoadShardBlock: 108.77 (3)
+  PetaboxLoader3.datanode: 201.094 (4)
+  load_resource: 814.917
+  PetaboxLoader3.resolve: 692.016
+*/

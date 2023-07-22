@@ -1,0 +1,75 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+ if (document.images) {
+	 
+	 img1on = new Image();
+	 img1on.src ="/assets/lay/nav/summerlink_on.gif";
+	 img2on = new Image();
+	 img2on.src ="/assets/lay/nav/winter_on.gif";
+	 img3on = new Image();
+	 img3on.src ="/assets/lay/nav/winterlink_on.gif";
+	
+}
+function swapLinkBG(e) {
+   
+	    /*
+		 called onMouseover when a user mouses over a navigation link will swap the background image
+		*/
+	    //var target = findTarget(e,'a');
+		//if(!target) return;
+         
+		var el = e.parentNode;
+		var className = el.className;
+		
+		var imageSrc = 'assets/lay/nav/'+ className +  '_on.gif';
+		
+	    el.style.backgroundImage = "url('" +imageSrc +"')";
+	   }//eof
+	   
+	   function swapLinkBGBack(e) {
+	    /*
+		 called onMouseover when a user mouses over a navigation link
+		*/
+		 //var target = findTarget(e,'a');
+          //alert(target);
+		//if(!target) return;
+
+		var el = e.parentNode;
+		
+		var className = el.className;
+		var imageSrc = 'assets/lay/nav/'+ className +  '_off.gif';
+	    el.style.backgroundImage = "url('" +imageSrc +"')";
+	   }//eof
+	
+
+}
+/*
+     FILE ARCHIVED ON 16:18:15 Sep 21, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 00:25:45 Jul 16, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 148.462
+  exclusion.robots: 0.063
+  exclusion.robots.policy: 0.055
+  cdx.remote: 0.054
+  esindex: 0.007
+  LoadShardBlock: 122.67 (3)
+  PetaboxLoader3.datanode: 129.757 (4)
+  load_resource: 71.64
+  PetaboxLoader3.resolve: 60.024
+*/

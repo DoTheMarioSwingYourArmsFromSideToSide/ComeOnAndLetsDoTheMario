@@ -1,0 +1,597 @@
+.cm_txtNormal
+{
+    FONT-SIZE: 8pt;
+    FONT-FAMILY: Arial
+}
+.cm_lnkNormalOut
+{
+    FONT-SIZE: 10px;
+    COLOR: #003366;
+    FONT-FAMILY: Arial;
+    TEXT-DECORATION: none
+}
+.cm_lnkNormalOvr
+{
+    FONT-SIZE: 10px;
+    CURSOR: pointer;
+    COLOR: #003366;
+    FONT-FAMILY: Arial;
+    TEXT-DECORATION: underline
+}
+.cm_lnkModuleNavOut
+{
+    FONT-SIZE: 10px;
+    TEXT-DECORATION: underline
+}
+.cm_lnkModuleNavOvr
+{
+    FONT-SIZE: 10px;
+    CURSOR: pointer;
+    COLOR: #003366
+}
+.cm_txtPageHeading
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 14pt;
+    COLOR: #3a447e;
+    FONT-FAMILY: Arial
+}
+.cm_txtPageTitle
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 12pt;
+    COLOR: #3a447e;
+    FONT-FAMILY: Arial
+}
+.cm_button
+{
+    BORDER-RIGHT: #000000 1px solid;
+    PADDING-RIGHT: 9px;
+    BORDER-TOP: #d3d3d3 1px solid;
+    PADDING-LEFT: 9px;
+    FONT-SIZE: 10pt;
+    PADDING-BOTTOM: 3px;
+    BORDER-LEFT: #d3d3d3 1px solid;
+    COLOR: #ffffff;
+    PADDING-TOP: 1px;
+    BORDER-BOTTOM: #000000 1px solid;
+    FONT-FAMILY: Arial, Helvetica, 'MS Sans Serif', sans-serif;
+    POSITION: relative;
+    TOP: -2px;
+    BACKGROUND-COLOR: #3a447e;
+    CURSOR: pointer;
+}
+DIV.cm_button:HOVER
+{
+    BORDER-RIGHT: 1px solid;
+    BORDER-TOP: 1px solid;
+    BORDER-LEFT: 1px solid;
+    CURSOR: pointer;
+    COLOR: #003366;
+    BORDER-BOTTOM: 1px solid;
+    BACKGROUND-COLOR: white;
+}
+.cm_btnOut
+{
+    BORDER-RIGHT: #000000 1px solid;
+    PADDING-RIGHT: 9px;
+    BORDER-TOP: #d3d3d3 1px solid;
+    PADDING-LEFT: 9px;
+    FONT-SIZE: 10pt;
+    PADDING-BOTTOM: 3px;
+    BORDER-LEFT: #d3d3d3 1px solid;
+    COLOR: #ffffff;
+    PADDING-TOP: 1px;
+    BORDER-BOTTOM: #000000 1px solid;
+    FONT-FAMILY: Arial, Helvetica, 'MS Sans Serif', sans-serif;
+    POSITION: relative;
+    TOP: -2px;
+    BACKGROUND-COLOR: #3a447e;
+    TEXT-DECORATION: none
+}
+.cm_btnOvr
+{
+    BORDER-RIGHT: 1px solid;
+    PADDING-RIGHT: 9px;
+    BORDER-TOP: 1px solid;
+    PADDING-LEFT: 9px;
+    FONT-SIZE: 10pt;
+    PADDING-BOTTOM: 3px;
+    BORDER-LEFT: 1px solid;
+    CURSOR: pointer;
+    COLOR: #003366;
+    PADDING-TOP: 1px;
+    BORDER-BOTTOM: 1px solid;
+    FONT-FAMILY: Arial, Helvetica, 'MS Sans Serif', 'sans serif';
+    POSITION: relative;
+    TOP: -2px;
+    BACKGROUND-COLOR: white;
+    TEXT-DECORATION: none
+}
+.cm_btnHotDealsOut
+{
+    BORDER-RIGHT: #000000 1px solid;
+    PADDING-RIGHT: 9px;
+    BORDER-TOP: #d3d3d3 1px solid;
+    PADDING-LEFT: 9px;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    PADDING-BOTTOM: 3px;
+    BORDER-LEFT: #d3d3d3 1px solid;
+    COLOR: #ffffff;
+    PADDING-TOP: 1px;
+    BORDER-BOTTOM: #000000 1px solid;
+    FONT-FAMILY: Arial, Helvetica, 'MS Sans Serif', sans-serif;
+    POSITION: relative;
+    TOP: -2px;
+    BACKGROUND-COLOR: #8b0000;
+    TEXT-DECORATION: none
+}
+.cm_btnHotDealsOvr
+{
+    BORDER-RIGHT: 1px solid;
+    PADDING-RIGHT: 9px;
+    BORDER-TOP: 1px solid;
+    PADDING-LEFT: 9px;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    PADDING-BOTTOM: 3px;
+    BORDER-LEFT: 1px solid;
+    CURSOR: pointer;
+    COLOR: #8b0000;
+    PADDING-TOP: 1px;
+    BORDER-BOTTOM: 1px solid;
+    FONT-FAMILY: Arial, Helvetica, 'MS Sans Serif', 'sans serif';
+    POSITION: relative;
+    TOP: -2px;
+    BACKGROUND-COLOR: white;
+    TEXT-DECORATION: none
+}
+.cm_bizAlphaOut
+{
+    FONT-SIZE: 12px;
+    COLOR: #000000;
+    FONT-FAMILY: Arial
+}
+.cm_bizAlphaOvr
+{
+    FONT-SIZE: 12px;
+    CURSOR: pointer;
+    COLOR: #0000cc;
+    FONT-FAMILY: Arial
+}
+.cm_bizBody
+{
+    FONT-SIZE: 8pt;
+    MARGIN: 10px;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: transparent
+}
+.cm_bizHeading
+{
+    FONT-WEIGHT: 600;
+    FONT-SIZE: 16px;
+    COLOR: #000000;
+    FONT-FAMILY: Arial
+}
+.cm_bizNavBar
+{
+    FONT-SIZE: 9pt;
+    COLOR: #ffffff;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: #3a447e
+}
+.cm_bizNavBarItemActiveOut
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 9pt;
+    COLOR: #ffffff;
+    FONT-FAMILY: Arial;
+}
+.cm_bizNavBarItemActiveOvr
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 9pt;
+    COLOR: #ffffff;
+    FONT-FAMILY: Arial;
+    TEXT-DECORATION: underline;
+    CURSOR: pointer;
+}
+.cm_bizNavBarItemInactive
+{
+	FONT-WEIGHT: normal;
+    FONT-SIZE: 9pt;
+    COLOR: #ffffff;
+    FONT-FAMILY: Arial;
+}
+.cm_bizNormal
+{
+    FONT-SIZE: 8pt;
+    FONT-FAMILY: Arial
+}
+.cm_bizSubHeading
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 13px;
+    COLOR: #000000
+}
+.cm_bizMemberAddr
+{
+    FONT-SIZE: 8pt;
+    COLOR: #00009f;
+    FONT-FAMILY: Arial;
+}
+.cm_bizMemberDesc
+{
+    FONT-SIZE: 8pt;
+    COLOR: #00009f;
+    FONT-FAMILY: Arial;
+	FONT-STYLE: italic;
+}
+.cm_bizMemberNameOut
+{
+    FONT-WEIGHT: 700;
+    FONT-SIZE: 9pt;
+    COLOR: #00009f;
+    FONT-FAMILY: Arial;
+    TEXT-DECORATION: underline;
+}
+.cm_bizMemberNameOvr
+{
+    FONT-WEIGHT: 700;
+    FONT-SIZE: 9pt;
+    COLOR: #00009f;
+    FONT-FAMILY: Arial;
+    TEXT-DECORATION: underline;
+}
+.cm_bizMemberPhone
+{
+    FONT-SIZE: 8pt;
+    COLOR: #00009f;
+    FONT-FAMILY: Arial;
+}
+.cm_bizMemberURLOut
+{
+    FONT-SIZE: 9pt;
+    COLOR: #00009f;
+    FONT-FAMILY: Arial;
+}
+.cm_bizMemberURLOvr
+{
+    FONT-SIZE: 9pt;
+    COLOR: #00009f;
+    FONT-FAMILY: Arial;
+    TEXT-DECORATION: underline;
+}
+.cm_bizQLOut
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 12px;
+    COLOR: #003366
+}
+.cm_bizQLOvr
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 12px;
+    CURSOR: pointer;
+    COLOR: #ffffff;
+    BACKGROUND-COLOR: #003366
+}
+.cm_bizQLListOut
+{
+    FONT-SIZE: 11px;
+    FONT-WEIGHT: 700;
+    POSITION: relative;
+    TOP: -6px;
+    COLOR: #000066;
+}
+.cm_bizQLListOvr
+{
+    FONT-SIZE: 11px;
+    FONT-WEIGHT: 700;
+    CURSOR: pointer;
+    POSITION: relative;
+    TOP: -6px;
+    COLOR: #0000cc;
+    TEXT-DECORATION: underline;
+}
+.cm_bizQLSubOut
+{
+    FONT-SIZE: 10px;
+    POSITION: relative;
+    TOP: -6px;
+    TEXT-DECORATION: underline
+}
+.cm_bizQLSubOvr
+{
+    FONT-SIZE: 10px;
+    CURSOR: pointer;
+    POSITION: relative;
+    TOP: -6px
+}
+.cm_bizSponsorHighlight
+{
+	BACKGROUND-COLOR: #e0eaf1;
+	BORDER: 0px solid #003366;
+}
+.cm_bizSponsorThanks
+{
+	COLOR: #666666;
+    FONT-SIZE: 8pt;
+	BACKGROUND-COLOR: #ffffff;
+	BORDER: 0px solid #003366;
+	TEXT-ALIGN: right;
+}
+.cm_bizSearchCriteriaHeading
+{
+    FONT-SIZE: 8pt;
+ 	FONT-WEIGHT: 700;
+	TEXT-DECORATION: underline;
+}
+.cm_bizSearchCriteriaNormal
+{
+    FONT-SIZE: 8pt;
+ }
+.cm_bizSearchCriteriaNotes
+{
+	FONT-SIZE: 10px;
+}
+.cm_bizSearchCriteriaSubheading
+{
+    FONT-SIZE: 8pt;
+	FONT-WEIGHT: 700;
+	TEXT-ALIGN: right;
+}
+.cm_eventBody
+{
+    FONT-SIZE: 8pt;
+    MARGIN: 10px;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: transparent
+}
+.cm_eventCalDate
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 12px;
+    COLOR: #d2691e;
+    FONT-FAMILY: Arial;
+	CURSOR: pointer;
+	TEXT-DECORATION: underline;
+}
+.cm_eventCalDateLowEmph
+{
+    FONT-WEIGHT: 400;
+    FONT-SIZE: 12px;
+    COLOR: #333333;
+    FONT-FAMILY: Arial;
+}
+.cm_eventCalText
+{
+    FONT-SIZE: 9px;
+    FONT-FAMILY: Arial
+}
+.cm_eventHeading
+{
+    FONT-WEIGHT: 600;
+    FONT-SIZE: 10pt;
+    COLOR: #003366;
+    FONT-FAMILY: Arial
+}
+.cm_eventHeadingBar
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    COLOR: #ffffff;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: #3a447e
+}
+.cm_eventLinkLowEmphOut
+{
+    FONT-SIZE: 8pt;
+    COLOR: #778899;
+    FONT-FAMILY: Arial;
+    TEXT-DECORATION: none
+}
+.cm_eventLinkLowEmphOvr
+{
+    FONT-SIZE: 8pt;
+    CURSOR: pointer;
+    COLOR: #003366;
+    FONT-FAMILY: Arial;
+    TEXT-DECORATION: underline
+}
+A.cm_eventLink, .cm_eventLink
+{
+    FONT-SIZE: 8pt;
+    COLOR: #003366;
+    FONT-FAMILY: Arial;
+    TEXT-DECORATION: none
+}
+A.cm_eventLink:HOVER, SPAN.cm_eventLink:HOVER, DIV.cm_eventLink:HOVER
+{
+    FONT-SIZE: 8pt;
+    COLOR: #003366;
+    FONT-FAMILY: Arial;
+	CURSOR: pointer;
+    TEXT-DECORATION: underline
+}
+A.cm_eventLinkOut, .cm_eventLinkOut
+{
+    FONT-SIZE: 8pt;
+    COLOR: #003366;
+    FONT-FAMILY: Arial;
+    TEXT-DECORATION: none
+}
+A.cm_eventLinkOvr, .cm_eventLinkOvr
+{
+    FONT-SIZE: 8pt;
+    CURSOR: pointer;
+    COLOR: #003366;
+    FONT-FAMILY: Arial;
+    TEXT-DECORATION: underline
+}
+IMG.cm_eventNavBar
+{
+	MARGIN-TOP: 0px;
+    FONT-SIZE: 9pt;
+    COLOR: #ffffff;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: #3a447e;
+	WIDTH: 100%;
+	HEIGHT: 4px;
+}
+.cm_eventNormal
+{
+    FONT-SIZE: 8pt;
+    FONT-FAMILY: Arial
+}
+.cm_eventSectionHead
+{
+    FONT-WEIGHT: 600;
+    FONT-SIZE: 12pt;
+    COLOR: #003366;
+    FONT-FAMILY: Arial
+}
+.cm_eventSectionHeadOvr
+{
+    FONT-WEIGHT: 600;
+    FONT-SIZE: 12pt;
+    CURSOR: pointer;
+    COLOR: #ffffff;
+    FONT-FAMILY: Arial;
+	BACKGROUND-COLOR: #006699;
+}
+.cm_eventPrintableHead {
+    BACKGROUND-COLOR: #3a447e;
+    FONT-WEIGHT: 400;
+    FONT-SIZE: 9pt;
+    COLOR: #ffffff;
+    FONT-FAMILY: Arial
+}
+TH.calHead
+{
+    BORDER-RIGHT: #003366 1px solid;
+    BORDER-TOP: #003366 1px solid;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11px;
+    MARGIN: 2px;
+    BORDER-LEFT: #003366 1px solid;
+    COLOR: #003366;
+    BORDER-BOTTOM: #003366 1px solid;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: #d6e0e7
+}
+TD.calMiniOff
+{
+    BORDER-RIGHT: #ffffff 0px inset;
+    BORDER-TOP: #ffffff 0px inset;
+    FONT-SIZE: 10px;
+    MARGIN: 0px;
+    BORDER-LEFT: #ffffff 0px inset;
+    BORDER-BOTTOM: #ffffff 0px inset;
+    FONT-FAMILY: Arial;
+	COLOR: #999999;
+	BACKGROUND-COLOR: #ffffff;
+}
+TD.calMiniOn
+{
+    BORDER-RIGHT: white 0px solid;
+    BORDER-TOP: white 0px solid;
+    FONT-SIZE: 10px;
+    MARGIN: 0px;
+    BORDER-LEFT: white 0px solid;
+    BORDER-BOTTOM: white 0px solid;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: transparent
+}
+TH.calMiniHead
+{
+    BORDER-RIGHT: white 0px solid;
+    BORDER-TOP: white 0px solid;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11px;
+    MARGIN: 0px;
+    BORDER-LEFT: white 0px solid;
+    COLOR: #003366;
+    BORDER-BOTTOM: white 0px solid;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: white
+}
+TD.calMiniHighlight
+{
+    BORDER-RIGHT: white 0px solid;
+    BORDER-TOP: white 0px solid;
+    FONT-SIZE: 10px;
+    MARGIN: 0px;
+    BORDER-LEFT: white 0px solid;
+    BORDER-BOTTOM: white 0px solid;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: #d6e0e7
+}
+TD.calOn
+{
+    BORDER-RIGHT: #003366 0px solid;
+    BORDER-TOP: #003366 0px solid;
+    FONT-SIZE: 10px;
+    MARGIN: 0px;
+    BORDER-LEFT: #003366 0px solid;
+    BORDER-BOTTOM: #003366 0px solid;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: transparent
+}
+TD.calOff
+{
+    BORDER-RIGHT: #003366 0px solid;
+    BORDER-TOP: #003366 0px solid;
+    FONT-SIZE: 10px;
+    MARGIN: 0px;
+    BORDER-LEFT: #003366 0px solid;
+    BORDER-BOTTOM: #003366 0px solid;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: #d8d8d8
+}
+.errorbgcolor
+{
+	background-color : #ff9999;
+}
+.errorbordercolor /*This should be the same color as errorbgcolor if no border is wanted*/
+{
+	background-color : #003366;
+}
+.errortext /*Use to create type in error message box*/
+{
+	color : #333333;
+	font-family : arial,verdana,helvetica;
+	font-size : 12px;
+	text-decoration : none;
+}
+.errortextbold /*Use to create type in error message box*/
+{
+	color : #333333;
+	font-family : arial,verdana,helvetica;
+	font-size : 12px;
+	font-weight : bold;
+	text-align : left;
+	text-decoration : none;
+}
+
+/*
+     FILE ARCHIVED ON 14:11:47 Jul 27, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 00:07:44 Jul 16, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 107.256
+  exclusion.robots: 0.106
+  exclusion.robots.policy: 0.096
+  cdx.remote: 0.066
+  esindex: 0.01
+  LoadShardBlock: 73.792 (3)
+  PetaboxLoader3.datanode: 204.111 (4)
+  load_resource: 176.134
+  PetaboxLoader3.resolve: 22.789
+*/

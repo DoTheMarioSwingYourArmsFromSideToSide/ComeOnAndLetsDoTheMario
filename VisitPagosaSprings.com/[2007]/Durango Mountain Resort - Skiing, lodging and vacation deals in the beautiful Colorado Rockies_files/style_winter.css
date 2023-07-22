@@ -1,0 +1,1143 @@
+ 
+body {
+    background-image:url('/web/20070921161824im_/http://www.durangomountainresort.com/assets/lay/bg_body.jpg');
+	background-repeat:repeat-x;
+	background-position:top left;
+    background-color:#20303D;
+	color:#fff;
+	margin:0px auto 20px auto;
+	_text-align:center;
+	  
+	font-family: Ariel, sans-serif;
+	font-size: 11pt;
+  }
+
+
+  td,p {
+  font-size: 9pt;
+  }
+
+
+  div#container  {
+    width:843px;
+	min-height:675px;
+	margin:0px auto;
+	padding:0px;
+	text-align:left;
+ 
+  }
+
+
+  
+  div#contentcontainer_left {
+    width:inherit;
+    background-image:url('/web/20070921161824im_/http://www.durangomountainresort.com/assets/lay/bg_left.gif'); 
+	background-position:left top;
+    background-repeat:no-repeat;
+	margin:0px;
+	float:left;
+	padding:0px;
+  }
+
+
+  div#contentContainer_right {  
+	background-image:url('/web/20070921161824im_/http://www.durangomountainresort.com/assets/lay/bg_right1.gif');
+	background-position:right top;
+	background-repeat:no-repeat; 
+	margin:0px;
+	padding:0px;
+	float:left;
+	width:inherit;
+	
+  }
+
+
+  div#content {
+    width:823px;
+	margin:0px 10px;
+	background-image:url('/web/20070921161824im_/http://www.durangomountainresort.com/assets/images/banners/chairlift.jpg');
+	background-position:top;
+	background-repeat:no-repeat;
+	min-height:300px;
+  }
+
+
+  
+  div#mainBody {
+   margin-top:118px;
+   float:left;
+   height:inherit;
+  }
+
+
+  
+   div#pageContent {
+	color:#000;
+	padding:5px;
+	height:inherit;
+	float:left;margin:0px;
+	margin-top:-12px;
+	width:812px;
+	background-color:#F1F0E3;
+	
+  }
+
+
+/*** ADMIN NAVIGATION WHEN LOGGED IN *****/  
+div#pageContent   .menu_trail 
+	{ color:#A23731;
+	 font-size:.8em;
+	 text-decoration : none;
+	}
+
+ div#pageContent a.menu_trail
+	{font-size: .8em;
+	color: #A23731;
+	}
+
+div#pageContent  a.menu_trail:hover
+	{
+	color: #000;
+	}
+
+	
+/**** TOP BREAD CRUMB NAVIGATION *****/
+  div#top {
+    background-image:url('/web/20070921161824im_/http://www.durangomountainresort.com/assets/lay/bg_topRow.png');
+	background-repeat:repeat-x;
+	height:21px;
+	color:#000;
+	color:#993631;
+    font-size:.75em;
+	margin:0px;
+	padding:0px;
+  }
+
+
+  div#top ul#subCatBreadCrumbs {
+   float:left;
+  }
+
+
+ /*controls look of bread crumb navigation for sub categories */
+div#top ul#subCatBreadCrumbs,div#top ul#topQuicklinks,span.cartTotals
+{ margin:3px 0px 1px 3px;
+  padding:3px 0px;
+  
+}
+
+
+span.cartTotals {
+ float:right;
+ 
+}
+
+div#top ul#subCatBreadCrumbs li,div#top ul#topQuicklinks li
+{ list-style:none;
+ float:left;
+ margin-right:5px;
+ color:#993631;
+ text-transform:lowercase;
+}
+ 
+
+div#top ul#topQuicklinks {
+  
+  float:right;
+}
+
+div#top ul#subCatBreadCrumbs li a,
+div#top ul#subCatBreadCrumbs li a:link,
+div#top ul#topQuicklinks li a,
+div#top ul#topQuicklinks li a:link,
+span.cartTotals a,
+span.cartTotals a:link{
+ color:#993631;
+ border-right:1px solid #993631;
+ padding:0px 3px;
+ margin:3px 0px;
+}
+
+span.cartTotals a,
+span.cartTotals a:link{
+border-right:none;
+}
+
+div#widgetBar {
+ vertical-align:top;
+ height:123px !important;
+ margin:0px;
+ padding:0px;
+}
+
+
+/**** page footer *****/
+div#tblFooter   {
+    width:823px;
+	margin:0px 10px;
+    height:47px;
+	clear:both;
+ }
+ 
+#tblFooter.winter {     
+	background-image:url('/web/20070921161824im_/http://www.durangomountainresort.com/assets/lay/bg_footer_winter.gif');
+    background-position:top;
+    background-repeat:no-repeat; 
+}
+
+
+
+ div#tblFooter ul {
+  list-style-type:none;
+  margin:12px 0px 12px 490px;
+  padding-top:12px;
+ }
+
+
+
+div#tblFooter li {
+ float: left;
+ margin:0px;
+ padding: 0px 2px;
+ font-size:.7em;
+}
+
+ 
+div#tblFooter.winter li a:link,
+div#tblFooter.winter li a:visited,
+div#tblFooter.winter li a:active {
+ text-decoration:none;
+ border-right:1px solid #4B3D2B;
+ padding-right:5px;
+ color:#fff;
+ font-weight:bold;
+}
+
+div#tblFooter.winter li a:hover
+{ color:#A3BFD4;
+}
+
+
+li.listLast, a.listlast {
+ border-right:none;
+}
+
+
+div#tblFooter ul#copyright {
+ margin-left:480px;
+}
+
+div#tblFooter ul#copyright li {
+  border-right:1px solid #FFF;
+
+}
+
+
+div#tblFooter ul#copyright a,
+div#tblFooter ul#copyright a:link {
+padding:0px 5px;
+color:#FFF;
+border-right:none;
+font-weight:normal;
+}
+
+
+
+/***** STYLES FOR FBCOMMERCE ***/
+.tblbg 
+{ background-color: #666600;
+}
+
+.tdbg2 
+{ background-color: #404040;
+ color:#FFFFFF;
+ font-size: 9pt;
+}
+
+.tdbg1 
+{ color:#efefcd;
+;
+ font-size: 9pt;
+}
+
+.tdbg_grey 
+{ background-color:#e2e2d6;
+ color:#000}
+
+A.tdbg_grey:link 
+{ color:#000;
+}
+
+A.tdbg_grey:hover 
+{color:#FFF;
+ text-decoration:underline;
+}
+
+A.tdbg_grey:visited 
+{ color:#000;
+}
+
+.smltext 
+{ font-size:7pt;
+ color:#000000;
+}
+
+.smltext_blck 
+{ font-size:7pt;
+ color:#000000;
+}
+
+.smltext_white 
+{ font-size:7pt;
+ color:#FFFFFF;
+ font-weight:bold;
+}
+
+.pageTitle 
+{ color: #FFFFFF;
+ font-size: 140%;
+ font-weight:bold;
+ padding:5px;
+ }
+
+
+.pageTitle_sm 
+{ color: #FFFFFF;
+ font-size: 12px;
+ font-weight:bold;
+ padding:2px;
+ }
+
+
+.pagesubHeader 
+{ font-size: 10px;
+ font-weight:bold;
+ padding:2px;
+ }
+
+
+.pad 
+{padding:4px;
+}
+
+.nopad 
+{padding:0px}
+
+a.breadcrumbs,a.breadcrumbs:link 
+{ color:#925C33;
+ text-decoration: none;
+}
+
+a.breadcrumbs:hover 
+{ color: #396D94;
+}
+
+a.breadcrumbs:visited 
+{ color:#396D94;
+}
+
+.subnav, A.subnav:link 
+{ color:#925C33;
+ text-decoration: none;
+ font-size:90%;
+ }
+
+
+ A.subnav:visited 
+{ color:#396D94;
+ }
+
+
+ A.subnav:hover 
+{ color:#396D94;
+ }
+
+
+.adminHelp 
+{ color:#FF0000;
+ font-size: 10px;
+ text-decoration: none;
+ font-weight:bold;
+}
+
+.footer 
+{ text-align:center;
+ color:#925C33;
+ font-size:80%;
+}
+
+footer_subnav,A.footer_subnav
+{ text-align:center;
+ color:#925C33;
+}
+
+A.footer_subnav:hover
+{ color:#396D94;
+}
+
+.vertLine 
+{color: #396D94;
+border: 1pt dotted #925C33;
+;
+}
+
+.mainTable 
+{width:100%;
+padding:0px;
+margin: 0px;
+}
+
+.tdSideBar 
+{width: 125;
+vertical-align: top;
+}
+
+.tdMain 
+{vertical-align: top;
+}
+
+/* ----- MAIN SETTINGS ---- */A:link 
+{COLOR:#99322B;
+text-decoration: none;
+}
+
+A:visited 
+{COLOR:#396D94;
+text-decoration: none;
+}
+
+ A:hover 
+{color : #396D94;
+}
+
+/* This is the default font for the entire page body */.mainpage 
+{font-size : smaller;
+font-family : Arial, Helvetica, sans-serif;
+}
+
+/* This is a smaller text used for the wishlist, etc. */.smalltext 
+{font-size : 90%;
+}
+
+/* Style for page breaks when printing */P.pageEnd 
+{page-break-before: always}
+
+/* ----- PAGE SECTIONS & HEADERS -----*//* Header is a large separating bar used in page layout *//* Sections are used for output areas */
+.header 
+{BACKGROUND-COLOR: #d8d8bc;
+FONT-SIZE: 14px;
+color:#000000;
+font-weight : bolder;
+}
+
+.section_title 
+{font-size: 12px;
+font-weight: bold;
+color :#5e5e38;
+}
+
+/* Used for the menu footer at the bottom of list and detail pages */.section_footer 
+{font-size: 11px;
+color :#853A1B;
+}
+
+A.section_footer 
+{ color :#853A1B;
+text-decoration : none;
+}
+
+
+h1 
+{color: #396D94;
+ font-size: 18px;
+ font-family: Arial, Helvetica, sans-serif;
+ font-wieght: bold}
+
+h2 
+{color: #396D94;
+font-size: 16px;
+font-family: Arial, Helvetica, sans-serif;
+font-weight: bold;
+}
+
+h3 
+{color: #396D94;
+font-size: 14px;
+font-family: Arial, Helvetica, sans-serif;
+font-weight: bold;
+font-style: normal;
+}
+
+h4 
+{color: #396D94;
+font-size: 12px;
+font-family: Arial, Helvetica, sans-serif;
+font-weight: bold;
+font-style: normal;
+}
+
+
+hr {
+ size:1px;
+ color:#9D342E;
+}
+
+
+HR.thickline 
+{size: 1;
+height: 2px;
+FONT-SIZE: 1px;
+margin-bottom : 0px;
+margin-top : 0px;
+}
+
+HR.thinline 
+{size: 1;
+height : 1px;
+margin-bottom : 0px;
+margin-top : 0px;
+}
+
+/* Wish list button */
+.WishButton 
+{BORDER-RIGHT: 1px outset;
+BORDER-TOP: 1px outset;
+FONT-WEIGHT: bold;
+FONT-SIZE: 11px;
+BORDER-LEFT: 1px outset;
+COLOR: white;
+BORDER-BOTTOM: 1px outset;
+BACKGROUND-COLOR: #999999;
+text-align : center;
+}
+
+/* CATEGORY PAGES: Category itself (large) plus 3 listing sizes for subcats & article, etc. --------------------------------------------- */
+.cat_title_large 
+{font : Arial, Helvetica, sans-serif;
+font-size: 24px;
+color:#5e5e38;
+}
+
+.cat_title_small 
+{font : Arial, Helvetica, sans-serif;
+font-size: 12px;
+font-weight: bold;
+}
+
+
+a.cat_title_small, a.cat_title_small:visited, a.cat_title_small:active
+{color:#006699;
+}
+
+a.cat_title_small:hover
+{ color:#925C33;
+}
+
+.cat_title_list 
+{font : Arial, Helvetica, sans-serif;
+font-size:14px;
+font-weight: bold;
+text-decoration: underline}
+
+.cat_text_large 
+{font-size: 12px;
+color:#FFF;
+}
+
+.cat_text_featured 
+{font-size: 14px;
+}
+
+.cat_text_small 
+{font-size: 13px;
+ }
+
+
+.cat_text_list 
+{font-size: 12px;
+}
+
+/* FEATURE:.Detail page -------------------------------- *//* Style for detail item name, if no image defined */
+.FeatureTitle 
+{font-size : 22px;
+}
+
+/* Style for product names, if no image defined */.FeatureTeaser 
+{font-size : 16px;
+font-family : Arial, Helvetica, sans-serif;
+}
+
+.FeatureByline 
+{font-size : 12px;
+font-style : italic;
+}
+
+/* PRODUCTS:. --------------------------------------------- *//* Style for product names, if no image defined */.prodname 
+{font-size : 16px;
+font-weight : bold;
+}
+
+/* Style for product names, if no image defined */.prodname_list 
+{font-size : 14px;
+font-weight : bold;
+}
+
+/* Style for Product SKU line, if turned on */.prodSKU 
+{font-size : 11px;
+color : #CCCCCC;
+}
+
+/* Style for Product price, if turned on */.prodprice 
+{font-size : 12px;
+color:#396D94;
+}
+
+/* Style for Product price emphasized words */.prodprice2 
+{font-size : 12px;
+font : bold;
+color:#396D94;
+}
+
+/* Style for Product discount line, if turned on */.proddisc 
+{font-size : 12px;
+color : maroon;
+}
+
+/* Style for border around image on moreinfo page */.moreimg 
+{border-style : solid;
+border-width : 1px;
+border-color : Silver;
+width: 30%;
+text-align : center;
+padding : 10px;
+background-color: white;
+}
+
+.gallery_img 
+{border-style : solid;
+border-color : Silver;
+margin-right : 3px;
+border-width : 1px;
+}
+
+/* ----- ORDER BOX & HIGHLIGHT BOX -----*/.boxtitle 
+{FONT-SIZE: 16px;
+ font-family: Arial, Helvetica, sans-serif;
+}
+
+.BoxText 
+{font-family : Arial, Helvetica, sans-serif;
+FONT-SIZE: 13px;
+ }
+
+
+.BoxBorder 
+{ border: 1px solid #191900;
+}
+
+.BoxHeaderRow 
+{ background-color: #646310;
+}
+
+/* ----- SHOPPING CART -----*//* Style for shopping cart text */.carttext 
+{font-size : 11px;
+}
+
+/* Style for small shopping cart text */.smallcarttext 
+{font-size : 10px;
+}
+
+/* ----- INPUT FORM ---------------------------------*/.FormTitle 
+{color:#000;
+FONT-SIZE: 14px;
+font-weight : bold;
+font-family : Arial, Helvetica, sans-serif;
+}
+
+.formtext 
+{color:#000;
+FONT-SIZE: 11px;
+vertical-align : baseline;
+font-family : Arial, Helvetica, sans-serif;
+}
+
+.FormError 
+{FONT-SIZE: 12px;
+color : Red;
+}
+
+.FormErrorSmall 
+{FONT-SIZE: 10px;
+color : Red;
+}
+
+.FormTextSmall 
+{ color:#000;
+FONT-SIZE: 10px;
+ }
+
+
+.FormTextVerySmall 
+{FONT-SIZE: 9px;
+color:#000;
+}
+
+.formfield 
+{  BACKGROUND-COLOR: #FFF;
+	BORDER:  1px solid #9D342E;
+	COLOR: #000;
+	FONT-SIZE:14px;
+}
+
+select.formfield option
+{ border:none ! important;}
+
+
+
+.FormButton, button.formbutton, input.formbtton {
+BORDER-RIGHT: 1px outset;
+	BORDER-TOP: 1px outset;
+	FONT-WEIGHT: bold;
+	FONT-SIZE: .9em;
+	BORDER-LEFT: 1px outset;
+	COLOR: white;
+	text-transform:uppercase;
+	BORDER-BOTTOM: 1px outset;
+	BACKGROUND-COLOR: #99322B;
+	text-align : center;
+}
+/* ----- Listing Outputs (for address lists, etc.) ---------------------------*/
+.ResultHead 
+{
+FONT-SIZE: 12px;
+color:#FFF;
+}
+
+.listingHead 
+{FONT-SIZE: 12px;
+ TEXT-DECORATION: none;
+}
+
+.ListingSmall 
+{font-size:10px;
+}
+
+.listingTitle 
+{FONT-SIZE: 14px;
+TEXT-DECORATION: none;
+font-weight : bold;
+}
+
+A.listingTitle:link 
+{FONT-SIZE: 14px;
+ TEXT-DECORATION: none}
+
+A.listingTitle:visited 
+{FONT-SIZE: 14px;
+ TEXT-DECORATION: none}
+
+A.listingTitle:hover 
+{FONT-SIZE: 14px;
+ ;
+ TEXT-DECORATION: underline}
+
+.listingsubtitle 
+{FONT-SIZE: 12px;
+ FONT-STYLE: italic;
+ }
+
+
+.listingtext 
+{FONT-SIZE: 12px;
+ }
+
+
+.listingsubtext 
+{FONT-SIZE: 12px;
+ }
+
+
+.listingtagline 
+{FONT-SIZE: 12px;
+ }
+
+
+.listingdate 
+{FONT-SIZE: 12px;
+ }
+
+
+/* MENUs --------------------------------------------- */
+.menu_category 
+{font-size: 12px;
+text-decoration : none;
+COLOR: gray;
+}
+
+a.menu_category
+{font-size: 12px;
+}
+
+.menu_page 
+{text-align:right;
+font-size: 12px;
+COLOR:#C0C080;
+}
+.menu_admin 
+{FONT-WEIGHT: normal;
+FONT-SIZE: 10px;
+COLOR: #BDBC00;
+TEXT-DECORATION: none}
+
+A.menu_admin
+{FONT-WEIGHT: normal;
+FONT-SIZE: 10px;
+COLOR: #99322B;
+TEXT-DECORATION: none}
+
+A.menu_admin:hover
+{COLOR:#0099FF;
+}
+
+.caution 
+{COLOR: #ff6600;
+ FONT-SIZE: 12px;
+ FONT-WEIGHT: 700}
+
+
+/* ----- INPUT FORM ---------------------------------*/
+TD.TopTierHeader 
+{}
+
+.TopTierHeader 
+{PADDING-RIGHT: 5px;
+ PADDING-LEFT: 10px;
+ FONT-WEIGHT: bold;
+ FONT-SIZE: 12px;
+ FONT-FAMILY: Arial, Helvetica, sans-serif;
+ }
+
+
+A.TopTierHeader:link 
+{PADDING-RIGHT: 5px;
+ PADDING-LEFT: 5px;
+ FONT-WEIGHT: bold;
+ FONT-SIZE: 12px;
+ FONT-FAMILY: Arial, Helvetica, sans-serif;
+ TEXT-DECORATION: none}
+
+A.TopTierHeader:visited 
+{PADDING-RIGHT: 5px;
+ PADDING-LEFT: 5px;
+ FONT-WEIGHT: bold;
+ FONT-SIZE: 12px;
+ FONT-FAMILY: Arial, Helvetica, sans-serif;
+ TEXT-DECORATION: none}
+
+A.TopTierHeader:hover 
+{PADDING-RIGHT: 5px;
+ PADDING-LEFT: 5px;
+ FONT-WEIGHT: bold;
+ FONT-SIZE: 12px;
+ FONT-FAMILY: Arial, Helvetica, sans-serif;
+ TEXT-DECORATION: underline}
+
+/* ----- top tier is tabs;
+ TD produces height ---------------------------------*/TD.TopTierNav 
+{FONT-WEIGHT: bold;
+ FONT-SIZE: 12px;
+ FONT-FAMILY: Arial, Helvetica, sans-serif;
+ TEXT-DECORATION: none;
+padding:4px;
+}
+
+.TopTierNav 
+{FONT-WEIGHT: bold;
+ FONT-SIZE: 12px;
+ FONT-FAMILY: Arial, Helvetica, sans-serif;
+ TEXT-DECORATION: none}
+
+A.TopTierNav:link 
+{ FONT-SIZE: 12px;
+ FONT-FAMILY: arial,sans serif;
+ TEXT-DECORATION: none;
+ color:#FFF;
+}
+
+A.TopTierNav:visited 
+{FONT-SIZE: 12px;
+ FONT-FAMILY: arial,sans serif;
+ TEXT-DECORATION: none;
+ color:#000000}
+
+A.TopTierNav:hover 
+{FONT-SIZE: 12px;
+FONT-FAMILY: arial,sans serif;
+TEXT-DECORATION: none;
+background-color : transparent;
+color:#FFFFFF;
+}
+
+/* ----- the sub tier is for sort ---------------------------------*/.SubTierNav 
+{FONT-SIZE: 11px;
+ FONT-FAMILY: Arial, Helvetica, sans-serif;
+ TEXT-DECORATION: none}
+
+A.SubTierNav:link 
+{ FONT-SIZE: 11px;
+ FONT-FAMILY: arial,sans serif;
+ TEXT-DECORATION: none}
+
+A.SubTierNav:visited 
+{FONT-SIZE: 11px;
+ FONT-FAMILY: arial,sans serif;
+ TEXT-DECORATION: none}
+
+A.SubTierNav:hover 
+{FONT-SIZE: 11px;
+FONT-FAMILY: arial,sans serif;
+TEXT-DECORATION: none;
+background-color : transparent;
+}
+
+/* ---------- Links for the sitemap search --------------------- */A.alphaon:link 
+{ FONT-SIZE: 13px;
+ FONT-FAMILY: arial,sans serif;
+ TEXT-DECORATION: none ;
+ Font-Weight: Bold;
+}
+
+A.alphaon:visited 
+{FONT-SIZE: 13px;
+ FONT-FAMILY: arial,sans serif;
+ TEXT-DECORATION: none;
+ Font-Weight: Bold;
+}
+
+A.alphaon:hover 
+{FONT-SIZE: 13px;
+FONT-FAMILY: verdana,arial,sans serif;
+TEXT-DECORATION: none;
+Font-Weight: Bold;
+background-color : #F0F0F0;
+}
+
+A.alphaoff:link 
+{ FONT-SIZE: 9px;
+ FONT-FAMILY: verdana,arial,sans serif;
+ TEXT-DECORATION: none}
+
+A.alphaoff:visited 
+{FONT-SIZE: 9px;
+ FONT-FAMILY: verdana,arial,sans serif;
+ TEXT-DECORATION: none}
+
+A.alphaoff:hover 
+{FONT-SIZE: 9px;
+FONT-FAMILY: verdana,arial,sans serif;
+TEXT-DECORATION: none;
+background-color : #F0F0F0;
+}
+
+.nav 
+{color: #925C33;
+ text-decoration: none;
+ font-family: Arial, Helvetica, sans-serif;
+ font-weight: normal}
+
+.nav:hover 
+{color:#396D94;
+text-decoration: underline;
+}
+
+.heading 
+{color: #000000;
+ font-size: 10pt;
+ font-family: Arial, Helvetica, sans-serif;
+ font-weight: bold
+ }
+
+
+.subheading 
+{color: #ffffff;
+ font-size: 10pt;
+ font-family: Arial, Helvetica, sans-serif;
+ font-weight: bold}
+
+.required 
+{font-weight: bold;
+}
+
+.tdHeader 
+{ text-align:center;
+ font-size:90%}
+
+.rowHeader 
+{ height:12pt;
+}
+
+
+.myAccount 
+{ COLOR:#925C33;
+padding-bottom:5px;
+font-weight:bold;
+margin-bottom:5px;
+text-align:center;
+}
+
+a.myAccount:link
+{ COLOR:#925C33;
+}
+
+A.myAccount:hover
+{ COLOR:#396D94;
+}
+
+object.td
+{color:#000000}
+
+.debug 
+{ color:#000;
+}
+
+/*defines styles for category,page,feature edit links*/ 
+
+ a.editBtn 
+{ text-decoration:none;
+ color:#FFF;
+ font-size:90%;
+ padding:2px 5px 2px 5px;
+border: solid 1px #C2A380;
+background-color:#396D94;
+text-align:center;
+margin:10px 5px 5px 5px;
+ }
+
+
+ /* for item lists for editing */ 
+ tr.listform 
+{ background-color: #E7E3D6;
+ padding:3px;
+ color:#000;
+ }
+
+
+ tr.listform td
+{ font-size: 95%;
+ }
+
+
+ tr.listform td  a ,tr.listform a:link 
+{ color:#000;
+ }
+
+
+ 
+tr.listform td a:hover 
+{ color: #666;
+ }
+
+
+ tr.listform td a.editBtn 
+{ text-decoration:none;
+ color:#FFF;
+ font-size:100%;
+ }
+
+
+ /* for item lists for editing */ 
+ tr.listform_lo 
+{ background-color: #CCC;
+ padding:3px;
+ }
+
+
+ tr.listform_lo td a, tr.listform_lo td a:link
+{ color: #000;
+ }
+
+
+ .listform_lo a:link 
+{ color: #000;
+ }
+
+
+ .listform_lo a:hover 
+{ color: #633;
+ }
+
+
+ .listform_lo a.editBtn 
+{ text-decoration:none;
+ color:#FFF;
+ }
+
+
+
+#mtnCam 
+{ width:550px;
+}
+
+#mtnCam td 
+{padding:5px;
+}
+
+#galleryPics 
+{width:550px;
+}
+
+#galleryPics td 
+{padding:5px;
+text-align:center;
+}
+
+.packagesTbl_header, .packagesTbl_header a:link,.packagesTbl_header a:visited,.packagesTbl_header a:active
+{ background-color:#925C33;
+border-bottom:0px solid #000;
+color:#FFFFFF;
+}
+
+.packagesTbl_header a:hover
+{color:#EFDBBD;
+}
+
+.packagesTbl
+{background-color:#EFDBBD;
+border:1px solid #000;
+}
+
+
+table.outputBox td {
+  padding:3px;
+}
+
+
+
+ 
+a.dropmenu,a.dropmenu:visited, a.dropmenu:active
+{ color:#ffffff ! important;}
+
+a.dropmenu:hover
+{ color:#FFFFCC ! important;}
+
+
+/*
+     FILE ARCHIVED ON 16:18:24 Sep 21, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 00:25:45 Jul 16, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 88.851
+  exclusion.robots: 0.076
+  exclusion.robots.policy: 0.066
+  cdx.remote: 0.056
+  esindex: 0.009
+  LoadShardBlock: 58.521 (3)
+  PetaboxLoader3.datanode: 61.236 (4)
+  load_resource: 61.694
+  PetaboxLoader3.resolve: 38.178
+*/

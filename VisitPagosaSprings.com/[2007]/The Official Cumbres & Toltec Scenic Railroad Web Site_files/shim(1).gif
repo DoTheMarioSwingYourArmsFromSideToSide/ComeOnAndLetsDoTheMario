@@ -1,0 +1,373 @@
+	
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+
+<title>The Official Cumbres & Toltec Scenic Railroad Web Site</title>
+
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+<meta name="author" content="Curt Bianchi">
+<meta name="copyright" content="Copyright (c) 2005 Rio Grande Railway Preservation Corp.  All rights reserved.">
+<meta name="description" content="The official web site of the Cumbres & Toltec Scenic Railroad, a historic and cultural property owned by the states of Colorado and New Mexico.">
+<meta name="keywords" content="Friends, Cumbres, Toltec, Scenic, Railroad, steam, locomotive, train, railroad, excursion, railway, narrow, gauge, guage, gage, photo, freight">
+
+<link rel="STYLESHEET" type="text/css" href="includes/styles.css">
+<script language="JavaScript" src="includes/loadMenuImages.js"></script>
+
+
+</head>
+
+<body marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" rightmargin="0" bgcolor="#E6DFC6">
+<a name="top">
+<center>
+<table width="760" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="FFFAE6"> 
+
+<!--------------- START BANNER ------------------->
+
+  <tr bgcolor="#E6DFC6"> 
+    <td colspan="3" align="center" valign="middle"><img src="images/shim.gif" width="760" height="10"/></td> 
+  </tr> 
+  <tr bgcolor="#E6DFC6"> 
+    <td width="7" background="images/edges/edge_topleft.gif"><img src="images/edges/edge_topleft.gif" width="7"></td> 
+    <td background="images/edges/edge_top.gif"><img src="images/edges/edge_top.gif" width="1" height="7"/></td> 
+    <td width="7" background="images/edges/edge_topright.gif"><img src="images/edges/edge_topright.gif" width="7"></td> 
+  </tr> 
+  <tr> 
+    <td width="7" background="images/edges/edge_left.gif"><img src="images/edges/edge_left.gif" width="7"></td>
+    <td><a href="index.php" target="_top"><img src="images/nav/bannerTight.gif" width="760" height="65" border="0"/></a></td>
+    <td width="7" background="images/edges/edge_right.gif"><img src="images/edges/edge_right.gif" width="7"></td> 
+  </tr>
+  <tr>
+    <td width="7" background="images/edges/edge_left.gif"><img src="images/edges/edge_left.gif" width="7"></td>
+    <td><img src="images/nav/blue_accent.gif" width="760" height="1" border="0"/></td>
+    <td width="7" background="images/edges/edge_right.gif"><img src="images/edges/edge_right.gif" width="7"></td>
+  </tr>
+  <tr>
+    <td width="7"><img src="images/edges/edge_left.gif" width="7" height="200"></td>
+<td align="center" valign="middle">
+<img src="images/bannerImages/westboundLobato.jpg" alt="A westbound train near Lobato.  Photo: Curt Bianchi" width="760" height="200"/></td>
+    <td width="7"><img src="images/edges/edge_right.gif" width="7" height="200"></td>
+  </tr>
+  <tr>
+    <td width="7" background="images/edges/edge_left.gif"><img src="images/edges/edge_left.gif" width="7"></td>
+    <td><img src="images/nav/blue_accent.gif" width="760" height="1" border="0"/></td>
+    <td width="7" background="images/edges/edge_right.gif"><img src="images/edges/edge_right.gif" width="7"></td>
+  </tr>
+    
+<!--------------- START MENUS ------------------->
+
+  <tr height="20">
+    <td width="7" background="images/edges/edge_left.gif"><img src="images/edges/edge_left.gif" width="7"></td>
+       	<td align="center" background="images/nav/menu_background.gif" valign="middle">
+	  <table border="0" cellpadding="0" cellspacing="0" width="100%"><tr align="center">
+
+				<!--------------- Home ------------------->
+		<td width="62">
+    	<a href="index.php" target="_top"
+    		onMouseover="document.images['home'].src='images/menus/home_hi.gif'"
+    		onMouseout="document.images['home'].src='images/menus/home.gif'">
+    	<img name="home" src="images/menus/home.gif" width="40" height="20" alt="Home" border="0"></a>
+		</td>
+		<!--------------- About ------------------->
+		<td width="64">
+    	<a href="about.php" target="_top"
+    		onMouseover="document.images['about'].src='images/menus/about_hi.gif'"
+    		onMouseout="document.images['about'].src='images/menus/about.gif'">
+    	<img name="about" src="images/menus/about.gif" width="42" height="20" alt="About" border="0"></a>
+		</td>
+		<!--------------- Train Rides ------------------->
+		<td width="96">
+    	<a href="trainRides.php" target="_top"
+    		onMouseover="document.images['trainrides'].src='images/menus/trainrides_hi.gif'"
+    		onMouseout="document.images['trainrides'].src='images/menus/trainrides.gif'">
+    	<img name="trainrides" src="images/menus/trainrides.gif" width="74" height="20" alt="Train Rides" border="0"></a>
+		</td>
+		<!--------------- Special Events ------------------->
+		<td width="118">
+    	<a href="specialEvents.php" target="_top"
+    		onMouseover="document.images['specialEvents'].src='images/menus/specialEvents_hi.gif'"
+    		onMouseout="document.images['specialEvents'].src='images/menus/specialEvents.gif'">
+    	<img name="specialEvents" src="images/menus/specialEvents.gif" width="96" height="20" alt="Special Events" border="0"></a>
+		</td>
+		<!--------------- Trip Planning ------------------->
+		<td width="110">
+    	<a href="tripPlanning.php" target="_top"
+    		onMouseover="document.images['tripPlanning'].src='images/menus/tripPlanning_hi.gif'"
+    		onMouseout="document.images['tripPlanning'].src='images/menus/tripPlanning.gif'">
+    	<img name="tripPlanning" src="images/menus/tripPlanning.gif" width="88" height="20" alt="Trip Planning" border="0"></a>
+		</td>
+		<!--------------- Area Info ------------------->
+		<td width="84">
+    	<a href="areaInfo.php" target="_top"
+    		onMouseover="document.images['areaInfo'].src='images/menus/areaInfo_hi.gif'"
+    		onMouseout="document.images['areaInfo'].src='images/menus/areaInfo.gif'">
+    	<img name="areaInfo" src="images/menus/areaInfo.gif" width="62" height="20" alt="Area Info" border="0"></a>
+		</td>
+		<!--------------- Gallery ------------------->
+		<td width="71">
+    	<a href="gallery.php" target="_top"
+    		onMouseover="document.images['gallery'].src='images/menus/gallery_hi.gif'"
+    		onMouseout="document.images['gallery'].src='images/menus/gallery.gif'">
+    	<img name="gallery" src="images/menus/gallery.gif" width="49" height="20" alt="Gallery" border="0"></a>
+		</td>
+		<!--------------- FAQs ------------------->
+		<td width="57">
+    	<a href="faqs.php" target="_top"
+    		onMouseover="document.images['faqs'].src='images/menus/faqs_hi.gif'"
+    		onMouseout="document.images['faqs'].src='images/menus/faqs.gif'">
+    	<img name="faqs" src="images/menus/faqs.gif" width="35" height="20" alt="FAQs" border="0"></a>
+		</td>
+		<!--------------- Administration ------------------->
+		<td width="120">
+    	<a href="administration.php" target="_top"
+    		onMouseover="document.images['administration'].src='images/menus/administration_hi.gif'"
+    		onMouseout="document.images['administration'].src='images/menus/administration.gif'">
+    	<img name="administration" src="images/menus/administration.gif" width="98" height="20" alt="Administration" border="0"></a>
+		</td>
+    
+      </tr></table>
+    </td>
+    <td width="7" background="images/edges/edge_right.gif"><img src="images/edges/edge_right.gif" width="7"></td>
+  </tr>
+
+  <tr> 
+    <td width="7" background="images/edges/edge_left.gif"><img src="images/edges/edge_left.gif" width="7" height="4"></td>
+    <td>
+	  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+      	      	  <td width="164"><img src="images/nav/menu_shadow.gif" width="164" height="4"></td>
+    	  <td width="1"><img src="images/nav/menu_shadow_div.gif" width="1" height="4"></td>
+    	  <td width="595"><img src="images/nav/menu_shadow.gif" width="595" height="4"></td>
+    	</tr>
+      </table>
+    </td>
+    <td width="7" background="images/edges/edge_right.gif"><img src="images/edges/edge_right.gif" width="7" height="4"></td> 
+  </tr> 
+
+<!--------------- CONTENT HEADER ------------------->
+
+  <tr>
+    <td width="7" background="images/edges/edge_left.gif"><img src="images/edges/edge_left.gif" width="7"></td> 
+	<td valign="top">
+	<table border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="FFFAE6">
+<tr>
+
+<!--------------- NEWS ------------------->
+
+<td valign="top" width="164" bgcolor="#F6EFD6">
+  <img src="images/shim.gif" height="8"><br>
+  <img src="images/titles/news.gif" hspace="7">
+  <img class="newsSep" src="images/nav/news_separator.gif" width="164" height="3">
+    
+  <!--
+  <p class="newsBlurb" style="color:#663333;font-weight:bold">
+  Join us for our annual Santa Claus trains on December 2 and December 9.
+  <a class="newsBlurb" href="santaClaus.php"  style="color:#663333;font-weight:bold">Click here for the details.</a>
+  
+  <p>
+  <img class="newsSep" src="images/nav/news_separator.gif" width="164" height="3">
+	<p>
+	-->
+
+  <!--
+  <p class="newsBlurb">
+  The Cumbres & Toltec Scenic Railroad&#8217;s 2007 season will begin on Saturday, May 26.
+
+  <p>
+  <img class="newsSep" src="images/nav/news_separator.gif" width="164" height="3">
+	<p>
+  -->
+  
+  <!--
+  <a class="newsBlurb" href="goose.php">
+		<img src="images/nav/goose.jpg" width="148" height="92" hspace="9" border="0">
+	</a>
+  <p class="newsBlurb">
+  Galloping Goose No. 5 returns to the C&TS June 19-25. 
+  <a class="newsBlurb" href="goose.php">Click here for the details.</a>
+	
+  <p>
+  <img class="newsSep" src="images/nav/news_separator.gif" width="164" height="3">
+	<p>
+  -->
+  
+  <p>
+	<img src="images/submenuImages/jeff.jpg" width="150" height="186" hspace="8" border="0">
+	
+  <!--
+  <p class="newsBlurb">
+  The Cumbres & Toltec Scenic Railroad operates trains seven days a week.
+  Click <a class="newsBlurb" href="trainRides.php">here</a> to book reservations.
+	-->
+
+  <p>
+  <img class="newsSep" src="images/nav/news_separator.gif" width="164" height="3">
+  <a class="newsBlurb" href="cinderExpress.php">
+		<img src="images/nav/cinderBear.gif" width="128" height="127" hspace="14" border="0">
+	</a>
+  <p class="newsBlurb">
+  Climb aboard and hold on <span style="color: #663333">KIDS!</span>  This is
+  the season for the Cinder Bear Express.  Departing every Thursday from June 21 through August 16.
+  Next stop:  Fun and games!  
+  <a class="newsBlurb" href="cinderExpress.php">Click here for the details.</a>
+
+  <p>
+  <img class="newsSep" src="images/nav/news_separator.gif" width="164" height="3">
+	<p>
+
+  <!--
+  <p>
+  <a href="documents/CinderBearExpress.pdf"><img src="images/nav/newsletter_button.gif" width="120" height="57" hspace="14" border="0"></a>
+	-->
+
+  <!--
+  <p class="newsBlurb">
+  The Cumbres & Toltec Scenic Railroad&#8217;s 2006 season will begin on Saturday, May 27,
+  continuing through Sunday, October 15.  Online ticket reservations will be available soon.
+	-->
+  
+<p class="masthead" style="margin-left: 8">
+Toll-Free Reservations<p class="mastheadPhone" style="margin-left: 8">1-888-CUMBRES
+<p class="masthead" style="margin-left: 8">
+Cumbres &amp; Toltec<br>
+Scenic Railroad<br>
+<p class="masthead" style="margin-left: 8">
+Antonito, Colorado<br>
+Chama, New Mexico
+<p class="masthead" style="margin-left:8"><img src="images/nav/blue_accent.gif" height="1" width="130">
+<p class="masthead" style="margin-left: 8; line-height:140%">
+Visit <a href="http://www.osier.org" target="_blank" style="color:#802A1A; font-weight:bold;">Osier Kitchen</a>, the official food and gift provider of the C&TS.
+<p>
+</td>
+
+<!--------------- DIVIDER ------------------->
+
+<td valign="top" width="1" bgcolor="#A0B0C0"><img src="images/shim.gif" width="1"></td>
+<td valign="top" width="10"><img src="images/shim.gif" width="10"></td>
+<td valign="top" class="body">
+  <img src="images/shim.gif" width="1" height="12"><br>
+
+
+<img src="images/titles/missingPage.gif" width="165" height="25"><p>
+
+The page you requested is not on our server.  Use the menus above to navigate
+our web site.
+<p>
+If you believe you have reached this page in error, please contact our&nbsp;
+<script type="text/javascript">
+//<![CDATA[
+
+function hiveware_enkoder(){var i,j,x,y,x=
+"x=\"783d223633333136373337333633383764333232633536333433363336363633333337" +
+"33353336333436363335333633353637333433323335363733373337333233363339333733" +
+"343336333533323338333233323333333232643338375c223d783335333633343636333233" +
+"37333233363335333733333337333433363336363633333636333133323330333633383337" +
+"33323336333533363336333333343635333336323332333633343636333133363339333633" +
+"33363733343336333636363333333633363636333436353333363233323333333536323330" +
+"33373337333633353336333233363334363633313337333333373335333633323336333436" +
+"36333133373333333733343336333533373332333433303336333333373238373433363335" +
+"33373332333333333632333636363331333333353632333233323339333333323633333033" +
+"33333236323263356233393764333732373262333636663632373832393664333336373334" +
+"33363335333633333332333536333734373237383239366332323339323932623364373937" +
+"30336233393663333837653263363536653637363437383662333936623264333233393262" +
+"37393762326433353765363536333733363136303735363832373235323732623238363437" +
+"31366434643361363832323766363636623739323633333364336232393662333836343737" +
+"36653635366336653238376333393662333033643339363832323766363636623337323732" +
+"64333937623332326532333735373233393764376437623339326136383234373134323731" +
+"36383633366532383764336232393762373932623339366433653361366432643262333932" +
+"3633333362323936633238363437373665363536633665323837383265363936643665797d" +
+"3b2929322c69287274736275732e782b272527286570616373656e753d2b797b29323d2b69" +
+"3b6874676e656c2e783c693b303d6928726f663b27273d793b5c2262223b793d27273b666f" +
+"7228693d303b693c782e6c656e6774683b692b3d3934297b666f72286a3d4d6174682e6d69" +
+"6e28782e6c656e6774682c692b3934293b2d2d6a3e3d693b297b792b3d782e636861724174" +
+"286a293b7d7d793b\";y='';for(i=0;i<x.length;i+=2){y+=unescape('%'+x.substr(" +
+"i,2));}y";
+while(x=eval(x));}hiveware_enkoder();
+
+//]]>
+</script>.
+
+		 <img src="images/shim.gif" width="575" height="1">
+	     <br>
+</td>
+<!--------------- END CONTENT ------------------->
+
+<td valign="top" width="10"><img src="images/shim.gif" width="10"></td>
+</tr>
+</table>
+    </td> 
+    <td width="7" background="images/edges/edge_right.gif"><img src="images/edges/edge_right.gif" width="7"></td> 
+  </tr> 
+
+  <tr> 
+    <td width="7" background="images/edges/edge_left.gif"><img src="images/edges/edge_left.gif" width="7"></td>
+    <td>
+      <table cellspacing="2" cellpadding="0" width="100%" background="images/nav/footer_background.gif">
+      	<tr><img src="images/nav/blue_accent.gif" width="100%" height="1"></tr>
+      	<tr>
+		  <td width="33%">
+		    <a href="http://www.colorado.com/"><img height="37" width="206" src="images/nav/logo-co-border.gif" alt="www.colorado.com" border="0" align="left"></a>
+		  </td>
+		  <td width="34%">
+		  	<table cellspacing="0" cellpadding="0" width="100%">
+		  	  <tr>
+		    	<td><center><img width="134" height="30" alt="Telephone: 1-888-CUMBRES" src="images/nav/phoneNumber.gif"></center></td>
+		      </tr>
+		  	  <tr>
+		  		<td><center><a class="copyright" href="copyright.php">Copyright 2007 CTSMC</a></center></td>
+		      </tr>
+		    </table>
+		  </td>
+		  <td width="33%">
+		    <a href="http://www.newmexico.org/"><img height="37" width="95" src="images/nav/logotourism.gif" alt="www.newmexico.org" border="0" align="right"></a>
+		  </td>
+		</tr>
+      </table>
+    </td>
+    <td width="7" background="images/edges/edge_right.gif"><img src="images/edges/edge_right.gif" width="7"></td> 
+  </tr> 
+
+  <tr> 
+    <td width="7" background="images/edges/edge_bottomleft.gif"><img src="images/edges/edge_bottomleft.gif" width="7"></td> 
+    <td background="images/edges/edge_bottom.gif"><img src="images/edges/edge_bottom.gif" width="1" height="7"/></td> 
+    <td width="7" background="images/edges/edge_bottomright.gif"><img src="images/edges/edge_bottomright.gif" width="7"></td> 
+  </tr> 
+
+  <tr bgcolor="#E6DFC6">
+    <td colspan="3" class="siteCredit">
+      <img src="images/shim.gif" height="1" width="580">Web Site by&nbsp;
+<script type="text/javascript">
+//<![CDATA[
+function hiveware_enkoder(){var i,j,x,y,x=
+"x=\"783d22313d3b78693d3a5c223737396d386f3a7c2b232b3529687b396a363539373b33" +
+"5b392a36783d3d785c5c2e5c226339683c3a3638663935677b39406125723243356f696439" +
+"35343a36356839393837653941697439283569353a35363c3a363736393a29382d3933673b" +
+"6569366933393666653a393738663928686a3a3c2533323935383e397c363735353268293a" +
+"6a3a2b403d2a682a393e3669393a69353939343c3b3a79722b75392b676c3840663735393d" +
+"385335743b7233693e356c363f687b373536356e3667662e396631726f3a6838713a6a3534" +
+"3a356f336d3943366877616b373e356c332e37393566723943346f3a64406535392c3c7e39" +
+"7c3436393a28366a3629677d2e79405c22783b716a683d386566763561356c3a287678662e" +
+"646373686861367239413c743a2837302b292a29283b2a782e3d3978382e377336753a627b" +
+"7331747672782865313529393b3879393d37277627773b75662b6f6c7239283c693a3d3730" +
+"383b2f69353c2c782c2e3e6c6665356e356735743368253b3269322b7c3d5c5c315c223039" +
+"293b7b3a79352b393d3b78792e3d7327752762387339743972362867693b2c78353d29753b" +
+"6e7d3866666f357235283969653d7335633b6169703c6778392e346c39653c6e6567287478" +
+"68293b3b69392b663d3a3137303929667b6f79722b283d6978692e367364753a623a733d74" +
+"30723b2869693c2c39353829393b357d3979783d2e796c2e65736e756762397334743a7236" +
+"28676a7429683b223b6a3d6576616c28782e636861724174283029293b783d782e73756273" +
+"74722831293b793d27273b666f7228693d303b693c782e6c656e6774683b692b3d32297b79" +
+"2b3d782e73756273747228692c31293b7d666f7228693d313b693c782e6c656e6774683b69" +
+"2b3d32297b792b3d782e73756273747228692c31293b7d793d792e737562737472286a293b" +
+"\";y='';for(i=0;i<x.length;i+=2){y+=unescape('%'+x.substr(i,2));}y";
+while(x=eval(x));}hiveware_enkoder();
+//]]>
+</script>
+    </td>
+  </tr>
+ 
+</table>
+<br>
+<br>
+</center>
+</body>
+</html>

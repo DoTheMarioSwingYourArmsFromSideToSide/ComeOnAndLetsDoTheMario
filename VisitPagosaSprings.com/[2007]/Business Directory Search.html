@@ -1,0 +1,942 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0108)https://web.archive.org/web/20071027040130/http://chambermaster.com/directory/jsp/busdir/Search.jsp?ccid=293 -->
+<html><script type="text/javascript" src="chrome-extension://mdnleldcmiljblolnjhpnblkcekpdkpa/libs/customElements.js" class="__REQUESTLY__SCRIPT"></script><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"><script src="./Business Directory Search_files/analytics.js.download" type="text/javascript"></script>
+<script type="text/javascript">window.addEventListener('DOMContentLoaded',function(){var v=archive_analytics.values;v.service='wb';v.server_name='wwwb-app215.us.archive.org';v.server_ms=179;archive_analytics.send_pageview({});});</script>
+<script type="text/javascript" src="./Business Directory Search_files/bundle-playback.js.download" charset="utf-8"></script>
+<script type="text/javascript" src="./Business Directory Search_files/wombat.js.download" charset="utf-8"></script>
+<script type="text/javascript">
+  __wm.init("https://web.archive.org/web");
+  __wm.wombat("http://chambermaster.com:80/directory/jsp/busdir/Search.jsp?ccid=293","20071027040130","https://web.archive.org/","web","/_static/",
+	      "1193457690");
+</script>
+<link rel="stylesheet" type="text/css" href="./Business Directory Search_files/banner-styles.css">
+<link rel="stylesheet" type="text/css" href="./Business Directory Search_files/iconochive.css">
+<!-- End Wayback Rewrite JS Include -->
+
+		<title>Business Directory Search</title>
+
+		
+		<!--<base href="https://web.archive.org/web/20071027040130/http://chambermaster.com/directory/">--><base href=".">
+		
+			<link rel="stylesheet" href="./Business Directory Search_files/public.css">
+		
+
+		<script type="text/javascript" src="./Business Directory Search_files/OpenWnd.js.download"></script>
+		<script type="text/javascript" src="./Business Directory Search_files/CheckLodgingSearch.js.download"></script>
+		<script type="text/javascript">
+		<!--
+		if (document.images) {
+				var Help_out= new Image();
+				var Help_ovr= new Image();
+				var Go_out= new Image();
+				var Go_ovr= new Image();
+				var Hot_out= new Image();
+				var Hot_ovr= new Image();
+
+				Hot_out.src ='https://web.archive.org/web/20071027040130/http://chambermaster.com/directory/images/icons/HotDealPill_out.gif';
+				Hot_ovr.src ='https://web.archive.org/web/20071027040130/http://chambermaster.com/directory/images/icons/HotDealPill_out.gif';
+				Help_out.src ="https://web.archive.org/web/20071027040130/http://chambermaster.com/directory/images/icons/BlueHelpCircle_out.gif";
+				Help_ovr.src ="https://web.archive.org/web/20071027040130/http://chambermaster.com/directory/images/icons/BlueHelpCircle_ovr.gif";
+				Go_out.src ="https://web.archive.org/web/20071027040130/http://chambermaster.com/directory/images/buttons/blue/Go_out.gif";
+				Go_ovr.src ="https://web.archive.org/web/20071027040130/http://chambermaster.com/directory/images/buttons/blue/Go_ovr.gif";
+			}	else {
+				Hot_out ="";
+				Hot_ovr ="";
+				Help_out ="";
+				Help_ovr ="";
+				Go_out ="";
+				Go_ovr ="";
+			}
+
+			function searchKeyword() {
+				if (document.formMain.txtKeyword.value.length > 1) {
+					document.formMain.command.value = "KeywordSearch";
+					document.formMain.qualifier.value = "";
+					document.formMain.kwd.value = document.formMain.txtKeyword.value;
+					document.formMain.catgid.value = 0;
+					document.formMain.action = "https://web.archive.org/web/20071027040130/http://chambermaster.com/directory/jsp/busdir/SearchResults.jsp;jsessionid=ACCB9B1147B9AFD9DE9A84D9932AA0B8?ccid=293";
+					document.formMain.submit();
+/*					
+					document.formMain.command.value = "DirectorySearch";
+					document.formMain.qualifier.value = "keyword";
+					document.formMain.hidKeyword.value = document.formMain.txtKeyword.value;
+					document.formMain.hidCategory.value = "0";
+					document.formMain.action = "https://web.archive.org/web/20071027040130/http://chambermaster.com/directory/servlet/PublicController;jsessionid=ACCB9B1147B9AFD9DE9A84D9932AA0B8";
+					document.formMain.submit();
+*/
+				} else {
+					alert("Keyword searches must be at least 2 characters in length.");
+				}
+			}
+
+			function getLocationIDs() {
+				var form = document.formMain;
+				if (form.locations) {
+					if (form.locations.selectedIndex > 0) form.locid1.value = form.locations.options[form.locations.selectedIndex].value;
+				} else if (form.areas && form.communities) {
+					if ((form.areas.selectedIndex > 0) && (form.communities.selectedIndex > 0)) {
+						form.locid1.value = form.areas.options[form.areas.selectedIndex].value;
+						form.locid2.value = form.communities.options[form.communities.selectedIndex].value;
+					} else if (form.areas.selectedIndex > 0) {
+						form.locid1.value = form.areas.options[form.areas.selectedIndex].value;
+					} else if (form.communities.selectedIndex > 0) {
+						form.locid1.value = form.communities.options[form.communities.selectedIndex].value;
+					}
+				}
+			}
+
+			function searchCategory() {
+				document.formMain.command.value = "loadCatg";
+				document.formMain.qualifier.value = "";
+				document.formMain.kwd.value = "";
+				document.formMain.catgid.value = document.formMain.lstCatgs.options[document.formMain.lstCatgs.selectedIndex].value.substring(7);
+				document.formMain.action = "https://web.archive.org/web/20071027040130/http://chambermaster.com/directory/jsp/busdir/SearchResults.jsp;jsessionid=ACCB9B1147B9AFD9DE9A84D9932AA0B8?ccid=293";
+				document.formMain.submit();
+/*				
+				document.formMain.command.value = "DirectorySearch";
+				document.formMain.qualifier.value = "category";
+				document.formMain.hidKeyword.value = "";
+				document.formMain.hidCategory.value = document.formMain.lstCatgs.options[document.formMain.lstCatgs.selectedIndex].value.substring(7);
+				document.formMain.action = "https://web.archive.org/web/20071027040130/http://chambermaster.com/directory/servlet/PublicController;jsessionid=ACCB9B1147B9AFD9DE9A84D9932AA0B8";
+				document.formMain.submit();
+*/
+			}
+
+			function searchAlpha(offset) {
+				document.formMain.command.value = "loadAlpha";
+				document.formMain.qualifier.value = offset;
+				document.formMain.hidKeyword.value = "";
+				document.formMain.hidCategory.value = document.formMain.lstCatgs.options[document.formMain.lstCatgs.selectedIndex].value.substring(7);
+				document.formMain.action = "https://web.archive.org/web/20071027040130/http://chambermaster.com/directory/jsp/busdir/SearchResults.jsp;jsessionid=ACCB9B1147B9AFD9DE9A84D9932AA0B8?ccid=293";
+				document.formMain.submit();
+/*
+				document.formMain.command.value = "DirectoryListing";
+				document.formMain.qualifier.value = offset;
+				document.formMain.hidKeyword.value = "";
+				document.formMain.hidCategory.value = document.formMain.lstCatgs.options[document.formMain.lstCatgs.selectedIndex].value.substring(7);
+				document.formMain.action = "https://web.archive.org/web/20071027040130/http://chambermaster.com/directory/servlet/PublicController;jsessionid=ACCB9B1147B9AFD9DE9A84D9932AA0B8";
+				document.formMain.submit();
+*/
+			}
+
+			function helpKeyword() {
+				window.open("/directory/include/help/SearchSyntax.html", "HelpSearch", "width=640,height=480,menubar=0,toolbar=0,locationbar=0,personalbar=0,scrollbars=1,statusbar=0,resizable=1");
+			}
+
+			function openQuickLink(qlid) {
+				var form = document.formMain;
+				form.catgid.value = qlid;
+				form.action = "https://web.archive.org/web/20071027040130/http://chambermaster.com/directory/jsp/busdir/QLCatgListing.jsp;jsessionid=ACCB9B1147B9AFD9DE9A84D9932AA0B8";
+				form.submit();
+			}
+
+			function openCategory(catgid) {
+				document.formMain.command.value = "loadCatg";
+				document.formMain.qualifier.value = "";
+				document.formMain.kwd.value = "";
+				document.formMain.catgid.value = catgid;
+				document.formMain.action = "https://web.archive.org/web/20071027040130/http://chambermaster.com/directory/jsp/busdir/SearchResults.jsp;jsessionid=ACCB9B1147B9AFD9DE9A84D9932AA0B8?ccid=293";
+				document.formMain.submit();
+/*
+				var form = document.formMain;
+				form.command.value = "DirectorySearch";
+				form.qualifier.value = "category";
+				form.hidCategory.value = catgid;
+				form.action = "https://web.archive.org/web/20071027040130/http://chambermaster.com/directory/servlet/PublicController;jsessionid=ACCB9B1147B9AFD9DE9A84D9932AA0B8";
+				form.submit();
+*/
+			}
+
+			//watch the enter key - submit when pressed
+			var ns4 = (document.layers)?true:false;
+			var ie4 = (document.all)?true:false;
+			document.onkeydown = keyDown;
+			if (ns4) document.captureEvents(Event.KEYDOWN);
+			function keyDown(e) {
+				var nKey	= 0;
+				if (ie4) {
+					nKey = event.keyCode;
+				} else {
+					nKey = e.which;
+				}
+				if (nKey == 13) {
+					searchKeyword();
+				}
+			}
+
+			function cmOnload() {
+				window.status="ChamberMaster";
+				if (parent.doCMOnLoad) parent.doCMOnLoad();
+				try {
+					if (parent.doIFrameOnLoad) parent.doIFrameOnLoad();
+				} catch(err) { } 
+			}
+
+			if (window.addEventListener) {
+				window.addEventListener("load",cmOnload,false);
+			}else if (window.attachEvent) {
+				window.attachEvent("onload", cmOnload);
+			} else if (window.onload == "") {
+				window.onload = cmOnload();
+			}
+		//-->
+		</script>
+
+	</head>	
+	<body data-new-gr-c-s-check-loaded="14.1115.0" data-gr-ext-installed=""><!-- BEGIN WAYBACK TOOLBAR INSERT -->
+<script>__wm.rw(0);</script>
+<div id="wm-ipp-base" lang="en" style="display: block; direction: ltr;">
+</div><div id="wm-ipp-print">The Wayback Machine - https://web.archive.org/web/20071027040130/http://chambermaster.com:80/directory/jsp/busdir/Search.jsp?ccid=293</div>
+<script type="text/javascript">//<![CDATA[
+__wm.bt(700,27,25,2,"web","http://chambermaster.com/directory/jsp/busdir/Search.jsp?ccid=293","20071027040130",1996,"/_static/",["/_static/css/banner-styles.css?v=S1zqJCYt","/_static/css/iconochive.css?v=qtvMKcIJ"], false);
+  __wm.rw(1);
+//]]></script>
+<!-- END WAYBACK TOOLBAR INSERT -->
+ 
+	<div class="cm_BusDirBody">
+		<a name="cm_top"></a>
+
+		<form name="formMain" method="post" action="https://web.archive.org/web/20071027040130/http://chambermaster.com/directory/">
+			<input type="hidden" name="command" value="">
+			<input type="hidden" name="qualifier" value="">
+			<input type="hidden" name="page" value="jsp/busdir/Search.jsp">
+			<input type="hidden" name="hidKeyword" value="">
+			<input type="hidden" name="hidCategory" value="">
+			<input type="hidden" name="ccid" value="293">
+			<input type="hidden" name="catgid" value="">
+			<input type="hidden" name="kwd" value="">
+			<input type="hidden" name="locid1" value="">
+			<input type="hidden" name="locid2" value="">
+
+			<table width="600" cellspacing="0" cellpadding="0">
+				<tbody><tr><td height="20"></td></tr>
+				<tr>
+					<td width="50%" valign="bottom"><font class="cm_textHeading">Business Directory Search</font></td>
+					<td width="50%" align="right">&nbsp;
+<!--Hot Deals Only Option-->
+					
+					</td>
+				</tr>
+				<tr><td bgcolor="#003366" colspan="2"><img src="./Business Directory Search_files/spacer.gif" width="1" height="1" alt=""></td></tr>
+				<tr><td height="12"></td></tr>
+        	</tbody></table>
+
+			
+
+			
+
+<!--Search Controls-->
+			
+<!--Lake/Area pick list-->
+			
+
+			<table width="600" cellspacing="0" cellpadding="0">
+				<tbody><tr><td><font class="cm_textSectionHeading">1. Enter any of the following</font></td></tr>
+			</tbody></table>
+			<table width="600" cellspacing="0" cellpadding="0">
+				<tbody><tr>
+					<td width="140" align="right" valign="middle" class="cm_textNormal">Search by Category:&nbsp;</td>
+					<td width="460" valign="middle" class="cm_textNormal">
+					    <select name="lstCatgs" class="cm_textNormal" style="width:200px" size="1">
+					    <option value="optCatg0">All Categories</option>
+					    <option value="optCatg1">Accounting/Bookkeepers</option><option value="optCatg2">Acupuncture/Medical</option><option value="optCatg274">Adventures</option><option value="optCatg4">Advertising Specialties</option><option value="optCatg6">Agriculture/Ranch/Farm</option><option value="optCatg8">Airport</option><option value="optCatg9">Airport Transportation</option><option value="optCatg10">Alpaca's</option><option value="optCatg11">Alternative Energy</option><option value="optCatg12">Antiques</option><option value="optCatg14">Appraisers</option><option value="optCatg15">Archaeological Programs</option><option value="optCatg16">Architects</option><option value="optCatg17">Art Galleries/Artists</option><option value="optCatg18">Artist</option><option value="optCatg19">Associate Member</option><option value="optCatg20">Attorneys</option><option value="optCatg21">ATV's</option><option value="optCatg23">Automobile Repair &amp; Service</option><option value="optCatg25">Ballooning</option><option value="optCatg26">Banks</option><option value="optCatg27">Bar</option><option value="optCatg28">Beauty Salons &amp; Services</option><option value="optCatg29">Bed &amp; Breakfast</option><option value="optCatg31">Bicycles/Snowboard Rental</option><option value="optCatg32">Black Powder</option><option value="optCatg33">Books</option><option value="optCatg34">Brewery</option><option value="optCatg36">Brochure Distribution</option><option value="optCatg37">Building Materials</option><option value="optCatg38">Cabinetry</option><option value="optCatg39">Cabins/Campgrounds/RV Parks</option><option value="optCatg41">Candy</option><option value="optCatg42">Car Rental</option><option value="optCatg43">Car Wash</option><option value="optCatg45">Casino</option><option value="optCatg46">Caterers</option><option value="optCatg47">Cellular Telephone Equip, Supplies &amp; Service</option><option value="optCatg275">Ceramics</option><option value="optCatg49">Chambers of Commerce</option><option value="optCatg50">Check Cashing</option><option value="optCatg51">Child Care Services</option><option value="optCatg52">Chiropractic Care</option><option value="optCatg53">Chuckwagon/Supplies</option><option value="optCatg54">Churches</option><option value="optCatg55">Civic Organizations</option><option value="optCatg56">Cleaning Service</option><option value="optCatg57">Clothing</option><option value="optCatg58">Coffee</option><option value="optCatg59">Collection Agencies</option><option value="optCatg60">Communications</option><option value="optCatg61">Computer/Network Consulting</option><option value="optCatg62">Computers</option><option value="optCatg63">Computers - Software &amp; Service</option><option value="optCatg64">Concessions</option><option value="optCatg66">Consignment Shops</option><option value="optCatg67">Construction Companies</option><option value="optCatg68">Consultant</option><option value="optCatg69">Contractors</option><option value="optCatg70">Contractors Association</option><option value="optCatg71">Contractors/Builders</option><option value="optCatg72">Convenience Stores</option><option value="optCatg73">Counseling</option><option value="optCatg74">Crafts/Supplies</option><option value="optCatg75">Credit Card Services</option><option value="optCatg76">Custom Woodwork/Cabinets</option><option value="optCatg77">Dental Hygienist</option><option value="optCatg78">Dentists</option><option value="optCatg79">Directories</option><option value="optCatg80">Discount Stores</option><option value="optCatg81">Distributors</option><option value="optCatg82">Economic Development Association</option><option value="optCatg83">Education</option><option value="optCatg84">Electrical Contractors</option><option value="optCatg86">Embroidery</option><option value="optCatg87">Employment Service</option><option value="optCatg88">Engineers</option><option value="optCatg89">Engineers/Surveyors</option><option value="optCatg91">Equine Massage</option><option value="optCatg93">Excavation Contractors</option><option value="optCatg94">Film Scouting Services</option><option value="optCatg95">Financial Institutions/Investments</option><option value="optCatg96">Financial Services</option><option value="optCatg97">Fire Protection Services</option><option value="optCatg98">Fitness Centers</option><option value="optCatg99">Flooring</option><option value="optCatg101">Fly Fishing</option><option value="optCatg102">Framing</option><option value="optCatg103">Funeral Homes</option><option value="optCatg104">Garage Doors</option><option value="optCatg105">Gifts</option><option value="optCatg106">Gifts/Jewelry/Basket/Flower</option><option value="optCatg107">Glass</option><option value="optCatg108">Golf Course</option><option value="optCatg109">Government</option><option value="optCatg110">Granite and Fabrication</option><option value="optCatg111">Graphic Design</option><option value="optCatg112">Greenhouses</option><option value="optCatg113">Grocers</option><option value="optCatg114">Guided Tours</option><option value="optCatg115">Guides and Outfitters</option><option value="optCatg116">Guns/Accessories</option><option value="optCatg117">Handyman Services</option><option value="optCatg118">Hardware</option><option value="optCatg120">Health Care</option><option value="optCatg122">Health Products/Programs</option><option value="optCatg123">Hearing Aids</option><option value="optCatg124">Heating/Air Conditioning</option><option value="optCatg125">High Technology R &amp; D</option><option value="optCatg126">Hiking/Backpacking</option><option value="optCatg127">Home Builders</option><option value="optCatg129">Home Furnishings</option><option value="optCatg130">Horse Boarding</option><option value="optCatg131">Horse Rides/Pack Trips</option><option value="optCatg133">Horsemanship</option><option value="optCatg134">Housewares</option><option value="optCatg135">Humane Society</option><option value="optCatg137">Insulation</option><option value="optCatg138">Insurance</option><option value="optCatg139">Interior Decorators &amp; Designers</option><option value="optCatg140">Internet Services</option><option value="optCatg141">Investment Services</option><option value="optCatg142">Jewelers</option><option value="optCatg144">Jewelry/Repair</option><option value="optCatg273">Knitting &amp; Yarns</option><option value="optCatg145">Land Trust</option><option value="optCatg146">Landscape Service</option><option value="optCatg147">Law Enforcement</option><option value="optCatg148">Legal Services</option><option value="optCatg149">Library</option><option value="optCatg150">Licensed Bail Bonder</option><option value="optCatg151">Lighting</option><option value="optCatg153">Liquor Stores</option><option value="optCatg154">Locksmith</option><option value="optCatg155">Lodging</option><option value="optCatg156">Log Home/Packages</option><option value="optCatg157">Lubricants</option><option value="optCatg158">Maps</option><option value="optCatg272">Marketing</option><option value="optCatg159">Massage/Therapists/Bodywork</option><option value="optCatg160">Meat Processing</option><option value="optCatg162">Miniature Golf</option><option value="optCatg163">Mortgage Services</option><option value="optCatg164">Movies, Movie Theatres</option><option value="optCatg165">Museums</option><option value="optCatg166">Music</option><option value="optCatg167">Music Entertainment</option><option value="optCatg168">Music Festivals</option><option value="optCatg169">Natural Food/Products</option><option value="optCatg170">Naturopathy</option><option value="optCatg177">News, Online</option><option value="optCatg171">Newspapers</option><option value="optCatg172">Non Profit Organizations</option><option value="optCatg173">Nursery</option><option value="optCatg174">Office &amp; Computer Administration</option><option value="optCatg175">Office Equip., Furn., Supplies &amp; Service</option><option value="optCatg178">Optometrist</option><option value="optCatg179">Outfitters</option><option value="optCatg180">Paint/Painters/Painting</option><option value="optCatg182">Penny Press</option><option value="optCatg183">Pets/Grooming/Boarding</option><option value="optCatg184">Pharmacies</option><option value="optCatg185">Photo Processing</option><option value="optCatg186">Photo Restoration</option><option value="optCatg187">Photography</option><option value="optCatg188">Physical Therapy</option><option value="optCatg190">Plumbing &amp; Heating</option><option value="optCatg191">Port-aPotty</option><option value="optCatg192">Printing Services &amp; Supplies</option><option value="optCatg193">Private Investigator</option><option value="optCatg194">Propane</option><option value="optCatg195">Property Management</option><option value="optCatg196">Property Owners Association</option><option value="optCatg197">Publications</option><option value="optCatg198">Publishing Services</option><option value="optCatg199">Quilting - Needlepoint</option><option value="optCatg200">Radio Stations</option><option value="optCatg201">Rafting</option><option value="optCatg202">Railroad Excursions</option><option value="optCatg203">Ranches</option><option value="optCatg204">Real Estate</option><option value="optCatg205">Real Estate Agency</option><option value="optCatg206">Real Estate Board</option><option value="optCatg207">Real Estate Brokers</option><option value="optCatg208">Real Estate Developers</option><option value="optCatg209">Real Estate Preparation</option><option value="optCatg210">Real Estate/Associate</option><option value="optCatg211">Recreation</option><option value="optCatg212">Rentals</option><option value="optCatg213">Restaurants</option><option value="optCatg214">Retail</option><option value="optCatg215">Retreats</option><option value="optCatg216">Rock Shop</option><option value="optCatg217">Rodeo</option><option value="optCatg218">Roofing Contractors</option><option value="optCatg219">Security Service &amp; Systems</option><option value="optCatg220">Senior Services</option><option value="optCatg221">Sewing and Embroidery</option><option value="optCatg222">Sewing Machine Sales/Service</option><option value="optCatg223">Shipping</option><option value="optCatg224">Signs</option><option value="optCatg225">Ski Areas</option><option value="optCatg226">Ski Rentals</option><option value="optCatg227">Skin Care/Cosmetics</option><option value="optCatg228">Snowmobile Club</option><option value="optCatg229">Snowmobiles/Tours</option><option value="optCatg230">Spas</option><option value="optCatg231">Specialty Foods</option><option value="optCatg232">Sports Medicine</option><option value="optCatg233">Stained Glass</option><option value="optCatg235">Storage</option><option value="optCatg236">Storage Facilities</option><option value="optCatg237">Storage Solutions</option><option value="optCatg238">Stoves - Wood/Gas</option><option value="optCatg240">Television Advertising</option><option value="optCatg241">Television/Cable/Satellite</option><option value="optCatg242">Tent Rental</option><option value="optCatg243">Theatre Group</option><option value="optCatg244">Thrift Store</option><option value="optCatg245">Time Share</option><option value="optCatg246">Title Companies</option><option value="optCatg247">Town Affiliates</option><option value="optCatg249">Training Services</option><option value="optCatg250">Transportation</option><option value="optCatg251">Trash Removal</option><option value="optCatg252">Travel</option><option value="optCatg253">Tree Service</option><option value="optCatg254">Tree Top Tours</option><option value="optCatg255">Trophies</option><option value="optCatg257">Utilities</option><option value="optCatg258">Vacation Rentals</option><option value="optCatg259">Veterinarian</option><option value="optCatg260">Vocational Rehabilitation</option><option value="optCatg261">Water Testing</option><option value="optCatg262">Weaving</option><option value="optCatg263">Web Design</option><option value="optCatg264">Web Publishing</option><option value="optCatg265">Welcoming Service</option><option value="optCatg266">Wildlife Park</option><option value="optCatg268">Window Coverings</option><option value="optCatg269">Wine &amp; Liquor Distributors</option><option value="optCatg270">Yoga</option>
+						</select>
+						<span onclick="javascript:searchCategory();" class="cm_buttonOut" onmouseover="this.className=&#39;cm_buttonOvr&#39;;" onmouseout="this.className=&#39;cm_buttonOut&#39;;">go</span>
+					</td>
+				</tr>
+				
+				<tr><td height="4"></td></tr>
+				<tr>
+				    <td align="right" class="cm_textNormal">Search by Keyword:&nbsp;</td>
+					<td class="cm_textNormal"><input type="text" name="txtKeyword" class="cm_textNormal" style="width:200px" value="">
+						<span onclick="javascript:searchKeyword();" class="cm_buttonOut" onmouseover="this.className=&#39;cm_buttonOvr&#39;;" onmouseout="this.className=&#39;cm_buttonOut&#39;;">go</span>
+						<!--&nbsp;<a href='javascript:helpKeyword();' onmouseover='document.helpIcon.src=Help_ovr.src; window.status="Help on Keyword Search"; return true;' onmouseout='document.helpIcon.src=Help_out.src; window.status="ChamberMaster";'><img src='/directory/images/icons/BlueHelpCircle_out.gif' alt='help' name='helpIcon' border='0'></a>-->
+					</td>
+				</tr>
+				<!--
+				<tr>
+				    <td></td>
+					<td class="cm_text10">Hint: Add quote marks to find a specific business (i.e. "business name")</td>
+				</tr>
+				-->
+				
+				<tr><td height="4"></td></tr>
+				<tr>
+					<td align="right"><font class="cm_textNormal">List Alphabetically:&nbsp;</font></td>
+					<td>
+						<font><a href="javascript:searchAlpha(&quot;A&quot;);" class="cm_linksNormal" onmouseover="this.className=&#39;cm_linksNormalOvr&#39;;" onmouseout="this.className=&#39;cm_linksNormal&#39;;">A</a></font>
+						<font class="cm_linksNormal"><a href="javascript:searchAlpha(&quot;B&quot;);" class="cm_linksNormal" onmouseover="this.className=&#39;cm_linksNormalOvr&#39;;" onmouseout="this.className=&#39;cm_linksNormal&#39;;">B</a></font>
+						<font class="cm_linksNormal"><a href="javascript:searchAlpha(&quot;C&quot;);" class="cm_linksNormal" onmouseover="this.className=&#39;cm_linksNormalOvr&#39;;" onmouseout="this.className=&#39;cm_linksNormal&#39;;">C</a></font>
+						<font class="cm_linksNormal"><a href="javascript:searchAlpha(&quot;D&quot;);" class="cm_linksNormal" onmouseover="this.className=&#39;cm_linksNormalOvr&#39;;" onmouseout="this.className=&#39;cm_linksNormal&#39;;">D</a></font>
+						<font class="cm_linksNormal"><a href="javascript:searchAlpha(&quot;E&quot;);" class="cm_linksNormal" onmouseover="this.className=&#39;cm_linksNormalOvr&#39;;" onmouseout="this.className=&#39;cm_linksNormal&#39;;">E</a></font>
+						<font class="cm_linksNormal"><a href="javascript:searchAlpha(&quot;F&quot;);" class="cm_linksNormal" onmouseover="this.className=&#39;cm_linksNormalOvr&#39;;" onmouseout="this.className=&#39;cm_linksNormal&#39;;">F</a></font>
+						<font class="cm_linksNormal"><a href="javascript:searchAlpha(&quot;G&quot;);" class="cm_linksNormal" onmouseover="this.className=&#39;cm_linksNormalOvr&#39;;" onmouseout="this.className=&#39;cm_linksNormal&#39;;">G</a></font>
+						<font class="cm_linksNormal"><a href="javascript:searchAlpha(&quot;H&quot;);" class="cm_linksNormal" onmouseover="this.className=&#39;cm_linksNormalOvr&#39;;" onmouseout="this.className=&#39;cm_linksNormal&#39;;">H</a></font>
+						<font class="cm_linksNormal"><a href="javascript:searchAlpha(&quot;I&quot;);" class="cm_linksNormal" onmouseover="this.className=&#39;cm_linksNormalOvr&#39;;" onmouseout="this.className=&#39;cm_linksNormal&#39;;">I</a></font>
+						<font class="cm_linksNormal"><a href="javascript:searchAlpha(&quot;J&quot;);" class="cm_linksNormal" onmouseover="this.className=&#39;cm_linksNormalOvr&#39;;" onmouseout="this.className=&#39;cm_linksNormal&#39;;">J</a></font>
+						<font class="cm_linksNormal"><a href="javascript:searchAlpha(&quot;K&quot;);" class="cm_linksNormal" onmouseover="this.className=&#39;cm_linksNormalOvr&#39;;" onmouseout="this.className=&#39;cm_linksNormal&#39;;">K</a></font>
+						<font class="cm_linksNormal"><a href="javascript:searchAlpha(&quot;L&quot;);" class="cm_linksNormal" onmouseover="this.className=&#39;cm_linksNormalOvr&#39;;" onmouseout="this.className=&#39;cm_linksNormal&#39;;">L</a></font>
+						<font class="cm_linksNormal"><a href="javascript:searchAlpha(&quot;M&quot;);" class="cm_linksNormal" onmouseover="this.className=&#39;cm_linksNormalOvr&#39;;" onmouseout="this.className=&#39;cm_linksNormal&#39;;">M</a></font>
+						<font class="cm_linksNormal"><a href="javascript:searchAlpha(&quot;N&quot;);" class="cm_linksNormal" onmouseover="this.className=&#39;cm_linksNormalOvr&#39;;" onmouseout="this.className=&#39;cm_linksNormal&#39;;">N</a></font>
+						<font class="cm_linksNormal"><a href="javascript:searchAlpha(&quot;O&quot;);" class="cm_linksNormal" onmouseover="this.className=&#39;cm_linksNormalOvr&#39;;" onmouseout="this.className=&#39;cm_linksNormal&#39;;">O</a></font>
+						<font class="cm_linksNormal"><a href="javascript:searchAlpha(&quot;P&quot;);" class="cm_linksNormal" onmouseover="this.className=&#39;cm_linksNormalOvr&#39;;" onmouseout="this.className=&#39;cm_linksNormal&#39;;">P</a></font>
+						<font class="cm_linksNormal"><a href="javascript:searchAlpha(&quot;Q&quot;);" class="cm_linksNormal" onmouseover="this.className=&#39;cm_linksNormalOvr&#39;;" onmouseout="this.className=&#39;cm_linksNormal&#39;;">Q</a></font>
+						<font class="cm_linksNormal"><a href="javascript:searchAlpha(&quot;R&quot;);" class="cm_linksNormal" onmouseover="this.className=&#39;cm_linksNormalOvr&#39;;" onmouseout="this.className=&#39;cm_linksNormal&#39;;">R</a></font>
+						<font class="cm_linksNormal"><a href="javascript:searchAlpha(&quot;S&quot;);" class="cm_linksNormal" onmouseover="this.className=&#39;cm_linksNormalOvr&#39;;" onmouseout="this.className=&#39;cm_linksNormal&#39;;">S</a></font>
+						<font class="cm_linksNormal"><a href="javascript:searchAlpha(&quot;T&quot;);" class="cm_linksNormal" onmouseover="this.className=&#39;cm_linksNormalOvr&#39;;" onmouseout="this.className=&#39;cm_linksNormal&#39;;">T</a></font>
+						<font class="cm_linksNormal"><a href="javascript:searchAlpha(&quot;U&quot;);" class="cm_linksNormal" onmouseover="this.className=&#39;cm_linksNormalOvr&#39;;" onmouseout="this.className=&#39;cm_linksNormal&#39;;">U</a></font>
+						<font class="cm_linksNormal"><a href="javascript:searchAlpha(&quot;V&quot;);" class="cm_linksNormal" onmouseover="this.className=&#39;cm_linksNormalOvr&#39;;" onmouseout="this.className=&#39;cm_linksNormal&#39;;">V</a></font>
+						<font class="cm_linksNormal"><a href="javascript:searchAlpha(&quot;W&quot;);" class="cm_linksNormal" onmouseover="this.className=&#39;cm_linksNormalOvr&#39;;" onmouseout="this.className=&#39;cm_linksNormal&#39;;">W</a></font>
+						<font class="cm_linksNormal"><a href="javascript:searchAlpha(&quot;X&quot;);" class="cm_linksNormal" onmouseover="this.className=&#39;cm_linksNormalOvr&#39;;" onmouseout="this.className=&#39;cm_linksNormal&#39;;">X</a></font>
+						<font class="cm_linksNormal"><a href="javascript:searchAlpha(&quot;Y&quot;);" class="cm_linksNormal" onmouseover="this.className=&#39;cm_linksNormalOvr&#39;;" onmouseout="this.className=&#39;cm_linksNormal&#39;;">Y</a></font>
+						<font class="cm_linksNormal"><a href="javascript:searchAlpha(&quot;Z&quot;);" class="cm_linksNormal" onmouseover="this.className=&#39;cm_linksNormalOvr&#39;;" onmouseout="this.className=&#39;cm_linksNormal&#39;;">Z</a></font>
+					</td>
+				</tr>
+				<tr><td height="12"></td></tr>
+			</tbody></table>
+
+			
+
+			
+			
+
+
+
+
+
+
+
+
+		<table id="idQL" style="width:600px;border-style:none;" cellspacing="0" cellpadding="0" class="cm_textNormal">
+					
+			<tbody><tr><td height="12"></td></tr>
+			<tr><td colspan="2" class="cm_textHeading"><b>Category Quick-Links</b></td></tr>
+			<tr><td bgcolor="#003366" colspan="2"><img src="./Business Directory Search_files/spacer.gif" width="1" height="1" alt=""></td></tr>
+			
+			<tr><td height="8"></td></tr>
+			<tr>
+
+						<td style="width:300px;height:25px;vertical-align:top;"><div style="position:absolute;clip:rect(0px 300px 29px 0px);width:300px;padding-top:2px;">
+							<a href="javascript:openQuickLink(1);" class="cm_linksNormal" onmouseover="this.className=&#39;cm_linksNormalOvr&#39;;" onmouseout="this.className=&#39;cm_linksNormal&#39;;"><b>Advertising &amp; Media</b></a>
+							<div class="cm_qlSubCatgLine">
+							
+								<a href="javascript:openCategory(197);" class="cm_links10Ovr" style="vertical-align:top;">Publications</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(111);" class="cm_links10Ovr" style="vertical-align:top;">Graphic&nbsp;Design</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(171);" class="cm_links10Ovr" style="vertical-align:top;">Newspapers</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(200);" class="cm_links10Ovr" style="vertical-align:top;">Radio&nbsp;Stations</a>&nbsp;&nbsp;
+							
+							</div>
+						</div></td>
+					
+					
+					
+				
+			
+						<td style="width:300px;height:25px;vertical-align:top;"><div style="position:absolute;clip:rect(0px 300px 29px 0px);width:300px;padding-top:2px;">
+							<a href="javascript:openQuickLink(2);" class="cm_linksNormal" onmouseover="this.className=&#39;cm_linksNormalOvr&#39;;" onmouseout="this.className=&#39;cm_linksNormal&#39;;"><b>Agriculture, Fishing &amp; Forestry</b></a>
+							<div class="cm_qlSubCatgLine">
+							
+								<a href="javascript:openCategory(101);" class="cm_links10Ovr" style="vertical-align:top;">Fly&nbsp;Fishing</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(203);" class="cm_links10Ovr" style="vertical-align:top;">Ranches</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(6);" class="cm_links10Ovr" style="vertical-align:top;">Agriculture/Ranch/Farm</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(10);" class="cm_links10Ovr" style="vertical-align:top;">Alpaca's</a>&nbsp;&nbsp;
+							
+							</div>
+						</div></td>
+					
+					
+					</tr>
+					<tr><td height="6"></td></tr>
+					
+					
+				
+			<tr>
+
+						<td style="width:300px;height:25px;vertical-align:top;"><div style="position:absolute;clip:rect(0px 300px 29px 0px);width:300px;padding-top:2px;">
+							<a href="javascript:openQuickLink(3);" class="cm_linksNormal" onmouseover="this.className=&#39;cm_linksNormalOvr&#39;;" onmouseout="this.className=&#39;cm_linksNormal&#39;;"><b>Arts, Culture &amp; Entertainment</b></a>
+							<div class="cm_qlSubCatgLine">
+							
+								<a href="javascript:openCategory(17);" class="cm_links10Ovr" style="vertical-align:top;">Art&nbsp;Galleries/Artists</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(166);" class="cm_links10Ovr" style="vertical-align:top;">Music</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(167);" class="cm_links10Ovr" style="vertical-align:top;">Music&nbsp;Entertainment</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(243);" class="cm_links10Ovr" style="vertical-align:top;">Theatre&nbsp;Group</a>&nbsp;&nbsp;
+							
+							</div>
+						</div></td>
+					
+					
+					
+				
+			
+						<td style="width:300px;height:25px;vertical-align:top;"><div style="position:absolute;clip:rect(0px 300px 29px 0px);width:300px;padding-top:2px;">
+							<a href="javascript:openQuickLink(4);" class="cm_linksNormal" onmouseover="this.className=&#39;cm_linksNormalOvr&#39;;" onmouseout="this.className=&#39;cm_linksNormal&#39;;"><b>Automotive &amp; Marine</b></a>
+							<div class="cm_qlSubCatgLine">
+							
+								<a href="javascript:openCategory(23);" class="cm_links10Ovr" style="vertical-align:top;">Automobile&nbsp;Repair&nbsp;&amp;&nbsp;Service</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(42);" class="cm_links10Ovr" style="vertical-align:top;">Car&nbsp;Rental</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(43);" class="cm_links10Ovr" style="vertical-align:top;">Car&nbsp;Wash</a>&nbsp;&nbsp;
+							
+							</div>
+						</div></td>
+					
+					
+					</tr>
+					<tr><td height="6"></td></tr>
+					
+					
+				
+			<tr>
+
+						<td style="width:300px;height:25px;vertical-align:top;"><div style="position:absolute;clip:rect(0px 300px 29px 0px);width:300px;padding-top:2px;">
+							<a href="javascript:openQuickLink(5);" class="cm_linksNormal" onmouseover="this.className=&#39;cm_linksNormalOvr&#39;;" onmouseout="this.className=&#39;cm_linksNormal&#39;;"><b>Business &amp; Professional Services</b></a>
+							<div class="cm_qlSubCatgLine">
+							
+								<a href="javascript:openCategory(187);" class="cm_links10Ovr" style="vertical-align:top;">Photography</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(1);" class="cm_links10Ovr" style="vertical-align:top;">Accounting/Bookkeepers</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(68);" class="cm_links10Ovr" style="vertical-align:top;">Consultant</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(75);" class="cm_links10Ovr" style="vertical-align:top;">Credit&nbsp;Card&nbsp;Services</a>&nbsp;&nbsp;
+							
+							</div>
+						</div></td>
+					
+					
+					
+				
+			
+						<td style="width:300px;height:25px;vertical-align:top;"><div style="position:absolute;clip:rect(0px 300px 29px 0px);width:300px;padding-top:2px;">
+							<a href="javascript:openQuickLink(6);" class="cm_linksNormal" onmouseover="this.className=&#39;cm_linksNormalOvr&#39;;" onmouseout="this.className=&#39;cm_linksNormal&#39;;"><b>Computers &amp; Telecommunications</b></a>
+							<div class="cm_qlSubCatgLine">
+							
+								<a href="javascript:openCategory(63);" class="cm_links10Ovr" style="vertical-align:top;">Computers&nbsp;-&nbsp;Software&nbsp;&amp;&nbsp;Service</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(263);" class="cm_links10Ovr" style="vertical-align:top;">Web&nbsp;Design</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(264);" class="cm_links10Ovr" style="vertical-align:top;">Web&nbsp;Publishing</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(125);" class="cm_links10Ovr" style="vertical-align:top;">High&nbsp;Technology&nbsp;R&nbsp;&amp;&nbsp;D</a>&nbsp;&nbsp;
+							
+							</div>
+						</div></td>
+					
+					
+					</tr>
+					<tr><td height="6"></td></tr>
+					
+					
+				
+			<tr>
+
+						<td style="width:300px;height:25px;vertical-align:top;"><div style="position:absolute;clip:rect(0px 300px 29px 0px);width:300px;padding-top:2px;">
+							<a href="javascript:openQuickLink(7);" class="cm_linksNormal" onmouseover="this.className=&#39;cm_linksNormalOvr&#39;;" onmouseout="this.className=&#39;cm_linksNormal&#39;;"><b>Construction Equipment &amp; Contractors</b></a>
+							<div class="cm_qlSubCatgLine">
+							
+								<a href="javascript:openCategory(71);" class="cm_links10Ovr" style="vertical-align:top;">Contractors/Builders</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(67);" class="cm_links10Ovr" style="vertical-align:top;">Construction&nbsp;Companies</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(156);" class="cm_links10Ovr" style="vertical-align:top;">Log&nbsp;Home/Packages</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(69);" class="cm_links10Ovr" style="vertical-align:top;">Contractors</a>&nbsp;&nbsp;
+							
+							</div>
+						</div></td>
+					
+					
+					
+				
+			
+						<td style="width:300px;height:25px;vertical-align:top;"><div style="position:absolute;clip:rect(0px 300px 29px 0px);width:300px;padding-top:2px;">
+							<a href="javascript:openQuickLink(9);" class="cm_linksNormal" onmouseover="this.className=&#39;cm_linksNormalOvr&#39;;" onmouseout="this.className=&#39;cm_linksNormal&#39;;"><b>Family, Community &amp; Civic Organizations</b></a>
+							<div class="cm_qlSubCatgLine">
+							
+								<a href="javascript:openCategory(172);" class="cm_links10Ovr" style="vertical-align:top;">Non&nbsp;Profit&nbsp;Organizations</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(49);" class="cm_links10Ovr" style="vertical-align:top;">Chambers&nbsp;of&nbsp;Commerce</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(55);" class="cm_links10Ovr" style="vertical-align:top;">Civic&nbsp;Organizations</a>&nbsp;&nbsp;
+							
+							</div>
+						</div></td>
+					
+					
+					</tr>
+					<tr><td height="6"></td></tr>
+					
+					
+				
+			<tr>
+
+						<td style="width:300px;height:25px;vertical-align:top;"><div style="position:absolute;clip:rect(0px 300px 29px 0px);width:300px;padding-top:2px;">
+							<a href="javascript:openQuickLink(10);" class="cm_linksNormal" onmouseover="this.className=&#39;cm_linksNormalOvr&#39;;" onmouseout="this.className=&#39;cm_linksNormal&#39;;"><b>Finance &amp; Insurance</b></a>
+							<div class="cm_qlSubCatgLine">
+							
+								<a href="javascript:openCategory(138);" class="cm_links10Ovr" style="vertical-align:top;">Insurance</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(163);" class="cm_links10Ovr" style="vertical-align:top;">Mortgage&nbsp;Services</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(26);" class="cm_links10Ovr" style="vertical-align:top;">Banks</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(96);" class="cm_links10Ovr" style="vertical-align:top;">Financial&nbsp;Services</a>&nbsp;&nbsp;
+							
+							</div>
+						</div></td>
+					
+					
+					
+				
+			
+						<td style="width:300px;height:25px;vertical-align:top;"><div style="position:absolute;clip:rect(0px 300px 29px 0px);width:300px;padding-top:2px;">
+							<a href="javascript:openQuickLink(8);" class="cm_linksNormal" onmouseover="this.className=&#39;cm_linksNormalOvr&#39;;" onmouseout="this.className=&#39;cm_linksNormal&#39;;"><b>Government, Education &amp; Individuals</b></a>
+							<div class="cm_qlSubCatgLine">
+							
+								<a href="javascript:openCategory(19);" class="cm_links10Ovr" style="vertical-align:top;">Associate&nbsp;Member</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(109);" class="cm_links10Ovr" style="vertical-align:top;">Government</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(83);" class="cm_links10Ovr" style="vertical-align:top;">Education</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(15);" class="cm_links10Ovr" style="vertical-align:top;">Archaeological&nbsp;Programs</a>&nbsp;&nbsp;
+							
+							</div>
+						</div></td>
+					
+					
+					</tr>
+					<tr><td height="6"></td></tr>
+					
+					
+				
+			<tr>
+
+						<td style="width:300px;height:25px;vertical-align:top;"><div style="position:absolute;clip:rect(0px 300px 29px 0px);width:300px;padding-top:2px;">
+							<a href="javascript:openQuickLink(11);" class="cm_linksNormal" onmouseover="this.className=&#39;cm_linksNormalOvr&#39;;" onmouseout="this.className=&#39;cm_linksNormal&#39;;"><b>Health Care</b></a>
+							<div class="cm_qlSubCatgLine">
+							
+								<a href="javascript:openCategory(120);" class="cm_links10Ovr" style="vertical-align:top;">Health&nbsp;Care</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(52);" class="cm_links10Ovr" style="vertical-align:top;">Chiropractic&nbsp;Care</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(78);" class="cm_links10Ovr" style="vertical-align:top;">Dentists</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(178);" class="cm_links10Ovr" style="vertical-align:top;">Optometrist</a>&nbsp;&nbsp;
+							
+							</div>
+						</div></td>
+					
+					
+					
+				
+			
+						<td style="width:300px;height:25px;vertical-align:top;"><div style="position:absolute;clip:rect(0px 300px 29px 0px);width:300px;padding-top:2px;">
+							<a href="javascript:openQuickLink(12);" class="cm_linksNormal" onmouseover="this.className=&#39;cm_linksNormalOvr&#39;;" onmouseout="this.className=&#39;cm_linksNormal&#39;;"><b>Home &amp; Garden</b></a>
+							<div class="cm_qlSubCatgLine">
+							
+								<a href="javascript:openCategory(139);" class="cm_links10Ovr" style="vertical-align:top;">Interior&nbsp;Decorators&nbsp;&amp;&nbsp;Designers</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(146);" class="cm_links10Ovr" style="vertical-align:top;">Landscape&nbsp;Service</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(76);" class="cm_links10Ovr" style="vertical-align:top;">Custom&nbsp;Woodwork/Cabinets</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(173);" class="cm_links10Ovr" style="vertical-align:top;">Nursery</a>&nbsp;&nbsp;
+							
+							</div>
+						</div></td>
+					
+					
+					</tr>
+					<tr><td height="6"></td></tr>
+					
+					
+				
+			<tr>
+
+						<td style="width:300px;height:25px;vertical-align:top;"><div style="position:absolute;clip:rect(0px 300px 29px 0px);width:300px;padding-top:2px;">
+							<a href="javascript:openQuickLink(13);" class="cm_linksNormal" onmouseover="this.className=&#39;cm_linksNormalOvr&#39;;" onmouseout="this.className=&#39;cm_linksNormal&#39;;"><b>Industrial Supplies &amp; Services</b></a>
+							<div class="cm_qlSubCatgLine">
+							
+								<a href="javascript:openCategory(191);" class="cm_links10Ovr" style="vertical-align:top;">Port-aPotty</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(268);" class="cm_links10Ovr" style="vertical-align:top;">Window&nbsp;Coverings</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(157);" class="cm_links10Ovr" style="vertical-align:top;">Lubricants</a>&nbsp;&nbsp;
+							
+							</div>
+						</div></td>
+					
+					
+					
+				
+			
+						<td style="width:300px;height:25px;vertical-align:top;"><div style="position:absolute;clip:rect(0px 300px 29px 0px);width:300px;padding-top:2px;">
+							<a href="javascript:openQuickLink(14);" class="cm_linksNormal" onmouseover="this.className=&#39;cm_linksNormalOvr&#39;;" onmouseout="this.className=&#39;cm_linksNormal&#39;;"><b>Legal</b></a>
+							<div class="cm_qlSubCatgLine">
+							
+								<a href="javascript:openCategory(20);" class="cm_links10Ovr" style="vertical-align:top;">Attorneys</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(148);" class="cm_links10Ovr" style="vertical-align:top;">Legal&nbsp;Services</a>&nbsp;&nbsp;
+							
+							</div>
+						</div></td>
+					
+					
+					</tr>
+					<tr><td height="6"></td></tr>
+					
+					
+				
+			<tr>
+
+						<td style="width:300px;height:25px;vertical-align:top;"><div style="position:absolute;clip:rect(0px 300px 29px 0px);width:300px;padding-top:2px;">
+							<a href="javascript:openQuickLink(15);" class="cm_linksNormal" onmouseover="this.className=&#39;cm_linksNormalOvr&#39;;" onmouseout="this.className=&#39;cm_linksNormal&#39;;"><b>Lodging &amp; Travel</b></a>
+							<div class="cm_qlSubCatgLine">
+							
+								<a href="javascript:openCategory(155);" class="cm_links10Ovr" style="vertical-align:top;">Lodging</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(39);" class="cm_links10Ovr" style="vertical-align:top;">Cabins/Campgrounds/RV&nbsp;Parks</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(29);" class="cm_links10Ovr" style="vertical-align:top;">Bed&nbsp;&amp;&nbsp;Breakfast</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(252);" class="cm_links10Ovr" style="vertical-align:top;">Travel</a>&nbsp;&nbsp;
+							
+							</div>
+						</div></td>
+					
+					
+					
+				
+			
+						<td style="width:300px;height:25px;vertical-align:top;"><div style="position:absolute;clip:rect(0px 300px 29px 0px);width:300px;padding-top:2px;">
+							<a href="javascript:openQuickLink(16);" class="cm_linksNormal" onmouseover="this.className=&#39;cm_linksNormalOvr&#39;;" onmouseout="this.className=&#39;cm_linksNormal&#39;;"><b>Manufacturing, Production &amp; Wholesale</b></a>
+							<div class="cm_qlSubCatgLine">
+							
+								<a href="javascript:openCategory(81);" class="cm_links10Ovr" style="vertical-align:top;">Distributors</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(160);" class="cm_links10Ovr" style="vertical-align:top;">Meat&nbsp;Processing</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(269);" class="cm_links10Ovr" style="vertical-align:top;">Wine&nbsp;&amp;&nbsp;Liquor&nbsp;Distributors</a>&nbsp;&nbsp;
+							
+							</div>
+						</div></td>
+					
+					
+					</tr>
+					<tr><td height="6"></td></tr>
+					
+					
+				
+			<tr>
+
+						<td style="width:300px;height:25px;vertical-align:top;"><div style="position:absolute;clip:rect(0px 300px 29px 0px);width:300px;padding-top:2px;">
+							<a href="javascript:openQuickLink(17);" class="cm_linksNormal" onmouseover="this.className=&#39;cm_linksNormalOvr&#39;;" onmouseout="this.className=&#39;cm_linksNormal&#39;;"><b>Personal Services &amp; Care</b></a>
+							<div class="cm_qlSubCatgLine">
+							
+								<a href="javascript:openCategory(159);" class="cm_links10Ovr" style="vertical-align:top;">Massage/Therapists/Bodywork</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(122);" class="cm_links10Ovr" style="vertical-align:top;">Health&nbsp;Products/Programs</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(227);" class="cm_links10Ovr" style="vertical-align:top;">Skin&nbsp;Care/Cosmetics</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(249);" class="cm_links10Ovr" style="vertical-align:top;">Training&nbsp;Services</a>&nbsp;&nbsp;
+							
+							</div>
+						</div></td>
+					
+					
+					
+				
+			
+						<td style="width:300px;height:25px;vertical-align:top;"><div style="position:absolute;clip:rect(0px 300px 29px 0px);width:300px;padding-top:2px;">
+							<a href="javascript:openQuickLink(18);" class="cm_linksNormal" onmouseover="this.className=&#39;cm_linksNormalOvr&#39;;" onmouseout="this.className=&#39;cm_linksNormal&#39;;"><b>Pets &amp; Veterinary</b></a>
+							<div class="cm_qlSubCatgLine">
+							
+								<a href="javascript:openCategory(259);" class="cm_links10Ovr" style="vertical-align:top;">Veterinarian</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(130);" class="cm_links10Ovr" style="vertical-align:top;">Horse&nbsp;Boarding</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(183);" class="cm_links10Ovr" style="vertical-align:top;">Pets/Grooming/Boarding</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(91);" class="cm_links10Ovr" style="vertical-align:top;">Equine&nbsp;Massage</a>&nbsp;&nbsp;
+							
+							</div>
+						</div></td>
+					
+					
+					</tr>
+					<tr><td height="6"></td></tr>
+					
+					
+				
+			<tr>
+
+						<td style="width:300px;height:25px;vertical-align:top;"><div style="position:absolute;clip:rect(0px 300px 29px 0px);width:300px;padding-top:2px;">
+							<a href="javascript:openQuickLink(19);" class="cm_linksNormal" onmouseover="this.className=&#39;cm_linksNormalOvr&#39;;" onmouseout="this.className=&#39;cm_linksNormal&#39;;"><b>Public Utilities &amp; Environment</b></a>
+							<div class="cm_qlSubCatgLine">
+							
+								<a href="javascript:openCategory(257);" class="cm_links10Ovr" style="vertical-align:top;">Utilities</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(251);" class="cm_links10Ovr" style="vertical-align:top;">Trash&nbsp;Removal</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(11);" class="cm_links10Ovr" style="vertical-align:top;">Alternative&nbsp;Energy</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(194);" class="cm_links10Ovr" style="vertical-align:top;">Propane</a>&nbsp;&nbsp;
+							
+							</div>
+						</div></td>
+					
+					
+					
+				
+			
+						<td style="width:300px;height:25px;vertical-align:top;"><div style="position:absolute;clip:rect(0px 300px 29px 0px);width:300px;padding-top:2px;">
+							<a href="javascript:openQuickLink(20);" class="cm_linksNormal" onmouseover="this.className=&#39;cm_linksNormalOvr&#39;;" onmouseout="this.className=&#39;cm_linksNormal&#39;;"><b>Real Estate, Moving &amp; Storage</b></a>
+							<div class="cm_qlSubCatgLine">
+							
+								<a href="javascript:openCategory(207);" class="cm_links10Ovr" style="vertical-align:top;">Real&nbsp;Estate&nbsp;Brokers</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(204);" class="cm_links10Ovr" style="vertical-align:top;">Real&nbsp;Estate</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(208);" class="cm_links10Ovr" style="vertical-align:top;">Real&nbsp;Estate&nbsp;Developers</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(195);" class="cm_links10Ovr" style="vertical-align:top;">Property&nbsp;Management</a>&nbsp;&nbsp;
+							
+							</div>
+						</div></td>
+					
+					
+					</tr>
+					<tr><td height="6"></td></tr>
+					
+					
+				
+			<tr>
+
+						<td style="width:300px;height:25px;vertical-align:top;"><div style="position:absolute;clip:rect(0px 300px 29px 0px);width:300px;padding-top:2px;">
+							<a href="javascript:openQuickLink(21);" class="cm_linksNormal" onmouseover="this.className=&#39;cm_linksNormalOvr&#39;;" onmouseout="this.className=&#39;cm_linksNormal&#39;;"><b>Religious Organizations</b></a>
+							<div class="cm_qlSubCatgLine">
+							
+								<a href="javascript:openCategory(54);" class="cm_links10Ovr" style="vertical-align:top;">Churches</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(206);" class="cm_links10Ovr" style="vertical-align:top;">Real&nbsp;Estate&nbsp;Board</a>&nbsp;&nbsp;
+							
+							</div>
+						</div></td>
+					
+					
+					
+				
+			
+						<td style="width:300px;height:25px;vertical-align:top;"><div style="position:absolute;clip:rect(0px 300px 29px 0px);width:300px;padding-top:2px;">
+							<a href="javascript:openQuickLink(22);" class="cm_linksNormal" onmouseover="this.className=&#39;cm_linksNormalOvr&#39;;" onmouseout="this.className=&#39;cm_linksNormal&#39;;"><b>Restaurants, Food &amp; Beverages</b></a>
+							<div class="cm_qlSubCatgLine">
+							
+								<a href="javascript:openCategory(213);" class="cm_links10Ovr" style="vertical-align:top;">Restaurants</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(153);" class="cm_links10Ovr" style="vertical-align:top;">Liquor&nbsp;Stores</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(231);" class="cm_links10Ovr" style="vertical-align:top;">Specialty&nbsp;Foods</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(46);" class="cm_links10Ovr" style="vertical-align:top;">Caterers</a>&nbsp;&nbsp;
+							
+							</div>
+						</div></td>
+					
+					
+					</tr>
+					<tr><td height="6"></td></tr>
+					
+					
+				
+			<tr>
+
+						<td style="width:300px;height:25px;vertical-align:top;"><div style="position:absolute;clip:rect(0px 300px 29px 0px);width:300px;padding-top:2px;">
+							<a href="javascript:openQuickLink(23);" class="cm_linksNormal" onmouseover="this.className=&#39;cm_linksNormalOvr&#39;;" onmouseout="this.className=&#39;cm_linksNormal&#39;;"><b>Shopping &amp; Specialty Retail</b></a>
+							<div class="cm_qlSubCatgLine">
+							
+								<a href="javascript:openCategory(105);" class="cm_links10Ovr" style="vertical-align:top;">Gifts</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(214);" class="cm_links10Ovr" style="vertical-align:top;">Retail</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(57);" class="cm_links10Ovr" style="vertical-align:top;">Clothing</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(86);" class="cm_links10Ovr" style="vertical-align:top;">Embroidery</a>&nbsp;&nbsp;
+							
+							</div>
+						</div></td>
+					
+					
+					
+				
+			
+						<td style="width:300px;height:25px;vertical-align:top;"><div style="position:absolute;clip:rect(0px 300px 29px 0px);width:300px;padding-top:2px;">
+							<a href="javascript:openQuickLink(24);" class="cm_linksNormal" onmouseover="this.className=&#39;cm_linksNormalOvr&#39;;" onmouseout="this.className=&#39;cm_linksNormal&#39;;"><b>Sports &amp; Recreation</b></a>
+							<div class="cm_qlSubCatgLine">
+							
+								<a href="javascript:openCategory(201);" class="cm_links10Ovr" style="vertical-align:top;">Rafting</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(226);" class="cm_links10Ovr" style="vertical-align:top;">Ski&nbsp;Rentals</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(179);" class="cm_links10Ovr" style="vertical-align:top;">Outfitters</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(225);" class="cm_links10Ovr" style="vertical-align:top;">Ski&nbsp;Areas</a>&nbsp;&nbsp;
+							
+							</div>
+						</div></td>
+					
+					
+					</tr>
+					<tr><td height="6"></td></tr>
+					
+					
+				
+			<tr>
+
+						<td style="width:300px;height:25px;vertical-align:top;"><div style="position:absolute;clip:rect(0px 300px 29px 0px);width:300px;padding-top:2px;">
+							<a href="javascript:openQuickLink(25);" class="cm_linksNormal" onmouseover="this.className=&#39;cm_linksNormalOvr&#39;;" onmouseout="this.className=&#39;cm_linksNormal&#39;;"><b>Transportation</b></a>
+							<div class="cm_qlSubCatgLine">
+							
+								<a href="javascript:openCategory(9);" class="cm_links10Ovr" style="vertical-align:top;">Airport&nbsp;Transportation</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(250);" class="cm_links10Ovr" style="vertical-align:top;">Transportation</a>&nbsp;&nbsp;
+							
+								<a href="javascript:openCategory(8);" class="cm_links10Ovr" style="vertical-align:top;">Airport</a>&nbsp;&nbsp;
+							
+							</div>
+						</div></td>
+					
+					
+					
+				
+			
+			</tr><tr><td height="18"></td></tr>
+		</tbody></table>
+		
+
+			
+		</form>
+		
+		<table width="600" cellspacing="0" cellpadding="0"><tbody><tr><td width="100%">
+		
+
+
+
+
+
+	
+	
+
+		<link rel="stylesheet" href="./Business Directory Search_files/_public.css">
+		<script type="text/javascript">
+		<!--
+			function go(context) {
+				if (context == 0) 								{ window.parent.location = "https://web.archive.org/web/20071027040130/http://www.pagosachamber.com"; }
+/*	THIS IS THE DESIRED STRUCTURE - BUT THE PAGES MUST BE IMPLEMENTED FIRST - james 1/10/2007
+				else if (context == 1)		{ window.location = "https://web.archive.org/web/20071027040130/http://chambermaster.com/directory/business.jsp;jsessionid=ACCB9B1147B9AFD9DE9A84D9932AA0B8?ccid=293"; }
+				else if (context == 2)		{ window.location = "https://web.archive.org/web/20071027040130/http://chambermaster.com/directory/events.jsp;jsessionid=ACCB9B1147B9AFD9DE9A84D9932AA0B8?ccid=293"; }
+				else if (context == 4)		{ window.location = "https://web.archive.org/web/20071027040130/http://chambermaster.com/directory/coupons.jsp;jsessionid=ACCB9B1147B9AFD9DE9A84D9932AA0B8?ccid=293"; }
+				else if (context == 8)			{ window.location = "https://web.archive.org/web/20071027040130/http://chambermaster.com/directory/jobs.jsp;jsessionid=ACCB9B1147B9AFD9DE9A84D9932AA0B8?ccid=293"; }
+				else if (context == 16)		{ window.location = "https://web.archive.org/web/20071027040130/http://chambermaster.com/directory/weather.jsp;jsessionid=ACCB9B1147B9AFD9DE9A84D9932AA0B8?ccid=293"; }
+				else if (context == 32)	{ window.location = "https://web.archive.org/web/20071027040130/http://chambermaster.com/directory/contactUs.jsp;jsessionid=ACCB9B1147B9AFD9DE9A84D9932AA0B8?ccid=293"; }
+				else if (context == 64)		{ window.location = "https://web.archive.org/web/20071027040130/http://chambermaster.com/directory/infoReq.jsp;jsessionid=ACCB9B1147B9AFD9DE9A84D9932AA0B8?ccid=293"; }
+				else if (context == 128)		{ window.location = "https://web.archive.org/web/20071027040130/http://chambermaster.com/directory/lodging.jsp;jsessionid=ACCB9B1147B9AFD9DE9A84D9932AA0B8?ccid=293"; }
+*/
+				else if (context == 1)		{ window.location = "https://web.archive.org/web/20071027040130/http://chambermaster.com/directory/jsp/busdir/Search.jsp;jsessionid=ACCB9B1147B9AFD9DE9A84D9932AA0B8?ccid=293"; }
+				
+				else if (context == 2)		{ window.location = "https://web.archive.org/web/20071027040130/http://chambermaster.com/directory/events.jsp;jsessionid=ACCB9B1147B9AFD9DE9A84D9932AA0B8?ccid=293"; }
+				
+				else if (context == 4)		{ window.location = "https://web.archive.org/web/20071027040130/http://chambermaster.com/directory/jsp/hotdeals/Search.jsp;jsessionid=ACCB9B1147B9AFD9DE9A84D9932AA0B8?ccid=293"; }
+				else if (context == 8)			{ window.location = "https://web.archive.org/web/20071027040130/http://chambermaster.com/directory/jsp/jobs/Search.jsp;jsessionid=ACCB9B1147B9AFD9DE9A84D9932AA0B8?ccid=293"; }
+				else if (context == 16)		{ window.location = "https://web.archive.org/web/20071027040130/http://chambermaster.com/directory/weather.jsp;jsessionid=ACCB9B1147B9AFD9DE9A84D9932AA0B8?ccid=293"; }
+				else if (context == 32)	{ window.location = "https://web.archive.org/web/20071027040130/http://chambermaster.com/directory/jsp/inforeq/ContactUs.jsp;jsessionid=ACCB9B1147B9AFD9DE9A84D9932AA0B8?ccid=293"; }
+				else if (context == 64)		{ window.location = "https://web.archive.org/web/20071027040130/http://chambermaster.com/directory/jsp/inforeq/qryInterests.jsp;jsessionid=ACCB9B1147B9AFD9DE9A84D9932AA0B8?ccid=293"; }
+				
+				else if (context == 128)		{ window.location = "https://web.archive.org/web/20071027040130/http://chambermaster.com/directory/jsp/busdir/SearchResults.jsp;jsessionid=ACCB9B1147B9AFD9DE9A84D9932AA0B8?ccid=293&command=loadCatg&catgid=155"; }
+				
+			}
+		//-->
+		</script>
+	<div style="width:100%px;text-align:center;padding-top:20px;font-size:8pt;font-family:Arial;">
+		
+			<span onclick="go(1);" class="cm_lnkModuleNavOut" onmouseover="this.className=&#39;cm_lnkModuleNavOvr&#39;;" onmouseout="this.className=&#39;cm_lnkModuleNavOut&#39;;" style="padding-left:4px;">Business Directory</span>
+		
+		
+			<span onclick="go(2);" class="cm_lnkModuleNavOut" onmouseover="this.className=&#39;cm_lnkModuleNavOvr&#39;;" onmouseout="this.className=&#39;cm_lnkModuleNavOut&#39;;" style="padding-left:4px;">Events Calendar</span>
+		
+		
+		
+			<span onclick="go(4);" class="cm_lnkModuleNavOut" onmouseover="this.className=&#39;cm_lnkModuleNavOvr&#39;;" onmouseout="this.className=&#39;cm_lnkModuleNavOut&#39;;" style="padding-left:4px;">Hot Deals</span>
+		
+		
+			<span onclick="go(8);" class="cm_lnkModuleNavOut" onmouseover="this.className=&#39;cm_lnkModuleNavOvr&#39;;" onmouseout="this.className=&#39;cm_lnkModuleNavOut&#39;;" style="padding-left:4px;">Job Postings</span>
+		
+		
+			<span onclick="go(32);" class="cm_lnkModuleNavOut" onmouseover="this.className=&#39;cm_lnkModuleNavOvr&#39;;" onmouseout="this.className=&#39;cm_lnkModuleNavOut&#39;;" style="padding-left:4px;">Contact Us</span>
+		
+		
+		
+			<span onclick="go(16);" class="cm_lnkModuleNavOut" onmouseover="this.className=&#39;cm_lnkModuleNavOvr&#39;;" onmouseout="this.className=&#39;cm_lnkModuleNavOut&#39;;" style="padding-left:4px;">Weather</span>
+		
+		<span onclick="go(0);" class="cm_lnkModuleNavOut" onmouseover="this.className=&#39;cm_lnkModuleNavOvr&#39;;" onmouseout="this.className=&#39;cm_lnkModuleNavOut&#39;;" style="padding-left:4px;">Home</span>
+	</div>
+
+		<!--
+	<table width='100%'>
+		<tr>
+			<td align='right'>
+				<a href='javascript:wndOpen("http://www.microsoft.com/windows/ie/");'><img name='imgIExplore' src='/directory/images/icons/IE.gif' alt="Download Internet Explorer"border='0'></a>
+			</td>
+			<td align='center'>
+				<p><font class='Tiny'>This website contains javascript and is best viewed with Netscape Navigator 4.x or Microsoft Internet Explorer 5.x at a resolution of 800x600 or higher.</font></p>
+			</td>
+			<td>
+				<a href='javascript:wndOpen("http://channels.netscape.com/ns/browsers/default.jsp");'><img name='imgNetscape' src='/directory/images/icons/Netscape.gif' alt="Download Netscape Navigator" border='0'></a>
+			</td>
+		</tr>
+	</table>
+-->	
+		
+
+
+
+	<!--backward support-->
+
+
+
+
+<p align="center"><a href="https://web.archive.org/web/20071027040130/http://www.chambermaster.com/" target="_blank"><img src="./Business Directory Search_files/PoweredBy.gif" border="0" alt=""></a></p>
+
+
+		</td></tr></tbody></table>
+		
+
+	</div>
+
+	
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>

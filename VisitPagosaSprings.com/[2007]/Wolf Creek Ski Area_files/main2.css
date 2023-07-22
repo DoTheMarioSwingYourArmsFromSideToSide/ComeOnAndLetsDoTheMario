@@ -1,0 +1,51 @@
+.LNAV {
+	FONT-FAMILY: verdana, arial, hevetica, sans-serif; FONT-SIZE: 11pt; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+.LNAV:link {
+	COLOR: #FFFFFF
+}
+.LNAV:visited {
+	COLOR: #FFFFFF
+}
+.LNAV:active {
+	COLOR: #FFFFFF
+	TEXT-DECORATION: underline
+}
+.LNAV:hover {
+	TEXT-DECORATION: underline
+}
+
+H1 {
+      COLOR: #FFFFFF; FONT-FAMILY: times new roman, verdana ref, arial, helvetica, sans-serif; FONT-SIZE: 32pt; FONT-WEIGHT: bold; font-style: italic 
+}
+
+SPAN {FONT-SIZE: 40pt }
+
+.HEAD1 {
+	COLOR: #FFFFFF; FONT-FAMILY: arial, helvetica, sans-serif; FONT-SIZE: 32pt; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+
+.HEAD1:first-letter {COLOR: #000000}
+
+.flatBorder {  border-style: solid}
+
+/*
+     FILE ARCHIVED ON 22:24:34 Jun 24, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 00:25:25 Jul 16, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 110.333
+  exclusion.robots: 0.19
+  exclusion.robots.policy: 0.174
+  cdx.remote: 0.107
+  esindex: 0.027
+  LoadShardBlock: 74.034 (3)
+  PetaboxLoader3.datanode: 70.77 (4)
+  PetaboxLoader3.resolve: 69.444 (2)
+  load_resource: 87.05
+*/

@@ -1,0 +1,98 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+var bn = navigator.appName;
+var vn = navigator.appVersion;
+
+if ((bn!="Microsoft Internet Explorer") || (vn.substring(0,3)!="2.0"))
+{
+  shim = new  Image();
+  shim.src = "images/shim.gif";
+    
+  home = new  Image();
+  home.src = "images/menus/home.gif";
+    
+  home2 = new  Image();
+  home2.src = "images/menus/home_hi.gif";
+  
+  about = new  Image();
+  about.src = "images/menus/about.gif";
+    
+  about2 = new  Image();
+  about2.src = "images/menus/about_hi.gif";
+  
+  trainRides = new  Image();
+  trainRides.src = "images/menus/trainRides.gif";
+    
+  trainRides2 = new  Image();
+  trainRides2.src = "images/menus/trainRides_hi.gif";
+  
+  specialEvents = new  Image();
+  specialEvents.src = "images/menus/specialEvents.gif";
+    
+  specialEvents2 = new  Image();
+  specialEvents2.src = "images/menus/specialEvents_hi.gif";
+  
+  tripPlanning = new  Image();
+  tripPlanning.src = "images/menus/tripPlanning.gif";
+    
+  tripPlanning2 = new  Image();
+  tripPlanning2.src = "images/menus/tripPlanning_hi.gif";
+  
+  areaInfo = new  Image();
+  areaInfo.src = "images/menus/areaInfo.gif";
+    
+  areaInfo2 = new  Image();
+  areaInfo2.src = "images/menus/areaInfo_hi.gif";
+  
+  gallery = new  Image();
+  gallery.src = "images/menus/gallery.gif";
+    
+  gallery2 = new  Image();
+  gallery2.src = "images/menus/gallery_hi.gif";
+  
+  faqs = new  Image();
+  faqs.src = "images/menus/faqs.gif";
+    
+  faqs2 = new  Image();
+  faqs2.src = "images/menus/faqs_hi.gif";
+  
+  administration = new  Image();
+  administration.src = "images/menus/administration.gif";
+    
+  administration2 = new  Image();
+  administration2.src = "images/menus/administration_hi.gif";
+}
+  
+
+
+}
+/*
+     FILE ARCHIVED ON 22:33:14 Oct 04, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 00:27:26 Jul 16, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 93.423
+  exclusion.robots: 0.06
+  exclusion.robots.policy: 0.053
+  RedisCDXSource: 5.884
+  esindex: 0.007
+  LoadShardBlock: 66.163 (3)
+  PetaboxLoader3.datanode: 123.1 (4)
+  load_resource: 145.639
+  PetaboxLoader3.resolve: 31.366
+*/

@@ -1,0 +1,64 @@
+		a:hover {
+			text-decoration: underline;
+			font-family: Geneva, Arial, Helvetica, Nimbus Sans L;
+			font-weight: bold;
+			color: #2B3B52;
+		}
+		
+	   a {
+			text-decoration: none;
+			font-family: Geneva, Arial, Helvetica, Nimbus Sans L;
+			font-weight: bold;
+			color: #53664C;
+		}
+
+		body{
+			font-family: Geneva, Arial, Helvetica, Nimbus Sans L;
+		}
+
+		table{
+			font-family: Geneva, Arial, Helvetica, Nimbus Sans L;
+			font-size: 90%;
+			border-collapse: collapse;
+		}
+		
+		p{
+			font-family: Geneva, Arial, Helvetica, Nimbus Sans L;
+		}
+		
+		h1{
+			font-family: Geneva, Arial, Helvetica, Nimbus Sans L;
+		}
+		
+		h2{
+			font-family: Geneva, Arial, Helvetica, Nimbus Sans L;
+		}
+		td.right{
+			text-align: right;
+		}
+		td.left{
+			text-align: left;
+		}
+		td.center{
+			text-align: center;
+		}
+/*
+     FILE ARCHIVED ON 10:56:26 Jul 03, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 00:23:22 Jul 16, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 172.312
+  exclusion.robots: 0.068
+  exclusion.robots.policy: 0.058
+  RedisCDXSource: 9.718
+  esindex: 0.009
+  LoadShardBlock: 143.677 (3)
+  PetaboxLoader3.datanode: 127.545 (4)
+  load_resource: 350.325
+  PetaboxLoader3.resolve: 305.374
+*/

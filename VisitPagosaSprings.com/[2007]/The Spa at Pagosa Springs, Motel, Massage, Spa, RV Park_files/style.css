@@ -1,0 +1,73 @@
+/* CSS Document */
+body {
+	background-color: #F7F1FF;
+	font-family: Georgia, Times New Roman, Times, serif;
+	fint-size: 15px;
+	color:#000066;
+	margin-left: 10px;
+	margin-top:10px;
+	margin-right: 10px;
+	margin-bottom:10px;
+	
+}
+
+
+a:link {
+	color: #330099;
+}
+
+
+a:active {
+	color: #220000;
+}
+
+a:visited {
+	color: #666666;
+}
+
+a:hover {
+	color: #CC9900;
+}
+
+.small {
+	font-family: Tahoma, Arial, Helvetica, sans serif;
+	font-size: 11px;
+	color: #000000;
+}
+.h1 {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.h1a {
+	font-size: 26px;
+	font-weight: bold;
+}
+
+.h2 {
+	font-weight: bold;
+	font-family: Tahoma, Arial, Helvetica, sans serif;
+	color: #000033;
+	font-size: 16px;
+}
+
+/*
+     FILE ARCHIVED ON 18:49:03 Mar 13, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 00:22:42 Jul 16, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 144.59
+  exclusion.robots: 0.127
+  exclusion.robots.policy: 0.111
+  RedisCDXSource: 0.687
+  esindex: 0.012
+  LoadShardBlock: 122.779 (3)
+  PetaboxLoader3.datanode: 171.675 (4)
+  load_resource: 132.633
+  PetaboxLoader3.resolve: 40.742
+*/

@@ -1,0 +1,364 @@
+body {
+	color: #000;
+	background: #fff url(/web/20070720044137im_/http://www.durangotrain.com/images/bg.jpg) repeat-x;
+	margin: 0 0 10px;
+	padding: 0;
+	font: 100.01% Verdana, Arial, Helvetica, sans-serif;
+	text-align: center;
+}
+body, html {
+	min-height: 100%;
+	margin-bottom: 1px;
+}
+#holder {
+	width: 757px;
+	margin: 0 auto;
+	text-align: left;
+	padding: 0;
+	border-left: 1px #333 solid;
+}
+#top {
+	margin: 0 auto;
+	width: 757px;
+}
+#book {
+	float: right;
+	width: 391px;
+	margin: 0;
+}
+p, td, li, ul, ol, div {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+#dsngrrTitle {
+	margin: 0px 0px 0px 20px;
+	font-size:15px;
+	font-weight: bold;
+}
+/* feeds IE PC the larger font */
+* html #dsngrrTitle {
+	font-size: 16px;
+}
+#dsngrrEst{
+	margin: 0px 0px 0px 90px;
+}
+
+a:link {
+	TEXT-DECORATION: none;
+	color:#036;
+}
+
+a:visited {
+	TEXT-DECORATION: none;
+	color:#F60;
+}
+
+a:hover {
+	TEXT-DECORATION: underline;
+	color:#F60;
+	}
+
+a:active {
+	text-decoration: none;
+	color:#036;
+	}
+
+
+/* div wtih flags and search box*/
+#headwrap {
+	background: #FFF url(/web/20070720044137im_/http://www.durangotrain.com/images/bg_table.jpg) no-repeat left top;
+	margin: 0;
+	padding: 0;
+}
+#header {
+	padding: 0 8px 25px 0;
+	margin: 0;
+	background: url(/web/20070720044137im_/http://www.durangotrain.com/images/bd_right1.jpg) repeat-y top right;
+	/*border-left: 1px solid #000;
+	width: 757px;*/
+}
+
+#flags {
+	margin-left: 10px;
+	/*margin-top: 5px;*/
+}
+#searchform {
+	border: 1px solid #000;
+	margin: 0 8px 2px 0;
+	padding: 4px;
+	float: right;
+	white-space: nowrap;
+}		
+
+.searchtext {
+	font: 11px Arial,Verdana, Helvetica, sans-serif;
+	color: #990000;
+	font-weight: bold;
+	margin: 0;
+	padding: 0;
+	display: inline;
+}
+form {
+	margin: 0;
+	padding: 0;
+	display: inline;
+}
+#imageField {
+	margin: 0 2px 0 0;
+	padding: 0;
+	display: inline;
+}		
+#searchfield {
+	font-size: 11px;
+	height: 1.2em;
+	display: inline;
+	margin: 2px;
+	padding: 0;
+}
+#navbar {
+	width: 140px;
+	float: left;
+}
+#content {
+	margin: 0 0 0 145px;
+	background: url(/web/20070720044137im_/http://www.durangotrain.com/images/bd_right2.jpg) no-repeat top right;
+	padding-right: 8px;
+	padding-bottom: 0;
+}
+#news {
+	width: 145px;
+	float: right;
+	padding-right:5px;
+}
+
+
+/* Header 1 text, ie "Welcome Aboard"*/
+
+h1 {
+	font: 20px "Wide Latin", Georgia, "New Century Schoolbook", Times, serif; 
+	border-bottom: 1px solid #900;
+	/*float: left;*/
+	margin: 1px 175px 15px 10px;
+	padding: 1px;
+}
+
+/* Header 2 text, ie "Durango & Silverton"*/
+
+h2 {
+	font: 16.5px Georgia, "New Century Schoolbook", Times, serif; 
+	white-space: nowrap;
+	letter-spacing: -0.1em;
+	margin-top: 3px;
+	margin-bottom: 1px;
+	word-spacing: 0.2em;
+}
+
+/* Header 3 text, ie "Established"*/
+
+h3 {
+	font: 12px Georgia, "New Century Schoolbook", Times, serif; 
+	font-weight: bold;
+	white-space: nowrap;
+	letter-spacing: 1px;
+	margin-top: 2px;	
+}
+
+#movie {
+	padding: 10px 3px 5px 0;
+}
+
+#content p {
+font: 13px Arial,Verdana, Helvetica, sans-serif;
+padding-left: 30px;
+margin-top: 10px;
+margin-bottom: 0;
+padding-bottom: 0;
+width: 400px;
+}
+
+/*#credit {
+font: 10px Arial,Verdana, Helvetica, sans-serif;
+color: #21376B;
+float: left;
+}*/
+
+
+/* main content*/
+#mainbody {
+	font-size:  13px;
+	background: #FFF url(/web/20070720044137im_/http://www.durangotrain.com/images/bd_bg.jpg) repeat-y top right;
+	padding-bottom: 8px;
+}
+
+.border {
+	border-left: 1px solid #000;
+}
+
+#footer {
+	width: 757px;
+	margin: 0 auto 10px;
+	font: 10px Arial,Verdana, Helvetica, sans-serif;
+	color: #21376B;
+}
+/* hide from IE Mac:: Fixes an IE PC white space bug \*/
+* html #footer {
+	margin-top: -3px;
+}
+/* show IE again */
+#footer p {
+	margin-top: 0;
+	float: left;
+}
+#banner1 {
+	padding-top: 30px;
+	vertical-align: bottom;
+	margin: 5px;
+}
+
+#banner2 {
+	vertical-align: bottom;
+	margin-top: 8px;
+	margin-right: 10px;
+}
+
+#banner3 {
+	vertical-align: bottom;
+	margin-right: 10px;
+}
+
+
+#bottombanner {
+	margin: 5px;
+	font-size: 9px;
+}
+.brclear { 
+     clear:both; 
+     height:0; 
+     margin:0;
+     font-size: 1px;
+     line-height: 0;
+}
+
+
+/*menu starts here*/
+
+#p7TMnav  {
+
+	font-size: 11px;
+	margin-left: 10px
+}
+
+#p7TMnav div {
+
+	margin-top: 10px;
+	font-size: 11px;
+}
+
+/*second level menuitem divs on - Cascades to lower levels*/
+/*Sets left margin to 16px establishing a cascading indent*/
+#p7TMnav div div {
+
+	margin: 0 0 0 5px;
+}
+
+/*The Link style for top-level menuitems*/
+#p7TMnav div a {
+	color: #21376B;
+	padding: 0;
+	font-weight: bold;
+	background-repeat: no-repeat;
+	background-image:   url(/web/20070720044137im_/http://www.durangotrain.com/images/bullet.gif);
+	background-position: 0 0;
+	text-decoration: none;
+	display: block;
+
+}
+#p7TMnav div a:visited {
+	color: #21376B;
+	text-decoration: none;
+
+}
+#p7TMnav div a:hover {
+	color: #FF6600;
+	background-repeat: no-repeat;
+	background-image:   url(/web/20070720044137im_/http://www.durangotrain.com/images/bullet2.gif);
+	background-position: 0 0;
+	text-decoration: none;
+
+
+}
+
+/*The Link style for second-level menuitems*/
+#p7TMnav div div a {
+	/*/*/line-height: 1.2; /* */
+	background-image: none;
+	font-weight: normal;
+	color: #21376B;
+	text-decoration: none;
+
+
+}
+#p7TMnav div div a:visited {
+	background-image: none;
+	font-weight: normal;
+	color: #21376B;
+	text-decoration: none;
+	
+}
+#p7TMnav div div a:hover {
+	background-image: none;
+	font-weight: normal;
+	color: #FF6600;
+	text-decoration: underline;
+
+}
+
+/*rules programatically assigned to parent links when image-based plus and minus option is selected*/
+/*do not remove*/
+.p7plusmark {
+	background-repeat: no-repeat;
+	background-image:   url(/web/20070720044137im_/http://www.durangotrain.com/images/bullet.gif);
+	background-position: 0 0;
+	padding: 0 0 0 10px !important;
+}
+.p7minusmark {
+	background-repeat: no-repeat;
+	background-image:   url(/web/20070720044137im_/http://www.durangotrain.com/images/bullet2.gif);
+	background-position: 0 0;
+	padding: 0 0 0 10px !important;
+}
+/*rule programatically assigned to child links when image-based plus and minus option is selected*/
+.p7defmark {
+	background-image:  none;
+	padding: 0 0 0 10px !important;
+}
+
+/*rules programatically assigned to page link correesponding to current page (You are Here)*/
+.p7currentmark {
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #666666 !important;
+}
+.systranslink {
+	font-size: 10px;
+}
+
+/*
+     FILE ARCHIVED ON 04:41:37 Jul 20, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 00:28:10 Jul 16, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 2227.059
+  exclusion.robots: 0.093
+  exclusion.robots.policy: 0.084
+  cdx.remote: 0.062
+  esindex: 0.01
+  LoadShardBlock: 1894.441 (3)
+  PetaboxLoader3.datanode: 59.686 (4)
+  PetaboxLoader3.resolve: 3192.598 (2)
+  load_resource: 1379.554
+*/

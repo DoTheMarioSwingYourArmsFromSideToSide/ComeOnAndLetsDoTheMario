@@ -1,0 +1,230 @@
+.sidetext { font-family: Verdana; font-size: 8pt; color: #7493C9 ; font-weight: normal}
+.nav { font-family: arial,verdana; font-size: 8pt; color: #7493C9; font-weight: normal}
+.navhome { font-family: arial,verdana; font-size: 8pt; color: #595959; font-weight: normal}
+.mainbody {  font-family: Verdana, Arial; font-size: 8pt; color: #000000; font-weight: normal}
+
+.header1 {  font-family: Verdana, Arial; font-size: 9pt; color: #2F4B7C; font-weight: bold}
+.header2 {  font-family: Verdana, Arial; font-size: 9pt; color: #393C41; font-weight: bold}
+.header3 {  font-family: Verdana, Arial; font-size: 9pt; color: #248A8D; font-weight: bold}
+.header4 {  font-family: Verdana, Arial; font-size: 9pt; color: #445A4E; font-weight: bold}
+
+.bodytext1 {  font-family: Verdana, Arial; font-size: 8pt; color: #4568A6; font-weight: normal}
+.bodytext2 {  font-family: Verdana, Arial; font-size: 8pt; color: #8A2825; font-weight: normal}
+
+.mainbody2 { font-family: Tahoma, Verdana ; font-size: 8pt; color: #000000; font-weight: bold}
+.section {  font-family: Trebuchet MS, Arial; font-size: 12pt; color: #7a7a7a; font-weight: bold}
+.copyright {  font-family: Arial, Verdana; font-size: 7pt; color: #969696; font-weight: normal}
+.dirnav {  font-family: Verdana, Arial; font-size: 8pt; color: #000000; font-weight: lighter}
+.auto <STYLE> BODY {SCROLLBAR-3DLIGHT-COLOR: #ebebeb; SCROLLBAR-ARROW-COLOR: #FFFFFF; SCROLLBAR-BASE-COLOR: #000000} </STYLE>
+input {  font-family: Arial; font-size: 8pt; color: #333333}
+select {  font-family: Arial; font-size: 8pt; color: #333333}
+option {  font-family: Arial; font-size: 8pt; color: #333333}
+body {
+	scrollbar-face-color: #123E4E;
+	scrollbar-shadow-color: #FFFFFF;
+	scrollbar-highlight-color: #FFFFFF;
+	scrollbar-3dlight-color: #123E4E;
+	scrollbar-darkshadow-color: #123E4E;
+	scrollbar-track-color: #FFFFFF;
+	scrollbar-arrow-color: #FFFFFF;
+	margin: 0px;
+	padding: 0px;
+}
+textarea {  font-family: Arial; font-size: 8pt; color: #333333}
+A. { COLOR:#4D4D4F;FONT-FAMILY: Verdana, Arial;FONT-SIZE:8pt; ; text-decoration: underline; font-weight: normal}
+A:link { COLOR:#4D4D4F;FONT-FAMILY: Verdana, Arial;FONT-SIZE:8pt; ; text-decoration: underline; font-weight: normal}
+A:active { COLOR:#4D4D4F;FONT-FAMILY: Verdana, Arial;FONT-SIZE:8pt; ; text-decoration: underline; font-weight: normal}
+A:visited { COLOR:#4D4D4F;FONT-FAMILY: Verdana, Arial;FONT-SIZE:8pt; ; text-decoration: underline;font-weight: normal}
+A:hover { COLOR:#4D4D4F;FONT-FAMILY: Verdana, Arial;FONT-SIZE:8pt; ; text-decoration: none; font-weight: normal}
+
+A.adtextlink { font-family: Arial; font-size: 7pt; color: #000000; text-decoration: underline; font-weight: bold}
+A.adtextlink:active { font-family: Arial; font-size: 7pt; color: #000000; text-decoration: underline; font-weight: bold}
+A.adtextlink:link { font-family: Arial; font-size: 7pt; color: #000000; text-decoration: underline; font-weight: bold}
+A.adtextlink:visited { font-family: Arial; font-size: 7pt; color: #000000; text-decoration: underline; font-weight: bold}
+A.adtextlink:hover { font-family: Arial; font-size: 7pt; color: #E47615; text-decoration: underline; font-weight: bold}
+
+A.nav { font-family: Arial, Verdana; font-size: 8pt; color: #7493C9; text-decoration: none; font-weight: normal}
+A.nav:active { font-family: Arial, Verdana; font-size: 8pt; color: #7493C9; text-decoration: none;font-weight: normal}
+A.nav:link { font-family: Arial, Verdana; font-size: 8pt; color: #7493C9; text-decoration: none;font-weight: normal}
+A.nav:visited { font-family: Arial, Verdana; font-size: 8pt; color: #7493C9; text-decoration: none;font-weight: normal}
+A.nav:hover { font-family: Arial, Verdana; font-size: 8pt; color: #595959; text-decoration: none;font-weight: normal}
+
+A.navhome { font-family: Arial, Verdana; font-size: 8pt; color: #000000; text-decoration: none; font-weight: normal}
+A.navhome:active { font-family: Arial, Verdana; font-size: 8pt; color: #000000; text-decoration: none;font-weight: normal}
+A.navhome:link { font-family: Arial, Verdana; font-size: 8pt; color: #000000; text-decoration: none;font-weight: normal}
+A.navhome:visited { font-family: Arial, Verdana; font-size: 8pt; color: #000000; text-decoration: none;font-weight: normal}
+A.navhome:hover { font-family: Arial, Verdana; font-size: 8pt; color: #595959; text-decoration: none;font-weight: normal}
+
+A.mainbody { font-family: Tahoma, Arial, Verdana; font-size: 8pt; color: #6F6F6F; text-decoration: underline;font-weight: bold}
+A.mainbody:active { font-family: Tahoma, Arial, Verdana; font-size: 8pt; color: #6F6F6F; text-decoration: underline;font-weight: bold}
+A.mainbody:link { font-family: Tahoma, Arial, Verdana; font-size: 8pt; color: #6F6F6F; text-decoration: underline;font-weight: bold}
+A.mainbody:visited { font-family: Tahoma, Arial, Verdana; font-size: 8pt; color: #6F6F6F; text-decoration: underline;font-weight: bold}
+A.mainbody:hover { font-family: Tahoma, Arial, Verdana; font-size: 8pt; color: #6F6F6F; text-decoration: none;font-weight: bold}
+
+A.copyright { font-family: Arial, Verdana; font-size: 7pt; color: #6F6F6F; text-decoration: underline;font-weight: normal}
+A.copyright:active { font-family: Arial, Verdana; font-size: 7pt; color: #6F6F6F; text-decoration: underline;font-weight: normal}
+A.copyright:link { font-family: Arial, Verdana; font-size: 7pt; color: #6F6F6F; text-decoration: underline;font-weight: normal}
+A.copyright:visited { font-family: Arial, Verdana; font-size: 7pt; color: #6F6F6F; text-decoration: underline;font-weight: normal}
+A.copyright:hover { font-family: Arial, Verdana; font-size: 7pt; color: #6F6F6F; text-decoration: none;font-weight: normal}
+
+
+.featureTable {
+  font-family: Verdana, Arial, sans-serif;
+  font-size: 10px;
+  background: #FFFFFF;
+  color: #646566;
+  font-weight : normal;
+  text-align : left;
+  border: 10px solid #FFFFFF;
+}
+
+.mainTable {
+	border: 1px dotted #7493C9;
+	border-style: solid solid solid solid;
+	font-family: Verdana, Arial, sans-serif;
+    font-size: 9px;
+    background: #FFFFFF;
+    color: #000000;
+    font-weight : normal;
+    text-align : left,top;
+}
+
+.homefeature		
+			{
+			border: 1px Solid #ECECEC;
+			border-width: 1px 1px 1px 1px;
+			background-color: #f2f2f2;
+			padding: 20px 20px 20px 20px;
+			font-family: Verdana, Arial, Sans-Serif;
+			font-weight: normal;
+			font-size: 8pt;
+			color: #222222;
+			line-height: 18px;
+			text-align: left;
+			}
+
+#lightbox{
+	position: absolute;
+	top: 40px;
+	left: 0;
+	width: 100%;
+	z-index: 100;
+	text-align: center;
+	line-height: 0;
+	}
+
+#lightbox a img{ border: none; }
+
+#outerImageContainer{
+	position: relative;
+	background-color: #fff;
+	width: 250px;
+	height: 250px;
+	margin: 0 auto;
+	}
+
+#imageContainer{
+	padding: 10px;
+	}
+
+#loading{
+	position: absolute;
+	top: 40%;
+	left: 0%;
+	height: 25%;
+	width: 100%;
+	text-align: center;
+	line-height: 0;
+	}
+#hoverNav{
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 10;
+	}
+#imageContainer>#hoverNav{ left: 0;}
+#hoverNav a{ outline: none;}
+
+#prevLink, #nextLink{
+	width: 49%;
+	height: 100%;
+	background: transparent url(/web/20070630124213im_/http://www.pagosahotsprings.com/images/blank.gif) no-repeat; /* Trick IE into showing hover */
+	display: block;
+	}
+#prevLink { left: 0; float: left;}
+#nextLink { right: 0; float: right;}
+#prevLink:hover, #prevLink:visited:hover { background: url(/web/20070630124213im_/http://www.pagosahotsprings.com/images/prevlabel.gif) left 15% no-repeat; }
+#nextLink:hover, #nextLink:visited:hover { background: url(/web/20070630124213im_/http://www.pagosahotsprings.com/images/nextlabel.gif) right 15% no-repeat; }
+
+
+#imageDataContainer{
+	font: 10px Verdana, Helvetica, sans-serif;
+	background-color: #fff;
+	margin: 0 auto;
+	line-height: 1.4em;
+	}
+
+#imageData{
+	padding:0 10px;
+	}
+#imageData #imageDetails{ width: 70%; float: left; text-align: left; }	
+#imageData #caption{ font-weight: bold;	}
+#imageData #numberDisplay{ display: block; clear: left; padding-bottom: 1.0em;	}			
+#imageData #bottomNavClose{ width: 66px; float: right;  padding-bottom: 0.7em;	}	
+		
+#overlay{
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 90;
+	width: 100%;
+	height: 500px;
+	background-color: #000;
+	filter:alpha(opacity=60);
+	-moz-opacity: 0.6;
+	opacity: 0.6;
+	}
+	
+
+.clearfix:after {
+	content: "."; 
+	display: block; 
+	height: 0; 
+	clear: both; 
+	visibility: hidden;
+	}
+
+* html>body .clearfix {
+	display: inline-block; 
+	width: 100%;
+	}
+
+* html .clearfix {
+	/* Hides from IE-mac \*/
+	height: 1%;
+	/* End hide from IE-mac */
+	}	
+	
+
+/*
+     FILE ARCHIVED ON 12:42:13 Jun 30, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 00:22:13 Jul 16, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 133.904
+  exclusion.robots: 0.068
+  exclusion.robots.policy: 0.058
+  cdx.remote: 0.056
+  esindex: 0.008
+  LoadShardBlock: 99.647 (3)
+  PetaboxLoader3.datanode: 173.278 (4)
+  load_resource: 350.635
+  PetaboxLoader3.resolve: 263.964
+*/

@@ -1,0 +1,241 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+
+
+
+
+
+
+
+	
+	
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+		<title>Parelli.com - HomePage</title>
+		<link rel="stylesheet" type="text/css" href="css/pnhsitestyle.css" title="pnhsitestyle" />
+		<SCRIPT LANGUAGE="JavaScript">
+			function SetScrollers() {
+				if(document.getElementById('centerthumbs') != null) document.getElementById('centerthumbs').scrollLeft = (47 - (370 * .5));
+				if(document.getElementById('vertthumbcontainer') != null) document.getElementById('vertthumbcontainer').scrollLeft = (47 - (400 * .5));
+				if(document.getElementById('horizthumbcontainer') != null) document.getElementById('horizthumbcontainer').scrollLeft = (57 - (400 * .5));
+				if(document.getElementById('prodthumbs') != null) document.getElementById('prodthumbs').scrollLeft = (47 - (370 * .5));
+			}
+		</script>
+		<!--[if IE]>
+			<style>
+				body {word-spacing: -0.5px;}
+				body {letter-spacing: -0.5px;}
+				body {line-height: 10px;}
+			</style>
+		<![endif]-->
+		  <!--[if lte IE 6]>
+			<style type=text/css">
+				#rb_ex_pic {background-repeat:no-repeat;}
+				#rb_ex_pic a:hover {visibility:visible;}
+				#rb_in_pic {background-repeat:no-repeat;}
+				#rb_in_pic a:hover {visibility:visible;}
+				#lb_ex_pic {background-repeat:no-repeat;}
+				#lb_ex_pic a:hover {visibility:visible;}
+				#lb_in_pic {background-repeat:no-repeat;}
+				#lb_in_pic a:hover {visibility:visible;}
+			</style>
+ 		  <![endif]-->
+	</head>
+	<body onLoad="SetScrollers();">
+		<div id="pagecontainer">
+			<div id="header" class="darkgrey">
+				
+				<div id="loginlinkcontainer">
+
+					<form id="_idJsp7" name="_idJsp7" method="post" action="/home.faces;jsessionid=9DBA50CFAA7DC56EDA62868F3A88EBCE.node2" enctype="application/x-www-form-urlencoded">
+						<nobr>
+						
+							
+						<a id="_idJsp7:loginlink1" name="_idJsp7:loginlink1" href="/login.faces;jsessionid=9DBA50CFAA7DC56EDA62868F3A88EBCE.node2">login</a>
+						
+						
+						
+						
+						
+						&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/home.faces">home</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/cart.faces">view cart / checkout</a>&nbsp;&nbsp;|&nbsp;&nbsp;subtotal:  $0&nbsp;&nbsp;|&nbsp;&nbsp;
+						
+							
+						
+						
+						
+							
+							
+						<a id="_idJsp7:_idJsp19" name="_idJsp7:_idJsp19" href="http://www.parellisavvyclub.com">www.parellisavvyclub.com</a>
+						
+						
+						</nobr>
+					<input type="hidden" name="_idJsp7_SUBMIT" value="1" />
+<input type="hidden" name="autoScroll" />
+<input type="hidden" name="jsf_sequence" value="1" /></form>
+
+				</div>
+				<a href="home.faces"><img src="images/top_logo.png" class="logoimg" alt="Parelli logo"></a>
+				<div id="headerlinks">
+					<ul id="navlinks" class="darkgrey">
+						<li><a href="content.faces?groupType=EVENTS">EVENTS</a></li>
+						<li><a href="content.faces?groupType=INSTRUCTORS">INSTRUCTORS</a></li>
+						<li><a href="content.faces?groupType=COURSES">TAKE A COURSE</a></li>
+						<li><a href="content.faces?groupType=HORSENALITY">HORSENALITY</a></li>
+						<li><a href="content.faces?groupType=PROBLEMS">PROBLEMS</a></li>
+						<li><a href="content.faces?groupType=TELEVISION">TV</a></li>
+						<li><a href="content.faces?groupType=SAVVYCLUB">SAVVY CLUB</a></li>
+						<li><a href="content.faces?groupType=PARELLIINFO">WHAT IS PARELLI?</a></li>
+					</ul>
+				</div>
+			</div>
+
+
+	<div id="contentwithfooter">
+	<div id="contentnofooter"> <div id="mainpiccont">
+		<img id="mainpic" src="/image;jsessionid=9DBA50CFAA7DC56EDA62868F3A88EBCE.node2?pid=329" alt="Home Page Picture of Pat &amp; Linda" class="floatleft" />
+	</div>
+	  <div id="homecontentlinks"> <img src="images/horsenality_text.png" id="horsenality" />
+		<ul class="lightgrey">
+		  
+
+<li class="pic">
+			<a id="_idJsp26:0:_idJsp28" name="_idJsp26:0:_idJsp28" href="/content.faces;jsessionid=9DBA50CFAA7DC56EDA62868F3A88EBCE.node2?contentId=25"><img src="/image;jsessionid=9DBA50CFAA7DC56EDA62868F3A88EBCE.node2?pid=31" class="list" /></a><span id="_idJsp26:0:group1a" class="descr"><span style="font-weight:bold;font-size:12px;color:black;">&raquo;&nbsp;</span><span class="title">The Key To Success With Horses<br /></span><a id="_idJsp26:0:_idJsp32" name="_idJsp26:0:_idJsp32" href="/content.faces;jsessionid=9DBA50CFAA7DC56EDA62868F3A88EBCE.node2?contentId=25">Click here to learn more about Horsenalities and how to learn your horse's horsenality.</a></span></li>
+<li class="pic">
+			<a id="_idJsp26:1:_idJsp28" name="_idJsp26:1:_idJsp28" href="/content.faces;jsessionid=9DBA50CFAA7DC56EDA62868F3A88EBCE.node2?contentId=26"><img src="/image;jsessionid=9DBA50CFAA7DC56EDA62868F3A88EBCE.node2?pid=32" class="list" /></a><span id="_idJsp26:1:group1a" class="descr"><span style="font-weight:bold;font-size:12px;color:black;">&raquo;&nbsp;</span><span class="title">Savvy Club<br /></span><a id="_idJsp26:1:_idJsp32" name="_idJsp26:1:_idJsp32" href="/content.faces;jsessionid=9DBA50CFAA7DC56EDA62868F3A88EBCE.node2?contentId=26">Join the Savvy Club and start saving 25%-35% on all education and equipment!</a></span></li>
+<li class="pic">
+			<a id="_idJsp26:2:_idJsp28" name="_idJsp26:2:_idJsp28" href="/content.faces;jsessionid=9DBA50CFAA7DC56EDA62868F3A88EBCE.node2?contentId=10"><img src="/image;jsessionid=9DBA50CFAA7DC56EDA62868F3A88EBCE.node2?pid=34" class="list" /></a><span id="_idJsp26:2:group1a" class="descr"><span style="font-weight:bold;font-size:12px;color:black;">&raquo;&nbsp;</span><span class="title">Solve My Problem<br /></span><a id="_idJsp26:2:_idJsp32" name="_idJsp26:2:_idJsp32" href="/content.faces;jsessionid=9DBA50CFAA7DC56EDA62868F3A88EBCE.node2?contentId=10">Find your problem in the list and start solving it TODAY!</a></span></li>
+<li class="pic">
+			<a id="_idJsp26:3:_idJsp28" name="_idJsp26:3:_idJsp28" href="product.faces;jsessionid=9DBA50CFAA7DC56EDA62868F3A88EBCE.node2?productId=152"><img src="/image;jsessionid=9DBA50CFAA7DC56EDA62868F3A88EBCE.node2?pid=366" class="list" /></a><span id="_idJsp26:3:group1a" class="descr"><span style="font-weight:bold;font-size:12px;color:black;">&raquo;&nbsp;</span><span class="title">Success Discount Expires Soon!<br /></span><a id="_idJsp26:3:_idJsp32" name="_idJsp26:3:_idJsp32" href="product.faces;jsessionid=9DBA50CFAA7DC56EDA62868F3A88EBCE.node2?productId=152">The intro Savvy Club discount expires soon!  Buy yours today!</a></span></li>
+
+		  <li class="pic freedvdplace list"><a href="freedvd.faces"><img src="images/FreeDVD.png" class="freedvdimg" /></a></li>
+		</ul>
+	  </div>
+	  <div id="homeblurbs" class="darkgrey">
+		<ul>
+		  <li class="howto"> <span class="title">
+			<span style="font-weight:bold;font-size:12px">&raquo;&nbsp;</span>
+			What is Parelli?
+			</span><br />
+			<a href="/content.faces?groupType=PARELLIINFO">
+			Click here to learn more about Parelli, its founders, and to find the office near you!
+			</a> </li>
+		  <li class="howto"> <span class="title">
+			<span style="font-weight:bold;font-size:12px">&raquo;&nbsp;</span>
+			Solve My Problem
+			</span><br />
+			<a href="/content.faces?contentId=10">
+			Find your problem in the list and start solving it TODAY!
+			</a> </li>
+		</ul>
+	  </div>
+	</div>
+
+	
+			<div id="footer">
+					
+<div id="prodmenu">
+  <div id="random"> <a style="text-decoration:none;" href="http://enews.parelli.com"> <img styleClass="enewsimg" src="/image?pid=337" /> </a>
+    <div id="enewsstatement"> <a href="http://enews.parelli.com">
+      <span class="randomtext">Click here to find out when and where you can watch our next TV show in Parelli e-News</span>
+      </a> </div>
+  </div>
+  <div id="menu">
+    <ul id="categories" class="darkgrey">
+      
+
+<li class="cat">
+      TICKETS/EVENTS
+      <ul class="sub" style="width: 90px;">
+        
+<li class="subcat"><a id="_idJsp48:1:_idJsp52" name="_idJsp48:1:_idJsp52" href="http://www.parelli.com/content.faces;jsessionid=9DBA50CFAA7DC56EDA62868F3A88EBCE.node2?contentId=34">USA TOUR</a></li>
+<li class="subcat"><a id="_idJsp48:2:_idJsp52" name="_idJsp48:2:_idJsp52" href="http://www.parelli.com/content.faces;jsessionid=9DBA50CFAA7DC56EDA62868F3A88EBCE.node2?contentId=35">UK CONFERENCE</a></li>
+<li class="subcat"><a id="_idJsp48:3:_idJsp52" name="_idJsp48:3:_idJsp52" href="http://www.parelli.com/content.faces;jsessionid=9DBA50CFAA7DC56EDA62868F3A88EBCE.node2?contentId=36">USA CONFERENCE</a></li>
+</ul></li><li class="cat">
+      EDUCATION
+      <ul class="sub" style="width: 130px;">
+        
+<li class="subcat"><a id="_idJsp48:5:_idJsp52" name="_idJsp48:5:_idJsp52" href="product.faces;jsessionid=9DBA50CFAA7DC56EDA62868F3A88EBCE.node2?catId=9">SUCCESS SERIES DVDs</a></li>
+<li class="subcat"><a id="_idJsp48:6:_idJsp52" name="_idJsp48:6:_idJsp52" href="product.faces;jsessionid=9DBA50CFAA7DC56EDA62868F3A88EBCE.node2?catId=11">COMPLETE KITS</a></li>
+<li class="subcat"><a id="_idJsp48:7:_idJsp52" name="_idJsp48:7:_idJsp52" href="product.faces;jsessionid=9DBA50CFAA7DC56EDA62868F3A88EBCE.node2?catId=12">LEVEL 1-3 PROGRAMS</a></li>
+<li class="subcat"><a id="_idJsp48:8:_idJsp52" name="_idJsp48:8:_idJsp52" href="product.faces;jsessionid=9DBA50CFAA7DC56EDA62868F3A88EBCE.node2?catId=13">COURSE-in-a-BOX</a></li>
+<li class="subcat"><a id="_idJsp48:9:_idJsp52" name="_idJsp48:9:_idJsp52" href="product.faces;jsessionid=9DBA50CFAA7DC56EDA62868F3A88EBCE.node2?catId=14">BOOKS</a></li>
+<li class="subcat"><a id="_idJsp48:10:_idJsp52" name="_idJsp48:10:_idJsp52" href="product.faces;jsessionid=9DBA50CFAA7DC56EDA62868F3A88EBCE.node2?catId=38">DOCUMENTARIES</a></li>
+</ul></li><li class="cat">
+      EQUIPMENT
+      <ul class="sub" style="width: 90px;">
+        
+<li class="subcat"><a id="_idJsp48:12:_idJsp52" name="_idJsp48:12:_idJsp52" href="product.faces;jsessionid=9DBA50CFAA7DC56EDA62868F3A88EBCE.node2?catId=15">HALTERS</a></li>
+<li class="subcat"><a id="_idJsp48:13:_idJsp52" name="_idJsp48:13:_idJsp52" href="product.faces;jsessionid=9DBA50CFAA7DC56EDA62868F3A88EBCE.node2?catId=16">ROPES & STICKS</a></li>
+<li class="subcat"><a id="_idJsp48:14:_idJsp52" name="_idJsp48:14:_idJsp52" href="product.faces;jsessionid=9DBA50CFAA7DC56EDA62868F3A88EBCE.node2?catId=17">HACKAMORES</a></li>
+<li class="subcat"><a id="_idJsp48:15:_idJsp52" name="_idJsp48:15:_idJsp52" href="product.faces;jsessionid=9DBA50CFAA7DC56EDA62868F3A88EBCE.node2?catId=18">BITS</a></li>
+<li class="subcat"><a id="_idJsp48:16:_idJsp52" name="_idJsp48:16:_idJsp52" href="product.faces;jsessionid=9DBA50CFAA7DC56EDA62868F3A88EBCE.node2?catId=19">BRIDLES</a></li>
+<li class="subcat"><a id="_idJsp48:17:_idJsp52" name="_idJsp48:17:_idJsp52" href="product.faces;jsessionid=9DBA50CFAA7DC56EDA62868F3A88EBCE.node2?catId=20">REINS</a></li>
+</ul></li><li class="cat">
+      SADDLES/PADS/BAGS
+      <ul class="sub" style="width: 85px;">
+        
+<li class="subcat"><a id="_idJsp48:19:_idJsp52" name="_idJsp48:19:_idJsp52" href="product.faces;jsessionid=9DBA50CFAA7DC56EDA62868F3A88EBCE.node2?catId=21">SADDLES+PADS (ENGLISH)</a></li>
+<li class="subcat"><a id="_idJsp48:20:_idJsp52" name="_idJsp48:20:_idJsp52" href="product.faces;jsessionid=9DBA50CFAA7DC56EDA62868F3A88EBCE.node2?catId=22">SADDLES+PADS (WESTERN)</a></li>
+<li class="subcat"><a id="_idJsp48:21:_idJsp52" name="_idJsp48:21:_idJsp52" href="product.faces;jsessionid=9DBA50CFAA7DC56EDA62868F3A88EBCE.node2?catId=23">BAREBACK PADS</a></li>
+<li class="subcat"><a id="_idJsp48:22:_idJsp52" name="_idJsp48:22:_idJsp52" href="product.faces;jsessionid=9DBA50CFAA7DC56EDA62868F3A88EBCE.node2?catId=24">BAGS</a></li>
+</ul></li><li class="cat">
+      MISC ITEMS
+      <ul class="sub" style="width: 120px;">
+        
+<li class="subcat"><a id="_idJsp48:24:_idJsp52" name="_idJsp48:24:_idJsp52" href="product.faces;jsessionid=9DBA50CFAA7DC56EDA62868F3A88EBCE.node2?catId=26">CLOTHING / GREEN BALL</a></li>
+<li class="subcat"><a id="_idJsp48:25:_idJsp52" name="_idJsp48:25:_idJsp52" href="product.faces;jsessionid=9DBA50CFAA7DC56EDA62868F3A88EBCE.node2?catId=27">HORSE HEALTH</a></li>
+<li class="subcat"><a id="_idJsp48:26:_idJsp52" name="_idJsp48:26:_idJsp52" href="product.faces;jsessionid=9DBA50CFAA7DC56EDA62868F3A88EBCE.node2?catId=28">REPLACEMENT PARTS</a></li>
+<li class="subcat"><a id="_idJsp48:27:_idJsp52" name="_idJsp48:27:_idJsp52" href="product.faces;jsessionid=9DBA50CFAA7DC56EDA62868F3A88EBCE.node2?catId=29">GIFT ITEMS</a></li>
+
+
+      </ul>
+      </li>
+    </ul>
+  </div>
+  <hr />
+</div>
+
+
+					<div id="foot" class="lightgrey"> 
+					<a href="content.faces?groupType=CONTACTUS">Contact Us</a> | 
+					<a href="pressreleases.faces">Press Releases</a> | 
+					<a href="careeropps.faces">Careers</a> |  
+					<a href="termsofuse.faces">Terms of Use</a> | 
+					<a href="intellectualproperty.faces">Intellectual Property Notice</a> | 
+					<a href="parelliawards.faces">PARELLI AWARDS</a>
+					<br />
+						Copyright &copy; 2007 Parelli Natural Horsemanship, Inc All Rights Reserved   |  Photography Copyright &copy; Coco All Rights Reserved
+						<script>document.write("<img src=\"collect.faces?w=" + self.screen.width + "&h=" + self.screen.height + "\">");</script>
+					</div>
+			</div>
+		</div>
+	</div>
+	<!-- MYFACES JAVASCRIPT -->
+
+<script type="text/javascript"><!--
+
+	function getScrolling()
+	{
+		var x = 0; var y = 0;if (self.pageXOffset || self.pageYOffset)
+		{
+			x = self.pageXOffset;
+			y = self.pageYOffset;
+		}
+		 else if ((document.documentElement && document.documentElement.scrollLeft)||(document.documentElement && document.documentElement.scrollTop))
+		{
+			x = document.documentElement.scrollLeft;
+			y = document.documentElement.scrollTop;
+		}
+		 else if (document.body) 
+		{
+			x = document.body.scrollLeft;
+			y = document.body.scrollTop;
+		}
+		return x + "," + y;
+	}
+	
+//--></script>
+
+</body>
+</html>

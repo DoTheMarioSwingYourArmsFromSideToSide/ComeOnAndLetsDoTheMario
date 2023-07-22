@@ -1,0 +1,130 @@
+.LNAV {
+	FONT-FAMILY: verdana, arial, hevetica, sans-serif; FONT-SIZE: 11pt; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+.LNAV:link {
+	COLOR: #FFFFFF
+}
+.LNAV:visited {
+	COLOR: #FFFFFF
+}
+.LNAV:active {
+	COLOR: #000000
+	TEXT-DECORATION: underline
+}
+.LNAV:hover {
+	TEXT-DECORATION: underline
+}
+.MAG {
+	FONT-FAMILY: verdana, arial, helvetica, sans-serif; FONT-SIZE: 10pt; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+.MAG:link {
+	COLOR: #dce3d1
+}
+.MAG:visited {
+	COLOR: #dce3d1
+}
+.MAG:active {
+	COLOR: #0066ff
+}
+.MAG:hover {
+	TEXT-DECORATION: underline
+}
+.MAINMAG {
+	FONT-FAMILY: verdana, arial, helvetica, sans-serif; FONT-SIZE: 10pt; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+.MAINMAG:link {
+	COLOR: #ffffff
+}
+.MAINMAG:visited {
+	COLOR: #ffffff
+}
+.MAINMAG:active {
+	COLOR: #0066ff
+}
+.MAINMAG:hover {
+	TEXT-DECORATION: underline
+}
+.PROMO {
+	FONT-FAMILY: verdana, arial, helvetica, sans-serif; FONT-SIZE: 10pt; FONT-WEIGHT: bold
+}
+.PROMO:link {
+	COLOR: #8e2524
+}
+.PROMO:visited {
+	COLOR: #669999
+}
+.PROMO:active {
+	COLOR: #0066ff
+}
+.HEAD1 {
+	COLOR: #000000; FONT-FAMILY: arial, helvetica, sans-serif; FONT-SIZE: 16pt; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+.HEAD1SM {
+	COLOR: #000000; FONT-FAMILY: arial, helvetica, sans-serif; FONT-SIZE: 15pt; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+.HEAD2 {
+	COLOR: #FFFFFF; FONT-FAMILY: arial, helvetica, sans-serif; FONT-SIZE: 11pt; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+.SUBHEAD1 {
+	COLOR: #094719; FONT-FAMILY: verdana, arial, helvetica, sans-serif; FONT-SIZE: 12pt; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+.SUBHEAD2 {
+	COLOR: #043971; FONT-FAMILY: verdana, arial, helvetica, sans-serif; FONT-SIZE: 10pt; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+.BODYTEXT {
+	FONT-FAMILY: times new roman, times, serif; FONT-SIZE: 11pt; TEXT-DECORATION: none
+}
+.MORE {
+	FONT-FAMILY: verdana, arial, hevetica, sans-serif; FONT-SIZE: 9pt; FONT-WEIGHT: bold
+}
+.MORE:link {
+	COLOR: #8e2524
+}
+.MORE:visited {
+	COLOR: #669999
+}
+.MORE:active {
+	COLOR: #0066ff
+}
+.MORE:hover {
+	TEXT-DECORATION: underline
+}
+.tiny {
+	font-size: xx-small;
+	color: #FFFFFF;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.cutline {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+
+.SUBHEAD3 {
+	COLOR: #043971;
+	FONT-FAMILY: verdana, arial, helvetica, sans-serif;
+	FONT-SIZE: 9pt;
+	FONT-WEIGHT: bold;
+	TEXT-DECORATION: none;
+	padding-left: 10px;
+}
+
+/*
+     FILE ARCHIVED ON 22:23:41 Jun 24, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 00:25:25 Jul 16, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 107.162
+  exclusion.robots: 0.111
+  exclusion.robots.policy: 0.1
+  cdx.remote: 0.111
+  esindex: 0.01
+  LoadShardBlock: 59.553 (3)
+  PetaboxLoader3.datanode: 83.417 (4)
+  load_resource: 166.601
+  PetaboxLoader3.resolve: 120.925
+*/

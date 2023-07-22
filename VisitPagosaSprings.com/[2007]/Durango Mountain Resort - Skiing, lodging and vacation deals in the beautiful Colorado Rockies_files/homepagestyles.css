@@ -1,0 +1,55 @@
+/***** homepageStyles.css ***/
+div#content {
+    width:823px;
+	margin:0px 10px;
+	background-image:url('/web/20070921162056im_/http://www.durangomountainresort.com/assets/images/home/backgrounds/cliffs.jpg');
+	background-position:top;
+	background-repeat:no-repeat;
+	min-height:703px;
+	z-index:0;
+	position:relative;
+  }
+  
+div#pageContent {
+    background-color:transparent;
+	color:#F1F0E3;
+	padding:0px;
+	margin:0px;
+	position:relative;
+  }
+  
+  div#mainBody {
+   margin-top:318px;
+  }
+  
+  div#homeMarketingBanner {
+    position:relative;
+	height:150px;
+	padding:0px;
+	_padding:25px 0px 0px  0px;
+	width:161px;
+	margin:150px 0px -320px 10px;
+	_margin:0px 0px -12px 10px;
+	z-index:1000
+  }
+ 
+/*
+     FILE ARCHIVED ON 16:20:56 Sep 21, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 00:25:45 Jul 16, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 266.204
+  exclusion.robots: 0.064
+  exclusion.robots.policy: 0.056
+  RedisCDXSource: 0.546
+  esindex: 0.008
+  LoadShardBlock: 244.892 (3)
+  PetaboxLoader3.datanode: 229.093 (4)
+  load_resource: 103.337
+  PetaboxLoader3.resolve: 80.693
+*/
