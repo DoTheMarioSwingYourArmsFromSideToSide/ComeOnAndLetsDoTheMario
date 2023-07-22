@@ -1,0 +1,1 @@
+(()=>{window.svgIcon=function(n,i){return __vClientData.icons[n].replace(/<svg/,`<svg class="${i||"svg-inner"}" `)};})();

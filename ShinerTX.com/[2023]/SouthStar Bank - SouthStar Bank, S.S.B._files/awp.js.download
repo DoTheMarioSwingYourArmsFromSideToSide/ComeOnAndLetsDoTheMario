@@ -1,0 +1,23 @@
+var elemHead = document.getElementsByTagName('head')[0];
+if (elemHead) {
+    // AnxWebsiteSegment for source: AdwerxAccount 1204820 owner: AdwerxAccount 1204820
+    if(document.getElementById('adwerx-segment-9039557') == undefined) {
+      var elemScript = document.createElement('img');
+      elemScript.setAttribute('id', 'adwerx-segment-9039557');
+      elemScript.setAttribute('src', 'https://secure.adnxs.com/seg?add=29066001:9039557&t=1');
+      elemHead.appendChild(elemScript);
+    }
+
+    // FB custom audience retargeting pixel:
+    // https://developers.facebook.com/docs/ads-for-websites/pixel-events
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+        n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+            document,'script','//connect.facebook.net/en_US/fbevents.js');
+
+    var fbqEventData = { awOwner: 'account_1204820' }
+
+    fbq('init', '479379365738123');
+    fbq('trackCustom', 'AwpPixelFire', fbqEventData);
+}
