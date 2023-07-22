@@ -1,0 +1,1512 @@
+
+@media only screen and (max-width: 1199px){
+
+	/* = Site Header (splash)
+	---------------------------------------------------- */
+
+	.site-header.splash .site-header-banner-outer{
+		vertical-align: bottom;
+	}
+
+	.site-header.splash .site-header-image.left-aligned{
+		display: none;
+	}
+
+	.site-header.splash .site-header-image.centered{
+		display: block;
+	}
+
+	/* = Site Header (petition)
+	---------------------------------------------------- */
+
+	.site-header.petition .site-header-banner-outer{
+		vertical-align: bottom;
+	}
+
+	.site-header.petition .site-header-image.centered{
+		display: block;
+	}
+
+	.site-header.petition .site-header-image.right-aligned{
+		display: none;
+	}
+
+	/* = Site Header (default)
+	---------------------------------------------------- */
+
+	.site-header.default .site-header-banner{
+		display: block;
+		height: auto;
+	}
+
+	.site-header.default .site-header-banner-outer{
+		display: block;
+		text-align: center;
+		padding: 0;
+	}
+
+	.site-header.default .site-header-banner-inner{
+		max-width: 100%;
+		padding: 30px 0;
+		float: none;
+	}
+
+	.site-header.default .site-header-banner .site-header-title{
+		font-size: 52px;
+		line-height: 55px;
+	}
+
+	.site-header.default .site-header-banner .gform_wrapper{
+		margin-top: 28px;
+	}
+
+	.site-header.default .site-header-images{
+		position: relative;
+		height: 500px;
+	}
+
+	.site-header.default .site-header-image.left-aligned{
+		display: none;
+	}
+
+	.site-header.default .site-header-image.centered{
+		display: block;
+	}
+
+
+	/* = Issues List
+	---------------------------------------------------- */
+
+	.issues-list.four-per-row{
+		margin: 0 -20px;
+	}
+
+	.issues-list.four-per-row .issue{
+		width: 50%;
+		padding: 0 20px;
+	}
+
+	/* = Site Footer (default)
+	---------------------------------------------------- */
+
+	.site-footer.default{
+		padding: 30px 0;
+	}
+
+	.site-footer.default .bottom-navigation{
+		display: none;
+	}
+
+	/* = Events page
+	---------------------------------------------------- */
+	.event-list-details {
+		width: 450px;
+	}
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1199px) {
+    /* = Site Header (petition)
+    ---------------------------------------------------- */
+    .site-header.petition .site-header-banner {
+        display: block;
+        height: auto;
+    }
+    .site-header.petition .site-header-banner-outer {
+        display: block;
+        text-align: center;
+        padding: 0;
+    }
+    .site-header.petition .site-header-banner-inner {
+        max-width: 100%;
+        padding: 30px 0;
+        float: none;
+    }
+    .site-header.petition .site-header-banner .site-header-title {
+        font-size: 52px;
+        line-height: 55px;
+    }
+
+    .site-header.petition .site-header-images {
+        position: relative;
+        height: 500px;
+    }
+    .site-header.petition .site-header-image.left-aligned {
+        display: none;
+    }
+    .site-header.petition .site-header-image.centered {
+        display: block;
+    }
+    .site-header.petition .site-header-banner .wrap {
+        padding: 0 20px;
+    }
+}
+
+@media only screen and (max-width: 1099px){
+
+	/* = Shortcodes
+	---------------------------------------------------- */
+
+	.page.full-width .gallery .images-list li{
+		width: 20%;
+	}
+
+	.page.with-sidebar .gallery .images-list li{
+		width: 33.33%;
+	}
+
+	/* = Events page
+	---------------------------------------------------- */
+	.event-list-button {
+		float: none;
+		margin-top: 5px;
+	}
+	.event-list-details {
+		float: none;
+		width: auto;
+	}
+	.event-list-button,
+	.event-list-details {
+		margin-left: 82px;
+	}
+
+}
+
+@media only screen and (max-width: 1023px){
+
+	/* = Site Main
+	---------------------------------------------------- */
+
+	.page.with-sidebar .page-inner{
+		padding-right: 0;
+	}
+
+	/* = Page Content
+	---------------------------------------------------- */
+
+	.page.with-sidebar .page-content{
+		width: auto;
+		float: none;
+	}
+
+	/* = Shortcuts
+	---------------------------------------------------- */
+
+	.shortcuts.four-per-row .shortcut,
+	.shortcuts.five-per-row .shortcut{
+		width: 33.33%;
+	}
+
+	/* = Issues List
+	---------------------------------------------------- */
+
+	.issues-list.three-per-row{
+		margin: 0 -20px;
+	}
+
+	.issues-list.three-per-row .issue{
+		width: 50%;
+		padding: 0 20px;
+	}
+
+	/* = News List
+	---------------------------------------------------- */
+
+	.news-list{
+		max-width: 460px;
+		margin: 0 auto;
+	}
+
+	.news-list .news{
+		width: auto;
+		display: block;
+		margin-bottom: 25px;
+		padding: 0;
+	}
+
+	/* = Shortcodes
+	---------------------------------------------------- */
+
+	.page.with-sidebar .gallery .images-list li{
+		width: 20%;
+	}
+
+	.volunteer-form .gform_fields .gfield.help .gfield_label{
+		width: 37%;
+	}
+
+	.volunteer-form .gform_fields .gfield.help .ginput_container{
+		width: 63%;
+	}
+
+	/* = Page Sidebar
+	---------------------------------------------------- */
+
+	.page-sidebar{
+		display: none;
+	}
+
+	.page-voting-locations .page-sidebar,
+	.page-moneybomb .page-sidebar {
+		display: block;
+		float: none;
+    	margin: 0 auto;
+	}
+
+	.page.with-sidebar.with-side-box .page-inner {
+		padding-right: 0;
+	}
+	.page.with-side-box .page-sidebar {
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+}
+
+@media only screen and (max-width: 959px){
+
+	/* = Core Classes
+	---------------------------------------------------- */
+
+	.alignleft,
+	.alignright{
+		margin: 0 0 20px;
+		float: none;
+	}
+
+	img.alignleft,
+	img.alignright{
+		display: block;
+	}
+
+	/* = Shortcodes
+	---------------------------------------------------- */
+
+	.button{
+		padding: 1px 40px;
+	}
+
+	.page.full-width .gallery .images-list li,
+	.page.with-sidebar .gallery .images-list li{
+		width: 25%;
+	}
+
+	.volunteer-form .gform_fields .gfield.fname,
+	.volunteer-form .gform_fields .gfield.lname,
+	.volunteer-form .gform_fields .gfield.email,
+	.volunteer-form .gform_fields .gfield.city,
+	.volunteer-form .gform_fields .gfield.zip,
+	.volunteer-form .gform_fields .gfield.phone{
+		width: 50%;
+	}
+
+	.volunteer-form .gform_fields .gfield.help{
+		width: 100%;
+	}
+
+	.volunteer-form .gform_fields .gfield.help .gfield_label{
+		text-align: right;
+	}
+
+	.volunteer-form .gform_footer{
+		width: auto;
+		text-align: right;
+		position: static;
+		bottom: auto;
+		right: auto;
+	}
+
+	.volunteer-form .gform_footer input{
+		width: auto;
+	}
+
+	/* = Site Footer (with form)
+	---------------------------------------------------- */
+
+	.site-footer.with-form{
+		padding-top: 45px;
+	}
+
+	.site-footer.with-form .contact-form-title{
+		font-size: 48px;
+		line-height: 54px;
+		margin-bottom: 25px;
+	}
+
+	/* = Endorsement Form page
+	---------------------------------------------------- */
+	.endorsement-form .gform_fields .gfield:last-child {
+		padding-right: 0;
+	}
+
+	.endorsement-form .gform_footer {
+		position: relative;
+		float: right;
+	}
+
+	.endorsement-form::after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+	.endorsement-form.contact-form {
+		float: none;
+		width: auto;
+	}
+
+	.endorsement-form-description {
+		float: none;
+		width: auto;
+		margin: 20px 0 0;
+	}
+
+	/* = Endorsements page
+	---------------------------------------------------- */
+	.endorsements-logos .endorsements-logo-item {
+		max-width: 30%;
+	}
+	.endorsements-person-photo {
+		width: 30%;
+	}
+	.endorsements-person-quote {
+		width: 65%;
+	}
+
+	/* = Moneybomb page
+	---------------------------------------------------- */
+	.mobile-fixed-button {
+		display: block;
+		margin-left: 280px;
+		width: auto;
+		right: 0;
+	}
+}
+
+@media only screen and (max-width: 879px){
+
+	/* = Site Footer (with form)
+	---------------------------------------------------- */
+
+	.site-footer.with-form{
+		padding-top: 40px;
+	}
+
+	.site-footer.with-form .contact-form-title{
+		margin-bottom: 24px;
+	}
+
+}
+
+@media only screen and (max-width: 839px){
+
+	/* = Shortcodes
+	---------------------------------------------------- */
+
+	.page.full-width .gallery .images-list li,
+	.page.with-sidebar .gallery .images-list li{
+		width: 33.33%;
+	}
+
+}
+
+@media only screen and (min-width: 768px){
+
+	/* = Site Header
+	---------------------------------------------------- */
+
+	.site-navigation{
+		display: block !important;
+	}
+
+}
+
+@media only screen and (max-width: 767px){
+
+	/* = Document Setup
+	---------------------------------------------------- */
+
+	body{
+		font-size: 17px;
+		line-height: 28px;
+	}
+
+	h1{
+		font-size: 42px;
+		line-height: 50px;
+		margin-bottom: 20px;
+	}
+
+	h2{
+		font-size: 32px;
+		line-height: 36px;
+		margin-bottom: 20px;
+	}
+
+	h3{
+		font-size: 26px;
+		line-height: 30px;
+		margin-bottom: 15px;
+	}
+
+	h4{
+		font-size: 22px;
+		line-height: 28px;
+		margin-bottom: 10px;
+	}
+
+	h5{
+		font-size: 20px;
+		line-height: 28px;
+		margin-bottom: 5px;
+	}
+
+	h6{
+		font-size: 19px;
+		line-height: 28px;
+	}
+
+	/* = Core Classes
+	---------------------------------------------------- */
+
+	.wrap{
+		padding: 0 20px;
+	}
+
+	.alignleft{
+		margin: 5px 30px 15px 0;
+		float: left;
+	}
+
+	.alignright{
+		margin: 5px 0 15px 30px;
+		float: right;
+	}
+
+	img.alignleft,
+	img.alignright{
+		display: inline;
+	}
+
+	/* = Site Container
+	---------------------------------------------------- */
+
+	.site-container{
+		padding-left: 0;
+	}
+
+	/* = Site Header
+	---------------------------------------------------- */
+
+	.site-header-main{
+		background-color: #fff;
+		text-align: center;
+		width: auto;
+	}
+	.site-header-main,
+	div .site-header.default .site-header-main {
+		position: relative;
+	}
+
+	.site-header-main .wrap{
+		padding: 20px;
+	}
+
+	.site-logo{
+		max-width: 400px;
+	}
+
+	.site-logo img.square{
+		display: none;
+	}
+
+	.site-logo img.oblong{
+		display: block;
+	}
+
+	.site-navigation-container{
+		position: static;
+		float: right;
+	}
+
+	.site-navigation{
+		border-top: none;
+		padding: 20px 0;
+		margin-top: 0;
+		z-index: 20;
+
+		position: absolute;
+		display: none;
+		top: 100%;
+		right: 0;
+		width: 100%;
+	}
+
+	.site-navigation::before{
+		opacity: 0.8;
+		content: "";
+
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		left: 0;
+		top: 0;
+	}
+
+	.site-navigation .menu{
+		position: relative;
+		min-width: 180px;
+	}
+
+	.site-navigation .menu li{
+		margin: 0 20px;
+
+		font-size: 20px;
+		line-height: 32px;
+		text-transform: none;
+		text-align: left;
+	}
+
+	.site-navigation .menu li li{
+		margin-left: 10px;
+		margin-right: 0;
+	}
+
+	.site-navigation .social-buttons,
+	.site-navigation .donate-button-container,
+	.petition .site-header-main .wrap > .donate-button-container {
+		display: block;
+	}
+
+	.navigation-button{
+		display: block;
+	}
+
+	.site-header-main .wrap > .newsletter-form,
+	.site-header-main .wrap > .social-buttons,
+	.site-header-main .wrap > .donate-button-container {
+		display: none;
+	}
+
+	.site-header.petition .site-header-images {
+		display: table-row;
+	}
+	.site-header.petition .site-header-image.centered {
+		display: table-cell;
+		height: 66vw;
+		position: static;
+	}
+
+
+	/* = Site Header (splash)
+	---------------------------------------------------- */
+
+	.site-header.splash .site-header-main{
+		margin-left: 0;
+		display: block;
+		float: none;
+	}
+
+	.site-header.splash .site-header-main-inner{
+		padding-bottom: 0;
+		display: block;
+	}
+
+	.site-header.splash .site-logo{
+		margin: auto;
+	}
+
+	.site-header.splash .site-header-banner{
+		display: block;
+		float: none;
+	}
+
+	.site-header.splash .site-header-banner-outer{
+		padding-bottom: 130px;
+		display: block;
+	}
+
+	.site-header.splash .site-header-banner-inner{
+		max-width: 320px;
+		padding: 0 20px;
+		margin: auto;
+		float: none;
+	}
+
+	.site-header.splash .site-header-banner .site-header-title{
+		margin-bottom: 15px;
+
+		font-size: 38px;
+		line-height: 42px;
+		text-align: center;
+	}
+
+	.site-header.splash .site-header-banner .site-header-excerpt{
+		margin-bottom: 20px;
+		text-align: center;
+	}
+
+	.site-header.splash .site-header-images{
+		position: relative;
+		height: 400px;
+	}
+
+	/* = Site Header (petition)
+	---------------------------------------------------- */
+
+	.site-header.petition .site-header-main{
+		margin-left: 0;
+		display: block;
+		float: none;
+	}
+
+	.site-header.petition .site-header-main-inner{
+		padding-bottom: 0;
+		display: block;
+	}
+
+	.site-header.petition .site-logo{
+		margin: auto;
+	}
+
+	.site-header.petition .petition-form{
+		margin-top: 30px;
+		max-width: 300px;
+	}
+
+	.site-header.petition .essb_links{
+		margin-top: 30px;
+	}
+
+	.site-header.petition .essb_links li{
+		display: inline-block;
+	}
+
+	.site-header.petition .essb_links li a{
+		margin: 0 11px 0 0;
+	}
+
+	.site-header.petition .site-header-banner{
+		position: relative;
+		text-align: center;
+		float: none;
+	}
+
+	.site-header.petition .site-header-banner-outer{
+		padding-bottom: 150px;
+		opacity: 1;
+	}
+
+	.site-header.petition .site-header-banner-inner{
+		max-width: 480px;
+		padding: 0 20px;
+		margin: auto;
+		float: none;
+	}
+
+	.site-header.petition .site-header-banner .site-header-title{
+		margin-bottom: 15px;
+
+		font-size: 38px;
+		line-height: 42px;
+	}
+
+	/* = Site Header (default)
+	---------------------------------------------------- */
+
+	.site-header.default .site-header-main{
+		position: static;
+	}
+
+	.site-header.default .site-header-main-outer{
+		background-color: #fff;
+		box-shadow: 0 0 15px rgba(0,0,0,0.1);
+
+		z-index: 15;
+		right: 0;
+		left: 0;
+	}
+
+	.site-header.default .site-header-main-inner{
+		display: table;
+		width: 100%;
+	}
+
+	.site-header.default .site-header-main-left{
+		vertical-align: middle;
+		display: table-cell;
+	}
+
+	.site-header.default .site-header-main-right{
+		vertical-align: middle;
+		display: table-cell;
+	}
+
+	.site-header.default .site-header-shadow{
+		display: none;
+	}
+
+	.site-header.default .site-header-banner .site-header-title{
+		font-size: 42px;
+		line-height: 50px;
+	}
+
+	.site-header.default .site-header-images{
+		height: 400px;
+	}
+
+	/* = Site Main
+	---------------------------------------------------- */
+
+	.site-main .page-inner{
+		padding-bottom: 35px;
+		padding-top: 45px;
+	}
+
+	/* = Page Content
+	---------------------------------------------------- */
+
+	.page-content p,
+	.page-content ol,
+	.page-content ul{
+		margin-bottom: 28px;
+	}
+
+	.page-content li{
+		padding-right: 20px;
+		left: 20px;
+	}
+
+	.page-content blockquote{
+		margin: 28px 0 28px 20px;
+	}
+
+	.page-content blockquote p{
+		margin-bottom: 14px;
+	}
+
+	/* = Contact Forms
+	---------------------------------------------------- */
+
+	.gform_fields .gfield textarea{
+		height: 205px;
+	}
+
+	.gform_fields .gfield ul.gfield_radio li,
+	.gform_fields .gfield ul.gfield_checkbox li{
+		font-size: 15px;
+	}
+
+	.gform_fields .gfield ul.gfield_radio li input,
+	.gform_fields .gfield ul.gfield_checkbox li input{
+		height: 16px;
+		width: 16px;
+	}
+
+	/* = Issues Page
+	---------------------------------------------------- */
+
+	.page.issues .issue + .issue{
+		margin-top: 45px;
+	}
+
+	/* = News Index Page
+	---------------------------------------------------- */
+
+	.page.news-index .page-title{
+		text-align: center;
+	}
+
+	/* = Landing Page
+	---------------------------------------------------- */
+
+	.page.landing .about-section{
+		padding-bottom: 35px;
+		padding-top: 40px;
+	}
+
+	.page.landing .about-section .section-title{
+		margin-bottom: 25px;
+	}
+
+	/* = Shortcodes
+	---------------------------------------------------- */
+
+	.button{
+		padding: 1px 30px;
+	}
+
+	.one-half,
+	.one-third,
+	.two-third,
+	.one-fourth,
+	.three-fourth,
+	.one-fifth,
+	.two-fifth,
+	.three-fifth,
+	.four-fifth,
+	.one-sixth,
+	.five-sixth{
+		width: auto;
+		margin-right: 0;
+		margin-bottom: 20px;
+		float: none;
+	}
+
+	.gallery h2{
+		margin-bottom: 15px;
+	}
+
+	.page.full-width .gallery .images-list li,
+	.page.with-sidebar .gallery .images-list li{
+		width: 25%;
+	}
+
+	.font-size-10, .font-size-11, .font-size-12,
+	.font-size-13, .font-size-14, .font-size-15,
+	.font-size-16, .font-size-17, .font-size-18,
+	.font-size-19, .font-size-20, .font-size-21,
+	.font-size-22, .font-size-23, .font-size-24,
+	.font-size-25, .font-size-26, .font-size-27,
+	.font-size-28, .font-size-29, .font-size-30,
+	.font-size-31, .font-size-32, .font-size-33,
+	.font-size-34, .font-size-35, .font-size-36,
+	.font-size-37, .font-size-38, .font-size-39,
+	.font-size-40, .font-size-41, .font-size-42,
+	.font-size-43, .font-size-44, .font-size-45,
+	.font-size-46, .font-size-47, .font-size-48,
+	.font-size-49, .font-size-50, .font-size-51,
+	.font-size-52, .font-size-53, .font-size-54,
+	.font-size-55, .font-size-56, .font-size-57,
+	.font-size-58, .font-size-59, .font-size-60,
+	.font-size-61, .font-size-62, .font-size-63,
+	.font-size-64, .font-size-65, .font-size-66,
+	.font-size-67, .font-size-68, .font-size-69,
+	.font-size-70, .font-size-71, .font-size-72,
+	.font-size-73, .font-size-74, .font-size-75,
+	.font-size-76, .font-size-77, .font-size-78,
+	.font-size-79, .font-size-80, .font-size-81,
+	.font-size-82, .font-size-83, .font-size-84,
+	.font-size-85, .font-size-86, .font-size-87,
+	.font-size-88, .font-size-89, .font-size-90{
+		font-size: inherit;
+	}
+
+	.line-height-10, .line-height-11, .line-height-12,
+	.line-height-13, .line-height-14, .line-height-15,
+	.line-height-16, .line-height-17, .line-height-18,
+	.line-height-19, .line-height-20, .line-height-21,
+	.line-height-22, .line-height-23, .line-height-24,
+	.line-height-25, .line-height-26, .line-height-27,
+	.line-height-28, .line-height-29, .line-height-30,
+	.line-height-31, .line-height-32, .line-height-33,
+	.line-height-34, .line-height-35, .line-height-36,
+	.line-height-37, .line-height-38, .line-height-39,
+	.line-height-40, .line-height-41, .line-height-42,
+	.line-height-43, .line-height-44, .line-height-45,
+	.line-height-46, .line-height-47, .line-height-48,
+	.line-height-49, .line-height-50, .line-height-51,
+	.line-height-52, .line-height-53, .line-height-54,
+	.line-height-55, .line-height-56, .line-height-57,
+	.line-height-58, .line-height-59, .line-height-60,
+	.line-height-61, .line-height-62, .line-height-63,
+	.line-height-64, .line-height-65, .line-height-66,
+	.line-height-67, .line-height-68, .line-height-69,
+	.line-height-70, .line-height-71, .line-height-72,
+	.line-height-73, .line-height-74, .line-height-75,
+	.line-height-76, .line-height-77, .line-height-78,
+	.line-height-79, .line-height-80, .line-height-81,
+	.line-height-82, .line-height-83, .line-height-84,
+	.line-height-85, .line-height-86, .line-height-87,
+	.line-height-88, .line-height-89, .line-height-90{
+		line-height: inherit;
+	}
+
+	.desktop-content{
+		display: none;
+	}
+
+	.mobile-content{
+		display: block;
+	}
+
+	.space{
+		display: none;
+	}
+
+	/* = VC Shortcodes
+	---------------------------------------------------- */
+
+	.issues-section{
+		padding: 35px 0;
+	}
+
+	.issues-section-bg{
+		display: none;
+	}
+
+	.issues-section .section-title{
+		margin-bottom: 25px;
+	}
+
+	.news-section{
+		padding-bottom: 10px;
+		padding-top: 45px;
+	}
+
+	.volunteer-form-section{
+		padding-bottom: 35px;
+		padding-top: 40px;
+	}
+
+	/* = Site Footer (with form)
+	---------------------------------------------------- */
+
+	.site-footer.with-form{
+		padding-bottom: 25px;
+		padding-top: 35px;
+	}
+
+	.site-footer.with-form .contact-form{
+		margin-bottom: 35px;
+	}
+
+	.site-footer.with-form .contact-form-title{
+		font-size: 42px;
+		line-height: 50px;
+		margin-bottom: 20px;
+	}
+
+	/* = Site Footer (tiny)
+	---------------------------------------------------- */
+
+	.site-footer.tiny{
+		text-shadow: 0 0 4px rgba(0,0,0,0.5);
+		padding-left: 0;
+		padding-bottom: 0;
+	}
+
+	.site-footer.tiny .contacts{
+		width: auto;
+		position: static;
+		bottom: auto;
+		left: auto;
+	}
+
+	.site-footer.tiny .continue-link{
+		width: auto;
+		position: static;
+		bottom: auto;
+		left: auto;
+	}
+
+	/* = Endorsements page
+	---------------------------------------------------- */
+	.endorsements-logos {
+		text-align: center;
+	}
+	.endorsements-logos .endorsements-logo-item {
+		max-width: none;
+	}
+	.endorsements-person-photo {
+		width: 30%;
+	}
+	.endorsements-person-quote {
+		width: 65%;
+	}
+
+	/* = Moneybomb page
+	---------------------------------------------------- */
+	.page.with-sidebar.with-side-box .page-inner {
+		padding-right: 0;
+	}
+	.page.with-side-box .page-sidebar {
+		width: 300px;
+		margin-right: auto;
+		margin-left: auto;
+		margin-top: 22px;
+	}
+	.moneybomb-box .button-scroll-to-pledge-form:active, 
+	.moneybomb-box .button-scroll-to-pledge-form:focus, 
+	.moneybomb-box .button-scroll-to-pledge-form:hover {
+	    background-color: #042846;
+	    border-color: #042846;
+	    color: #ffffff;
+	}
+	.mobile-fixed-button {
+		margin-left: 0;
+		width: auto;
+		right: 0;
+	}
+
+	/* = Early Voting page
+	---------------------------------------------------- */
+	.list-all-locations {
+		text-align: center;
+	}
+}
+
+@media only screen and (max-width: 599px){
+
+	/* = Core Classes
+	---------------------------------------------------- */
+
+	.alignleft,
+	.alignright{
+		margin: 0 0 20px;
+		float: none;
+	}
+
+	img.alignleft,
+	img.alignright{
+		display: block;
+	}
+
+	/* = Site Header
+	---------------------------------------------------- */
+
+	.site-logo{
+		max-width: 300px;
+	}
+
+	/* = Contact Forms
+	---------------------------------------------------- */
+
+	.gform_fields .gfield.left,
+	.gform_fields .gfield.right{
+		width: auto;
+		float: none;
+	}
+
+	/* = Endorsements page
+	---------------------------------------------------- */
+	.endorsements-names-column {
+		float: none;
+		width: auto;
+	}
+	.endorsements-names {
+		columns: 2;
+	}
+	.endorsements-person-photo {
+		width: auto;
+		float: none;
+		text-align: center;
+	}
+	.endorsements-person-quote {
+		width: auto;
+		float: none;
+		text-align: center;
+	}
+
+	.endorsements-person-column-item:nth-child(3n+1),
+	.endorsements-person-column-item:nth-child(3n+3),
+	.endorsements-person-column-item {
+		float: none;
+		margin: 0 auto 25px;
+		max-width: 300px;
+		width: auto;
+	}
+}
+
+@media only screen and (max-width: 539px){
+
+	/* = Shortcodes
+	---------------------------------------------------- */
+
+	.page.full-width .gallery .images-list li,
+	.page.with-sidebar .gallery .images-list li{
+		width: 33.33%;
+	}
+
+}
+
+@media only screen and (max-width: 479px){
+
+	/* = Document Setup
+	---------------------------------------------------- */
+
+	body{
+		font-size: 16px;
+		line-height: 26px;
+	}
+
+	/* = Core Classes
+	---------------------------------------------------- */
+
+	.wrap{
+		padding: 0 15px;
+	}
+
+	/* = Site Header
+	---------------------------------------------------- */
+
+	.site-logo{
+		max-width: 280px;
+	}
+
+	.navigation-button span{
+		display: none;
+	}
+
+	/* = Site Header (splash)
+	---------------------------------------------------- */
+
+	.site-header.splash .site-header-banner-inner{
+		padding: 0 15px;
+	}
+
+	.site-header.splash .site-header-images{
+		height: 360px;
+	}
+
+	/* = Site Header (petition)
+	---------------------------------------------------- */
+
+	.site-header.petition .site-header-banner-inner{
+		padding: 0 15px;
+	}
+
+	/* = Site Header (default)
+	---------------------------------------------------- */
+
+	.site-header.default .site-header-banner .gform_body{
+		width: auto;
+		float: none;
+	}
+
+	.site-header.default .site-header-banner .gform_fields .gfield.zip{
+		padding-right: 0;
+	}
+
+	.site-header.default .site-header-banner .gform_footer{
+		width: auto;
+		float: none;
+	}
+
+	.site-header.default .site-header-banner .gform_footer input{
+		padding-right: 40px;
+		padding-left: 40px;
+		width: auto;
+	}
+
+	.site-header.default .site-header-images{
+		height: 360px;
+	}
+
+	/* = Site Main
+	---------------------------------------------------- */
+
+	.site-main .page-inner{
+		padding-bottom: 25px;
+		padding-top: 35px;
+	}
+
+	/* = Page Content
+	---------------------------------------------------- */
+
+	.page-content p,
+	.page-content ol,
+	.page-content ul{
+		margin-bottom: 26px;
+	}
+
+	.page-content blockquote{
+		margin: 26px 0 26px 20px;
+	}
+
+	.page-content blockquote p{
+		margin-bottom: 13px;
+	}
+
+	/* = Shortcuts
+	---------------------------------------------------- */
+
+	.shortcuts.three-per-row .shortcut,
+	.shortcuts.four-per-row .shortcut,
+	.shortcuts.five-per-row .shortcut{
+		width: 50%;
+	}
+
+	/* = Issues List
+	---------------------------------------------------- */
+
+	.issues-list.two-per-row,
+	.issues-list.three-per-row,
+	.issues-list.four-per-row{
+		margin: 0;
+	}
+
+	.issues-list.two-per-row .issue,
+	.issues-list.three-per-row .issue,
+	.issues-list.four-per-row .issue{
+		width: auto;
+		margin-bottom: 25px;
+		padding: 0;
+	}
+
+	.issues-list .issue-title{
+		margin-bottom: 6px;
+	}
+
+	/* = News List
+	---------------------------------------------------- */
+
+	.news-list .news{
+		margin-bottom: 30px;
+	}
+
+	.news-list .news-inner{
+		padding-bottom: 25px;
+	}
+
+	.news-list .news-thumb{
+		margin-bottom: 18px;
+	}
+
+	/* = Contact Forms
+	---------------------------------------------------- */
+
+	.gform_wrapper{
+		margin-bottom: 25px;
+	}
+
+	/* = Issues Page
+	---------------------------------------------------- */
+
+	.page.issues .issue{
+		text-align: center;
+	}
+
+	.page.issues .issue + .issue{
+		margin-top: 35px;
+	}
+
+	.page.issues .issue-title{
+		margin-bottom: 15px;
+		padding-left: 0;
+	}
+
+	.page.issues .issue-title-outer{
+		display: block;
+		height: auto;
+	}
+
+	.page.issues .issue-title-inner{
+		display: block;
+	}
+
+	.page.issues .issue-icon{
+		margin: 0 auto 20px;
+		position: relative;
+		left: auto;
+		top: auto;
+	}
+
+	/* = Shortcodes
+	---------------------------------------------------- */
+
+	.button{
+		padding: 1px 20px;
+	}
+
+	.contact-form{
+		margin-bottom: 25px;
+	}
+
+	.gallery{
+		margin-bottom: 25px;
+	}
+
+	.gallery .images-list{
+		margin: 0 -5px;
+	}
+
+	.gallery .images-list li{
+		padding: 5px;
+	}
+
+	.volunteer-form .gform_wrapper{
+		margin: 0;
+	}
+
+	.volunteer-form .gform_fields .gfield{
+		float: none;
+		padding: 0;
+	}
+
+	.volunteer-form .gform_fields .gfield.fname,
+	.volunteer-form .gform_fields .gfield.lname,
+	.volunteer-form .gform_fields .gfield.email,
+	.volunteer-form .gform_fields .gfield.city,
+	.volunteer-form .gform_fields .gfield.zip,
+	.volunteer-form .gform_fields .gfield.phone{
+		width: 100%;
+	}
+
+	.volunteer-form .gform_fields .gfield.help{
+		display: block;
+	}
+
+	.volunteer-form .gform_fields .gfield.help .gfield_label{
+		padding-right: 0;
+		padding-bottom: 5px;
+		text-align: left;
+		display: block;
+		width: auto;
+	}
+
+	.volunteer-form .gform_fields .gfield.help .ginput_container{
+		display: block;
+		width: auto;
+	}
+
+	.volunteer-form .gform_footer{
+		text-align: center;
+	}
+
+	/* = VC Shortcodes
+	---------------------------------------------------- */
+
+	.issues-section .section-title{
+		margin-bottom: 20px;
+	}
+
+	/* = Site Footer (with form)
+	---------------------------------------------------- */
+
+	.site-footer.with-form .gform_fields .gfield.name{
+		width: auto;
+		padding-right: 0;
+		float: none;
+	}
+
+	.site-footer.with-form .gform_fields .gfield.email{
+		width: auto;
+		padding-left: 0;
+		float: none;
+	}
+
+	.site-footer.with-form .gform_fields .gfield.message textarea{
+		height: 156px;
+	}
+
+	/* = Site Footer (tiny)
+	---------------------------------------------------- */
+
+	.site-footer.tiny .continue-link{
+		font-size: 24px;
+		line-height: 30px;
+	}
+
+	/* = Endorsement Form page
+	---------------------------------------------------- */
+	.endorsement-form .gform_fields .gfield.fname,
+	.endorsement-form .gform_fields .gfield.lname,
+	.endorsement-form .gform_fields .gfield.email,
+	.endorsement-form .gform_fields .gfield.zip{
+		width: auto;
+		float: none;
+	}
+
+	.endorsement-form .gform_ajax_spinner {
+		position: static;
+		margin: 0 0 0 10px;
+	}
+
+	.endorsement-form .gform_footer {
+		margin-top: 10px;
+		float: none;
+	}
+
+	/* = Early Voting page
+	---------------------------------------------------- */
+	.counties-list-column,
+	.counties-list-column + .counties-list-column {
+		float: none;
+		width: auto;
+	}
+}
+
+@media only screen and (max-width: 399px){
+
+	/* = Document Setup
+	---------------------------------------------------- */
+
+	h1, h2{
+		margin-bottom: 15px;
+	}
+
+	h3{
+		margin-bottom: 10px;
+	}
+
+	/* = Site Header
+	---------------------------------------------------- */
+
+	.site-logo{
+		max-width: 230px;
+	}
+
+	/* = Site Header (splash)
+	---------------------------------------------------- */
+
+	.site-header.splash .site-header-images{
+		height: 320px;
+	}
+
+	/* = Site Header (default)
+	---------------------------------------------------- */
+
+	.site-header.default .site-header-banner-inner{
+		padding: 25px 0;
+	}
+
+	.site-header.default .site-header-banner .gform_footer input{
+		width: 100%;
+	}
+
+	.site-header.default .site-header-images{
+		height: 320px;
+	}
+
+	/* = Shortcodes
+	---------------------------------------------------- */
+
+	.contact-form .gform_footer input{
+		width: 100%;
+	}
+
+	.gallery h2{
+		margin-bottom: 10px;
+	}
+
+	.page.full-width .gallery .images-list li,
+	.page.with-sidebar .gallery .images-list li{
+		width: 50%;
+	}
+
+	.volunteer-form .left-column{
+		margin-bottom: 15px;
+	}
+
+	.volunteer-form .gform_footer input{
+		width: 100%;
+	}
+
+	/* = Site Footer (tiny)
+	---------------------------------------------------- */
+
+	.site-footer.tiny{
+		bottom: 0;
+	}
+
+}
+
+.endorse-button {
+	display: none;
+	text-align: center;
+	margin-bottom: 20px;
+}
+@media only screen and (max-width: 959px){ 
+	.endorse-button {
+		display: block;
+	}
+}

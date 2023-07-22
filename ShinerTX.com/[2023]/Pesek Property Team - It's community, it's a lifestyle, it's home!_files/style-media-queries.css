@@ -1,0 +1,357 @@
+/*******************************************************
+ *
+ * Mobile styles and other media queries
+ *
+ *******************************************************/
+
+.amh-header-buttons {
+	background: rgba(0, 0, 0, 0.4);
+}
+
+.amh-header-buttons.amh-1a .amh-center .amh-phone-text, .amh-header-buttons.amh-1a .amh-center .amh-phone-text a {
+	color: #fff;
+}
+
+.amh-header-buttons.amh-1a .amh-header-right-btn .amh-email {
+	color: #fff;
+}
+
+.amh-header-buttons .amh-navigation-trigger {
+	color: #fff;
+}
+
+
+
+
+@media only screen and (min-width: 768px) {
+
+/*.container{
+    
+    width: inherit;
+}*/
+
+}
+
+
+
+@media only screen and (max-width: 1024px) {
+
+ #nav li a {  padding: 0 57px; }
+
+ #nav li:before {
+ 	bottom: 6px;
+ }
+
+.contact-ftr img {
+    margin-top: -50px;
+    max-width: 220px;
+}
+
+
+.qs-cont select.wide {
+    width: 17.85%;
+}
+
+.qs-cont a {
+	width: 3.7%;
+}
+
+.right-copy p {
+
+    font-size: 17px;
+
+}
+
+
+.contact-ftr span {
+
+    font-size: 15px;
+}
+	
+	.aios-listings-page .grid li {
+		min-height: 457px;
+	}
+	.grid  .prop-det .prop-price {
+        text-align: center;
+    }
+
+    .grid .prop-det .prop-price .det-smi {
+        position: relative;
+        right: 0;
+    }
+
+
+}
+
+@media only screen and (max-width: 992px) {
+
+.nav-wrapper {
+	display: none;
+}
+
+.amh-header-buttons > div{
+	display:none;
+}
+
+.amh-header-buttons > div:first-child{
+	display: block;
+}
+
+
+.hdr-title {
+    width: 100%;
+    margin: 50px auto 0;
+    text-align: center;
+}
+
+
+	.inner {
+	    width: 100%;
+	}
+	#content-sidebar, #content-full {
+	    width: 100%;
+	}	
+	.outer{
+		width: 100%;
+		min-width: 100%;
+	}
+	#content-sidebar #content{
+		width: 100%;
+	}
+
+
+.qs-wrapper {
+    position: relative;
+
+}
+
+.qs-cont select {
+	margin: 0 0.8% 0 0;
+}
+
+.qs-wrap {
+
+    height: auto;
+}
+
+
+.cta-list > a .cta-center-holder span {
+    padding: 35px 0;
+    font-size: 25px;
+}
+
+.cta-list > a {
+	width: 50%;
+}
+
+
+.ftr-content, .r-ftr-content { 
+	font-size: 14px;
+
+}
+
+.contact-ftr img  {
+	    max-width: 60%;
+	    margin-top: -38px;
+}
+
+
+.yoast-breadcrumbs {
+
+    padding: 0;
+}
+
+#content .listing-details-wrap .photo-slideshow img {
+    display: block;
+    width: 100% !important;
+    height: 100%;
+    max-width: 100%;
+}
+
+#content .listing-details-wrap .photo-slideshow {
+    width: 100%;
+    margin: 0;
+}
+
+
+    #content .listing-details-wrap .photo-slideshow .slick-prev {
+
+    top: 60%;
+
+}
+
+
+#content .listing-details-wrap .photo-slideshow .slick-next {
+
+    top: 60%;
+
+}
+
+}
+
+
+@media only screen and (max-width: 640px) {
+
+     .qs-wrapper {
+        position: relative;
+     }   
+
+     .qs-cont {
+        bottom: 0;
+     }
+
+
+    .qs-cont select {
+       width: 100%; 
+       margin: 1% 0;
+    }
+
+    .qs-cont select.wide {
+        width: 100%;
+    }
+
+    .qs-cont .qs-cont-sub, .qs-cont a {
+        width: 100%; 
+        max-width: 100%;
+            margin: 1% 0;
+    }
+
+
+
+    .footer {
+        text-align: center;
+    }
+
+    .right-copy {
+        padding: 20px 0 0;
+    }
+
+
+    .ftr-content, .r-ftr-content {
+        padding: 30px 0;
+    }
+
+    .footer li:first-child {
+    	padding-left: 10px;
+    }
+
+    .ai-footer-logo {
+        text-align: center;
+    }
+
+    .right-copy p {
+     
+        text-align: center;
+    }
+
+
+    .left-ftr, .right-ftr, .ai-footer-logo {
+    	text-align: center; 
+    	float: none;
+    }
+
+
+    .ftr-content strong:after, .r-ftr-content strong:after {
+        margin: 20px auto;
+    }
+
+
+    .cta-list > a .cta-center-holder span {
+        padding: 35px 0;
+        font-size: 25px;
+    }
+
+    .cta-list > a {
+    	width: 50%;
+    }
+
+
+#content .listing-details-wrap .photo-slideshow .slick-prev {
+
+    top: 60%;
+
+}
+
+
+#content .listing-details-wrap .photo-slideshow .slick-next {
+
+    top: 60%;
+
+}
+
+
+
+}
+
+@media only screen and (max-width: 600px) {
+    ul.table-list li div.area {
+        text-align: left;
+    }
+}
+
+
+@media only screen and (max-width: 420px) {
+
+    .welcome-cont h1 {
+    	line-height: 35px;
+    }
+
+
+    .cta-list > a .cta-center-holder span {
+        padding: 38px 0;
+        font-size: 25px;
+    }
+
+     .cta-list > a {
+    	width: 100%;
+    }
+
+    .center-ftr {
+
+        padding: 100px 15px 60px;
+
+    }
+
+    .ftr-content, .r-ftr-content {
+        padding: 10px 0;
+    }
+
+    .footer li:first-child {
+    	padding-left: 10px;
+    }
+
+    .ai-footer-logo {
+        text-align: center;
+    }
+
+    .right-copy p {
+     
+        text-align: center;
+    }
+
+
+    .left-ftr, .right-ftr, .ai-footer-logo {
+    	text-align: center; 
+    	float: none;
+    }
+
+
+    .ftr-content strong:after, .r-ftr-content strong:after {
+        margin: 20px auto;
+    }
+
+
+    #content .listing-details-wrap .photo-slideshow .slick-prev {
+
+    top: 75%;
+
+}
+
+
+#content .listing-details-wrap .photo-slideshow .slick-next {
+
+    top: 75%;
+
+}
+
+}

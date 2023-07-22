@@ -1,0 +1,68 @@
+( function() {
+
+	jQuery(document).ready( function() {
+
+
+		/* Navigation Double Tap */
+		//jQuery("#nav").navTabDoubleTap();
+
+
+  jQuery('.fp-details').slick({
+			  infinite: true,
+			  slidesToShow: 4,
+			  slidesToScroll: 4,
+			  autoplay: true,
+			  autoplaySpeed: 5000,
+			  prevArrow: jQuery('.prev'),
+			  nextArrow: jQuery('.next'),
+
+			  responsive: [
+   {
+     breakpoint: 1024,
+     settings: {
+       slidesToShow: 4,
+       slidesToScroll: 4,
+       infinite: true,
+       dots: false
+     }
+   },
+   {
+     breakpoint: 600,
+     settings: {
+       slidesToShow: 2,
+       slidesToScroll:2
+     }
+   },
+   {
+     breakpoint: 480,
+     settings: {
+       slidesToShow: 1,
+       slidesToScroll: 1
+     }
+   }
+   // You can unslick at a given breakpoint now by adding:
+   // settings: "unslick"
+   // instead of a settings object
+ ]
+
+			});
+
+
+      jQuery('.testi-details').slick({
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 5000,
+        prevArrow: jQuery('.prev1'),
+        nextArrow: jQuery('.next1'),
+        fade: true,
+
+
+        });
+
+
+
+	});
+
+})();

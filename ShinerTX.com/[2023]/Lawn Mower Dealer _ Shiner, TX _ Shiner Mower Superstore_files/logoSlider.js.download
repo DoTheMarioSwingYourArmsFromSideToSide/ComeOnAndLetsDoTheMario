@@ -1,0 +1,63 @@
+﻿$(document).ready(function() {
+  $('[data-logo-number]').parent().each(function() {
+    var context = this;
+    var totalSlides = $('[data-logo-number]', context).data('logoNumber');
+    var autoRotate = $('[data-logo-rotate]', context).data('logoRotate');
+    var mdCount = totalSlides < 3 ? totalSlides : 3;
+
+    $('.product-owner-logos-slider-lg', context).not('.slick-initialized').slick({
+        autoplay : autoRotate,
+        dots: false,
+        arrows: true,
+        infinite: true,
+        slidesToShow: totalSlides,
+        slidesToScroll: totalSlides,
+        swipeToSlide: true,
+        responsive: [
+            {
+                breakpoint: 992,
+                settings: {
+                  slidesToShow: mdCount,
+                  slidesToScroll: mdCount
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    });
+
+    $('.product-owner-logos-slider-md', context).not('.slick-initialized').slick({
+        autoplay: autoRotate,
+        dots: false,
+        arrows: true,
+        infinite: true,
+        slidesToShow: mdCount,
+        slidesToScroll: mdCount,
+        swipeToSlide: true,
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    });
+
+    $('.product-owner-logos-slider-sm, .product-owner-logos-slider-xs', context).not('.slick-initialized').slick({
+        autoplay: autoRotate,
+        dots: false,
+        arrows: true,
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        swipeToSlide: true
+    });
+  });
+});

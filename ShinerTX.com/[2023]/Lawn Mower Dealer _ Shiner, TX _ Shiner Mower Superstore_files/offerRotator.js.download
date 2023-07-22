@@ -1,0 +1,71 @@
+/// <reference path="../../scripts/typings/jquery/jquery.d.ts" />
+/// <reference path="../../scripts/typings/slick-carousel/slick-carousel.d.ts" />
+var OfferRotator = /** @class */ (function () {
+    function OfferRotator() {
+        var _this = this;
+        this.configureSlick = function () {
+            $(".offer-rotator").each(function (i, rotator) {
+                var autoRotate = ($(rotator).find(".autoRotate").data("auto-rotate")).toString().toLowerCase() === "true";
+                var autoRotateSpeed = parseInt($(rotator).find(".autoSpeed").data("auto-speed").toString());
+                var $slider = $(rotator).find(".offer-slider");
+                var $thumbs = $(rotator).find(".offer-thumbs");
+                var hasDotNav = $(rotator).find("#navDots").length > 0;
+                var dotsClass = hasDotNav ? "slick-dots--overlay" : "slick-dots";
+                var hasThumbs = !hasDotNav && !$(_this).hasClass(".offer-nav-numbers");
+                _this.setupSlickSlider($slider, $thumbs, autoRotateSpeed, autoRotate, hasThumbs, hasDotNav, dotsClass);
+                if (hasThumbs) {
+                    _this.setupSlickSliderThumbs($slider, $thumbs);
+                }
+                _this.setupSliderButtons($(rotator));
+            });
+        };
+        this.setupSlickSlider = function ($slider, $thumbs, autoRotateSpeed, autoRotate, hasThumbs, hasDots, dotsClass) {
+            $slider.not(".slick-initialized").slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: true,
+                dots: hasDots,
+                dotsClass: dotsClass,
+                fade: false,
+                autoplay: autoRotate,
+                autoplaySpeed: autoRotateSpeed <= 0 ? 1000 : autoRotateSpeed,
+                adaptiveHeight: true,
+                asNavFor: hasThumbs ? null : $thumbs,
+                responsive: [
+                    {
+                        breakpoint: 767,
+                        settings: {
+                            dots: true,
+                            dotsClass: "slick-dots"
+                        }
+                    }
+                ]
+            });
+        };
+        this.setupSlickSliderThumbs = function ($slider, $thumbs) {
+            $thumbs.not(".slick-initialized").slick({
+                slidesToShow: 6,
+                slidesToScroll: 3,
+                asNavFor: $slider,
+                arrows: false,
+                dots: false,
+                centerMode: false,
+                focusOnSelect: true
+            });
+        };
+        this.setupSliderButtons = function ($rotator) {
+            var sliderButtons = $(".slider-button, .slider-button-40", $rotator);
+            sliderButtons.each(function (i) {
+                var btn = sliderButtons[i];
+                var slider = $rotator.find(".offer-slider");
+                var slide = $(btn).attr("data-slide");
+                $(btn).on("click", function () {
+                    $(slider).slick("slickGoTo", slide);
+                });
+            });
+        };
+        this.configureSlick();
+    }
+    return OfferRotator;
+}());
+//# sourceMappingURL=offerRotator.js.map

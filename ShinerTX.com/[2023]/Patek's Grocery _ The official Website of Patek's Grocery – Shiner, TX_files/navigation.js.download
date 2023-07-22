@@ -1,0 +1,196 @@
+/**
+ * responsive.js
+ *
+ * Handles toggling the navigation menu for small screens.
+ */
+
+
+/*
+ * Enable 'More' menu item behaviour on primary menus
+ */
+jQuery(document).ready(function ($) {
+    (function () {
+        var container, button, menu;
+
+        container = document.getElementById('site-navigation');
+        if (!container)
+            return;
+
+        button = document.getElementsByClassName('menu-toggle')[0];
+        if ('undefined' === typeof button)
+            return;
+
+        menu = container.getElementsByTagName('ul')[0];
+
+        // Hide menu toggle button if menu is empty and return early.
+        if ('undefined' === typeof menu) {
+            button.style.display = 'none';
+            return;
+        }
+
+        if (-1 === menu.className.indexOf('nav-menu'))
+            menu.className += ' nav-menu';
+        
+        $jbutton = jQuery(button);
+        
+        if($jbutton.prop("tagName") === 'A') {
+            jQuery(button).attr("href", "javascript:menuClick();");
+        } else {
+            jQuery(button).click(function(){ menuClick(); return false; });
+        }
+    })();
+
+    var $primaryMenu = $('.nav-primary:first');    // Retrieve primary menu
+    if ($primaryMenu.length === 0) {
+        return;
+    }   // Verify that menu exists
+
+    if ($primaryMenu.hasClass('disable-more')) {
+        return;
+    } // option to disable resize
+
+    var $menuItems = $primaryMenu.children('li');   // Retrieve menu items
+    if ($menuItems < 2) {
+        cleanUp();
+        return;
+    }   // Verify at least 2 menu items exists [Home][Item1]
+
+    var $home = $menuItems.first();                                         // Retrieve home menu item
+    // COMMENTED OUT BECAUSE OF MULTILINGUAL
+    //if ($home.find('a:first').text() !== 'Home') { cleanUp(); return; };    // Verify that the first link says 'Home'
+
+    // Create and append 'More' item to navigator
+    var $more = $('<li/>', {'class': 'menu-item menu-item-more menu-item-has-children'});
+    $('<a/>', {href: 'javascript:void(0);', text: 'More', 'aria-label': 'More Expanded Menu'}).appendTo($more);
+    var $moreSub = $('<ul/>', {'class': 'sub-menu'});
+    $more.append($moreSub);
+    $menuItems.last().after($more); // CHROME BUG: using appendTo caused last LI (before more) to register as width 0
+
+    var $middleItems = $menuItems.not($home);    // Get items between home and more button
+    var registered = false;                      // Whether the menu has item widths have been registered. This wont happen if the menu is in toggle mode.
+    var DATA_WIDTH = 'oWidth';                   // Width data place-holder
+
+    rectifyMenu();
+    $(window).resize(rectifyMenu);
+    navigationFocus($('.navigation-main a'));
+
+    function rectifyMenu() {
+        var viewWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+
+        if (!registered && viewWidth > 600) {
+            // Register menu widths
+            $menuItems.add($more).each(function () {
+                $me = $(this);
+                $me.data(DATA_WIDTH, $me.outerWidth());
+                $me.addClass('measured');
+            });
+            registered = true;
+        } else if (viewWidth <= 600) {
+            // Toggle mode is enabled so show everything except the more button
+            $middleItems.show();
+            $more.hide();
+            return;
+        }
+
+        var maxReached = false;                    // Whether the max number of items have been displayed
+        var $hiddenLIs = $();                       // List items that were hidden
+        var maxWidth = $primaryMenu.width();     // Get the max space the navigation bar has
+        if ($('html').is('.old-ie')) {
+            maxWidth = 960;
+        } // If we are an old version of IE (7-), set the width cause it calculates improperly
+        var filled = $home.data(DATA_WIDTH);   // How much space on the bar is filled (initially set to the width of the always showing home link)
+        var moreWidth = $more.data(DATA_WIDTH);   // The more button width
+
+        $middleItems.each(function (index) {
+            var $me = $(this);
+            var meWidth = $me.outerWidth();
+            var firstWidth = $me.data(DATA_WIDTH);
+
+            if (meWidth > firstWidth) {           // FireFox Fix
+                $me.data(DATA_WIDTH, meWidth);
+                firstWidth = meWidth;
+            } else {
+                meWidth = firstWidth;
+            }
+
+            if (!maxReached &&
+                    ((filled + meWidth + moreWidth) < maxWidth || // [filled][item][more]
+                            (index == $middleItems.length - 1 && ((filled + meWidth) < maxWidth)))) {// [filled][last item]
+                filled += meWidth;
+                $me.show();
+            } else {
+                if (!maxReached) {
+                    $more.show();
+                }
+                maxReached = true;
+                $me.hide();
+
+                $hiddenLIs = $hiddenLIs.add($me);
+            }
+        });
+
+        // Remove all more menu items
+        $moreSub.empty();
+
+        if (!maxReached) {
+            $more.hide();
+        } else {
+            $hiddenLIs.each(function () {
+                var $me = $(this);
+                var $links = $me.find('a').not('[href="javascript:void(0);"]');
+                $links.each(function () {
+                    $link = $(this);
+                    $('<li/>', {'class': $link.parent().attr('class'), html: $link.clone()}).appendTo($moreSub);
+                });
+            });
+        }
+        navigationFocus($('.navigation-main .menu-item-more a'));
+    }
+
+    function cleanUp() {
+        $menuItems.css('visibility', 'visible');
+    }
+
+});
+
+function navigationFocus(elements) {
+    elements.focus(
+            function () {
+                var menuClass = 'menu-item-focused';
+                var $parentMenu = jQuery(this).parents('.menu-item-has-children');
+                var $subMenu = jQuery(this).parent('li').parent('.sub-menu');
+                if ($parentMenu.length !== 0) {
+                    if ($parentMenu.hasClass(menuClass) !== true) {
+                        jQuery('.' + menuClass).removeClass(menuClass);
+                        $parentMenu.addClass(menuClass);
+                    }
+                } else {
+                    if ($subMenu.length === 0) {
+                        jQuery('.' + menuClass).removeClass(menuClass);
+                    }
+                }
+            }).blur(
+            function () {
+                var menuClass = 'menu-item-focused';
+                var $blurredMenu = jQuery(this).parents('.nav-primary-container');
+                setTimeout(function () {
+                    var $focusedMenu = jQuery(document.activeElement).parents('.nav-primary-container');
+                    if ($blurredMenu.length !== 0 && $focusedMenu.length === 0) {
+                        jQuery('.' + menuClass).removeClass(menuClass);
+                    }
+                }, 1);
+            });
+}
+
+function menuClick() {
+    container = document.getElementById('site-navigation');
+    button = jQuery('.menu-toggle').first();
+
+    if (-1 !== container.className.indexOf('toggled')) {
+        container.className = container.className.replace(' toggled', '');
+        button.trigger("untoggled");
+    } else {
+        container.className += ' toggled';
+        button.trigger("toggled");
+    }
+}

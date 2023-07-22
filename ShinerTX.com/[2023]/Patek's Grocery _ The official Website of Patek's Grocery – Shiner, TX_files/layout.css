@@ -1,0 +1,133 @@
+/*
+ * The [artemis] layout CSS.
+ */
+
+/**************
+ *   Header   *
+ **************/
+.header-logo,
+.header-content {
+    max-width: 50%;
+}
+
+.color-header-bg {
+    background-color: transparent !important;
+}
+ 
+.header-logo {
+    float: left;
+    width: 61.8%;
+}
+.header-content {
+    float: right;
+    width: 38.2%;
+}
+@media (max-width: 600px) {
+    .header-logo {
+        text-align: center;
+    }
+    .header-logo,
+    .header-content {
+        float: none;
+        max-width: none;
+        width: 100%;
+    }
+    .navigation-main.toggled .nav-menu li {
+        background-image: none;
+        border-bottom: none;
+    }
+}
+
+/**************
+ *   Header   *
+ **************/
+.main-wrapper .login_container {
+    padding: 5px 50px;
+}
+
+
+/********************
+ *   Body Content   *
+ ********************/
+#primary {
+    margin: 0 0 30px 0; /* Indent the primary content for a nice inner border */
+    background-color: white;
+}
+
+@media (max-width: 600px) {
+    #primary {
+        margin: 0px !important;
+    }
+}
+
+@media (min-width: 1037px) {
+    .responsive {
+        width: 1020px;
+    }
+}
+
+/*************************
+ *   DFP   *
+ *************************/
+#dfp-right {
+    margin-left: 441px !important;
+}
+
+/*************************
+ *   Recipe Page Hacks   *
+ *************************/
+.custom-template-outer {
+    margin: 0 auto 20px;
+    padding: 0 15px 15px 15px;
+    max-width: 930px;
+}
+ 
+.custom-template-inner {
+    background-color: white;
+    padding-top: 10px;
+}
+.custom-template-inner > form > div > div > div:first-child {
+    left: 181px !important;
+}
+.custom-template-inner > form > div > div > div:last-child {
+    left: 705px !important;
+}
+
+/*******************
+ *   Lan. Selector *
+ *******************/
+#lang_sel_list {
+    float: right;
+    height: auto !important;
+}
+
+/******************
+ *   Social Bar   *
+ ******************/
+.nav-social-header {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.nav-social-footer {
+    float: right;
+}
+
+@media screen and (max-width: 600px) {
+    .nav-social-header {
+        display: none;
+    }
+    .nav-social-footer {
+        float: none;
+        text-align: center;
+        margin-bottom: 6px;
+    }
+}
+
+/**************
+ *   Footer   *
+ **************/
+.footer-wrapper .footer-container {
+    padding: 30px 15px;
+}

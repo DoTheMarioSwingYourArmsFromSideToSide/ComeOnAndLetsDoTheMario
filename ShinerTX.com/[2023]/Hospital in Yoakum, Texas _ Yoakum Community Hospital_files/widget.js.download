@@ -1,0 +1,485 @@
+'use strict';
+(function(){
+    window.yce = window.yce || {};
+
+    if(yce.done){
+        return;
+    }
+    yce.done = true;
+
+    var isUndefinedOrNull = function(arg) {
+        return (typeof arg === 'undefined' || arg === null);
+    };
+
+    var isEmpty = function(arg) {
+        return (isUndefinedOrNull(arg) || arg.length === 0);
+    };
+
+    var addImportantStyle = function($elem, propName, propValue) {
+        if (isEmpty($elem) || isEmpty(propName) || isUndefinedOrNull(propValue)) {
+            return;
+        }
+        
+        $elem.css(propName, '');            // remove `propName` style rule        
+
+        var style = $elem.attr('style');    // get updated style attribute
+        if (isUndefinedOrNull(style)) {
+            style = "";
+        } 
+        
+        style.trim();
+        if (!style.endsWith(";")) {
+            style += ";";
+        }
+        
+        style += " " + propName + ": " + propValue + " !important;";
+
+        $elem.attr('style', style);
+    };
+
+    yce.tmpl = (function(){
+        ////////////////////////////////////////////////////////////////////////////
+        // Simple JavaScript Templating
+        // John Resig - http://ejohn.org/ - MIT Licensed
+        var cache = {};
+
+        return function tmpl(str, data){
+            // Figure out if we're getting a template, or if we need to
+            // load the template - and be sure to cache the result.
+            var fn = !/\W/.test(str) ?
+                cache[str] = cache[str] ||
+                tmpl(document.getElementById(str).innerHTML) :
+
+                // Generate a reusable function that will serve as a template
+                // generator (and which will be cached).
+                new Function("obj",
+                    "var p=[],print=function(){p.push.apply(p,arguments);};" +
+
+                        // Introduce the data as local variables using with(){}
+                    "with(obj){p.push('" +
+
+                        // Convert the template into pure JavaScript
+                    str
+                        .replace(/[\r\t\n]/g, " ")
+                        .split("<%").join("\t")
+                        .replace(/((^|%>)[^\t]*)'/g, "$1\r")
+                        .replace(/\t=(.*?)%>/g, "',$1,'")
+                        .split("\t").join("');")
+                        .split("%>").join("p.push('")
+                        .split("\r").join("\\'")
+                    + "');}return p.join('');");
+
+            // Provide some basic currying to the user
+            return data ? fn( data ) : fn;
+        };
+    })();
+
+    yce.debounce = (function(){
+        return function debounce(func, wait, immediate) {
+            var timeout;
+            return function() {
+                var context = this, args = arguments;
+                var later = function() {
+                    timeout = null;
+                    if (!immediate) func.apply(context, args);
+                };
+                var callNow = immediate && !timeout;
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+                if (callNow) func.apply(context, args);
+            };
+        };
+    })();
+
+    yce.addImportantStyles = function($elem, styleObj, $$) {
+        if (isEmpty($elem) || isEmpty(styleObj) || isEmpty($$)) {
+            return;
+        }
+
+        $elem.each(function() {
+            for (var propName in styleObj) {
+                if (styleObj.hasOwnProperty(propName)) {
+                    addImportantStyle($$(this), propName, styleObj[propName]);
+                }
+            }
+        });
+    };
+
+    yce.numToPx = function(num) {
+        if (isEmpty(num)) {
+            return "";
+        }
+        return num.toString() + "px";
+    };
+
+    var jq = document.createElement('script');
+    jq.setAttribute('src', 'https://code.jquery.com/jquery-2.2.3.js');
+    jq.setAttribute('integrity', 'sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=');
+    jq.setAttribute('crossorigin', 'anonymous');
+    jq.onload = function(){
+        var $$ = $.noConflict(true);
+
+
+        var addImportantStylesToElements = function($elem, styleObj) {
+            yce.addImportantStyles($elem, styleObj, $$);
+        };
+
+        var processHorz = function($widgetDiv, config, title){
+            config.campaignTitle = title ? title : config.campaignTitle;
+            var minPodWidth = 200;
+            var divWidth = $widgetDiv.width();
+  if(divWidth > $$(window).outerWidth()){
+    $widgetDiv.css('width','');
+    divWidth = $widgetDiv.width();
+  }
+            var numPods = 1;
+            var maxPods = 5;
+            while(divWidth / numPods > minPodWidth){
+                numPods = numPods + 1;
+            }
+            if(numPods !== 1){
+                numPods = numPods - 1;
+            }
+            if(numPods > maxPods) {
+                numPods = maxPods;
+            }
+
+            var ycePodContent =
+                '<a target="_blank" href="<%= pods[i].linkUrl %>" class="yce-article-link">' +
+                    '<div class="yce-horz-pod-image" style="background-image: url(<%= pods[i].image %>) !important;"></div>' +
+                    '<h2 class="yce-horz-pod-title"><%= pods[i].title %></h2>' +
+                '</a>';
+
+            $widgetDiv.html($$(yce.tmpl(
+                '<div>' +
+                    '<h1 class="yce-campaign-title"><%= campaignTitle %></h1>' +
+                    '<% for(var i = 0; i < ' + numPods + '; i++){ %>' +
+                        '<div class="yce-pod" index="<%= i %>">' +
+                             ycePodContent +
+                        '</div>' +
+                    '<% } %>' +
+                    '<p class="powered-by">Powered by <a target="_blank" class="powered-by-link" href="' + getDomain() + '">YourCareEverywhere</a></p>' +
+                '</div>'
+            )(config)));
+
+            addImportantStylesToElements($widgetDiv.find('.yce-pod'), {
+                'float': 'left',
+                'width': 'calc((100% - (20px * 2 + 12px * ' + (numPods - 1) + ')) / ' + numPods + ' + 5px)',
+                'height': yce.numToPx($widgetDiv.height() - 86)
+            });
+            // $widgetDiv.find('.yce-pod').css({
+            //     'float': 'left',
+            //     'width': 'calc((100% - (20px * 2 + 12px * ' + (numPods - 1) + ')) / ' + numPods + ' + 5px)',
+            //     'height': $widgetDiv.height() - 86
+            // });
+
+            var renderDots = function(index){
+                var numDots = 3;
+
+                var $ycePod = $widgetDiv.find('.yce-pod');
+                $ycePod.append(yce.tmpl(
+                    '<div class="yce-horz-dot-wrapper">' +
+                        '<% for(var i = 0; i < ' + numDots + '; i++){ %>' +
+                            '<div class="yce-dot" index="<%= i %>">' +
+                            '</div>' +
+                        '<% } %>' +
+                    '</div>'
+                )({}));
+
+                var dotWrapperWidth = 12 * numDots + 12 * (numDots - 1);
+
+                addImportantStylesToElements($ycePod.find('.yce-horz-dot-wrapper'), {
+                    'width': yce.numToPx(dotWrapperWidth),
+                    'left': 'calc(50% - ' + dotWrapperWidth / 2 + 'px)'
+                });               
+                // $ycePod.find('.yce-horz-dot-wrapper').css({
+                //     width: dotWrapperWidth,
+                //     left: 'calc(50% - ' + dotWrapperWidth / 2 + 'px)'
+                // });
+
+                $ycePod.find('.yce-dot[index="' + index + '"]').addClass('active');
+
+                $ycePod.find('.yce-dot').on('click', function(event){
+                    event.stopPropagation();
+                    event.preventDefault();
+                    renderPod(parseInt($$(event.target).attr('index')));
+                });
+            };
+
+            var renderPod = function(index){
+                config.i = index;
+                $widgetDiv.find('.yce-pod').html(yce.tmpl(ycePodContent)(config));
+                renderDots(index);
+            };
+
+            if(numPods === 1){
+                renderDots(0);
+            }
+        };
+
+        var yceMobileContent =
+            '<div>' +
+                '<h1 class="yce-mobile-campaign-title"><%= campaignTitle %></h1>' +
+                '<a target="_blank" href="<%= pods[mobileIndex].linkUrl %>" class="yce-article-link">' +
+                    '<div class="yce-mobile-pod-image" style="background-image: url(<%= pods[mobileIndex].image %>) !important;"></div>' +
+                    '<h2 class="yce-mobile-pod-title"><%= pods[mobileIndex].title %></h2>' +
+                '</a>' +
+                '<p class="yce-mobile-pod-body"><%= pods[mobileIndex].body %></p>' +
+                '<div class="yce-mobile-dot-wrapper">' +
+                    '<% for(var i = 0; i < numDots; i++){ %>' +
+                        '<div class="yce-dot" index="<%= i %>">' +
+                        '</div>' +
+                    '<% } %>' +
+                '</div>' +
+                '<p class="powered-by-mobile">Powered by <a target="_blank" class="powered-by-link-mobile" href="' + getDomain() + '">YourCareEverywhere</a></p>' +
+            '</div>';
+
+
+        var handleMobileDotClick = function($widgetDiv, config){
+            var $yceMobile = $widgetDiv.find('.yce-mobile');
+
+            var highlightDot = function (index){
+                $yceMobile.find('.yce-dot[index="' + index + '"]').addClass('active');
+            };
+
+            highlightDot(0);
+
+            var bindDotClick = function bindDotClick(){
+                $yceMobile.find('.yce-dot').on('click', function (event){
+                    var clickIndex = parseInt($$(event.target).attr('index'));
+                    config.mobileIndex = clickIndex;
+                    $yceMobile.html($$(yce.tmpl(yceMobileContent)(config)));
+                    highlightDot(clickIndex);
+                    bindDotClick();
+                });
+            };
+            bindDotClick();
+        };
+
+
+        var processVert = function($widgetDiv, config, title){
+            config.campaignTitle = title ? title : config.campaignTitle;
+            var numPods = 3;
+            config.numDots = 3;
+            config.mobileIndex = 0;
+
+            $widgetDiv.html($$(yce.tmpl(
+                '<div>' +
+                    '<div>' +
+                        '<h1 class="yce-campaign-title"><%= campaignTitle %></h1>' +
+                        '<% for(var i = 0; i < ' + numPods + '; i++){ %>' +
+                            '<div class="yce-pod yce-vert-pod" index="<%= i %>">' +
+                                '<a target="_blank" href="<%= pods[i].linkUrl %>" class="yce-article-link">' +
+                                    '<div class="yce-vert-pod-image" style="background-image: url(<%= pods[i].image %>) !important;"></div>' +
+                                    '<h2 class="yce-vert-pod-title"><%= pods[i].title %></h2>' +
+                                '</a>' +
+                            '<p class="yce-vert-pod-body"><%= pods[i].body %></p>' +
+                            '</div>' +
+                        '<% } %>' +
+                        '<p class="powered-by">Powered by <a target="_blank" class="powered-by-link" href="' + getDomain() + '">YourCareEverywhere</a></p>' +
+                    '</div>' +
+                '</div>'
+            )(config)));
+
+            var podHeight = ($widgetDiv.height() - (142 + 20)) / 3;
+
+            addImportantStylesToElements($widgetDiv.find('.yce-vert-pod'), {
+                'height': yce.numToPx(podHeight)
+            });
+            // $widgetDiv.find('.yce-vert-pod').css({
+            //     height: podHeight
+            // });
+
+            addImportantStylesToElements($widgetDiv.find('.yce-vert-pod-image'), {
+                'height': yce.numToPx(podHeight)
+            });
+            // $widgetDiv.find('.yce-vert-pod-image').css({
+            //     height: podHeight
+            // });
+
+            handleMobileDotClick($widgetDiv, config);
+        };
+
+        var processBox = function($widgetDiv, config, title){
+            config.campaignTitle = title ? title : config.campaignTitle;
+            config.numDots = 3;
+            config.mobileIndex = 0;
+
+            $widgetDiv.html($$(yce.tmpl(
+                '<div>' +
+                    '<div class="yce-desktop">' +
+                        '<h1 class="yce-campaign-title"><%= campaignTitle %></h1>' +
+                        '<div class="row">' +
+                            '<div class="yce-pod yce-box-pod" index="0">' +
+                                '<a target="_blank" href="<%= pods[0].linkUrl %>" class="yce-article-link">' +
+                                    '<div class="yce-box-pod-image" style="background-image: url(<%= pods[0].image %>) !important;"></div>' +
+                                    '<h2 class="yce-box-pod-title"><%= pods[0].title %></h2>' +
+                                '</a>' +
+                                '<p class="yce-box-pod-body"><%= pods[0].body %></p>' +
+                            '</div>' +
+                            '<div class="yce-pod yce-box-pod" index="1">' +
+                                '<a target="_blank" href="<%= pods[1].linkUrl %>" class="yce-article-link">' +
+                                    '<div class="yce-box-pod-image" style="background-image: url(<%= pods[1].image %>) !important;"></div>' +
+                                    '<h2 class="yce-box-pod-title"><%= pods[1].title %></h2>' +
+                                '</a>' +
+                                '<p class="yce-box-pod-body"><%= pods[1].body %></p>' +
+                            '</div>' +
+                        '</div>' +
+                        '<div class="row">' +
+                            '<div class="yce-pod yce-box-pod" index="2">' +
+                                '<a target="_blank" href="<%= pods[2].linkUrl %>" class="yce-article-link">' +
+                                    '<div class="yce-box-pod-image" style="background-image: url(<%= pods[2].image %>) !important;"></div>' +
+                                    '<h2 class="yce-box-pod-title"><%= pods[2].title %></h2>' +
+                                '</a>' +
+                                '<p class="yce-box-pod-body"><%= pods[2].body %></p>' +
+                            '</div>' +
+                            '<div class="yce-pod yce-box-pod" index="3">' +
+                                '<a target="_blank" href="<%= pods[3].linkUrl %>" class="yce-article-link">' +
+                                    '<div class="yce-box-pod-image" style="background-image: url(<%= pods[3].image %>) !important;"></div>' +
+                                    '<h2 class="yce-box-pod-title"><%= pods[3].title %></h2>' +
+                                '</a>' +
+                                '<p class="yce-box-pod-body"><%= pods[3].body %></p>' +
+                            '</div>' +
+                        '</div>' +
+                        '<p class="powered-by">Powered by <a target="_blank" class="powered-by-link" href="' + getDomain() + '">YourCareEverywhere</a></p>' +
+                    '</div>' +
+                    '<div class="yce-mobile">' +
+                        yceMobileContent +
+                    '</div>' +
+                '</div>'
+            )(config)));
+
+            var podHeight = ($widgetDiv.height() - (100)) / 2;
+            addImportantStylesToElements($widgetDiv.find('.yce-box-pod'), {
+                'height': yce.numToPx(podHeight)
+            });
+            // $widgetDiv.find('.yce-box-pod').css({
+            //     height: podHeight
+            // });
+
+            addImportantStylesToElements($widgetDiv.find('.yce-box-pod-image'), {
+                'height': yce.numToPx(podHeight)
+            });
+            // $widgetDiv.find('.yce-box-pod-image').css({
+            //     height: podHeight
+            // });
+
+            handleMobileDotClick($widgetDiv, config);
+        };
+
+        var getDashVersion = function() {
+            var version = "";
+            var $containingScriptTag = $$('script[src*="content/dam/medhost/yce/hospital-widget/widget"]');
+            if ($containingScriptTag.length > 0) {
+                var src = $containingScriptTag.attr('src');
+                if (typeof src !== 'undefined' && src !== null && src.length > 0) {
+                    var matches = src.match(/content\/dam\/medhost\/yce\/hospital\-widget\/widget\-(.*?)\.js/);
+                    if (matches !== null && matches.length > 1) {
+                        version = matches[1];
+                    }
+                }
+            }
+            return version.length === 0 ? "" : "-" + version;
+        };
+
+        //use the domain hosting the js file, default to yce production
+        function getDomain() {
+            var $containingScriptTag = $$('script[src*="content/dam/medhost/yce/hospital-widget/widget"]');
+            if ($containingScriptTag.length > 0) {
+                var src = $containingScriptTag.attr('src');
+                if (typeof src !== 'undefined' && src !== null && src.length > 0) {
+                    var matches = src.match(/^https?\:\/\/([^\/?#]+)(?:[\/?#]|$)/i);
+                    if (matches !== null && matches.length > 0) {
+                        var match = matches[0];
+                        if (match.endsWith('/')) {
+                            match = match.slice(0, -1);
+                        }
+                        if (match.startsWith("https://")) {
+                            if (match.indexOf("https://www.") == -1) {
+                                match = match.replace("https://", "https://www.");
+                            }
+                        }
+                        if (match.startsWith("http://")) {
+                            if (match.indexOf("http://www.") == -1) {
+                                match = match.replace("http://", "http://www.");
+                            }
+                        }
+                        return match;
+                    }
+                    // use relative path
+                    return '';
+                }   
+            }
+            return 'https://www.yourcareeverywhere.com';
+        }
+
+        //insert widget.css stylesheet
+        $$('<link rel="stylesheet" href="' + getDomain() + '/content/dam/medhost/yce/hospital-widget/widget' + getDashVersion() + '.css" type="text/css" media="all">').appendTo(document.head);
+        //insert Lato font link
+        $$("<link href='https://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>").appendTo(document.head);        
+
+var storeconfig = {};
+        var processDivs = function(){
+            $$('.yce-widget').each(function (index){
+                var $widgetDiv = $$(this);
+                var title = $widgetDiv.attr('title');
+                if(!$widgetDiv.hasClass('cleanslate')){
+                    $widgetDiv.addClass('cleanslate');
+                    if($widgetDiv.css('height')){
+                        addImportantStylesToElements($widgetDiv, {height: $widgetDiv.css('height')});
+                    }
+                    if($widgetDiv.css('width')){
+                        addImportantStylesToElements($widgetDiv, {width: $widgetDiv.css('width')});
+                    }
+
+                    $$.getJSON(getDomain() + '/content/medhost/your-care-everywhere.hospitalwidgetcontent.json/' + $widgetDiv.data('widget-id'), function(config){
+                        storeconfig[$widgetDiv.data('widget-id')] = config;
+                        switch ($widgetDiv.attr('format')){
+                            case 'horizontal':
+                                processHorz($widgetDiv, config.data, title);
+                                break;
+                            case 'vertical':
+                                processVert($widgetDiv, config.data, title);
+                                break;
+                            case 'box':
+                                processBox($widgetDiv, config.data, title);
+                                break;
+                            default:
+                                processHorz($widgetDiv, config.data, title);
+                                break;
+                        }
+                    }).fail(function (jqXHR, textStatus, errorThrown){
+                        console.log('Failed to get config JSON:');
+                        console.log(jqXHR.responseText);
+                        console.log(textStatus);
+                        console.log(errorThrown);
+                    });
+                } else {
+                if($widgetDiv.css('width') > $$(window).outerWidth()){
+                    $widgetDiv.css('width', '');
+                }
+                        switch ($widgetDiv.attr('format')){
+                            case 'horizontal':
+                                processHorz($widgetDiv, storeconfig[$widgetDiv.data('widget-id')].data, title);
+                                break;
+                            case 'vertical':
+                                processVert($widgetDiv, storeconfig[$widgetDiv.data('widget-id')].data, title);
+                                break;
+                            case 'box':
+                                processBox($widgetDiv, storeconfig[$widgetDiv.data('widget-id')].data, title);
+                                break;
+                            default:
+                                processHorz($widgetDiv, storeconfig[$widgetDiv.data('widget-id')].data, title);
+                                break;
+                        }
+                }
+            });
+        };
+
+        $$(window).resize(yce.debounce(function(){
+            processDivs();
+        }, 200));
+        processDivs();
+    };
+    document.body.appendChild(jq);
+})();

@@ -1,0 +1,476 @@
+/*   
+Theme Name:  shoptocook-responsive
+Description: This is the responsive ShoptoCook theme. This theme is based off of the Expound theme. 
+Author:      John Korzelius, Patrick Korzelius
+Version:     1.0.5
+*/
+
+/**********************
+ * Guttenberg Fixes   *
+ **********************/
+a.wp-block-button__link:focus-visible {
+    outline: 2px solid black;
+}
+div.resp-buttons {
+    text-align: center;
+}
+a.resp-button {
+    background-color: #0047ba;
+    border-radius: 9999px;
+    box-shadow: none;
+    box-sizing: border-box;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1.125em;
+    padding: calc(0.667em + 2px) calc(1.333em + 2px);
+    text-align: center;
+    text-decoration: none;
+    word-break: break-word;
+}
+a.resp-button:hover {
+    background: #023d9d;
+}
+a.resp-button:focus-visible {
+    outline: 2px solid black;
+    outline-offset: 1px;
+}
+
+/*******************
+ *   HEADER & BG   *
+ *******************/
+.site-header .site-branding {
+    vertical-align: bottom;
+}
+
+/******************
+ *   NAVIGATION   *
+ ******************/
+.navigation-main.toggled li a, .menu-toggle {
+    background: none !important;
+}
+
+html.js .navigation-main .nav-primary > li:first-child,
+html.js .navigation-main .nav-primary > li.measured  {
+    visibility: visible;
+    position: relative;
+}
+
+html.js .navigation-main .nav-primary > li {
+    visibility: hidden;
+    position: absolute;
+}
+
+@media (max-width: 600px) {
+
+    html.js .navigation-main .nav-primary > li {
+        visibility: visible !important;
+        position: inherit;
+    }
+
+}
+.nav-primary .menu-item-more ul {
+    left: auto;
+    right: 0;
+}
+
+.nav-secondary {
+    margin: 0;
+    text-align: center;
+}
+.nav-secondary li {
+    display: inline;
+}
+.nav-secondary a {
+    color: white;
+    font-size: 8pt;
+    margin: 0 6px;
+    text-decoration: none;
+}
+.nav-secondary a:hover {
+    text-decoration: underline;
+}
+.nav-secondary .current-menu-item a {
+    font-weight: bold;
+    text-decoration: underline;
+}
+.nav-secondary li + li:before {
+    color: white;
+    content: " \2022 ";
+    font-weight: bold;
+    vertical-align: middle;
+}
+
+a.menu-no-link {
+    cursor: context-menu;
+}
+
+.menu-item-focused .sub-menu {
+    display: block !important;
+}
+
+a.menu-toggle {
+    display: none;
+    cursor: pointer;
+}
+
+.navigation-main li > a {
+    z-index: 1;
+}
+
+.screen-reader-text {
+    position: fixed !important;
+    top: 0px;
+}
+
+.menu-item-more > a{
+    cursor: default;
+}
+/***********************************
+ *   CONTAINERS & RESPONSIVENESS   *
+ ***********************************/
+iframe[src*="www.google.com/maps/"] {
+    background-color: #e9e5dc;
+    border: 1px solid #393939 !important;
+}
+ 
+a[href="javascript:void(0);"]:focus {
+    outline: none;
+}
+#main {
+    float: none !important;
+}
+
+#primary {
+    min-height: 520px;
+}
+
+#colophon {
+    padding: 0px;
+}
+
+.site-content article.type-page {
+    border-bottom: 0 none ;
+    padding: 0px 20px;
+}
+
+.header-wrapper, .main-wrapper, .content-wrapper, .footer-wrapper {
+    width: 100%;
+}
+
+.footer-container {
+    padding: 40px;
+}
+
+.responsive {
+    margin-left: auto;
+    margin-right: auto;
+    width: 960px;
+}
+
+.custom-template-outer {
+    padding: 15px;
+}
+
+div.three-section{
+    width: 33%;
+    float: left;
+}
+
+div.four-section {
+    width: 25%;
+    float: left;
+}
+
+@media (max-width: 1000px) {
+    .responsive {
+        width: 900px;
+    }
+}
+  
+@media (max-width: 920px) {
+    .responsive {
+        width: 95%;
+    }
+}
+  
+@media (max-width: 600px) {
+    .responsive {
+        width: 100%;
+    }
+    .custom-template-outer {
+        padding: 10px;
+    }
+    div.three-section, div.four-section{
+        float: none;
+        width: auto;
+    }
+}
+
+@media (max-width: 450px) {
+    .custom-template-outer {
+        padding: 5px;
+    }
+}
+
+/************
+ *   MISC   *
+ ************/
+.relative {
+    position: relative;
+}
+
+.site-content .entry-content h1, .site-content .comment-content h1,
+#tinymce h1, .site-content .entry-content h2, .site-content .comment-content h2,
+#tinymce h1, .site-content .entry-content h2, .site-content .comment-content h2,
+#tinymce h2, .site-content .entry-content h3, .site-content .comment-content h3,
+#tinymce h3 {
+    margin-top: 10px /*!important*/;
+}
+
+.drop-shadow {
+    box-shadow: 0 15px 6px -7px rgba(0, 0, 0, 0.55);
+}
+
+.nobr {
+    white-space: nowrap;
+}
+
+.slider-bottom div {
+    width: 33%;
+    float: left;
+}
+
+.gform_wrapper .ginput_complex .ginput_left {
+    clear: left;
+}
+
+div.su-responsive-media-no iframe{ 
+    display: block;
+    border: 1px solid #393939 !important;
+}
+
+div.su-responsive-media-yes { 
+    background-color: #888888;
+    outline: 1px solid #393939;
+}
+
+div.su-gmap iframe {
+    background-color: #e9e5dc;
+}
+
+div.three-slide {
+    width: 32.33%;
+    float: left;
+    text-align: center;
+}
+
+.three-slide+.three-slide {
+    margin-left: 1.5%;
+}
+
+div.three-slide img {
+    margin: 0 !important;
+    display: inline !important;
+}
+
+div.three-slide:first-child {
+    text-align: left;
+}
+
+div.three-slide:last-child {
+    text-align: right;
+}
+
+#locations tr td:last-child {
+    width: 100px;
+}
+
+/*
+ * Login (STC & SSO) & Social Links
+ */
+.stc-enabled {
+    display: table;
+    width: 100%
+}
+
+.stc-enabled .logo_container, .stc-enabled .login_container {
+    display: table-cell;
+}
+
+/*
+.sso-enabled .logo_container, .sso-enabled .login_container {
+    float: left;
+    width: 50%
+}*/
+
+.sso-enabled .logo_container {
+    float: left;
+    position: relative;
+    z-index: 10000;
+}
+
+
+.sso-enabled .login_container {
+    float: right;
+}
+ 
+.login_container {
+    padding-top: 8px;
+    text-align: right;
+    vertical-align: bottom;
+}
+
+.login_container img {
+    vertical-align: top;
+}
+
+.sso-enabled .login_box {
+    display: inline-block;
+    padding-bottom: 4px;
+    vertical-align: top;
+}
+
+.sso-enabled .sso_phantom_box {
+    display: inline-block;
+    height: 115px;
+    position: relative;
+    width: 150px;
+}
+
+.sso-enabled .sso_login_container {
+    position: absolute;
+    right: 12px;
+    top: -5px;
+}
+
+#sso_login {
+    padding-top: 0px !important;
+}
+
+#sso_remember_me {
+    bottom: 60px !important;
+}
+
+.login_options {
+    white-space: nowrap;
+}
+
+.ui-dialog-titlebar button.ui-dialog-titlebar-close{
+    color: transparent;
+    background-color: #6aa6d3;
+} 
+ 
+.footer-container .social-links {
+    float: right;
+}
+
+.aligncenter{
+    display: flex !important;
+    justify-content: center;
+}
+
+.aligncenter > img{
+    align-self: center;
+}
+
+@media (max-width: 500px) {
+    .stc-enabled  {
+        display: block;
+        width: auto;
+    }
+
+    .stc-enabled .logo_container, .stc-enabled .login_container {
+        display: block;
+    }
+
+    .sso-enabled .logo_container, .sso-enabled .login_container {
+        float: none;
+        width: auto;
+    }
+
+    .sso-enabled .social_box {
+        display: inline !important;
+    }
+    
+    .logo_container {
+        text-align: center;
+    }
+    
+    .footer-container .site-info, .footer-container .social-links {
+        float: none;
+        text-align: center;
+    }
+}
+
+
+/* WIDGETS */
+@media screen and (max-width: 800px) {
+    #secondary .ow-button-base { /* Center blog sidebar buttons when small */
+        text-align: center !important;
+    }
+}
+
+/*
+ * LEGACY
+ */
+.line-solid {border-top: 1px solid #B2B2B2;}
+.closelink {text-decoration: none; font-size: 8pt; color: red;}
+.closelink:hover {color: blue;}
+.addtoshoppinglist {text-decoration: none; color: #5c554f;}
+.addtoshoppinglist:hover {color: rgb(51, 51, 51);}
+.secondarylink {color: #5E5E5E;}
+.secondarylink:hover {color: rgb(253, 26, 19);}
+.navigation a {color: rgb(51, 51, 51);}
+.navigation a:hover {color: #5c554f;}
+.recipeoutline {border: 1px solid #B2B1A9;}
+#centernav {padding-left: 15px; width: 555px;}
+.centernavheading {font-size: 14pt; font-weight: bold; padding-top: 10px; padding-bottom: 5px;}
+.centernavbody {margin: 0;}
+.leftindent {padding-left: 0px;}
+.rightindent {padding-right: 0px;}
+#leftnav { width: 165px; }
+#leftnav .leftnavbody {margin: 0; text-align: left;}
+#leftnav .leftnavbody .recipeshome {text-decoration: none; font-size: 12pt; font-weight: bold; color: #333333;}
+#leftnav .leftnavbody .categories0 {text-decoration: none; font-size: 9pt; font-weight: bold; color: #5c554f;}
+#leftnav .leftnavbody .categories1 {text-decoration: none; font-size: 9pt; font-weight: bold; color: #5c554f;}
+#leftnav .leftnavbody .categories2 {text-decoration: none; font-size: 9pt; font-weight: bold; color: #5c554f;}
+#leftnav .leftnavbody .categories3 {text-decoration: none; font-size: 9pt; font-weight: bold; color: #5c554f;}
+#leftnav .leftnavbody a:hover {color: #333333; text-decoration: underline;}
+#leftnav .leftnavbody .recipecategoryspacer { line-height: 0px; height: 0px; border-top: 6px solid #333333;}
+#myaccountnav {width: 180px;}
+#rightnav {width: 180px;}
+#rightnav .rightnavbody {margin: 0; background-color: white; border-left: 1px solid #B2B1A9; border-right: 1px solid #B2B1A9; line-height: 1.3;}
+#rightnav .rightnavheading {height: 28px; color: #333333; font-weight: bold; font-size: 12pt; text-align: center;}
+.rightnavmyshoppinglistheadingtext {color: #453F3B; border-bottom: 1px dotted #B2B3AE; display: inline;}
+.rightnavheadingtext {padding-top: 11px;}
+.rightnavfooter {font-size: 6pt; line-height: 11px; border-left: 1px solid #B2B1A9; border-right: 1px solid #B2B1A9; border-bottom: 1px solid #B2B1A9;}
+#recipeoftheweek {width: 555px; position: absolute;}
+#featuredcategories {width: 555px; position: absolute;}
+#recipeoftheweek .featuredrecipelink {color: white; text-decoration: none; font-size: 18pt; font-weight: bold; border-bottom: 1px dotted white; line-height: 30px;}
+#recipeoftheweek .featuredrecipelink:hover {color: white; border-bottom: none;}
+.doublerecipetd0 {padding-left: 0px; width: 262px; text-align: left; vertical-align: top; padding-top: 10px; padding-bottom: 30px;}
+.doublerecipetd1 {padding-left: 15px; width: 262px; text-align: left; vertical-align: top; padding-top: 10px; padding-bottom: 30px;}
+.doublerecipetdwidth {width: 266px;}
+#myaccountnav .toprightnavheading {
+    font-size: 12pt;
+    font-weight: bold;
+    color: rgb(51, 51, 51);
+    height: 42px;
+    text-align: center;
+    border-left: 1px solid #B2B1A9;
+    border-right: 1px solid #B2B1A9;
+    border-top: 1px solid #B2B1A9;
+    background: rgb(221,221,221); /* Old browsers */
+    background: -moz-linear-gradient(top,  rgba(221,221,221,1) 0%, rgba(255,255,255,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(221,221,221,1)), color-stop(100%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(221,221,221,1) 0%,rgba(255,255,255,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(221,221,221,1) 0%,rgba(255,255,255,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(221,221,221,1) 0%,rgba(255,255,255,1) 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(221,221,221,1) 0%,rgba(255,255,255,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dddddd', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+}
+
+div[id^="div-gpt-ad"] > div[style*="height"] {
+    display: none;
+}

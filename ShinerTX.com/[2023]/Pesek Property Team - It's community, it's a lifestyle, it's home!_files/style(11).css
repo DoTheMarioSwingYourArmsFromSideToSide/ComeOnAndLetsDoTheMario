@@ -1,0 +1,214 @@
+/*** Template Standard ***/
+.cycloneslider-template-responsive-img{
+	display: block;
+	position: relative;
+	max-width: 100% !important;
+	width: 100%;
+	z-index: 1;
+}
+.cycloneslider-template-responsive-img:focus,
+.cycloneslider-template-responsive-img *:focus{
+	outline: 0 !important;
+}
+.cycloneslider-template-responsive-img .cycloneslider-slides{
+	display: block;
+	position:absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	height: auto !important;
+	overflow:hidden;
+}
+.cycloneslider-template-responsive-img .cycloneslider-slide{
+	text-align: center;
+	width: 100%; /* For slides in scrollHorz to work */
+	display: none; /* Hide slides to prevent FOUC when JS hasn't kicked in yet */
+	background: #fff; /* Add background to prevent slides from peeking behind the current slide when fx=scrollHorz and hideNonActive=false */
+}
+.cycloneslider-template-responsive-img .cycle-slide{
+	display: block !important; /* Show slide so that getBoundingClientRect().height will not return 0. Class .cycle-slide is added when cycle has initialized. */
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+.cycloneslider-template-responsive-img div[data-cycle-hide-non-active="false"] .cycloneslider-slide{
+	opacity: 0; /* Avoid youtube and vimeo or other slides from peeking behind the current slide whe in transit */
+}
+.cycloneslider-template-responsive-img div[data-cycle-dynamic-height="off"] .cycloneslider-slide-image{
+	height: 100%; /* To prevent cutting off captions when dynamic height is off */
+}
+.cycloneslider-template-responsive-img .cycloneslider-slide:first-child, /* Show first slide */
+.cycloneslider-template-responsive-img .cycle-sentinel + .cycloneslider-slide{ /* Select next slide when using sentinel slide */
+	display: block;
+}
+.cycloneslider-template-responsive-img .cycloneslider-slide img{
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	width: 100%;
+}
+.cycloneslider-template-responsive-img.cycloneslider-width-full .cycloneslider-slide img{
+	width:100%;
+}
+.cycloneslider-template-responsive-img .cycloneslider-slide iframe, /* Make our videos fluid */
+.cycloneslider-template-responsive-img .cycloneslider-slide object,
+.cycloneslider-template-responsive-img .cycloneslider-slide embed {
+	position: absolute;
+	left: 0;
+	top: 0;
+    width: 100% !important; /* Override width attrib */
+    height: 100% !important; /* Override height attrib */
+}
+.cycloneslider-template-responsive-img .cycloneslider-slide-youtube,
+.cycloneslider-template-responsive-img .cycloneslider-slide-vimeo{
+	background: #000;
+}
+.cycloneslider-template-responsive-img .cycloneslider-slide-custom,
+.cycloneslider-template-responsive-img .cycloneslider-slide-testimonial{
+	min-height: 100%;
+}
+.cycloneslider-template-responsive-img div[data-cycle-dynamic-height="on"] .cycloneslider-slide-custom,
+.cycloneslider-template-responsive-img div[data-cycle-dynamic-height="on"] .cycle-sentinel + .cycloneslider-slide-testimonial{
+	min-height: 100px; /* Disable 100% min height when dynamic height is on. To fix issue with scrollHorz */
+}
+.cycloneslider-template-responsive-img .cycloneslider-slide-testimonial{
+	font-style: italic;
+}
+.cycloneslider-template-responsive-img .cycloneslider-slide-testimonial blockquote{
+	margin-bottom: 0;
+}
+.cycloneslider-template-responsive-img .cycloneslider-slide-testimonial p{
+	margin: 0;
+}
+.cycloneslider-template-responsive-img .cycloneslider-slide-testimonial .cycloneslider-testimonial-author{
+	text-align: right;
+	font-style: normal;
+}
+.rtl .cycloneslider-template-responsive-img .cycloneslider-slide-testimonial .cycloneslider-testimonial-author{
+	text-align: left;
+}
+.cycloneslider-template-responsive-img .cycloneslider-slide-testimonial .cycloneslider-testimonial-author a{
+	text-decoration: none;
+}
+
+/*** Prev/Next ***/
+.cycloneslider-template-responsive-img .cycloneslider-prev,
+.cycloneslider-template-responsive-img .cycloneslider-next,
+.cycloneslider-template-responsive-img .cycloneslider-pager span {
+	cursor:pointer;
+}
+.cycloneslider-template-responsive-img .cycloneslider-prev,
+.cycloneslider-template-responsive-img .cycloneslider-next{
+	text-decoration: none;
+    position:absolute;
+    top:50%;
+    z-index:999;
+	display: block;
+    margin-top:-12px;   
+	opacity: 1;
+	-webkit-transition: all 0.5s ;
+	-moz-transition: all 0.5s ;
+	-ms-transition: all 0.5s ;
+	-o-transition: all 0.5s ;
+	transition: all 0.5s ;
+}
+	
+	@media only screen and (max-width: 479px) { 
+		.cycloneslider-template-responsive-img .cycloneslider-prev,
+		.cycloneslider-template-responsive-img .cycloneslider-next {
+			top: 25%
+		}
+	}
+	
+	.ai-arrow-a-p, .ai-arrow-a-n {
+		font-size: 115px;
+		color: #fff;
+		text-shadow: 1px 0px 1px rgba(0, 0, 0, .75);
+	}
+
+.cycloneslider-template-responsive-img .cycloneslider-prev.disabled,
+.cycloneslider-template-responsive-img .cycloneslider-next.disabled{
+	display: none;
+}
+
+.cycloneslider-template-responsive-img .cycloneslider-prev{
+    left: 10%;
+}
+.rtl .cycloneslider-template-responsive-img .cycloneslider-prev{
+    left:auto;
+	right:10px;
+}
+
+.cycloneslider-template-responsive-img .cycloneslider-next{
+    right: 10%;
+}
+.rtl .cycloneslider-template-responsive-img .cycloneslider-next{
+    right:auto;
+	left:10px;
+}
+
+/*** Pager ***/
+.cycloneslider-template-responsive-img .cycloneslider-pager{
+    position:absolute;
+    bottom:-22px;
+    left:0;
+    z-index:100;
+    width: 100%;
+    height: 12px;
+    text-align: center;
+}
+.cycloneslider-template-responsive-img .cycloneslider-pager span {
+    display: inline-block;
+    margin: 0 3px;
+    width: 12px;
+    height: 12px;
+    border-radius: 6px;
+    background: none;
+    vertical-align: top;
+    font-size: 0;
+    line-height: 0;
+	-webkit-box-shadow: 1px 1px 2px 0px #333333;
+    box-shadow: 1px 1px 2px 0px #333333; 
+	border: 1px solid #fff;
+}
+.ie7 .cycloneslider-template-responsive-img .cycloneslider-pager span{
+	zoom: 1;/* IE 7 inline-block */
+	*display: inline;/* IE 7 inline-block */
+}
+.cycloneslider-template-responsive-img .cycloneslider-pager span.cycle-pager-active {
+    background-color: #0074e5;
+}
+
+/*** Caption ***/
+.cycloneslider-template-responsive-img .cycloneslider-caption{
+    position:absolute;
+    bottom:0; 
+    right: 0;
+    z-index:500;
+    width:25%;
+    background: #222;
+    color:#fff;
+    opacity: 0.7;
+	text-align: left; 
+	top: 0; 
+	
+}
+.rtl .cycloneslider-template-responsive-img .cycloneslider-caption{
+	text-align: right;
+}
+.cycloneslider-template-responsive-img .cycloneslider-caption-title{
+    margin-bottom:0;
+    padding:10px 20px 5px 20px;
+    font-size:22px;
+    line-height:1;
+}
+.cycloneslider-template-responsive-img .cycloneslider-caption-description{
+    padding:0 20px 15px 20px;
+    font-size:12px;
+    line-height:1.5;
+}

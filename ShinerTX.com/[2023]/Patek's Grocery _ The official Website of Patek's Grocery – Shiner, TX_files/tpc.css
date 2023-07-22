@@ -1,0 +1,46 @@
+@font-face {
+    font-family: 'Nexa';
+    src: url('../fonts/NexaBold.woff2') format('woff2'),
+        url('../fonts/NexaBold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Nexa';
+    src: url('../fonts/NexaLight.woff2') format('woff2'),
+        url('../fonts/NexaLight.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+.tpc-client-login {
+    color: white;
+}
+.tpc-client-login a {
+    color: white;
+    text-decoration: none;
+}
+.tpc-client-login a:visited {
+    color: white;
+}
+.tpc-login-points {
+    margin-left: 4px;
+}
+
+.tpc-appcard-icon {
+    background: url('../images/appcard-logo.png') no-repeat 0 0;
+    background-size: cover;
+    width: 60px;
+    height: 60px;
+    display: inline-block;
+}
+
+/* LOGIN */
+.form-input.invalid,
+.form-input.invalid:focus
+{
+    border-color: #ff1e5a;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 6px #ce8483;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 6px #ce8483;
+}

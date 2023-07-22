@@ -1,0 +1,99 @@
+// Put instance on global _placester object
+window._placester = window._placester || {};
+
+window._placester.entitlementsHandler = (function () {
+	// Instance stores a reference to the Singleton
+	var instance;
+
+	function init() {
+		// Private methods and variables
+		var _entitlements = (window._placester && window._placester.entitlements) ? window._placester.entitlements : null;
+		var is_site_disabled = (window._placester && window._placester.site_disabled) ? window._placester.site_disabled : false;
+
+		function getEntitlement(key) {
+			var value = false;
+			if (key && _entitlements && _entitlements[key]) {
+				value = true;
+			}
+			return value;
+		}
+		function shouldDisableGoogleMaps() {
+			// PROM-6229 - Disable maps on non launched site, with preview token
+			var keyValue = document.cookie.match('(^|;) ?' + 'preview_site' + '=([^;]*)(;|$)');
+			cookie = keyValue ? keyValue[2] : null;
+			
+			if ( ( is_site_disabled && !cookie ) || ( is_site_disabled && cookie !== 'enabled' ) ) {
+				return true;
+			}
+		}
+
+		return {
+			// Public methods and variables
+			shouldShowTestimonials: function() {
+				return getEntitlement('sites:testimonials');
+			},
+
+			shouldShowMapSearch: function() {
+				if ( shouldDisableGoogleMaps() ) {
+					return false;
+				}
+
+				return getEntitlement('map_search');
+			},
+
+			shouldShowStandardMaps: function() {
+				if ( shouldDisableGoogleMaps() ) {
+					return false;
+				}
+
+				return getEntitlement('sites:widgets:maps');
+			},
+
+			shouldShowLoginRegister: function() {
+				return getEntitlement('sites:users:login');
+			},
+
+			shouldShowFeaturedListings: function() {
+				return getEntitlement('sites:featlistings');
+			},
+
+			shouldShowHomepageBlogs: function() {
+				return getEntitlement('sites:posts');
+			},
+
+			shouldShowSavedSearch: function() {
+				return getEntitlement('sites:savedsearch');
+			},
+
+			shouldShowFavListingLink: function() {
+				return getEntitlement('sites:favlistings');
+			},
+
+			shouldFireFbPixelLeadEvent: function() {
+				return getEntitlement('sites:fbpixel:event:lead');
+			},
+
+			shouldShowColorImages: function() {
+				return getEntitlement('sites:color_images');
+			},
+
+			shouldShowLogo: function() {
+				return getEntitlement('sites:logo');
+			},
+
+			shouldHideFreeAd: function() {
+				return getEntitlement('sites:no_ad');
+			}
+		};
+	};
+
+	return {
+		// Get the Singleton instance if one exists or create one if it doesn't
+		getInstance: function() {
+			if (!instance) {
+				instance = init();
+			}
+			return instance;
+		}
+	};
+})().getInstance();

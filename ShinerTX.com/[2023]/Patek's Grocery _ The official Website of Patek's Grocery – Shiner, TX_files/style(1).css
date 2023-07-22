@@ -1,0 +1,583 @@
+/*   
+Theme Name:  shoptocook-responsive-pateksmarket
+Description: Pateks Market Theme
+Author:      Nick Hernandez
+Template:    shoptocook-responsive
+Version:     1.0.0
+*/
+
+
+
+/***************
+ *   TP Coups  *
+ **************/
+.tpc-client-login {
+    font-size: 18px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+.tpc-client-login,
+.tpc-client-login a,
+.tpc-client-login a:visited {
+    color: black;
+}
+.tpc-client-login a:hover {
+    text-decoration: underline;
+}
+.login_container {
+    display: none !important;
+}
+.tpc-client-login > * {
+    margin: 0px 3px;
+}
+.tpc-login-wrapper {
+    text-align: right;
+}
+/**************************/
+
+.page-template-default p {
+    font-size: 1.5vw;
+    line-height: 1em;
+}
+
+.custom_h2 {
+    font-size: 3vw !important;
+    line-height: 1em !important;
+}
+
+.custom_h3 {
+    font-size: 1.8vw !important;
+    line-height: 1em !important;
+}
+
+.weekly-ad-header-img {
+    vertical-align: bottom;
+}
+
+.cycloneslider-template-default .cycloneslider-pager {
+    top: 40px !important;
+}
+
+/*.site-branding, .weekly-ad-header-img {
+    margin-top: -10px !important;
+    margin-bottom: -10px !important;
+    max-height: 120px;
+}*/
+
+.header-logo {
+    margin: 0 20px;
+    height: 200px;
+}
+
+.header-logo img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.header-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-container>* {
+    flex: 1;
+}
+
+.header-container div.header-content,
+div.clear {
+    display: none;
+}
+
+.header-container img {
+    max-height: 200px;
+}
+
+.header-container>.facebook-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.facebook-container>a {
+    margin: 3px;
+    display: inline-block;
+    text-indent: -9999px;
+    background: url('/wp-content/themes/shoptocook-responsive/images/social.png?v=2') 0 50% no-repeat;
+    background-position: 0px 0px;
+    width: 46px;
+    height: 46px;
+    opacity: 1;
+}
+
+@media (max-width: 600px) {
+    .weekly-ad-container,
+    .weekly-ad-header-img {
+        text-align: center;
+        margin: 0px !important;
+    }
+    .header-logo {
+        margin: 0;
+    }
+    .weekly-ad-container,
+    .header-container>.facebook-container {
+        display: none;
+    }
+}
+
+@media (max-width: 780px) {
+    .catering_slider {
+        padding-top: 15px !important;
+    }
+
+    .page-template-default p {
+        font-size: 4vw !important;
+        line-height: 1em;
+    }
+
+    .custom_h2 {
+        font-size: 7vw !important;
+    }
+
+    .custom_h3 {
+        font-size: 4vw !important;
+    }
+}
+
+@media (max-width: 950px) {
+    .top_page_header_text {
+        font-size: 25px !important;
+        height: 25px !important;
+    }
+
+    .page-template-default p {
+        font-size: 3.7vw !important;
+        line-height: 1em;
+    }
+
+    .custom_h2 {
+        font-size: 4.3vw !important;
+        font-weight: bold;
+    }
+
+    .custom_h3 {
+        font-size: 2.9vw !important;
+    }
+}
+
+@media (max-width: 570px) {
+    .top_page_header_text {
+        height: 50px !important;
+        top: 70% !important;
+    }
+}
+
+
+@media (min-width: 1200px) {
+    .responsive {
+        width: 1160px !important;
+    }
+}
+
+@media screen and (max-width: 1199px) and (min-width: 900px) {
+    #site-navigation {
+        max-width: 95% !important;
+    }
+}
+
+@media screen and (max-width: 899px) {
+    /*.main-wrapper {padding-top: 33px;} */
+    .cycloneslider-template-default .cycloneslider-pager {
+        top: 20px !important;
+    }
+
+    #masthead {
+        background-image: none !important;
+    }
+}
+
+
+/**************
+ *   Preheader   *
+ **************/
+
+#preheader {
+    background-color: #f6f6f6;
+    color: black;
+}
+
+.selected-store {
+    display: inline-block;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 6px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.selected-store img {
+    padding-right: 5px;
+    vertical-align: middle;
+}
+
+.selected-store-link {
+    white-space: nowrap;
+}
+
+.selected-store-link a {}
+
+
+/*.navigation-main, .navigation-main li a:hover {color: black !important;}*/
+
+.navigation-main .nav-menu .current-menu-item a:after,
+.navigation-main .nav-menu .current-menu-parent a:after,
+.navigation-main .nav-menu .current-menu-ancestor a:after {
+    display: none;
+}
+
+#masthead {
+    /*background-image: url('images/top_bg.jpg');*/
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+/***********************
+ *   NAVIGATION MENU   *
+ ***********************/
+
+
+.navigation-main .nav-menu>li>a {
+    padding-right: 35px;
+    text-transform: uppercase;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.navigation-main .nav-menu .sub-menu a {
+    min-width: 100%;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.navigation-main .nav-menu .sub-menu .menu-item {
+    width: 100%;
+}
+
+#site-navigation {
+    padding: 0;
+    font-size: 16px;
+    position: relative;
+    z-index: 9999;
+    box-shadow: 0px 15px 50px 0px rgba(0, 0, 0, 0.35);
+    margin: 0 auto;
+    font-weight: 900 !important;
+    font-family: 'Catamaran', sans-serif;
+}
+
+@media (max-width: 600px) {
+    #site-navigation {
+        box-shadow: none;
+    }
+    .menu-no-link>a {
+        cursor: default;
+    }
+}
+
+.navigation-main {
+    float: none;
+    font-weight: bold !important;
+}
+
+.navigation-main ul {
+    margin: 0 !important;
+}
+
+.navigation-main ul ul {
+    top: 60px !important;
+}
+
+.nav-primary .menu-item-more ul {
+    min-width: 200px;
+}
+
+
+
+/*.navigation-main li.current-menu-item a {color: black;}*/
+
+.main-wrapper .login_container {
+    background-color: white;
+    margin-left: 0px;
+    padding: 0px !important;
+    width: 50%;
+    margin: 0 auto;
+    border-radius: 25px 25px 0px 0px;
+    text-align: center;
+}
+
+
+/*************
+ *   Footer   *
+ *************/
+
+.site-footer a:hover {
+    color: #EAEAEA;
+}
+
+ul.nav-social li a:hover {
+    opacity: 1; 
+    transform: scale(1.2, 1.2);
+    transition: transform .5s;
+}
+
+.site-info,
+.site-info a {
+    color: white;
+}
+
+.page_headers {
+    font-size: 24px;
+    color: #007cc2;
+}
+
+.tops_page_header {
+    position: relative;
+    width: 100%;
+    margin-top: -30px;
+}
+
+.top_page_header_text {
+    position: absolute;
+    left: 0;
+    height: 45px;
+    width: 45%;
+    top: 85%;
+    color: white;
+    background-color: #007cc2;
+    font-size: 45px;
+    padding: 10px;
+    margin-left: 15px;
+    line-height: 1em;
+    font-family: "Times New Roman", Georgia, Serif;
+}
+
+.tops-page-content {
+    font-size: 20px;
+    line-height: 1.5em;
+}
+
+.tops-page-content ul {
+    line-height: 1em;
+}
+
+.catering_slider {
+    padding-top: 100px;
+}
+
+.weekly-ad-header-img {
+    margin: 10px 45px 0px 0px;
+}
+
+.warning_message {
+    border: 5px dotted red;
+    padding: 10px;
+}
+
+.main-wrapper * {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}
+
+.nav-primary {
+    width: 100%;
+    display: table;
+    text-align: center;
+}
+
+.nav-primary li {
+    display: inline-block;
+    float: none;
+}
+
+.nav-secondary {
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.nav-secondary li {
+    display: inline;
+}
+
+.nav-secondary a {
+    font-size: 12px;
+}
+
+.menu_item>a {
+    text-align: center;
+}
+
+.site-header .menu-toggle:before{
+    content: '';
+}
+
+@media (max-width: 600px) {
+    .site{
+        background-color: rgba(255, 255, 255, .5);
+    }
+    .header-container {
+        justify-content: center;
+    }
+    .navigation-main.toggled .nav-menu li {
+        background-image: none;
+        border-bottom: none;
+        display: list-item;
+    }
+    .navigation-main .nav-menu > li {
+        width: 100%;
+    }
+    .navigation-main .nav-menu .sub-menu a {
+        padding-right: 10px !important;
+    }
+    .footer-container{
+        text-align: center;
+    }
+    .navigation-main .menu-toggle {
+        font-weight: 900;
+        font-family: 'Catamaran', sans-serif;
+        font-size: 22px;
+        text-align: right;
+    }
+    .navigation-main.toggled a{
+        padding: 10px 22px;
+    }
+}
+
+#main {
+    padding-top: 25px;
+}
+
+.custom-template-outer {
+    max-width: 960px !important;
+    background-color: white;
+}
+
+.custom-template-inner {
+    background-color: transparent !important;
+}
+
+#pagearea {
+    margin: 0 auto !important;
+}
+
+
+.header-logo {
+    width: auto !important;
+}
+
+.header-container>* {
+    flex: 0 1 auto;
+}
+
+.weekly-ad-container {
+    text-align: right;
+    margin: 0 20px;
+    position: relative;
+    top: 5px;
+}
+
+ul.nav-primary > li.menu-item.current-menu-item:after {
+    top: 100%;
+    left: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(0, 0, 0, 0);
+    border-top-color: #002b60;
+    border-width: 10px;
+    margin-left: -10px;
+}
+
+/*************
+ *   misc   *
+ *************/
+
+.su-spoiler-icon{
+    font-family: ShortcodesUltimateIcons !important;
+}
+
+.sui{
+    font: normal normal normal 14px/1 ShortcodesUltimateIcons !important;
+}
+
+.circle{
+    border-radius: 40px;
+    background-color: #e2111f;
+    color: white;
+    padding: 10px;
+    width: 25px !important;
+    height: 25px !important;
+    display: flex;
+    transition: all .5s;
+    margin: 8px;
+}
+
+.circle:hover{
+    box-shadow: 0px 10px 25px -10px rgba(0,0,0,.75);
+    transform: scale(1.05);
+}
+
+.circle > svg{
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.white-bg{
+    background-color: rgba(255, 255, 255, .5);
+}
+
+.store-locator-search{
+    background: #e2111f !important;
+}
+
+.site-shift {
+    padding-right: 0px !important;
+}
+
+/******************************
+ * ADA
+ ******************************/
+.cycloneslider.cycloneslider-template-default .cycloneslider-pager span { 
+    color: #ffffff;
+}
+.cycloneslider.cycloneslider-template-default .cycloneslider-pager span.cycle-pager-active {
+    color: #000000;
+}
+#menu-social li a, #menu-social-menu-1 li a {
+    color: #ffffff;
+}
+#menu-social-menu li a {
+    color: white;
+}
+#locator-store-list li:nth-child(2n+1) a {
+    color: #0e6699;
+}
+.skip-link {
+    background-color: #f1f1f1 !important;
+    color: #21759b !important;
+}
+#menu-social-menu li a {
+    color: white;
+}
+a.screen-reader-shortcut{
+    color: white;
+}
+
+.rosie-delivery{
+    display: none;
+}

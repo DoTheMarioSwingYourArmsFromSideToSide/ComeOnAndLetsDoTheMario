@@ -1,0 +1,1 @@
+(function($,Drupal){'use strict';Drupal.behaviors.alertBlock={attach:function(context,settings){$(context).find('a.alert-close').once('a.alert-close').bind('click',(function(){var cookieValue=drupalSettings.alert_last_updated;$.cookie('alert_close',drupalSettings.alert_last_updated);}));}}}(jQuery,Drupal));
