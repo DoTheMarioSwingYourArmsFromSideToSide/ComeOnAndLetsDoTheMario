@@ -1,0 +1,35 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+TWTR.Widget.receiveCallback_1({"completed_in":0.063,"max_id":279039405111529474,"max_id_str":"279039405111529474","page":1,"query":"goanimate","refresh_url":"?since_id=279039405111529474&q=goanimate&result_type=mixed","results":[{"created_at":"Thu, 13 Dec 2012 01:45:53 +0000","from_user":"GoAnimate","from_user_id":24889998,"from_user_id_str":"24889998","from_user_name":"GoAnimate","geo":null,"id":279039405111529474,"id_str":"279039405111529474","iso_language_code":"en","metadata":{"result_type":"recent"},"profile_image_url":"https:\/\/web.archive.org\/web\/20121213023031\/http:\/\/a0.twimg.com\/profile_images\/2823013869\/3fe00cd372fd428fc5e928373664cd4f_normal.jpeg","profile_image_url_https":"https:\/\/web.archive.org\/web\/20121213023031\/https:\/\/si0.twimg.com\/profile_images\/2823013869\/3fe00cd372fd428fc5e928373664cd4f_normal.jpeg","source":"&lt;a href=&quot;https:\/\/web.archive.org\/web\/20121213023031\/http:\/\/www.hootsuite.com&quot;&gt;HootSuite&lt;\/a&gt;","text":"@cmcgee200 Our pleasure! Good luck with the event!","to_user":"cmcgee200","to_user_id":55101333,"to_user_id_str":"55101333","to_user_name":"Dr. Chris R McGee","in_reply_to_status_id":279022680844423170,"in_reply_to_status_id_str":"279022680844423170"}],"results_per_page":50,"since_id":279039405111529470,"since_id_str":"279039405111529470"});
+
+}
+/*
+     FILE ARCHIVED ON 02:30:31 Dec 13, 2012 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:14:15 May 02, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 137.207
+  exclusion.robots: 0.075
+  exclusion.robots.policy: 0.065
+  RedisCDXSource: 1.766
+  esindex: 0.007
+  LoadShardBlock: 107.246 (3)
+  PetaboxLoader3.datanode: 138.095 (4)
+  load_resource: 103.997
+  PetaboxLoader3.resolve: 62.515
+*/
