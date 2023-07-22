@@ -1,0 +1,171 @@
+.intro-cta {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.intro-cta:before {
+    content: '';
+    position: absolute;
+    bottom: -7px;
+    right: -7px;
+    width: 100%;
+    height: 100%;
+    background-color: #c6a16b;
+    border-radius: .25rem;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.intro-cta .content {
+    position: absolute;
+    z-index: 2;
+}
+
+.intro-cta .content .title-wrapper {
+    display: flex;
+    flex-direction: column;
+    transition: ease 400ms;
+}
+
+.intro-cta .content .title-wrapper .title {
+    font-size: 28.59px;
+    font-family: var(--font-display);
+    color: var(--white);
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 0.843;
+    text-align: center;
+    text-shadow: 0px 3px 29px rgba(0, 0, 0, 0.5);
+    position: relative;   
+}
+
+.intro-cta .content .title-wrapper .title:before,
+.intro-cta .content .title-wrapper .title:after {
+    content: '';
+    position: absolute;
+    top: 25%;
+    height: 14px;
+    width: 7px;
+    background-image: url('/web/20230308005749im_/https://www.visitbatonrouge.com/includes/public/assets/shared/hero-text-diamond.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    pointer-events: none;
+}
+
+.intro-cta .content .title-wrapper .title:before {
+    left: -15px;
+}
+
+.intro-cta .content .title-wrapper .title:after {
+    right: -15px;
+}
+
+.intro-cta .content .title-wrapper .subtitle {
+    font-size: 17.15px;
+    font-family: var(--font-script);
+    color: var(--white);
+    line-height: 1.404;
+    text-align: center;
+    text-shadow: 0px 3px 29px rgba(0, 0, 0, 0.5);
+}
+
+.intro-cta .img-cont {
+    position: relative;
+    border-radius: 6px;
+    border-bottom: 2px solid white;
+    border-right: 2px solid white;
+    transition: transform ease 400ms;
+    overflow: hidden;
+}
+
+.intro-cta .img-cont img {
+    border-radius: 6px;
+}
+
+.intro-cta .img-cont {
+    position: relative;
+}
+
+.intro-cta .img-cont:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(34,34,34,0.4);
+    transition: background-color ease 400ms;
+}
+
+/* Media queries */
+
+@media(hover:hover) {
+    .intro-cta:hover .img-cont:before {
+        background-color: rgba(213,46,39,.5);
+    }
+
+    .intro-cta:hover .img-cont {
+        transform: translateX(-6px) translateY(-6px);
+    }
+
+    .intro-cta:hover .content .title-wrapper {
+        transform: translateX(-6px) translateY(-6px);
+    }
+}
+
+@media(min-width:64em) {
+    .intro-cta:before {
+        bottom: -10px;
+        right: -10px;
+    }
+
+    .intro-cta .img-cont {
+        border-bottom: 3px solid white;
+        border-right: 3px solid white;
+    }
+
+    .intro-cta .content .title-wrapper .subtitle {
+        font-size: 24px;
+        margin-bottom: 5px;
+    }
+
+    .intro-cta .content .title-wrapper .title {
+        font-size: 40px;
+    }
+
+    .intro-cta .content .title-wrapper .title:before,
+    .intro-cta .content .title-wrapper .title:after {
+        height: 20px;
+        width: 10px;
+    }
+
+    .intro-cta .content .title-wrapper .title:before {
+        left: -23px;
+    }
+
+    .intro-cta .content .title-wrapper .title:after {
+        right: -23px;
+    }
+}
+/*
+     FILE ARCHIVED ON 00:57:49 Mar 08, 2023 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 00:41:33 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 114.576
+  exclusion.robots: 0.11
+  exclusion.robots.policy: 0.099
+  RedisCDXSource: 11.782
+  esindex: 0.008
+  LoadShardBlock: 79.849 (3)
+  PetaboxLoader3.datanode: 240.309 (4)
+  load_resource: 261.837
+  PetaboxLoader3.resolve: 79.216
+*/

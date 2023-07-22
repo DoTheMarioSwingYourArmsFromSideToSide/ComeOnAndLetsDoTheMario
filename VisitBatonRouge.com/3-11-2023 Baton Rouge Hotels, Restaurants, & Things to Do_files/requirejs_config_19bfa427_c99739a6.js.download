@@ -1,0 +1,1530 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+require.config({
+	"paths": {
+		"ace": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/npm/node_modules/ace-builds/src-min-noconflict/ace",
+		"addthis": "//web.archive.org/web/20230308005749/https://s7.addthis.com/js/300/addthis_widget.js#async=1",
+		"d3": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/npm/node_modules/d3/d3.min",
+		"dlmenu_1.0.1": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/sv/dlmenu/public/js/jquery.dlmenu",
+		"nvd3": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/npm/node_modules/nvd3/nv.d3.min",
+		"async": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/npm/node_modules/async/dist/async.min",
+		"extend": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/sv/extend/public/index",
+		"flowly": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/npm/node_modules/flowly/src/index",
+		"jquery": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/yarn/node_modules/jquery-2.2.4/dist/jquery.min",
+		"jqueryui": "//web.archive.org/web/20230308005749/https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min",
+		"jqueryui_i18n": "//web.archive.org/web/20230308005749/https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.4/i18n/jquery-ui-i18n.min",
+		"jqueryuit": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/sv/touch-punch/public/jquery.ui.touch-punch.min",
+		"foundation": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/yarn/node_modules/foundation-5.2.1/js/foundation.min",
+		"foundation_5.2.1": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/yarn/node_modules/foundation-5.2.1/js/foundation.min",
+		"foundation_5.5.0": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/yarn/node_modules/foundation-5.5.0/js/foundation.min",
+		"lodash": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/yarn/node_modules/lodash-3.10.1/lodash.min",
+		"moment": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/npm/node_modules/moment/min/moment.min",
+		"moment-timezone": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/npm/node_modules/moment-timezone/builds/moment-timezone.min",
+		"moment-timezone-with-data": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/npm/node_modules/moment-timezone/builds/moment-timezone-with-data.min",
+		"numeral": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/npm/node_modules/numeral/min/numeral.min",
+		"jsvalidator": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/npm/node_modules/jsvalidator/dist/index.min",
+		"domReady": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/sv/requirejs/public/plugins/domReady",
+		"text": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/sv/requirejs/public/plugins/text",
+		"select2": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/sv/select2/public/select2.min",
+		"ckeditor": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/sv/ckeditor/public/core/ckeditor",
+		"ckeditor_teaser": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/sv/ckeditor/public/plugins/teaser/plugin",
+		"ckeditor_linklookup": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/sv/ckeditor/public/plugins/linklookup/plugin",
+		"ckeditor_link_anchor": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/sv/ckeditor/public/plugins/link_anchor/plugin",
+		"ckeditor_custom": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/sv/ckeditor/public/custom",
+		"goatee": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/npm/node_modules/goatee/index",
+		"sv_goatee": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/sv/goatee/public/goatee_loader",
+		"chai": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/npm/node_modules/chai/chai",
+		"mocha": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/npm/node_modules/mocha/mocha",
+		"cloudinary": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/sv/cloudinaryLib/public/core/jquery.cloudinary",
+		"qs": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/npm/node_modules/qs/dist/qs",
+		"he": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/npm/node_modules/he/he",
+		"es6-promise": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/npm/node_modules/es6-promise/dist/es6-promise.min",
+		"entities": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/sv/entities/public/index",
+		"assert": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/sv/assert/public/assert",
+		"util-browser": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/npm/node_modules/util-browser/index.min",
+		"url-browser-require": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/npm/node_modules/url-browser-require/index.min",
+		"sv_validator": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/sv/validator/public/sv_validator",
+		"sv_clientLib": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/sv/clientLib/public/sv_clientLib",
+		"sv_svslider": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/sv/svslider/public/svslider",
+		"sv_svtabs": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/sv/svtabs/public/js/svtabs",
+		"sv_tabs": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/sv/tabs/public/index",
+		"slick": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/yarn/node_modules/slick-carousel-1.3.11/slick/slick.min",
+		"slick_1.5.0": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/yarn/node_modules/slick-carousel-1.5.0/slick/slick.min",
+		"slick_1.5.8": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/yarn/node_modules/slick-carousel-1.5.8/slick/slick.min",
+		"slick_1.8.0": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/yarn/node_modules/slick-carousel-1.8.0/slick/slick.min",
+		"geodist": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/sv/geodist/public/geodist",
+		"sv_geolocationLib": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/sv/geolocationLib/public/index",
+		"sinon": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/npm/node_modules/sinon/lib/sinon",
+		"typecaster": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/npm/node_modules/typecaster/index",
+		"sv_Pager": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/sv/pager/public/index",
+		"sv_googleMapsLoader": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/sv/mapLib/public/googleMapsLoader",
+		"sv_GoogleMap": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/sv/mapLib/public/GoogleMap",
+		"sv_devnull": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/sv/devnull/public/devnull",
+		"sv_stringLib": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/sv/stringLib/public/index",
+		"sv_wookmark": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/sv/wookmark/public/js/jquery.wookmark",
+		"sv_clientMoment": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/sv/siteLib/public/js/clientMoment",
+		"sv_crmLib": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/sv/crmLib/public/index",
+		"sv_load": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/sv/siteLib/public/js/load",
+		"sv_delay": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/sv/siteLib/public/js/delay",
+		"sv_miscLib": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/sv/miscLib/public/index",
+		"sv_mathLib": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/sv/mathLib/public/index",
+		"spectrum": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/npm/node_modules/spectrum-colorpicker/spectrum",
+		"leaflet": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/npm/node_modules/leaflet/dist/leaflet",
+		"vue": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/npm/node_modules/vue/dist/vue.min",
+		"sv_dtnClient": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/npm/node_modules/@simpleview/dtn-client/dist/index.min",
+		"mochalib": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/npm/node_modules/@simpleview/mochalib/index",
+		"sv_siteSlick": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/yarn/node_modules/slick-carousel-1.8.0/slick/slick.min",
+		"plugins_blog_custom_related_posts": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/blog/virtuals/js/custom_related_posts",
+		"plugins_blog_custom_sibling_posts": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/blog/virtuals/js/custom_sibling_posts",
+		"plugins_collections_custom_collection_helper": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/collections/virtuals/js/custom_collection_helper",
+		"plugins_collections_custom_faqs": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/collections/virtuals/js/custom_faqs",
+		"plugins_collections_custom_collection_default_package": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/collections/virtuals/js/custom_collection_default_package",
+		"plugins_collections_custom_collection_custom_package": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/collections/virtuals/js/custom_collection_custom_package",
+		"plugins_collections_custom_collection_default_slider_package": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/collections/virtuals/js/custom_collection_default_slider_package",
+		"plugins_collections_custom_collection_custom_slider_package": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/collections/virtuals/js/custom_collection_custom_slider_package",
+		"plugins_collections_custom_hero_preview_slideshow": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/collections/virtuals/js/custom_hero_preview_slideshow",
+		"plugins_common_custom_lightbox": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/js/custom_lightbox",
+		"plugins_common_custom_glidejs": "https://web.archive.org/web/20230308005749/https://unpkg.com/@glidejs/glide@3.4.1/dist/glide.min",
+		"plugins_common_custom_map": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/js/custom_map",
+		"plugins_common_custom_layoutjs": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/js/custom_layoutjs",
+		"plugins_common_custom_countdown_clock": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/js/custom_countdown_clock",
+		"plugins_common_custom_detail": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/js/custom_detail",
+		"plugins_common_custom_detail/detail_template": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/templates/custom_detail/detail_template",
+		"plugins_common_custom_detail/media_template": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/templates/custom_detail/media_template",
+		"plugins_common_custom_detail/drawer_template": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/templates/custom_detail/drawer_template",
+		"plugins_common_custom_detail/amenities_template": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/templates/custom_detail/amenities_template",
+		"plugins_common_custom_detail/amenities": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/js/custom_detail/amenities",
+		"plugins_common_custom_detail/whats_nearby": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/js/custom_detail/whats_nearby",
+		"plugins_common_custom_detail/whats_nearby_template": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/templates/custom_detail/whats_nearby_template",
+		"plugins_common_custom_detail/vue-add-to-calendar": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/js/custom_detail/vue-add-to-calendar",
+		"plugins_common_custom_li_items": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/templates/custom_li_items",
+		"plugins_common_custom_tripbuilder_component": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/js/custom_tripbuilder_component",
+		"plugins_common_custom_yelp_component": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/js/custom_yelp_component",
+		"plugins_common_custom_tripadvisor_component": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/js/custom_tripadvisor_component",
+		"plugins_common_custom_vue_airbnb_style_datepicker": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/js/custom_vue_airbnb_style_datepicker",
+		"plugins_common_custom_yelp_snippet_template": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/templates/custom_yelp_snippet_template",
+		"plugins_common_custom_tripadvisor_snippet_template": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/templates/custom_tripadvisor_snippet_template",
+		"plugins_common_custom_layoutjs/main_template": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/templates/custom_layoutjs/main_template",
+		"plugins_common_custom_layoutjs/item_template": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/templates/custom_layoutjs/item_template",
+		"plugins_common_custom_layoutjs/convention_item_template": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/templates/custom_layoutjs/convention_item_template",
+		"plugins_common_custom_layoutjs/wraplink_template": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/templates/custom_layoutjs/wraplink_template",
+		"plugins_common_custom_layoutjs/map_template": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/templates/custom_layoutjs/map_template",
+		"plugins_common_custom_layoutjs/info_window_template": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/templates/custom_layoutjs/info_window_template",
+		"plugins_common_custom_layoutjs/views_template": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/templates/custom_layoutjs/views_template",
+		"plugins_common_custom_layoutjs/sorts_template": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/templates/custom_layoutjs/sorts_template",
+		"plugins_common_custom_layoutjs/pager_template": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/templates/custom_layoutjs/pager_template",
+		"plugins_common_custom_layoutjs/limits_template": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/templates/custom_layoutjs/limits_template",
+		"plugins_common_custom_layoutjs/filter_checkbox_template": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/templates/custom_layoutjs/filter_checkbox_template",
+		"plugins_common_custom_layoutjs/filter_twostage_template": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/templates/custom_layoutjs/filter_twostage_template",
+		"plugins_common_custom_layoutjs/filter_select_template": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/templates/custom_layoutjs/filter_select_template",
+		"plugins_common_custom_layoutjs/filter_keyword_template": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/templates/custom_layoutjs/filter_keyword_template",
+		"plugins_common_custom_layoutjs/filter_text_template": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/templates/custom_layoutjs/filter_text_template",
+		"plugins_common_custom_layoutjs/filter_daterange_template": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/templates/custom_layoutjs/filter_daterange_template",
+		"plugins_common_custom_layoutjs/filter_number_template": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/templates/custom_layoutjs/filter_number_template",
+		"plugins_common_custom_layoutjs/filter_toggle_template": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/templates/custom_layoutjs/filter_toggle_template",
+		"plugins_common_custom_layoutjs/filter_date_template": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/templates/custom_layoutjs/filter_date_template",
+		"plugins_common_custom_layoutjs/product_search_form_template": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/templates/custom_layoutjs/product_search_form_template",
+		"plugins_common_custom_layoutjs/click_to_compare_component": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/js/custom_layoutjs/click_to_compare_component",
+		"plugins_common_custom_layoutjs/click_to_compare_template": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/templates/custom_layoutjs/click_to_compare_template",
+		"plugins_common_custom_layoutjs/download": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/js/custom_layoutjs/download",
+		"plugins_common_custom_layoutjs/download_template": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/templates/custom_layoutjs/download_template",
+		"plugins_common_custom_tripbuilder_template": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/templates/custom_tripbuilder_template",
+		"plugins_common_custom_daterange": "/includes/public/js/jquery-date-range-picker/dist/jquery.daterangepicker.min",
+		"plugins_common_custom_quickview/quickview": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/js/custom_quickview/quickview",
+		"plugins_common_custom_quickview/site_quickview": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/js/custom_quickview/site_quickview",
+		"plugins_common_custom_quickview/detail_template": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/templates/custom_quickview/detail_template",
+		"plugins_common_custom_quickview/button": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/templates/custom_quickview/button",
+		"plugins_common_custom_quickview/component": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/js/custom_quickview/component",
+		"plugins_common_custom_quickview/component_template": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/templates/custom_quickview/component_template",
+		"plugins_common_custom_lazyload": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/js/custom_lazyload",
+		"plugins_common_custom_video_player": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/js/custom_video_player",
+		"plugins_common_custom_hero_video": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/js/custom_hero_video",
+		"plugins_common_custom_gallery": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/js/custom_gallery",
+		"plugins_common_custom_jumplist": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/js/custom_jumplist",
+		"plugins_common_custom_read_more": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/js/custom_read_more",
+		"plugins_common_custom_ui_watcher": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/js/custom_ui_watcher",
+		"plugins_common_custom_components/threshold360/viewer": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/js/custom_components/threshold360/viewer",
+		"plugins_common_custom_components/threshold360/viewer_template": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/templates/custom_components/threshold360/viewer_template",
+		"plugins_common_custom_utils": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/js/custom_utils",
+		"plugins_common_custom_product_search": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/js/custom_product_search",
+		"plugins_common_custom_hero_highlight_container": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/js/custom_hero_highlight_container",
+		"plugins_common_custom_quickview_textbox": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/js/custom_quickview_textbox",
+		"plugins_common_custom_thematic_map": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/js/custom_thematic_map",
+		"plugins_common_custom_listicle": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/js/custom_listicle",
+		"plugins_events_custom_event_list_item": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/events/virtuals/templates/custom_event_list_item",
+		"plugins_listings_custom_listings_lib": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/listings/virtuals/js/custom_listings_lib",
+		"plugins_listings_custom_map": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/listings/virtuals/js/custom_map",
+		"plugins_listings_custom_compare": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/listings/virtuals/js/custom_compare",
+		"plugins_listings_custom_listing_ta_snippet": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/listings/virtuals/templates/custom_listing_ta_snippet",
+		"plugins_listings_custom_listing_detail_meeting_room": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/listings/virtuals/templates/custom_listing_detail_meeting_room",
+		"plugins_listings_custom_listing_detail_meeting_facilities": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/listings/virtuals/templates/custom_listing_detail_meeting_facilities",
+		"plugins_listings_custom_listing_detail_twitter_snippet": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/listings/virtuals/templates/custom_listing_detail_twitter_snippet",
+		"plugins_listings_custom_listing_detail_facebook_snippet": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/listings/virtuals/templates/custom_listing_detail_facebook_snippet",
+		"plugins_nav_custom_nav_helper": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/nav/virtuals/js/custom_nav_helper",
+		"plugins_nav_custom_nav_mobile": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/nav/virtuals/js/custom_nav_mobile",
+		"plugins_nav_custom_nav_desktop_three_col": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/nav/virtuals/js/custom_nav_desktop_three_col",
+		"plugins_nav_custom_nav_desktop_dropdown": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/nav/virtuals/js/custom_nav_desktop_dropdown",
+		"plugins_offers_custom_offer_list_item": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/offers/virtuals/templates/custom_offer_list_item",
+		"plugins_core_adminbar": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/core/virtuals/templates/adminbar",
+		"site_gtm": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/common/virtuals/js/site_gtm",
+		"site_gamClient": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/dtn/virtuals/js/site_gamClient"
+	},
+	"shim": {
+		"dlmenu_1.0.1": {
+			"deps": [
+				"jquery"
+			]
+		},
+		"nvd3": {
+			"exports": "nv",
+			"deps": [
+				"d3"
+			]
+		},
+		"foundation": {
+			"deps": [
+				"jquery"
+			]
+		},
+		"foundation_5.2.1": {
+			"deps": [
+				"jquery"
+			]
+		},
+		"foundation_5.5.0": {
+			"deps": [
+				"jquery"
+			]
+		},
+		"jqueryui": {
+			"deps": [
+				"jquery"
+			]
+		},
+		"jqueryuit": {
+			"deps": [
+				"jqueryui"
+			]
+		},
+		"jqueryui_i18n": {
+			"deps": [
+				"jqueryui"
+			]
+		},
+		"leaflet": {
+			"exports": "L"
+		},
+		"select2": {
+			"deps": [
+				"jquery"
+			]
+		},
+		"mocha": {
+			"exports": "mocha"
+		},
+		"cloudinary": {
+			"deps": [
+				"jquery"
+			]
+		},
+		"addthis": {
+			"exports": "addthis"
+		},
+		"spectrum": {
+			"deps": [
+				"jquery"
+			]
+		},
+		"ace": {
+			"exports": "ace"
+		},
+		"sv_siteSlick": {
+			"deps": [
+				"jquery"
+			]
+		},
+		"plugins_common_custom_daterange": {
+			"deps": [
+				"jquery"
+			]
+		},
+		"plugins_listings_custom_compare": {
+			"deps": [
+				"jquery",
+				"goatee"
+			]
+		}
+	},
+	"packages": [
+		{
+			"name": "sv_site",
+			"location": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/sv/siteLib/public/js"
+		},
+		{
+			"name": "sv_moduleLib",
+			"location": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/sv/moduleLib/public/js"
+		},
+		{
+			"name": "sv_cloudinaryLib",
+			"location": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/sv/cloudinaryLib/public"
+		},
+		{
+			"name": "sv_arrayLib",
+			"location": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/sv/arrayLib/public",
+			"main": "index"
+		},
+		{
+			"name": "sv_gtmLib",
+			"location": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/sv/gtmLib/public",
+			"main": "index"
+		},
+		{
+			"name": "sv_videoLib",
+			"location": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/sv/videoLib/public",
+			"main": "index"
+		},
+		{
+			"name": "sv_objectLib",
+			"location": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/sv/objectLib/public",
+			"main": "index"
+		},
+		{
+			"name": "sv_assertLib",
+			"location": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/sv/assertLib/public",
+			"main": "index"
+		},
+		{
+			"name": "sv_mochaLib",
+			"location": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/sv/mochaLib/public",
+			"main": "index"
+		},
+		{
+			"name": "sv_urlLib",
+			"location": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/sv/urlLib/public",
+			"main": "index"
+		},
+		{
+			"name": "sv_facebookLib",
+			"location": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/sv/facebookLib/public",
+			"main": "index"
+		},
+		{
+			"name": "sv_mapLib",
+			"location": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/sv/mapLib/public",
+			"main": "index"
+		},
+		{
+			"name": "sv_mapLibLoader",
+			"location": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/sv/mapLib/public",
+			"main": "loader"
+		},
+		{
+			"name": "crypto-js",
+			"location": "/includes/public/managed/v_19bfa427_c99739a6/core/libs/npm/node_modules/crypto-js",
+			"main": "crypto-js"
+		},
+		{
+			"name": "plugins_addthis",
+			"location": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/addthis/public/js"
+		},
+		{
+			"name": "plugins_asset_request_virtual",
+			"location": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/asset_request/virtuals/js"
+		},
+		{
+			"name": "plugins_collections",
+			"location": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/collections/public/js"
+		},
+		{
+			"name": "plugins_core",
+			"location": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/core/public/js"
+		},
+		{
+			"name": "plugins_dtn",
+			"location": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/dtn/public/js"
+		},
+		{
+			"name": "plugins_events",
+			"location": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/events/public/js"
+		},
+		{
+			"name": "plugins_listings",
+			"location": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/listings/public/js"
+		},
+		{
+			"name": "plugins_maps",
+			"location": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/maps/public/js"
+		},
+		{
+			"name": "plugins_mediagallery",
+			"location": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/mediagallery/public/js"
+		},
+		{
+			"name": "plugins_nav",
+			"location": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/nav/public/js"
+		},
+		{
+			"name": "plugins_nav_virtual",
+			"location": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/nav/virtuals/js"
+		},
+		{
+			"name": "plugins_offers",
+			"location": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/offers/public/js"
+		},
+		{
+			"name": "plugins_search",
+			"location": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/search/public/js"
+		},
+		{
+			"name": "plugins_visitors",
+			"location": "/includes/public/managed/v_19bfa427_c99739a6/core/plugins/visitors/public/js"
+		}
+	],
+	"config": {
+		"sv_facebookLib": {
+			"sdkVersion": "v2.3"
+		},
+		"sv_mapLib": {
+			"apiKey": "AIzaSyD3EPhVnITOwBCJvheltA88HcmyDhl-s1w",
+			"center": {
+				"latitude": 30.4582829,
+				"longitude": -91.1403196
+			},
+			"chinaSites": []
+		},
+		"plugins_addthis/main": {
+			"pubid": "ra-551943c73a128eb6",
+			"ui_click": true,
+			"username": "shell"
+		},
+		"sv_cloudinaryLib/default": {
+			"authPrimary": false,
+			"authUrl": "https://web.archive.org/web/20230308005749/https://auth.simpleviewinc.com/",
+			"env": "live",
+			"acctId": 904,
+			"site": "primary",
+			"locales": [
+				{
+					"code": "en",
+					"label": "English",
+					"cmsLabel": "English",
+					"countryCode": "en"
+				}
+			],
+			"cmsUrl": "https://web.archive.org/web/20230308005749/https://batonrouge.simpleviewcms.com/",
+			"siteConfig": {
+				"clientLong": "Visit Baton Rouge",
+				"address1": "359 Third Street",
+				"city": "Baton Rouge",
+				"state": "Louisiana",
+				"zip": "70801",
+				"phone": "225-383-1825",
+				"custom": {
+					"primary": {
+						"quickview": {
+							"active": true,
+							"modules": [
+								"listings",
+								"events",
+								"offers",
+								"pois"
+							]
+						},
+						"threshold360": {
+							"active": false,
+							"settings": {
+								"key": ""
+							}
+						},
+						"listings": {
+							"enablePaginationCountControl": false,
+							"paginationOptions": [
+								{
+									"label": "12",
+									"value": "12"
+								},
+								{
+									"label": "24",
+									"value": "24"
+								}
+							],
+							"paginationCountDefault": 12,
+							"socialFeeds": {
+								"active": false
+							}
+						},
+						"defaultImageUrl": "https://web.archive.org/web/20230308005749/https://assets.simpleviewcms.com/simpleview/image/upload/v1/clients/batonrouge/VBR_New_Image_fbeb547f-fc82-4976-82fb-f983c12a5d54.png",
+						"placeholderImageUrl": "https://web.archive.org/web/20230308005749/https://assets.simpleviewcms.com/simpleview/image/upload/v1/clients/batonrouge/VBR_New_Image_fbeb547f-fc82-4976-82fb-f983c12a5d54.png",
+						"markerIcon": "https://web.archive.org/web/20230308005749/https://assets.simpleviewinc.com/simpleview/image/upload/v1/clients/batonrouge-redesign/Asset_2_e469c68f-568b-4626-84c5-6e98a1f5e3d3.png",
+						"markerIconActive": "https://web.archive.org/web/20230308005749/https://assets.simpleviewinc.com/simpleview/image/upload/v1/clients/batonrouge-redesign/Asset_2_e469c68f-568b-4626-84c5-6e98a1f5e3d3.png"
+					}
+				},
+				"gtmId": "GTM-TVSFF5",
+				"timezone": "US/Central",
+				"latitude": 30.4582829,
+				"longitude": -91.1403196,
+				"maxRangeMiles": 100,
+				"distanceFormat": "mi",
+				"assetCdnHostname": "assets.simpleviewinc.com",
+				"urlNoSlash": "https://web.archive.org/web/20230308005749/https://www.visitbatonrouge.com",
+				"url": "https://web.archive.org/web/20230308005749/https://www.visitbatonrouge.com/",
+				"gmaps": {
+					"apiKey": "AIzaSyD3EPhVnITOwBCJvheltA88HcmyDhl-s1w"
+				},
+				"plugins": {
+					"translations": {
+						"active": true
+					},
+					"reporting": {
+						"active": true
+					},
+					"assets": {
+						"active": true
+					},
+					"ab_testing": {
+						"active": false
+					},
+					"addthis": {
+						"active": true
+					},
+					"asset_request": {
+						"active": true
+					},
+					"autoresponder": {
+						"active": false
+					},
+					"blog": {
+						"active": true
+					},
+					"cms": {
+						"active": false
+					},
+					"collections": {
+						"active": true
+					},
+					"common": {
+						"active": true
+					},
+					"core": {
+						"active": true
+					},
+					"crm": {
+						"active": true
+					},
+					"cron": {
+						"active": true
+					},
+					"developer": {
+						"active": true
+					},
+					"disqus": {
+						"active": false
+					},
+					"dtn": {
+						"active": true
+					},
+					"dynamic_content": {
+						"active": false
+					},
+					"events": {
+						"active": true
+					},
+					"googletranslate": {
+						"active": false
+					},
+					"listings": {
+						"active": true,
+						"dtn": {
+							"auid": "/21812118460/21812475614/VisitBatonRouge-2022Redesign-FL",
+							"limit": 10,
+							"sort": "random"
+						}
+					},
+					"maps": {
+						"active": true
+					},
+					"mediagallery": {
+						"active": true
+					},
+					"nav": {
+						"active": true
+					},
+					"offers": {
+						"active": true
+					},
+					"social": {
+						"active": false
+					},
+					"search": {
+						"active": true
+					},
+					"task": {
+						"active": false
+					},
+					"tripbuilder": {
+						"active": false
+					},
+					"visitors": {
+						"active": true
+					},
+					"weather": {
+						"active": false
+					}
+				}
+			},
+			"siteConfigs": {
+				"cms": {
+					"clientLong": "Visit Baton Rouge",
+					"address1": "359 Third Street",
+					"city": "Baton Rouge",
+					"state": "Louisiana",
+					"zip": "70801",
+					"phone": "225-383-1825",
+					"custom": {
+						"primary": {
+							"quickview": {
+								"active": true,
+								"modules": [
+									"listings",
+									"events",
+									"offers",
+									"pois"
+								]
+							},
+							"threshold360": {
+								"active": false,
+								"settings": {
+									"key": ""
+								}
+							},
+							"listings": {
+								"enablePaginationCountControl": false,
+								"paginationOptions": [
+									{
+										"label": "12",
+										"value": "12"
+									},
+									{
+										"label": "24",
+										"value": "24"
+									}
+								],
+								"paginationCountDefault": 12,
+								"socialFeeds": {
+									"active": false
+								}
+							},
+							"defaultImageUrl": "https://web.archive.org/web/20230308005749/https://assets.simpleviewcms.com/simpleview/image/upload/v1/clients/batonrouge/VBR_New_Image_fbeb547f-fc82-4976-82fb-f983c12a5d54.png",
+							"placeholderImageUrl": "https://web.archive.org/web/20230308005749/https://assets.simpleviewcms.com/simpleview/image/upload/v1/clients/batonrouge/VBR_New_Image_fbeb547f-fc82-4976-82fb-f983c12a5d54.png",
+							"markerIcon": "https://web.archive.org/web/20230308005749/https://assets.simpleviewinc.com/simpleview/image/upload/v1/clients/batonrouge-redesign/Asset_2_e469c68f-568b-4626-84c5-6e98a1f5e3d3.png",
+							"markerIconActive": "https://web.archive.org/web/20230308005749/https://assets.simpleviewinc.com/simpleview/image/upload/v1/clients/batonrouge-redesign/Asset_2_e469c68f-568b-4626-84c5-6e98a1f5e3d3.png"
+						}
+					},
+					"gtmId": "GTM-TVSFF5",
+					"timezone": "US/Central",
+					"latitude": 30.4582829,
+					"longitude": -91.1403196,
+					"maxRangeMiles": 100,
+					"distanceFormat": "mi",
+					"assetCdnHostname": "assets.simpleviewinc.com",
+					"urlNoSlash": "https://web.archive.org/web/20230308005749/https://batonrouge.simpleviewcms.com",
+					"url": "https://web.archive.org/web/20230308005749/https://batonrouge.simpleviewcms.com/",
+					"gmaps": {
+						"apiKey": "AIzaSyD3EPhVnITOwBCJvheltA88HcmyDhl-s1w"
+					},
+					"plugins": {
+						"translations": {
+							"active": true
+						},
+						"reporting": {
+							"active": true
+						},
+						"assets": {
+							"active": true
+						},
+						"ab_testing": {
+							"active": false
+						},
+						"addthis": {
+							"active": true
+						},
+						"asset_request": {
+							"active": true
+						},
+						"autoresponder": {
+							"active": false
+						},
+						"blog": {
+							"active": true
+						},
+						"cms": {
+							"active": false
+						},
+						"collections": {
+							"active": true
+						},
+						"common": {
+							"active": true
+						},
+						"core": {
+							"active": true
+						},
+						"crm": {
+							"active": true
+						},
+						"cron": {
+							"active": true
+						},
+						"developer": {
+							"active": true
+						},
+						"disqus": {
+							"active": false
+						},
+						"dtn": {
+							"active": true
+						},
+						"dynamic_content": {
+							"active": false
+						},
+						"events": {
+							"active": true
+						},
+						"googletranslate": {
+							"active": false
+						},
+						"listings": {
+							"active": true,
+							"dtn": {
+								"auid": "/21812118460/21812475614/VisitBatonRouge-2022Redesign-FL",
+								"limit": 10,
+								"sort": "random"
+							}
+						},
+						"maps": {
+							"active": true
+						},
+						"mediagallery": {
+							"active": true
+						},
+						"nav": {
+							"active": true
+						},
+						"offers": {
+							"active": true
+						},
+						"social": {
+							"active": false
+						},
+						"search": {
+							"active": true
+						},
+						"task": {
+							"active": false
+						},
+						"tripbuilder": {
+							"active": false
+						},
+						"visitors": {
+							"active": true
+						},
+						"weather": {
+							"active": false
+						}
+					}
+				},
+				"primary": {
+					"clientLong": "Visit Baton Rouge",
+					"address1": "359 Third Street",
+					"city": "Baton Rouge",
+					"state": "Louisiana",
+					"zip": "70801",
+					"phone": "225-383-1825",
+					"custom": {
+						"primary": {
+							"quickview": {
+								"active": true,
+								"modules": [
+									"listings",
+									"events",
+									"offers",
+									"pois"
+								]
+							},
+							"threshold360": {
+								"active": false,
+								"settings": {
+									"key": ""
+								}
+							},
+							"listings": {
+								"enablePaginationCountControl": false,
+								"paginationOptions": [
+									{
+										"label": "12",
+										"value": "12"
+									},
+									{
+										"label": "24",
+										"value": "24"
+									}
+								],
+								"paginationCountDefault": 12,
+								"socialFeeds": {
+									"active": false
+								}
+							},
+							"defaultImageUrl": "https://web.archive.org/web/20230308005749/https://assets.simpleviewcms.com/simpleview/image/upload/v1/clients/batonrouge/VBR_New_Image_fbeb547f-fc82-4976-82fb-f983c12a5d54.png",
+							"placeholderImageUrl": "https://web.archive.org/web/20230308005749/https://assets.simpleviewcms.com/simpleview/image/upload/v1/clients/batonrouge/VBR_New_Image_fbeb547f-fc82-4976-82fb-f983c12a5d54.png",
+							"markerIcon": "https://web.archive.org/web/20230308005749/https://assets.simpleviewinc.com/simpleview/image/upload/v1/clients/batonrouge-redesign/Asset_2_e469c68f-568b-4626-84c5-6e98a1f5e3d3.png",
+							"markerIconActive": "https://web.archive.org/web/20230308005749/https://assets.simpleviewinc.com/simpleview/image/upload/v1/clients/batonrouge-redesign/Asset_2_e469c68f-568b-4626-84c5-6e98a1f5e3d3.png"
+						}
+					},
+					"gtmId": "GTM-TVSFF5",
+					"timezone": "US/Central",
+					"latitude": 30.4582829,
+					"longitude": -91.1403196,
+					"maxRangeMiles": 100,
+					"distanceFormat": "mi",
+					"assetCdnHostname": "assets.simpleviewinc.com",
+					"urlNoSlash": "https://web.archive.org/web/20230308005749/https://www.visitbatonrouge.com",
+					"url": "https://web.archive.org/web/20230308005749/https://www.visitbatonrouge.com/",
+					"gmaps": {
+						"apiKey": "AIzaSyD3EPhVnITOwBCJvheltA88HcmyDhl-s1w"
+					},
+					"plugins": {
+						"translations": {
+							"active": true
+						},
+						"reporting": {
+							"active": true
+						},
+						"assets": {
+							"active": true
+						},
+						"ab_testing": {
+							"active": false
+						},
+						"addthis": {
+							"active": true
+						},
+						"asset_request": {
+							"active": true
+						},
+						"autoresponder": {
+							"active": false
+						},
+						"blog": {
+							"active": true
+						},
+						"cms": {
+							"active": false
+						},
+						"collections": {
+							"active": true
+						},
+						"common": {
+							"active": true
+						},
+						"core": {
+							"active": true
+						},
+						"crm": {
+							"active": true
+						},
+						"cron": {
+							"active": true
+						},
+						"developer": {
+							"active": true
+						},
+						"disqus": {
+							"active": false
+						},
+						"dtn": {
+							"active": true
+						},
+						"dynamic_content": {
+							"active": false
+						},
+						"events": {
+							"active": true
+						},
+						"googletranslate": {
+							"active": false
+						},
+						"listings": {
+							"active": true,
+							"dtn": {
+								"auid": "/21812118460/21812475614/VisitBatonRouge-2022Redesign-FL",
+								"limit": 10,
+								"sort": "random"
+							}
+						},
+						"maps": {
+							"active": true
+						},
+						"mediagallery": {
+							"active": true
+						},
+						"nav": {
+							"active": true
+						},
+						"offers": {
+							"active": true
+						},
+						"social": {
+							"active": false
+						},
+						"search": {
+							"active": true
+						},
+						"task": {
+							"active": false
+						},
+						"tripbuilder": {
+							"active": false
+						},
+						"visitors": {
+							"active": true
+						},
+						"weather": {
+							"active": false
+						}
+					}
+				}
+			},
+			"version": "71.0.3",
+			"revision": "19bfa427_c99739a6"
+		},
+		"sv_site/main": {
+			"authPrimary": false,
+			"authUrl": "https://web.archive.org/web/20230308005749/https://auth.simpleviewinc.com/",
+			"env": "live",
+			"acctId": 904,
+			"site": "primary",
+			"locales": [
+				{
+					"code": "en",
+					"label": "English",
+					"cmsLabel": "English",
+					"countryCode": "en"
+				}
+			],
+			"cmsUrl": "https://web.archive.org/web/20230308005749/https://batonrouge.simpleviewcms.com/",
+			"siteConfig": {
+				"clientLong": "Visit Baton Rouge",
+				"address1": "359 Third Street",
+				"city": "Baton Rouge",
+				"state": "Louisiana",
+				"zip": "70801",
+				"phone": "225-383-1825",
+				"custom": {
+					"primary": {
+						"quickview": {
+							"active": true,
+							"modules": [
+								"listings",
+								"events",
+								"offers",
+								"pois"
+							]
+						},
+						"threshold360": {
+							"active": false,
+							"settings": {
+								"key": ""
+							}
+						},
+						"listings": {
+							"enablePaginationCountControl": false,
+							"paginationOptions": [
+								{
+									"label": "12",
+									"value": "12"
+								},
+								{
+									"label": "24",
+									"value": "24"
+								}
+							],
+							"paginationCountDefault": 12,
+							"socialFeeds": {
+								"active": false
+							}
+						},
+						"defaultImageUrl": "https://web.archive.org/web/20230308005749/https://assets.simpleviewcms.com/simpleview/image/upload/v1/clients/batonrouge/VBR_New_Image_fbeb547f-fc82-4976-82fb-f983c12a5d54.png",
+						"placeholderImageUrl": "https://web.archive.org/web/20230308005749/https://assets.simpleviewcms.com/simpleview/image/upload/v1/clients/batonrouge/VBR_New_Image_fbeb547f-fc82-4976-82fb-f983c12a5d54.png",
+						"markerIcon": "https://web.archive.org/web/20230308005749/https://assets.simpleviewinc.com/simpleview/image/upload/v1/clients/batonrouge-redesign/Asset_2_e469c68f-568b-4626-84c5-6e98a1f5e3d3.png",
+						"markerIconActive": "https://web.archive.org/web/20230308005749/https://assets.simpleviewinc.com/simpleview/image/upload/v1/clients/batonrouge-redesign/Asset_2_e469c68f-568b-4626-84c5-6e98a1f5e3d3.png"
+					}
+				},
+				"gtmId": "GTM-TVSFF5",
+				"timezone": "US/Central",
+				"latitude": 30.4582829,
+				"longitude": -91.1403196,
+				"maxRangeMiles": 100,
+				"distanceFormat": "mi",
+				"assetCdnHostname": "assets.simpleviewinc.com",
+				"urlNoSlash": "https://web.archive.org/web/20230308005749/https://www.visitbatonrouge.com",
+				"url": "https://web.archive.org/web/20230308005749/https://www.visitbatonrouge.com/",
+				"gmaps": {
+					"apiKey": "AIzaSyD3EPhVnITOwBCJvheltA88HcmyDhl-s1w"
+				},
+				"plugins": {
+					"translations": {
+						"active": true
+					},
+					"reporting": {
+						"active": true
+					},
+					"assets": {
+						"active": true
+					},
+					"ab_testing": {
+						"active": false
+					},
+					"addthis": {
+						"active": true
+					},
+					"asset_request": {
+						"active": true
+					},
+					"autoresponder": {
+						"active": false
+					},
+					"blog": {
+						"active": true
+					},
+					"cms": {
+						"active": false
+					},
+					"collections": {
+						"active": true
+					},
+					"common": {
+						"active": true
+					},
+					"core": {
+						"active": true
+					},
+					"crm": {
+						"active": true
+					},
+					"cron": {
+						"active": true
+					},
+					"developer": {
+						"active": true
+					},
+					"disqus": {
+						"active": false
+					},
+					"dtn": {
+						"active": true
+					},
+					"dynamic_content": {
+						"active": false
+					},
+					"events": {
+						"active": true
+					},
+					"googletranslate": {
+						"active": false
+					},
+					"listings": {
+						"active": true,
+						"dtn": {
+							"auid": "/21812118460/21812475614/VisitBatonRouge-2022Redesign-FL",
+							"limit": 10,
+							"sort": "random"
+						}
+					},
+					"maps": {
+						"active": true
+					},
+					"mediagallery": {
+						"active": true
+					},
+					"nav": {
+						"active": true
+					},
+					"offers": {
+						"active": true
+					},
+					"social": {
+						"active": false
+					},
+					"search": {
+						"active": true
+					},
+					"task": {
+						"active": false
+					},
+					"tripbuilder": {
+						"active": false
+					},
+					"visitors": {
+						"active": true
+					},
+					"weather": {
+						"active": false
+					}
+				}
+			},
+			"siteConfigs": {
+				"cms": {
+					"clientLong": "Visit Baton Rouge",
+					"address1": "359 Third Street",
+					"city": "Baton Rouge",
+					"state": "Louisiana",
+					"zip": "70801",
+					"phone": "225-383-1825",
+					"custom": {
+						"primary": {
+							"quickview": {
+								"active": true,
+								"modules": [
+									"listings",
+									"events",
+									"offers",
+									"pois"
+								]
+							},
+							"threshold360": {
+								"active": false,
+								"settings": {
+									"key": ""
+								}
+							},
+							"listings": {
+								"enablePaginationCountControl": false,
+								"paginationOptions": [
+									{
+										"label": "12",
+										"value": "12"
+									},
+									{
+										"label": "24",
+										"value": "24"
+									}
+								],
+								"paginationCountDefault": 12,
+								"socialFeeds": {
+									"active": false
+								}
+							},
+							"defaultImageUrl": "https://web.archive.org/web/20230308005749/https://assets.simpleviewcms.com/simpleview/image/upload/v1/clients/batonrouge/VBR_New_Image_fbeb547f-fc82-4976-82fb-f983c12a5d54.png",
+							"placeholderImageUrl": "https://web.archive.org/web/20230308005749/https://assets.simpleviewcms.com/simpleview/image/upload/v1/clients/batonrouge/VBR_New_Image_fbeb547f-fc82-4976-82fb-f983c12a5d54.png",
+							"markerIcon": "https://web.archive.org/web/20230308005749/https://assets.simpleviewinc.com/simpleview/image/upload/v1/clients/batonrouge-redesign/Asset_2_e469c68f-568b-4626-84c5-6e98a1f5e3d3.png",
+							"markerIconActive": "https://web.archive.org/web/20230308005749/https://assets.simpleviewinc.com/simpleview/image/upload/v1/clients/batonrouge-redesign/Asset_2_e469c68f-568b-4626-84c5-6e98a1f5e3d3.png"
+						}
+					},
+					"gtmId": "GTM-TVSFF5",
+					"timezone": "US/Central",
+					"latitude": 30.4582829,
+					"longitude": -91.1403196,
+					"maxRangeMiles": 100,
+					"distanceFormat": "mi",
+					"assetCdnHostname": "assets.simpleviewinc.com",
+					"urlNoSlash": "https://web.archive.org/web/20230308005749/https://batonrouge.simpleviewcms.com",
+					"url": "https://web.archive.org/web/20230308005749/https://batonrouge.simpleviewcms.com/",
+					"gmaps": {
+						"apiKey": "AIzaSyD3EPhVnITOwBCJvheltA88HcmyDhl-s1w"
+					},
+					"plugins": {
+						"translations": {
+							"active": true
+						},
+						"reporting": {
+							"active": true
+						},
+						"assets": {
+							"active": true
+						},
+						"ab_testing": {
+							"active": false
+						},
+						"addthis": {
+							"active": true
+						},
+						"asset_request": {
+							"active": true
+						},
+						"autoresponder": {
+							"active": false
+						},
+						"blog": {
+							"active": true
+						},
+						"cms": {
+							"active": false
+						},
+						"collections": {
+							"active": true
+						},
+						"common": {
+							"active": true
+						},
+						"core": {
+							"active": true
+						},
+						"crm": {
+							"active": true
+						},
+						"cron": {
+							"active": true
+						},
+						"developer": {
+							"active": true
+						},
+						"disqus": {
+							"active": false
+						},
+						"dtn": {
+							"active": true
+						},
+						"dynamic_content": {
+							"active": false
+						},
+						"events": {
+							"active": true
+						},
+						"googletranslate": {
+							"active": false
+						},
+						"listings": {
+							"active": true,
+							"dtn": {
+								"auid": "/21812118460/21812475614/VisitBatonRouge-2022Redesign-FL",
+								"limit": 10,
+								"sort": "random"
+							}
+						},
+						"maps": {
+							"active": true
+						},
+						"mediagallery": {
+							"active": true
+						},
+						"nav": {
+							"active": true
+						},
+						"offers": {
+							"active": true
+						},
+						"social": {
+							"active": false
+						},
+						"search": {
+							"active": true
+						},
+						"task": {
+							"active": false
+						},
+						"tripbuilder": {
+							"active": false
+						},
+						"visitors": {
+							"active": true
+						},
+						"weather": {
+							"active": false
+						}
+					}
+				},
+				"primary": {
+					"clientLong": "Visit Baton Rouge",
+					"address1": "359 Third Street",
+					"city": "Baton Rouge",
+					"state": "Louisiana",
+					"zip": "70801",
+					"phone": "225-383-1825",
+					"custom": {
+						"primary": {
+							"quickview": {
+								"active": true,
+								"modules": [
+									"listings",
+									"events",
+									"offers",
+									"pois"
+								]
+							},
+							"threshold360": {
+								"active": false,
+								"settings": {
+									"key": ""
+								}
+							},
+							"listings": {
+								"enablePaginationCountControl": false,
+								"paginationOptions": [
+									{
+										"label": "12",
+										"value": "12"
+									},
+									{
+										"label": "24",
+										"value": "24"
+									}
+								],
+								"paginationCountDefault": 12,
+								"socialFeeds": {
+									"active": false
+								}
+							},
+							"defaultImageUrl": "https://web.archive.org/web/20230308005749/https://assets.simpleviewcms.com/simpleview/image/upload/v1/clients/batonrouge/VBR_New_Image_fbeb547f-fc82-4976-82fb-f983c12a5d54.png",
+							"placeholderImageUrl": "https://web.archive.org/web/20230308005749/https://assets.simpleviewcms.com/simpleview/image/upload/v1/clients/batonrouge/VBR_New_Image_fbeb547f-fc82-4976-82fb-f983c12a5d54.png",
+							"markerIcon": "https://web.archive.org/web/20230308005749/https://assets.simpleviewinc.com/simpleview/image/upload/v1/clients/batonrouge-redesign/Asset_2_e469c68f-568b-4626-84c5-6e98a1f5e3d3.png",
+							"markerIconActive": "https://web.archive.org/web/20230308005749/https://assets.simpleviewinc.com/simpleview/image/upload/v1/clients/batonrouge-redesign/Asset_2_e469c68f-568b-4626-84c5-6e98a1f5e3d3.png"
+						}
+					},
+					"gtmId": "GTM-TVSFF5",
+					"timezone": "US/Central",
+					"latitude": 30.4582829,
+					"longitude": -91.1403196,
+					"maxRangeMiles": 100,
+					"distanceFormat": "mi",
+					"assetCdnHostname": "assets.simpleviewinc.com",
+					"urlNoSlash": "https://web.archive.org/web/20230308005749/https://www.visitbatonrouge.com",
+					"url": "https://web.archive.org/web/20230308005749/https://www.visitbatonrouge.com/",
+					"gmaps": {
+						"apiKey": "AIzaSyD3EPhVnITOwBCJvheltA88HcmyDhl-s1w"
+					},
+					"plugins": {
+						"translations": {
+							"active": true
+						},
+						"reporting": {
+							"active": true
+						},
+						"assets": {
+							"active": true
+						},
+						"ab_testing": {
+							"active": false
+						},
+						"addthis": {
+							"active": true
+						},
+						"asset_request": {
+							"active": true
+						},
+						"autoresponder": {
+							"active": false
+						},
+						"blog": {
+							"active": true
+						},
+						"cms": {
+							"active": false
+						},
+						"collections": {
+							"active": true
+						},
+						"common": {
+							"active": true
+						},
+						"core": {
+							"active": true
+						},
+						"crm": {
+							"active": true
+						},
+						"cron": {
+							"active": true
+						},
+						"developer": {
+							"active": true
+						},
+						"disqus": {
+							"active": false
+						},
+						"dtn": {
+							"active": true
+						},
+						"dynamic_content": {
+							"active": false
+						},
+						"events": {
+							"active": true
+						},
+						"googletranslate": {
+							"active": false
+						},
+						"listings": {
+							"active": true,
+							"dtn": {
+								"auid": "/21812118460/21812475614/VisitBatonRouge-2022Redesign-FL",
+								"limit": 10,
+								"sort": "random"
+							}
+						},
+						"maps": {
+							"active": true
+						},
+						"mediagallery": {
+							"active": true
+						},
+						"nav": {
+							"active": true
+						},
+						"offers": {
+							"active": true
+						},
+						"social": {
+							"active": false
+						},
+						"search": {
+							"active": true
+						},
+						"task": {
+							"active": false
+						},
+						"tripbuilder": {
+							"active": false
+						},
+						"visitors": {
+							"active": true
+						},
+						"weather": {
+							"active": false
+						}
+					}
+				}
+			},
+			"version": "71.0.3",
+			"revision": "19bfa427_c99739a6"
+		},
+		"plugins_listings": {
+			"svacctid": 904
+		},
+		"plugins_asset_request_virtual/main": {
+			"urls": {
+				"visitors": {
+					"account": "/my-account/",
+					"login": "/my-account/login/",
+					"register": "/my-account/register/",
+					"profile": "/my-account/profile/",
+					"forgotPassword": "/my-account/forgot-password/",
+					"resetPassword": "/my-account/reset-password/",
+					"updatePassword": "/my-account/update-password/",
+					"process_forgotPassword": "/includes/plugins/visitors/forgot_password/",
+					"process_resetPassword": "/includes/plugins/visitors/reset_password/",
+					"process_updatePassword": "/includes/plugins/visitors/update_password/",
+					"process_updateProfile": "/includes/plugins/visitors/update_profile/",
+					"process_login": "/includes/plugins/visitors/login/",
+					"process_logout": "/includes/plugins/visitors/logout/",
+					"process_logout_get": "/includes/plugins/visitors/logout/",
+					"process_facebookLogin": "/includes/plugins/visitors/facebook_login/",
+					"process_unsubscribe": "/includes/plugins/visitors/unsubscribe/"
+				},
+				"home": "/asset-request/",
+				"search": "/asset-request/search/",
+				"assetDetails": "/asset-request/detail/([^/]*?)/([^/]*?)/",
+				"checkout": "/asset-request/checkout/",
+				"thankYou": "/asset-request/thank-you/",
+				"getSearchCounts": "/includes/plugins/asset_request/search/counts/",
+				"download": "/includes/plugins/asset_request/download/",
+				"status": "/includes/plugins/asset_request/status/",
+				"process_cartAdd": "/includes/plugins/asset_request/cart/add/",
+				"process_cartRemove": "/includes/plugins/asset_request/cart/remove/",
+				"process_checkout": "/includes/plugins/asset_request/checkout/"
+			}
+		},
+		"site_gtm": {
+			"coreArgs": {
+				"addArgs": {
+					"tCore": {
+						"trackingId": "UA-82747010-2"
+					},
+					"tCore_pageview": {
+						"trackingId": "UA-82747010-2"
+					}
+				}
+			}
+		},
+		"plugins_visitors/main": {
+			"urls": {
+				"account": "/my-account/",
+				"login": "/my-account/login/",
+				"register": "/my-account/register/",
+				"profile": "/my-account/profile/",
+				"forgotPassword": "/my-account/forgot-password/",
+				"resetPassword": "/my-account/reset-password/",
+				"updatePassword": "/my-account/update-password/",
+				"process_forgotPassword": "/includes/plugins/visitors/forgot_password/",
+				"process_resetPassword": "/includes/plugins/visitors/reset_password/",
+				"process_updatePassword": "/includes/plugins/visitors/update_password/",
+				"process_updateProfile": "/includes/plugins/visitors/update_profile/",
+				"process_login": "/includes/plugins/visitors/login/",
+				"process_logout": "/includes/plugins/visitors/logout/",
+				"process_logout_get": "/includes/plugins/visitors/logout/",
+				"process_facebookLogin": "/includes/plugins/visitors/facebook_login/",
+				"process_unsubscribe": "/includes/plugins/visitors/unsubscribe/"
+			}
+		}
+	},
+	"waitSeconds": 30,
+	"map": {
+		"*": {
+			"mongolayer": "sv_devnull",
+			"@sv/asyncLib": "flowly",
+			"@sv/arrayLib": "sv_arrayLib",
+			"@sv/objectLib": "sv_objectLib",
+			"@sv/assertLib": "sv_assertLib",
+			"@sv/mochaLib": "sv_mochaLib",
+			"@sv/urlLib": "sv_urlLib",
+			"@sv/stringLib": "sv_stringLib",
+			"@sv/miscLib": "sv_miscLib",
+			"@sv/crmLib": "sv_crmLib",
+			"@sv/geodist": "geodist",
+			"@sv/validator": "jsvalidator",
+			"@simpleview/mochalib": "mochalib",
+			"sv_asyncLib": "flowly",
+			"crypto": "sv_devnull",
+			"cheerio": "jquery"
+		},
+		"cloudinary": {
+			"jquery.ui.widget": "sv_devnull",
+			"jquery.iframe-transport": "sv_devnull",
+			"jquery.fileupload": "sv_devnull"
+		},
+		"sv_crmLib": {
+			"../Synchronizer": "sv_devnull"
+		}
+	}
+})
+
+}
+/*
+     FILE ARCHIVED ON 00:57:49 Mar 08, 2023 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 00:41:34 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 243.665
+  exclusion.robots: 0.066
+  exclusion.robots.policy: 0.057
+  cdx.remote: 0.059
+  esindex: 0.011
+  LoadShardBlock: 216.319 (3)
+  PetaboxLoader3.datanode: 219.52 (4)
+  load_resource: 44.555
+  PetaboxLoader3.resolve: 35.148
+*/

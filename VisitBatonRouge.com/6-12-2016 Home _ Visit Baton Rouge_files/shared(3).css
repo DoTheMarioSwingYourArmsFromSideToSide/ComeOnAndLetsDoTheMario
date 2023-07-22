@@ -1,0 +1,67 @@
+#dtnContainer {
+	display: inline-block;
+	padding: 10px 0px;
+	width: 100%;
+}
+#dtnContainer .dtnad {overflow:hidden;text-align: center;}
+
+/* Text Ads */
+#dtnSpotlight {
+	display: block;
+	width: 100%;
+	max-width: 300px;
+	margin: 0 auto;
+}
+
+.spotlight-cont {
+	text-align: center;
+}
+.spotlight-cont .title {
+	background: #6ba2aa url("/web/20160624193648im_/http://www.visitbatonrouge.com/includes/public/assets/img/textures/repeating-blue-cardboard.png") top left repeat;
+	color: #fff;
+	font: normal 28px 'blenda_scriptregular';
+	padding: 20px 15px;
+	box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.3);
+	text-align: left;
+}
+.spotlight-cont .spotlight {
+	border-bottom: 1px solid #d8d8d8;
+}
+.mobile-banner {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	margin-top: 50px;
+	z-index: 1;
+}
+.mobile-banner #dtnContainer {
+	display: block;
+	padding: 0;
+}
+.mobile-banner .dtnad {
+	width: 320px;
+	margin: 0 auto;
+}
+.custom_header_interior .dtnad img {
+	width: 100%;
+}
+/*
+     FILE ARCHIVED ON 19:36:48 Jun 24, 2016 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:21:06 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 114.311
+  exclusion.robots: 0.071
+  exclusion.robots.policy: 0.061
+  RedisCDXSource: 0.668
+  esindex: 0.012
+  LoadShardBlock: 93.881 (3)
+  PetaboxLoader3.datanode: 72.255 (4)
+  load_resource: 83.813
+  PetaboxLoader3.resolve: 66.305
+*/

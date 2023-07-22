@@ -1,0 +1,355 @@
+.main-nav-wrapper {
+	border-right: 1px solid #890000;
+	background: #b70000;
+}
+.navPrimary {
+	font: 600 18px 'Source Sans Pro', sans-serif;
+	text-transform: uppercase;
+}
+.navPrimary > .item {
+	display: inline-block;
+	padding: 10px 0px 16px 0px;
+	margin: 0 12px;
+	position: relative;
+	height: 56px;
+}
+.navPrimary > .item:first-child {
+	margin-left: 0;
+}
+.navPrimary > .item > a {
+	color: #fff;
+}
+.navPrimary > .item .dropdown {
+	display: none;
+	position: absolute;
+	background: #b70000;
+	top: 56px;
+	min-width: 250px;
+	padding: 0px;
+}
+.navPrimary > .item:hover .dropdown { 
+	display: block;
+	z-index: 100;
+}
+.navPrimary > .item .dropdown .dropItem {
+	font: 600 14px 'Source Sans Pro', sans-serif;
+	padding: 15px;
+	border-bottom: 1px solid #890000;
+}
+.navPrimary > .item .dropdown .dropItem:first-child {
+	border-top: 1px solid #890000;
+}
+.navPrimary .dropItem a {
+	color: #fff;
+}
+
+ul.secondary-nav { 
+	font: 600 14px 'Source Sans Pro', sans-serif;
+	line-height: 30px;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+ul.secondary-nav li.secondary-nav-item {
+	display: inline-block;
+	margin: 0 12px;
+	padding: 6px 0 16px;
+}
+ul.secondary-nav li.secondary-nav-item a { 
+	color: #fff;
+	text-transform: uppercase;
+}
+nav.nav-side {
+	color: #6ba2aa;
+	line-height: 45px;
+	margin: 0 0 50px;
+}
+nav.nav-side .section-heading {
+	background: #6ba2aa url("/web/20160624193625im_/http://www.visitbatonrouge.com/includes/public/assets/img/textures/repeating-blue-cardboard.png") top left repeat;
+	color: #fff;
+	font: normal 28px 'blenda_scriptregular';
+	padding: 20px;
+	box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.3);
+}
+nav.nav-side ul.items,
+nav.nav-side ul.sub {
+	font: 600 16px 'Source Sans Pro', sans-serif;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+nav.nav-side ul.sub {
+	margin: 0 0 0 40px;
+	display: none;
+}
+nav.nav-side ul.items.open ul.sub {
+	display: block;
+}
+nav.nav-side li.side-item {
+	font: 600 18px 'Source Sans Pro', sans-serif;
+	padding: 15px;
+	border-bottom: 1px solid #c1c1c1;
+}
+nav.nav-side li.side-item a {
+	color: #6ba2aa;
+}
+nav.nav-side ul.sub li.side-item {
+	padding: 15px;
+	border: none;
+}
+nav.nav-side ul.items li a.selected,
+nav.nav-side ul.items li a:hover {
+	color: #e1a504;
+}
+.mobileNav {
+	position: relative;
+	z-index: 1;
+}
+.mobileNav .dl-menuwrapper {
+	position: relative;
+}
+.mobileNav .dl-menuwrapper ul {
+	background-color: #b70000;
+	margin: 0;
+	padding: 0;
+}
+.mobileNav .dl-menuwrapper .dl-trigger.menu-icon {
+	background: none;
+	padding: 3px 0;
+	margin: 0 0 0 10px;
+	overflow: visible;
+	text-indent: 0;
+	text-align: left;
+}
+.mobileNav .dl-menuwrapper .dl-trigger.menu-icon.dl-active {
+	background: transparent url('/web/20160624193625im_/http://www.visitbatonrouge.com/includes/public/assets/img/textures/texture-black2.png') repeat;
+	width: 300px;
+}
+.mobileNav .dl-menuwrapper .dl-trigger.menu-icon.dl-active > a {
+	margin-right: 20px;
+}
+.mobileNav .dl-menuwrapper .dl-trigger.menu-icon > a {
+	background: none;
+	border: 2px solid #fff;
+	border-radius: 50%;
+	height: 42px;
+	width: 42px;
+	margin: 0;
+	padding: 3px 0 0 0;
+	color: #fff;
+	display: inline-block;
+	text-align: center;
+	vertical-align: top;
+}
+.mobileNav .dl-menuwrapper .dl-trigger.menu-icon > a.menu-closed,
+.mobileNav .dl-menuwrapper .dl-trigger.menu-icon.dl-active > a.menu-open {
+	display: none;
+}
+.mobileNav .dl-menuwrapper .dl-trigger.menu-icon.dl-active > a.menu-closed {
+	display: inline-block;
+}
+.mobileNav .dl-menuwrapper .dl-menu {
+	top: 70px;
+	width: 320px;
+}
+.mobileNav .dl-menuwrapper button:after {
+	content: none;
+}
+.mobileNav .dl-menuwrapper li {
+	padding: 15px;
+	border-bottom: 1px solid #890000;
+	text-transform: uppercase;
+} 
+.mobileNav .dl-menuwrapper li a {
+	margin: 0;
+	padding: 0;
+	font: 600 18px 'Source Sans Pro', sans-serif;
+}
+.mobileNav .dl-menuwrapper li.secondary,
+.mobileNav .dl-menuwrapper li.secondary li {
+	border: none;
+}
+.mobileNav .dl-menuwrapper li.secondary a {
+	font: 600 14px 'Source Sans Pro', sans-serif;
+	line-height: 30px;
+}
+.mobileNav .dl-menuwrapper li.dl-back:after,
+.mobileNav .dl-menuwrapper li > a:not(:only-child):after {
+	line-height: 25px;
+}
+.mobileNav .dl-menuwrapper li.dl-back:after {
+	line-height: 50px;
+	color: #fff;
+}
+.mobileNav .dl-menuwrapper li.dl-back > a {
+	background: none;
+}
+/** animated menu icon **/
+.mobileNav .dl-menuwrapper button.dl-trigger a span::before, 
+.mobileNav .dl-menuwrapper button.dl-trigger a span::after,
+.mobileNav .dl-menuwrapper button.dl-trigger a span{
+	position: relative;
+  	display: inline-block;
+  	width: 25px;
+  	height: 3px;
+  	background-color: white;
+  	box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
+
+	-webkit-transition: background .2s .5s ease;
+	-moz-transition: background .2s .5s ease;
+	-ms-transition: background .2s .5s ease;
+	-o-transition: background .2s .5s ease;
+	transition: background .2s .5s ease;
+}
+.mobileNav .dl-menuwrapper button.dl-trigger a span::before, 
+.mobileNav .dl-menuwrapper button.dl-trigger a span::after {
+  	content: '';
+  	position: absolute;
+  	left: 0;
+	
+	-webkit-transition: top .2s .5s ease, -webkit-transform .2s ease;
+	-moz-transition: top .2s .5s ease, -moz-transform .2s ease;
+	-ms-transition: top .2s .5s ease, -ms-transform .2s ease;
+	-o-transition: top .2s .5s ease, -o-transform .2s ease;
+	transition: top .2s .5s ease, transform .2s ease;
+}
+.mobileNav .dl-menuwrapper button.dl-trigger a span::before{ top: 7px; }
+.mobileNav .dl-menuwrapper button.dl-trigger a span::after { top: -7px; }
+
+/** expanded - close icon **/
+.mobileNav .dl-menuwrapper button.dl-active a span{   
+  	background: transparent; 
+  	box-shadow: none;
+}
+.mobileNav .dl-menuwrapper button.dl-active a span::before,
+.mobileNav .dl-menuwrapper button.dl-active a span::after{
+	top: 0;
+
+	transition: top 0.2s ease, -webkit-transform 0.2s 0.5s ease;
+  	transition: top 0.2s ease, transform 0.2s 0.5s ease;
+}
+.mobileNav .dl-menuwrapper button.dl-active a span::before {
+  	-ms-transform: rotate(45deg); /* IE 9 */
+    -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+    transform: rotate(45deg);
+}
+.mobileNav .dl-menuwrapper button.dl-active a span::after {
+	-ms-transform: rotate(-45deg); /* IE 9 */
+    -webkit-transform: rotate(-45deg); /* Chrome, Safari, Opera */
+    transform: rotate(-45deg);
+}
+/** END -- animated menu icon **/
+
+.footer_nav {
+	text-transform: uppercase;
+	margin: 25px 15px;
+	text-align: left;
+}
+.footer_nav ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.footer_nav ul li {
+	font: 600 15px 'Source Sans Pro';
+	display: inline-block;
+}
+.footer_nav ul li a {
+	color: #b70000;
+}
+.footer_nav ul li .sep {
+	color: #231f20;
+	padding: 0 15px;
+	display: inline-block;
+}
+@media (max-width: 64em) {
+	.footer_nav {
+		margin: 25px auto;
+		text-align: center;
+	}
+}
+@media (max-width: 40em) {
+	.footer_nav {
+		margin: 25px auto;
+	}
+	.footer_nav ul li {
+		display: block;
+		margin-bottom: 10px;
+	}
+}
+.social-label {
+	font-family: 'blenda_scriptregular';
+    font-size: 23px;
+    color: #fff;
+    display: inline-block;
+    margin-right: 10px;
+}
+.social-nav {
+	color: #fff;
+	list-style: none;
+	margin: 0;
+	display: inline-block;
+	vertical-align: middle;
+}
+.social-nav li.nav-item {
+	font-size: 15px;
+	display: inline-block;
+	margin: 0 3px;
+}
+.social-nav li.nav-item a {
+	color: #fff;
+	display: table-cell;
+	background-color: #ea202f;
+	border-radius: 50%;
+	height: 32px;
+	width: 32px;
+	text-align: center;
+	vertical-align: middle;
+}
+.sitemap {
+}
+.sitemap ul li a {
+	color: #6ba2aa;
+}
+.sitemap ul li a:hover {
+	color: #e1a504;
+}
+.sitemap .multicol {
+    -webkit-column-count: 3; /* Chrome, Safari, Opera */
+    -moz-column-count: 3; /* Firefox */
+    column-count: 3;   
+}
+@media (max-width: 64em) {
+    .sitemap .multicol {
+        -webkit-column-count: 2; /* Chrome, Safari, Opera */
+        -moz-column-count: 2; /* Firefox */
+        column-count: 2;
+    }
+}
+@media (max-width: 40em) {
+    .sitemap .multicol {
+        -webkit-column-count: 1; /* Chrome, Safari, Opera */
+        -moz-column-count: 1; /* Firefox */
+        column-count: 1;
+    }
+}
+/*
+     FILE ARCHIVED ON 19:36:25 Jun 24, 2016 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 00:40:55 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 85.442
+  exclusion.robots: 0.08
+  exclusion.robots.policy: 0.069
+  RedisCDXSource: 8.569
+  esindex: 0.01
+  LoadShardBlock: 54.787 (3)
+  PetaboxLoader3.datanode: 92.173 (4)
+  load_resource: 91.272
+  PetaboxLoader3.resolve: 37.166
+*/

@@ -1,0 +1,103 @@
+/*
+	README
+
+	This file should only be used to style structure of the widget. It should not
+	contain fonts or theme styling. Use the shared_theme.css for that purpose.
+
+	If simply theming the CCL, leave this file alone.
+
+	If your design is very customized, edit this file as needed. 
+*/
+
+.core-mosaic  {
+	position: relative;
+}
+
+.core-mosaic .shared-play-button {
+	z-index: 3;
+}
+
+.core-mosaic .mosaic-tiles-wrapper {
+	display: grid;
+	grid-auto-flow: dense;
+	align-items: start;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr;
+	gap: 5px;
+	padding: 0 15px;
+}
+
+.core-mosaic .mosaic-tile {
+	position: relative;
+	overflow: hidden;
+}
+
+.core-mosaic .mosaic-tile .tile-img,
+.core-mosaic .mosaic-tile .mosaic-tile-link {
+	position: relative;
+	z-index: 1;
+	display: block;
+	width: 100%;
+} 
+
+.core-mosaic .mosaic-tile .tile-img {
+	object-fit: cover;
+}
+
+.core-mosaic .mosaic-tile .tile-title {
+	transition: color 0.25s ease;
+}
+
+.core-mosaic .mosaic-tile .mosaic-tile-inner {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+}
+
+.core-mosaic .mosaic-tile .credits {
+	bottom: initial;
+	top: 0;
+}
+
+.core-mosaic .mosaic-tile .credits.video {
+	right: unset;
+	left: 0;
+}
+
+@media (min-width: 40em) {
+	.core-mosaic .mosaic-tile {
+		overflow: hidden;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+}
+
+@media (min-width: 90em) {
+	.core-mosaic .shared-play-button {
+		right: unset;
+		transform: translate(-50%, -50%);
+		left: 50%;
+		top: 50%;
+	}
+}
+/*
+     FILE ARCHIVED ON 00:57:49 Mar 08, 2023 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 00:41:49 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 67.172
+  exclusion.robots: 0.213
+  exclusion.robots.policy: 0.191
+  cdx.remote: 0.136
+  esindex: 0.018
+  LoadShardBlock: 35.012 (3)
+  PetaboxLoader3.datanode: 50.407 (4)
+  load_resource: 48.496
+  PetaboxLoader3.resolve: 29.004
+*/

@@ -1,0 +1,166 @@
+/*
+	This file will be included in header in every page after reboot.
+	It should be used for content that relates
+	to your site as a whole, it should not be used for
+	plugin-specific css
+*/
+
+@media print {
+	
+	@page { 
+		size: letter landscape;
+		margin: 0.5cm; 
+	}
+	
+	header,
+	footer,
+	.panel-header,
+	.panel-footer,
+	.top-bar, 
+	#sv_adminBar, 
+	.homepage-slideshow,
+	.interior-slideshow,
+	.featured-footer:before,
+	.custom_imagebox,
+	.play-btn,
+	.social-links,
+	.rssLink,
+	.searchToolsContainer,
+	.sharedPagerContainer,
+	.shared-filter,
+	.listing-detail .detailPanes .tabs,
+	.columns .panel_tabs .tabs
+	.listing-detail #tab-social,
+	.mapTabs,
+	.showGMap,
+	.couponDetailContainer .topButtons,
+	.gMapContainer,
+	.search_results .resultForm,
+	.search_results .search_results_filters,
+	.search_results .search_results_above,
+	.search_results .search_results_pagination,
+	.widget_left_container iframe,
+	.widget_right_container iframe,
+	.blogContainer .blogSearchForm,
+	.blogContainer .pagingButtons,
+	.blogContainer .postActions,
+	.blogContainer .downloadDocument,
+	.blogContainer .postComments,
+	.nearby,
+	.showMoreContainer,
+	.loadmore,
+	.contentRender_name_plugins_nav_side,
+	.custom_header_slideshow_homepage,
+	.custom_header_slideshow_interior,
+	.layoutjs .settings,
+	.layoutjs .content .item .image,
+	.layoutjs .content .item i,
+	.layoutjs .pager-section,
+	.shared-detail .detail-top .bg-img-cont,
+	.shared-detail .detail-top .detail-gallery,
+	.shared-detail .bottom-actions,
+	.shared-detail .share-buttons,
+	.shared-detail i,
+	.shared-detail #drawer_mapTab,
+	.shared-detail #mapTab,
+	.shared-detail .detail-drawers .subtab.tab-buttons,
+	.shared-detail .detail-info-bar .split-pane.custom,
+	.shared-detail .detail-drawers .subtab button,
+	.shared-detail #drawer_yelpTab,
+	.shared-detail #yelpTab,
+	.shared-detail .split-pane.secondary,
+	.layoutjs .content .item .bottom-actions,
+	.ccl-widget,
+	.contentRender_name_plugins_common_hero_video,
+	.panel-intro .pelican-cont,
+	.panel-intro .texture-cont,
+	.panel-intro .cta-cont,
+	[id^=sv_adminBar],
+	[data-sv-addthis],
+	.no-print {display: none!important;}
+
+	/* remove url's from printing in chrome */
+	a, a:visited {
+		text-decoration: none !important;
+	}
+	a[href]:after {
+		content: "" !important;
+	}
+	
+	/* In order for page-break-inside: avoid!important; to work, both parent and child element must be position: relative; */
+	section, .content, img {
+		display: block !important;
+		page-break-inside: avoid;
+	}
+
+	.layoutjs .content .item {
+		border: none !important;
+	}
+
+	.shared-detail .detail-top .action-item,
+	.shared-detail .detail-top dl,
+	.shared-detail .detail-top dt,
+	.shared-detail .detail-top dd,
+	.shared-detail .detail-top h1 {
+		color: var(--gray-dark) !important;
+	}
+
+	.shared-detail .detail-drawers .drawer-button,
+	.shared-detail .detail-drawers .amenities .subtab.content ul.amen-subtab > li {
+		background: transparent !important;
+	}
+
+	.shared-detail .detail-top .info-section {
+		padding: 22px 0 !important;
+	}
+
+	.shared-detail .detail-info-bar {
+		padding-top: 0 !important;
+	}
+
+	.shared-detail .detail-drawers .meeting-facilities .subtab {
+		display: block !important;
+	}
+
+	.mini-date-container,
+	.mini-date-section {
+		position: static !important;
+	}
+
+	.layoutjs .content .item .info-list > li,
+	.layoutjs .content .item .info,
+	.layoutjs .content .item,
+	.layoutjs .layout-container .content-map-wrapper {
+		display: block !important;
+	}
+
+	.panel-intro {
+		margin-left: 0 !important;
+	}
+
+	.panel-intro .contentRender_name_plugins_core_textbox h4,
+	.panel-intro .contentRender_name_plugins_core_textbox a {
+		color: var(--gray-dark) !important;
+	}
+
+}
+/*
+     FILE ARCHIVED ON 00:57:49 Mar 08, 2023 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 00:41:49 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 78.322
+  exclusion.robots: 0.077
+  exclusion.robots.policy: 0.068
+  RedisCDXSource: 11.473
+  esindex: 0.009
+  LoadShardBlock: 42.059 (3)
+  PetaboxLoader3.datanode: 52.267 (4)
+  load_resource: 99.96
+  PetaboxLoader3.resolve: 84.336
+*/

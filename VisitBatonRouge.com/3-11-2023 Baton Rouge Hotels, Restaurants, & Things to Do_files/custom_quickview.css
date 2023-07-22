@@ -1,0 +1,700 @@
+button[data-quickview-button] { pointer-events: all !important; }
+
+.quickview-detail {
+	--font-family-display: var(--font-display);
+	--font-family-body: var(--font-body);
+	--control-bar-bg-color: var(--gray-100);
+	--background-color: var(--gray-100);
+	--text-color: var(--gray-900);
+	--quickview-icon-color: var(--gray-800);
+	--control-btn-color: var(--gray-900);
+	--control-btn-hover-bg: var(--gray-200);
+	--tripbuilder-bg-color: var(--gray-900);
+	--action-item: var(--gray-100);
+	--action-item-bg: var(--primary-color-800);
+	--social-icon-border: var(--gray-400);
+	--top-info-bg: var(--gray-200);
+	--meetingfacility-list: var(--gray-700);
+	--reviews-snippet-border: var(--gray-300);
+	--mini-date-container-bg: var(--primary-color-800);
+	--mini-date-container-text: var(--gray-100);
+	--info-list-icon: var(--primary-color-700);
+	--default-btn-color: #ffffff;
+	--default-btn-bg: var(--primary-color-700);
+	--default-btn-bg-alt: var(--primary-color-800);
+
+	position: fixed;
+	z-index: 2000;
+	top: 0;
+	left: 0;
+	display: flex;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0);
+	transition: background-color 200ms cubic-bezier(0,0,0.3,1);
+	pointer-events: none;
+}
+
+.quickview-detail.open {
+	background-color: rgba(0,0,0,0.2);
+	pointer-events: all;
+}
+
+.quickview-detail .outside-click-intercept { flex: 1; }
+
+.quickview-detail > .inner {
+	width: 100%;
+	max-width: var(--width-compact);
+	display: flex;
+	flex-direction: column;
+	box-shadow: var(--shadow-2xl);
+	background-color: var(--background-color);
+}
+
+@media (min-width: 64em) {
+	.quickview-detail > .inner {
+		max-width: var(--width-comfortable);
+	}	
+}
+
+.quickview-detail .slide-enter-active,
+.quickview-detail .slide-leave-active {
+	transition: transform 200ms cubic-bezier(0,0,0.3,1);
+}
+
+.quickview-detail .slide-enter-to,
+.quickview-detail .slide-leave {
+	transform: none;
+}
+
+.quickview-detail .slide-enter,
+.quickview-detail .slide-leave-to {
+	transform: translateX(110%);
+}
+
+.quickview-detail .control-bar {
+	position: relative;
+	z-index: 1;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: var(--space-3) var(--space-1);
+	padding-left: var(--space-6);
+	box-shadow: var(--shadow);
+	background-color: var(--control-bar-bg-color);
+}
+
+.quickview-detail .control-bar span {
+	font-family: var(--font-display);
+	text-transform:  uppercase;font-size: 20px;
+	color: var(--gray-dark);font-weight: 700;
+	line-height: var(--leading-none);
+}
+
+.quickview-detail .control-bar .quickview-icon {
+	color: var(--quickview-icon-color);
+}
+
+.quickview-detail .controls {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 72px;
+}
+
+.quickview-detail .control-btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0;
+	padding: 0;
+	width: 30px;
+	height: 30px;
+	color: var(--control-btn-color);
+	border-radius: 50%;
+	background-color: transparent;
+	transition: background-color 120ms cubic-bezier(0,0,0.3,1);
+}
+
+.quickview-detail .control-btn:hover {
+	background-color: var(--control-btn-hover-bg);
+}
+
+.quickview-detail.pois .control-btn.fullscreen {
+	display: none;
+}
+
+.quickview-detail .inner > .content {
+	padding-bottom: var(--space-8);
+	height: 100%;
+	overscroll-behavior: contain;
+	-webkit-overflow-scrolling: touch;
+	overflow-y: scroll;
+}
+.quickview-detail.loaded .inner > .content {
+	overflow-y: auto;
+}
+
+.quickview-detail .content > *:not(.image) {
+	padding: 0 var(--space-6);
+}
+
+.quickview-detail .content > *:last-child {
+	padding-bottom: var(--space-8);
+}
+
+.quickview-detail .content .image {
+	position: relative;
+	padding-top: 96px;
+	padding-bottom: 31px;
+	display: flex;
+	flex-direction: column;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	overflow-x: hidden;
+	overflow-y: visible;
+}
+
+.quickview-detail .content .image:before {
+	content: '';
+	background-image: url(/web/20230308005750im_/https://www.visitbatonrouge.com/includes/public/assets/shared/hero-shape-texture-fade.svg);
+	position: absolute;
+	left: 44%;
+	bottom: 17px;
+	transform: translateY(20%);
+	z-index: 3;
+	min-width: 600px;
+	width: 50%;
+	aspect-ratio: 300 / 8; 
+	background-repeat: no-repeat;
+	background-position: 50%;
+	background-size: cover;
+}
+
+.quickview-detail .content .image:after {
+	content: '';
+	background-image: url(/web/20230308005750im_/https://www.visitbatonrouge.com/includes/public/assets/shared/hero-shape-rough-edge.svg);
+	position: absolute;
+	left: -2%;
+	bottom: 0;
+	width: 104%;
+	height: 20px;
+	background-repeat: repeat-x;
+	background-size: cover;
+	z-index: 2;
+}
+
+.quickview-detail .content .image a {
+	position: relative;
+	flex: 1 1 50%;
+	padding: 0px 24px 6px 21px;
+	z-index: 2;
+}
+
+.quickview-detail .content .bg-img-cont {
+	height: calc(100% - 5px);
+	width:  100%;
+	position:  absolute;
+	left: 0;
+	top: 0;
+	pointer-events: none;
+}
+
+.quickview-detail .content .bg-img-cont:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 260px;
+	background-image: linear-gradient(to bottom, rgba(0,0,0,.8), rgba(0,0,0,0));
+	
+}
+
+.quickview-detail .content .bg-img-cont:before {
+	content: '';
+	background-color: rgba(0,0,0,.65);
+	position: absolute;
+	left: 0;
+	top: 0;
+	pointer-events: none;
+	height: 100%;
+	width: 100%;
+	z-index: 2;
+}
+
+.quickview-detail .content .bg-img-cont img {
+	object-fit: cover;
+	height: 100%;
+}
+
+.quickview-detail .content .image > a {
+	position: relative;
+	display: block;
+}
+
+.quickview-detail .content .image .thumb {
+	display: block;
+	width: 100%;
+	border-radius: 3px;
+	border: 3px solid var(--white);
+	box-shadow: 6px 6px var(--beige);
+}
+
+.quickview-detail .tripbuilder {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.quickview-detail .tripbuilder a {
+	position: relative;
+	display: block;
+	width: 32px;
+	font-family: 'Font Awesome 5 Free';
+	font-size: var(--text-2xl);
+}
+
+@media (hover: hover) {
+	.quickview-detail .tripbuilder a:hover { 
+		text-decoration: none; /*reboot.css override*/
+	}
+}
+
+.quickview-detail .tripbuilder .addTrip:before {
+	content: "\f004";
+	width: 100%;
+	font-weight: 900;
+	color: var(--tripbuilder-bg-color);
+	opacity: 0.5;
+}
+
+/* FontAwesome Heart outline */
+.quickview-detail .tripbuilder .addTrip:after{
+	content: "\f004";
+	position: absolute;
+	right: 0;
+	width: 100%;
+	font-weight: 400;
+	color: var(--background-color);
+}
+
+.quickview-detail .tripbuilder .removeTrip:before{
+	content: "\f004";
+	width: 100%;
+	font-weight: 900;
+	color: var(--tertiary-color-500)
+}
+
+.quickview-detail .content .title-cont {
+	flex: 1 1 50%;
+	padding: 17px 20px 20px 20px;
+}
+
+.quickview-detail .content .title-cont .title {
+	font-family: var(--font-family-display);
+	font-size: 32px;
+	font-weight: 600;
+	line-height: calc(40/32);
+	color: var(--white);
+	position:  relative;
+	padding: 0;
+}
+
+.quickview-detail .content .title-cont h1 {
+	margin-bottom: 10px;
+}
+
+
+.quickview-detail .tripadvisor-snippet .reviews-rating-line .review-img {
+	margin-left: -10px;
+}
+
+.quickview-detail .content .social {
+	margin: 0;
+	margin-bottom: var(--space-4);
+	list-style: none;
+}
+
+.quickview-detail .content .social {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.quickview-detail .content .social li a {
+	margin: var(--space-2);
+	width: 32px;
+	height: 32px;
+	font-size: 16px;
+	display: inline-grid;
+	outline: 2px solid var(--gray-dark);
+	place-items: center;
+	border-radius:  50%;
+	color: var(--gray-dark);
+}
+
+@supports (display: grid) {
+	.quickview-detail .content .social {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, 40px);
+		gap: var(--space-3);
+	}
+
+	.quickview-detail .content .social li {
+		margin: 0;
+	}
+}
+
+.quickview-detail .content .social li a:hover {
+	background-color: var(--background-color);
+}
+
+@media (hover: hover) {
+	.quickview-detail .content .social li a:hover {
+		background-color: var(--background-color);
+		text-decoration: none; /*reboot.css override*/
+	}
+}
+
+.quickview-detail .content .info {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	flex: 1;
+	padding: 0;
+}
+
+.quickview-detail .content .info > * {
+	padding: var(--space-5);
+}
+
+.quickview-detail .content .top-info {
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+.quickview-detail .content .info h4,
+.quickview-detail .content .info h4 a { 
+	font-size: var(--font-family-display);
+	font-size: var(--text-xl);
+	font-weight: 700;
+	line-height: var(--leading-tight);
+	color: var(--text-color);
+	margin-bottom: var(--space-3);
+}
+
+.quickview-detail .content .meta,
+.quickview-detail .content .info-list {
+	font-family: var(--font-family-body);
+	font-size: var(--text-base);
+	font-weight: 400;
+	line-height: var(--leading-snug);
+	list-style: none;
+	margin: 0;
+	color: var(--text-color);
+}
+
+.quickview-detail .content .meta,
+.quickview-detail .content .info-list > li {
+	display: flex;
+	align-items: baseline;
+	line-height: var(--leading-tight);
+	margin-bottom: var(--spacin-3);
+}
+
+.quickview-detail .content .info-list > li + li {
+	margin-top: var(--space-2);
+}
+
+.quickview-detail .content .meta > *:not(i),
+.quickview-detail .content .info-list > li > *:not(i) {
+	flex: 1;
+}
+
+.quickview-detail .content .meta > img,
+.quickview-detail .content .meta > i,
+.quickview-detail .content .info-list > li > i {
+	display: block;
+	color: var(--info-list-icon);
+	margin-right: var(--space-5);
+	min-width: 22px;
+	width: 22px;
+	max-width: 22px;
+	text-align: center;
+}
+
+.quickview-detail .content .meta.threshold360 > img {
+	position: relative;
+	top: var(--space-1);
+}
+
+.quickview-detail .content .meta-title {
+	margin-bottom: var(--space-4);
+	font-weight: 700;
+	font-size: var(--text-base);
+	text-transform: uppercase;
+}
+
+.quickview-detail .content .meetingfacility-list .info-list {
+	display: grid;
+	gap: var(--space-1) var(--space-16);
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.quickview-detail .content .meetingfacility-list li {
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+	gap: var(--space-5);
+	color: var(--meetingfacility-list);
+	margin-bottom: 0;
+}
+
+.quickview-detail .content .meetingfacility-list li span {
+	font-weight: 700;
+}
+
+.quickview-detail .content .meetingfacility-list .number {
+	text-align: right;
+}
+
+.quickview-detail .actions {
+	display: flex;
+	align-items: center;
+}
+
+.quickview-detail .actions > * {
+	margin-bottom: var(--space-4);
+	margin-right: var(--space-4);
+}
+
+.quickview-detail .action-item {
+	font-family: var(--font-family-body);
+	font-size: 17px;
+	font-weight: var(--font-weight-bold);
+	line-height: var(--leading-tight);
+	color: var(--white);
+	margin: 0;
+	text-transform:  lowercase;
+}
+
+.quickview-detail .content .image .actions a {
+	flex: unset;
+	padding: 0;
+}
+
+.quickview-detail .actions i {
+	color: var(--red);
+	margin-left: 4px;
+	z-index: 2;
+	margin-bottom: 0;
+}
+
+@media (hover: hover) {
+	.quickview-detail .action-item {
+		text-decoration: none; /*reboot.css override*/
+	}
+}
+
+.quickview-detail .yelp-snippet {
+	position: relative;
+	border-radius: 8px;
+	padding: var(--space-2) var(--space-3);
+	margin-top: var(--space-3);
+	margin-bottom: var(--space-3);
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: space-between;
+	align-items: center;
+	max-width: 320px;
+}
+
+.quickview-detail .yelp-snippet:hover {
+	background-color: var(--background-color);
+}
+
+.quickview-detail .yelp-snippet .yelp-top {
+	display: flex;
+	align-items: center;
+	white-space: nowrap;
+	flex: 0 1 130px;
+}
+
+.quickview-detail .yelp-snippet .yelp-top a {
+	display: inline-block;
+	margin-left: var(--space-1);
+	width: 70px;
+}
+
+.quickview-detail .yelp-snippet .yelp-top a::before {
+	content: "";
+	position: absolute;
+	z-index: 10;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+}
+
+.quickview-detail .yelp-snippet .yelp-bottom {
+	font-size: var(--text-sm);
+}
+
+.quickview-detail .yelp-snippet .yelp-price {
+	font-weight: 700;
+}
+
+.quickview-detail .tripadvisor-snippet {
+	position: relative;
+	border-radius: var(--rounded-lg);
+	padding: var(--space-2) var(--space-3);
+	margin-top: var(--space-3);
+	margin-bottom: var(--space-3);
+	max-width: 320px;
+}
+
+.quickview-detail .content .tripadvisor-snippet h4 {
+	margin: 0;
+	font-size: var(--text-xs);
+	font-weight: 400;
+}
+
+.quickview-detail .content .tripadvisor-snippet h4.ranking-string {
+	font-weight: 700;
+}
+
+.quickview-detail .img-cont {
+	position: relative;
+}
+
+.quickview-detail img {
+	position: relative;
+	z-index: 1;
+	max-width: 100%;
+}
+
+.quickview-detail .content .image .mini-date-container {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--mini-date-container-bg);
+	color: var(--mini-date-container-text);
+	padding: var(--space-1) var(--space-4);
+	pointer-events: none;
+}
+
+.quickview-detail .content .image .mini-date-container .month {
+	font-family: var(--font-family-body);
+	font-size: var(--text-base);
+	font-weight: 700;
+	line-height: var(--leading-none);
+	text-transform: uppercase;
+}
+
+.quickview-detail .content .image .mini-date-container .day {
+	font-family: var(--font-family-body);
+	font-size: var(--text-3xl);
+	font-weight: 700;
+	line-height: var(--leading-none);
+}
+
+.quickview-detail .content .slider-section {
+	padding: 0;
+}
+.quickview-detail .slider-section .button-default {
+	font-family: var(--font-family-body);
+	font-size: var(--text-sm);
+	font-weight: 400;
+	line-height: var(--leading-tight);
+	padding: var(--space-2) var(--space-3);
+	background-color: var(--default-btn-bg);
+	color: var(--default-btn-color);
+	border-radius: var(--rounded-full);
+	display: inline-block;
+	margin: 0 0 var(--space-4);
+}
+.quickview-detail .slider-section .button-default:hover {
+	background-color: var(--default-btn-bg-alt);
+}
+
+.quickview-detail .slider-section .content {
+	padding: var(--space-3) 0;
+}
+.quickview-detail .slider-section .content > div {
+	padding: 0;
+}
+.quickview-detail .slider-section .content .title {
+	font-size: var(--text-base);
+}
+.quickview-detail .slider-section .content .description {
+	margin: 0 0 var(--space-3);
+	font-size: var(--text-sm);
+}
+.quickview-detail .slider-section .head {
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 1px solid var(--gray-300);
+	margin: 0 0 var(--space-4);
+	padding: 0 var(--space-6);
+	align-items: center;
+}
+.quickview-detail .slider-section .head > div:first-of-type {
+	flex: 1;
+}
+
+.quickview-detail .slider-section .glide__arrows {
+	position: absolute;
+	top: 70px;
+	width: 100%;
+	z-index: 1;
+	display: flex;
+	justify-content: space-between;
+	padding: 0 var(--space-5);
+}
+.quickview-detail .slider-section .glide__arrow {
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	box-shadow: var(--shadow), var(--shadow-sm);
+}
+
+@media (min-width: 400px) {
+	.quickview-detail .slider-section .glide__arrows {
+		top: 100px;
+	}
+}
+
+.quickview-detail .lightbox-toggle {
+	inset: 0;
+	z-index: 2;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/*
+     FILE ARCHIVED ON 00:57:50 Mar 08, 2023 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 00:41:50 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 108.676
+  exclusion.robots: 0.066
+  exclusion.robots.policy: 0.056
+  cdx.remote: 0.053
+  esindex: 0.009
+  LoadShardBlock: 54.948 (3)
+  PetaboxLoader3.datanode: 84.465 (4)
+  load_resource: 71.235
+  PetaboxLoader3.resolve: 32.806
+*/

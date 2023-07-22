@@ -1,0 +1,191 @@
+.search-box-wrapper {
+    max-width: 200px;
+    display: inline-block;
+    vertical-align: top;
+    padding: 4px 0;
+    text-align: right;
+    overflow: auto;
+}
+.search_widget_headerbox form input[type=search] {
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    float: left;
+    width: 160px;
+    height: 33px;
+    font: normal 15px 'AvantGardeGothicITCW01D_731075';
+    margin: 0;
+    padding: 0 10px;
+}
+.search_widget_headerbox button {
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    width: 35px;
+    height: 33px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+@media (max-width: 64em) {
+    .search-box-wrapper {
+        float: right;
+        padding: 0;
+        max-width: 260px;
+        padding-top: 3px;
+    }
+    .search_widget_headerbox.active {
+        width: 260px;
+        overflow: auto;
+    }
+    .search_widget_headerbox form {
+        display: none;
+    }
+    .search_widget_headerbox.active form {
+        display: block;
+        overflow: auto;
+        float: left;
+        margin-right: 10px;
+        margin-top: 4px;
+    }
+    .search_widget_headerbox .mobile-search-trigger {
+        display: block;
+        float: right;
+    }
+    .search_widget_headerbox .mobile-search-trigger button {
+        border-radius: 50%;
+        height: 42px;
+        width: 42px;
+        margin-right: 10px;
+    }
+    .search_widget_headerbox .mobile-search-trigger button.search-open {
+        display: none;
+    }
+    .search_widget_headerbox.active .mobile-search-trigger button.search-open {
+        display: inline-block;
+    }
+    .search_widget_headerbox.active .mobile-search-trigger button.search-closed {
+        display: none;
+    }
+}
+
+.search_results {
+    margin-bottom: 50px;
+}
+
+.search_results .searchBox {
+    overflow: auto;
+}
+.search_results .searchBox input {
+    max-width: 90%;
+    float: left;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+.search_results .searchBox .searchCustom {
+    float: right;
+    height: 37px;
+    width: 10%;
+    background-color: #e1a504;
+    text-align: center;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+.search_results .searchBox .searchCustom .fa {
+    vertical-align: middle;
+    line-height: 35px;
+}
+
+.search_results_items .search_results_above {
+    float: left;
+    width: 100%;
+}
+.search_results_items .search_results_above h4 {
+    float: left;
+    margin: 2px 30px 0 0;
+}
+
+.search_results_items .search_results_pagination {
+    padding: 5px;
+    margin: 2px 0;
+    float: right;
+
+}
+.search_results_items .search_results_pagination a span {
+    border-radius: 50%;
+    background-color: #6ba2aa;
+    color: #fff;
+    height: 34px;
+    width: 34px;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 30px;
+}
+.search_results_items .search_results_pagination a span.fa-caret-left {
+    padding: 0 8px 0 5px;
+}
+
+.search_results_items .search_results_notfound {
+    margin: 10px 0;
+}
+
+.search_results_items .search_results_filters {
+    background: #f7f7f7;
+    border: 1px solid #c3c3c3;
+    padding: 10px;
+    margin: 10px 0;
+    font-family: 'Source Sans Pro';
+}
+.search_results_items .search_results_filters .search_results_facets {
+    margin-top: 10px;
+}
+.search_results_items .search_results_filters .search_results_facets a {
+    display: inline-block;
+}
+.search_results_items .search_results_filters .removeFilter {
+}
+
+.search_results_items .search_result_item {
+    padding: 25px 0;
+    margin: 25px 0;
+    border-bottom: 1px solid #d2ded7;
+}
+.search_results_items .search_result_item_top {
+}
+.search_results_items .search_result_item em {
+    font-weight: bold;
+}
+.search_results_items .search_result_item h4 {
+}
+.search_results_items .search_result_item h4 a {
+    color: #222222;
+}
+.search_results_items .search_result_item_bottom {
+    font: 400 16px 'Source Sans Pro', sans-serif;
+}
+.search_results_items .search_result_item .search_result_item_bottom .search_anchor {
+    color: #6ba2aa;
+}
+.search_results_items .search_result_item .search_result_item_bottom p {
+
+}
+
+/*
+     FILE ARCHIVED ON 19:37:23 Jun 24, 2016 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:21:06 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 80.958
+  exclusion.robots: 0.065
+  exclusion.robots.policy: 0.057
+  cdx.remote: 0.055
+  esindex: 0.008
+  LoadShardBlock: 38.362 (3)
+  PetaboxLoader3.datanode: 45.166 (4)
+  load_resource: 477.513
+  PetaboxLoader3.resolve: 67.329
+*/

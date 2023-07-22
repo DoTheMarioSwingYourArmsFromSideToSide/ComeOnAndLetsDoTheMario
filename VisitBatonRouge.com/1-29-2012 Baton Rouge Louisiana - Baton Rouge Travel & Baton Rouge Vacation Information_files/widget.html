@@ -1,0 +1,894 @@
+
+<!-- saved from url=(0107)https://web.archive.org/web/20120714013741if_/http://www.visitbatonrouge.com/widgets/accordion/widget.cfm?t -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript" src="./bundle-playback.js.download" charset="utf-8"></script>
+<script type="text/javascript" src="./wombat.js.download" charset="utf-8"></script>
+<script type="text/javascript">
+  __wm.init("https://web.archive.org/web");
+  __wm.wombat("http://www.visitbatonrouge.com/widgets/accordion/widget.cfm?t","20120714013741","https://web.archive.org/","web","/_static/",
+	      "1342229861");
+</script>
+<link rel="stylesheet" type="text/css" href="./banner-styles.css">
+<link rel="stylesheet" type="text/css" href="./iconochive.css">
+<!-- End Wayback Rewrite JS Include -->
+<script type="text/javascript" src="./cfform.js.download"></script>
+<script type="text/javascript" src="./masks.js.download"></script>
+<script type="text/javascript">
+<!--
+    _CF_checkCFForm_1 = function(_CF_this)
+    {
+        //reset on submit
+        _CF_error_exists = false;
+        _CF_error_messages = new Array();
+        _CF_error_fields = new Object();
+        _CF_FirstErrorField = null;
+
+
+        //display error messages and return success
+        if( _CF_error_exists )
+        {
+            if( _CF_error_messages.length > 0 )
+            {
+                // show alert() message
+                _CF_onErrorAlert(_CF_error_messages);
+                // set focus to first form error, if the field supports js focus().
+                if( _CF_this[_CF_FirstErrorField].type == "text" )
+                { _CF_this[_CF_FirstErrorField].focus(); }
+
+            }
+            return false;
+        }else {
+            return true;
+        }
+    }
+//-->
+</script>
+<script type="text/javascript" src="./swfobject.js(1).download" charset="utf-8"></script><script type="text/javascript">swfobject.registerObject("flash_832253B4-1517-2CE6-3A9F61C7677DFA0A","6.0.65","");</script><style type="text/css" media="screen">#flash_832253B4-1517-2CE6-3A9F61C7677DFA0A {visibility:hidden}</style>	<script type="text/javascript" src="./swfobject.js(1).download"></script>
+	<script type="text/javascript" src="./jquery.js(2).download"></script>
+	<script type="text/javascript" src="./chili-1.7.pack.js.download"></script>
+	
+	<script type="text/javascript" src="./jquery.easing.js.download"></script>
+	<script type="text/javascript" src="./jquery.dimensions.js.download"></script>
+    
+		<script type="text/javascript" src="./jquery.accordionff.js.download"></script>    
+    
+	<style>
+	/* FORMS */
+	.textbox{border:1px solid ##444444; font-size:10px;}
+	.submit{border:1px solid #888888; font-size:10px; cursor:pointer}
+	</style>
+
+   
+  <script type="text/javascript">    
+	function setCookie( name, value, expires, path, domain, secure ) 
+	{
+	// set time, it's in milliseconds
+	var today = new Date();
+	today.setTime( today.getTime() );
+	
+	/*
+	if the expires variable is set, make the correct 
+	expires time, the current script below will set 
+	it for x number of days, to make it for hours, 
+	delete * 24, for minutes, delete * 60 * 24
+	*/
+	if ( expires )
+	{
+	expires = expires * 1000 * 60 * 60 * 24;
+	}
+	var expires_date = new Date( today.getTime() + (expires) );
+	
+	document.cookie = name + "=" +escape( value ) +
+	( ( expires ) ? ";expires=" + expires_date.toGMTString() : "" ) + 
+	( ( path ) ? ";path=" + path : "" ) + 
+	( ( domain ) ? ";domain=" + domain : "" ) +
+	( ( secure ) ? ";secure" : "" );
+	}
+  </script> 
+
+
+
+	<script type="text/javascript">	 
+	jQuery().ready(function(){
+		// highly customized accordion
+		jQuery('#list2').accordion({
+			event: 'click',
+			active: '.selected',
+			selectedClass: 'active',	
+			animated: "bounceslide",//bounceslide,slide,easeslide,false
+			header: "dt"
+		}).bind("change.ui-accordion", function(event, ui) {
+			jQuery('<div>' + ui.oldHeader.text() + ' hidden, ' + ui.newHeader.text() + ' shown</div>').appendTo('#log');
+		});
+		
+	});
+	</script>
+   
+
+</head><body data-new-gr-c-s-check-loaded="14.1108.0" data-gr-ext-installed=""><fieldset style=" border:0; height:500;background-color:#e1d29d">
+	<dl id="list2" style="background-color:#e1d29d; position:relative; left:-20; top:-30; height:330" class="ui-accordion active">
+			<dt onclick="setCookie(&#39;braccordion&#39;,&#39;1&#39;);" class="selected active" style="background-image:url(/web/20120714013741im_/http://www.visitbatonrouge.com/images/accordion_header.gif); height:19px; width:200px; padding:7px; color:#FFFFFF; font-family:Arial, Helvetica, sans-serif; font-size:12px; cursor:pointer">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Calendar of Events</dt>
+			<dd style="height:200px; position:relative; left:-24; top:5; width:179px">
+			<style type="text/css">
+a.search{
+font-family:Arial, Helvetica, sans-serif;
+font-size:9px;
+color:#FFFFFF; 
+text-decoration:none;
+}
+.main {
+width:177px;
+border:0px solid #000000;
+}
+
+.month {
+background-color:#cb291c;
+font:bold 10px arial;
+color:white;
+padding:2px;
+font-family:"Times New Roman", Times, serif;
+text-transform:uppercase
+}
+
+.daysofweek {
+font:bold 10px arial;
+color:black;
+padding-bottom:5px;
+background-color: #F1E5C8;
+}
+
+.days {
+font-size: 10px;
+font-family:arial;
+color:black;
+background-color: #F1E5C8;
+padding: 2px;
+}
+
+.days #today{
+font-weight: bold;
+color: red;
+}
+
+</style>
+
+<script type="text/javascript">
+function buildCal(m, y, cM, cH, cDW, cD, brdr){
+var mn=['January','February','March','April','May','June','July','August','September','October','November','December'];
+var dim=[31,0,31,30,31,30,31,31,30,31,30,31];
+
+var oD = new Date(y, m-1, 1); //DD replaced line to fix date bug when current day is 31st
+oD.od=oD.getDay()+1; //DD replaced line to fix date bug when current day is 31st
+
+var todaydate=new Date() //DD added
+var scanfortoday=(y==todaydate.getFullYear() && m==todaydate.getMonth()+1)? todaydate.getDate() : 0 //DD added
+
+dim[1]=(((oD.getFullYear()%100!=0)&&(oD.getFullYear()%4==0))||(oD.getFullYear()%400==0))?29:28;
+var t='<div class="'+cM+'"><table class="'+cM+'" cols="7" cellpadding="0" border="0px solid #e1d29d" cellspacing="0"><tr align="center">';
+for(s=0;s<7;s++)t+='<td style="border-bottom:1px dotted #e1d29d" class="'+cDW+'">'+"SMTWTFS".substr(s,1)+'</td>';
+t+='</tr><tr align="center">';
+for(i=1;i<=42;i++){
+var x=((i-oD.od>=0)&&(i-oD.od<dim[m-1]))? i-oD.od+1 : '&nbsp;';
+var d=x;
+if (x==scanfortoday) //DD added
+x='<a id="today" class="days" target="_parent" href="/public/calendar/?month='+m+'&day='+d+'">'+x+'</a>' //DD added
+t+='<td class="'+cD+'">'+'<a class="days" target="_parent" href="/public/calendar/?month='+m+'&day='+d+'">'+x+'</a>'+'</td>';
+if(((i)%7==0)&&(i<36))t+='</tr><tr align="center">';
+}
+return t+='</tr><tr align="center"><td colspan="7" valign="middle" align="center" class="'+cH+'"><a title="Previous Month" target="_self" href="?month='+(m - 1)+'"><img border="0" align="absmiddle" src="/images/month_previous.jpg"></a>&nbsp;&nbsp;<a class="search" target="_parent" href="/public/calendar/?month='+m+'">'+mn[m-1]+'</a>&nbsp;&nbsp;<a title="Next Month" target="_self" href="?month='+(m + 1)+'"><img border="0" align="absmiddle" src="/images/month_next.jpg"></a></td></tr></table></div>';
+}
+
+//return t+='</tr><tr align="center"><td colspan="7" align="center" class="'+cH+'"><<&nbsp;'+mn[m-1]+' - '+y+'&nbsp;>></td></tr></table></div>';
+</script>
+
+
+<div style="height:12px"></div>
+<div style="border:1px solid #000000">
+<script type="text/javascript">
+
+var todaydate=new Date()
+//var curmonth=todaydate.getMonth()+1 //get current month (1-12)
+var curmonth=7
+var curyear=todaydate.getFullYear() //get current year
+
+document.write(buildCal(curmonth ,curyear, "main", "month", "daysofweek", "days", 1));
+</script><div class="main"><table class="main" cols="7" cellpadding="0" border="0px solid #e1d29d" cellspacing="0"><tbody><tr align="center"><td style="border-bottom:1px dotted #e1d29d" class="daysofweek">S</td><td style="border-bottom:1px dotted #e1d29d" class="daysofweek">M</td><td style="border-bottom:1px dotted #e1d29d" class="daysofweek">T</td><td style="border-bottom:1px dotted #e1d29d" class="daysofweek">W</td><td style="border-bottom:1px dotted #e1d29d" class="daysofweek">T</td><td style="border-bottom:1px dotted #e1d29d" class="daysofweek">F</td><td style="border-bottom:1px dotted #e1d29d" class="daysofweek">S</td></tr><tr align="center"><td class="days"><a class="days" target="_parent" href="https://web.archive.org/web/20120714013741mp_/http://www.visitbatonrouge.com/public/calendar/?month=7&amp;day=1">1</a></td><td class="days"><a class="days" target="_parent" href="https://web.archive.org/web/20120714013741mp_/http://www.visitbatonrouge.com/public/calendar/?month=7&amp;day=2">2</a></td><td class="days"><a class="days" target="_parent" href="https://web.archive.org/web/20120714013741mp_/http://www.visitbatonrouge.com/public/calendar/?month=7&amp;day=3">3</a></td><td class="days"><a class="days" target="_parent" href="https://web.archive.org/web/20120714013741mp_/http://www.visitbatonrouge.com/public/calendar/?month=7&amp;day=4">4</a></td><td class="days"><a class="days" target="_parent" href="https://web.archive.org/web/20120714013741mp_/http://www.visitbatonrouge.com/public/calendar/?month=7&amp;day=5">5</a></td><td class="days"><a class="days" target="_parent" href="https://web.archive.org/web/20120714013741mp_/http://www.visitbatonrouge.com/public/calendar/?month=7&amp;day=6">6</a></td><td class="days"><a class="days" target="_parent" href="https://web.archive.org/web/20120714013741mp_/http://www.visitbatonrouge.com/public/calendar/?month=7&amp;day=7">7</a></td></tr><tr align="center"><td class="days"><a class="days" target="_parent" href="https://web.archive.org/web/20120714013741mp_/http://www.visitbatonrouge.com/public/calendar/?month=7&amp;day=8">8</a></td><td class="days"><a class="days" target="_parent" href="https://web.archive.org/web/20120714013741mp_/http://www.visitbatonrouge.com/public/calendar/?month=7&amp;day=9">9</a></td><td class="days"><a class="days" target="_parent" href="https://web.archive.org/web/20120714013741mp_/http://www.visitbatonrouge.com/public/calendar/?month=7&amp;day=10">10</a></td><td class="days"><a class="days" target="_parent" href="https://web.archive.org/web/20120714013741mp_/http://www.visitbatonrouge.com/public/calendar/?month=7&amp;day=11">11</a></td><td class="days"><a class="days" target="_parent" href="https://web.archive.org/web/20120714013741mp_/http://www.visitbatonrouge.com/public/calendar/?month=7&amp;day=12">12</a></td><td class="days"><a class="days" target="_parent" href="https://web.archive.org/web/20120714013741mp_/http://www.visitbatonrouge.com/public/calendar/?month=7&amp;day=13"></a><a id="today" class="days" target="_parent" href="https://web.archive.org/web/20120714013741mp_/http://www.visitbatonrouge.com/public/calendar/?month=7&amp;day=13">13</a></td><td class="days"><a class="days" target="_parent" href="https://web.archive.org/web/20120714013741mp_/http://www.visitbatonrouge.com/public/calendar/?month=7&amp;day=14">14</a></td></tr><tr align="center"><td class="days"><a class="days" target="_parent" href="https://web.archive.org/web/20120714013741mp_/http://www.visitbatonrouge.com/public/calendar/?month=7&amp;day=15">15</a></td><td class="days"><a class="days" target="_parent" href="https://web.archive.org/web/20120714013741mp_/http://www.visitbatonrouge.com/public/calendar/?month=7&amp;day=16">16</a></td><td class="days"><a class="days" target="_parent" href="https://web.archive.org/web/20120714013741mp_/http://www.visitbatonrouge.com/public/calendar/?month=7&amp;day=17">17</a></td><td class="days"><a class="days" target="_parent" href="https://web.archive.org/web/20120714013741mp_/http://www.visitbatonrouge.com/public/calendar/?month=7&amp;day=18">18</a></td><td class="days"><a class="days" target="_parent" href="https://web.archive.org/web/20120714013741mp_/http://www.visitbatonrouge.com/public/calendar/?month=7&amp;day=19">19</a></td><td class="days"><a class="days" target="_parent" href="https://web.archive.org/web/20120714013741mp_/http://www.visitbatonrouge.com/public/calendar/?month=7&amp;day=20">20</a></td><td class="days"><a class="days" target="_parent" href="https://web.archive.org/web/20120714013741mp_/http://www.visitbatonrouge.com/public/calendar/?month=7&amp;day=21">21</a></td></tr><tr align="center"><td class="days"><a class="days" target="_parent" href="https://web.archive.org/web/20120714013741mp_/http://www.visitbatonrouge.com/public/calendar/?month=7&amp;day=22">22</a></td><td class="days"><a class="days" target="_parent" href="https://web.archive.org/web/20120714013741mp_/http://www.visitbatonrouge.com/public/calendar/?month=7&amp;day=23">23</a></td><td class="days"><a class="days" target="_parent" href="https://web.archive.org/web/20120714013741mp_/http://www.visitbatonrouge.com/public/calendar/?month=7&amp;day=24">24</a></td><td class="days"><a class="days" target="_parent" href="https://web.archive.org/web/20120714013741mp_/http://www.visitbatonrouge.com/public/calendar/?month=7&amp;day=25">25</a></td><td class="days"><a class="days" target="_parent" href="https://web.archive.org/web/20120714013741mp_/http://www.visitbatonrouge.com/public/calendar/?month=7&amp;day=26">26</a></td><td class="days"><a class="days" target="_parent" href="https://web.archive.org/web/20120714013741mp_/http://www.visitbatonrouge.com/public/calendar/?month=7&amp;day=27">27</a></td><td class="days"><a class="days" target="_parent" href="https://web.archive.org/web/20120714013741mp_/http://www.visitbatonrouge.com/public/calendar/?month=7&amp;day=28">28</a></td></tr><tr align="center"><td class="days"><a class="days" target="_parent" href="https://web.archive.org/web/20120714013741mp_/http://www.visitbatonrouge.com/public/calendar/?month=7&amp;day=29">29</a></td><td class="days"><a class="days" target="_parent" href="https://web.archive.org/web/20120714013741mp_/http://www.visitbatonrouge.com/public/calendar/?month=7&amp;day=30">30</a></td><td class="days"><a class="days" target="_parent" href="https://web.archive.org/web/20120714013741mp_/http://www.visitbatonrouge.com/public/calendar/?month=7&amp;day=31">31</a></td><td class="days"><a class="days" target="_parent" href="https://web.archive.org/web/20120714013741mp_/http://www.visitbatonrouge.com/public/calendar/?month=7&amp;day=%C2%A0">&nbsp;</a></td><td class="days"><a class="days" target="_parent" href="https://web.archive.org/web/20120714013741mp_/http://www.visitbatonrouge.com/public/calendar/?month=7&amp;day=%C2%A0">&nbsp;</a></td><td class="days"><a class="days" target="_parent" href="https://web.archive.org/web/20120714013741mp_/http://www.visitbatonrouge.com/public/calendar/?month=7&amp;day=%C2%A0">&nbsp;</a></td><td class="days"><a class="days" target="_parent" href="https://web.archive.org/web/20120714013741mp_/http://www.visitbatonrouge.com/public/calendar/?month=7&amp;day=%C2%A0">&nbsp;</a></td></tr><tr align="center"><td class="days"><a class="days" target="_parent" href="https://web.archive.org/web/20120714013741mp_/http://www.visitbatonrouge.com/public/calendar/?month=7&amp;day=%C2%A0">&nbsp;</a></td><td class="days"><a class="days" target="_parent" href="https://web.archive.org/web/20120714013741mp_/http://www.visitbatonrouge.com/public/calendar/?month=7&amp;day=%C2%A0">&nbsp;</a></td><td class="days"><a class="days" target="_parent" href="https://web.archive.org/web/20120714013741mp_/http://www.visitbatonrouge.com/public/calendar/?month=7&amp;day=%C2%A0">&nbsp;</a></td><td class="days"><a class="days" target="_parent" href="https://web.archive.org/web/20120714013741mp_/http://www.visitbatonrouge.com/public/calendar/?month=7&amp;day=%C2%A0">&nbsp;</a></td><td class="days"><a class="days" target="_parent" href="https://web.archive.org/web/20120714013741mp_/http://www.visitbatonrouge.com/public/calendar/?month=7&amp;day=%C2%A0">&nbsp;</a></td><td class="days"><a class="days" target="_parent" href="https://web.archive.org/web/20120714013741mp_/http://www.visitbatonrouge.com/public/calendar/?month=7&amp;day=%C2%A0">&nbsp;</a></td><td class="days"><a class="days" target="_parent" href="https://web.archive.org/web/20120714013741mp_/http://www.visitbatonrouge.com/public/calendar/?month=7&amp;day=%C2%A0">&nbsp;</a></td></tr><tr align="center"><td colspan="7" valign="middle" align="center" class="month"><a title="Previous Month" target="_self" href="https://web.archive.org/web/20120714013741if_/http://www.visitbatonrouge.com/widgets/accordion/widget.cfm?month=6"><img border="0" align="absmiddle" src="./month_previous.jpg"></a>&nbsp;&nbsp;<a class="search" target="_parent" href="https://web.archive.org/web/20120714013741mp_/http://www.visitbatonrouge.com/public/calendar/?month=7">July</a>&nbsp;&nbsp;<a title="Next Month" target="_self" href="https://web.archive.org/web/20120714013741if_/http://www.visitbatonrouge.com/widgets/accordion/widget.cfm?month=8"><img border="0" align="absmiddle" src="./month_next.jpg"></a></td></tr></tbody></table></div>
+</div>
+<div align="center" style="font-size:10px; font-family:Arial, Helvetica, sans-serif; padding-top:5px">
+<form target="_parent" action="https://web.archive.org/web/20120714013741/http://www.visitbatonrouge.com/public/calendar/index.cfm">
+<input type="submit" class="submit" value="Click to Search">
+</form>
+</div>
+			</dd>			
+            <dt onclick="setCookie(&#39;braccordion&#39;,&#39;2&#39;);" style="background-image:url(/web/20120714013741im_/http://www.visitbatonrouge.com/images/accordion_header.gif); height:19px; width:200px; padding:7px; color:#FFFFFF; font-family:Arial, Helvetica, sans-serif; font-size:12px; cursor:pointer">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Driving Directions</dt>
+			<dd style="height: 200px; position: relative; left: -10px; display: none;">
+            <br>
+            <form name="CFForm_1" id="CFForm_1" action="https://web.archive.org/web/20120714013741/http://www.visitbatonrouge.com/public/directions/index.cfm" method="post" target="_top" onsubmit="return _CF_checkCFForm_1(this)">
+            <span style="font-size:12px">Starting city?</span>
+            <div style="8px"></div>
+            <input name="location" id="location" type="text" style="font-size:11px;width:140px" size="25"><br><br>
+			<input name="submitDirections" id="submitDirections" type="submit" value="Get Directions" class="submit"> </form>
+
+			<p style="font-size:12px; padding-right:6px; line-height:11pt; width:150px">Tell us where you'll be starting from and we'll give you directions to Baton Rouge.</p>
+			</dd>
+
+			<dt onclick="setCookie(&#39;braccordion&#39;,&#39;3&#39;);" style="background-image:url(/web/20120714013741im_/http://www.visitbatonrouge.com/images/accordion_header.gif); height:19px; width:200px; padding:7px; color:#FFFFFF; font-family:Arial, Helvetica, sans-serif; font-size:12px; cursor:pointer">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Stay and Play</dt>
+			<dd style="height: 200px; position: relative; left: -22px; display: none;">
+			<table>
+	<tbody><tr>
+    <td align="center" style="font-size:11px; padding-top:5px; padding-right:25px; font-weight:bold;">Listings Search:</td>
+    <td width="5px"></td>
+    </tr>
+    <tr>
+    <td align="left">
+        <form target="_top" action="https://web.archive.org/web/20120714013741/http://www.visitbatonrouge.com/public/listings/index.cfm">
+        <table cellspacing="0" cellpadding="2">
+        <tbody><tr>
+        <td style="font-size:10px;"><input type="checkbox" name="listing" value="Accommodations">Hotels</td><td style="font-size:10px;">
+        <input type="checkbox" name="attractions">Attractions</td>
+        </tr>
+        <tr>
+        <td style="font-size:10px;"><input type="checkbox" name="listing" value="Destination Services">Services</td><td style="font-size:10px;">
+        <input type="checkbox" name="listing" value="Live Entertainment">Entertainment</td>
+        </tr>
+        <tr>
+        <td style="font-size:10px;"><input type="checkbox" name="listing" value="Restaurant">Restaurants</td><td style="font-size:10px;">
+        <input type="checkbox" name="listing" value="Shopping">Shopping</td>
+        </tr>
+        <tr>
+        <td style="font-size:10px;"><input type="checkbox" name="listing" value="Sports/Outdoor/Activities">Sports</td><td style="font-size:10px;">
+        </td>
+        </tr>
+        <tr>
+        <td align="left" colspan="2" style="font-size:11px;">
+        <br>
+        <input size="22" type="text" name="keywords"><br><br>
+        <input class="submit" type="submit" name="submitSearch" value="Search Now"></td>
+        </tr>
+        </tbody></table>
+        </form> 
+    </td>
+    <td width="5px"></td>
+    </tr>
+</tbody></table>
+
+
+			</dd>
+ 			<dt onclick="setCookie(&#39;braccordion&#39;,&#39;4&#39;);" style="background-image:url(/web/20120714013741im_/http://www.visitbatonrouge.com/images/accordion_header.gif); height:19px; width:230px; padding:7px; color:#FFFFFF; font-family:Arial, Helvetica, sans-serif; font-size:12px; cursor:pointer">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Book Your Trip</dt>
+			<dd style="height: 200px; position: relative; left: -30px; display: none;">
+            <table width="235" height="100%">
+            <tbody><tr><td align="left" valign="top">
+				<style type="text/css">
+td { 
+	font-size:11px; 
+	font-family:Arial, Helvetica, sans-serif
+}
+</style>
+<script language="javascript" type="text/javascript"> 
+function showhotel() {
+$("#air").hide("fast");
+$("#car").hide("fast");
+$("#package").hide("fast");
+$("#hotel").fadeIn("slow");	
+}     
+function showair() { 
+$("#hotel").hide("fast");
+$("#car").hide("fast");
+$("#package").hide("fast");	
+$("#air").fadeIn("slow");	 
+} 
+function showcar() { 
+$("#air").hide("fast");
+$("#hotel").hide("fast");
+$("#package").hide("fast");	
+$("#car").fadeIn("slow");
+} 
+function showpackage() { 
+$("#air").hide("fast");
+$("#car").hide("fast");
+$("#hotel").hide("fast");	
+$("#package").fadeIn("slow");
+}		
+</script>
+
+<div class="book" id="book" style="width:351">
+  
+				<object id="flash_832253B4-1517-2CE6-3A9F61C7677DFA0A" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="200" height="65" style="visibility: visible;">
+					<param name="movie" value="/swf/bookyourtrip.swf">
+					
+						<param name="wmode" value="opaque">
+					
+						<param name="flashvars" value="">
+					
+					<!--[if !IE]>-->
+						<object type="application/x-shockwave-flash" data="./bookyourtrip.swf.download" width="200" height="65">
+						
+							<param name="wmode" value="opaque">
+						
+							<param name="flashvars" value="">
+						
+					<!--<![endif]-->
+					
+This site requires <a href="https://web.archive.org/web/20120714013741/http://www.adobe.com/">Adobe Flash</a>.
+
+					<!--[if !IE]>-->
+						</object>
+					<!--<![endif]-->
+				</object>
+				
+</div>	                                           
+        <div id="hotel" style="position:relative; left:6; top:2; font-size:10px">
+		<form target="_blank" name="resrvForm" action="https://web.archive.org/web/20120714013741/http://www.res99.com/nexres/search/search_results.cgi" method="GET">
+        <input type="hidden" name="avail" value="Y"> 
+        <input type="hidden" name="num_rooms" value="1">
+        <input type="hidden" name="num_adults" value="2">
+        <input type="hidden" name="smoking_pref" value="NP"> 
+        <input type="hidden" name="bed_type" value="NP"> 
+        <input type="hidden" name="src" value="10015858">
+        <input type="hidden" name="currency_id" value="USD">
+        <input type="hidden" name="tab" value="tab0"> 
+        <input type="hidden" name="city" size="10" value="baton rouge,la">
+		<table border="0">
+        <tbody><tr><td>
+			
+            
+            <select style="font-size:9px" name="doa_mm" id="doa_mm">
+            <option value="01">Jan</option>
+            <option value="02">Feb</option>
+            <option value="03">Mar</option>
+            <option value="04">Apr</option>
+            <option value="05">May</option>
+            <option value="06">Jun</option>
+            <option selected="" value="07">Jul</option>
+            <option value="08">Aug</option>
+            <option value="09">Sep</option>
+            <option value="10">Oct</option>
+        	<option value="11">Nov</option>
+            <option value="12">Dec</option>
+            </select>
+            <select style="font-size:9px" name="doa_dd" id="doa_dd">
+            
+            <option value="01">1</option>
+            
+            <option value="02">2</option>
+            
+            <option value="03">3</option>
+            
+            <option value="04">4</option>
+            
+            <option value="05">5</option>
+            
+            <option value="06">6</option>
+            
+            <option value="07">7</option>
+            
+            <option value="08">8</option>
+            
+            <option value="09">9</option>
+            
+            <option value="10">10</option>
+            
+            <option value="11">11</option>
+            
+            <option value="12">12</option>
+            
+            <option selected="" value="13">13</option>
+            
+            <option value="14">14</option>
+            
+            <option value="15">15</option>
+            
+            <option value="16">16</option>
+            
+            <option value="17">17</option>
+            
+            <option value="18">18</option>
+            
+            <option value="19">19</option>
+            
+            <option value="20">20</option>
+            
+            <option value="21">21</option>
+            
+            <option value="22">22</option>
+            
+            <option value="23">23</option>
+            
+            <option value="24">24</option>
+            
+            <option value="25">25</option>
+            
+            <option value="26">26</option>
+            
+            <option value="27">27</option>
+            
+            <option value="28">28</option>
+            
+            <option value="29">29</option>
+            
+            <option value="30">30</option>
+            
+            <option value="31">31</option>
+            
+            </select>            
+            <select style="font-size:9px" name="doa_yy" id="doa_yy">
+             
+            <option selected="" value="2012">2012</option>
+             
+            <option value="2013">2013</option>
+             
+            <option value="2014">2014</option>
+             
+            <option value="2015">2015</option>
+             
+            <option value="2016">2016</option>
+             
+            <option value="2017">2017</option>
+            
+            </select>&nbsp;From      
+        </td><td>&nbsp;&nbsp;</td></tr>
+		
+       <tr><td valign="top">
+            <select style="font-size:9px" name="dod_mm" id="doa_mm">
+            <option value="01">Jan</option>
+            <option value="02">Feb</option>
+            <option value="03">Mar</option>
+            <option value="04">Apr</option>
+            <option value="05">May</option>
+            <option value="06">Jun</option>
+            <option selected="" value="07">Jul</option>
+            <option value="08">Aug</option>
+            <option value="09">Sep</option>
+            <option value="10">Oct</option>
+        	<option value="11">Nov</option>
+            <option value="12">Dec</option>
+            </select>
+            <select style="font-size:9px" name="dod_dd" id="doa_dd">
+            
+            <option value="01">1</option>
+            
+            <option value="02">2</option>
+            
+            <option value="03">3</option>
+            
+            <option value="04">4</option>
+            
+            <option value="05">5</option>
+            
+            <option value="06">6</option>
+            
+            <option value="07">7</option>
+            
+            <option value="08">8</option>
+            
+            <option value="09">9</option>
+            
+            <option value="10">10</option>
+            
+            <option value="11">11</option>
+            
+            <option value="12">12</option>
+            
+            <option value="13">13</option>
+            
+            <option value="14">14</option>
+            
+            <option selected="" value="15">15</option>
+            
+            <option value="16">16</option>
+            
+            <option value="17">17</option>
+            
+            <option value="18">18</option>
+            
+            <option value="19">19</option>
+            
+            <option value="20">20</option>
+            
+            <option value="21">21</option>
+            
+            <option value="22">22</option>
+            
+            <option value="23">23</option>
+            
+            <option value="24">24</option>
+            
+            <option value="25">25</option>
+            
+            <option value="26">26</option>
+            
+            <option value="27">27</option>
+            
+            <option value="28">28</option>
+            
+            <option value="29">29</option>
+            
+            <option value="30">30</option>
+            
+            <option value="31">31</option>
+            
+            </select>            
+            <select style="font-size:9px" name="dod_yy" id="dod_yy">
+             
+            <option selected="" value="2012">2012</option>
+             
+            <option value="2013">2013</option>
+             
+            <option value="2014">2014</option>
+             
+            <option value="2015">2015</option>
+             
+            <option value="2016">2016</option>
+             
+            <option value="2017">2017</option>
+            
+            </select>&nbsp;To        
+		</td></tr></tbody></table><br>
+		&nbsp;&nbsp;<input class="submit" name="search" type="submit" value="Search Hotels">
+		</form>
+        </div> 		<div id="air" style="display:none">
+				<table><tbody><tr><td align="left">
+                <form target="_blank" name="AirSearchForm" action="https://web.archive.org/web/20120714013741/http://go.travelpn.com/flights/InitialSearch.do?Service=TPN&amp;affiliateId=10015858&amp;subAffiliateId=&amp;aspHeader=air&amp;aspFooter=air" method="post" onsubmit="doSubmit(&#39;10015858&#39;,&#39;&#39;);return false;" style="display:inline;">
+           
+				<input name="goingTo" type="text" value="Baton Rouge" title="Arrival city or Airport code" id="FO_to" class="formfield" style="display:none;">
+                
+                <div style="float:left; font-size:10px">
+                Departure City:
+                <input name="leavingFrom" type="text" value="" title="Departure city or Airport code" id="FO_from" class="textbox" size="18" style="font-size:11px; width:80px">
+				
+				<br><br>
+                
+                <select name="dateLeavingMonth" id="AIR_frommonth" class="select" style="font-size:9px">
+				<option value="01">1
+								</option><option value="02">2
+								</option><option value="03">3
+								</option><option value="04">4
+								</option><option value="05">5
+								</option><option value="06">6
+								</option><option value="07" selected="">7
+								</option><option value="08">8
+								</option><option value="09">9
+								</option><option value="10">10
+								</option><option value="11">11
+								</option><option value="12">12
+							</option></select>
+					<select name="dateLeavingDay" id="AIR_fromdate" class="select" style="width:44px; font-size:9px">
+						<option value="1">1 </option><option value="2">2 </option><option value="3">3 </option><option value="4">4 </option><option value="5">5 </option><option value="6">6 </option><option value="7">7 </option><option value="8">8 </option><option value="9">9 </option><option value="10">10 </option><option value="11">11 </option><option value="12">12 </option><option value="13">13 </option><option value="14">14 </option><option value="15">15 </option><option value="16" selected="">16 </option><option value="17">17 </option><option value="18">18 </option><option value="19">19 </option><option value="20">20 </option><option value="21">21 </option><option value="22">22 </option><option value="23">23 </option><option value="24">24 </option><option value="25">25 </option><option value="26">26 </option><option value="27">27 </option><option value="28">28 </option><option value="29">29 </option><option value="30">30 </option><option value="31">31 
+					</option></select>
+					<select name="dateLeavingTime" id="datelt" class="select" style="width:70px; font-size:9px">
+						<option>12:00am</option>
+						<option>1:00am</option>
+						<option>2:00am</option>
+						<option>3:00am</option>
+						<option>4:00am</option>
+						<option>5:00am</option>
+						<option>6:00am</option>
+						<option>7:00am</option>
+						<option>8:00am</option>
+						<option>9:00am</option>
+						<option>10:00am</option>
+						<option>11:00am</option>
+						<option>12:00pm</option>
+						<option>1:00pm</option>
+						<option>2:00pm</option>
+						<option>3:00pm</option>
+						<option>4:00pm</option>
+						<option>5:00pm</option>
+						<option>6:00pm</option>
+						<option>7:00pm</option>
+						<option>8:00pm</option>
+						<option>9:00pm</option>
+						<option>10:00pm</option>
+						<option>11:00pm</option>
+						<option>Morning</option>
+						<option value="12:00pm">Afternoon</option>
+						<option>Evening</option>
+						<option selected="selected">Anytime</option>
+					</select> From
+					<br>
+					<select name="dateReturningMonth" id="AIR_tomonth" class="select" style="font-size:9px">
+							<option value="01">1
+							</option><option value="02">2
+							</option><option value="03">3
+							</option><option value="04">4
+                            
+							</option><option value="05">5
+							</option><option value="06">6
+							</option><option value="07">7
+							</option><option value="08" selected="">8
+							</option><option value="09">9
+							</option><option value="10">10
+							</option><option value="11">11
+							</option><option value="12">12</option></select>
+					<select name="dateReturningDay" id="AIR_todate" class="select" style="width:44px; font-size:9px">
+						<option value="1">1 </option><option value="2">2 </option><option value="3">3 </option><option value="4">4 </option><option value="5">5 </option><option value="6">6 </option><option value="7">7 </option><option value="8">8 </option><option value="9">9 </option><option value="10">10 </option><option value="11">11 </option><option value="12">12 </option><option value="13">13 </option><option value="14">14 </option><option value="15">15 </option><option value="16">16 </option><option value="17">17 </option><option value="18">18 </option><option value="19" selected="">19 </option><option value="20">20 </option><option value="21">21 </option><option value="22">22 </option><option value="23">23 </option><option value="24">24 </option><option value="25">25 </option><option value="26">26 </option><option value="27">27 </option><option value="28">28 </option><option value="29">29 </option><option value="30">30 </option><option value="31">31 
+					</option></select>
+					<select name="dateReturningTime" id="datert" class="select" style="width:70px; font-size:9px">
+						<option>12:00am</option>
+						<option>1:00am</option>
+						<option>2:00am</option>
+						<option>3:00am</option>
+						<option>4:00am</option>
+						<option>5:00am</option>
+						<option>6:00am</option>
+						<option>7:00am</option>
+						<option>8:00am</option>
+						<option>9:00am</option>
+						<option>10:00am</option>
+						<option>11:00am</option>
+						<option>12:00pm</option>
+						<option>1:00pm</option>
+						<option>2:00pm</option>
+						<option>3:00pm</option>	
+						<option>4:00pm</option>
+						<option>5:00pm</option>
+						<option>6:00pm</option>
+						<option>7:00pm</option>
+						<option>8:00pm</option>
+						<option>9:00pm</option>
+						<option>10:00pm</option>
+						<option>11:00pm</option>
+						<option>Morning</option>
+						<option value="12:00pm">Afternoon</option>
+						<option>Evening</option>
+						<option selected="selected">Anytime</option>
+					</select> To
+                        <br>
+						<br>
+                Adults:<select name="adults" id="FO_adults" style="font-size:9px">
+                        <option>0</option>
+                        <option selected="selected">1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                    	</select>&nbsp;&nbsp;                        
+						<input class="submit" name="search" type="submit" value="Search Flights" style="font-size:9px;cursor:hand; cursor:pointer;">
+				
+                </div></form></td></tr></tbody></table>
+        </div> 		<div id="car" style="display:none; position:relative; left:-18; font-size:10px">
+	 			<table><tbody><tr><td width="15"></td>
+                <td>
+                <form target="_blank" name="CarSearch" action="https://web.archive.org/web/20120714013741/http://www.res99.com/nexres/cars/results.cgi" method="POST" style="display:inline;">
+					<input type="hidden" name="src" value="10015858">
+					<div style="float:left;">
+                    <input name="pucity" value=" Pickup City" onfocus="if (this.value==this.defaultValue) this.value=&#39;&#39;;" onblur="if (this.value==&#39;&#39;) this.value=this.defaultValue;" type="text" class="textbox" size="14" style="font-size:9px">
+					<select name="puwhere" size="1" class="select" style="font-size:9px; width:90px">
+					<option value="AIRPORT">near airport</option>
+					<option value="CITY">in a city</option>
+					</select> 
+					</div>
+					<br clear="left">					
+					<div style="float:left; padding-bottom:2px"><input input="" type="TEXT" name="docity" value=" Dropoff City" onfocus="if (this.value==this.defaultValue) this.value=&#39;&#39;;" onblur="if (this.value==&#39;&#39;) this.value=this.defaultValue;" class="textbox" size="14" style="font-size:9px">
+							<input input="" type="CHECKBOX" name="same" value="Y">same as pick up
+					</div>
+					<br clear="left">
+                    
+					<div style="float:left;">
+                    		<input type="hidden" name="pudate_yr" value="2012">
+							<select name="pudate_mo" size="1" class="select" style="font-size:9px">
+							<option value="01">1
+								</option><option value="02">2
+								</option><option value="03">3
+								</option><option value="04">4
+								</option><option value="05">5
+								</option><option value="06">6
+								</option><option value="07" selected="">7
+								</option><option value="08">8
+								</option><option value="09">9
+								</option><option value="10">10
+								</option><option value="11">11
+								</option><option value="12">12
+							</option></select>
+					
+							<select name="pudate_dy" size="1" class="select" style="font-size:9px">
+							<option value="1">1 </option><option value="2">2 </option><option value="3">3 </option><option value="4">4 </option><option value="5">5 </option><option value="6">6 </option><option value="7">7 </option><option value="8">8 </option><option value="9">9 </option><option value="10">10 </option><option value="11">11 </option><option value="12">12 </option><option value="13" selected="">13 </option><option value="14">14 </option><option value="15">15 </option><option value="16">16 </option><option value="17">17 </option><option value="18">18 </option><option value="19">19 </option><option value="20">20 </option><option value="21">21 </option><option value="22">22 </option><option value="23">23 </option><option value="24">24 </option><option value="25">25 </option><option value="26">26 </option><option value="27">27 </option><option value="28">28 </option><option value="29">29 </option><option value="30">30 </option><option value="31">31 
+							</option></select>
+					
+							<select name="pu_time" size="1" class="select" style="font-size:9px">
+							   <option value="12A">12:00am</option>
+							   <option value="1A">1:00am</option>
+							   <option value="2A">2:00am</option>
+							   <option value="3A">3:00am</option>
+							   <option value="4A">4:00am</option>
+							   <option value="5A">5:00am</option>
+							   <option value="6A">6:00am</option>
+							   <option value="7A">7:00am</option>
+							   <option value="8A">8:00am</option>
+							   <option value="9A">9:00am</option>
+							   <option value="10A">10:00am</option>
+							   <option value="11A">11:00am</option>
+							   <option value="12P" selected="">12:00pm</option>
+							   <option value="1P">1:00pm</option>
+							   <option value="2P">2:00pm</option>
+							   <option value="3P">3:00pm</option>
+							   <option value="4P">4:00pm</option>
+							   <option value="5P">5:00pm</option>
+							   <option value="6P">6:00pm</option>
+							   <option value="7P">7:00pm</option>
+							   <option value="8P">8:00pm</option>
+							   <option value="9P">9:00pm</option>
+							   <option value="10P">10:00pm</option>
+							   <option value="11P">11:00pm</option>
+							</select> From
+							</div>
+							<br clear="left">
+                            
+							<div style="float:left;">
+                            <input type="hidden" name="dodate_yr" value="2012">
+                            <select name="dodate_mo" size="1" class="select" style="font-size:9px">
+								<option value="01">1
+								</option><option value="02">2
+								</option><option value="03">3
+								</option><option value="04">4                                
+								</option><option value="05">5
+								</option><option value="06">6
+								</option><option value="07" selected="">7
+								</option><option value="08">8
+								</option><option value="09">9
+								</option><option value="10">10
+								</option><option value="11">11
+								</option><option value="12">12
+								</option></select>
+								<select name="dodate_dy" size="1" class="select" style="font-size:9px">
+								<option value="1">1 </option><option value="2">2 </option><option value="3">3 </option><option value="4">4 </option><option value="5">5 </option><option value="6">6 </option><option value="7">7 </option><option value="8">8 </option><option value="9">9 </option><option value="10">10 </option><option value="11">11 </option><option value="12">12 </option><option value="13">13 </option><option value="14">14 </option><option value="15" selected="">15 </option><option value="16">16 </option><option value="17">17 </option><option value="18">18 </option><option value="19">19 </option><option value="20">20 </option><option value="21">21 </option><option value="22">22 </option><option value="23">23 </option><option value="24">24 </option><option value="25">25 </option><option value="26">26 </option><option value="27">27 </option><option value="28">28 </option><option value="29">29 </option><option value="30">30 </option><option value="31">31 
+							</option></select>
+					
+							<select name="do_time" size="1" class="select" style="font-size:9px">
+							<option value="12A">
+							   </option><option value="1A">1:00am</option>
+							   <option value="2A">2:00am</option>
+							   <option value="3A">3:00am</option>
+							   <option value="4A">4:00am</option>
+							   <option value="5A">5:00am</option>
+							   <option value="6A">6:00am</option>
+							   <option value="7A">7:00am</option>
+							   <option value="8A">8:00am</option>
+							   <option value="9A">9:00am</option>
+							   <option value="10A">10:00am</option>
+							   <option value="11A">11:00am</option>
+							   <option value="12P" selected="">12:00pm</option>
+							   <option value="1P">1:00pm</option>
+							   <option value="2P">2:00pm</option>
+							   <option value="3P">3:00pm</option>
+							   <option value="4P">4:00pm</option>
+							   <option value="5P">5:00pm</option>
+							   <option value="6P">6:00pm</option>
+							   <option value="7P">7:00pm</option>
+							   <option value="8P">8:00pm</option>
+							   <option value="9P">9:00pm</option>
+							   <option value="10P">10:00pm</option>
+							   <option value="11P">11:00pm</option>
+							</select> To
+						</div><br><br>
+                        <table width="100%" border="0"><tbody><tr><td align="left" valign="top">
+                        <input class="submit" name="search" type="submit" value="Search Cars" style="font-size:9px;cursor:hand; cursor:pointer;">		
+                        </td></tr></tbody></table>
+					 </form>
+                     </td></tr></tbody></table>
+</div> 		<div id="package" style="display:none; font-size:10px">
+        <table cellpadding="0" cellspacing="0" border="0">
+                        <tbody><tr><td height="3"></td><td></td></tr>
+        <tr><td width="15"></td><td width="100%">
+            <form name="modifySearch" target="_blank" method="get" action="https://web.archive.org/web/20120714013741/http://res99.com/nexres/activities/search_results.cgi" style="display:inline;">
+                <input class="form tptext" type="text" name="citytext" maxlength="60" value="Baton Rouge" id="actcitytext" style="display:none;">
+                <input type="hidden" name="src" value="10015858">
+                <select name="from_mm" style="width:auto; font-size:9px; border-top-color:#666666; border-top-style:solid; border-top-width:1px" id="CB_frommonth">					
+                    <option value="01">1
+                    </option><option value="02">2
+                    </option><option value="03">3
+                    </option><option value="04">4
+                    </option><option value="05">5
+                    </option><option value="06">6
+                    </option><option value="07" selected="">7
+                    </option><option value="08">8
+                    </option><option value="09">9
+                    </option><option value="10">10
+                    </option><option value="11">11
+                    </option><option value="12">12
+                </option></select>
+                <select name="from_dd" class="select" style="width:auto;; font-size:9px" id="CB_fromdate">					
+                    <option value="1">1 </option><option value="2">2 </option><option value="3">3 </option><option value="4">4 </option><option value="5">5 </option><option value="6">6 </option><option value="7">7 </option><option value="8">8 </option><option value="9">9 </option><option value="10">10 </option><option value="11">11 </option><option value="12">12 </option><option value="13" selected="">13 </option><option value="14">14 </option><option value="15">15 </option><option value="16">16 </option><option value="17">17 </option><option value="18">18 </option><option value="19">19 </option><option value="20">20 </option><option value="21">21 </option><option value="22">22 </option><option value="23">23 </option><option value="24">24 </option><option value="25">25 </option><option value="26">26 </option><option value="27">27 </option><option value="28">28 </option><option value="29">29 </option><option value="30">30 </option><option value="31">31 
+                </option></select> From
+                </form></td></tr>
+                <tr><td height="1"></td><td></td></tr>
+                <tr><td width="15"></td><td>
+                <select name="to_mm" class="select" style="width:auto; font-size:9px" id="CB_tomonth">							
+                    <option value="01">1
+                    </option><option value="02">2
+                    </option><option value="03">3
+                    </option><option value="04">4
+                    </option><option value="05">5
+                    </option><option value="06">6
+                    </option><option value="07" selected="">7
+                    </option><option value="08">8
+                    </option><option value="09">9
+                    </option><option value="10">10
+                    </option><option value="11">11
+                    </option><option value="12">12
+                </option></select>
+                <select name="to_dd" class="select" style="width:auto;; font-size:9px" id="CB_todate">					
+                    <option value="1">1 </option><option value="2">2 </option><option value="3">3 </option><option value="4">4 </option><option value="5">5 </option><option value="6">6 </option><option value="7">7 </option><option value="8">8 </option><option value="9">9 </option><option value="10">10 </option><option value="11">11 </option><option value="12">12 </option><option value="13">13 </option><option value="14">14 </option><option value="15" selected="">15 </option><option value="16">16 </option><option value="17">17 </option><option value="18">18 </option><option value="19">19 </option><option value="20">20 </option><option value="21">21 </option><option value="22">22 </option><option value="23">23 </option><option value="24">24 </option><option value="25">25 </option><option value="26">26 </option><option value="27">27 </option><option value="28">28 </option><option value="29">29 </option><option value="30">30 </option><option value="31">31 
+                </option></select> To
+				</td></tr></tbody></table>  
+                <table cellpadding="0" cellspacing="0" border="0">
+                <tbody><tr><td></td><td><input name="ACTTYPE_all" id="all" type="checkbox" value="1" checked="" onclick="uncheck();">All Activities
+                </td>
+                <td><input name="ACTTYPE_shows" type="checkbox" value="1" onclick="uncheckAll();" id="ACTTYPE_shows">Shows &amp; Events
+                </td><td></td></tr> 
+                <tr><td></td><td><input name="ACTTYPE_attraction" type="checkbox" value="1" onclick="uncheckAll();" id="ACTTYPE_attraction">Attractions
+                </td>                            
+                <td><input name="ACTTYPE_tours" type="checkbox" value="1" onclick="uncheckAll();" id="ACTTYPE_tours">Tour &amp; Activities
+                </td><td></td></tr>
+                <tr><td></td><td><input name="ACTTYPE_outdoor" type="checkbox" value="1" onclick="uncheckAll();" id="ACTTYPE_outdoor">Outdoors
+                </td>
+                <td><input name="ACTTYPE_dining" type="checkbox" value="1" onclick="uncheckAll();" id="ACTTYPE_dining">Dining
+                </td><td></td></tr>
+                <tr><td></td><td valign="top"><input name="ACTTYPE_transport" type="checkbox" value="1" onclick="uncheckAll();" id="ACTTYPE_transport">Transportation
+                </td><td>&nbsp;&nbsp;<input class="submit" name="search" type="submit" value="Search Now"></td><td></td></tr></tbody></table> 
+<br>
+        </div> 
+			</td></tr>
+            <tr><td height="100%"></td></tr>
+            </tbody></table>			
+			</dd>           
+			<dt onclick="setCookie(&#39;braccordion&#39;,&#39;5&#39;);" style="background-image:url(/web/20120714013741im_/http://www.visitbatonrouge.com/images/accordion_header.gif); height:19px; width:200px; padding:7px; color:#FFFFFF; font-family:Arial, Helvetica, sans-serif; font-size:12px; cursor:pointer">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Special Offers</dt>
+			<dd style="height: 200px; position: relative; left: -15px; display: none;">
+            <table>
+            <tbody><tr><td height="213px" width="150px" valign="top">
+			
+			<br><span style="font-size:11px">
+			
+			Check back soon for specials.
+			
+			</span>
+			</td></tr>
+            </tbody></table>			
+			</dd>
+ 			<dt onclick="setCookie(&#39;braccordion&#39;,&#39;6&#39;);" style="background-image:url(/web/20120714013741im_/http://www.visitbatonrouge.com/images/accordion_header.gif);   height:19px; width:200px; padding:7px; color:#FFFFFF; font-family:Arial, Helvetica, sans-serif; font-size:12px; cursor:pointer">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Share Your Experience</dt>
+			<dd style="height: 200px; display: none;">
+            <table>
+            <tbody><tr><td height="213px">
+			<br>
+             
+            <div style="width:170; height:150; overflow:auto; padding-right:5px;">
+			
+            <span style="font-size:.8em; font-weight:bold">
+            <br>
+            B. from Abingdon,&nbsp;VA:
+            <br><br>
+			11-12-09-                Beautiful city-can't wait to come again!
+        
+            </span> 
+            <br>
+            <a class="search" style="color: #900" target="_top" href="https://web.archive.org/web/20120714013741/http://www.visitbatonrouge.com/public/about/baton_rouge_buzz">more &gt;</a> 
+            
+            </div>
+            <form action="https://web.archive.org/web/20120714013741/http://www.visitbatonrouge.com/public/about/baton_rouge_buzz/index.cfm" target="_top">
+            <input class="submit" type="submit" name="shareExperience" value="Share your Experience">
+			</form>
+            </td></tr>
+            </tbody></table>
+			</dd>
+		</dl>
+</fieldset>
+<!--
+     FILE ARCHIVED ON 01:37:41 Jul 14, 2012 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:25:20 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->
+<!--
+playback timings (ms):
+  captures_list: 191.415
+  exclusion.robots: 0.252
+  exclusion.robots.policy: 0.241
+  cdx.remote: 0.07
+  esindex: 0.011
+  LoadShardBlock: 150.592 (3)
+  PetaboxLoader3.datanode: 132.095 (4)
+  load_resource: 91.986
+  PetaboxLoader3.resolve: 50.147
+--></body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>

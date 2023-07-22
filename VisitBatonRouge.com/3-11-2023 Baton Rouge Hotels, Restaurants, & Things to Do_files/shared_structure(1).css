@@ -1,0 +1,118 @@
+/*
+	README
+
+	This file should only be used to style structure of the widget. It should not
+	contain fonts or theme styling. Use the shared_theme.css for that purpose.
+
+	If simply theming the CCL, leave this file alone.
+
+	If your design is very customized, edit this file as needed. 
+*/
+
+
+.core-imagebox .inner {
+	position: relative;
+}
+
+.core-imagebox .slides {
+	display: grid;
+	gap: var(--space-3);
+}
+
+.core-imagebox:not([data-width="full"]) .slides {
+	max-width: var(--width-base);
+	padding-left: var(--space-5);
+	padding-right: var(--space-5);
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.core-imagebox .content-section {
+	left: var(--space-4);
+	bottom: var(--space-4);
+	margin-right: var(--space-4);
+}
+
+.core-imagebox .content-section .slide-title {
+	margin-bottom: var(--space-1);
+}
+
+.core-imagebox .content-section p {
+	margin-bottom: var(--space-4);
+}
+
+.core-imagebox .credits {
+	bottom: initial;
+	top: 0;
+}
+
+.core-imagebox .credits.video {
+	right: unset;
+	left: 0;
+}
+
+@media screen and (min-width: 64em) {
+	.core-imagebox .slide .slide-footer .read-more {
+		margin: 0 var(--space-4) var(--space-2);
+	}
+	.core-imagebox .credits.video {
+		left: unset;
+		right: 0;
+	}
+}
+
+
+@media screen and (min-width: 40em) {
+	.core-imagebox .slides {
+		display: grid;
+		gap: var(--space-3);
+	}
+
+	.core-imagebox:not([data-slides-across="1"]) .slides {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+
+@media screen and (min-width: 64em) {
+	.core-imagebox[data-slides-across="3"] .slides {
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+
+	.core-imagebox[data-slides-across="4"] .slides {
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+	}
+
+	.core-imagebox .content-section {
+		left: var(--space-8);
+		bottom: var(--space-8);
+		margin-right: var(--space-8);
+	}
+
+	.core-imagebox .shared-play-button {
+		right: unset;
+		transform: translate(-50%, -50%);
+		left: 50%;
+		top: 50%;
+	}
+}
+
+/*
+     FILE ARCHIVED ON 00:57:49 Mar 08, 2023 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 00:41:50 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 101.316
+  exclusion.robots: 0.064
+  exclusion.robots.policy: 0.058
+  cdx.remote: 0.047
+  esindex: 0.007
+  LoadShardBlock: 65.984 (3)
+  PetaboxLoader3.datanode: 88.633 (4)
+  load_resource: 68.23
+  PetaboxLoader3.resolve: 35.126
+*/

@@ -1,0 +1,54 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+require(["sv_clientLib"], function(clientLib) {
+	if (clientLib.getCookie("plugins_core_logged_in") !== "true") { return; }
+	
+	var content = $("meta[name=sv-nav-properties]").attr("content");
+	if (content === undefined) { return; }
+	
+	var id = JSON.parse(content).id;
+	if (id === undefined) { return; }
+	
+	require(["jquery", "text!plugins_core_adminbar.html", "goatee", "sv_site"], function($, template, goatee, site) {
+		var id = JSON.parse($("meta[name=sv-nav-properties]").attr("content")).id;
+		
+		var html = goatee.fill(template, {
+			guid : clientLib.uuid(),
+			url : site.cmsUrl + "plugins/nav/edit_page_content/?id=" + id
+		});
+		
+		$("body").append(html);
+	});
+});
+
+}
+/*
+     FILE ARCHIVED ON 00:57:49 Mar 08, 2023 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 00:41:36 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 119.616
+  exclusion.robots: 0.065
+  exclusion.robots.policy: 0.057
+  cdx.remote: 0.051
+  esindex: 0.019
+  LoadShardBlock: 59.047 (3)
+  PetaboxLoader3.datanode: 74.49 (4)
+  load_resource: 122.043
+  PetaboxLoader3.resolve: 52.723
+*/

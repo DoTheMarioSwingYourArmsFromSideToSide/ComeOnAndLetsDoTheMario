@@ -1,0 +1,240 @@
+/* custom_nav_main_partial.html - global */
+.navigation {
+	--surface-mobile-nav: var(--primary-color-200);
+	--surface-highlight: var(--primary-color-400);
+	--text: var(--gray-100);
+	--text-alt: var(--gray-900);
+}
+
+.contentRender_name_plugins_nav_main,
+.contentRender_name_plugins_nav_main_dropdown {
+	order: -1;
+}
+
+.nav-container {
+	display: flex;
+	justify-content: flex-end;
+	height: 100%;
+}
+
+.navigation a {
+	display: flex;
+	align-items: center;
+	padding: var(--space-3) var(--space-4);
+	width: 100%;
+	font-size: var(--text-base);
+	line-height: var(--leading-tight);
+	color: inherit;
+	text-decoration: none;
+}
+
+.navigation.desktop a {
+	white-space: nowrap;
+}
+
+.navigation a:hover {
+	color: inherit;
+}
+
+.navigation a:focus {
+	text-decoration: underline;
+	outline: none;
+}
+
+.navigation .nav-item .nav-item-control {
+	display: flex;
+	justify-content: space-between;
+	color: var(--text-alt);
+	transition: background-color 100ms cubic-bezier(0,0,0.3,1);
+}
+
+.navigation .nav-item .dropdown-toggle {
+	margin: 0;
+	padding: var(--space-3) var(--space-4);
+	color: inherit;
+	background-color: transparent;
+	transition: background-color 100ms cubic-bezier(0,0,0.3,1);
+}
+
+.navigation .nav-item .dropdown-toggle:focus {
+	outline: 1px dashed var(--text-alt);
+}
+
+/* menu toggle */
+.nav-container .menu-toggle {
+	display: block;
+	margin: 0;
+	padding: 0;
+	background: none;
+	cursor: pointer;
+}
+
+@media (min-width: 64em) {
+	.nav-container .menu-toggle {
+		display: none;
+	}	
+}
+
+.nav-container .menu-toggle .hamburger-inner {
+	position: relative;
+}
+
+.nav-container .menu-toggle .hamburger-inner::after,
+.nav-container .menu-toggle .hamburger-inner::before {
+	position: absolute;
+}
+
+.nav-container .menu-toggle .hamburger-inner,
+.nav-container .menu-toggle .hamburger-inner::after,
+.nav-container .menu-toggle .hamburger-inner::before {
+	display: block;
+	width: 28px;
+	height: 2px;
+	background-color: var(--white);
+	transition-property: transform 0.075s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.nav-container .menu-toggle .hamburger-inner::before {
+	content: "";
+	top: -7px;
+	transition: top 0.075s 0.12s ease, opacity 0.075s ease;
+}
+
+.nav-container .menu-toggle .hamburger-inner::after {
+	content: "";
+	bottom: -7px;
+	transition: bottom 0.075s 0.12s ease, transform 0.075s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.nav-container .menu-toggle.active .hamburger-inner {
+	transform: rotate(45deg);
+	transition-delay: 0.12s;
+	transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.nav-container .menu-toggle.active .hamburger-inner::before {
+	top: 0;
+	opacity: 0;
+	transition: top 0.075s ease, opacity 0.075s 0.12s ease;
+}
+
+.nav-container .menu-toggle.active .hamburger-inner::after {
+	bottom: 0;
+	transform: rotate(-90deg);
+	transition: bottom 0.075s ease, transform 0.075s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+/* custom_nav_main_partial.html - mobile */
+.navigation.mobile {
+	background-color: var(--surface-mobile-nav);
+}
+
+.navigation.mobile .nav-item:hover > .nav-item-control {
+	background-color: hsla(var(--primary-color-hue), 74%, 50%, 0.1);
+}
+
+.navigation.mobile .nav-item.open > .nav-item-control {
+	background-color: var(--surface-highlight);
+}
+
+.navigation.mobile .nav-item .dropdown-toggle:hover {
+	background-color: hsla(var(--primary-color-hue), 74%, 50%, 0.1);
+}
+
+.navigation.mobile .nav-item .dropdown-toggle .icon-toggle {
+	transform-origin: center;
+	transition: transform 300ms cubic-bezier(0,0,0.3,1);
+}
+
+.navigation.mobile .nav-item.open > .nav-item-control .dropdown-toggle .icon-toggle {
+	transform: rotate(-180deg);
+}
+
+.navigation.mobile .nav-item .dropdown-menu {
+	background-color: hsla(var(--primary-color-hue), 74%, 50%, 0.1);
+}
+
+.navigation.mobile .nav-item .dropdown-menu a {
+	font-size: var(--text-base);
+}
+
+/* custom_nav_main_partial.html - desktop */
+.navigation.desktop {
+	position: relative;
+	display: none;
+	justify-content: flex-end;
+	height: 100%;
+}
+
+@media (min-width: 64em) {
+	.navigation.desktop {
+		display: flex;
+	}
+}
+
+.navigation.desktop .dropdown-menu {
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 100ms cubic-bezier(0,0,0.3,1);
+	z-index: 30;
+	padding-top: var(--space-5);
+	padding-bottom: var(--space-5);
+}
+
+.navigation.desktop .dropdown-menu.open {
+	display: block !important;
+}
+
+.navigation.desktop .level-1.nav-item > .nav-item-control {
+	align-items: center;
+	height: 100%;
+	color: var(--text);
+}
+
+.navigation.desktop .nav-item.level-1 > .nav-item-control > a {
+	border-top: 2px solid transparent;
+	border-bottom: 2px solid transparent;
+}
+
+@media (hover : hover) {
+	.navigation.desktop .nav-item.level-1 > .nav-item-control > a:hover {
+		border-bottom-color: var(--surface-mobile-nav);
+	}
+
+	.navigation.desktop .nav-item:not(.level-1) > .nav-item-control:hover {
+		background-color: var(--surface-highlight);
+	}
+
+	.navigation .nav-item.level-1 .nav-item-control a,
+	.navigation .nav-item.level-2 .nav-item-control a,
+	.navigation .nav-item.level-3 .nav-item-control a {
+		text-decoration: none; /*reboot.css override*/
+	}
+}
+
+.navigation.desktop .level-1.nav-item > .nav-item-control > .dropdown-toggle {
+	margin: 0;
+	padding: var(--space-3) var(--space-2);
+}
+
+
+/*
+     FILE ARCHIVED ON 00:57:49 Mar 08, 2023 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 00:41:33 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 179.071
+  exclusion.robots: 0.067
+  exclusion.robots.policy: 0.058
+  cdx.remote: 0.054
+  esindex: 0.009
+  LoadShardBlock: 149.361 (3)
+  PetaboxLoader3.datanode: 192.581 (4)
+  load_resource: 135.05
+  PetaboxLoader3.resolve: 62.687
+*/

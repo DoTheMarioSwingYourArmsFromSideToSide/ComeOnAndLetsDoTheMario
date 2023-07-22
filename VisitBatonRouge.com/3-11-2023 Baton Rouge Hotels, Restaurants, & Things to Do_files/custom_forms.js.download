@@ -1,0 +1,86 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+require(["jquery", "domReady!"], function($) {
+	var rsvpForm = $('#rsvp-container');
+	var rfpForm = $("#rfpForm");
+	var submitEventForm = $('#sv_submit_event_form');
+	var simpleForm = $('form.simpleForm');
+	var calendar = $('.lookup-calHolder');
+	var faCheck = '<i class="fas fa-check"></i>';
+
+	if (location.search.indexOf('action=popupCal') > -1 && calendar.length) {
+		/* This code is excuted when you're in the submit event for calendar popup.
+		   We need to hid everything but the calendar itself. */
+		calendar.addClass('core-styles');
+		calendar.parents().show().addClass('crm-calendar-parent');
+	} else if (rfpForm.length) {
+		rfpForm.find('.ui-datepicker-trigger').each(function() {
+			$(this).parent().wrapInner('<span class="cal-wrapper"></span>');
+		});
+	} else if (simpleForm.length) {
+		simpleForm.each(function() {
+			var form = $(this);
+			var sideColHtml = '<div class="medium-3 columns"></div>';
+			var captcha = form.find('.captcha');
+			form.children('h3,p').each(function() {
+				$(this).wrap('<div class="row"><div class="medium-9 columns"></div></div>');
+				$(this).parent().parent().prepend(sideColHtml);
+			});
+			captcha.parent().prepend(sideColHtml);
+		});
+	} else if (rsvpForm.length) {
+		var labels = [];
+		// get header row titles
+		rsvpForm.find('.eventList_headerRow .eventListCell').each(function() {
+			labels.push($(this).html());
+		});
+		rsvpForm.find('.eventListRow').each(function() {
+			$(this).find('.eventListCell').each(function(i) {
+				if (labels[i].toLowerCase() !== 'details') {
+					$(this).attr('data-title', labels[i]);
+				}
+			});
+		});
+	} else if (submitEventForm.length) {
+		// removing inline styles to clean up form
+		submitEventForm.find('p,span,input,li').each(function(i, el) {
+			if ($(el).attr('style') && $(el).attr('type') !== 'file') {
+				$(el).attr('style', '');
+			}
+		});
+	}
+});
+
+
+
+}
+/*
+     FILE ARCHIVED ON 00:57:49 Mar 08, 2023 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 00:41:40 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 91.424
+  exclusion.robots: 0.068
+  exclusion.robots.policy: 0.059
+  cdx.remote: 0.064
+  esindex: 0.025
+  LoadShardBlock: 55.137 (3)
+  PetaboxLoader3.datanode: 74.593 (4)
+  load_resource: 213.692
+  PetaboxLoader3.resolve: 172.699
+*/

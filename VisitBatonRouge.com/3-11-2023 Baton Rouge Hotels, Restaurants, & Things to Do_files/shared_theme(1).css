@@ -1,0 +1,59 @@
+/*
+	README
+
+	Modify this file as much or as little as needed.
+
+	This file is shared across all CCL widgets in the Image Box family. This enables the ability to
+	a family of widgets in a single update without touching the structure of the widget and without needing
+	to duplicate efforts across several widget-specific CSS files.
+*/
+
+.core-imagebox {
+	margin-bottom: var(--widget-margin-bottom);
+	padding-top: var(--widget-padding-top);
+}
+
+.core-imagebox .img-cont::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 75%;
+	background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
+	pointer-events: none;
+}
+
+.core-imagebox .content-section .slide-title {
+	font-size: var(--text-xl);
+	font-weight: 700;
+	line-height: var(--leading-snug);
+	margin-bottom: var(--space-1);
+}
+
+.core-imagebox .content-section p {
+	margin-bottom: var(--space-4);
+	font-size: var(--text-base);
+	font-weight: 400;
+	line-height: var(--leading-tight);
+}
+/*
+     FILE ARCHIVED ON 00:57:49 Mar 08, 2023 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 00:41:49 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 129.217
+  exclusion.robots: 0.067
+  exclusion.robots.policy: 0.058
+  RedisCDXSource: 18.232
+  esindex: 0.009
+  LoadShardBlock: 91.746 (3)
+  PetaboxLoader3.datanode: 88.436 (4)
+  load_resource: 102.79
+  PetaboxLoader3.resolve: 66.026
+*/

@@ -1,0 +1,369 @@
+.collections-featured-item {
+	position: relative;
+	height: 160px;
+	width: 300px;
+	margin: 0 auto;
+}
+.collections-featured-item a {
+	color: #fff;
+}
+.collections-featured-item a:hover {
+	color: #b70000;
+}
+.collections-featured-item .featured-item-header {
+	position: absolute;
+	top: 0;
+	height: 40px;
+	width: 100%;
+	background: #e1a504 url('/web/20160624193533im_/http://www.visitbatonrouge.com/includes/public/assets/img/textures/bgct.png') top left repeat;
+	font: normal 25px 'blenda_scriptregular';
+	color: #fff;
+	padding: 5px 15px;
+	z-index: 1;
+}
+.collections-featured-item .featured-item-img {
+	position: absolute;
+	width: 100%;
+	z-index: 0;
+}
+.collections-featured-item .featured-item-info {
+	position: absolute;
+	color: #fff;
+	z-index: 1;
+	font-family: 'AvantGardeGothicITCW01D_731075';
+    font-size: 20px;
+    bottom: 0px;
+    padding: 5px 15px;
+}
+.collections-slider {
+	background: transparent url("/web/20160624193533im_/http://www.visitbatonrouge.com/includes/public/assets/img/textures/repeating-gray-cardboard.png") top left repeat;
+	visibility: hidden;
+}
+.collections-slider .collections-slider-top {
+	background: #6ba2aa url("/web/20160624193533im_/http://www.visitbatonrouge.com/includes/public/assets/img/textures/repeating-blue-cardboard.png") top left repeat;
+
+}
+.collections-slider .collections-slider-top {
+	padding: 29px 10px 18px;
+}
+.collections-slider .collections-slider-top .collections-slider-title {
+	text-align: center;
+}
+.collections-slider .collections-slider-top .collections-slider-title h3 {
+	font: normal 50px 'blenda_scriptregular';
+    color: #fff;
+    line-height: 44px;
+}
+.collections-slider .collections-slider-top .collections-slider-title .button {
+	padding: 0 15px;
+	margin: 0;
+	display: inline-block;
+}
+.collections-slider .collections-slider-bottom {
+	padding: 30px 0;
+}
+.collections-slider .collections-slider-bottom .slides {
+	position: relative;
+}
+.collections-slider .collections-slider-bottom .slides .slide {
+	margin: 0px 10px;
+}
+.collections-slider .collections-slider-bottom .slides .slide .slide-container {
+	position: relative;
+	display: block;
+	height: 300px;
+	max-width: 300px;
+	margin: 0 auto;
+	background: #fff;
+}
+@media (max-width: 64em) {
+	.collections-slider .collections-slider-bottom .slides .slide .slide-container {
+		height: 220px;
+		max-width: 220px;
+	}
+}
+@media (max-width: 40em) {
+	.collections-slider .collections-slider-bottom .slides .slide .slide-container {
+		height: 220px;
+		max-width: 220px;
+	}
+}
+.collections-slider .collections-slider-bottom .slides .slide img {
+	width: 100%;
+}
+.collections-slider .collections-slider-bottom .slides .slide .slide-top {
+	background: #ea202f url('/web/20160624193533im_/http://www.visitbatonrouge.com/includes/public/assets/img/textures/red-canvas.png') top left no-repeat;
+	color: #fff;
+	font: 600 18px 'Source Sans Pro', sans-serif;
+	line-height: 30px;
+	padding: 3px 15px;
+	position: absolute;
+	width: 100%;
+	top: 0;
+}
+.collections-slider .collections-slider-bottom .slides .slide .slide-top .slide-date {
+	background: #fff;
+	display: table-cell;
+	border-radius: 50%;
+	height: 50px;
+	width: 50px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	margin: 10px;
+	text-align: center;
+	padding-top: 5px;
+	text-transform: uppercase;
+}
+.collections-slider .collections-slider-bottom .slides .slide .slide-top .slide-date .month {
+	color: #231f20;
+	font: 700 10px 'Source Sans Pro', sans-serif;
+	display: block;
+}
+.collections-slider .collections-slider-bottom .slides .slide .slide-top .slide-date .date {
+	color: #231f20;
+	font: 700 18px 'Source Sans Pro', sans-serif;
+	line-height: 20px;
+	display: block;
+}
+.collections-slider .collections-slider-bottom .slides .slide .slide-title {
+	position: absolute;
+	bottom: 0;
+	padding: 10px;
+	font: normal 20px 'AvantGardeGothicITCW01D_731075';
+	color: #fff;
+	right: 0;
+	left: 0;
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#231f20+30,231f20+100&0+30,0.88+100 */
+	background: -moz-linear-gradient(top,  rgba(35,31,32,0) 0%, rgba(35,31,32,0.88) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  rgba(35,31,32,0) 0%,rgba(35,31,32,0.88) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  rgba(35,31,32,0) 0%,rgba(35,31,32,0.88) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00231f20', endColorstr='#e0231f20',GradientType=0 ); /* IE6-9 */
+}
+.collections-slider .collections-slider-bottom .slides .slide .slide-title.black {
+	color: #231F20;
+	background: none;
+}
+.collections-slider .collections-slider-bottom .slides .arrow {
+	position: absolute;
+	background: #e1a504;
+	border-radius: 50%;
+	height: 35px;
+	width: 35px;
+	color: #fff;
+	text-align: center;
+	top: 50%;
+	box-shadow: 0 0px 2px rgba(0,0,0,1);
+	cursor: pointer;
+	z-index: 100;
+}
+.collections-slider .collections-slider-bottom .slides .arrow .fa {
+	font-size: 30px;
+}
+.collections-slider .collections-slider-bottom .slides .arrow.prevSlide {
+	left: -5px;
+}
+.collections-slider .collections-slider-bottom .slides .arrow.nextSlide {
+	right: -5px;
+}
+@media (max-width: 64em){
+	.collections-slider .collections-slider-top {
+		padding: 16px 10px;
+	}
+	.collections-slider .collections-slider-top .collections-slider-title h3 {
+		font: normal 35px 'blenda_scriptregular';
+		color: #fff;
+		line-height: 31px;
+	}
+	.collections-slider .collections-slider-top .collections-slider-title .button {
+		font-size: 13px;
+	}
+}
+@media (max-width: 40em){
+	.collections-slider .collections-slider-top {
+		padding: 16px 10px;
+	}
+	.collections-slider .collections-slider-top .collections-slider-title h3 {
+		font: normal 30px 'blenda_scriptregular';
+		color: #fff;
+		line-height: 31px;
+	}
+	.collections-slider .collections-slider-top .collections-slider-title .button {
+		font-size: 13px;
+	}
+}
+.collections-imagebox {
+	overflow: hidden;
+}
+.collections-imagebox {
+	position: relative;
+	display: block;
+}
+.collections-imagebox .imagebox-img-link {
+	display: block;
+}
+.collections-imagebox .imagebox-img {
+	width: 100%;
+	transition:all ease .5s;
+	transform:scale(1);
+	-ms-transform:scale(1);
+	-webkit-transform:scale(1);
+}
+.collections-imagebox:hover .imagebox-img {
+	transform:scale(1.1);
+	-ms-transform:scale(1.1);
+	-webkit-transform:scale(1.1);
+	cursor: pointer;
+}
+.collections-imagebox .img-overlay {
+	box-shadow: inset 0 0 100px 10px rgba(0,0,0,0.4);
+	background: rgba(0,0,0,0);
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 100%;
+}
+.collections-imagebox .imagebox-content-wrapper {
+	position: absolute;
+	bottom: 0;
+	color: #fff;
+	padding: 40px 20px;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#231f20+30,231f20+100&0+30,0.88+100 */
+	background: -moz-linear-gradient(top,  rgba(35,31,32,0) 0%, rgba(35,31,32,0.88) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  rgba(35,31,32,0) 0%,rgba(35,31,32,0.88) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  rgba(35,31,32,0) 0%,rgba(35,31,32,0.88) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00231f20', endColorstr='#e0231f20',GradientType=0 ); /* IE6-9 */
+
+}
+.collections-imagebox .imagebox-title {
+	font: normal 27px 'AvantGardeGothicITCW01D_731075', sans-serif;
+	margin: 0px 0;
+}
+.collections-imagebox .imagebox-title a {
+	color: #fff;
+}
+.collections-imagebox .imagebox-description {
+	font: 400 17px 'Source Sans Pro', sans-serif;
+	margin: 10px 0 0;
+	line-height: 21px;
+}
+.collections-imagebox.small {
+	margin: 0 0 30px 0;
+	background: #b70000 url('/web/20160624193533im_/http://www.visitbatonrouge.com/includes/public/assets/img/textures/red-canvas.png') top left repeat;
+	max-height: 220px;
+	overflow: hidden;
+}
+.collections-imagebox.small.texture_mustard {
+	background: #e1a504 url('/web/20160624193533im_/http://www.visitbatonrouge.com/includes/public/assets/img/textures/bgct.png') top left repeat;
+}
+.collections-imagebox.small.texture_grey {
+	background: #373737 url('/web/20160624193533im_/http://www.visitbatonrouge.com/includes/public/assets/img/textures/texture-black2.png') top left repeat;
+}
+.collections-imagebox.small.texture_blue {
+	background: #6ba2aa url('/web/20160624193533im_/http://www.visitbatonrouge.com/includes/public/assets/img/textures/blueflattexture.png') top left repeat;
+}
+.collections-imagebox.small .img-wrapper {
+	position: relative;
+	overflow: hidden;
+}
+.collections-imagebox.small .img-wrapper:hover {
+	cursor: pointer;
+}
+.collections-imagebox.small .imagebox-title {
+	font-size: 23px;
+	line-height: 26px;
+}
+.collections-imagebox.small .columns.text-wrapper {
+	padding: 20px 20px;	
+}
+.collections-imagebox.small a {
+	color: #fff;
+	display: block;
+}
+@media (max-width: 64em) {
+	.collections-imagebox.small .imagebox-title {
+		font-size: 18px;
+	}
+	.collections-imagebox.small .imagebox-description {
+		font-size: 14px;
+	}
+	.collections-imagebox.small .columns.text-wrapper {
+		padding: 10px 10px;	
+	}
+}
+@media (max-width: 40em){
+	.collections-imagebox,
+	.collections-imagebox.small {
+		margin: 10px 0;
+		max-height: 100%;
+	}
+	.collections-imagebox.small a {
+		float: none;
+	}
+}
+@media only screen and (min-width: 64.063em) {
+	.panel_custom_two_col_sidebar_left .collections-imagebox.small {
+		max-height:100%;
+	}
+	.panel_custom_two_col_sidebar_left .collections-imagebox.small .large-6 {
+		width: 100%;
+	}	
+}
+.collections-contact {
+}
+.collections-contact .contact-image {
+}
+.collections-contact .contact-info {	
+}
+.collections-contact .contact-info .contact-link{	
+	margin: 5px 0;
+}
+.collections-contact .contact-social li {
+	display: inline;
+	margin: 0 5px 0 0;
+}
+.collections-contact .contact-description {
+	border-bottom: 1px solid #c3c3c3;
+	margin-bottom: 25px;
+}
+.header-slide-interior {
+	position: relative;
+}
+.header-slide-interior .dtnad img {
+	width: 100%;
+}
+.header-slide-interior .image-credit {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	color: #fff;
+	margin: 25px;
+}
+.header-slide-interior .image-credit p {
+	margin: 0;
+}
+@media (max-width: 40em) {
+	.header-slide-interior .image-credit {
+		margin: 10px;
+	}
+}
+/*
+     FILE ARCHIVED ON 19:35:33 Jun 24, 2016 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:21:06 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 810.882
+  exclusion.robots: 0.068
+  exclusion.robots.policy: 0.059
+  cdx.remote: 0.054
+  esindex: 0.01
+  LoadShardBlock: 783.164 (3)
+  PetaboxLoader3.datanode: 789.651 (4)
+  load_resource: 81.256
+  PetaboxLoader3.resolve: 59.507
+*/

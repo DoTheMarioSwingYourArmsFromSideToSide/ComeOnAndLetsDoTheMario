@@ -1,0 +1,152 @@
+.contentRender_name_plugins_common_container_intro .panel-intro {
+    position: relative;
+    margin-bottom: 6px;
+}
+
+.panel-intro .content-section {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    max-width:  var(--width-comfortable);
+    margin:  0 auto;
+}
+
+.panel-intro .cta-cont {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding-right: 9px;
+    margin-bottom: 37px;
+}
+
+.panel-intro .pelican-cont {
+    position: absolute;
+    bottom: 166px;
+    right: 0;
+    width: 199px;
+    height: 315px;
+    background-image: url('/web/20230308005750im_/https://www.visitbatonrouge.com/includes/public/assets/shared/pelican.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: -2;
+}
+
+.panel-intro .texture-cont {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    background-image: url('https://web.archive.org/web/20230308005750im_/https://assets.simpleviewinc.com/simpleview/image/upload/v1/clients/batonrouge-redesign/texture_intro_cd512bda-9f07-4374-8dfb-9fbb7fb28d56.png');
+    background-size: auto;
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    z-index: -3;
+}
+
+.panel-intro .contentRender_name_plugins_core_textbox h4 {
+    font-size: 22px;
+    font-family: var(--font-script);
+    color: var(--red);
+    text-transform: none;
+    line-height: 1;
+    margin-bottom: 0;   
+}
+
+.panel-intro .contentRender_name_plugins_core_textbox h1 {
+    line-height: 1;
+    margin-bottom: 14px;
+}
+
+.panel-intro .contentRender_name_plugins_core_textbox p {
+    line-height: 1.667; 
+    margin-bottom: 0;     
+}
+
+/* Media queries */
+
+@media(min-width:40em) {
+    .contentRender_name_plugins_common_container_intro .panel-intro {
+        overflow: hidden;
+        margin-right: 0;
+    }
+
+    .panel-intro .cta-cont {
+        max-width: 50vw;
+    }
+}
+
+@media(min-width: 64em) {
+    .contentRender_name_plugins_common_container_intro .panel-intro {
+        padding-left: 0;
+    }
+
+    .panel-intro .cta-cont {
+        max-width: 75vw;
+        flex-direction: row;
+    }
+
+    .panel-intro .contentRender_name_plugins_core_textbox h1 {
+        margin-bottom: 24px;
+    }
+
+    .panel-intro .contentRender_name_plugins_core_textbox h4 {
+        font-size: 30px;
+        margin-bottom: 5px;
+    }
+
+    .panel-intro .contentRender_name_plugins_core_textbox p {
+        line-height: 1.7;
+    }
+
+    .panel-intro .cta-cont {
+        margin-bottom: 133px;
+    }
+
+    .panel-intro .texture-cont {
+        height: 257px;
+    }
+
+}
+
+@media(min-width: 80em) {
+    .panel-intro .contentRender_name_plugins_core_textbox,
+    .panel-intro .cta-cont {
+        max-width: 955px;
+        margin-left: 0;
+        padding-left: 0;
+    }
+
+    .panel-intro .content-section {
+        gap: 55px;
+        max-width: 1200px;
+        padding-left: 25px;
+    }
+
+    .panel-intro .pelican-cont {
+        bottom: 157px;
+        width: 324px;
+        height: 491px;
+    }
+}
+
+/*
+     FILE ARCHIVED ON 00:57:50 Mar 08, 2023 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 00:41:34 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 447.407
+  exclusion.robots: 0.068
+  exclusion.robots.policy: 0.06
+  RedisCDXSource: 0.558
+  esindex: 0.007
+  LoadShardBlock: 427.309 (3)
+  PetaboxLoader3.datanode: 439.063 (4)
+  load_resource: 104.97
+  PetaboxLoader3.resolve: 55.018
+*/

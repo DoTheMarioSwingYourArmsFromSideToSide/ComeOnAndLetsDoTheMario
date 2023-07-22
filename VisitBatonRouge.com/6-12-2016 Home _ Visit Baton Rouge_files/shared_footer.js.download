@@ -1,0 +1,42 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+// This file will be run in the footer on every page.
+// It should be used for content that relates
+// to your site as a whole, it should not be used for
+// plugin-specific js
+
+require(["jquery", "sv_siteFoundation", "domReady!"], function() {
+	$(document).foundation();
+});
+
+}
+/*
+     FILE ARCHIVED ON 19:44:55 Jun 24, 2016 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:21:09 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 99.573
+  exclusion.robots: 0.067
+  exclusion.robots.policy: 0.058
+  RedisCDXSource: 0.578
+  esindex: 0.008
+  LoadShardBlock: 79.485 (3)
+  PetaboxLoader3.datanode: 71.986 (4)
+  load_resource: 87.108
+  PetaboxLoader3.resolve: 58.103
+*/

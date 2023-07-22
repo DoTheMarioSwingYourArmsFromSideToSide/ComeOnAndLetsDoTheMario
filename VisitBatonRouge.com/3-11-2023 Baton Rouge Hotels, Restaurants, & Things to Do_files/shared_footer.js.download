@@ -1,0 +1,342 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+// This file will be run in the footer on every page.
+// It should be used for content that relates
+// to your site as a whole, it should not be used for
+// plugin-specific js
+
+require(["jquery", "site_gtm", "plugins_common_custom_ui_watcher", "sv_load!plugins_dynamic_content", "domReady!"], function($, gtm, UIWatcher, dynamic) {
+	gtm.update();
+
+	// SEM tracking
+	var uiEvents = new UIWatcher({}, $, document);
+	uiEvents.on("change-page", handlePageChange);
+	uiEvents.on("view-change", handleFilterChange);
+	uiEvents.on("sort-change", handleFilterChange);
+	uiEvents.on("value-change", handleFilterChange);
+	uiEvents.on("toggle-show-more", handleShowMoreToggle);
+	uiEvents.on("scroll-into-view", handleScrollIntoView);
+	uiEvents.on("item-click", handleItemClick);
+	uiEvents.on("map-pin-click", handleMapPinClick);
+	uiEvents.on("tripbuilder", handleTripbuilder);
+	uiEvents.on("qv-tripbuilder", handleTripbuilder);
+	uiEvents.on("quick-view", handleQuickview);
+
+	// tracking handlers
+	function handleTripbuilder(payload){
+		var event = payload.eventContext,
+			widget = payload.widgetContext;
+		var eventCatName = widget.name;
+		switch (event.detailType) {
+				case "listings":
+					eventCatName = "Listings";
+					break;
+				case "events":
+					eventCatName = "Events";
+					break;
+				case "offers":
+					eventCatName = "Coupons";
+					break;
+				default:
+					eventCatName = widget.name;
+		}
+		var data = {
+			eventCategory: eventCatName,
+			eventAction: event.name +" - "+ event.value,
+			eventLabel: event.refTitle,
+			ot: event.type,
+			ltxt: event.displayText,
+			nonInteraction: false
+		}
+		if (data.eventCategory && data.eventAction && data.eventLabel)
+			gtm.sendEvents({tClient: data});
+	}
+	
+	function handleQuickview(payload){
+		var event = payload.eventContext,
+			widget = payload.widgetContext;
+		var eventCatName = widget.name;
+		switch (event.detailType) {
+				case "listings":
+					eventCatName = "Listings";
+					break;
+				case "events":
+					eventCatName = "Events";
+					break;
+				case "offers":
+					eventCatName = "Coupons";
+					break;
+				default:
+					eventCatName = widget.name;
+		}
+		var data = {
+			eventCategory: eventCatName,
+			eventAction: event.linkTo,
+			eventLabel: event.refTitle,
+			ot: event.type,
+			ltxt: event.displayText,
+			nonInteraction: false
+		}
+		let ga4Data = {
+			eventName: event.eventName,
+			itemType: event.itemType,
+			itemName: event.itemName ?? event.refTitle,
+			linkObject: event.linkObject,
+			crmCatSubcat: event.crmc
+		}
+		if (data.eventCategory && data.eventAction && data.eventLabel)
+			gtm.sendEvents({tClient: data});
+		if (ga4Data.eventName && ga4Data.itemType && ga4Data.itemName && ga4Data.linkObject)
+			gtm.sendEvents({tClient_ga4: ga4Data});
+	}
+
+	function handleScrollIntoView(payload){
+		var event = payload.eventContext,
+			widget = payload.widgetContext;
+		var data = {
+			eventCategory: widget.name,
+			eventAction: event.name,
+			eventLabel: "Widget - "+widget.name,
+			nonInteraction: true
+		}
+		if (data.eventCategory && data.eventAction && data.eventLabel)
+			gtm.sendEvents({tClient: data});
+	}
+
+	function handleShowMoreToggle(payload){
+		var event = payload.eventContext,
+			widget = payload.widgetContext;
+		var data = {
+			eventCategory: widget.name,
+			eventAction: event.name,
+			eventLabel: event.displayText+" | "+event.refTitle,
+			nonInteraction: false
+		}
+		if (data.eventCategory && data.eventAction && data.eventLabel)
+			gtm.sendEvents({tClient: data});
+					// ga4
+		let ga4Data = {
+			eventName: "filter",
+			filterType: event.displayText + " | " + event.refTitle,
+			itemType: event.itemType
+		}
+		if (ga4Data.eventName && ga4Data.filterType && ga4Data.itemType)
+			gtm.sendEvents({tClient_ga4: ga4Data});
+	}
+
+	function handlePageChange(payload){
+		var event = payload.eventContext,
+			widget = payload.widgetContext;
+		var data = {
+			eventCategory: widget.name,
+			eventAction: event.name,
+			eventLabel: event.refTitle+" | "+event.displayText,
+			nonInteraction: false
+		}
+		if (data.eventCategory && data.eventAction && data.eventLabel)
+			gtm.sendEvents({tClient: data});
+					// ga4
+		let ga4Data = {
+			eventName: "filter",
+			filterType: event.refTitle + " | " + event.displayText,
+			itemType: event.itemType
+		}
+		if (ga4Data.eventName && ga4Data.filterType && ga4Data.itemType)
+			gtm.sendEvents({ tClient_ga4: ga4Data });
+	}
+
+	function handleItemClick(payload){
+		var event = payload.eventContext,
+			widget = payload.widgetContext;
+		var data = {
+			eventCategory: widget.name,
+			eventAction: event.linkTo,
+			eventLabel: event.refTitle,
+			ot: event.type,
+			ltxt: event.displayText,
+			nonInteraction: false
+		}
+		/* alter action for once there */
+		if (event.recId !== undefined && event.recId.toString().indexOf("ot") > -1) {
+			data.eventAction = "OnceThere";
+		}
+		if (data.eventCategory && data.eventAction && data.eventLabel)
+			gtm.sendEvents({tClient: data});
+					// ga4
+		let crmCatSubcat = event?.crmc;
+		if (event?.v_crmc) {
+			crmCatSubcat = event.v_crmc;
+		} else if (crmCatSubcat && event.crmsc) {
+			crmCatSubcat += " | " + event.crmsc;
+		}
+		if (event?.name === "Quick View") {
+			var ga4Data = {
+				eventName: "filter",
+				filterType: "Open Quick View",
+				itemType: event.itemType,
+				itemName: event.itemName ?? event.refTitle,
+			}
+			if (ga4Data.eventName && ga4Data.filterType && ga4Data.itemType)
+				gtm.sendEvents({ tClient_ga4: ga4Data });
+		} else {
+			var ga4Data = {
+				eventName: event.eventName,
+				itemType: event.itemType,
+				itemName: event.itemName ?? event.refTitle,
+				linkObject: event.linkObject,
+				crmCatSubcat: crmCatSubcat
+			}
+			if (ga4Data.eventName && ga4Data.itemType && ga4Data.itemName && ga4Data.linkObject)
+			gtm.sendEvents({tClient_ga4: ga4Data});
+
+		}
+	}
+
+	function handleMapPinClick(payload) {
+		var event = payload.eventContext,
+			widget = payload.widgetContext;
+		var data = {
+			eventCategory: widget.name,
+			eventAction: event.name,
+			eventLabel: event.refTitle,
+			ot: event.type,
+			nonInteraction: false
+		}
+		if (data.eventCategory && data.eventAction && data.eventLabel)
+			gtm.sendEvents({ tClient: data });
+	}
+	
+	function handleFilterChange (payload) {
+		var event = payload.eventContext,
+			widget = payload.widgetContext;
+		var data = {
+			eventCategory: widget.name,
+			eventAction: "Filter Change",
+			eventLabel: event.refTitle+" | "+event.displayText,
+			nonInteraction: false
+		}
+		if (data.eventCategory && data.eventAction && data.eventLabel)
+			gtm.sendEvents({tClient: data});
+					// ga4
+		let ga4Data = {
+			eventName: "filter",
+			filterType: event.refTitle + " | " + event.displayText,
+			itemType: event.itemType
+		}
+		if (ga4Data.eventName && ga4Data.filterType && ga4Data.itemType)
+			gtm.sendEvents({tClient_ga4: ga4Data});
+	}
+	// end SEM tracking
+});
+
+// Lazy-load FontAwesome
+(function() {
+	var css = document.createElement('link');
+	css.href = 'https://web.archive.org/web/20230308043031/https://use.fontawesome.com/releases/v5.14.0/css/all.css';
+	css.rel = 'stylesheet';
+	css.type = 'text/css';
+	document.getElementsByTagName('head')[0].appendChild(css);
+})();
+
+// Lazy-load js for widgets that have the [data-js] attribute on their root node
+(function() {
+	function initDataJs(searchScope, selector = '[data-js]' ){
+		require(['plugins_common_custom_lazyload'], function(lazyload) {
+			var widgetsToLoad = [];
+			let scope = searchScope ? searchScope : document;
+			var els = scope.querySelectorAll(selector);
+
+			for (var i = 0; i < els.length; i++) {
+				widgetsToLoad.push(els[i]);
+			}
+			
+			lazyload.lazy(widgetsToLoad, function(entry, io) {
+				var target = entry.target;
+				var jsFile = target.dataset.js;
+				var guid = target.dataset.guid;
+
+				require([jsFile], function(widget) {
+					widget.init(guid);
+					io.unobserve(target);
+				});
+			});
+		});
+	};
+
+	initDataJs();
+
+	let eventToSelectorMap = {
+		// each event needs a slightly different selector
+		"dynamicContentLoaded": "[data-dynamic-chosen] [data-js]",
+		"abContentLoaded": "[data-ab-chosen] [data-js]"
+	}
+	
+	Object.entries(eventToSelectorMap).forEach( event => {
+		const [eventName, selector] = event;
+		window.addEventListener(eventName, e => {
+			const collections = document.querySelector(`[data-guid="${e}"]`);
+			initDataJs(collections, selector);
+		});
+	});
+})();
+
+// Wrap core_textbox iframes to prevent horizontal overflow
+(function() {
+	const textBoxes = document.querySelectorAll('[data-sv-core-textbox]');
+	if (textBoxes.length) {
+		require(['plugins_common_custom_utils'], function(utils) {
+			textBoxes.forEach(utils.wrapIframes);
+		});
+	}
+})();
+
+// Init quickview textboxes
+(function() {
+	const textBoxes = document.querySelectorAll('[data-qv-enabled-textbox]');
+	if (textBoxes.length) {
+		require(['plugins_common_custom_quickview_textbox'], function (qv) {
+			qv.init();
+		});
+	}
+})();
+
+// Remove critical styles from head after all CSS files have loaded
+// This prevents a situation where the critical styles cause an override of the CSS in files
+const criticalStyles = document.querySelector('[data-critical-styles]');
+if (criticalStyles) {
+	window.addEventListener('load', e => criticalStyles.remove());
+}
+
+
+}
+/*
+     FILE ARCHIVED ON 04:30:31 Mar 08, 2023 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 00:41:40 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 234.814
+  exclusion.robots: 0.066
+  exclusion.robots.policy: 0.059
+  cdx.remote: 0.054
+  esindex: 0.008
+  LoadShardBlock: 209.742 (3)
+  PetaboxLoader3.datanode: 224.056 (5)
+  load_resource: 332.139
+  PetaboxLoader3.resolve: 150.669
+  loaddict: 40.07
+*/

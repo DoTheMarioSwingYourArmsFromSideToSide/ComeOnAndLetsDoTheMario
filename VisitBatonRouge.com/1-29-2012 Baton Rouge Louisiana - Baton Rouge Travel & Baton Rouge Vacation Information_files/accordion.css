@@ -1,0 +1,169 @@
+li { list-style-type: none; }
+ul.bullets li{	list-style-type:disc; }
+.basic, #list2, #list3, #navigation { width:20em; }
+
+#log { position:fixed; bottom: 0; right:1em; text-align:right; }
+#switch { position: fixed; bottom: 0; right: 15em; }
+
+.basic  {
+	width: 260px;
+	font-family: verdana;
+	border: 1px solid black;
+}
+.basic div {
+	background-color: #eee;
+}
+
+.basic p {
+	margin-bottom : 10px;
+	border: none;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 10px;
+	margin: 0px;
+	padding: 10px;
+}
+.basic a {
+	cursor:pointer;
+	display:block;
+	padding:5px;
+	margin-top: 0;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 12px;
+	color: black;
+	background-color: #00a0c6;
+	border-top: 1px solid #FFFFFF;
+	border-bottom: 1px solid #999;
+	
+	background-image: url("/web/20120127054132im_/http://www.visitbatonrouge.com/private/widgets/accordion/AccordionTab0.gif");
+}
+.basic a:hover {
+	background-color: white;
+	background-image: url("/web/20120127054132im_/http://www.visitbatonrouge.com/private/widgets/accordion/AccordionTab2.gif");
+}
+.basic a.selected {
+	color: black;
+	background-color: #80cfe2;
+	background-image: url("/web/20120127054132im_/http://www.visitbatonrouge.com/private/widgets/accordion/AccordionTab2.gif");
+}
+
+#list2 {
+	height: 370px;
+	border: 0px solid #eee;
+	overflow: hidden;
+	background-color: #e1d29d;
+	}
+#list2 .red {
+	color: red;
+	background-color: red;
+}
+#list2 .green {
+	color: green;
+	background-color: green;
+}
+#list2 .blue {
+	color: blue;
+	background-color: blue;
+}
+#list2 dd { height: 130px; overflow: hidden; }
+
+#list3 { border: 1px solid #111; }
+#list3 div.selected .title { font-weight: bold; }
+#list3 div div {
+	border-left:8px solid #6699CC;
+	padding: 5px;
+}
+#list3 div.title {
+	border: 1px solid #3366AA;
+	background-color: #6699CC;
+	padding: 10px;
+	cursor: pointer;
+}
+#list3 div.selected {
+	border-bottom: none;
+}
+
+#navigation {
+	border:1px solid #5263AB;
+	margin:0px;
+	padding:0px;
+	text-indent:0px;
+	background-color:#E2E2E2;
+	width:200px;
+}
+#navigation a.head {
+	cursor:pointer;
+	border:1px solid #CCCCCC;
+	background:#5263AB url(/web/20120127054132im_/http://www.visitbatonrouge.com/private/widgets/accordion/collapsed.gif) no-repeat scroll 3px 4px;
+	color:#FFFFFF;
+	display:block;
+	font-weight:bold;
+	margin:0px;
+	padding:0px;
+	text-indent:14px;
+	text-decoration: none;
+}
+#navigation a.head:hover {
+	color:#FFFF99;
+}
+#navigation a.selected {
+	background-image: url(/web/20120127054132im_/http://www.visitbatonrouge.com/private/widgets/accordion/expanded.gif);
+}
+#navigation a.current {
+	background-color:#FFFF99;
+}
+#navigation ul {
+	border-width:0px;
+	margin:0px;
+	padding:0px;
+	text-indent:0px;
+}
+#navigation li {
+	list-style:none outside none; display:inline;
+}
+#navigation li li a {
+	color:#000000;
+	display:block;
+	text-indent:10px;
+	text-decoration: none;
+}
+#navigation li li a:hover {
+	background-color:#FFFF99;
+	color:#FF0000;
+}
+
+#wizard {
+	width: 200px;
+	border: 1px solid black;
+}
+#wizard .title {
+	background-color:#DDDDDD;
+}
+
+@media print {
+	.basic div, #navigation ul, #list2 dd, #list3 div{
+		display: block!important;
+		height: auto!important
+	}
+}
+/*
+     FILE ARCHIVED ON 05:41:32 Jan 27, 2012 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:25:12 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 1737.912
+  exclusion.robots: 0.101
+  exclusion.robots.policy: 0.06
+  RedisCDXSource: 0.547
+  esindex: 0.008
+  LoadShardBlock: 1715.974 (3)
+  PetaboxLoader3.datanode: 1710.286 (4)
+  load_resource: 83.574
+  PetaboxLoader3.resolve: 46.252
+*/

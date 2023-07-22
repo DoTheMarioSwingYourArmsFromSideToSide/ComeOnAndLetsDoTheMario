@@ -1,0 +1,136 @@
+/*
+	README
+
+	Modify this file as much or as little as needed.
+
+	This file is shared across all CCL widgets in the Mosaic family. This enables the ability to
+	a family of widgets in a single update without touching the structure of the widget and without needing
+	to duplicate efforts across several widget-specific CSS files.
+*/
+
+.core-mosaic {
+	margin-bottom: 30px;
+	color: var(--white);
+}
+
+.core-mosaic .mosaic-tiles-wrapper {
+	grid-template: auto / minmax(0, 1fr) minmax(0, 1fr);
+	gap: 4px;
+	padding: 0;
+}
+
+.core-mosaic .mosaic-tile-inner::before,
+.core-mosaic .mosaic-tile-inner::after {
+	position: absolute;
+	z-index: 2;
+	display: block;
+	content: '';
+	pointer-events: none;
+}
+
+.core-mosaic .mosaic-tile-inner::before {
+	inset: 35% 0 0 0;
+	background: linear-gradient(to top, rgba(0,0,0,.6), rgba(0,0,0,0));
+}
+
+.core-mosaic .mosaic-tile-inner::after {
+	inset: 0;
+	background: rgba(0,0,0,.6);
+	opacity: 0;
+	transition: opacity var(--transition-appendix);
+}
+
+.core-mosaic .mosaic-tile .mosaic-tile-link {
+	color: inherit;
+}
+
+.core-mosaic .mosaic-tile .tile-info-wrapper {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	z-index: 4;
+	padding: 12px;
+	pointer-events: none;
+}
+
+.core-mosaic .mosaic-tile .tile-info-wrapper a {
+	pointer-events: all;
+}
+
+.core-mosaic .mosaic-tile .tile-title {
+	font-family: var(--font-display);
+	font-weight: var(--font-weight-semibold);
+	font-size: 1.0625rem;
+	line-height: calc(21/17);
+	color: inherit;
+}
+
+.core-mosaic .mosaic-tile .hover-stick {
+	position: absolute;
+	bottom: -10px;
+	left: -25px;
+	z-index: 3;
+	transform: translateX(-100%);
+	width: 404px;
+	transition: transform var(--transition-appendix);
+	pointer-events: none;
+}
+
+@media (hover: hover) {
+	.core-mosaic .mosaic-tile:hover .mosaic-tile-inner::after {
+		opacity: 1;
+	}
+
+	.core-mosaic .mosaic-tile:hover .hover-stick {
+		transform: none;
+	}
+}
+
+@media (min-width: 40em) {
+	.core-mosaic .mosaic-tiles-wrapper {
+		gap: 6px;
+	}
+
+	.core-mosaic .mosaic-tile.major {
+		grid-column: span 2;
+	}
+
+	.core-mosaic .mosaic-tile .tile-info-wrapper {
+		padding: 20px;
+	}
+
+	.core-mosaic .mosaic-tile .tile-title {
+		font-size: 1.75rem;
+		line-height: calc(8/7)
+	}
+}
+
+@media (min-width: 64em) {
+	.core-mosaic {
+		margin-bottom: 120px;
+	}
+
+	.core-mosaic .mosaic-tiles-wrapper {
+		grid-template: auto / repeat(4, minmax(0, 1fr));
+	}
+}
+/*
+     FILE ARCHIVED ON 00:57:49 Mar 08, 2023 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 00:41:48 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 121.781
+  exclusion.robots: 0.108
+  exclusion.robots.policy: 0.099
+  cdx.remote: 0.081
+  esindex: 0.009
+  LoadShardBlock: 93.937 (3)
+  PetaboxLoader3.datanode: 100.638 (4)
+  load_resource: 134.583
+  PetaboxLoader3.resolve: 108.439
+*/

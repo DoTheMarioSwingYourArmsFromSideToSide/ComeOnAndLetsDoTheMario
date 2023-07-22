@@ -1,0 +1,52 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+// This file will be run in the header on every page.
+// It should be used for content that relates
+// to your site as a whole, it should not be used for
+// plugin-specific js
+
+// Google Tag Manager
+window.gtmDataLayer = window.gtmDataLayer || [];
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//web.archive.org/web/20160624193814/http://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','gtmDataLayer','GTM-TVSFF5');
+// End Google Tag Manager
+
+// Quantcast Tag
+var _qevents = _qevents || [];(function() { var elem = document.createElement('script');elem.src = (document.location.protocol == "https:" ? "https://web.archive.org/web/20160624193814/https://secure" : "https://web.archive.org/web/20160624193814/http://edge") + ".quantserve.com/quant.js";
+elem.async = true;elem.type = "text/javascript";var scpt = document.getElementsByTagName('script')[0];scpt.parentNode.insertBefore(elem, scpt);})();
+// End Quantcast tag
+
+}
+/*
+     FILE ARCHIVED ON 19:38:14 Jun 24, 2016 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:21:08 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 63.041
+  exclusion.robots: 0.06
+  exclusion.robots.policy: 0.053
+  cdx.remote: 0.051
+  esindex: 0.008
+  LoadShardBlock: 31.489 (3)
+  PetaboxLoader3.datanode: 776.928 (4)
+  load_resource: 807.67
+  PetaboxLoader3.resolve: 54.902
+*/

@@ -1,0 +1,179 @@
+/*
+	README
+
+	This file should only be used to style structure of the widget. It should not
+	contain fonts or theme styling. Use the shared_theme.css for that purpose.
+
+	If simply theming the CCL, leave this file alone.
+
+	If your design is very customized, edit this file as needed. 
+*/
+
+@media (min-width: 40em) {
+	.core-side-by-side {
+		margin-bottom: var(--space-16);
+		padding-top: var(--space-6);
+	}
+}
+
+.core-side-by-side[data-width="full"] .slides {
+	padding: 0 var(--space-4);
+}
+
+@media (min-width: 40em) {
+	.core-side-by-side[data-width="full"] .slides {
+		padding: 0;
+	}
+}
+
+.core-side-by-side[data-slides-across="2"] .slides {
+	display: grid;
+	gap: var(--space-16);
+	padding: 0 var(--space-5);
+	max-width: var(--width-base);
+}
+
+@media (min-width: 64em) {
+	.core-side-by-side[data-slides-across="2"] .slides {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: var(--space-5);
+		margin: 0 auto;
+	}
+}
+
+.core-side-by-side .slide + .slide {
+	margin-top: var(--space-4);
+}
+
+@media (min-width: 64em) {
+	.core-side-by-side[data-slides-across="2"] .slide + .slide {
+		margin-top: 0;
+	}
+}
+
+.core-side-by-side .slide .slide-top {
+	display: grid;
+	gap: var(--space-2);
+}
+
+.core-side-by-side:not([data-slides-across="2"]) .slide > .inner {
+	margin: 0 auto;
+	padding: 0 var(--space-5);
+	max-width: var(--width-base);
+}
+
+.core-side-by-side[data-width="full"] .slide > .inner {
+	padding: 0;
+	max-width: 100%;
+}
+
+@media (min-width: 40em) {
+	.core-side-by-side .slide > .inner {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+	}
+}
+
+.core-side-by-side .slide .content-section {
+	display: grid;
+	place-items: center;
+}
+
+.core-side-by-side .slide .content-section > .inner {
+	display: grid;
+	gap: var(--space-4);
+}
+
+.core-side-by-side .slide .content-section .content-top {
+	display: grid;
+	gap: var(--space-3);
+}
+
+.core-side-by-side .slide .content-section .heading-container {
+	display: grid;
+	gap: var(--space-1);
+}
+
+.core-side-by-side .blog-feed-header {
+	--font-size: var(--text-sm);
+	--text-color: var(--color-body);
+	--accent-color: var(--color-display);
+	--font-family-display: var(--font-title);
+	--font-family-body: var(--font-desc);
+
+	display: none;
+}
+
+.core-side-by-side .slide .blog-feed-header-mobile-container .blog-feed-header {
+	display: grid;
+}
+
+.core-side-by-side .slide .details {
+	--font-family: var(--font-desc);
+	--text-color: var(--color-body);
+	--icon-color: var(--color-display);
+}
+
+.core-side-by-side .slide .content-section > .inner {
+	width: 100%;
+}
+
+@media (min-width: 40em) {
+	.core-side-by-side .slide .content-section > .inner {
+		padding-left: var(--space-10);
+		width: 100%;
+		max-width: var(--width-comfortable);
+	}
+
+	.core-side-by-side:not([data-slides-across="2"]) .slide .content-section > .inner {
+		padding-right: 40px;
+	}
+
+	.core-side-by-side .slide .blog-feed-header-mobile-container {
+		display: none;
+	}
+
+	.core-side-by-side .slide .content-section .blog-feed-header {
+		display: grid;
+	}
+}
+
+.core-side-by-side .slide .img-cont {
+	position: relative;
+	margin-bottom: var(--space-5);
+	overflow: hidden;
+}
+
+@media (min-width: 40em) {
+	.core-side-by-side .slide .img-cont {
+		margin-bottom: 0;
+	}
+}
+
+@media (min-width: 40em) { 
+	.core-side-by-side .slide-right .slide > .inner .slide-top,
+	.core-side-by-side .slide-left.alternating .slide:nth-child(even) > .inner .slide-top,
+	.core-side-by-side .slide-right.alternating .slide:nth-child(even) > .inner .content-section { order: 2; }
+	.core-side-by-side .slide-right.alternating .slide:nth-child(even) > .inner .slide-top { order: 1; }
+}
+/*
+     FILE ARCHIVED ON 00:57:50 Mar 08, 2023 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 00:41:49 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 172.807
+  exclusion.robots: 0.067
+  exclusion.robots.policy: 0.058
+  cdx.remote: 0.056
+  esindex: 0.01
+  LoadShardBlock: 73.642 (3)
+  PetaboxLoader3.datanode: 263.584 (4)
+  load_resource: 244.446
+  PetaboxLoader3.resolve: 48.825
+*/

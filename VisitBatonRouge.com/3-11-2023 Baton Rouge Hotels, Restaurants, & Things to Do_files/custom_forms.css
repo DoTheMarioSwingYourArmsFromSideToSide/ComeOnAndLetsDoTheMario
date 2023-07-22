@@ -1,0 +1,776 @@
+/*** BEGIN FORM STYLING ***/
+/* START RESET FORM STYLING. YOU SHOULDN'T HAVE TO MODIFY ANYTHING TILL CUSTOMIZE SECTION  */
+ 
+/* The crm-calendar-popup class is added by JS in the header */
+body.crm-calendar-popup  { overflow-y: hidden !important; }
+body.crm-calendar-popup::-webkit-scrollbar { display: none; }
+body.crm-calendar-popup .contentRender { display: none; } 
+body.crm-calendar-popup .crm-calendar-parent { padding: 0; margin: 0; background: #fff; }
+body.crm-calendar-popup table { width: 100%; margin-bottom: 0;}
+body.crm-calendar-popup table thead tr th,
+body.crm-calendar-popup table tfoot tr th,
+body.crm-calendar-popup table tfoot tr td,
+body.crm-calendar-popup table tbody tr th,
+body.crm-calendar-popup table tbody tr td,
+body.crm-calendar-popup table tr td {
+	padding: 2px;
+	font-size: 12px;
+	line-height: 1.6em;
+}
+body.crm-calendar-popup .lookup-cal,
+body.crm-calendar-popup .lookup-calNav { border: none; }
+body.crm-calendar-popup .lookup-calNav {
+	margin-bottom: 0px;
+	border-bottom: 1px solid #ccc;
+}
+body.crm-calendar-popup .lookup-cal td,
+body.crm-calendar-popup .lookup-calNav td { text-align: center; }
+body.crm-calendar-popup .lookup-close {
+	margin-top: 15px;
+	text-transform: uppercase;
+	padding-bottom: 20px;
+}
+/* Add some margin on form h3's when they're mixed into the form */
+.contentRender form.simpleForm div + h3 { margin-top: 20px; }
+/* TARGET CALENDER TRIGGER ON FORMS*/
+.contentRender form.simpleForm a img { margin-bottom: 10px; }
+ 
+.contentRender form.simpleForm .row textarea,
+.contentRender form.simpleForm .row input { margin-bottom: 10px; }
+.contentRender form.simpleForm .button { display: inline-block; }
+/* New Google Captcha Styling */
+#g-recaptcha > div { margin-left: auto; margin-right: auto; }
+.contentRender form.simpleForm .captcha img,
+.contentRender #sv_submit_event_form img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 0;
+}
+.contentRender form.simpleForm .hint,
+.contentRender #sv_submit_event_form .sv_api_hint {
+	display: block;
+	text-align: center;
+}
+.contentRender form.simpleForm .captcha #code,
+.contentRender #sv_submit_event_form #code {
+	width: 200px;
+	display: block;
+	margin: 0 auto;
+	margin-top: -13px;
+}
+.contentRender form.simpleForm .captcha { overflow: hidden; }
+.contentRender form.simpleForm .captcha #capimage { float: left;  margin-top: 10px; margin-right: 8px; }
+.contentRender form.simpleForm .captcha .hint { margin-top: 10px; }
+.contentRender #sv_submit_event_form .svrecurall *,#sv_submit_event_form #recur_show_1 {
+	-moz-transition: opacity .6s;
+	-o-transition: opacity .6s;
+	-transition: opacity .6s;
+	-webkit-transition: opacity .6s;
+}
+.contentRender #sv_submit_event_form select,
+.contentRender #sv_submit_event_form select[size], #sv_submit_event_form select[multiple],
+.contentRender #sv_submit_event_form input[type=text] { padding: 6px; }
+.contentRender #sv_submit_event_form td:not(:first-child) {
+	padding-left: 0;
+	vertical-align: middle;
+}
+.contentRender #sv_submit_event_form table.fileuploads thead th,
+.contentRender #sv_submit_event_form label.recur_menu,
+.contentRender #sv_submit_event_form legend,
+.contentRender #sv_submit_event_form div.datalabel label {
+	font-weight: normal;
+}
+.contentRender #sv_submit_event_form .progress {
+	background: grey;
+	height: 22px;
+	line-height: 18px;
+}
+.contentRender div#sv_submit_event_form.submitEventForm { padding: 0 !important; }
+.contentRender #sv_submit_event_form .svrecurall *,#sv_submit_event_form #recur_show_1{
+	-moz-transition:all .6s;
+	-o-transition:all .6s;
+	transition:all .6s;
+	-webkit-transition:all .6s;
+}
+.contentRender #sv_submit_event_form #recur_opts_3 .inner_recur_opt ul ul li {
+	width: 13%;
+	display: inline-block;
+}
+.contentRender #sv_submit_event_form #customdate_list {padding: 0 !important; }
+.contentRender #sv_submit_event_form #customdate_list table { margin-bottom: 0; border: 1px solid #ddd; }
+.contentRender #sv_submit_event_form #customdate_list table td,
+.contentRender #sv_submit_event_form #customdate_list table tr { border: none; }
+.contentRender #sv_submit_event_form .recur_opt .detailbar { vertical-align: middle; }
+.contentRender #sv_submit_event_form .recur_opt td {padding: 2px 0;}
+.contentRender #sv_submit_event_form input[type=radio]:checked ~ div.recur_opt { max-height: 100%; }
+.contentRender #sv_submit_event_form #recur_opts_99 { overflow-y: auto !important; }
+.contentRender #sv_submit_event_form .inner_recur_opt,
+.contentRender #sv_submit_event_form label.recur_menu { margin: 0 1.25em ;}
+.contentRender #sv_submit_event_form .inner_recur_opt { padding: 0 1.25em 0 1.25em; }
+.contentRender #sv_submit_event_form #recur_range {
+	margin: 0 1.25em;
+	padding: 0 1.25em 0 1.25em;
+}
+.contentRender #sv_submit_event_form .div_fld_data_recurType ul label {
+	height: 50px;
+	line-height: 46px;
+}
+.contentRender #sv_submit_event_form .inner_recur_opt select {
+	border: none;
+	border-radius: 2px;
+	min-width: 60px;
+	padding-right: 24px;
+}
+.contentRender #sv_submit_event_form .svrecurall input[type=text]:not(#customdate) {
+	border: none;
+	border-radius: 2px;
+}
+.contentRender #sv_submit_event_form .svrecurall #customdate {
+	width: 130px;
+	text-align: center;
+}
+.contentRender form.simpleForm input[type="checkbox"]+label, .contentRender form.simpleForm input[type="radio"]+label {
+	display: inline; /* foundation overrride */
+}
+.contentRender form.simpleForm .formCntrls,
+.contentRender form.simpleForm h3 { text-align: center; }
+@media only screen and (min-width: 40.125em) {
+	.contentRender form.simpleForm p.hint,
+	.contentRender form.simpleForm .captcha,
+	.contentRender form.simpleForm .formCntrls,
+	.contentRender form.simpleForm h3 {
+		text-align: left !important;
+	}
+	.contentRender form.simpleForm .columns p.hint {
+		margin: 8px 0 10px 0;
+		padding-left: 0px;
+	}
+	.contentRender form.simpleForm .captcha img,
+	.contentRender form.simpleForm .captcha #code { margin-left: 0; }
+	.contentRender form.simpleForm .hint { text-align: left; }
+}
+.contentRender #rsvp-container .button,
+.contentRender form.simpleForm .button,
+.contentRender #sv_submit_event_form input.button,
+.contentRender #sv_submit_event_form .svbtn,
+.contentRender #multifileuploadcontainer label {	
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	-ms-box-shadow: none;
+	-o-box-shadow: none;
+	box-shadow: none;
+	box-shadow: none;
+}
+.contentRender #rsvp-container .button,
+.contentRender form.simpleForm .button,
+.contentRender #sv_submit_event_form input.button,
+.contentRender #sv_submit_event_form .svbtn,
+.contentRender #multifileuploadcontainer label {
+	border-radius: 0px;
+}
+.contentRender form.simpleForm h3,
+.contentRender #sv_submit_event_form .formhead {
+	background-color: transparent;
+}
+.contentRender #rsvp-container .button,
+.contentRender form.simpleForm .button,
+.contentRender #sv_submit_event_form input.button,
+.contentRender #sv_submit_event_form .svbtn,
+.contentRender #multifileuploadcontainer label {
+	background: grey; /* just a color so we can see our buttons */
+	border: none;
+}
+.contentRender form.simpleForm div input,
+.contentRender #sv_submit_event_form div input {
+	border-radius: initial;
+}
+.contentRender #rsvp-container { padding: 0; }
+.contentRender #rsvp-container #rsvp-inner-contents,
+.contentRender #rsvp-container .eventListTable { width: 100% !important; }
+.contentRender #rsvp-container div.eventTypeHeader {
+	text-decoration: none;
+	padding: 0;
+	display: block;
+	white-space: normal;
+}
+.contentRender #rsvp-container .button { border-radius: 0; }
+.contentRender #rsvp-container .eventListCell_button,
+.contentRender #rsvp-container .eventListCell_deadline,
+.contentRender #rsvp-container .eventListCell_edate,
+.contentRender #rsvp-container .eventListCell_sdate {
+	width: 12%;
+}
+.contentRender #rsvp-container div.eventListCell_eventname { white-space: pre-wrap; }
+.contentRender #rsvp-container table tr:nth-of-type(even),
+.contentRender #rsvp-container div.evenrow {background: none;}
+.contentRender #rsvp-container table tr:nth-of-type(odd),
+.contentRender #rsvp-container div.oddrow { background-color: #f1f1f1; }
+.contentRender #rsvp-container #eventdetailbuttonrow { margin-top: 20px; }
+.contentRender #searchEmail,
+.contentRender #label_searchEmail {
+	display: inline;
+}
+.contentRender #registrationForm label { width: 15%; display: inline-block; } 
+.contentRender #registrationForm label + div { display: inline-block; width: 65%;} 
+.contentRender #registrationForm select { width: auto; min-width: 100px }
+.contentRender #rsvp-container input[type=text], .contentRender #rsvp-container select, contentRender #rsvp-container textarea.textarea {
+ 
+}
+ 
+.contentRender #rsvp-container .registrationForm-eventName { text-align: left; }
+.contentRender #rsvp-container .button { margin-bottom: 0; }
+
+ /* START SUBMIT EVENT TAB RESET CSS */
+.contentRender #sv_submit_event_form input[type=radio] ~ label.recur_menu,
+.contentRender #sv_submit_event_form input[type=radio]:checked ~ label.recur_menu {
+	background-image: none;
+	position: relative;
+}
+
+.contentRender #sv_submit_event_form input[type=radio] ~ label.recur_menu:after {
+	position: absolute;
+	width: 17px;
+	height: 17px;
+	font-family: 'Font Awesome 5 Free';
+	content: '\f078';    
+	font-weight: 900;
+	right: 10px;
+}
+.contentRender #sv_submit_event_form input[type=radio]:checked ~ label.recur_menu:after {
+	font-family: 'Font Awesome 5 Free';
+	font-weight: 900;
+	content: '\f077';
+}
+.contentRender #sv_submit_event_form .div_fld_data_recurType li input[type="radio"] + label,
+.contentRender #sv_submit_event_form .div_fld_data_recurType li input[type="checkbox"] + label { position: relative; }
+.contentRender #sv_submit_event_form .div_fld_data_recurType li input[type="radio"]:checked + label:before,
+.contentRender #sv_submit_event_form .div_fld_data_recurType li input[type="checkbox"]:checked + label:before {
+	position: absolute;
+	width: 30px;
+	height: 40px;
+	font-family: 'Font Awesome 5 Free';
+	font-weight: 900;
+	content: '\f00c';
+	left: 10px;
+}
+
+.contentRender #sv_submit_event_form a.deleteit { background-image: none; position: relative; }
+.contentRender #sv_submit_event_form a.deleteit:before {
+	position: absolute;
+	width: 30px;
+	height: 40px;
+	font-family: 'Font Awesome 5 Free';
+	font-weight: 900;
+	content: '\f1f8';
+	left: 10px;
+}
+.contentRender #sv_submit_event_form .div_fld_data_recurType li input[type="radio"]:checked + label.minilabel:before,
+.contentRender #sv_submit_event_form .div_fld_data_recurType li input[type="checkbox"]:checked + label.minilabel:before {
+	width: 17px;
+	height: 24px;
+}
+.contentRender #sv_submit_event_form .recur_opt input[type=checkbox]:checked ~ label,
+.contentRender #sv_submit_event_form .recur_opt input[type=radio]:checked ~ label,
+.contentRender #sv_submit_event_form #recur_range input[type=checkbox]:checked ~ label,
+.contentRender #sv_submit_event_form #recur_range input[type=radio]:checked ~ label {
+	background-image: none;
+}
+.contentRender #sv_submit_event_form .recur_opt input[type=checkbox]:checked ~ label.minilabel,
+.contentRender #sv_submit_event_form .recur_opt input[type=radio]:checked ~ label.minilabel {
+	background-image: none;
+}
+/* END SUBMIT EVENT TAB RESET CSS */
+@media only screen and (max-width: 64em) {
+	.contentRender #rsvp-container .eventListTable { display: block; }
+	.contentRender #rsvp-container div.eventList_headerRow { display: none };
+	.contentRender #rsvp-container .eventListCell { position: relative; }
+	.contentRender #rsvp-container .eventListRow { padding: 10px; display: block; }
+	.contentRender #rsvp-container .eventListCell:not(.eventListCell_button)::before {
+		content: attr(data-title) ":\00A0";
+		display: inline-block;
+		clear:both;
+		width: 10em;
+		position: absolute;
+		left: 0;
+	}
+	.contentRender #rsvp-container .eventListCell {
+		padding-top: 0;
+		padding-left: 10em;
+		width: 100%;
+		display: block;
+		position: relative;
+	}
+	.contentRender #rsvp-container .eventListCell.eventListCell_button { padding-left: 0; }
+	.contentRender #rsvp-container .times, .contentRender #rsvp-container .day { display: block; }
+	.contentRender #rsvp-container div.eventListCell:empty { display: none; }
+}
+.contentRender #rsvp-container .rcost_description, .contentRender  #rsvp-container .cost_description:empty { display: none; } 
+.contentRender .guestsGridTable { margin-top: 20px; } 
+.contentRender #rsvp-container table { border: none; }
+/* undoing some legacy rsvp code */
+.contentRender #rsvp-container .registrationForm, .contentRender #rsvp-container .guestRegistrationForm {
+	width: 90% !important;
+}
+
+.contentRender form.simpleForm .columns fieldset {
+	margin: 0;
+	padding: 0;
+}
+
+/* rfp form calendars */
+
+.contentRender #rfpForm.simpleForm .cal-wrapper {
+	position: relative;
+}
+.contentRender #rfpForm.simpleForm .cal-wrapper input {
+	margin-bottom: 0;
+	height: 32px;
+}
+.contentRender #rfpForm.simpleForm img.ui-datepicker-trigger {
+	right: 10px;	
+	top: 50%;
+	transform: translateY(-50%);
+	vertical-align: middle;
+	position: absolute;
+}
+
+/* END RESET */
+ 
+/*=============================================*/
+/*=====----- CUSTOMIZE THE FOLLOWING -----=====*/
+/*=============================================*/
+
+/* UPDATE VARIABLES BELOW AS NEEDED */
+
+.contentRender #rfpForm.simpleForm,
+:is(.contentRender_name_plugins_crm_formbuilder, .contentRender_name_plugins_events_submitevent, .contentRender #rfpForm.simpleForm) form {
+	--form-heading-font-family: var(--font-display);
+	--form-heading-font-weight: 700;
+	--form-heading-font-style: normal;
+	--form-heading-color: var(--gray-dark);
+
+	--label-font-family: var(--font-body);
+	--label-font-weight: 500;
+	--label-font-style: normal;
+	--label-color: var(--gray-dark);
+
+	--input-color: var(--gray-dark);
+	--input-disabled-color: var(--gray-dark);
+	--input-border-color: var(--gray-dark);
+
+	--option-background: var(--white);
+	--option-color: var(--gray-dark);
+
+	--form-key-color: var(--red);
+	--form-key-color-dark: var(--red);
+
+	margin: var(--space-8) 0;
+}
+
+:is(.contentRender_name_plugins_crm_formbuilder, .contentRender_name_plugins_events_submitevent, .contentRender #rfpForm.simpleForm) label {
+	display: inline-block;
+	margin-bottom: .25rem;
+	font-size: var(--text-base);
+	font-family: var(--label-font-family);
+	font-weight: var(--label-font-weight);
+	text-align: left !important;
+}
+
+:is(.contentRender_name_plugins_crm_formbuilder, .contentRender_name_plugins_events_submitevent, .contentRender #rfpForm.simpleForm) option {
+	background: var(--option-background);
+	color: var(--option-color);
+}
+
+:is(.contentRender_name_plugins_crm_formbuilder, .contentRender_name_plugins_events_submitevent, .contentRender #rfpForm.simpleForm) :is(select, input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], textarea)
+{
+	display: block;
+	width: 100%;
+	padding: var(--space-2) !important;
+	background-color: var(--white);
+	border: 1px solid var(--input-border-color);
+	border-radius: 0;
+	font-size: 16px; /* keep this the way it is because it will prevent auto-zooming when inputs are focused on mobile */
+	color: var(--input-color);
+	letter-spacing: 0.02rem;
+	line-height: 1;
+	position: relative;
+	z-index: 1;
+}
+
+#rfpForm table.rfp_table tr {
+	vertical-align: unset;
+	display:  flex;
+	column-gap: 60px;
+	row-gap: 4px;
+	flex-wrap:  wrap;
+	align-items: center;
+	margin-bottom: 12px;
+}
+
+:is(.contentRender_name_plugins_crm_formbuilder, .contentRender_name_plugins_events_submitevent, .contentRender #rfpForm.simpleForm) :is(select[readonly], select[disabled], input[type="text"][readonly], input[type="text"][disabled], input[type="password"][readonly], input[type="password"][disabled], input[type="date"][readonly], input[type="date"][disabled], input[type="datetime"][readonly], input[type="datetime"][disabled], input[type="datetime-local"][readonly], input[type="datetime-local"][disabled], input[type="month"][readonly], input[type="month"][disabled], input[type="week"][readonly], input[type="week"][disabled], input[type="email"][readonly], input[type="email"][disabled], input[type="number"][readonly], input[type="number"][disabled], input[type="search"][readonly], input[type="search"][disabled], input[type="tel"][readonly], input[type="tel"][disabled], input[type="time"][readonly], input[type="time"][disabled], input[type="url"][readonly], input[type="url"][disabled], textarea[readonly], textarea[disabled]) {
+	background-color: var(--white);
+	border: 1px solid rgba(0,0,0,.15);
+	color: var(--input-disabled-color);
+}
+
+:is(.contentRender_name_plugins_crm_formbuilder, .contentRender_name_plugins_events_submitevent, .contentRender #rfpForm.simpleForm) :is(select, input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], textarea):focus {
+	outline: none;
+	border-color: var(--form-key-color-dark);
+}
+
+:is(.contentRender_name_plugins_crm_formbuilder, .contentRender_name_plugins_events_submitevent, .contentRender #rfpForm.simpleForm) :is(select[readonly], select[disabled], input[type="text"][readonly], input[type="text"][disabled], input[type="password"][readonly], input[type="password"][disabled], input[type="date"][readonly], input[type="date"][disabled], input[type="datetime"][readonly], input[type="datetime"][disabled], input[type="datetime-local"][readonly], input[type="datetime-local"][disabled], input[type="month"][readonly], input[type="month"][disabled], input[type="week"][readonly], input[type="week"][disabled], input[type="email"][readonly], input[type="email"][disabled], input[type="number"][readonly], input[type="number"][disabled], input[type="search"][readonly], input[type="search"][disabled], input[type="tel"][readonly], input[type="tel"][disabled], input[type="time"][readonly], input[type="time"][disabled], input[type="url"][readonly], input[type="url"][disabled], textarea[readonly], textarea[disabled]):focus {
+	border-color: rgba(0,0,0,.15);
+	box-shadow: none;
+}
+
+:is(.contentRender_name_plugins_crm_formbuilder, .contentRender_name_plugins_events_submitevent, .contentRender #rfpForm.simpleForm) textarea {
+	height: auto;
+	min-height: 7em;
+}
+
+:is(.contentRender_name_plugins_crm_formbuilder, .contentRender_name_plugins_events_submitevent, .contentRender #rfpForm.simpleForm) :is(input[type="checkbox"], input[type="radio"]) {
+	display: inline-block;
+}
+
+:is(.contentRender_name_plugins_crm_formbuilder, .contentRender_name_plugins_events_submitevent, .contentRender #rfpForm.simpleForm) :is(input[type="checkbox"], input[type="radio"]) + label {
+	display: inline-block;
+	margin-left: var(--space-2);
+	margin-right: var(--space-4);
+	margin-bottom: 10px;
+}
+
+:is(.contentRender_name_plugins_crm_formbuilder, .contentRender_name_plugins_events_submitevent, .contentRender #rfpForm.simpleForm) .svrecurall :is(input[type="checkbox"], input[type="radio"]) + label {
+	display: block;
+	margin-left: 0;
+	margin-right: 0;
+}
+
+:is(.contentRender_name_plugins_crm_formbuilder, .contentRender_name_plugins_events_submitevent, .contentRender #rfpForm.simpleForm) .svrecurall :is(input[type="checkbox"], input[type="radio"]).recurtype {
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+:is(.contentRender_name_plugins_crm_formbuilder, .contentRender_name_plugins_events_submitevent, .contentRender #rfpForm.simpleForm) .svrecurall .wrapsmall input {
+	width: auto;
+}
+
+:is(.contentRender_name_plugins_crm_formbuilder, .contentRender_name_plugins_events_submitevent, .contentRender #rfpForm.simpleForm) input[type="checkbox"] {
+	cursor: pointer;
+	width: 16px;
+	height: 16px;
+	padding: 0;
+	background: none;
+	border: 1px solid var(--black);
+	background: none;
+}
+
+:is(.contentRender_name_plugins_crm_formbuilder, .contentRender_name_plugins_events_submitevent, .contentRender #rfpForm.simpleForm) input[type="radio"] {
+	cursor: pointer;
+	width: 16px;
+	height: 16px;
+	padding: 0;
+	background: none;
+	border: 1px solid var(--black);
+	border-radius: 50%;
+	background: none;
+}
+
+:is(.contentRender_name_plugins_crm_formbuilder, .contentRender_name_plugins_events_submitevent, .contentRender #rfpForm.simpleForm) input[type="radio"]:checked {
+	background: var(--form-key-color-dark);
+	border-color: var(--form-key-color-dark);
+}
+
+::-webkit-input-placeholder {
+	color: inherit;
+}
+
+:-moz-placeholder {
+	color: inherit;
+}
+
+::-moz-placeholder {
+	color: inherit;
+}
+
+:-ms-input-placeholder {
+	color: inherit;
+}
+
+[id*="rowcontainer"] {
+	margin-bottom: var(--space-5);
+}
+
+#sv_submit_event_form input[type="text"] {
+	border-color: var(--input-border-color) !important;
+}
+
+#sv_submit_event_form label.recur_menu {
+	border-radius: 0 !important;
+	padding: var(--space-2) var(--space-6) var(--space-2) var(--space-4) !important;
+	height: auto !important;
+	margin: 0 !important;
+	font-size: var(--text-lg) !important;
+	background-color: var(--form-key-color) !important;
+	color: var(--white);
+}
+
+#sv_submit_event_form input[name="recurtype"] {
+	display: block;
+}
+
+#sv_submit_event_form .svrecurall > fieldset > div {
+	margin-bottom: var(--space-2);
+}
+
+.contentRender #sv_submit_event_form .inner_recur_opt,
+#sv_submit_event_form .norecurrencemsg,
+.contentRender #sv_submit_event_form #recur_range {
+	padding: var(--space-5) !important;
+	margin: 0 !important;
+	border: 1px solid var(--form-key-color-dark);
+}
+
+#sv_submit_event_form input[type=radio]:checked ~ div#recur_opts_1.recur_opt,
+.contentRender #sv_submit_event_form input[type=radio]:checked ~ div.recur_opt {
+	max-height: none !important;
+}
+
+#sv_submit_event_form .recur_opt input[type=checkbox] ~ label.minilabel, #sv_submit_event_form .recur_opt input[type=radio] ~ label.minilabel {
+	padding-left: var(--space-8) !important;
+}
+
+.contentRender #sv_submit_event_form .div_fld_data_recurType ul label[for*="monthlyRT"],
+.contentRender #sv_submit_event_form .div_fld_data_recurType ul label[for*="monthlyRT"] > span,
+.contentRender #sv_submit_event_form .div_fld_data_recurType ul label[for*="yearlyRT"],
+.contentRender #sv_submit_event_form .div_fld_data_recurType ul label[for*="yearlyRT"] > span {
+	display: flex;
+	align-items: center;
+	gap: var(--space-2);
+}
+
+.contentRender #sv_submit_event_form .div_fld_data_recurType ul label {
+	height: auto;
+}
+
+.contentRender #sv_submit_event_form .div_fld_data_recurType ul label[for*="monthlyRT"],
+.contentRender #sv_submit_event_form .div_fld_data_recurType ul label[for*="yearlyRT"] {
+	flex-wrap: wrap;
+}
+
+@media (max-width:700px) {
+	#sv_submit_event_form .recur_opt li input[type="radio"] ~ label {
+		padding-left: 28px !important;
+	}
+}
+ 
+/* RESET FONT FAMILY */
+.contentRender #rsvp-container #eventRegCostsDIV,
+.contentRender #rsvp-container div.eventListCell,
+.contentRender #sv_submit_event_form .hint,
+.contentRender form.simpleForm p.hint:not(.formreq),
+.contentRender #sv_submit_event_form legend,
+.contentRender form.simpleForm label,
+.contentRender form.simpleForm .formtext,
+.contentRender form.simpleForm input,
+.contentRender form.simpleForm select,
+.contentRender #sv_submit_event_form .recur_opt input[type=checkbox] ~ label.minilabel,
+.contentRender #sv_submit_event_form .recur_opt input[type=radio] ~ label.minilabel,
+.contentRender #sv_submit_event_form table.fileuploads thead th,
+.contentRender #sv_submit_event_form select,
+.contentRender #sv_submit_event_form select[size], #sv_submit_event_form select[multiple],
+.contentRender #sv_submit_event_form input[type=text],
+.contentRender #sv_submit_event_form div.datalabel label,
+.contentRender #sv_submit_event_form .div_fld_data_recurType ul label,
+.contentRender #sv_submit_event_form label.recur_menu {
+	font-family: var(--label-font-family);
+}
+/* RESET FONT STYLE */
+.contentRender #rsvp-container #eventRegCostsDIV,
+.contentRender #rsvp-container label,
+.contentRender #rsvp-container .fieldhint,
+.contentRender #rsvp-container div.eventListCell,
+.contentRender form.simpleForm .columns label,
+.contentRender form.simpleForm .formtext,
+.contentRender #sv_submit_event_form #customdate_list .formhead,
+.contentRender #sv_submit_event_form table.fileuploads thead th,
+.contentRender #sv_submit_event_form select,
+.contentRender #sv_submit_event_form select[size], #sv_submit_event_form select[multiple],
+.contentRender #sv_submit_event_form input[type=text],
+.contentRender #sv_submit_event_form div.datalabel label,
+.contentRender form.simpleForm::-webkit-input-placeholder,
+.contentRender #sv_submit_event_form input[type=text]::-webkit-input-placeholder {
+	font-weight: var(--label-font-weight);
+	font-style: var(--label-font-style);
+	color: var(--label-color);
+}
+/* RESET TABLE FONT SIZE HERE */
+.contentRender #rsvp-container div.eventListCell.bold.eventListCell_eventname,
+.contentRender #rsvp-container div.eventListCell {
+	/* Your standard P font size may not work for table fonts. Set this here */ 
+	text-align: left;
+}
+/* OPTIONAL RESET FOR INPUT STYLE */
+/* This over-writes foundation style. Double check your select boxes. You may have to adjust the line-height to vertically center text */
+.contentRender #rsvp-container input[type=radio],
+.contentRender #rsvp-container select[type=checkbox],
+.contentRender #rfpForm.simpleForm input[type=radio],
+.contentRender #rfpForm.simpleForm input[type=checkbox] {
+	height: auto;
+}
+.contentRender #rsvp-container select,
+.contentRender #rsvp-container input,
+.contentRender #rsvp-container select,
+.contentRender form.simpleForm input,
+.contentRender form.simpleForm select,
+.contentRender #sv_submit_event_form select,
+.contentRender #sv_submit_event_form select[size], #sv_submit_event_form select[multiple],
+.contentRender #sv_submit_event_form input[type=text] {
+	color: var(--input-color);
+}
+/* REPLACE WITH A CORE STYLE HEADING */
+.contentRender #rsvp-container h2,
+.contentRender .registrationForm-eventName,
+.contentRender #rsvp-container div.eventTypeHeader,
+.contentRender form.simpleForm h3,
+.contentRender #sv_submit_event_form .formhead {
+	font-family: var(--form-heading-font-family);
+	font-weight: var(--form-heading-font-weight);
+	font-style: var(--form-heading-font-style);
+	color: var(--form-heading-color);
+	font-size: var(--text-2xl);
+	line-height: var(--leading-tight);
+	text-transform: uppercase;
+}
+/* SET COLOR OVER KEY COLOR HERE (E.G RSVP HEADER) */
+.contentRender #rsvp-container .eventListCell:before,
+.contentRender #rsvp-container .eventList_headerRow div,
+.contentRender #rsvp-container #guestsTbody th,
+.contentRender #rsvp-container .eventList_headerRow div {
+	color: var(--white);
+}
+/* STRONG WEIGHT FOR LABELS */
+.contentRender #rsvp-container .eventListCell:before,
+.contentRender #rsvp-container .eventList_headerRow div,
+.contentRender #sv_submit_event_form #customdate_list .formhead,
+.contentRender #sv_submit_event_form legend {
+	font-weight: 700;
+}
+/* STYLE SUBMIT BUTTONS */
+.contentRender #rsvp-container .button,
+.contentRender form.simpleForm .button,
+.contentRender #sv_submit_event_form input.button,
+.contentRender #sv_submit_event_form .svbtn,
+.contentRender #multifileuploadcontainer label {
+    position: relative;
+    display: inline-block;
+    padding: 23px 40px 22px;
+    border: none;
+    border-radius: 3px;
+    background-color: var(--red);
+    font-family: var(--font-body);
+    font-weight: var(--font-weight-bold);
+    font-size: 1.0625rem;
+    line-height: 1;
+    color: var(--white);
+    text-decoration: none !important;
+    text-transform: lowercase;
+}
+.contentRender #rsvp-container .button:hover,
+.contentRender #rsvp-container .button:active,
+.contentRender form.simpleForm .button:hover,
+.contentRender form.simpleForm .button:active,
+.contentRender #sv_submit_event_form input.button:hover,
+.contentRender #sv_submit_event_form input.button:active,
+.contentRender #sv_submit_event_form .svbtn:hover,
+.contentRender #sv_submit_event_form .svbtn:active,
+.contentRender #multifileuploadcontainer label:hover,
+.contentRender #multifileuploadcontainer label:active {
+    background-color: var(--primary-color-500);
+	text-decoration: underline;
+}
+/* SET LINK COLOR HERE */
+body.crm-calendar-popup .contentRender a, body.crm-calendar-popup .contentRender a:hover {
+	/*
+		This is a generic link style for the calendar popup.
+ 
+		It's recommended you test the calendar popup but you might wanna limit your style here to color and family.
+		The font size should be able to work across all sites.
+	*/
+	font-size: 1.0625rem;
+	font-style: normal;
+	color: var(--primary-color-900);
+}
+/* OPTIONAL: SET FORM HINT STYLE HERE */
+.contentRender #sv_submit_event_form .hint,
+.contentRender form.simpleForm p.hint:not(.formreq) {
+	/* Default styling here. Changing is optional */
+	color: var(--gray-800);
+	font-size: var(--text-sm);
+}
+/* OPTIONAL: SET FORM REQUIRED STYLE HERE */
+.contentRender #sv_submit_event_form div.datalabel label.svformreq,
+.contentRender form.simpleForm .formreq,
+.contentRender form.simpleForm label.formreq {
+	color: #922;
+}
+/* SUBMIT EVENT FORM PIKA CALENDAR */
+/* To test, click on the start date in a submit event form */
+.pika-lendar .is-today .pika-button {
+	/*
+		Set a link color here. This can be standard site anchor color
+	*/
+	color: var(--red);
+}
+.pika-lendar .pika-button:hover,
+.pika-lendar .is-selected .pika-button {
+	/*
+		Set your hover/selected background and text color here.
+		Note the Pika calendar uses important here so this is required to overwrite.
+	*/
+	color: #fff;
+	background: var(--primary-color-300) !important;
+	border-radius: 0 !important;
+	box-shadow: none;
+}
+.medium-9.columns {
+	position: relative;
+}
+#the_crmform a[href='#']>img {
+	right: 6px;
+	left: unset !important;
+	z-index: 1;
+}
+body.crm-calendar-popup .lookup-close,
+body.crm-calendar-popup .lookup-calHolder a,
+body.crm-calendar-popup td.lookup-calDay a,
+body.crm-calendar-popup td.lookup-calToday a {
+	color: var(--primary-color-500);
+	font-family: var(--font-body);
+}
+#sv_submit_event_form .recur_opt input[type=checkbox]:checked ~ label, #sv_submit_event_form .recur_opt input[type=radio]:checked ~ label, #sv_submit_event_form #recur_range input[type=checkbox]:checked ~ label, #sv_submit_event_form #recur_range input[type=radio]:checked ~ label {
+	background-color: var(--red) !important;
+}
+/*** END FORM STYLING ***/
+
+/*
+     FILE ARCHIVED ON 00:57:49 Mar 08, 2023 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 00:41:49 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 55.471
+  exclusion.robots: 0.08
+  exclusion.robots.policy: 0.069
+  RedisCDXSource: 0.614
+  esindex: 0.008
+  LoadShardBlock: 34.922 (3)
+  PetaboxLoader3.datanode: 46.773 (4)
+  load_resource: 144.576
+  PetaboxLoader3.resolve: 53.493
+*/

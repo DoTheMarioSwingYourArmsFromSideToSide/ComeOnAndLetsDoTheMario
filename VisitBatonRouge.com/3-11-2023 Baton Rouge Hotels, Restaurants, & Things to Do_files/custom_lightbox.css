@@ -1,0 +1,244 @@
+/*=================================*/
+/*=====----- SV LIGHTBOX -----=====*/
+/*=================================*/
+
+.sv-lightbox {
+	--animation-duration: 0.3s;
+	--box-transform: 40px;
+	--padding: 20px;
+
+	position: fixed;
+	inset: 0;
+	z-index: 10000;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: var(--padding);
+	background: rgba(0, 0, 0, 0.8);
+	backdrop-filter: blur(16px);
+	opacity: 0;
+	pointer-events: none;
+}
+
+.sv-lightbox .overlay {
+	position: fixed;
+	inset: 0;
+	z-index: 1;
+	display: block;
+	cursor: pointer;
+}
+
+.sv-lightbox .close-box {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	z-index: 3;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 44px;
+	height: 44px;
+	padding: 0;
+	margin: 0;
+	border: 2px solid var(--white);
+	border-radius: 50%;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: var(--white);
+	font-size: 24px;
+	transition:
+		background-color var(--transition-appendix),
+		color var(--transition-appendix);
+}
+
+.sv-lightbox .close-box:focus {
+	outline: 2px solid var(--sw-focus-color, var(--primary-color-500));
+	outline-offset: 4px;
+	background-color: var(--white);
+	color: var(--black);
+}
+
+.sv-lightbox .close-box::before {
+	display: block;
+	font-family: 'Font Awesome 5 Free';
+	font-weight: 900;
+	font-size: inherit;
+	color: inherit;
+	content: '\f00d';
+}
+
+.sv-lightbox .box {
+	position: relative;
+	z-index: 2;
+	transform: translateY(var(--box-transform));
+	display: flex;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	pointer-events: none;
+}
+
+.sv-lightbox .box-inner {
+	width: 100%;
+	margin: auto 0;
+	overflow: hidden;
+	pointer-events: none;
+}
+
+.sv-lightbox .lb-slide,
+.sv-lightbox .plyr__video-wrapper {
+	max-height: calc(100vh - (var(--padding) * 2));
+}
+
+.sv-lightbox .lb-slide {
+	margin: 0 auto;
+}
+
+.sv-lightbox .lightbox-img,
+.sv-lightbox iframe {
+	width: 100%;
+	height: 100%;
+}
+
+.sv-lightbox .lightbox-img {
+	object-fit: contain;
+}
+
+.sv-lightbox .plyr {
+	width: 100%;
+	height: 100%;
+}
+
+.sv-lightbox .plyr__video-embed {
+	aspect-ratio: unset !important;
+}
+
+/*----- slider -----*/
+
+.sv-lightbox .arrows {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	right: 0;
+	z-index: 3;
+	transform: translateY(-50%);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	padding: 0 var(--padding);
+	pointer-events: none;
+}
+
+.sv-lightbox .arrows .arrow {
+	margin: 0;
+	pointer-events: all;
+}
+
+.sv-lightbox .glide__slides {
+	align-items: center;
+}
+
+.sv-lightbox .glide__slide {
+	height: auto;
+}
+
+/*----- active lightbox -----*/
+
+.sv-lightbox.active {
+	animation: fadeIn var(--animation-duration) ease 0s 1 normal forwards;
+	pointer-events: all;
+}
+
+.sv-lightbox .box.active {
+	animation: fadeInAndSlide var(--animation-duration) ease 0s 1 normal forwards;
+}
+
+.sv-lightbox .box.active .box-inner {
+	pointer-events: all;
+}
+
+/*----- close lightbox -----*/
+
+.sv-lightbox.active.close {
+	animation: fadeOut var(--animation-duration) ease 0s 1 normal forwards;
+	pointer-events: none;
+}
+
+.sv-lightbox .box.active.close {
+	animation: fadeOutAndSlide var(--animation-duration) ease 0s 1 normal forwards;
+}
+
+.sv-lightbox .box.active.close .box-inner {
+	pointer-events: none;
+}
+
+/*----- animations -----*/
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes fadeOut {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+}
+
+@keyframes fadeInAndSlide {
+	from {
+		opacity: 0;
+		transform: translateY(var(--box-transform));
+	}
+	to {
+		opacity: 1;
+		transform: none;
+	}
+}
+
+@keyframes fadeOutAndSlide {
+	from {
+		opacity: 1;
+		transform: none;
+	}
+	to {
+		opacity: 0;
+		transform: translateY(var(--box-transform));
+	}
+}
+
+/*----- media queries -----*/
+
+@media (hover: hover) {
+	.sv-lightbox .close-box:hover {
+		background-color: var(--white);
+		color: var(--black);
+	}
+}
+/*
+     FILE ARCHIVED ON 00:57:50 Mar 08, 2023 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 00:41:50 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 115.36
+  exclusion.robots: 0.108
+  exclusion.robots.policy: 0.096
+  cdx.remote: 0.077
+  esindex: 0.011
+  LoadShardBlock: 85.284 (3)
+  PetaboxLoader3.datanode: 95.724 (4)
+  load_resource: 89.23
+  PetaboxLoader3.resolve: 53.806
+*/

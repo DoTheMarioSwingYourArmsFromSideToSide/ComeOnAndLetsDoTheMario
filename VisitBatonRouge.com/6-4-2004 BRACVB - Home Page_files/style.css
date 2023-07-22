@@ -1,0 +1,51 @@
+body {background: #420000; font-family:arial; font-size:13px; padding : 0px; margin : 0px; height: 100%;}
+td {font-family:arial; font-size:13px;}
+.smallText {font-family:arial; font-size:11px;}
+.copyright {font-size:10px; color:#cccccc;}
+.content {background:#f9f3e2;}
+.contentHeader {background:#666666;	color:#ffffff; font-family:arial; font-size:13px; font-weight:bold;}
+.contentHeader2 {background:#c0c0c0; color:#333333;}
+.right1 {color:#333333;	background:#ffdf87;}
+.right1_header {color:#660000; font-family:arial; font-size:15px; font-weight:bold;}
+.right2 {color:#333333;	background:#CC9900;}
+.right2_header {color:#000000; font-family:arial; font-size:15px; font-weight:bold;}
+.left2 {background:#ffdf87;}
+.grayText {color:#333333;}
+.redText {color:#660000;}
+div.subnav {background-color:#F9E590; border-bottom:1px #B8082E solid;}
+div.subnavhot {background-color:#FCF2C8; border-bottom:1px #B8082E solid;}
+div.fdiv1 {width:100%; position:absolute; left:0; top:0; z-index:1; text-align:center;}
+div.fdiv2 {width:100%; position:absolute; left:0; top:0; z-index:2;}
+div.bgdiv {height:19; background-color:#B8082E;}
+div.bgdivhot {height:19; background-color:#E68710;}
+a:link, a:active {color : #CC6600;}
+a:visited {color : #FF6600;}
+a:hover, a:visited:hover {color : #ff9900;}
+a.copyright:link, a.copyright:active, a.copyright:visited {color : #ff9900;}
+a.copyright:hover, a.copyright:visited:hover {color : #ff0000;}
+a.mainnav:link, a.mainnav:active, a.mainnav:visited {font-variant: small-caps; font-family:tahoma,arial; font-size:12px; color:#ffffff; text-decoration:none;}
+a.mainnav:hover, a.mainnav:visited:hover {font-variant: small-caps; font-family:tahoma,arial; font-size:12px; color:#ffffff; text-decoration:underline;}
+a.subnav:link, a.subnav:active, a.subnav:visited {font-family:arial; font-size:11px; color:#000000; text-decoration:none;}
+a.subnav:hover, a.subnav:visited:hover {font-family:arial; font-size:11px; color:#000000; text-decoration:none;}
+.left1_header {color:#000000; font-family:arial; font-size:15px; font-weight:bold;}
+.left1 {color:#333333;	background:#C4C486;}
+/*
+     FILE ARCHIVED ON 20:33:15 Jun 05, 2004 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:27:51 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 162.754
+  exclusion.robots: 0.067
+  exclusion.robots.policy: 0.057
+  cdx.remote: 0.051
+  esindex: 0.008
+  LoadShardBlock: 125.286 (3)
+  PetaboxLoader3.datanode: 77.919 (4)
+  load_resource: 100.305
+  PetaboxLoader3.resolve: 58.753
+*/

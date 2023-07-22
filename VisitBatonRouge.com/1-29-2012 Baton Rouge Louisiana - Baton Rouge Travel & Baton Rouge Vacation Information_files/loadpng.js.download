@@ -1,0 +1,51 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+function __load_png(){
+	var ua = navigator.userAgent;
+	if (ua.indexOf("MSIE") > -1 && (ua.substr(ua.indexOf("MSIE")+5,3) >= 5.5 && ua.substr(ua.indexOf("MSIE")+5,3) < 7)){
+		var imgs = document.getElementsByTagName("img");
+		for (var i=0; i<imgs.length; i++){
+			var src = imgs[i].src;
+			if (src.substr(src.lastIndexOf(".")+1).toLowerCase() == "png"){
+				imgs[i].style.filter = "progID:DXImageTransform.Microsoft.AlphaImageLoader(src='"+src+"');";
+				imgs[i].src = "/images/cp.gif";
+				imgs[i].style.visibility = "visible";
+			}
+		};
+	};
+};
+
+if (window.attachEvent != null)window.attachEvent("onload",__load_png);
+if (window.addEventListener != null)window.addEventListener("load",__load_png,false);
+
+}
+/*
+     FILE ARCHIVED ON 23:10:41 Jan 26, 2012 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:25:13 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 198.792
+  exclusion.robots: 0.103
+  exclusion.robots.policy: 0.092
+  cdx.remote: 0.069
+  esindex: 0.01
+  LoadShardBlock: 164.041 (3)
+  PetaboxLoader3.datanode: 170.755 (4)
+  load_resource: 69.303
+  PetaboxLoader3.resolve: 35.349
+*/

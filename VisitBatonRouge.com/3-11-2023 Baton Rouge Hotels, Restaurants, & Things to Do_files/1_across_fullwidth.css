@@ -1,0 +1,197 @@
+.side-by-side-1-across-fullwidth {
+	--title-size: 28px;
+	--title-lh: 1.2;
+	--description-size: 15px;
+	--description-lh: calc(21/15);
+	--read-more-size: 16px;
+	--crawfish-height: 226px;
+	padding-top: 0;
+	margin-bottom: 32px;
+}
+
+.side-by-side-1-across-fullwidth .slide :is(.mini-date-section, .content-section .blog-feed-header, .blog-feed-header-mobile-container) {
+	display: none;
+}
+
+.side-by-side-1-across-fullwidth[data-width="full"] .slides {
+	padding: 0;
+}
+
+.side-by-side-1-across-fullwidth .slide .img-cont {
+	margin-bottom: 26px;
+}
+
+.side-by-side-1-across-fullwidth .slide .slide-footer {
+	margin: 0;
+}
+
+.side-by-side-1-across-fullwidth .slide .content-section {
+	padding-inline: 20px;
+}
+
+.side-by-side-1-across-fullwidth .slide .content-section .content-top {
+	gap: 10px;
+}
+
+.side-by-side-1-across-fullwidth .slide .content-section > .inner {
+	gap: 6px;
+}
+
+.side-by-side-1-across-fullwidth.graphic .slide:nth-child(odd) .content-section,
+.side-by-side-1-across-fullwidth.graphic .slides:not(.alternating) .slide:nth-child(even) .content-section {
+	position: relative;
+	overflow: hidden;
+	min-height: var(--crawfish-height);
+}
+
+.side-by-side-1-across-fullwidth.graphic .slide:nth-child(odd) .content-section:before,
+.side-by-side-1-across-fullwidth.graphic .slides:not(.alternating) .slide:nth-child(even) .content-section:before {
+	content: '';
+	background-image: url(/web/20230308005749im_/https://www.visitbatonrouge.com/includes/public/assets/shared/crawfish.svg);
+	position: absolute;
+	right: -60px;
+	bottom: 0;
+	height: var(--crawfish-height);
+	aspect-ratio: 10 / 15;
+	opacity: 50%;
+	pointer-events: none;
+}
+
+.side-by-side-1-across-fullwidth .slides .slide :is(.slide-title, .slide-title > a, .content-top p, a.read-more) {
+	color: var(--gray-dark);
+}
+
+.side-by-side-1-across-fullwidth .slides .slide :is(.slide-title, .slide-title > a) {
+	font-size: var(--title-size);
+	line-height: var(--title-lh);
+	font-weight: var(--font-weight-bold);
+}
+
+.side-by-side-1-across-fullwidth .slides .slide .content-top p {
+	font-size: var(--description-size);
+	line-height: var(--description-lh);
+	font-weight: var(--font-weight-medium);
+}
+
+.side-by-side-1-across-fullwidth .slide .content-section a.read-more {
+	text-transform: lowercase;
+	font-weight: var(--font-weight-bold);
+	font-size: var(--read-more-size);
+	padding: 0;
+	margin: 0;
+}
+
+.side-by-side-1-across-fullwidth .slide .content-section a.read-more:after {
+	content: "\f30b";
+	font-family: "Font Awesome 5 Free";
+	font-weight: 900;
+	color: var(--red);
+}
+
+@media (hover: hover) {
+	.side-by-side-1-across-fullwidth .slide .content-section a.read-more:hover {
+		background: transparent;
+	}
+
+	.side-by-side-1-across-fullwidth .slide .content-section a.read-more:hover:after {
+		margin-left : 3px;
+	}
+}
+
+@media (min-width: 40em) {
+	.side-by-side-1-across-fullwidth {
+		--title-size: min(calc(22px + 6 * (100vw - 640px) / 386), 28px);
+		
+		
+	}
+	.side-by-side-1-across-fullwidth .slide .img-cont {
+		margin-bottom: 0;
+		border-radius: var(--rounded-md) 0 0 var(--rounded-md);
+		align-self: center;
+	}
+
+	.side-by-side-1-across-fullwidth .slides.alternating .slide:nth-child(even) .img-cont {
+		border-radius: 0 var(--rounded-md) var(--rounded-md) 0;
+	}
+
+	.side-by-side-1-across-fullwidth.graphic .slide:nth-child(odd) .content-section:before,
+	.side-by-side-1-across-fullwidth.graphic .slides:not(.alternating) .slide:nth-child(even) .content-section:before {
+		right: unset;
+		left: -70px;
+		bottom: 50%;
+		transform: translateY(50%);
+	}
+
+	.side-by-side-1-across-fullwidth:not([data-slides-across="2"]) .slide .content-section > .inner {
+		padding: 0 10px
+	}
+}
+
+@media (min-width: 64em) {
+	.side-by-side-1-across-fullwidth {
+		--title-size: 36px;
+		--title-lh: calc(42/36);
+		--description-size: 17px;
+		--description-lh: calc(26/17);
+		--read-more-size: 17px;
+		--crawfish-height: 420px;
+		margin-bottom: 134px
+	}
+
+	.side-by-side-1-across-fullwidth .slide > .inner {
+		grid-template-columns: 400fr 321fr;
+	}
+
+	.side-by-side-1-across-fullwidth .slides.alternating .slide:nth-child(even) > .inner{
+		grid-template-columns: 321fr 400fr;
+	}
+	.side-by-side-1-across-fullwidth .slide .content-section {
+		padding: 0 40px;
+	}
+
+	.side-by-side-1-across-fullwidth.graphic .slide:nth-child(odd) .content-section,
+	.side-by-side-1-across-fullwidth.graphic .slides:not(.alternating) .slide:nth-child(even) .content-section {
+		padding-left: 162px;
+	}
+
+	.side-by-side-1-across-fullwidth.graphic .slide:nth-child(odd) .content-section:before,
+	.side-by-side-1-across-fullwidth.graphic .slides:not(.alternating) .slide:nth-child(even) .content-section:before {
+		opacity: 75%;
+		left: -118px;
+	}
+
+	.side-by-side-1-across-fullwidth .slide .content-section .content-top {
+		gap: 12px;
+	}
+	
+	.side-by-side-1-across-fullwidth .slide .content-section .inner {
+		gap: 18px;
+	}
+}
+
+@media (min-width: 90em) {
+	.side-by-side-1-across-fullwidth.graphic .slide:nth-child(odd) .content-section,
+	.side-by-side-1-across-fullwidth.graphic .slides:not(.alternating) .slide:nth-child(even) .content-section {
+		padding-left: 190px;
+	}
+}
+/*
+     FILE ARCHIVED ON 00:57:49 Mar 08, 2023 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 00:41:49 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 90.939
+  exclusion.robots: 0.131
+  exclusion.robots.policy: 0.117
+  cdx.remote: 0.081
+  esindex: 0.013
+  LoadShardBlock: 43.218 (3)
+  PetaboxLoader3.datanode: 151.441 (4)
+  load_resource: 197.106
+  PetaboxLoader3.resolve: 57.335
+*/

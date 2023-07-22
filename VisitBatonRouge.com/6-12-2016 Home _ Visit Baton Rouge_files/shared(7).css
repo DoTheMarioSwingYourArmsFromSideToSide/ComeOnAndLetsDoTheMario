@@ -1,0 +1,478 @@
+/**
+font-family:'AvantGardeGothicITCW01D_731075';
+font-family:'ITC Avant Garde Gothic W01 XLt';
+font-family:'ITC Avant Garde Gothic W01 Bk';
+font-family:'ITC Avant Garde Gothic W01 Md';
+ */
+
+@font-face {
+    font-family: 'blenda_scriptregular';
+    src: url('/web/20160624194843im_/http://www.visitbatonrouge.com/includes/public/assets/fonts/blenda/blenda_script-webfont.eot');
+    src: url('/web/20160624194843im_/http://www.visitbatonrouge.com/includes/public/assets/fonts/blenda/blenda_script-webfont.eot#iefix') format('embedded-opentype'),
+         url('/web/20160624194843im_/http://www.visitbatonrouge.com/includes/public/assets/fonts/blenda/blenda_script-webfont.woff2') format('woff2'),
+         url('/web/20160624194843im_/http://www.visitbatonrouge.com/includes/public/assets/fonts/blenda/blenda_script-webfont.woff') format('woff'),
+         url('/web/20160624194843im_/http://www.visitbatonrouge.com/includes/public/assets/fonts/blenda/blenda_script-webfont.ttf') format('truetype'),
+         url('/web/20160624194843im_/http://www.visitbatonrouge.com/includes/public/assets/fonts/blenda/blenda_script-webfont.svg#blenda_scriptregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'AvantGardeGothicITCW01D_731075';
+}
+p,
+ul,
+ol {
+    font-family:"Source Sans Pro";
+}
+h1 {
+    font: normal 37px 'AvantGardeGothicITCW01D_731075';
+    line-height: 43px;
+    margin-bottom: 36px;
+}
+p  { 
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 30px;
+}
+ul,
+ol {
+    font-weight: 400;
+    font-size: 20px;
+}
+strong, b {
+    font-weight: 700;
+}
+@media (max-width: 64em) {
+    h1 {
+        font-size: 27px;
+        line-height: 32px;
+    }
+    p,
+    ul,
+    ol {
+        font-size: 15px;
+        line-height: 22px;
+    }
+}
+@media (max-width: 40em) {
+    h1 {
+        font-size: 25px;
+        line-height: 30px;
+        margin-bottom: 20px;
+    }
+}
+button,
+button:active,
+button:focus,
+.button {
+    background-color: #e1a504;
+    color: #fff;
+    border-radius: 3px;
+    font: 600 13px 'Source Sans Pro', sans-serif;
+    line-height: 32px;
+    text-transform: uppercase;
+}
+button:hover,
+.button:hover {
+    background-color: #e1a504;
+}
+a {
+    color: #b70000;
+}
+p > a {
+    font-weight: 600;
+}
+a:hover {
+    color: #e1a504;
+}
+::-webkit-input-placeholder {
+    color:    #5e5e5e;
+}
+:-moz-placeholder {
+    color:    #5e5e5e;
+}
+::-moz-placeholder {
+    color:    #5e5e5e;
+}
+:-ms-input-placeholder {
+    color:    #5e5e5e;
+}
+.panel_page {
+    min-height: 100%;
+    position: relative;
+}
+.panel-header {
+}
+.panel-header-top-row {
+    background: transparent url('/web/20160624194843im_/http://www.visitbatonrouge.com/includes/public/assets/img/textures/texture-black2.png') repeat;
+    border-bottom: 6px solid #e1a504;
+    padding-top: 25px;
+}
+@media (max-width: 64em) {
+    .panel-header-top-row .logo {
+        height: 60px;
+        width: 244px;
+        margin: 0 auto;
+    }    
+}
+.panel-header-bottom-row {
+    border-top: 6px solid #b70000;
+    background: #b70000;
+}
+.panel_custom_one_col {
+    padding-top: 20px;
+}
+.panel_two_col_50_50,
+.panel_two_col_60_40 {
+    margin: 30px 0;
+}
+.panel_two_col_50_50 .panel-title-wrapper,
+.panel_two_col_60_40 .panel-title-wrapper{
+    height: 72px;
+    position: relative;
+}
+.panel_two_col_50_50 .panel-title-wrapper hr,
+.panel_two_col_60_40 .panel-title-wrapper hr {
+    position: absolute;
+    z-index: -1;
+    height: 1px;
+    width: 100%;
+    top: 50%;
+    margin: 0;
+    padding: 0;
+}
+.panel_two_col_50_50 .panel-icon,
+.panel_two_col_60_40 .panel-icon {
+    display: inline-block;
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+    padding: 15px;
+    background: #fff;
+    margin: 0;
+    float: left;
+}
+.panel_two_col_50_50 .panel-icon .fa,
+.panel_two_col_60_40 .panel-icon .fa{
+    padding: 10px 0;
+    border-radius: 50%;
+    border-radius: 50%;
+    background-color: #b70000;
+    height: 42px;
+    width: 42px;
+}
+.panel_two_col_60_40 .panel-icon .fa{
+    background-color: #e1a504;
+}
+.panel_two_col_50_50 .panel-title,
+.panel_two_col_60_40 .panel-title {
+    font: normal 50px 'blenda_scriptregular';
+    display: inline-block;
+    vertical-align: middle;
+    background: #fff;
+    margin: 0;
+    padding: 0 15px 0 0;
+    float: left;
+}
+@media (max-width: 64em) {
+    .panel_two_col_50_50 .panel-title,
+    .panel_two_col_60_40 .panel-title {
+        font-size: 44px;
+        padding: 8px 15px 8px 0;
+    }
+}
+@media (max-width: 40em) {
+    .panel_two_col_50_50 .panel-title-wrapper hr,
+    .panel_two_col_60_40 .panel-title-wrapper hr {
+        display: none;
+    }
+    .panel_two_col_50_50 .panel-title,
+    .panel_two_col_60_40 .panel-title {
+        font-size: 27px;
+        padding: 15px 15px 8px 0;
+    }
+    .panel_two_col_50_50 .panel-icon .fa,
+    .panel_two_col_60_40 .panel-icon .fa {
+        width: 38px;
+        height: 38px;
+    }
+}
+.panel_custom_two_col_sidebar_left,
+.panel_custom_two_col_sidebar_right,
+.panel_custom_one_col {
+    margin-top: 60px;
+}
+@media (max-width: 64em) {
+    .panel_custom_two_col_sidebar_left,
+    .panel_custom_two_col_sidebar_right,
+    .panel_custom_one_col {
+        margin: 30px 80px;
+    }
+}
+@media (max-width: 40em) {
+    .panel_custom_two_col_sidebar_left,
+    .panel_custom_two_col_sidebar_right,
+    .panel_custom_one_col {
+        margin: 20px;
+    }
+}
+.panel_custom_footer {
+    background: transparent url("/web/20160624194843im_/http://www.visitbatonrouge.com/includes/public/assets/img/textures/grey-cardboard.png") top left repeat;
+}
+.footer_top_row {
+    background-image:url('/web/20160624194843im_/http://www.visitbatonrouge.com/includes/public/assets/img/textures/texture-black2.png');
+    padding: 20px 0;
+    border-bottom: 5px solid #e1a504;
+}
+.footer_bottom_row {
+    padding: 30px 0;
+}
+.footer_bottom_row .footer-info-wrapper {
+    margin: 0 15px;
+    float: left;
+}
+@media (max-width: 40em) {
+    .footer_bottom_row {
+        padding-bottom: 100px;
+    }
+    .footer_bottom_row .footer-info-wrapper {
+        clear: both;
+        float: none;
+        width: 250px;
+        margin: 20px auto;
+    }
+}
+.footer_bottom_row .footer-info-wrapper p {    
+    font: 600 13px 'Source Sans Pro', sans-serif;
+}
+.footer_bottom_row .sponsors-wrapper {
+    float: left;
+}
+@media (max-width: 40em) {
+    .footer_bottom_row .sponsors-wrapper {
+        float: none;
+        clear: both;
+        width: 250px;
+        margin: 0 auto;
+    }
+}
+.panel_custom_intro .intro {
+    padding: 65px 0px 60px 0px;
+    max-width: 805px;
+    margin: 0 auto;
+}
+.panel_custom_intro .intro h1 {
+    text-align:center;
+}
+@media (max-width: 64em) {
+    .panel_custom_intro .intro {
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+}
+@media (max-width: 40em) {
+    .panel_custom_intro .intro {
+        padding: 0;
+    }
+}
+.blog_link {
+    color: #fff;
+    width: 220px;
+    text-align: right;
+    margin: 0 auto;
+}
+@media (max-width: 40em) {
+    .blog_link {
+        margin: 10px auto;   
+    }
+}
+.blog_link a {
+    color: #fff;
+}
+.blog_link .blog_subtitle {
+    font: normal 12px 'AvantGardeGothicITCW01D_731075';
+    padding-right: 15px;
+}
+.blog_link .blog_title {
+    font: normal 24px 'blenda_scriptregular';
+    line-height: 24px;
+}
+.blog_link .blog_title .fa {
+    color: #e1a504;
+    font-size: 20px;
+    width: 15px;
+}
+
+.welcome_guide {
+    background-color: #e1a504;
+    border-radius: 10px;
+    width: 280px;
+    padding: 10px;
+    margin: 0 auto;
+    height: 70px;
+}
+.welcome_guide > a {
+    display: block;
+}
+.welcome_guide .welcome_guide_icon {
+    width: 35px;
+    display: inline-block;
+}
+.welcome_guide .welcome_guide_text_wrapper {
+    display: inline-block;
+    vertical-align: middle;
+}
+.welcome_guide .welcome_guide_text_wrapper .welcome_guide_subtitle {
+    font: normal 12px 'AvantGardeGothicITCW01D_731075';
+    color: #fff;
+    text-align: right;
+    margin: 0 20px 0 0;
+}
+.welcome_guide .welcome_guide_text_wrapper .welcome_guide_title {
+    font: normal 30px 'blenda_scriptregular';
+    color: #fff;
+    line-height: 32px;
+}
+.welcome_guide .welcome_guide_text_wrapper .welcome_guide_title .fa {
+    margin-left: 10px;
+    width: 15px;
+}
+@media (max-width: 64em){
+    .welcome_guide {
+        margin: 0 auto;
+    }
+}
+.newsletter_signup {
+    max-width: 280px;
+    margin: 0 auto;
+    height: 70px;
+}
+@media (max-width: 40em) {
+    .newsletter_signup {
+        margin: 20px auto 0;
+    }
+}
+.newsletter_signup .newsletter_signup_title {
+    font-family: 'AvantGardeGothicITCW01D_731075';
+    font-size: 18px;
+    font-weight: bold;
+    color: #231f20;
+    margin-bottom: 5px;
+}
+.newsletter_signup .newsletter_signup_form input[type="email"] {
+    color: #828282;
+    font: normal 15px 'ITC Avant Garde Gothic W01 Bk';
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    float: left;
+    max-width: 245px;
+    margin: 0;
+    height: 34px;
+}
+.newsletter_signup .newsletter_signup_form button {
+    background-color: #e1a504;
+    border-radius: 0;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    margin: 0;
+    padding: 10px 0;
+    width: 30px;
+    display: inline-block;
+    height: 34px;
+    line-height: initial;
+}
+.footer_info {
+    color: #231f20;
+    margin: 0 auto;
+    width: 280px;
+}
+@media (max-width: 40em) {
+    .footer_info {
+        margin: 25px auto;
+    }
+}
+.footer_info ul {
+    font: 600 10px "Source Sans Pro";
+    list-style: none;
+    line-height: 18px;
+    margin: 0;
+    padding: 0;
+}
+.footer_info ul li a {
+    color: #231f20;   
+}
+.shareButtons {
+    width: 230px;   
+}
+.shareButtons {
+    width: 230px;
+    padding: 10px 0 0 0;
+    margin: 0 auto;
+}
+
+.shareButtons .addthis_pill_style {
+    width: 50px !important;
+}
+
+.sv-logo {
+    height: 14px;
+    width: 146px;
+    background: transparent url("/web/20160624194843im_/http://www.visitbatonrouge.com/includes/public/assets/shared/sv-logo.png");
+    margin: 20px auto;
+}
+.tripadvisor-logo {
+    margin: 20px 0 10px;
+    float: right;
+    width: 150px;
+}
+.full-width {
+    width: 100%;
+}
+@media (max-width: 64em) {
+    .sv-logo {
+        float: none;
+        clear: both;
+    }
+    .tripadvisor-logo {
+        float: none;
+        text-align: left;
+        margin: 0 20px;
+    }
+}
+@media (max-width: 40em) {
+    .tripadvisor-logo {
+        float: none;
+        clear: both;
+        margin: 20px auto;
+    }
+    .sv-logo {
+        float: none;
+        clear: both;
+        margin: 0 auto;
+    }
+}
+/*
+     FILE ARCHIVED ON 19:48:43 Jun 24, 2016 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:21:07 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 67.847
+  exclusion.robots: 0.167
+  exclusion.robots.policy: 0.149
+  cdx.remote: 0.112
+  esindex: 0.015
+  LoadShardBlock: 38.127 (3)
+  PetaboxLoader3.datanode: 44.243 (4)
+  load_resource: 90.244
+  PetaboxLoader3.resolve: 39.267
+*/

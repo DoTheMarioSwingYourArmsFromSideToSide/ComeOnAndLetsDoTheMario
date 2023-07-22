@@ -1,0 +1,571 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+//General Supports Code STARTS
+var agt = navigator.userAgent.toLowerCase();
+var is_major = parseInt(navigator.appVersion);
+var is_minor = parseFloat(navigator.appVersion);
+var is_ie = ((agt.indexOf("msie") != -1) && (agt.indexOf("opera") == -1));
+var is_ie4up = (is_ie && (is_major >= 4));
+
+var agt=navigator.userAgent.toLowerCase();
+var ie  = (agt.indexOf("msie") != -1);
+var ns  = (navigator.appName.indexOf("Netscape") != -1);
+var win = ((agt.indexOf("win")!=-1) || (agt.indexOf("32bit")!=-1));
+var mac = (agt.indexOf("mac")!=-1);
+/*
+if (ie && win) {	pluginlist = detectIE("Adobe.SVGCtl","SVG Viewer") + detectIE("SWCtl.SWCtl.1","Shockwave Director") + detectIE("ShockwaveFlash.ShockwaveFlash.1","Shockwave Flash") + detectIE("rmocx.RealPlayer G2 Control.1","RealPlayer") + detectIE("QuickTimeCheckObject.QuickTimeCheck.1","QuickTime") + detectIE("MediaPlayer.MediaPlayer.1","Windows Media Player") + detectIE("PDF.PdfCtrl.5","Acrobat Reader"); }
+if (ns || !win) {	nse = ""; for (var i=0;i<navigator.mimeTypes.length;i++) nse += navigator.mimeTypes[i].type.toLowerCase(); pluginlist = detectNS("image/svg-xml","SVG Viewer") + detectNS("application/x-director","Shockwave Director") + detectNS("application/x-shockwave-flash","Shockwave Flash") + detectNS("audio/x-pn-realaudio-plugin","RealPlayer") + detectNS("video/quicktime","QuickTime") + detectNS("application/x-mplayer2","Windows Media Player") + detectNS("application/pdf","Acrobat Reader"); }
+function detectIE(ClassID,name) { result = false; document.write('<SCRIPT LANGUAGE=VBScript>\n on error resume next \n result = IsObject(CreateObject("' + ClassID + '"))</SCRIPT>\n'); if (result) return name+','; else return ''; }
+function detectNS(ClassID,name) { n = ""; if (nse.indexOf(ClassID) != -1) if (navigator.mimeTypes[ClassID].enabledPlugin != null) n = name+","; return n; }
+pluginlist += navigator.javaEnabled() ? "Java," : "";
+if (pluginlist.length > 0) pluginlist = pluginlist.substring(0,pluginlist.length-1);
+*/
+if (!basehref) {var basehref = ""};
+
+function toggleVisibility(eid) {
+	var elm = document.getElementById(eid);
+	if (!elm) return false;
+	if (elm.style.display == "none") {
+		elm.style.display = "block";
+	}
+	else {
+		elm.style.display = "none";
+	}	
+	return false;
+}
+
+function UrlEncode(plaintext)
+{
+	var SAFECHARS = "0123456789" + "ABCDEFGHIJKLMNOPQRSTUVWXYZ" + "abcdefghijklmnopqrstuvwxyz" + "-_.!~*'()";
+	var HEX = "0123456789ABCDEF";
+	var encoded = "";
+	for (var i = 0; i < plaintext.length; i++ ) {
+		var ch = plaintext.charAt(i);
+	    if (ch == " ") {
+		    encoded += "+";
+		}
+		else if (SAFECHARS.indexOf(ch) != -1) {
+			encoded += ch;
+		}
+		else {
+			var charCode = ch.charCodeAt(0);
+			encoded += "%";
+			encoded += HEX.charAt((charCode >> 4) & 0xF);
+			encoded += HEX.charAt(charCode & 0xF);
+		}
+	}
+	return encoded;
+}
+
+function UrlDecode(encoded)
+{
+	var HEXCHARS = "0123456789ABCDEFabcdef"; 
+	var plaintext = "";
+	var i = 0;
+	while (i < encoded.length) {
+		var ch = encoded.charAt(i);
+		if (ch == "+") {
+			plaintext += " ";
+			i++;
+		}
+		else if (ch == "%") {
+			if (i < (encoded.length-2) && HEXCHARS.indexOf(encoded.charAt(i+1)) != -1 && HEXCHARS.indexOf(encoded.charAt(i+2)) != -1 ) {
+				plaintext += unescape( encoded.substr(i,3) );
+				i += 3;
+			}
+			else {
+				alert( 'Bad escape combination near ...' + encoded.substr(i) );
+				plaintext += "%[ERROR]";
+				i++;
+			}
+		}
+		else {
+			plaintext += ch;
+			i++;
+		}
+	}
+	return plaintext;
+}
+
+function getUrlParam(paramName) {
+	var currentUrl = window.location.search;
+	if (currentUrl.indexOf(paramName + "=") == -1) return "";
+	var strBegin = currentUrl.indexOf(paramName) + (paramName.length+1);
+	var strEnd = currentUrl.indexOf("&",strBegin);
+	if (strEnd==-1)	strEnd = currentUrl.length;
+	return UrlDecode(currentUrl.substring(strBegin,strEnd));
+}
+
+function getCookieVal(offset) {
+	var endstr = document.cookie.indexOf (";", offset);
+	if (endstr == -1) endstr = document.cookie.length;
+	return unescape(document.cookie.substring(offset, endstr));
+}
+
+function GetCookie(name) {
+	var arg = name + "=";
+	var alen = arg.length;
+	var clen = document.cookie.length;
+	var i = 0;
+	while (i < clen) {
+		var j = i + alen;
+		if (document.cookie.substring(i, j) == arg) return getCookieVal (j);
+		i = document.cookie.indexOf(" ", i) + 1;
+		if (i == 0) break;
+	}
+  return null;
+}
+  
+function SetCookie(name,value,path,expires,domain,secure) {
+	document.cookie = name + "=" + escape (value) +
+		((expires) ? "; expires=" + expires.toGMTString() : "") +
+		((path) ? "; path=" + path : "") +
+		((domain) ? "; domain=" + domain : "") +
+		((secure) ? "; secure" : "");
+}
+
+function findCookieString(stringS,fullS) {
+	for (var i=0; i<fullS.length; i++) {
+		if (fullS.substring(i,i+stringS.length) == stringS) {
+			return true;
+			break;
+		}
+	}
+	return false;
+}
+
+function replaceCookieString(oldS,newS,fullS) {
+	for (var i=0; i<fullS.length; i++) {
+		if (fullS.substring(i,i+oldS.length) == oldS) {
+			fullS = fullS.substring(0,i)+newS+fullS.substring(i+oldS.length,fullS.length);
+		}
+	}
+	return fullS;
+}
+
+//General Support Code ENDS
+
+//CSI Code STARTS ~
+function writeHeader() {
+	document.write("<script language=\"JavaScript\" type=\"text/javascript\">");
+	document.write("var tellafriendWin = null;");
+	document.write("function TellaFriend()");
+	document.write("{");
+	document.write(" if (tellafriendWin && !tellafriendWin.closed)");
+	document.write(" {");
+	document.write("tellafriendWin.focus();");
+	document.write("}");
+	document.write("else  ");
+	document.write("{");
+	document.write("tellafriendWin = window.open(\"/tellafriend/?return=%2Fincludes%2Fcsi%5Fgenerator%2Ecfm&query=\",\"\",\"channelmode=no,directories=no,fullscreen=no,location=no,menubar=no,resizable=no,scrollbars=no,status=no,toolbar=no,width=450,height=450\");");
+	document.write("}");
+	document.write("}");
+	document.write("</script>");
+	document.write("<div align=\"center\">");
+	document.write("<div class=\"outer\" align=\"left\">");
+	document.write("<div class=\"header\">");
+	document.write("<div class=\"nav\">");
+	document.write("<div id=\"mb\" class=\"mb\">");
+	document.write("<div id=\"b8\" class=\"bh\" cmd=\"/\">home</div>");
+	document.write("<div class=\"mbspacer\"></div>");
+	document.write("<div id=\"b1\" class=\"bh\" menu=\"m1\" cmd=\"/about/\">about</div>");
+	document.write("<div class=\"mbspacer\"></div>");
+	document.write("<div id=\"b2\" class=\"bh\" menu=\"m2\" cmd=\"/visitors/\">visitors</div>");
+	document.write("<div class=\"mbspacer\"></div>");
+	document.write("<div id=\"b3\" class=\"bh\" menu=\"m3\" cmd=\"/meeting_travelplanners/\">meeting &amp; travel professionals</div>");
+	document.write("<div class=\"mbspacer\"></div>");
+	document.write("<div id=\"b5\" class=\"bh\" menu=\"m5\" cmd=\"/traveltools/\">travel tools</div>");
+	document.write("<div class=\"mbspacer\"></div>");
+	document.write("<div id=\"b6\" class=\"bh\" cmd=\"/media/\">media</div>");
+	document.write("<div class=\"mbspacer\"></div>");
+	document.write("<div id=\"b7\" class=\"bh\" menu=\"m7\" cmd=\"/stats/\">resources</div>");
+	document.write("<div class=\"mbspacer\"></div>");
+	document.write("<div id=\"b9\" class=\"bh\" cmd=\"/film/\" menu=\"m8\">film</div>");
+	document.write("</div>");
+	document.write("</div>");
+	document.write("</div>");
+}
+
+function writeFooter() {
+	document.write("<div class=\"info\">");
+	document.write("<div class=\"info1\">");
+	document.write("<div class=\"infohdr1\">1-800-LA-ROUGE</div>");
+	document.write("<iframe src=\"/includes/1800larouge.cfm\" title=\"1-800-LA-ROUGE\" allowtransparency=\"true\" width=\"257\" scrolling=\"no\" frameborder=\"0\" marginheight=\"0\" marginwidth=\"0\"></iframe>");
+	document.write("</div>");
+	document.write("<div class=\"info2\">");
+	document.write("<div class=\"infohdr2\">Did You Know</div>");
+	document.write("<iframe src=\"/includes/didyouknow.cfm\" title=\"Did You Know\" allowtransparency=\"true\" width=\"257\" scrolling=\"no\" frameborder=\"0\" marginheight=\"0\" marginwidth=\"0\">The largest bald cypress in the nation is located in the Tunica Swamp in St. Francisville.</iframe>");
+	document.write("</div>");
+	document.write("<div class=\"info3\">");
+	document.write("<div class=\"infohdr2\">Words &amp; Sayings of Baton Rouge</div>");
+	document.write("<iframe src=\"/includes/wordsandsayings.cfm\" title=\"Words &amp; Sayings of Baton Rouge\" allowtransparency=\"true\" width=\"257\" scrolling=\"no\" frameborder=\"0\" marginheight=\"0\" marginwidth=\"0\"><strong>Andouille and Boudin (ahn-doo-ee and boo dan)</strong><br>Two types of Cajun sausage. Andouille is made with pork, boudin with pork and rice. Sociologists recognize two major categories of Cajuns...</iframe>");
+	document.write("</div>");
+	document.write("</div>");
+	document.write("<div class=\"footer\">");
+	document.write("<div class=\"banners\">");
+	document.write("<div class=\"bannerbox\"><script>document.write(\"<iframe src=\\\"/includes/bannerframe.cfm?index=3&path=\"+document.location.pathname+\"\\\" allowtransparency=\\\"true\\\" width=\\\"120\\\" height=\\\"60\\\" scrolling=\\\"no\\\" frameborder=\\\"0\\\" marginheight=\\\"0\\\" marginwidth\\\"0\\\"></iframe>\")</script></div>");
+	document.write("<div class=\"bannerbox\"><script>document.write(\"<iframe src=\\\"/includes/bannerframe.cfm?index=1&path=\"+document.location.pathname+\"\\\" allowtransparency=\\\"true\\\" width=\\\"120\\\" height=\\\"60\\\" scrolling=\\\"no\\\" frameborder=\\\"0\\\" marginheight=\\\"0\\\" marginwidth\\\"0\\\"></iframe>\")</script></div>");
+	document.write("<div class=\"bannerbox\"><script>document.write(\"<iframe src=\\\"/includes/bannerframe.cfm?index=2&path=\"+document.location.pathname+\"\\\" allowtransparency=\\\"true\\\" width=\\\"120\\\" height=\\\"60\\\" scrolling=\\\"no\\\" frameborder=\\\"0\\\" marginheight=\\\"0\\\" marginwidth\\\"0\\\"></iframe>\")</script></div>");
+	document.write("</div>");
+	document.write("<div class=\"bottomnav\">");
+	document.write("<a class=\"footerlink\" href=\"/sitesearch/\">Site Search</a>  |  <a class=\"footerlink\" href=\"javascript:TellaFriend();\">Tell-A-Friend</a>  |  <a class=\"footerlink\" href=\"/sitemap/\">Site Map</a>  |  <a class=\"footerlink\" href=\"/visitors/requestinformation/\">Contact</a>  |  <a class=\"footerlink\" href=\"/privacypolicy/\">Privacy Policy</a> |  <a class=\"footerlink\" href=\"http://66.135.17.100\" target=\"_blank\">Employee Login</a><br>");
+	document.write("Copyright &copy; 2005 Baton Rouge Visitors &amp; Conventions Bureau. All rights reserved.<br>");
+	document.write("730 North Blvd, Baton Rouge, LA 70802 | 800-LA-ROUGE<br>");
+	document.write("            <strong>Official site for Travel and Tourism in Baton Rouge</strong>");
+	document.write("</div>");
+	document.write("</div>");
+	document.write("</div>");
+	document.write("</div>");
+	document.write("<div id=\"m1\" class=\"m\">");
+	document.write("<div id=\"mi1_1\" class=\"mi\" cmd=\"/about/president/\">president\'s message</div>");
+	document.write("<div id=\"mi1_2\" class=\"mi\" cmd=\"/about/ourcity/\">our city</div>");
+	document.write("");
+	document.write("<div id=\"mi1_4\" class=\"mi\" cmd=\"/about/weather/\">weather</div>");
+	document.write("<div id=\"mi1_5\" class=\"mi\" cmd=\"/about/historypolitics/\">history &amp; politics</div>");
+	document.write("<div id=\"mi1_6\" class=\"mi\" cmd=\"/about/cultureheritage/\">culture &amp; heritage</div>");
+	document.write("<div id=\"mi1_7\" class=\"mi\" cmd=\"/about/cajunterms/\">cajun terms</div>");
+	document.write("<div id=\"mi1_8\" class=\"mi\" cmd=\"/about/links/\">links</div>");
+	document.write("<div id=\"mi1_9\" class=\"mi\" cmd=\"/about/maps/\">maps</div>");
+	document.write("<div id=\"mi1_10\" class=\"mi\" cmd=\"/about/newsletter/\">newsletter</div>");
+	document.write("");
+	document.write("<div id=\"mi1_12\" class=\"mi\" cmd=\"/about/staff/\">staff</div>");
+	document.write("<div id=\"mi1_13\" class=\"mi\" cmd=\"/about/missionstatement/\">mission/value statement</div>");
+	document.write("</div>");
+	document.write("<div id=\"m2\" class=\"m\">");
+	document.write("<div id=\"mi2_1\" class=\"mi\" cmd=\"/visitors/accommodations/\">accommodations</div>");
+	document.write("<div id=\"mi2_2\" class=\"mi\" cmd=\"/visitors/attractions/\">attractions</div>");
+	document.write("<div id=\"mi2_3\" class=\"mi\" cmd=\"/visitors/restaurants/\">restaurants</div>");
+	document.write("<div id=\"mi2_4\" class=\"mi\" cmd=\"/visitors/nightlifebar/\">nightlife / bar</div>");
+	document.write("<div id=\"mi2_5\" class=\"mi\" cmd=\"/visitors/shopping/\">shopping</div>");
+	document.write("<div id=\"mi2_6\" class=\"mi\" cmd=\"/visitors/sportsoutdoors/\">sports/outdoors</div>");
+	document.write("<div id=\"mi2_7\" class=\"mi\" cmd=\"/visitors/golf/\">golf</div>");
+	document.write("<div id=\"mi2_8\" class=\"mi\" cmd=\"/visitors/thingstodo/\">101 things to do in br</div>");
+	document.write("<div id=\"mi2_9\" class=\"mi\" cmd=\"/visitors/tripplanner/\">plan your vacation</div>");
+	document.write("<div id=\"mi2_10\" class=\"mi\" cmd=\"/visitors/maps/\">maps</div>");
+	document.write("<div id=\"mi2_11\" class=\"mi\" cmd=\"/visitors/virtualpostcards/\">virtual postcards</div>");
+	document.write("<div id=\"mi2_12\" class=\"mi\" cmd=\"/visitors/requestinformation/\">request information</div>");
+	document.write("<div id=\"mi2_13\" class=\"mi\" cmd=\"/visitors/newsletter/\">newsletter</div>");
+	document.write("<div id=\"mi2_14\" class=\"mi\" cmd=\"/stats/visitorsguide/\">visitors guide</div>");
+	document.write("</div>");
+	document.write("<div id=\"m3\" class=\"m\">");
+	document.write("<div id=\"mi3_1\" class=\"mi\" cmd=\"/meeting_travelplanners/meetingfacilities/\">meeting facilities</div>");
+	document.write("<div id=\"mi3_2\" class=\"mi\" cmd=\"/meeting_travelplanners/professionalservices/\">professional services</div>");
+	document.write("<div id=\"mi3_3\" class=\"mi\" cmd=\"/meeting_travelplanners/accommodations/\">accommodations</div>");
+	document.write("<div id=\"mi3_4\" class=\"mi\" cmd=\"/meeting_travelplanners/services/\">services provided by bracvb</div>");
+	document.write("<div id=\"mi3_5\" class=\"mi\" cmd=\"/meeting_travelplanners/request/\">request more information</div>");
+	document.write("<div id=\"mi3_6\" class=\"mi\" cmd=\"/meeting_travelplanners/themedvenues/\">themed venues</div>");
+	document.write("<div id=\"mi3_7\" class=\"mi\" cmd=\"/meeting_travelplanners/touritineraries/\">tour itinerairies</div>");
+	document.write("<div id=\"mi3_8\" class=\"mi\" cmd=\"/meeting_travelplanners/staff/\">staff</div>");
+	document.write("<div id=\"mi3_9\" class=\"mi\" cmd=\"/meeting_travelplanners/maps/\">maps</div>");
+	document.write("<div id=\"mi3_10\" class=\"mi\" cmd=\"/meeting_travelplanners/thingstodo/\">101 things to do in br</div>");
+	document.write("<div id=\"mi3_11\" class=\"mi\" cmd=\"/meeting_travelplanners/newsletter/\">newsletter</div>");
+	document.write("<div id=\"mi3_12\" class=\"mi\" cmd=\"http://www.brasf.com\">baton rouge area sports foundation</div>");
+	document.write("</div>");
+	document.write("<div id=\"m5\" class=\"m\">");
+	document.write("<div id=\"mi5_1\" class=\"mi\" cmd=\"/traveltools/calendar/\">calendar</div>");
+	document.write("<div id=\"mi5_2\" class=\"mi\" cmd=\"/traveltools/planyourvacation/\">plan your vacation</div>");
+	document.write("");
+	document.write("");
+	document.write("<div id=\"mi5_5\" class=\"mi\" cmd=\"/traveltools/maps/\">maps</div>");
+	document.write("");
+	document.write("<div id=\"mi5_7\" class=\"mi\" cmd=\"/traveltools/imagegallery/\">image gallery</div>");
+	document.write("<div id=\"mi5_8\" class=\"mi\" cmd=\"/stats/survey/\">take our survey</div>");
+	document.write("</div>");
+	document.write("<div id=\"m7\" class=\"m\">");
+	document.write("<div id=\"mi7_1\" class=\"mi\" cmd=\"/stats/professional_planner/\">professional planner</div>");
+	document.write("<div id=\"mi7_2\" class=\"mi\" cmd=\"/stats/annualreport/\">annual report</div>");
+	document.write("<div id=\"mi7_3\" class=\"mi\" cmd=\"/stats/marketingplanner/\">marketing plan</div>");
+	document.write("<div id=\"mi7_4\" class=\"mi\" cmd=\"/stats/conventioncalendar/\" target=\"_blank\">convention calendar</div>");
+	document.write("<div id=\"mi7_5\" class=\"mi\" cmd=\"/stats/survey/\">take our survey</div>");
+	document.write("<div id=\"mi7_6\" class=\"mi\" cmd=\"/stats/facts/\">facts</div>");
+	document.write("<div id=\"mi7_7\" class=\"mi\" cmd=\"/stats/visitorsguide/\">visitors guide</div>");
+	document.write("</div>");
+	document.write("<div id=\"m8\" class=\"m\">");
+	document.write("<div id=\"mi8_1\" class=\"mi\" cmd=\"/film/availableresources/\">available resources</div>");
+	document.write("<div id=\"mi8_2\" class=\"mi\" cmd=\"/film/production/\">production</div>");
+	document.write("<div id=\"mi8_3\" class=\"mi\" cmd=\"/film/locationhousingneeds/\">location &amp; housing needs</div>");
+	document.write("<div id=\"mi8_4\" class=\"mi\" cmd=\"/film/budgettemplate/\">budget template</div>");
+	document.write("<div id=\"mi8_5\" class=\"mi\" cmd=\"/film/taxincentives/\">tax incentives</div>");
+	document.write("<div id=\"mi8_6\" class=\"mi\" cmd=\"/film/imagegallery/\">image gallery</div>");
+	document.write("<div id=\"mi8_7\" class=\"mi\" cmd=\"/film/presskit/\">press kit</div>");
+	document.write("<div id=\"mi8_8\" class=\"mi\" cmd=\"/film/contactus/\">contact us</div>");
+	document.write("<div id=\"mi8_9\" class=\"mi\" cmd=\"/film/filmedinla/\">filmed in la</div>");
+	document.write("</div>");
+}
+
+function includeHeader() {writeHeader();}
+function includeFooter() {writeFooter();}
+//CSI Code ENDS ~                                                                                                                                                                        
+
+//Menu Code STARTS
+
+var tID = null;
+var mb = null;
+
+function resetTimer() {
+	if (!!tID) clearTimeout(tID);
+	tID = setTimeout("executeTimer()",1000);
+}
+
+function executeTimer() {
+	HideMenu();
+}
+
+function getAbsLeft(elm) {
+	if (!elm && this) elm = this;
+	var nLeftPos = elm.offsetLeft;
+	var pElm = elm.offsetParent;
+	while (pElm) {
+		nLeftPos += pElm.offsetLeft;
+		pElm = pElm.offsetParent;
+	}
+	return nLeftPos;
+}
+
+function getAbsTop(elm) {
+	if (!elm && this) elm = this;
+	var nTopPos = elm.offsetTop;
+	var pElm = elm.offsetParent;
+	while (pElm) {
+		nTopPos += pElm.offsetTop;
+		pElm = pElm.offsetParent;
+	}
+	return nTopPos;
+}
+
+function FindSubMenu(subMenu) {
+	var item = null;
+	var menu = document.getElementById(subMenu);
+	if (menu) {
+		menu.onmouseout = resetTimer;
+		menu.style.visibility = "hidden";
+		for (var i=0;i<menu.childNodes.length;i++) {
+			item = menu.childNodes[i];
+			if ((item.nodeType != 1) || (item.className != "mi")) continue;
+			if (item.getAttribute("menu")) FindSubMenu(item.getAttribute("menu"));
+			if (item.getAttribute("cmd"))  item.onclick = new Function("Do(\""+item.id+"\")");
+			item.onmouseover = new Function("highlight(\""+item.id+"\")");
+		}
+	}
+}
+
+function ShowMenu(obj) {
+	clearTimeout(tID);
+	HideMenu(mb);
+	if (obj != null && obj.length) {
+		obj = document.getElementById(obj);
+		if (obj == null) return;
+		if (obj.getAttribute("cmd")) window.status = obj.getAttribute("cmd");
+		var menu = document.getElementById(obj.getAttribute("menu"));
+		var bar = document.getElementById(obj.id);
+		if (bar.getAttribute("cmd")) {
+			if (bar.getAttribute("cmd").substr(0,1) == "/") {
+				if (basehref == "") {
+					window.status = window.location.protocol + "//" + window.location.host + bar.getAttribute("cmd");
+				}
+				else {
+					window.status = basehref + bar.getAttribute("cmd");
+				}	
+			}	
+			else {
+				window.status = bar.getAttribute("cmd");
+			}
+		}
+		else {
+			window.status = "";
+		}
+		if (bar.className == "b") {
+			bar.className="bo";
+		}	
+		else if (bar.className == "bh") {
+			bar.className="bho";
+		}
+		if (menu) {
+			menu.style.display = "block";
+			menu.style.visibility = "visible";
+			menu.style.top =  (getAbsTop(obj) + 42) + "px";
+			menu.style.left = getAbsLeft(obj) + "px";
+			if (!!document.all) {
+				var ienavfix = document.getElementById(menu.id + "fix");
+				if (!!ienavfix) {
+					ienavfix.style.display = "block";			
+				}
+				else if (!!document.all && !!document.createElement && !!document.appendChild && !!is_ie4up && !!mb) {
+					var ienavfix = document.createElement("iframe");
+					ienavfix.id = menu.id + "fix";
+					ienavfix.style.position = "absolute";
+					ienavfix.style.zIndex = "1";
+					ienavfix.style.display = "block";
+					ienavfix.style.top = menu.style.top;
+					ienavfix.style.left = menu.style.left;
+					ienavfix.style.width = menu.offsetWidth + "px";
+					ienavfix.style.height = menu.offsetHeight + "px";
+					mb.appendChild(ienavfix);
+				}		
+			}
+		}
+	}
+}
+   
+function highlight(obj) {
+	clearTimeout(tID);
+	obj = document.getElementById(obj);
+	var PElement = document.getElementById(obj.parentNode.id);
+	for (var i=0;i<PElement.childNodes.length;i++) {
+		var elm = PElement.childNodes[i];
+		elm.className = "mi";
+	}
+	obj.className="io";
+	if (obj.getAttribute("cmd")) {
+		if (obj.getAttribute("cmd").substr(0,1) == "/") {
+			if (basehref == "") {
+				window.status = window.location.protocol + "//" + window.location.host + obj.getAttribute("cmd");
+			}
+			else {
+				window.status = basehref + obj.getAttribute("cmd");
+			}	
+		}
+		else {
+			window.status = obj.getAttribute("cmd");
+		}
+	}	
+	else {
+		window.status = "";
+	}
+	ShowSubMenu(obj);
+}
+
+function Do(obj) {
+	var cmd = document.getElementById(obj).getAttribute("cmd");
+	var target = document.getElementById(obj).getAttribute("target");
+   if (basehref == "") {
+		if (target == "_blank")var win = window.open(cmd,"");
+      else window.location = cmd;
+	}
+	else {
+		if (target == "_blank")var win = window.open(basehref + cmd,"");
+      else window.location = basehref + cmd;
+	}	
+}
+
+function HideMenu(obj) {
+	if (!mb) return;
+	if (!obj) obj = mb;
+	if (obj.tagName != "DIV") obj = mb;
+	for (var i=0;i<obj.childNodes.length;i++) {
+		var child = obj.childNodes[i];
+		if (child.nodeType != 1) continue;
+		if (child.className == "bo") document.getElementById(child.id).className = "b";
+		if (child.className == "bho") document.getElementById(child.id).className = "bh";
+		var childMenu = document.getElementById(child.getAttribute("menu"));
+		if (childMenu) {
+			if (childMenu.hasChildNodes()) {
+				for (var j=0;j<childMenu.childNodes.length;j++) {
+					var tElm = childMenu.childNodes[j];
+					if (tElm.nodeType != 1) continue;
+					if (tElm.className == "io") tElm.className = "mi";
+				}
+				HideMenu(childMenu);
+				childMenu.style.visibility = "hidden";
+				if (!!document.all && !!document.createElement && !!document.appendChild && !!is_ie4up) {
+					var ienavfix = document.getElementById(childMenu.id + "fix");
+					if (!!ienavfix) {ienavfix.style.display = "none";}
+				}	
+				window.status = "";
+			}
+		}
+	}
+}
+
+function ShowSubMenu(obj) {
+	var PMenu = obj.parentNode;
+	HideMenu(PMenu);
+	var menu = document.getElementById(obj.getAttribute("menu"));
+	if (menu) {
+		menu.style.display = "block";
+		menu.style.visibility = "visible";
+		menu.style.top = (obj.offsetTop + PMenu.offsetTop + 0) + "px";
+		menu.style.left = (PMenu.offsetLeft + obj.offsetWidth + 3) + "px";
+		if (!!document.all) {
+			var ienavfix = document.getElementById(menu.id + "fix");
+			if (!!ienavfix) {
+				ienavfix.style.display = "block";			
+			}
+			else if (!!document.all && !!document.createElement && !!document.appendChild && !!is_ie4up && !!mb) {
+				var ienavfix = document.createElement("iframe");
+				ienavfix.id = menu.id + "fix";
+				ienavfix.style.position = "absolute";
+				ienavfix.style.zIndex = "1";
+				ienavfix.style.display = "block";
+				ienavfix.style.top = menu.style.top;
+				ienavfix.style.left = menu.style.left;
+				ienavfix.style.width = menu.offsetWidth + "px";
+				ienavfix.style.height = menu.offsetHeight + "px";
+				mb.appendChild(ienavfix);
+			}		
+		}
+	}
+}
+
+function InitMenu() {
+	if (!document.getElementById && !document.childNodes) return;
+	mb = document.getElementById("mb");
+	document.body.onclick = HideMenu;
+	var bar,menu,item,menuItem = null;
+	for (var i=0;i<mb.childNodes.length;i++) {
+		bar = mb.childNodes[i];
+		if ((bar.nodeType != 1) || !((bar.className == "b") || (bar.className == "bh"))) continue;
+		bar.onmouseout = resetTimer;
+		bar.onmouseover = new Function("ShowMenu(\""+bar.id+"\")");
+		if (bar.getAttribute("cmd")) bar.onclick = new Function("Do(\""+bar.id+"\")");
+		menu = document.getElementById(bar.getAttribute("menu"));
+		if (menu) {
+			menu.onmouseout = resetTimer;
+			menu.style.visibility = "hidden";
+			for (var j=0;j<menu.childNodes.length;j++) {
+				item = menu.childNodes[j];
+				if ((item.nodeType != 1) || (item.className != "mi")) continue;
+				menuItem = document.getElementById(item.id);
+				if (menuItem.getAttribute("menu")) FindSubMenu(menuItem.getAttribute("menu"));
+				if (menuItem.getAttribute("cmd")) menuItem.onclick = new Function("Do(\""+menuItem.id+"\")");
+				menuItem.onmouseover = new Function("highlight(\""+item.id+"\")");
+			}	
+    }
+  }
+}  	
+
+//Menu Code Ends
+
+window.onload = InitMenu;
+
+}
+/*
+     FILE ARCHIVED ON 04:33:58 Feb 20, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:27:05 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 95.574
+  exclusion.robots: 0.063
+  exclusion.robots.policy: 0.055
+  cdx.remote: 0.052
+  esindex: 0.009
+  LoadShardBlock: 70.488 (3)
+  PetaboxLoader3.datanode: 93.065 (4)
+  load_resource: 81.461
+  PetaboxLoader3.resolve: 43.728
+*/

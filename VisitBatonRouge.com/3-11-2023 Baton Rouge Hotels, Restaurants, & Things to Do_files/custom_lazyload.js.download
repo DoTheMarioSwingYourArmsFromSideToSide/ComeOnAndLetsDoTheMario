@@ -1,0 +1,76 @@
+define(function() {
+	let self = {
+		_lazySelector: '[data-lazy-srcset],[data-lazy-src],[data-lazy-bg-src]',
+		_iolookup: { counter: 0, items: {} },
+		_io: new IntersectionObserver(function(entries, observer) {
+			entries.forEach(function(entry) {
+				if (entry.isIntersecting) {
+					let els = entry.target.querySelectorAll(self._lazySelector);
+					if (els.length) { self.rewrite(els, true); }
+
+					self._iolookup.items[entry.target.getAttribute('data-lazy-index')](entry, observer);
+					entry.target.removeAttribute('data-lazy-loading');
+				}
+			});
+
+		}, { rootMargin: "100px", threshold: 0 }),
+		_defaultCb: function(entry, observer) {
+			self.unobserve(entry);
+		},
+		isLoading: function(root) {
+			/* 	Tell us if our lazy load function is waiting.*/
+			return root && root.getAttribute('data-lazy-loading') !== undefined;
+		},
+		hasLazy: function(els) {
+			/* 	This utility function can be used to test if have any items to lazy load.
+			 	Accepts single element, node list or array of elements.*/
+			let arr = self.getLazy(els);
+			return arr.length > 0;
+		},
+		getLazy: function(els) {
+			/* 	Use this utility function to return any elements with lazy selectors.
+				Accepts single element, node list or array of elements. */
+			els = els === undefined ? [] : els.length !== undefined ? Array.from(els) : [els];
+			if (els.length === 0) { return []; }
+			els = els.reduce((arr, cur) => arr.concat(Array.from(cur.querySelectorAll(self._lazySelector))), []);
+			return els;
+		},
+		rewrite: function(els) {
+			if (!els) { return; }
+			/* This utility function will rewrite any lazy load elements to remove data-lazy prefix	*/
+			els.forEach(function(el) {
+				if (el.getAttribute('data-lazy-srcset')) {
+					el.setAttribute('srcset', el.getAttribute('data-lazy-srcset'));
+					el.removeAttribute('data-lazy-srcset');
+				} else if (el.getAttribute('data-lazy-src')) {
+					el.setAttribute('src', el.getAttribute('data-lazy-src'));
+					el.removeAttribute('data-lazy-src');
+				} else if (el.getAttribute('data-lazy-bg-src')) {
+					let src = el.getAttribute('data-lazy-bg-src');
+					el.style.backgroundImage = `url(${src})`;
+					el.removeAttribute('data-lazy-bg-src');
+				}	
+			});
+		},
+		unobserve: function(entry) {
+			self._io.unobserve(entry.target);
+			delete self._iolookup.items[entry.target.getAttribute('data-lazy-index')];
+			entry.target.setAttribute('data-lazy-index', undefined);
+		},
+		lazy: function(els, cb) {
+			if (els === undefined) { return; }
+			
+			let cbFunc = cb || self._defaultCb;
+			
+			els = els.forEach ? Array.from(els) : [els];
+
+			els.forEach(function(el) {
+				el.setAttribute('data-lazy-index', self._iolookup.counter++);
+				self._io.observe(el);
+				self._iolookup.items[el.getAttribute('data-lazy-index')] = cbFunc;
+				el.setAttribute('data-lazy-loading', true);
+			});
+		}
+	};
+	return self;
+});

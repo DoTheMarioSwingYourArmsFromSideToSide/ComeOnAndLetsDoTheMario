@@ -1,0 +1,139 @@
+.dtn-mobile-banner .dtnad,
+.dtn-mobile-banner .dtnad > a {
+	min-height: 50px;
+}
+
+.dtn-mobile-banner .dtnad > a {
+	display: grid;
+	grid-template-columns: 75px 1fr;
+	width:  100%;
+}
+
+.dtn-mobile-banner .mobiledtnbanner {
+	position: relative;
+	width: 100%;
+	bottom: 12px;
+	margin: 0 auto;
+	box-shadow: var(--shadow-lg), 0 -10px 15px -3px rgba(0, 0, 0, 0.1), 0 -4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.dtn-mobile-banner .dtn-banner-close {
+	position: absolute;
+	top: 0;
+	right: 6px;
+	margin: 0;
+	padding: 0;
+	color: var(--blue);
+	background: transparent;
+	font-size: 17px;
+	border: none;
+	transform: translateY(-50%);
+	line-height: 1;
+	z-index: 1;
+}
+
+.dtn-mobile-banner .dtn-banner-close:before {
+	content: '';
+	position: absolute;
+	background-color: var(--white);
+	inset: 50%;
+	height: 50%;
+	width: 50%;
+	z-index: -1;
+	transform: translate(-50%, -50%);
+}
+
+.dtn-mobile-banner .image-container {
+	flex-basis: 75px;
+	width: 75px;
+	flex: 1;
+	transform: translateX(1px);
+	display:  flex;
+	position:  relative;
+	align-items: center;
+}
+
+.dtn-mobile-banner .image-container img {
+	object-fit: cover;
+	width: 100%;
+	height: 100%;
+	position:  absolute;
+	left:  0;
+	top:  0;
+}
+
+.dtn-mobile-banner .content-container {
+	flex: 3;
+	padding: 6px 27px 6px 7px;
+	color: var(--gray-dark);
+	text-align: left;
+	background-color: var(--white);
+	display:  grid;
+	grid-template-columns: 52px 1fr;
+	grid-template-areas:
+		"title title"
+		"learn arrow";
+	align-content: center;
+	row-gap: 5px;
+	width: 100%;
+}
+
+.dtn-mobile-banner .content-container:before {
+	content: '\f30b';
+	grid-area: arrow;
+	transform: translateY(-1px);
+	font-family: "Font Awesome 5 Free";
+	font-weight: 900;
+	line-height: 1;
+	color: var(--red);
+	font-size: 10px;
+}
+
+.dtn-mobile-banner .content-container:after {
+	content: 'learn more';
+	grid-area: learn;
+	text-decoration: none;
+	font-size: 10px;
+	font-weight: var(--font-weight-bold);
+	line-height: 1;
+}
+
+.dtn-mobile-banner .content-container .title {
+	grid-area: title;
+	padding: 0;
+	padding-bottom: 2px;
+	font-size: 18px;
+	line-height: 1;
+	font-family: var(--font-display);
+	font-weight: var(--font-weight-semibold);
+}
+
+.dtn-mobile-banner .content-container .description {
+	display: none;
+}
+
+@media (min-width: 641px) {
+	.dtn-mobile-banner {
+		display: none !important;
+	}
+}
+/*
+     FILE ARCHIVED ON 00:57:49 Mar 08, 2023 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 00:41:33 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 142.825
+  exclusion.robots: 0.134
+  exclusion.robots.policy: 0.119
+  RedisCDXSource: 76.013
+  esindex: 0.009
+  LoadShardBlock: 46.721 (3)
+  PetaboxLoader3.datanode: 61.371 (4)
+  load_resource: 154.006
+  PetaboxLoader3.resolve: 75.781
+*/

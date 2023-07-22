@@ -1,0 +1,260 @@
+.imagebox-1-across-fullwidth {
+	--title-size: 28px;
+	--title-lh: 1.2;
+	--description-size: 15px;
+	--description-lh: calc(21/15);
+	--read-more-size: 16px;
+	--btn-text-color: var(--white);
+	--btn-bg-color: var(--transparent);
+	--btn-size: 16px;
+	margin-bottom: 1px;
+	padding-top: 0;
+}
+
+.imagebox-1-across-fullwidth.bottom-margin {
+	margin-bottom: 40px;
+}
+
+.imagebox-1-across-fullwidth .img-cont {
+	position: relative;
+}
+
+.imagebox-1-across-fullwidth .slides {
+	margin-bottom: 2px;
+}
+
+.imagebox-1-across-fullwidth .slide {
+	position: relative;
+	overflow: hidden;
+	padding-top: 10px;
+}
+
+.imagebox-1-across-fullwidth .slide:after,
+.imagebox-1-across-fullwidth .slide:before {
+	content: '';
+	position: absolute;
+	background-image: url(/web/20230308005749im_/https://www.visitbatonrouge.com/includes/public/assets/shared/hero-shape-rough-edge.svg);
+	width: 1440px;
+	height: 15px;
+	left: -1%;
+	top: 0;
+	background-repeat: no-repeat;
+	pointer-events: none;
+}
+
+.imagebox-1-across-fullwidth .slide:before {
+	background-image: url(/web/20230308005749im_/https://www.visitbatonrouge.com/includes/public/assets/shared/hero-shape-texture-fade.svg);
+	background-size: cover;
+	top: 10px;
+	left: unset;
+	right: 35%;
+	z-index: 1;
+	width: 700px;
+	transform: rotate(180deg);
+}
+
+.imagebox-1-across-fullwidth .img-cont::after {
+	width: 100%;
+	height: 100%;
+	background: unset;
+	background-color: rgba(0,0,0,.55);
+	pointer-events: none;
+}
+
+.imagebox-1-across-fullwidth .parallax-bg {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	overflow: hidden;
+}
+
+.imagebox-1-across-fullwidth .content-section {
+	top: 50%;
+	left: 19px;
+	bottom: unset;
+	transform: translateY(-50%);
+}
+
+@media (max-width : 40em) {
+	.imagebox-1-across-fullwidth .content-section {
+		top : unset;
+		bottom: unset;
+		transform: translateY(calc(-100% - var(--space-4)));
+	}
+}
+
+.imagebox-1-across-fullwidth .slide :is(.slide-title, .description, a.read-more) {
+	text-shadow: 0px 0px 8px rgba(0,0,0,0.51);
+}
+
+.imagebox-1-across-fullwidth .slide .slide-title {
+	font-size: var(--title-size);
+	line-height: var(--title-lh);
+	margin-bottom: 10px;
+}
+
+.imagebox-1-across-fullwidth .slide .description {
+	font-size: var(--description-size);
+	line-height: var(--description-lh);
+	font-weight: var(--font-weight-medium);
+	margin-bottom: 0;
+}
+
+@media (max-width : 1250px) {
+	.slide.overlap-image .img-cont .shared-play-button {
+		z-index: 1;
+		opacity: 0.65;
+	}
+
+	.imagebox-1-across-fullwidth .content-section {
+		z-index: 2;
+		pointer-events: none;
+	}
+}
+
+.imagebox-1-across-fullwidth .slides .slide a.read-more {
+	display: inline-block;
+	padding: 0;
+	text-transform: lowercase;
+	font-weight: var(--font-weight-bold);
+	font-size: var(--btn-size);
+	margin-top: 8px;
+	color: var(--white);
+}
+
+.imagebox-1-across-fullwidth .slides .slide a.read-more i {
+	margin-left: 4px;
+}
+
+.imagebox-1-across-fullwidth .slides .slide a.read-more:hover i {
+	margin-left: 7px;
+}
+
+.imagebox-1-across-fullwidth .color-bar-cont {
+	width: 100%;
+	height: 33px;
+	position: relative;
+}
+
+.imagebox-1-across-fullwidth .color-bar {
+	object-fit: cover;
+	height: 100%;
+	position: absolute;
+	object-position: right;
+	right: 0;
+	bottom: 0;
+}
+
+@media (hover: hover) {
+	.imagebox-1-across-fullwidth .slide.overlap-image .slide-title > a:hover {
+		text-decoration: none;
+	}
+
+	.imagebox-1-across-fullwidth .slide a.read-more:not(p *):hover {
+		background-color: transparent;
+	}
+}
+
+@media (min-width: 40em) {
+	.imagebox-1-across-fullwidth .content-section {
+		padding-top: 0;
+	}
+
+	.imagebox-1-across-fullwidth .color-bar-cont {
+		height: 43px;
+	}
+}
+
+@media (min-width: 64em) {
+	.imagebox-1-across-fullwidth {
+		--title-size: min(calc(28px + 8 * (100vw - 1024px) / 416), 36px);
+		--title-lh: calc(44/36);
+		--description-size: 17px;
+		--description-lh: calc(26/17);
+		--btn-size: 17px;
+	}
+
+	.imagebox-1-across-fullwidth.bottom-margin {
+		margin-bottom: 100px;
+	}
+
+	.imagebox-1-across-fullwidth .parallax-bg {
+		background-attachment: fixed;
+	}
+
+	.imagebox-1-across-fullwidth .slides {
+		margin-bottom: 1px;
+	}
+	
+	.imagebox-1-across-fullwidth .slide:before {
+		left: -120px;
+		width: 800px;
+		top: 15px;
+	}
+
+	.imagebox-1-across-fullwidth .slide:after {
+		width: 102%;
+		background-size: 100%;
+		height: 20px;
+		background-position: bottom;
+	}
+
+	.imagebox-1-across-fullwidth .img-cont::after {
+		background: linear-gradient(to right, rgba(0,0,0,.7), rgba(0,0,0,0));
+		background-color: unset;
+	}
+
+	.imagebox-1-across-fullwidth .content-section {
+		max-width: 525px;
+		margin-right: unset;
+		left: 60px;
+	}
+
+	.imagebox-1-across-fullwidth .slide .slide-title {
+		margin-bottom: 11px;
+	}
+
+	.imagebox-1-across-fullwidth .slides .slide a.read-more i {
+		margin-top: 14px;
+		color: var(--red);
+	}
+
+	.imagebox-1-across-fullwidth .color-bar-cont {
+		height: 53px;
+	}
+	.imagebox-1-across-fullwidth .color-bar {
+		height: 100%;
+	}
+}
+
+@media (min-width: 90em) {
+	.imagebox-1-across-fullwidth .color-bar {
+		width: 100%;
+		object-fit: fill;
+	}
+}
+/*
+     FILE ARCHIVED ON 00:57:49 Mar 08, 2023 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 00:41:50 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 516.579
+  exclusion.robots: 0.069
+  exclusion.robots.policy: 0.06
+  cdx.remote: 0.054
+  esindex: 0.008
+  LoadShardBlock: 486.832 (3)
+  PetaboxLoader3.datanode: 495.028 (4)
+  load_resource: 57.716
+  PetaboxLoader3.resolve: 33.188
+*/

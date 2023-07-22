@@ -1,0 +1,119 @@
+body {background:#c0c0c0; font-family:Verdana; font-size:.71em;}
+a:link, a:active {color:#cc0000;text-decoration:none;}
+a:visited {color:#cc0000;text-decoration:none;}
+a:hover, a:visited:hover {text-decoration:underline;}
+
+/* main site containers */
+div.outer {width:955px; background:#cccccc;}
+div.header {width:953px; height:68px; color:#ffffff; background:url(/web/20070219122932im_/http://visitbatonrouge.com/img/953x68/headerbg.gif); border:1px solid #ffffff; overflow:hidden;}
+div.nav {width:903px; height:40px; padding:28px 0px 0px 25px; overflow:hidden;}
+div.header a {margin:0px 10px 0px 0px; color:#ffffff; text-decoration:none;}
+div.main {width:953px; height:345px; border-width:0px 1px 0px 1px; border-style:solid; border-color:#ffffff; overflow:hidden;}
+div.mainleft {width:555px; height:345px; border-width:0px 1px 0px 0px; border-style:solid; border-color:#ffffff; float:left; overflow:hidden;}
+div.mainright {width:397px; height:345px; background:#333333; float:left; overflow:hidden;}
+div.mainrightcontent {width:357px; height:305px; padding:20px; color:#ffffff; line-height:1.5em; overflow:auto;}
+div.internal {width:953px; background:#cccccc; border-width:0px 1px 0px 1px; border-style:solid; border-color:#ffffff;}
+div.internalleft {width:555px; background:#cccccc; border-width:0px 1px 0px 0px; border-style:solid; border-color:#ffffff; float:left;}
+div.internalleftcontent {width:535px; padding:10px;}
+div.columndivider {width:15px; height:1000px; float:left; border-style:dotted; border-color:#000000; border-width:0px 0px 0px 1px; margin-left:10px;}
+div.internalright {width:397px; background:#cccccc; float:left;}
+div.rightcontentcol1 {width:150px; height:750px; background:#999999; float:left; line-height:1.25em; padding:20px 24px 5px 24px; border-style:solid; border-color:#ffffff; border-width:0px 1px 1px 0px;}
+div.rightcontentcol2 {width:150px; height:750px; background:#cccccc; float:left; line-height:1.25em; padding:20px 24px 5px 24px; border-style:solid; border-color:#ffffff; border-width:0px 0px 1px 0px;}
+div.info {width:953px; background:#999999; border:1px solid #ffffff; overflow:hidden; clear:both;}
+div.info1 {width:256px; height:8em; padding:10px; border-width:0px 1px 0px 0px; border-style:solid; border-color:#999999 #707070 #999999 #999999; overflow:hidden; float:left;}
+div.info2 {width:257px; height:8em; padding:10px; border-width:0px 1px 0px 1px; border-style:solid; border-color:#999999 #707070 #999999 #C2C2C2; overflow:hidden; float:left;}
+div.info3 {width:376px; height:8em; padding:10px; border-width:0px 0px 0px 1px; border-style:solid; border-color:#999999 #999999 #999999 #C2C2C2; overflow:hidden; float:left;}
+div.infohdr1 {color:#ffffff; font-weight:bold; font-size:1.4em; margin:0px 0px 3px 0px;}
+div.infohdr2 {color:#ffffff; font-weight:bold; font-size:1.2em; margin:0px 0px 3px 0px;}
+div.footer {width:953px; height:85px; background:#cccccc; border-width:0px 1px 1px 1px; border-style:solid; border-color:#ffffff; overflow:hidden;}
+div.banners {width:448px; height:85px; overflow:hidden; float:left;}
+div.bannerbox {width:120px; height:60px; padding:12px 0px 12px 16px; overflow:hidden; float:left;}
+div.bottomnav {width:495px; height:65px; padding:10px 10px 10px 0px; font-size:10px; line-height:15px; text-align:right; float:left;} 
+
+/* menu styles */
+div.mbspacer {float:left; padding:5px 0px 0px 15px;}
+div.mb {float:left; width:700px; overflow:hidden;}
+div.b {float:left; height:1.35em; line-height:1.35em; color:#ffffff; cursor:pointer; cursor:hand;}
+div.bo {float:left; height:1.35em; line-height:1.35em; color:#ffffff; cursor:pointer; cursor:hand;}
+div.bh {float:left; height:1.35em; line-height:1.35em; font-weight:bold; color:#ffffff; cursor:pointer; cursor:hand;}
+div.bho {float:left; height:1.35em; line-height:1.35em; font-weight:bold; color:#ffffff; cursor:pointer; cursor:hand; border-style:solid; border-color:#EC282D; border-width:0px 0px 1px 0px; padding-bottom:3px;}
+div.m {color:#ffffff; font-weight:bold; display:none; visibility:hidden; position:absolute; width:19em; cursor:pointer; cursor:hand; border-style:solid; border-color:#ffffff; border-width:0px 1px 1px 1px;  z-index:2;}
+div.mi {position:relative; background-color:#000000; padding:5px 7px 4px 15px;}
+div.io {color:#EC282D; position:relative; background-color:#000000; padding:5px 7px 4px 15px;}
+
+/* special styles */
+span.bigredletter {font-family:Verdana; font-size:34px; color:#EC282D;font-weight:bold;}
+
+/* form styles */
+div.searchcontainerbox {width:520px;padding:5px 5px 5px 5px;}
+
+/* footer links */
+a.footerlink, a.footerlink:active {color:#000000;text-decoration:none;}
+a.footerlink:visited {color:#000000;text-decoration:none;}
+a.footerlink:hover, a.footerlink:visited:hover {color:#cc0000;text-decoration:underline;}
+
+/* reservation styles */
+.resbutton {font-weight:bold;background-color:#eeeeee;padding:1px 5px 1px 5px;line-height:18px;width:250px;}
+
+/* form styles */
+div.calendar {position:relative; margin-top:3px; border-width:1px; border-style:solid; border-color:silver black black silver;}
+.calendar, .calendar table {background:#000000; color:#ffffff; font-size:11px; cursor:default; font-family: tahoma,verdana,sans-serif;}
+.calendar .button {text-align:center; padding:2px;}
+.calendar .nav {background:#666666;}
+.calendar thead .title {background:#000000; color:#ffffff; font-weight:bold; text-align:center; padding:2px;}
+.calendar thead .headrow {background:#666666; color:#ffffff;}
+.calendar thead .daynames {background:#dddddd;}
+.calendar thead .name {color:#000000; border-bottom:1px solid #000000; padding:2px; text-align:center;}
+.calendar thead .weekend {color:#000000;}
+.calendar thead .hilite {padding:1px;}
+.calendar thead .active {padding:2px 0px 0px 2px;}
+.calendar tbody .day {background-color:#ffffff; color: #000000; width:2em; text-align:right; padding:2px 4px 2px 2px;}
+.calendar tbody .day.othermonth {color: #bbbbbb; font-size:80%;}
+.calendar tbody .day.othermonth.oweekend {color: #fbbfbb;}
+.calendar table .wn {background:#dddddd; border-right:1px solid #000000; padding:2px 3px 2px 2px;}
+.calendar tbody .rowhilite td {background:#ffffff;}
+.calendar tbody .rowhilite td.wn {background:#ffffff;}
+.calendar tbody td.hilite {background:#ffffff; border:1px solid #bbbbbb; padding:1px 3px 1px 1px;}
+.calendar tbody td.active {background:#cccccc; padding:2px 2px 0px 2px;}
+.calendar tbody td.selected {background:#ffffff; color:#000000; font-weight:bold; border:1px solid #000000; padding:1px 3px 1px 1px;}
+.calendar tbody td.weekend {color:#a66;}
+.calendar tbody td.today {background-color:#eeeeee;}
+.calendar tbody .disabled {color:#999999;}
+.calendar tbody .emptycell {background-color:#ffffff; color:#000000; width:2em; text-align:right; padding:2px 4px 2px 2px;}
+.calendar tbody .emptyrow {display:none;}
+.calendar tfoot .footrow {background:#dddddd; color:#000000; text-align:center;}
+.calendar tfoot .ttip {background:#dddddd; color:#000000; border-top:1px solid #000000; padding:1px;}
+.calendar tfoot .hilite {background:#dddddd; color:#000000; padding:1px;}
+.calendar tfoot .active {background:#dddddd; padding:2px 0px 0px 2px;}
+.calendar .combo {background:#1E2037; color:#ffffff; border:1px solid #000000; position:absolute; display:none; top:0px; left:0px; width:4em; cursor:default; font-size:90%;}
+.calendar .combo .label, .calendar .combo .label-IEfix {text-align:center; padding:1px;}
+.calendar .combo .label-IEfix {width:4em;}
+.calendar .combo .hilite {background:#585A6D;}
+.calendar .combo .active {background:#585A6D; font-weight:bold;}
+.calendar td.time {background-color:#f4f0e8; border-top:1px solid #000000; padding:1px 0px; text-align: center;}
+.calendar td.time .hour, .calendar td.time .minute, .calendar td.time .ampm {background-color:#ffffff; padding:0px 3px 0px 4px; border:1px solid #889; font-weight:bold;} 
+.calendar td.time .ampm {text-align:center;}
+.calendar td.time .colon {padding:0px 2px 0px 3px; font-weight:bold;}
+.calendar td.time span.hilite {border-color:#000000; background-color:#667; color:#ffffff;}
+.calendar td.time span.active {border-color:#f00; background-color:#000000; color:#0f0;}
+
+/*
+     FILE ARCHIVED ON 12:29:32 Feb 19, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:27:06 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 252.795
+  exclusion.robots: 0.088
+  exclusion.robots.policy: 0.078
+  cdx.remote: 0.054
+  esindex: 0.009
+  LoadShardBlock: 228.478 (3)
+  PetaboxLoader3.datanode: 284.423 (4)
+  load_resource: 330.281
+  PetaboxLoader3.resolve: 225.151
+*/

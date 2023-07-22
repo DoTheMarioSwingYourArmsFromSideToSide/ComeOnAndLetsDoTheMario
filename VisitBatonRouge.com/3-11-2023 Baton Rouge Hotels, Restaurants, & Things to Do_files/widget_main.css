@@ -1,0 +1,137 @@
+.navigation.navigation-three-col.desktop {
+	--surface-1: var(--primary-color-200);
+	--surface-2: var(--primary-color-300);
+	--surface-3: var(--primary-color-400);
+	position: static;
+}
+
+.navigation.navigation-three-col.desktop .dropdown-menu .nav-item .dropdown-toggle .icon-toggle {
+	transform-origin: center;
+	transform: rotate(-90deg);
+}
+
+.navigation.navigation-three-col.desktop .dropdown-menu {
+	position: absolute;
+	right: 0;
+	width: 100%;
+	min-width: 850px;
+	background-color: var(--surface-1);
+	overflow: hidden;
+}
+
+.navigation.navigation-three-col.desktop .dropdown-menu.level-1 {
+    right: 50%;
+    width: 100%;
+    min-width: 1024px;
+    max-width: 1024px;
+    background-color: var(--surface-1);
+    overflow: hidden;
+    transform: translateX(50%);
+}
+
+.navigation.navigation-three-col.desktop .dropdown-menu.level-2 {
+	background-color: var(--surface-2);
+}
+
+.navigation.navigation-three-col.desktop .dropdown-menu.level-3 {
+	background-color: var(--surface-3);
+}
+
+.navigation.navigation-three-col.desktop .dropdown-menu .dropdown-menu {
+	top: 0;
+	left: 33%;
+	right: auto;
+	width: 33%;
+}
+
+.navigation.navigation-three-col.desktop .dropdown-menu.open {
+	opacity: 1;
+	pointer-events: all;
+}
+
+.navigation.navigation-three-col.desktop .dropdown-menu .dropdown-menu .nav-item {
+	max-width: 50%;
+}
+
+.navigation.navigation-three-col.desktop .nav-item .dropdown-helper {
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	transform: scaleY(0);
+	transform-origin: bottom center;
+	transition: transform 300ms ease 200ms;
+}
+
+.navigation.navigation-three-col.desktop .level-1.nav-item > .dropdown-helper {
+	height: 100% !important;
+}
+
+.navigation.navigation-three-col.desktop .dropdown-menu .nav-item .dropdown-helper {
+	transform: scaleX(0);
+	transform-origin: right center;
+}
+
+.navigation.navigation-three-col.desktop .nav-item .dropdown-helper {
+	opacity: 0.3;
+}
+
+.navigation.navigation-three-col.desktop .nav-item:not(.level-1) .dropdown-helper {
+	right: 0;
+	left: 0;
+}
+
+.navigation.navigation-three-col.desktop .nav-item .nav-item-control:hover + .dropdown-helper {
+	transform: scaleY(1);
+	transition: none;
+}
+
+.navigation.navigation-three-col.desktop .dropdown-menu .nav-item .nav-item-control:hover + .dropdown-helper {
+	transform: scaleX(1);
+}
+
+.navigation.navigation-three-col.desktop .nav-item .nav-item-control:hover {
+	position: relative;
+	z-index: 2;
+}
+
+/* Primary desktop navigation */
+.navigation.navigation-three-col.desktop.primary .dropdown-menu .nav-item {
+	max-width: 33.3333%;
+}
+
+/* Secondary desktop navigation */
+.navigation.navigation-three-col.desktop.secondary .dropdown-menu {
+	min-width: 600px;
+}
+
+.navigation.navigation-three-col.desktop.secondary .dropdown-menu .nav-item {
+	max-width: 50%;
+}
+
+.navigation.navigation-three-col.desktop.secondary .dropdown-menu .dropdown-menu {
+	left: 50%;
+	width: 50%;
+}
+/*
+     FILE ARCHIVED ON 00:57:49 Mar 08, 2023 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 00:41:34 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 208.687
+  exclusion.robots: 0.093
+  exclusion.robots.policy: 0.082
+  cdx.remote: 0.072
+  esindex: 0.011
+  LoadShardBlock: 175.375 (3)
+  PetaboxLoader3.datanode: 258.553 (4)
+  PetaboxLoader3.resolve: 204.267 (2)
+  load_resource: 400.058
+*/

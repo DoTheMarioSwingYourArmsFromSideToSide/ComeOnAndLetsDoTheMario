@@ -1,0 +1,59 @@
+/*
+ * The Typekit service used to deliver this font or fonts for use on websites
+ * is provided by Adobe and is subject to these Terms of Use
+ * http://www.adobe.com/products/eulas/tou_typekit. For font license
+ * information, see the list below.
+ *
+ * clarendon-text-pro:
+ *   - http://typekit.com/eulas/00000000000000007735a52b
+ * franklin-gothic-atf:
+ *   - http://typekit.com/eulas/00000000000000007735c727
+ *   - http://typekit.com/eulas/00000000000000007735c72e
+ *
+ * © 2009-2023 Adobe Systems Incorporated. All Rights Reserved.
+ */
+/*{"last_published":"2022-03-02 00:09:44 UTC"}*/
+
+@import url("https://web.archive.org/web/20230331160516cs_/https://p.typekit.net/p.css?s=1&k=rxr8hux&ht=tk&f=24323.44931.44935&a=12327191&app=typekit&e=css");
+
+@font-face {
+font-family:"clarendon-text-pro";
+src:url("https://web.archive.org/web/20230331160516im_/https://use.typekit.net/af/9aa147/00000000000000007735a52b/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff2"),url("https://web.archive.org/web/20230331160516im_/https://use.typekit.net/af/9aa147/00000000000000007735a52b/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff"),url("https://web.archive.org/web/20230331160516im_/https://use.typekit.net/af/9aa147/00000000000000007735a52b/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("opentype");
+font-display:auto;font-style:normal;font-weight:400;font-stretch:normal;
+}
+
+@font-face {
+font-family:"franklin-gothic-atf";
+src:url("https://web.archive.org/web/20230331160516im_/https://use.typekit.net/af/c1ecf4/00000000000000007735c727/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff2"),url("https://web.archive.org/web/20230331160516im_/https://use.typekit.net/af/c1ecf4/00000000000000007735c727/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff"),url("https://web.archive.org/web/20230331160516im_/https://use.typekit.net/af/c1ecf4/00000000000000007735c727/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("opentype");
+font-display:auto;font-style:normal;font-weight:400;font-stretch:normal;
+}
+
+@font-face {
+font-family:"franklin-gothic-atf";
+src:url("https://web.archive.org/web/20230331160516im_/https://use.typekit.net/af/1d2725/00000000000000007735c72e/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3") format("woff2"),url("https://web.archive.org/web/20230331160516im_/https://use.typekit.net/af/1d2725/00000000000000007735c72e/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3") format("woff"),url("https://web.archive.org/web/20230331160516im_/https://use.typekit.net/af/1d2725/00000000000000007735c72e/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3") format("opentype");
+font-display:auto;font-style:normal;font-weight:600;font-stretch:normal;
+}
+
+.tk-clarendon-text-pro { font-family: "clarendon-text-pro",serif; }
+.tk-franklin-gothic-atf { font-family: "franklin-gothic-atf",sans-serif; }
+
+/*
+     FILE ARCHIVED ON 16:05:16 Mar 31, 2023 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 00:41:49 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 376.622
+  exclusion.robots: 0.066
+  exclusion.robots.policy: 0.058
+  RedisCDXSource: 0.588
+  esindex: 0.008
+  LoadShardBlock: 359.926 (3)
+  PetaboxLoader3.datanode: 373.753 (4)
+  load_resource: 64.6
+  PetaboxLoader3.resolve: 23.641
+*/
