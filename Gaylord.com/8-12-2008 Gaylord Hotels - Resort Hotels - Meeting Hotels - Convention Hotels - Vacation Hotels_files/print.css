@@ -1,0 +1,42 @@
+#columns2 .left-column,
+.container div.hero-image-container01,
+#submenu,
+.container .container-right,
+a.email-friend,
+a.print
+    { display: none; }
+
+#wrap,
+#columns2 .right-column,
+.container,
+.container .container-left,
+.footer-left,
+.footer-right
+    { width: 100%; }
+
+.footer-left { margin-top: 25px; }
+
+.footer-right { float: left; }
+
+.footer-cr { text-align: left; }
+
+/*
+     FILE ARCHIVED ON 02:11:44 Oct 09, 2008 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 07:35:23 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 101.841
+  exclusion.robots: 0.102
+  exclusion.robots.policy: 0.092
+  RedisCDXSource: 32.791
+  esindex: 0.009
+  LoadShardBlock: 38.887 (3)
+  PetaboxLoader3.datanode: 72.114 (4)
+  load_resource: 78.955
+  PetaboxLoader3.resolve: 22.491
+*/

@@ -1,0 +1,223 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+function fx_set_shadow_border_wrapper_width (item) {
+    item = $(item);
+    
+    img = item.select('img, embed'); /* wrap either an image or a Flash embed */
+    if (img.size() < 1) {return;}
+
+    cent = item.select('.center-content');
+    if (cent.size() < 1) {return;}
+    
+    // get the dimensions of the first img or embed we found
+    var dimensions = img[0].getDimensions(); 
+    
+    width = dimensions.width
+          + parseInt(cent[0].getStyle('padding-left'))
+          + parseInt(cent[0].getStyle('padding-right'))
+          ;
+    item.setStyle({
+        'width': width + 'px'
+    });
+}
+
+function fx_build_shadow_border_wrapper(el) {
+    el = $(el);
+    children = el.childElements();
+    if (children.size() < 1) { return;}
+    
+    el.insert('<div class="visual-shadow-border"><div class="top"><span></span></div><div class="center-content"></div><div class="bottom"><span></span></div></div>', 'bottom')
+    
+    center_content = $(el.select('.center-content'))[0];
+    
+    children.each(function(child){
+        center_content.insert( child, 'bottom' );
+    });
+    
+    //fx_set_shadow_border_wrapper_width(el.select('.visual-shadow-border')[0]);
+}
+
+function fx_build_rotator(el, timeout_secs ) {
+    // The rotator uses a hidden store of elements to 
+    // pop elements off the top of the .hide element and 
+    // move them into the .show element. 
+    // The old .show element is moved to 
+    // the tail of the .hide element.
+    //
+    // In this implementation, there is no "beginning" or "end";
+    // prev/next operates in a loop.
+    el = $(el);
+    var prev_ctls = el.select('.control.prev');
+    var next_ctls = el.select('.control.next');
+    var show      = el.select('.show')[0]; // only the first 'show' element is valid
+    var hide      = el.select('.hide')[0]; // only the first 'hide' element is valid
+    if (0 == prev_ctls + next_ctls ) { return; } // no point in continuing if there are no controls
+    
+    // Moves current el to end of hidden div; 
+    // moves first hidden el to visible div
+    el.next = function () {
+        show.childElements().each(function(child){
+            old_el = child;
+            new_el = hide.firstDescendant()
+            
+            // console.log('start: ' + new_el.getStyle('opacity'));
+            // hide the new element first
+            new_el.setStyle({'opacity': '0.0'});
+            //new Effect.Opacity( new_el, {to: 0.0}); 
+            // move the elements in the DOM
+            hide.insert( old_el );
+            show.insert( new_el );
+            //console.log('end: ' + new_el.getStyle('opacity'));
+            
+            // make the new element fade in
+            new Effect.Appear( new_el ); 
+        });
+        el.restart(el.next)
+        return false;
+    };
+    
+    // Moves current el to beginning of hidden div; 
+    // moves last hidden el to visible div
+    el.prev = function () {
+        show.childElements().each(function(child){
+            old_el = child;
+            new_el = hide.immediateDescendants().last();
+            
+            
+            // hide the new element first
+            new_el.setStyle({'opacity': '0.0'});
+            
+            hide.insert({'top':old_el});
+            show.insert( new_el );
+            
+            // make the new element fade in
+            new Effect.Appear( new_el );
+        });
+        el.restart(el.prev);
+        return false;
+    };
+    // Halts auto rotation
+    el.stop = function() { clearTimeout(el.timeout); }
+    // Starts auto rotation
+    el.start = function(func) { el.timeout = setTimeout(func, timeout_secs * 1000); }
+    // Resets rotation
+    el.restart = function(func) { el.stop(); el.start(func); }
+    
+    // Build button functionality
+    next_ctls.each(function(ctl){ ctl.onclick = el.next; });
+    prev_ctls.each(function(ctl){ ctl.onclick = el.prev; });
+    
+    // Start auto rotate behavior
+    el.start(el.next);
+}
+
+
+function fx_menu01_handler(el, target_menu_id){
+    // this sets up the necessary onmouseover and onmouseout handlers for the flyout menus
+    // send this function the classname of the source element (so we can find it)
+    // and the target_menu_id
+    Event.observe(el, 'mouseover', function(){
+        showHoverMenu(this,1, target_menu_id); 
+        return fixHoverMenu(this,target_menu_id);
+    });
+    Event.observe(el, 'mouseout', function(){
+        return showHoverMenu(this,0, target_menu_id);
+    });
+}
+
+function fx_menu02_handler(el, target_menu_id){
+    // this sets up the necessary onmouseover and onmouseout handlers for the flyout menus
+    // send this function the classname of the source element (so we can find it)
+    // and the target_menu_id
+    Event.observe(el, 'mouseover', function(){
+        showHoverSideMenu(this, 1, target_menu_id);
+        return fixHoverSideMenu(this, target_menu_id);
+    });
+    Event.observe(el, 'mouseout', function(){
+        return showHoverSideMenu(this, 0, target_menu_id);
+    });
+}
+
+function fx_write_hero_flash_object() {
+    document.write('<div class="visual-shadow-border"><div class="top"><span></span></div><div class="center-content"><embed pluginspage="https://web.archive.org/web/20100220053916/http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" name="flash1" id="Motionswf" wmode="transparent" allowscriptaccess="always" scale="noScale" quality="high" src="images/gaylord_width_test.swf" width="693" height="243" /></div><div class="bottom"><span></span></div></div>');
+}
+
+function fx_init_lightbox() { myLightbox = new QILoopbox(); }
+function fx_init_emailbox() { myEmailbox = new QIEmailbox(); }
+
+function fx_init_emailboxes() {
+    // Apply an onclick function to every anchor on the page
+    // whose rel is 'emailbox'
+    $$('a[rel="emailbox"]').each(function(el){
+        el.onclick = function() {
+            var body = document.getElementsByTagName('body').item(0);
+            var overlay = $("overlay"); // find the element with the overlay
+            
+            // make the overlay go away after we click it
+            overlay.onclick = function () { Effect.Fade('overlay'); }
+            
+            // attach the overlay to the body
+            body.appendChild(overlay);
+            
+            var emailbox = Builder.build(
+                '<div class="emailbox" style="display:none;"><div class="outer-container"><div class="inner-container"></div></div></div>'
+            );
+            iframe = Builder.node('iframe', { 
+                      // class: 'formData', 
+                        src: '/assets/email/email.html?'
+                           + 'page_url=' + window.location + '&'
+                           + 'title='    + document.title,
+                  scrolling: 'no',
+                frameborder: 'none'
+            });
+            
+            // attach the iframe to the emailbox
+            emailbox.select('.inner-container')[0].appendChild( iframe );
+            
+            // attach the emailbox to the overlay
+            overlay.appendChild( emailbox );
+            
+            // make the overlay appear
+            Effect.Appear('overlay', {
+                duration: 1.5,
+                from: 0.0,
+                to: 0.75
+            });
+            iframe.style.opacity = 1.0;    
+            return false;
+        }
+    });
+}
+
+
+}
+/*
+     FILE ARCHIVED ON 05:39:16 Feb 20, 2010 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 07:35:44 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 85.939
+  exclusion.robots: 0.195
+  exclusion.robots.policy: 0.174
+  cdx.remote: 0.135
+  esindex: 0.018
+  LoadShardBlock: 45.239 (3)
+  PetaboxLoader3.datanode: 64.655 (4)
+  load_resource: 77.146
+  PetaboxLoader3.resolve: 35.597
+*/

@@ -1,0 +1,43 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+function newWindow( name, url )
+{
+	if( url.indexOf ("?") == -1 )
+		url = url + "?kurrentPageID=" + kurrentPageID;
+	else
+		url = url + "&kurrentPageID=" + kurrentPageID;
+	window.open( url, name, "toolbar=no,resizable=yes,scrollbars=yes,menubar=no,location=no,width=450,height=290,top=200,left=200" );
+}
+
+
+}
+/*
+     FILE ARCHIVED ON 06:15:02 Jan 16, 2004 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 07:32:11 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 305.219
+  exclusion.robots: 0.057
+  exclusion.robots.policy: 0.051
+  cdx.remote: 0.046
+  esindex: 0.008
+  LoadShardBlock: 283.185 (3)
+  PetaboxLoader3.datanode: 610.232 (4)
+  load_resource: 583.938
+  PetaboxLoader3.resolve: 25.157
+*/

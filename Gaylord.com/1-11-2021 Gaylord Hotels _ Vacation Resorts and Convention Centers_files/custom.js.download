@@ -1,0 +1,37 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+// Copyright 2008-2017 Monetate, Inc.
+// 2017-01-18T15:09:59Z t1484745711 nop.js
+(function(){function a(){}var b=["monetate","a"],c=this;!(b[0]in c)&&c.execScript&&c.execScript("var "+b[0]);for(var d;b.length&&(d=b.shift());)!b.length&&void 0!==a?c[d]=a:c=c[d]?c[d]:c[d]={};})();
+if(this.monetate){monetate.a()}
+
+}
+/*
+     FILE ARCHIVED ON 21:46:25 Jan 11, 2021 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 08:07:42 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 86.64
+  exclusion.robots: 0.072
+  exclusion.robots.policy: 0.065
+  cdx.remote: 0.054
+  esindex: 0.009
+  LoadShardBlock: 62.171 (3)
+  PetaboxLoader3.datanode: 82.469 (4)
+  load_resource: 28.703
+*/

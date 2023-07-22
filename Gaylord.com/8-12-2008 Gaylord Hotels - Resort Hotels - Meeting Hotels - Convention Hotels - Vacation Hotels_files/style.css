@@ -1,0 +1,1441 @@
+/**************** Global Styles ****************/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #666666;   
+    padding-bottom:28px;
+}
+
+.container-left { opacity: 0.99999; -moz-opacity: 0.99999; text-align: justify; }
+
+body embed { opacity:1.0; }
+
+/**************** Headline Styles ****************/
+h1 {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    margin: 8px 0px 8px 0px;
+    font-weight: bold;
+    text-align: justify;
+}
+
+h2 {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    line-height: 20px;
+    margin: 8px 0px 0px 0px;
+    font-weight: bold;
+    color: #666666;
+    text-align: justify;
+}
+
+/**************** Anchor Styles ****************/
+a:link    { color: #1e5d94; }
+a:hover   { color: #7c192b; }
+a:visited { color: #12395B; }
+
+/**************** Paragraph Styles ****************/
+p { 
+    margin: 0px 0px 8px; 
+    padding: 0;
+}
+
+p a:link {
+    color: #1e5d94;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    text-decoration: underline;
+}
+
+p a:hover {
+    color: #7C192B;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    text-decoration: underline;
+}
+
+p a:visited {
+    color: #12395B;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    text-decoration: underline;
+}
+
+/**************** Page wrap Styles ****************/
+#wrap {
+    width: 894px;
+    height:auto;
+    padding:0px;
+    margin:0px auto;
+    display:block;
+}
+
+/**************** Header Styles ****************/
+#header {
+    /*float:left;*/
+    /*width: 900px;*/
+    /*    border:0px solid black;*/
+}
+
+#header .header-left {
+    float: left;
+}
+
+#header .header-right {
+    margin:26px 3px 0px 0px;
+    float: right;
+    display:inline; /* fixes IE double margin float bug */
+}
+
+#header img {
+    display:block;
+    vertical-align:middle;
+    border:none;
+}
+
+
+/**************** Remove/Clear Styles ****************/
+.clearstyle {
+    display: block; 
+    height: 0; 
+    padding:0;
+    margin:0;
+    line-height:0;
+    border:none;
+    clear: both; 
+    visibility: hidden;
+}
+
+/**************** Columns2 Styles ****************/
+#columns2 {
+    clear:both;
+    margin-top:-1px;
+    margin-left:2px;
+}
+
+#columns2 .left-column {
+    /* position:absolute;*/ /* -removed jks 12/13/07 */
+    overflow:visible;
+    width:175px;
+    border:0px solid black;
+    z-index:100;
+    float: left;
+}
+
+#columns2 .right-column {
+    float:right;
+    margin:0;
+    padding:0;
+    border:0px solid blue;
+    width:706px;
+    z-index:0;
+}
+
+/**************** Container Styles ****************/
+.container { 
+    width: 706px; 
+    margin:0;
+    padding:0;
+}
+
+.container .container-full {
+    float:left;
+    width: 704px;
+    margin:15px 5px 5px 0px;
+    border:0px solid red;
+    padding:0;
+}
+
+.container .container-left {
+    float:left;
+    display:inline;
+    width: 472px;
+    margin:22px 5px 5px 7px;
+    margin:0px 5px 5px 7px; /* jks */
+    border:0px solid red;
+    line-height:20px;
+    padding:0;
+}
+
+.container .one_column {
+    width: auto;
+    margin-top: 0;
+}
+
+.container .container-left li { /*over-rides the '*' margin style above */
+    margin-left: 3em;
+}
+
+.container .container-right {
+    float:right;
+    display:inline;
+    width: 209px;
+    margin:22px -3px 0 0;
+    margin:0px -3px 0 0; /* jks */
+    padding:0;
+}
+
+.container .container-right-holder {
+    float:right;
+    display:inline;
+    width: 210px;
+    margin:0;
+    padding:0;
+    margin-top:16px;
+    border:0px solid blue;
+}
+
+.container div.container-subnav {  /*jks */
+    display: block;
+/*
+    background-color: #ccc;
+*/
+    height: 15px;
+/*
+    width: 300px;
+*/
+    margin-top: -38px;
+    margin-bottom: 23px;
+}
+
+/**************** Image Container Styles ****************/
+
+/*.container-right .visual-shadow-border {
+    margin:0px -2px 0 auto;
+}*/
+
+.container h1 {
+    margin-top:0;
+}
+.container div.image-container {
+    width:206px;
+    height:206px;
+    float:left;
+    margin:0;
+    padding:0;
+}
+
+.container div.image-container img.block {
+    float:left;
+    padding:0;
+    margin:6px 0px 0px 6px;
+    width:195px;
+    height:195px;
+    display:block;
+    cursor:pointer;
+}
+
+.container div.image-container-temp {
+    margin:0;
+    padding:0;
+    cursor:pointer;
+    display:none;
+}
+
+.container div.image-container img.none {
+    float:left;
+    margin:5px;
+    width:195px;
+    height:195px;
+    display:none;
+}
+
+.container div.nav {
+    margin:4px 2px 0;
+    padding:0;
+    color: #c2ab93;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    text-transform: lowercase;
+    font-size:9px;
+    text-align:right;
+    color:#ababab;
+}
+
+.container div.nav a {
+    margin:0;
+    padding:0px 3px;
+    cursor:pointer;
+    text-decoration:none;
+    color:#ababab;
+}
+
+.container div.nav a:hover {
+    text-decoration:underline;
+}
+
+/**************** Hero Image Container Styles ****************/
+
+#hero-image-container {
+    margin-bottom: 55px;
+}
+
+.container div.hero-image-container01 {
+    /*background:url(/web/20081009021158im_/http://www.gaylordhotels.com/assets/images/hero-image-container.jpg);*/
+    width:709px;
+    margin: -1px 0 0;
+}
+
+.container div.hero-image-container01 img,
+.container div.hero-image-container01 embed {
+    padding:4px;
+    margin:3px;
+    border:1px solid #e5e5e5;
+    display:block;
+}
+
+.container div.hero-image-container01 .center-content img,
+.container div.hero-image-container01 .center-content embed {
+    padding:0;
+    margin:0;
+    border:none;
+}
+
+.container div.hero-image-container01 .center-content embed {
+    margin: 0px;
+}
+
+.container div.hero-image-container02 {
+    background:url(/web/20081009021158im_/http://www.gaylordhotels.com/assets/images/hero-image-container-medium.jpg);
+    width:706px;
+    height:386px;
+    float:left;
+    position:relative;
+}
+
+.container div.hero-image-container02 img {
+    float:left;
+    margin:7px;
+    width:692px;
+    height:373px;
+}
+
+.container div.hero-image-container03 {
+    background:url(/web/20081009021158im_/http://www.gaylordhotels.com/assets/images/hero-image-container-large.jpg);
+    width:706px;
+    height:516px;
+    float:left;
+    position:relative;
+}
+
+.container div.hero-image-container03 img {
+    float:left;
+    margin:7px;
+    width:692px;
+    height:502px;
+}
+
+/**************** Flyout Menu Styles ****************/
+/**************** First Menu ****************/
+
+#menu01 .flyout1 {
+    background-color: black;
+    opacity: .7;
+    width: 136px;
+    padding: 11px 17px 8px;
+    margin:0 0 -4px 193px;
+    border: 1px solid #FFFFFF;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-weight:normal;
+    font-size: 11px;
+    position:absolute;
+    left:0px;   
+    bottom:0px;
+    z-index:100;
+}
+#menu01 .flyout1 li {
+    padding:0;
+    margin-bottom:3px;
+    width:136px;
+}
+#menu01 .flyout1 a {
+    display:block;
+    height:auto;
+    padding:0;
+    margin:0;
+    color: #FFFFFF;
+    font-family: Verdana, Arial, Helvetica, sans-serif; /*added 12/19/07 jks */
+}
+#menu01 .flyout1 a:link {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+#menu01 .flyout1 a:visited {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+#menu01 .flyout1 a:hover {
+    color: #FFFFFF;
+    text-decoration: underline;
+}
+
+#flyout01,
+#flyout02,
+#flyout03,
+#flyout04,
+#flyout05,
+#flyout06,
+#flyout07,
+#flyout08,
+#flyout09,
+#flyout10,
+#flyout11,
+#flyout12,
+#flyout13,
+#flyout14,
+#flyout15,
+#flyout16,
+#flyout17,
+#flyout18,
+#flyout19,
+#flyout20 {
+    display:none;
+}
+
+
+/**************** BlockQuote Styles ****************/
+.container-right blockquote {
+    width: 191px;
+    padding:8px 0 0;
+    margin:16px 16px 0;
+}
+
+.container-right blockquote div {
+    padding:0px;
+    margin-left:16px;
+    margin-bottom: 0;
+    color: #c2ab93;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    text-align: left;
+    font-style: italic;
+    line-height: 28px;
+    font-weight: normal;
+}
+
+.container-right blockquote .quote-open,
+.container-right blockquote .quote-close {
+    position: relative;
+    line-height:12px;
+}
+
+.container-right blockquote .quote-open {
+    top:5px;
+}
+
+.container-right .c-ldquo,
+.container-right .c-rdquo {
+    border:0;
+    width:39px;
+    height:32px;
+    padding-top:0;
+    overflow:hidden;
+
+
+
+
+    color:#fff;
+    background: transparent no-repeat 0 0;
+}
+
+.container-right .c-ldquo { background-image: url( /web/20081009021158im_/http://www.gaylordhotels.com/assets/images/open-quote.gif  ); }
+.container-right .c-rdquo { background-image: url( /web/20081009021158im_/http://www.gaylordhotels.com/assets/images/close-quote.gif ); 
+                            vertical-align:sub;
+                            margin-top:-12px;
+}
+
+/**************** Rotator Styles ****************/
+.container-right .element-rotator {
+    margin:0 0 26px;
+}
+
+.container-right .element-rotator img {
+/*    padding:4px;
+    margin:3px 3px 3px 9px; 
+    border:1px solid #e5e5e5;
+    display:block;
+*/}
+
+.container-right .element-rotator .center-content img {
+    margin:0 auto;
+    padding:0;
+    border:none;
+}
+.element-rotator .visual-shadow-border {}
+.element-rotator .show a { display:block; } /* opacity effects only work on block elements in FF and Safari */
+
+/**************** Email and Print Icon Styles ****************/
+
+a.email-friend, 
+a.print {
+    font-size: 9px;
+    line-height: 11px;
+    
+    text-decoration: none;
+    text-align: center;
+    color: #666666;
+    
+    float:right;
+    width:48px;
+    height:10px;
+    padding-top:32px;
+    background:transparent no-repeat center top;
+}
+a.email-friend { 
+    background-image: url(/web/20081009021158im_/http://www.gaylordhotels.com/assets/images/email.jpg); 
+    width:84px;
+    /*display: none;*/  /* added until email-a-friend is done jks 1/11/08 */
+}
+a.print { 
+    background-image: url(/web/20081009021158im_/http://www.gaylordhotels.com/assets/images/print.jpg); 
+    /* margin-right:50px; */ /* removed until email-a-friend is done jks 1/11/08 */
+}
+a.email-friend:hover, 
+a.print:hover {
+    text-decoration: underline;
+}
+
+/**************** Anchor Styles ****************/
+.link {
+    color: #1e5d94;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    text-decoration: underline;
+}
+
+.visited {
+    color: #12395B;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    text-decoration: underline;
+}
+
+.hover {
+    color: #7C192B;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    text-decoration: underline;
+}
+
+
+/**************** Gallery Navigation Styles ****************/
+#galleryNavigation {
+    color: #aeaeae;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    text-decoration: none;
+}
+
+#galleryNavigation a:link {
+    color: #aeaeae;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    text-decoration: none;
+}
+
+#galleryNavigation a:hover {
+    color: #898989;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    text-decoration: underline;
+}
+
+#galleryNavigation a:visited {
+    color: #aeaeae;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    text-decoration: none;
+}
+
+/**************** Footer Styles ****************/
+#footer {
+    display:block;
+    width: auto; 
+    margin:0pt 0px 0pt 3px;
+    padding:0;
+    line-height:16px;
+    letter-spacing:-0.2px;
+    font-size:10px;
+}
+
+.footer-left {
+    margin:0;
+    padding:0;
+    float:left;
+    color: #636363;
+    line-height:16px;
+}
+
+.footer-right {
+    margin:0;
+    padding:0;
+    margin-top:1.6em;
+    float:right;
+    color: #636363;
+    line-height:16px;
+}
+
+.footer-cr {
+    width:100%;
+    float:left;
+    margin-top:3px;
+    color: #636363;
+    font-size: 9px;
+    text-align:right;
+}
+
+#footer a {
+    margin:0;
+    padding:0;
+    color: #636363;
+    font-family: Verdana, Arial, Helvetica, sans-serif; 
+    text-decoration: none;
+    line-height:16px;
+}
+#footer a:hover {
+    color: #4B4B4B;
+    text-decoration: underline;
+}
+
+
+#footer hr.hline {
+    border:0px;
+    border-bottom:1px solid #f3f3f4;
+    height:1px;
+    margin:5px auto;
+    padding:0;
+}
+
+/**************** Menu01 Styles ****************/
+#menu01 {
+/*    float:left;
+*/    width:175px;
+    margin:34px 0 0;
+    padding:0;
+    position:relative;
+}
+
+#menu01 ul {
+    list-style:none;
+    margin:0;
+    padding:3px 0 0;
+}
+
+#menu01 ul li {
+    margin:0;
+    padding:6px 0px 9px;
+}
+
+#menu01 h4,
+#menu01 a {
+    margin:0;
+    padding:15px 0 0;
+    width:175px;
+    height:0px;
+    overflow:hidden;
+    display:block;
+    cursor:pointer;    
+    line-height:15px;
+    font-weight:normal;
+    font-family:  "Trebuchet MS", sans-serif ;
+}
+#menu01 .flyout1 a {width:auto;}
+
+/**************** menu01 background images  ****************/
+/* Brought in via menu1.inc */
+
+#menu01 a       { background-position:0 0;    }
+#menu01 a:hover { background-position:0 16px !important; }
+/**************** Menu02 Styles ****************/
+#menu02 {
+    width:175px;
+    margin:15px 0px 0px 0px;
+    padding:0;
+/*    float:left;
+*/    position:relative;
+}
+
+#menu02 ul {
+    border:0px solid black;
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+
+#menu02 ul li {
+    margin:0;
+    padding:6px 0px 7px;
+    position: relative;
+}
+
+#menu02 a {
+    margin:0;
+    padding:17px 0 0;
+    width:175px;
+    height:0px;
+    display:block;
+    overflow:hidden;
+    cursor:pointer;
+    font-family:  "Trebuchet MS", sans-serif ;
+        
+}
+
+/**************** menu02 background images  ****************/
+/* Brought in via menu2.inc */
+
+#menu02 a       { background-position: 0 0;   }
+#menu02 a:hover { background-position: 0 17px !important;}
+
+/**************** Second Menu ****************/
+#menu02  .flyout2 {
+    background-color: black;
+    opacity: 1.0;
+    width: 136px;
+    padding: 11px 17px 8px;
+    background-color:#4c4c4c;
+    border: 1px solid #fff;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-weight:normal;
+    font-size: 11px;
+    position:absolute;
+    margin-left: 193px;
+    top:0px;
+    z-index: 100;
+}
+
+#menu02  .flyout2 li {
+    padding:0;
+    margin-bottom:3px;
+    width:136px;
+}
+#menu02 .flyout2 a {
+    /* cancel styles from main rollovers */
+    display:block;
+    height:auto;
+    width:auto;
+    margin:0;
+    padding:0;
+    line-height:15px;
+    font-family: Verdana, Arial, Helvetica, sans-serif; /*added 12/19/07 jks */
+}
+#menu02 .flyout2 a:link {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+#menu02 .flyout2 a:visited {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+#menu02 .flyout2 a:hover {
+    color: #FFFFFF;
+    text-decoration: underline;
+}
+
+#flyout001,
+#flyout002,
+#flyout003,
+#flyout004,
+#flyout005,
+#flyout006,
+#flyout007,
+#flyout008,
+#flyout009,
+#flyout010,
+#flyout011,
+#flyout012,
+#flyout013,
+#flyout014,
+#flyout015,
+#flyout016,
+#flyout017,
+#flyout018,
+#flyout019,
+#flyout020 {
+    display:none;
+  /*  z-index: 350;  */
+}
+
+
+/**************** Menu03 Styles ****************/
+
+#menu03 {
+    width:175px;
+    margin:16px 0px 0px 0px;
+    padding:0;
+    position:static;
+}
+
+#menu03 ul {
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+
+#menu03 ul li {
+    margin:0;
+    padding:0px 0px;
+    margin:5px 0 11px;
+    position: relative;
+}
+
+#menu03 a {
+    margin:0;
+    padding:23px 0 0;
+    width:161px;
+    height:0px;
+    display:block;
+    overflow:hidden;
+    cursor:pointer;
+}
+
+/**************** menu03 background images  ****************/
+/* Brought in via menu3.inc */
+
+#menu03 a       { background-position: 0 0;   }
+#menu03 a.selected,
+#menu03 a:hover { background-position: 0 23px;}
+
+
+/**************** Crumbs Styles ****************/
+#crumbs {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 9px;
+    line-height: 24px;
+    margin:20px 0px 5px 18px;
+    font-weight:bold;
+}
+
+#crumbs a:link {
+    color: #9a754f;
+    text-decoration: none;
+}
+
+#crumbs a:visited {
+    color: #636363;
+    text-decoration: none;
+}
+
+#crumbs a:hover {
+    color: #4B4B4B;
+    text-decoration: underline;
+}
+
+
+/**************** Search Box Styles ****************/
+#searchbox {
+    margin:21px 0px 0px 0px;
+    padding:0;
+}
+#searchbox fieldset {
+    border:none;
+}
+#searchbox input.text {
+    width:171px;
+    height:21px;
+    margin:0;
+    padding:4px 2px 0;
+    border:1px solid #d1d1d1;
+    
+    background-color: #f7f7f7;
+    color:#4d4d4d;
+    
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 11pt;
+    font-weight:bold;
+}
+
+#searchbox input.image {
+    width:175px;
+    height:14px;
+    margin:6px 0px 0px 0px;
+    padding:0;
+    background:url(/web/20081009021158im_/http://www.gaylordhotels.com/assets/images/button-search.gif);
+    background-position:0px 0px;
+}
+
+#searchbox input.image:hover {
+    background-position: 0px 14px;
+    
+}
+#searchbox a {
+    margin:0;
+    padding:5px 0px;
+    text-decoration:none;
+}
+
+#searchbox a h4 {
+    margin:8px 0px 0px 0px;
+    padding:0;
+    width:175px;
+    height:14px;
+    line-height:14px;
+}
+#searchbox a:hover h4 {
+}
+
+/**************** Subscribe Emails Styles ****************/
+#subscribe-emails {
+   /* height:14px;*/
+}
+
+#subscribe-emails a {
+    display:block;
+    margin:35px 0 0;
+    padding:14px 0 0;
+    width:175px;
+    height:0;
+    overflow:hidden;
+    background:url(/web/20081009021158im_/http://www.gaylordhotels.com/assets/images/button-subscribe-to-emails.gif);
+    background-position:0 0;
+    text-decoration:none;
+}
+#subscribe-emails a:hover {
+    background-position: 0px 14px;
+}
+
+
+/**************** Link to Leisure Styles ****************/
+
+#link-section a {
+    display:block;
+    width:160px;
+    height:0;
+    padding-top:60px;
+    margin:30px 0px 0px 0px;
+    overflow:hidden;
+    text-decoration:none;
+}
+
+#link-section a:hover {
+    background-position:0 61px;
+}
+#link-section a.leisure  { background-image:url(/web/20081009021158im_/http://www.gaylordhotels.com/assets/images/button-leisure.jpg);  }
+#link-section a.business { background-image:url(/web/20081009021158im_/http://www.gaylordhotels.com/assets/images/button-business.gif); }
+
+/**************** Select a Hotel Styles ****************/
+#select-a-hotel h4 {
+    margin:32px 0px 0px 0px;
+    padding:0;
+    width:175px;
+    height:26px;
+    line-height:26px;
+    background:url(/web/20081009021158im_/http://www.gaylordhotels.com/assets/images/button-select-a-hotel.jpg);
+}
+
+
+/**************** Lightbox Email to Friend Styles ****************/
+#lightbox-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 90;
+    width: 100%;
+    height: 100%;
+    margin-top: 0;
+    background-color: black;
+    opacity: .7;
+    display:none;
+}
+
+#lightbox-loading {
+    position: fixed;
+    width: 542px;
+    line-height: 0;
+    margin:0 auto !important;
+    left:40%;
+    top: 30%;
+    display:none !important;
+}
+
+/* Lightbox Input fields */
+#lightbox-input-content {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: auto auto !important;
+    width: 100%;
+    z-index: 100;
+    line-height: 12px;
+    border:0px solid yellow;
+    display:none;
+}
+
+#lightbox-input-content a img { 
+    border: none; 
+}
+
+#lightbox-input-data-container {
+    position:absolute;
+    width: 542px;
+    font: 10px Verdana, Helvetica, sans-serif;
+    background-color: #000;
+    line-height: 1.4em;
+    border:0px solid red;
+    margin:0 auto !important;
+}
+
+#lightbox-input-data-holder {
+    clear:both;
+    padding:0;
+    border:0px solid yellow;
+    overflow:auto;
+    margin:0 auto;
+    text-align:center;
+}
+
+#lightbox-input-data { 
+    width: 500px; 
+    text-align: left;
+    background-color:black;
+    border:1px solid gray;
+    padding:20px;
+    overflow: auto !important;
+    margin: 0 auto !important;
+}
+
+#lightbox-input-data span.title {
+    margin:0;
+    padding:0;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 12pt;
+    font-weight:bold;
+}
+
+#lightbox-input-data span.row {
+    width: 500px;
+    float: left;
+    margin:0;
+    padding:0;
+}
+
+#lightbox-input-data span.row span {
+    margin:5px 10px 5px 0px;
+    padding:0;
+    float:left;
+    width:180px;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 9pt;
+    font-weight:bold;
+    text-align:right;
+}
+
+#lightbox-input-data span.row input {
+    margin:5px 0px 5px 10px;
+    padding:0;
+    border:1px solid #d1d1d1;
+    background-color: #f7f7f7;
+    width:172px;
+    height:16px;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 8pt;
+    font-weight:bold;
+    padding-top:2px;
+    float:left;
+}
+
+#lightbox-input-data span.row-btn {
+    float:left;
+    width: 500px;
+    margin:0;
+    padding:0;
+    border:0px solid yellow;
+    text-align:center;
+}
+
+#lightbox-input-data span.row-btn input {
+    margin:5px 0px 5px 10px;
+    padding:0;
+    border:1px solid #d1d1d1;
+    background-color: #f7f7f7;
+    width:100px;
+    height:25px;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 8pt;
+    font-weight:bold;
+}
+
+#lightbox-input-data span.row textarea {
+    margin:5px 0px 5px 10px;
+    padding:0;
+    border:1px solid #d1d1d1;
+    background-color: #f7f7f7;
+    width:172px;
+    height:80px;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 8pt;
+    font-weight:bold;
+    padding-top:2px;
+    float:left;
+}
+
+/* Lightbox Images */
+
+#lightbox-image-content {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: auto auto !important;
+    width: 100%;
+    z-index: 100;
+    line-height: 12px;
+    border:0px solid yellow;
+    display:none;
+}
+
+#lightbox-image-content a img { 
+    border: none; 
+}
+
+#lightbox-image-data-container {
+    position:absolute;
+    font: 10px Verdana, Helvetica, sans-serif;
+    background-color: transparent;
+    line-height: 1.4em;
+    border:0px solid red;
+    overflow: auto !important;
+    margin:0 auto !important;
+}
+
+#lightbox-image-data-holder {
+    clear:both;
+    padding:0;
+    border:0px solid yellow;
+    overflow:auto;
+    margin:0 auto;
+    text-align:center;
+}
+
+#lightbox-image-data { 
+    text-align: left;
+    background-color:black;
+    border:1px solid gray;
+    padding:20px;
+    overflow: auto !important;
+    margin: 0 auto !important;
+}
+
+#lightbox-image-container {
+    float:left;
+    margin:0;
+    padding:0;
+    overflow:auto !important;
+    position:relative;
+}
+
+#lightbox-image-container > img.block {
+    float:left;
+    position:relative;
+    padding:0;
+    margin:6px 0px 0px 6px;
+    border:1px solid white;
+    display:block;
+}
+
+#lightbox-image-container-temp {
+    position:relative;
+    margin:0;
+    padding:0;
+    display:none;
+}
+
+#lightbox-image-container > img.none {
+    float:left;
+    position:relative;
+    margin:0;
+    padding:0;
+    display:none !important;
+}
+
+.lightbox-image-nav {
+    margin:0;
+    padding:0;
+    float:left;
+    color: #c2ab93;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size:9px;
+    text-align:right;
+    cursor:pointer !important;
+}
+
+.lightbox-image-nav > span {
+    margin:0;
+    padding:0px 3px;
+    cursor:pointer !important;
+}
+
+.lightbox-image-nav > span:hover {
+    cursor:pointer !important;
+    text-decoration:underline;
+}
+
+#lightbox-image-close { 
+    float: right;  
+    padding:0;
+    margin:0;
+    cursor:pointer;
+}
+
+#lightbox-image-close > img {
+    border:0;
+    cursor:pointer;
+}
+
+/* Thumbnail styles */
+
+#lightbox-thumbs { 
+    list-style-type:none; 
+    height:50px; 
+    margin:0; 
+    clear:both;
+    padding:0pt 0pt 10px;
+}
+#lightbox-thumbs li { float:left; padding-right:15px; }
+
+/* Lightbox close button */
+
+#lightbox-close { 
+    width: 66px; 
+    float: right;  
+    padding-bottom: 0.7em; 
+    display: none !important;
+}
+
+/**************** Submenu styles ****************/
+
+#submenu {
+    font-family: "trebuchet ms", sans-serif;
+    font-size: 13px;
+    clear:both;
+    margin:17px 4px -5px;
+    padding:0 4px;
+    margin: 0px 4px 0px; /* jks */
+    list-style: none;
+    position: absolute;  /* jks */
+    position: static;  /* jks */
+/*
+    top: 345px;
+*/
+}
+
+#submenu  li {
+/*    display:inline;*/
+    float:left;
+    padding:0 3px 0 5px;
+    background:transparent url(/web/20081009021158im_/http://www.gaylordhotels.com/assets/images/submenu-separator.gif) no-repeat 0 0px;
+}
+
+#submenu  li.first {
+    padding:0 2px 0 0;
+    background:none;
+}
+
+#submenu a span {
+    display:block;
+    height:0;
+    padding-top:15px;
+    overflow:hidden;
+}
+
+#submenu a {
+    display:block;
+    padding:0;
+    margin:0;
+    height:15px;
+    background-position:0px  0px;
+}
+
+#submenu a:hover {
+    background-position:0px 15px;
+}
+
+/********** Submenu-directions *********/
+/* Brought in via submenu.inc */
+
+
+/********** Booking Form Styles *********/
+    #book-your-experience
+    {
+        height: 40px;
+        margin: 0; /*added jks 1/4/08 */
+        margin-top: -13px;   /*added jks 1/4/08 */
+        padding: 0pt;
+        width: 181px;
+        background-image: url(/web/20081009021158im_/http://www.gaylordhotels.com/assets/images/module_header.gif);
+        background-repeat: no-repeat;
+    }
+    
+    #book-your-experience h4
+    {
+        display: none;
+    }
+    
+    #booking-form
+    {
+        padding: 0;
+        width: 181px;
+    }
+    
+    #booking-form form
+    {
+        padding: 0;
+        margin: 0;
+    }
+    
+    #booking-form table
+    {
+        width: 100%;
+        border: 0;
+        background-image: url(/web/20081009021158im_/http://www.gaylordhotels.com/assets/images/module_bg.gif);
+        padding: 0;
+    }
+    
+    #booking-form table td
+    {
+        padding: 0;
+        margin: 0;
+    }
+    
+    #booking-form table td.booking-spacer
+    {
+        width: 10px;
+    }
+    
+    #booking-form table .booking-hotel { 
+        margin: 10px 4px 0 0;  /* changed jks 1/4/08 */
+    }
+    
+    #booking-form table .booking-arrival
+    {
+        color: #fff;
+        font-weight: bold;
+        font-size: 10px;
+        text-align: center;
+        margin: 13px 0 0 0;  /* changed jks 1/4/08 */
+    }
+    
+    #booking-form table label
+    {
+        color: #fff;
+        font-weight: normal;
+        font-size: 10px;
+        display: block;
+        padding: 0;
+        margin: 4px 4px 9px 0;   /* changed jks 1/4/08 */
+    }
+    
+    #booking-form table select
+    {
+        color: #000;
+        font-weight: normal;
+        background-color: #CCD8E6;
+        font-size: 9px;
+        display: block;
+        width: 100%;
+        margin: 4px 4px 12px 0;   /* changed jks 1/4/08 */
+    }
+    
+    #booking-form .booking-day,
+    #booking-form .booking-year,
+    #booking-form .booking-adult,
+    #booking-form .booking-children { text-align: right; }
+    
+    #booking-form table input.booking-submit
+    {
+        color: #000;
+        font-weight: normal;
+        background-color: #CCD8E6;
+        font-size: 10px;
+        display: block;
+        width: 100%;
+        margin: 13px 0 15px 0;
+    }
+
+    #booking-form table a.txtbtn, a.txtbtn:visited {
+    text-transform: uppercase;
+    text-decoration : none;
+    text-align: center;
+    color: #636363;
+    border: 1px solid #636363;
+    height : 12px;
+    cursor:hand;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    width: auto;
+    margin: 15px 0;
+}
+
+    #booking-form table a.txtbtn:hover, a.txtbtn:active {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    text-transform: uppercase;
+    text-decoration : none;
+    text-align: center;
+    color: #000000;
+    border: 1px solid #000000;
+    height : 12px;
+    cursor:hand;
+    width: auto;
+    margin: 15px 0;
+}
+
+    #booking-footer {
+        margin: 0 0 -14px 0;
+    }
+
+
+#emailfriend {
+   display: none;  
+}    
+    
+#press_release_index_list {
+    list-style: none;
+    line-height: 16px;
+}
+
+#flashcontent_preview {
+    display: block;
+    height: 243px;
+}
+
+a.sidebar_flash_overlay {
+    display: block;
+    position: absolute;
+    top: 0px;
+}
+
+a.sidebar_flash_overlay img {
+    width: 193px;
+    height: 193px;
+    border: none;
+}
+
+/*
+     FILE ARCHIVED ON 02:11:58 Oct 09, 2008 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 07:35:11 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 61.0
+  exclusion.robots: 0.102
+  exclusion.robots.policy: 0.09
+  RedisCDXSource: 0.662
+  esindex: 0.009
+  LoadShardBlock: 32.315 (3)
+  PetaboxLoader3.datanode: 50.609 (4)
+  load_resource: 71.17
+  PetaboxLoader3.resolve: 32.849
+*/

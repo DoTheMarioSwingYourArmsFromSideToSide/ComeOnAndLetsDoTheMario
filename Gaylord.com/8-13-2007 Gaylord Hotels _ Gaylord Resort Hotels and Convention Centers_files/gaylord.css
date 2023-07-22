@@ -1,0 +1,293 @@
+BODY {
+	margin-top : 0px;
+	margin-left : 0px;
+	background: white;
+}
+
+P, H4, TD, TH, BLOCKQUOTE, UL, OL, LI, .Text {
+	font-family : Verdana, Arial, sans-serif;
+	color : #333333;
+	font-size : xx-small;
+}
+
+/* Link Bars, BreadCrumbs, PageSet Navigation */
+.CS_Element_LinkBar { color:gray; font-size: xx-small; font-family:Verdana,Arial,sans-serif; }
+.CS_LinkBar_Item { color:gray; font-size: xx-small; font-family:Verdana,Arial,sans-serif; }
+.CS_LinkBar_CurrentItem { color:gray; font-size: xx-small; font-family:Verdana,Arial,sans-serif; }
+.CS_LinkBar_Separator { color:gray; font-size: xx-small; font-family:Verdana,Arial,sans-serif; }
+
+/* Link List */
+.CS_LinkList_Caption { text-decoration:none; text-align:center; font-family:Verdana,Arial,sans-serif; font-weight:700; color:#000000; font-size:xx-small;}
+.CS_LinkList_ListBox { align:bottom;font-size:xx-small; }
+.CS_LinkList_Item { font-family:Verdana,Arial,san-serif;font-weight:400;font-size:xx-small; }
+.CS_LinkList_Button { text-align:center;font-weight:700;font-size:xx-small;font-family:Verdana,Arial,san-serif; }
+
+/* Search Form */
+.CS_SF_Button { color:#000000; font-size:xx-small; text-decoration:none; border:none;}
+.CS_SF_Image { color:#000000; text-decoration:none; border:none;}
+.CS_SF_Link { font-weight:400; font-size:xx-small; border:none;}
+
+/* Simple Form */
+.CS_Form_Label { font-family:Verdana,Arial,sans-serif; font-weight:200; font-size:xx-small; }
+.CS_Form_Tree { font-family:Verdana,Arial,sans-serif; font-size:x-small; font-weight:400; color:#000000; }
+.CS_Form_RichText { font-family:Verdana,Arial,sans-serif; font-weight:400; font-size:xx-small; }
+.CS_Form_Date { font-size:xx-small; font-family:Verdana,Arial,sans-serif; }
+.CS_Form_URL { font-size:xx-small; font-family:Verdana,Arial,sans-serif; }
+.CS_Form_Email { font-size:xx-small; font-family:Verdana,Arial,sans-serif; }
+.CS_Form_DropDown_Item { font-family:Verdana,Arial,san-serif;font-weight:400;font-size:xx-small; }
+.CS_Form_SectionLabel { font-weight:700;font-size:x-small;font-family:Verdana,Arial,san-serif; }
+.CS_Form_Number { font-size:xx-small; font-family:Verdana,Arial,sans-serif; text-align:right; }
+.CS_Form_Text { font-family:Verdana,Arial,sans-serif; font-weight:400; font-size:xx-small; }
+.CS_Form_Item {	font-family:Verdana,Arial,san-serif;font-weight:400;font-size:xx-small;	text-align : right;}
+
+/* Page Index */
+.CS_PgIndex_Item { font-size:xx-small; background-color:#FFFFFF; font-family:Verdana,Arial,sans-serif; padding:4; }
+.CS_PgIndex_Item_Alternate { font-size:xx-small; background-color:#FFFFFF; font-family:Verdana,Arial,sans-serif; padding:4; }
+
+/* Search Results */
+.CS_SR_Item_Title { font-weight:700; font-size:xx-small; }
+.CS_SR_Item_Description { font-weight:400; font-size:xx-small; }
+.CS_SR_Item_BreadCrumbs { font-weight:400; font-size:xx-small; text-decoration:none; }
+
+.gray_bkg_white_border {
+	background:e8e8e8;
+	vertical-align : top;
+	border : 8px solid White;
+}
+
+.CS_Element_Textblock {
+	visibility:visible;
+	background-color: transparent;
+	background : transparent;
+}
+.CS_Textblock_Text { 
+	font-weight:400; 
+	font-family:Verdana,Arial,sans-serif; 
+	font-size:xX-small; 
+	color:#333333;
+	background-color: transparent;
+	background : transparent;
+
+}
+
+.CS_Layout_TD { 
+	visibility:visible; 
+	vertical-align: top;
+	background-color: transparent;
+	background : transparent;
+}
+
+CS_Generic_Text_Caption {
+	visibility:visible;
+	background-color: transparent;
+	background : transparent;
+}
+
+.CS_Textblock_Caption { 
+	color : #333333;
+	font-size : x-small;
+	font-weight : bold;
+	text-align : left;
+}
+
+.ParagraphHeader {
+	color : #333333;
+	font-size : x-small;
+	font-weight : bold;
+}
+
+.FeatureBoxTitle {
+	color : #ffffff;
+	font-size : xx-small;
+	font-weight : bold;
+	text-align : center;
+}
+
+/* added by sporter on 9/19/2 - used by GP Jobs system */
+P.error {
+	color : #cc3333;
+	font-weight : bold;
+}
+P.indented {
+	margin-left : 20px;
+}
+H1 {
+	font-size : 16px;
+}
+H3 {
+	font-size : 12px;
+}
+/* end 9/19/2 add */
+
+A:link {
+	color : #003366;
+}
+
+A:visited {
+	color : #6699cc;
+}
+
+A:active {
+	color : #ffcc00;
+}
+
+.SecondColumn a:active {
+	color : #000000;
+}
+
+.SecondColumn  a:visited {
+	color : #666666;
+}
+
+#PageFooter .CS_Element_Schedule {
+	margin-left : 8px;
+}
+
+/*These 7 styles affect the CS Element - Image and Text Table */
+.Text-Image-element-cell-format {
+   visibility:visible;
+}		
+
+.Text-Image-element-row-format {
+   visibility:visible;
+}		
+
+.Text-Image-element-wht_bkg_tabular_layout {
+	background-color : #ffffff;
+	vertical-align: top;
+	padding: 8px;
+}
+
+.Text-Image-element-wht_bkg_tabular_layout .CS_Textblock_Text {
+	margin-right: 18px;
+}
+
+.Text-Image-element-beige_bkg_tabular_layout {
+    background-color : #e1ddd2;
+	vertical-align: top;
+    visibility:visible;
+     border : 4px solid White;
+}
+
+.Text-Image-element-tbl-layout_table {
+   visibility:visible;
+}		
+
+.Text-Image-element-image_padding_white-main {
+   visibility:visible;
+}		
+
+.Text-Image-element-image_padding_white-sub {
+   visibility:visible;
+}		
+
+.cell_alignment_top {
+	vertical-align : top;
+	visibility:visible;
+}
+
+.Text-Image-element-caption-format {
+   visibility:visible;
+}		
+
+/* added by cjr - being referenced in the code for some reason */
+Text-Image-element-Text-Format {
+	padding: 0;
+	margin: 0;
+}
+
+.beige_cell_bkg_color {
+	 background-color : #e1ddd2;
+	 vertical-align: top;
+    visibility:visible;
+     border : 4px solid White;
+}
+
+.table_border {
+	border : 1px solid black;
+	 border-bottom : 1;
+    border-left : 1;
+    border-right : 1;
+    border-top : 1;
+}
+
+/*End of the 7 styles that affect the CS Element - Image and Text Table */
+
+
+/*These styles were put in by JS on 9/18/02 */
+.image_padding_white {
+   visibility:visible;   
+}		
+
+.beige_cell_bkg_color {
+   
+	visibility:visible;
+	
+}
+
+.beige_bkg_tabular_layout {
+	background-color:#e1ddd2;
+}
+
+.wht_bkg_tabular_layout {
+	background-color:white;
+	padding-bottom : 15px;
+	padding-left : 15px;
+	padding-right : 15px;
+	padding-top : 15px;
+}
+
+.td_padding_white {
+	visibility:visible;
+}
+
+.row_padding_white {
+	visibility:visible;
+}
+
+.ds_color {
+	background-color:white;
+}
+.ds_border {
+	border-color : black;
+	background-color:white;
+	outline-color : Black;
+}
+
+
+/*End of styles put in by JS on 9/18/02 */
+
+.LeftSideNavTable tr td {
+	border-top : 1px dotted white;
+	padding-top : 1px;
+	padding-bottom : 1px;
+	font-size : 11px;
+	color : white;
+}
+
+.LeftSideNavTable tr td a {
+	text-decoration : none;
+	color : white;
+}
+
+
+/*
+     FILE ARCHIVED ON 10:08:52 Jul 11, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 07:34:34 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 188.268
+  exclusion.robots: 0.056
+  exclusion.robots.policy: 0.05
+  cdx.remote: 0.044
+  esindex: 0.008
+  LoadShardBlock: 160.621 (3)
+  PetaboxLoader3.resolve: 136.739 (4)
+  PetaboxLoader3.datanode: 48.458 (4)
+  load_resource: 70.382
+*/

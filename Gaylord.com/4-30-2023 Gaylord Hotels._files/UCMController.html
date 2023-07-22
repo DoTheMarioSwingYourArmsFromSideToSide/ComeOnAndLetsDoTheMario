@@ -1,0 +1,160 @@
+
+<!-- saved from url=(0312)https://login.dotomi.com/ucm/UCMController?dtm_com=28&dtm_cid=2814&dtm_cmagic=8e987c&dtm_format=5&dtm_fid=101&cli_promo_id=2&dtmc_marsha_code=&canonical_url=https%3A%2F%2Fwww.gaylordhotels.com%2F&dtm_user_token=&dtmc_ref=https%3A%2F%2Fwww.google.com%2F&dtmc_loc=https%3A%2F%2Fwww.gaylordhotels.com%2F&fpc_status= -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+</head>
+<body>
+<script type="text/javascript">
+(function () {
+  'use strict';
+
+  function _extends() {
+    _extends = Object.assign ? Object.assign.bind() : function (target) {
+      for (var i = 1; i < arguments.length; i++) {
+        var source = arguments[i];
+        for (var key in source) {
+          if (Object.prototype.hasOwnProperty.call(source, key)) {
+            target[key] = source[key];
+          }
+        }
+      }
+      return target;
+    };
+    return _extends.apply(this, arguments);
+  }
+
+  var serializeDataToQuery = function serializeDataToQuery(dataObject) {
+    var parts = [],
+      key,
+      value;
+    for (key in dataObject) {
+      if (dataObject.hasOwnProperty(key)) {
+        value = dataObject[key] + '' || '';
+        parts.push(encodeURIComponent(key) + '=' + encodeURIComponent(value));
+      }
+    }
+    return parts.join('&');
+  };
+  var buildUrlForPlugin = function buildUrlForPlugin(pluginName, hostName, path, dtmConfig, integration) {
+    var plugin = integration.plugins[pluginName];
+    if (!plugin) {
+      console.error('Missing plugin name');
+      return null;
+    }
+    var queryStringObj = {};
+    var fieldMasks = integration.fieldMasks.concat(plugin.fieldMasks);
+    _extends(queryStringObj, dtmConfig);
+    fieldMasks.forEach(function (fieldMask) {
+      delete queryStringObj[fieldMask];
+    });
+    var env = integration.env;
+    var pluginUrl = "".concat(env.tagProto, "://").concat(hostName).concat(path);
+    queryStringObj.dtm_cookies_enabled = navigator.cookieEnabled;
+    if (dtmConfig.wl_override) {
+      queryStringObj.wl_override = '';
+    } else if (dtmConfig.dtm_wl_override) {
+      queryStringObj.dtm_wl_override = '';
+    }
+    var queryStrings = serializeDataToQuery(queryStringObj);
+    return "".concat(pluginUrl).concat(queryStrings.length ? '?' : '').concat(queryStrings);
+  };
+
+  var createScript = function createScript(url, nonceValue, onLoadHandler, onErrorHandler) {
+    var script = document.createElement('script');
+    script.src = url;
+    script.nonce = nonceValue;
+    script.onload = onLoadHandler;
+    script.onerror = onErrorHandler;
+    return script;
+  };
+  var firePixel = function firePixel(url, onLoadHandler, onErrorHandler, referrerPolicy) {
+    var img = new Image(1, 1);
+    img.className = 'cnvr-pixel';
+    img.style.cssText = 'display:none';
+    if (typeof onLoadHandler === 'function') {
+      img.onload = onLoadHandler;
+    }
+    if (typeof onErrorHandler === 'function') {
+      img.onerror = onErrorHandler;
+    }
+    if (referrerPolicy) {
+      img.setAttribute('referrerPolicy', referrerPolicy);
+      img.referrerPolicy = referrerPolicy;
+    }
+    img.src = url;
+    img.alt = '';
+    return img;
+  };
+  var firePixels = function firePixels(urls, referrerPolicy) {
+    var pixelArr = [];
+    urls.forEach(function (url) {
+      pixelArr.push(firePixel(url, null, null, referrerPolicy));
+    });
+    return pixelArr;
+  };
+
+  var createPluginScript = function createPluginScript(dtmConfig, integration) {
+    var env = integration.env;
+    var url = buildUrlForPlugin('cnvr', env.tagHost, env.tagPath, dtmConfig, integration);
+    return createScript(url, dtmConfig.nonce);
+  };
+  var generateAndFireFpcPixel = function generateAndFireFpcPixel(dtmConfig, integration) {
+    var env = integration.env;
+    if (!env.fpcTagWrite && (!env.fpcAgilityIdWrite || !dtmConfig.dtm_user_id) || !navigator.cookieEnabled) {
+      return '';
+    }
+    var wlDomainsKey = '';
+    if (dtmConfig.wl_domains_key) {
+      wlDomainsKey = dtmConfig.wl_domains_key;
+    }
+    var wlOverrideDomain = '';
+    if (dtmConfig.wl_override || dtmConfig.dtm_wl_override) {
+      if (dtmConfig.wl_override) {
+        wlOverrideDomain = dtmConfig.wl_override;
+      } else {
+        wlOverrideDomain = dtmConfig.dtm_wl_override;
+      }
+    }
+    var baseUrl = "".concat(env.cookieProto, "://").concat(env.cookieHost).concat(env.cookiePath, "?dtm_cid=").concat(dtmConfig.dtm_cid, "&dtm_cmagic=").concat(dtmConfig.dtm_cmagic, "&ver=2&dtm_form_uid=").concat(dtmConfig.dtm_form_uid, "&wl_domains_key=").concat(wlDomainsKey, "&wl_override=").concat(wlOverrideDomain);
+    var serverPersistValues = Array.isArray(integration.persistence) ? integration.persistence.filter(function (entry) {
+      return entry.context === 'server';
+    }) : [];
+    var queryParamList = [];
+    serverPersistValues.forEach(function (entry) {
+      var key = entry.key;
+      var value = dtmConfig[key];
+      if (typeof value !== 'undefined') {
+        queryParamList.push(encodeURIComponent(key) + '=' + encodeURIComponent(value));
+      }
+    });
+    var pixelUrl = queryParamList.length > 0 ? "".concat(baseUrl, "&").concat(queryParamList.join('&')) : '';
+    firePixel(pixelUrl);
+    return pixelUrl;
+  };
+  var disco = function disco(dtmConfig, integration) {
+    var pluginScript = createPluginScript(dtmConfig, integration);
+    document.head.appendChild(pluginScript);
+    generateAndFireFpcPixel(dtmConfig, integration);
+  };
+  var final = function final(dtmConfig, integration) {
+    var referrerLimitedPixels = integration.referrerLimitedPixels;
+    var nonReferrerLimitedPixels = integration.pixels;
+    if (Array.isArray(referrerLimitedPixels) && referrerLimitedPixels.length > 0) {
+      firePixels(integration.referrerLimitedPixels, 'same-origin');
+    }
+    if (Array.isArray(nonReferrerLimitedPixels) && nonReferrerLimitedPixels.length > 0) {
+      firePixels(integration.pixels);
+    }
+  };
+  var cnvrPlugin = {
+    disco: disco,
+    final: final
+  };
+
+  var integration = JSON.parse('{"eventType":"final-IFrame","env":null,"parameters":null,"mappings":null,"persistence":null,"fieldMasks":null,"plugins":null,"referrerLimitedPixels":["https://sync.search.spotxchange.com/partner?adv_id=7183&img=1&uid=AQEHObXdxyJInwFOXspOAQEL_wE&gdpr_consent=","https://ads.stickyadstv.com/user-registering?dataProviderId=1249&redirectId=-1&userId=AQEHObXdxyJInwFOXspOAQEL_wE&gdpr_consent=","https://dsum-sec.casalemedia.com/rum?cm_dsp_id=65&external_user_id=AQEHObXdxyJInwFOXspOAQEL_wE&gdpr_consent=","https://eb2.3lift.com/xuid?mid=6732&dongle=38F&xuid=AQEHObXdxyJInwFOXspOAQEL_wE&gdpr_consent=","https://exchange-match.mediaplex.com/sync/px/1?networkId=67750&dtm_token=AQEHObXdxyJInwFOXspOAQEL_wE&gdpr_consent=","https://ib.adnxs.com/setuid?entity=34&code=AQEHObXdxyJInwFOXspOAQEL_wE&gdpr_consent=","https://ap.lijit.com/pixel?gdpr=false&gdpr_consent=&redir=https%3A%2F%2Fmatch.sync.ad.cpe.dotomi.com%2Fw%2Fuser.sync%3Fptrid%3D15%26userid%3D%24UID","https://match.sharethrough.com/sync/v1?source_id=XXFNqX2gk1rVb6Jw3xJ26afL&source_user_id=AQEHObXdxyJInwFOXspOAQEL_wE&gdpr_consent=&gdpr=false"],"pixels":["https://login-ds.dotomi.com/ucm/DMCSuccessLogger?dtmid=448307023233370526&sessionid=1682842685776&comId=2814&dtm_command_op_date=1682842967436&uniqueid=540707023107839743"]}');
+  cnvrPlugin.final(null, integration);
+
+})();
+</script>
+
+</body></html>

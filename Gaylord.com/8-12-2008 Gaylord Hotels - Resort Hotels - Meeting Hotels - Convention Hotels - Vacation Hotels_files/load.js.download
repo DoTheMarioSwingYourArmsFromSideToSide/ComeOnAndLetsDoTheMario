@@ -1,0 +1,80 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+Event.observe(window, 'load', function(){
+    // Set shadow borders
+    $$('#hero-image-container', 
+       '.element-rotator .wrapper').each(function(item) {
+        //fx_build_shadow_border_wrapper(item);
+    });
+    // Build image rotators
+    $$('.element-rotator').each(function(el){
+        fx_build_rotator(el, 10);});
+    
+    
+    // Fix semi-transparent rollovers for Firefox
+    var userAgent = navigator.userAgent.toLowerCase();
+    if (Prototype.Browser.Gecko && userAgent.indexOf('mac') != -1) {
+        $$('.flyout1').each(function(item){
+            item.setStyle({
+                'backgroundColor':'transparent',
+                'backgroundImage':'url( /assets/images/black_opacity_70.png )'
+            });
+            item.style.MozOpacity = 1.0;
+        });
+    }
+    
+
+    
+    // Flyout submenus
+    $$('ul.flyout1', 'ul.flyout2').each(function(el){
+        Element.observe(el,'click',function(){return clearSubNavMenu();});
+        Element.observe(el,'mouseout',function(){el.timeout = setTimeout(clearSubNavMenu, 1500); return el.timeout; });
+        Element.observe(el,'mouseover',function(){clearTimeout(el.timeout); });
+    });
+
+    fx_init_lightbox();
+    // fx_init_emailbox();  
+    
+    // shadowbox for Flash sidebar
+    Shadowbox.getOptions().skin.close = '<div id="shadowbox_nav_close" onclick="javascript:Shadowbox.close();"><a href="javascript:Shadowbox.close();">{0}</a></div>';
+    Shadowbox.init(
+        {   assetURL: '/assets/scripts/sb/',
+            animSequence: 'hw',
+            loadingImage: 'images/loading-light.gif',
+            continuous: true
+        }
+    );
+});
+
+
+}
+/*
+     FILE ARCHIVED ON 02:10:26 Oct 09, 2008 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 07:35:12 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 64.344
+  exclusion.robots: 0.08
+  exclusion.robots.policy: 0.069
+  RedisCDXSource: 0.767
+  esindex: 0.008
+  LoadShardBlock: 44.815 (3)
+  PetaboxLoader3.datanode: 92.397 (4)
+  load_resource: 98.321
+  PetaboxLoader3.resolve: 48.686
+*/

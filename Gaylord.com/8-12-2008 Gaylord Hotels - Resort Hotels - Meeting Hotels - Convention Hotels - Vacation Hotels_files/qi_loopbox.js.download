@@ -1,0 +1,427 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+/*
+ * The code here provides a custom updateNav function for
+ * Lightbox 3.0 by Stephen Spies. We assume the presence of 
+ * the Prototype framework and use Object.extend and Class.create,
+ * rather than simply copying the function into the prototype directly.
+ * bday, dkurtz, Quinn Interactive
+ */
+var QILoopbox = Class.create();
+
+// QILoopbox inherits from Lightbox
+Object.extend( QILoopbox.prototype, Lightbox.prototype );
+
+// Overwrite updateNav with our own looping version
+QILoopbox.prototype.updateNav =  function() {
+        // Adapted from Lightbox.updateNav()
+        // Keep track of first and last indexes
+        var lastImage = imageArray.length-1;
+        var firstImage = 0;
+
+        if(lastImage > 0){  // only show links if there's more than 1 image.
+            Element.show('hoverNav');               
+        }    
+        
+
+            // if not first image in set, display prev image button
+            if(activeImage != 0){
+                Element.show('prevLink');
+                Element.setInnerHTML('prevLink', 'Prev');   // jks
+                document.getElementById('prevLink').onclick = function() {
+                    myLightbox.changeImage(activeImage - 1); return false;
+                }
+            }
+            // if last image in set, display next image button, loops to first image
+            if(activeImage == 0){
+                Element.show('prevLink');
+                Element.setInnerHTML('prevLink', 'Prev');   // jks
+                document.getElementById('prevLink').onclick = function() {
+                    myLightbox.changeImage(lastImage); return false;
+                }
+            }
+            
+    
+            // if not last image in set, display next image button
+            if(activeImage != (imageArray.length - 1)){
+                Element.show('nextLink');
+                Element.setInnerHTML('nextLink', 'Next');   // jks
+                document.getElementById('nextLink').onclick = function() {
+                    myLightbox.changeImage(activeImage + 1); return false;
+                }
+            }
+            
+            // if last image in set, display next image button, loops to first image
+            if(activeImage == (imageArray.length-1)){
+                Element.show('nextLink');
+                Element.setInnerHTML('nextLink', 'Next');   // jks
+                document.getElementById('nextLink').onclick = function() {
+                    myLightbox.changeImage(firstImage); return false;
+                }
+            }
+ 
+        
+        this.enableKeyboardNav();
+}
+QILoopbox.prototype.insertThumbs = function() {
+    
+}
+QILoopbox.prototype.start = function(imageLink) {    
+
+    hideSelectBoxes();   
+    hideFlash();    
+
+    // stretch overlay to fill page and fade in
+    var arrayPageSize = getPageSize();
+    Element.setHeight('overlay', arrayPageSize[1]);
+    new Effect.Appear('overlay', { duration: 0.2, from: 0.0, to: 0.8 });
+
+    imageArray = [];
+    imageThumbs = [];  // also keep track of thumbnail images
+    imageNum = 0;       
+    
+    // modifications for lightbox v3.0
+    // no old image attached, we have to create it
+    if (!document.getElementById('lightboxImage')){
+        var objImageContainer = document.getElementById('imageContainer');
+        //remove old ajaxFrame if exists
+        var ajaxFrame = document.getElementById('ajaxFrame');
+        if (ajaxFrame!=null && objImageContainer!=null){
+            objImageContainer.removeChild(ajaxFrame);
+        }
+        //append new image-tag
+        var objLightboxImage = document.createElement("img");
+        objLightboxImage.setAttribute('id','lightboxImage');
+        objImageContainer.appendChild(objLightboxImage);
+    }
+    // END modifications for lightbox v3.0  
+        
+    if (!document.getElementsByTagName){ return; }
+    var anchors = document.getElementsByTagName('a');
+
+    // if image is NOT part of a set..
+    if((imageLink.getAttribute('rel') == 'lightbox')){
+        // add single image to imageArray
+        imageArray.push(new Array(imageLink.getAttribute('href'), imageLink.getAttribute('title')));            
+        thumb_image = $(imageLink).down("img");
+    } else {
+    // if image is part of a set..
+
+        // loop through anchors, find other images in set, and add them to imageArray
+        for (var i=0; i<anchors.length; i++){
+            var anchor = anchors[i];
+            if (anchor.getAttribute('href') && (anchor.getAttribute('rel') == imageLink.getAttribute('rel'))){
+                 imageArray.push(new Array(anchor.getAttribute('href'), anchor.getAttribute('title')));
+                 thumb_image = $(anchor).down("img");
+                 imageThumbs.push(new Array(thumb_image.getAttribute('src'), thumb_image.getAttribute('alt')));
+            }
+        }
+        imageArray.removeDuplicates();
+        while( imageArray[imageNum][0] != imageLink.getAttribute('href') ) { imageNum++; }
+        bottomNavThumbs = $('lightbox').select('ul');
+        if ( imageThumbs.length > 1 ) {
+            for ( var i = 0; i < imageThumbs.length; i++ ) {
+                bottomNavThumbs[0].insert(
+                    '<li><a><img src="' 
+                    + imageThumbs[i][0] 
+                    + '" height="50" width="50" /></a></li>'
+                );
+            }
+            bottomNavThumbs[0].select('a').each(function(a, i) { 
+                a.onclick = function() { 
+                    myLightbox.changeImage(i); 
+                    return false; 
+                } 
+            });
+        }
+        else {
+            var noThumbs = document.getElementById('lightbox-thumbs');
+            noThumbs.style.height = '0px';
+        }
+    }
+
+    // calculate top offset for the lightbox and display 
+    var arrayPageSize = getPageSize();
+    var arrayPageScroll = getPageScroll();
+    var lightboxTop = arrayPageScroll[1] + (arrayPageSize[3] / 15);
+
+    Element.setTop('lightbox', lightboxTop);
+    Element.show('lightbox');
+    
+    this.changeImage(imageNum);
+}
+
+
+QILoopbox.prototype.initialize = function() {    
+    // initialize()
+    // Constructor runs on completion of the DOM loading. Loops through anchor tags looking for 
+    // 'lightbox' references and applies onclick events to appropriate links. The 2nd section of
+    // the function inserts html at the bottom of the page which is used to display the shadow 
+    // overlay and the image container.
+    //
+//  initialize: function() {    
+        if (!document.getElementsByTagName){ return; }
+        var anchors = document.getElementsByTagName('a');
+
+        // loop through all anchor tags
+        for (var i=0; i<anchors.length; i++){
+            var anchor = anchors[i];
+            
+            var relAttribute = String(anchor.getAttribute('rel'));
+            
+            // use the string.match() method to catch 'lightbox' references in the rel attribute
+            if (anchor.getAttribute('href') && (relAttribute.toLowerCase().match('lightbox'))){
+                anchor.onclick = function () {myLightbox.start(this); return false;}
+            }
+            // use the string.match() method to catch 'sightbox' references in the rel attribute
+            if (anchor.getAttribute('href') && (relAttribute.toLowerCase().match('sightbox'))){
+                anchor.onclick = function () {myLightbox.start_sightBox(this); return false;}
+            }
+        }
+
+        // The rest of this code inserts html at the bottom of the page that looks similar to this:
+        //
+        //  <div id="overlay"></div>
+        //  <div id="lightbox">
+        //      <div id="outerImageContainer">
+        //          <div id="imageContainer">
+        //              <img id="lightboxImage">
+        //              <div id="loading">
+        //                  <a href="#" id="loadingLink">
+        //                      <img src="../images/loading.gif">
+        //                  </a>
+        //              </div>
+        //          </div>
+        //      </div>
+        //      <div id="imageDataContainer">
+        //          <div id="imageData">
+        //              <div id="imageDetails">
+        //                  <span id="caption"></span>
+        //                  <span id="numberDisplay"></span>
+        //              </div>
+        //              <div style="" id="hoverNav">
+        //                  <a href="#" id="prevLink"></a>
+        //                  <a href="#" id="nextLink"></a>
+        //              </div>
+        //              <div id="bottomNav">
+        //                  <a href="#" id="bottomNavClose">
+        //                      <img src="../images/close.gif">
+        //                  </a>
+        //              </div>
+        //          </div>
+        //      </div>
+        //  </div>
+
+
+        var objBody = document.getElementsByTagName("body").item(0);
+        
+        var objOverlay = document.createElement("div");
+        objOverlay.setAttribute('id','overlay');
+        objOverlay.style.display = 'none';
+        objOverlay.onclick = function() { myLightbox.end(); return false; }
+        objBody.appendChild(objOverlay);
+        
+        var objLightbox = document.createElement("div");
+        objLightbox.setAttribute('id','lightbox');
+        objLightbox.style.display = 'none';
+        objBody.appendChild(objLightbox);
+    
+        var objOuterImageContainer = document.createElement("div");
+        objOuterImageContainer.setAttribute('id','outerImageContainer');
+        objLightbox.appendChild(objOuterImageContainer);
+
+        var objImageContainer = document.createElement("div");
+        objImageContainer.setAttribute('id','imageContainer');
+        objOuterImageContainer.appendChild(objImageContainer);
+        
+        /* lightbox v3.0 we append image later
+        var objLightboxImage = document.createElement("img");
+        objLightboxImage.setAttribute('id','lightboxImage');
+        objImageContainer.appendChild(objLightboxImage);
+        */
+        
+        var objLoading = document.createElement("div");
+        objLoading.setAttribute('id','loading');
+        objImageContainer.appendChild(objLoading);
+    
+        var objLoadingLink = document.createElement("a");
+        objLoadingLink.setAttribute('id','loadingLink');
+        objLoadingLink.setAttribute('href','#');
+        objLoadingLink.onclick = function() { myLightbox.end(); return false; }
+        objLoading.appendChild(objLoadingLink);
+        
+        /* we better use CSS for that
+        var objLoadingImage = document.createElement("img");
+        objLoadingImage.setAttribute('src', fileLoadingImage);
+        objLoadingLink.appendChild(objLoadingImage);
+        */
+        
+        var objImageDataContainer = document.createElement("div");
+        objImageDataContainer.setAttribute('id','imageDataContainer');
+        objImageDataContainer.className = 'clearfix';
+        objLightbox.appendChild(objImageDataContainer);
+
+        var objImageData = document.createElement("div");
+        objImageData.setAttribute('id','imageData');
+        objImageDataContainer.appendChild(objImageData);
+    
+        var objImageDetails = document.createElement("div");
+        objImageDetails.setAttribute('id','imageDetails');
+        objImageData.appendChild(objImageDetails);
+    
+        var objCaption = document.createElement("span");
+        objCaption.setAttribute('id','caption');
+        objImageDetails.appendChild(objCaption);
+
+// added by jks 1/10/08
+        /*   ****************************  */
+        var objHoverNav = document.createElement("div");
+        objHoverNav.setAttribute('id','hoverNav');
+        objImageData.appendChild(objHoverNav);
+    
+        var objPrevLink = document.createElement("a");
+        objPrevLink.setAttribute('id','prevLink');
+        objPrevLink.setAttribute('href','#');
+        objHoverNav.appendChild(objPrevLink);
+        
+        var objNextLink = document.createElement("a");
+        objNextLink.setAttribute('id','nextLink');
+        objNextLink.setAttribute('href','#');
+        objHoverNav.appendChild(objNextLink);
+        /*   ****************************  */
+
+
+
+        var objNumberDisplay = document.createElement("span");
+        objNumberDisplay.setAttribute('id','numberDisplay');
+        objImageDetails.appendChild(objNumberDisplay);
+        
+        var objBottomNav = document.createElement("div");
+        objBottomNav.setAttribute('id','bottomNav');
+        objImageData.appendChild(objBottomNav);
+    
+        var objBottomNavCloseLink = document.createElement("a");
+        objBottomNavCloseLink.setAttribute('id','bottomNavClose');
+        objBottomNavCloseLink.setAttribute('href','#');
+        objBottomNavCloseLink.onclick = function() { myLightbox.end(); return false; }
+        objBottomNav.appendChild(objBottomNavCloseLink);
+        
+        var objBottomNavThumbs = document.createElement("ul");
+        objBottomNavThumbs.setAttribute('class','thumbs');
+        objBottomNavThumbs.setAttribute('id','lightbox-thumbs');
+        objBottomNav.appendChild(objBottomNavThumbs);
+        
+        // Create the thumbnail images
+        // Note that this loop is largely duplicated from Lightbox.start
+        // 'this' in the context of the initialize function should be an a.href
+        // if image is NOT part of a set..
+        
+        /* we better use CSS for that
+        var objBottomNavCloseImage = document.createElement("img");
+        objBottomNavCloseImage.setAttribute('src', fileBottomNavCloseImage);
+        objBottomNavCloseLink.appendChild(objBottomNavCloseImage);
+        */
+    }
+
+
+// added by jks 1/10/08
+QILoopbox.prototype.resizeImageContainer = function( imgWidth, imgHeight) {
+        // get current height and width
+        this.wCur = Element.getWidth('outerImageContainer');
+        this.hCur = Element.getHeight('outerImageContainer');
+
+        // scalars based on change from old to new
+        this.xScale = ((imgWidth  + (borderSize * 2)) / this.wCur) * 100;
+        this.yScale = ((imgHeight  + (borderSize * 2)) / this.hCur) * 100;
+
+        // calculate size difference between new and old image, and resize if necessary
+        wDiff = (this.wCur - borderSize * 2) - imgWidth;
+        hDiff = (this.hCur - borderSize * 2) - imgHeight;
+
+        if(!( hDiff == 0)){ 
+            new Effect.Scale(
+                'outerImageContainer', 
+                this.yScale, 
+                {scaleX: false, duration: resizeDuration, queue: 'front'}
+            ); 
+        }
+        if(!( wDiff == 0)){ 
+            new Effect.Scale(
+                'outerImageContainer', 
+                this.xScale, 
+                {scaleY: false, delay: resizeDuration, duration: resizeDuration}
+            );
+        }
+        
+        // if new and old image are same size and no scaling transition is necessary, 
+        // do a quick pause to prevent image flicker.
+        if((hDiff == 0) && (wDiff == 0)){
+            if (navigator.appVersion.indexOf("MSIE")!=-1){ pause(250); } else { pause(100);} 
+        }
+
+//      Element.setHeight('prevLink', imgHeight); //jks
+//      Element.setHeight('nextLink', imgHeight); //jks
+        Element.setWidth( 'imageDataContainer', imgWidth + (borderSize * 2));
+
+        this.showImage();
+    }
+
+// ---------------------------------------------------
+
+
+QILoopbox.prototype.end =  function() {
+    $('lightbox-thumbs').select('li').each( function(el){ el.remove(); });
+    Lightbox.prototype.end()
+    showFlash(); 
+}
+
+function showFlash(){
+    $$('[type="application/x-shockwave-flash"]').invoke('show');
+}
+
+// ---------------------------------------------------
+
+function hideFlash(){
+    el = $$('[type="application/x-shockwave-flash"]');
+    el.each(function(el) {
+        mydiv = el.up('div');
+        dimensions = el.getDimensions();
+        mydiv.setStyle({ height: dimensions.height+"px", width: dimensions.width});
+        el.hide();
+    });
+}
+
+// ---------------------------------------------------
+
+
+}
+/*
+     FILE ARCHIVED ON 02:03:29 Oct 09, 2008 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 07:35:11 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 134.659
+  exclusion.robots: 0.061
+  exclusion.robots.policy: 0.053
+  cdx.remote: 0.047
+  esindex: 0.008
+  LoadShardBlock: 98.918 (3)
+  PetaboxLoader3.datanode: 146.108 (4)
+  load_resource: 81.602
+  PetaboxLoader3.resolve: 21.785
+*/

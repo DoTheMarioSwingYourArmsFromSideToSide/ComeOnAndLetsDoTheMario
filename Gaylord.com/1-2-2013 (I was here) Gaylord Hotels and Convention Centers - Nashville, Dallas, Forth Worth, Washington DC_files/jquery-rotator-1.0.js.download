@@ -1,0 +1,106 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+//rotator plugin
+//The only option that can be specified is delayMilliseconds
+/*
+ * Dan Nuttle, Adobe Systems
+ * expected HTML:
+ * (parent element specified in jQuery selector)
+ * 		div.center-content
+ * 			div.show
+ * 				a (one or more)
+ *		div.hide
+ * 			a (one or more)
+ * 		.next
+ * 		.prev
+*/
+(function($){
+	$.fn.rotator = function() {
+		var timeout;
+		var rotate = function($item, dir, now){
+			clearTimeout(timeout);
+			timeout = setTimeout(function(){
+				var $content = $item.find("div.center-content");
+				var $show = $content.find("div.show:eq(0)");
+				var $hide = $item.find("div.hide:eq(0)");
+				//If no hidden elements, no need to keep rotating
+				if($hide.find("> *").length==0) return;
+				if(dir=="next")
+				{
+					var r = $show.find("> *:eq(0)");
+					var h = $hide.find("> *:eq(0)");
+					if(r.length && h.length)
+					{
+						r = r.remove();
+						h = h.remove();
+						$show.append(h);
+						$hide.append(r);
+					}
+					rotate($item, "next");
+				}else if(dir=="prev"){
+					var r = $show.find("> *:eq(0)");
+					var h = $hide.find("> *:last(0)");
+					if(r.length && h.length)
+					{
+						r = r.remove();
+						h = h.remove();
+						$show.append(h);
+						$hide.prepend(r);
+					}
+					rotate($item, "next");
+				}
+			}, now ? 0 : opts.delayMilliseconds);
+		};
+		var opts = {delayMilliseconds:10000};
+		if(arguments.length && typeof arguments[0] == "object"){
+			opts = $.extend(opts, arguments[0]);
+		}
+		return $(this).each(function(idx, item){
+			var $this = $(this);
+			$this.find(".next").click(function(evt){
+				evt.preventDefault();
+				rotate($this,"next",true);
+			});
+			$this.find(".prev").click(function(evt){
+				evt.preventDefault();
+				rotate($this,"prev",true);
+			});
+			rotate($this,"next");
+		});
+	};
+	$.fn.rotator.version = "1.0";
+}(jQuery));
+
+
+
+}
+/*
+     FILE ARCHIVED ON 21:39:24 Jan 02, 2013 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 07:39:00 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 90.504
+  exclusion.robots: 0.084
+  exclusion.robots.policy: 0.076
+  cdx.remote: 0.055
+  esindex: 0.008
+  LoadShardBlock: 66.625 (3)
+  PetaboxLoader3.datanode: 89.638 (4)
+  load_resource: 75.099
+  PetaboxLoader3.resolve: 38.109
+*/

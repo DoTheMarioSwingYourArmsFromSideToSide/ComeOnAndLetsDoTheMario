@@ -1,0 +1,287 @@
+.PageTitle {
+      font-family : Verdana, Arial, sans-serif;
+            color : #333333;
+			font-size : small;
+			font-weight : bold;
+			text-align : center 
+}
+
+.ParagraphHeader {
+      font-family : Verdana, Arial, sans-serif;
+	  		color : #333333;
+      		text-align : center;
+			font-weight : bold;
+        	font-size : x-small
+}
+
+A:link {
+      font-family : Verdana, Arial, sans-serif;
+            color : #003366;
+       background : transparent;
+  text-decoration : underline
+}
+
+A:visited {
+      font-family : Verdana, Arial, sans-serif;
+            color : #6699cc;
+       background : transparent;
+  text-decoration : underline
+}
+
+A:active {
+      font-family : Verdana, Arial, sans-serif;
+            color : #ffcc00;
+       background : transparent;
+  text-decoration : underline
+}
+
+A.Table:active {
+      font-family : Verdana, Arial, sans-serif;
+            color : #000000;
+       background : transparent;
+  text-decoration : underline
+}
+
+A.Table:visited {
+      font-family : Verdana, Arial, sans-serif;
+            color : #666666;
+       background : transparent;
+  text-decoration : underline
+}
+
+P, H4, BLOCKQUOTE, UL, OL, LI, .Text {
+      font-family : Verdana, Arial, sans-serif;
+            color : #000000;
+			font-size : xx-small
+}
+/* Default stylesheet for CommonSpot - generated 2002-05-19 18:17:07  */
+
+/* Image Grid */
+.CS_Element_ImageGrid { visibility:visible; }
+.CS_BBar_Image { text-decoration:none; text-align:center; border:none; }
+
+/* Bulleted Lists */
+.CS_Element_BulletedList { visibility:visible; }
+.CS_BL_Bullet { text-decoration:none; border-style:none; }
+.CS_BL_Header { text-align:left; }
+.CS_BL_HeaderCaption { text-align:left; color:#000000; font-family:Verdana,Arial,sans-serif; font-weight:700; text-decoration:none; font-size:small; }
+.CS_BL_HeaderText { text-align:left; color:#000000; font-family:Verdana,Arial,sans-serif; font-weight:400; text-decoration:none; font-size:xx-small; }
+.CS_BL_Item { list-style-position:outside; }
+.CS_BL_ItemCaption { text-align:left; color:#000000; font-family:Verdana,Arial,sans-serif; font-weight:700; text-decoration:none; font-size:small; }
+.CS_BL_ItemText { text-align:left; color:#000000; font-family:Verdana,Arial,sans-serif; font-weight:400; text-decoration:none; font-size:xx-small; }
+
+/* Custom ColdFusion */
+.CS_Element_CustomCF { visibility:visible; }
+
+/* Simple Form */
+.CS_Element_SimpleForm { visibility:visible; }
+.CS_Form_Label { font-family:Verdana,Arial,sans-serif; font-weight:400; font-size:x-small; }
+.CS_Form_Tree { font-family:Verdana,Arial,sans-serif; font-size:x-small; font-weight:400; color:#000000; }
+.CS_Form_RichText { font-family:Verdana,Arial,sans-serif; font-weight:400; font-size:x-small; }
+.CS_Form_Date { font-size:x-small; font-family:Verdana,Arial,sans-serif; }
+.CS_Form_Image { text-decoration:none; border-style:none; }
+.CS_Form_URL { font-size:x-small; font-family:Verdana,Arial,sans-serif; }
+.CS_Form_Email { font-size:x-small; font-family:Verdana,Arial,sans-serif; }
+.CS_Form_DropDown { align:bottom; }
+.CS_Form_DropDown_Item { font-family:Verdana,Arial,san-serif;font-weight:400;font-size:x-small; }
+.CS_Form_SectionLabel { font-weight:700;font-size:x-small;font-family:Verdana,Arial,san-serif; }
+.CS_Form_Number { font-size:x-small; font-family:Verdana,Arial,sans-serif; text-align:right; }
+.CS_Form_Text { font-family:Verdana,Arial,sans-serif; font-weight:400; font-size:x-small; }
+.CS_Form_Item { font-family:Verdana,Arial,san-serif;font-weight:700;font-size:x-small; }
+.CS_Form_Description { font-family:Verdana,Arial,sans-serif; font-weight:400; font-size:xx-small; }
+.CS_Form_Button { text-align:center;font-weight:700;font-size:x-small;font-family:Verdana,Arial,san-serif; }
+
+/* Data Sheet */
+.CS_Element_DataSheet { visibility:visible; }
+.CS_DataSheet_Caption { text-decoration:none; text-align:center; font-family:Verdana,Arial,sans-serif; font-weight:700; color:#000000; }
+.CS_DataSheet_Alphabet { text-decoration:none; color:#0000FF; padding:4; }
+.CS_DataSheet_Alphabet_Selected { text-decoration:none; color:#880088; padding:4; }
+.CS_DataSheet_Table { padding:0; margin:0; }
+.CS_DataSheet_Header_Row { background-color:#888888; }
+.CS_DataSheet_HeaderItem_First_Column { background-color:#EEEEEE; font-weight:700; color:#CC6600; padding:4; text-align:left; }
+.CS_DataSheet_HeaderItem_Column { background-color:#EEEEEE; font-weight:700; color:#CC6600; padding:4; text-align:left; }
+.CS_DataSheet_Data_Row { background-color:#FFFFFF; }
+.CS_DataSheet_Data_First_Column { padding:4; }
+.CS_DataSheet_Data_Column { padding:4; }
+.CS_DataSheet_Data_Cell { text-align:left; }
+.CS_DataSheet_Data_Cell_Numeric { text-align:right; }
+.CS_DataSheet_Data_Cell_Action { text-align:center; text-decoration:underline; color:#0000FF; }
+.CS_DataSheet_Data_Row_Alternate { background-color:#E5E5E5; }
+.CS_DataSheet_Summary_Row { text-align:center; }
+.CS_DataSheet_Summary_Links { font-family:Verdana,Arial,sans-serif; font-weight:400; font-size:x-small; text-decoration:none; }
+.CS_DataSheet_Summary_Current_Page { font-weight:400; font-size:x-small; }
+
+/* Date */
+.CS_Element_Date { visibility:visible; }
+.CS_Date_Label { font-family:Verdana,Arial,sans-serif; font-weight:400; font-size:x-small; }
+.CS_Date_Date { font-family:Verdana,Arial,sans-serif; font-weight:400; color:#000000; font-size:x-small; }
+.CS_Date_Time { font-family:Verdana,Arial,sans-serif; font-weight:400; color:#000000; font-size:x-small; }
+
+/* Pop-up menus */
+.CS_Element_DHTML_Menu { visibility:visible; }
+
+/* Microsoft Word, Imported HTML */
+.CS_Element_HTML { visibility:visible; }
+
+/* Image */
+.CS_Element_Image img { visibility:visible; margin: 0 6px 0 0; }
+.CS_Image_Caption { text-decoration:none; text-align:center; font-family:Verdana,Arial,sans-serif; font-weight:700; color:#000000; }
+.CS_Image_IMG { text-decoration:none; text-align:center; border:none; }
+
+/* Label */
+.CS_Element_Label { visibility:visible; }
+.CS_Label_Item { color:#FFFFFF; font-family:Verdana,Arial,sans-serif; font-size:small; text-decoration:none; font-weight:700; }
+.CS_Label_Current_Item { color:#FFFFFF; font-family:Verdana,Arial,sans-serif; font-size:small; text-decoration:none; font-weight:700; }
+.CS_Label_FirstLetter { color:#FFFFFF; font-family:Verdana,Arial,sans-serif; font-size:medium; text-decoration:none; font-weight:700; }
+
+/* Tabular Layout */
+.CS_Element_Layout { visibility:visible; }
+.CS_Layout_Table { border-style:none; }
+.CS_Layout_TR { visibility:visible; }
+.CS_Layout_TH { text-align:center; font-weight:700; font-family:Verdana,Arial,sans-serif; color:#000000; text-decoration:none; }
+.CS_Layout_TD { text-align:left; }
+.CS_Layout_TD_blue { background-color:#6591B8; }
+.CS_Layout_TD_white { background-color:#ffffff; }
+.CS_Layout_TD_beige {
+	background-color:#e1ddd2;
+}
+
+/* Link Bars, BreadCrumbs, PageSet Navigation */
+.CS_Element_LinkBar { visibility:visible; }
+.CS_LinkBar_Item { font-weight:400; font-size:x-small; }
+.CS_LinkBar_BeforeLabel { font-weight:400; font-size:xx-small; color:#000000; font-family:Verdana,Arial,sans-serif; }
+.CS_LinkBar_Separator { font-weight:400; font-size:xx-small; }
+.CS_LinkBar_AfterLabel { font-weight:400; font-size:xx-small; color:#000000; font-family:Verdana,Arial,sans-serif; }
+.CS_LinkBar_Image { text-decoration:none; border-style:none; }
+.CS_LinkBar_CurrentItem { font-weight:400; font-size:xx-small; }
+
+/* Link List */
+.CS_Element_LinkList { visibility:visible; }
+.CS_LinkList_Caption { text-decoration:none; text-align:center; font-family:Verdana,Arial,sans-serif; font-weight:700; color:#000000; }
+.CS_LinkList_ListBox { align:bottom; }
+.CS_LinkList_Item { font-family:Verdana,Arial,san-serif;font-weight:400;font-size:x-small; }
+.CS_LinkList_Button { text-align:center;font-weight:700;font-size:x-small;font-family:Verdana,Arial,san-serif; }
+
+/* Menu (obsolete) */
+.CS_Element_Menu { visibility:visible; }
+
+/* Multi-Section */
+.CS_Element_MultiSection { visibility:visible; }
+.CS_MS_Header { text-align:left; }
+.CS_MS_Header_Caption { text-decoration:none; text-align:center; font-family:Verdana,Arial,sans-serif; font-weight:700; color:#000000; }
+.CS_MS_Header_Text { font-family:Verdana,Arial,sans-serif; font-weight:400; font-size:x-small; }
+.CS_MS_Index_Item { text-align:left; font-size:x-small; color:#000000; }
+.CS_MS_Item { font-weight:400; font-family:Verdana,Arial,sans-serif; font-size:x-small; color:#000000; }
+
+/* Embedded Object (video, etc) */
+.CS_Element_Object { visibility:visible; }
+.CS_Object_Caption { text-decoration:none; text-align:center; font-family:Verdana,Arial,sans-serif; font-weight:700; color:#000000; }
+
+/* Page Index */
+.CS_Element_PageIndex { visibility:visible; }
+.CS_PgIndex_Header { font-size:xx-small; text-align:left; color:#000000; font-family:Verdana,Arial,sans-serif; font-weight:700; }
+.CS_PgIndex_Item { font-size:xx-small; background-color:#FFFFFF; font-family:Verdana,Arial,sans-serif; }
+.CS_PgIndex_Item_Alternate { font-size:xx-small; background-color:#DDDDDD; font-family:Verdana,Arial,sans-serif; }
+.CS_PgIndex_Item_Title { text-decoration:none; font-weight:400; font-size:xx-small; }
+.CS_PgIndex_Item_Description { color:#000000; text-decoration:none; font-weight:400; font-size:xx-small; }
+.CS_PgIndex_Item_Category { color:#000000; text-decoration:none; font-weight:400; font-size:xx-small; }
+.CS_PgIndex_Item_Author { color:#000000; text-decoration:none; font-weight:400; font-size:xx-small; }
+.CS_PgIndex_Item_LastMod { color:#000000; text-decoration:none; font-weight:400; font-size:xx-small; }
+.CS_PgIndex_Item_PubDate { color:#000000; text-decoration:none; font-weight:400; font-size:xx-small; }
+.CS_PgIndex_Item_SubSite { color:#000000; text-decoration:none; font-weight:400; font-size:xx-small; }
+.CS_PgIndex_Primary_Category { font-size:xx-small; text-decoration:none; font-family:Verdana,Arial,sans-serif; font-weight:700;  }
+.CS_PgIndex_Secondary_Category { text-decoration:none; font-family:Verdana,Arial,sans-serif; font-weight:700; font-size:small; }
+.CS_PgIndex_Bullet { text-decoration:none; border-style:none; }
+.CS_PgIndex_Item_Owner { font-size:xx-small; }
+.CS_PgIndex_Item_CreationDate { color:#000000; text-decoration:none; font-weight:400; font-size:xx-small; }
+.CS_PgIndex_Item_LastMajor { color:#000000; text-decoration:none; font-weight:400; font-size:xx-small; }
+.CS_PgIndex_Item_MoreLink { font-weight:400; font-size:x-small; }
+
+/* PowerPoint Presentation */
+.CS_Element_PowerPoint { visibility:visible; }
+.CS_Pres_Caption { text-decoration:none; text-align:center; font-family:Verdana,Arial,sans-serif; font-weight:700; color:#000000; }
+.CS_Pres_Image { text-decoration:none; border-style:none; }
+
+/* Scheduled Content */
+.CS_Element_Schedule { visibility:visible; }
+
+/* Search Form */
+.CS_Element_SearchForm { visibility:visible; }
+.CS_SF_Label { color:#000000; font-weight:700; font-size:xx-small; text-decoration:none; }
+.CS_SF_Input { color:#000000; font-size:xx-small; text-decoration:none; }
+.CS_SF_Select { color:#000000; text-decoration:none; font-weight:400; font-size:xx-small; }
+.CS_SF_Checkbox { color:#000000; font-size:xx-small; text-decoration:none; }
+.CS_SF_Button { color:#000000; font-size:xx-small; text-decoration:none; }
+.CS_SF_Image { color:#000000; text-decoration:none; }
+.CS_SF_Link { font-weight:400; font-size:xx-small; }
+.CS_SF_AdvLink { font-weight:400; font-size:xx-small; }
+.CS_SF_SubSiteLabel { color:#000000; font-weight:700; font-size:xx-small; text-decoration:none; }
+
+/* Search Results */
+.CS_Element_SearchResults { visibility:visible; }
+.CS_SR_Item { font-weight:400; font-size:x-small; }
+.CS_SR_Item_Alternate { color:#88FF00; font-weight:400; font-size:small; text-decoration:none; }
+.CS_SR_Item_Title { font-weight:400; font-size:x-small; }
+.CS_SR_Item_Description { font-weight:400; font-size:x-small; }
+.CS_SR_Item_SubSite { color:#000000; font-weight:400; font-size:x-small; text-decoration:none; }
+.CS_SR_Item_Author { color:#000000; font-weight:400; font-size:x-small; text-decoration:none; }
+.CS_SR_Item_LastMod { color:#000000; font-weight:400; font-size:x-small; text-decoration:none; }
+.CS_SR_Item_PubDate { color:#000000; font-weight:400; font-size:x-small; text-decoration:none; }
+.CS_SR_Item_Score { color:#000000; font-weight:400; font-size:x-small; text-decoration:none; }
+.CS_SR_Item_Owner { color:#000000; font-weight:400; font-size:x-small; text-decoration:none; }
+.CS_SR_Item_BreadCrumbs { font-weight:400; font-size:x-small; text-decoration:none; }
+
+/* Tab Bar */
+.CS_Element_TabBar { visibility:visible; }
+.CS_TBar_Item { color:#FFFFFF; font-family:Verdana,Arial,sans-serif; font-size:x-small; text-decoration:none; font-weight:700; }
+.CS_TBar_Item_Selected { color:#FFFFFF; font-family:Verdana,Arial,sans-serif; font-size:x-small; text-decoration:none; font-weight:700; }
+
+/* Tasks */
+.CS_Element_Task { visibility:visible; }
+
+/* Text Around Image */
+.CS_Element_TAI { visibility:visible; }
+.CS_TAI_Caption { text-decoration:none; text-align:center; font-family:Verdana,Arial,sans-serif; font-weight:700; color:#000000; }
+.CS_TAI_Text { font-weight:400; font-family:Verdana,Arial,sans-serif; font-size:x-small; color:#000000; }
+.CS_TAI_Image { text-align:center; text-decoration:none; }
+
+/* Textblock */
+.CS_Element_Textblock { visibility:visible; }
+.CS_Textblock_Caption { text-decoration:none; text-align:center; font-family:Verdana,Arial,sans-serif; font-weight:700; color:#000000; }
+.CS_Textblock_Text { font-weight:400; font-family:Verdana,Arial,sans-serif; font-size:x-small; color:#000000; }
+
+/* External Content (Web Process) */
+.CS_Element_WebProcess { visibility:visible; }
+
+/* Rich Text Block */
+.CS_RT_TABLE { padding:0; margin:0; }
+.CS_RT_TR { background-color:#FFFFFF; }
+.CS_RT_TH { text-align:center; font-weight:700; font-family:Verdana,Arial,sans-serif; color:#000000; }
+.CS_RT_TD { text-align:left; font-weight:400; font-family:Verdana,Arial,sans-serif; color:#000000; }
+.CS_RT_UL { list-style-type:circle; }
+.CS_RT_OL { list-style-type:decimal; }
+.CS_RT_LI { list-style-position:outside; }
+.CS_RT_Text { font-family:Verdana,Arial,sans-serif; color:#000000; }
+.CS_RT_Image { text-decoration:none; border:0; }
+
+
+/*
+     FILE ARCHIVED ON 10:08:20 Jul 11, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 07:34:34 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 73.943
+  exclusion.robots: 0.078
+  exclusion.robots.policy: 0.068
+  RedisCDXSource: 0.639
+  esindex: 0.007
+  LoadShardBlock: 51.536 (3)
+  PetaboxLoader3.datanode: 69.624 (4)
+  load_resource: 59.406
+  PetaboxLoader3.resolve: 33.557
+*/

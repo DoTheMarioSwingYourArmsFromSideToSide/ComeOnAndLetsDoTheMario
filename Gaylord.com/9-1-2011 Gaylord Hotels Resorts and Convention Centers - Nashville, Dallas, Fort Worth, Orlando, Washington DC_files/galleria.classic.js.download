@@ -1,0 +1,137 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+/*!
+ * Galleria Classic Theme
+ * http://galleria.aino.se
+ *
+ * Copyright (c) 2010, Aino
+ * Licensed under the MIT license.
+ */
+
+(function($) {
+
+Galleria.addTheme({
+    name: 'classic',
+    author: 'Galleria',
+    version: '1.2',
+    css: 'galleria.classic.css',
+    defaults: {
+        transition: 'slide',
+        show_caption: false,
+        thumb_crop: 'height'
+    },
+    init: function(options) {
+      
+
+        
+        this.addElement('info-link'); /*need to pull title of image into info-link*/
+        this.append({
+            'info' : ['info-link']
+        });
+        
+        
+       
+        
+        this.$('loader').show().fadeTo(200, 1);
+        this.$('counter').show().fadeTo(200, 1);
+        
+        this.$('thumbnails').children().hover(function() {
+            $(this).not('.active').children().stop().fadeTo(100, 1);
+        }, function() {
+            $(this).not('.active').children().stop().fadeTo(400, 1);
+        }).not('.active').children().css('opacity',1);
+        
+        //commenting out the below lines keeps the right and left arrows from disappearing when not hovered
+        
+        //this.$('container').hover(this.proxy(function() {
+        //    this.$('image-nav-left,image-nav-right,counter').fadeIn(200);
+       // }), this.proxy(function() {
+       //     this.$('image-nav-left,image-nav-right,counter').fadeOut(500);
+       // }));
+        
+        //this.$('image-nav-left,image-nav-right,counter').hide();
+        
+        var elms = this.$('info-link,info-text').click(function() {
+            elms.slideToggle(400);
+            
+        });
+        
+        
+        $('.galleria-thumbnail-list').css("height", "50px");
+        
+        
+        if (options.show_caption) {
+            elms.trigger('click');
+        }
+        
+        this.bind(Galleria.LOADSTART, function(e) {
+        	if (this.$('info-link').css("display") == "none") {
+        		this.$('info-text').slideToggle(1);
+    		}
+        	
+            if (!e.cached) {
+                this.$('loader').show().fadeTo(200, .4);
+            }
+            
+            
+        });
+
+        this.bind(Galleria.LOADFINISH, function(e) {
+        	
+            this.$('loader').fadeOut(200);
+            
+            if (this.$('info-link').css("display") == "none") {
+            
+           		 if (this.hasInfo()) {
+             		   this.$('info-text').delay(800).slideToggle(600);
+           		 } else {
+              		   this.$('info-text').delay(800).slideToggle(600);
+           		}
+      		  }
+            
+        });
+        
+      
+        
+        this.bind(Galleria.LOADSTART, function(e) {
+            $(e.thumbTarget).css('opacity',1).parent().addClass('active')
+                .siblings('.active').removeClass('active').children().css('opacity',1);
+        })
+        
+    }
+});
+
+})(jQuery);
+
+
+}
+/*
+     FILE ARCHIVED ON 07:29:52 Sep 01, 2011 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 07:36:51 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 67.379
+  exclusion.robots: 0.063
+  exclusion.robots.policy: 0.055
+  RedisCDXSource: 0.536
+  esindex: 0.007
+  LoadShardBlock: 47.059 (3)
+  PetaboxLoader3.datanode: 62.477 (4)
+  load_resource: 80.648
+  PetaboxLoader3.resolve: 40.098
+*/

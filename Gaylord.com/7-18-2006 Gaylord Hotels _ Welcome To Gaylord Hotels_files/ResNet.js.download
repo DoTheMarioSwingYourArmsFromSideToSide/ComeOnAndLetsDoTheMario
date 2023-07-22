@@ -1,0 +1,107 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+// changed function name to something less generic (was: gotourl(); now: gotoResNet())
+
+// Script to build Resnet reservation link from any page in a client website.
+// Written by Agilysys, Inc. 
+// All rights reserved  Copyright 2005  
+// ***********************************
+// ADD this script section to the <head> area of the page or include in your called .JS file
+
+function gotoResNet()
+{   // builds the URL for ResNet.  Change the domain name 
+	// and the partition and the offer below to match your needs 
+	// the %3B in the URL is the semiColon.
+
+	var hotel = document.ResNetGetRates.hotel.value;
+
+	if (hotel == "GON")
+	{
+
+	var partition = "nsh";			// From ResNet. Usually a 3 character code that was given to you during ResNet setup
+	var offer = "NET"; 				// From ResNet. If using the default blank offer just leave the two quote marks
+	var domain = "reservations.oprylandhotels.com";	// Example: res.greathotel.com  DO NOT include the https//
+	// DO NOT EDIT BELOW HERE 
+	var month = document.ResNetGetRates.month.value;
+	var date = document.ResNetGetRates.day.value;
+	var year = document.ResNetGetRates.year.value;
+	var nights = document.ResNetGetRates.nights.value;
+	var adults = document.ResNetGetRates.adults.value;
+	var children = document.ResNetGetRates.children.value;
+	var roomType = document.ResNetGetRates.roomType.value;
+	var myyear = year.substring(2,4)
+	document.location.href =
+	"https://"+domain+"/cgi-bin/lansaweb?procfun+rn+resnet+"+partition+"+funcparms+UP(A2560)%3A%3B"+offer+"%3B"+month+date+myyear+"%3B"+nights+"%3B"+adults+"%3B"+children+"%3B"+roomType+"%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3F";
+	}
+
+	else if (hotel == "GPH")
+	{
+
+	var partition = "orl";			// From ResNet. Usually a 3 character code that was given to you during ResNet setup
+	var offer = "NET"; 				// From ResNet. If using the default blank offer just leave the two quote marks
+	var domain = "reservations.gaylordpalms.gaylordhotels.com";	// Example: res.greathotel.com  DO NOT include the https//
+	// DO NOT EDIT BELOW HERE 
+	var month = document.ResNetGetRates.month.value;
+	var date = document.ResNetGetRates.day.value;
+	var year = document.ResNetGetRates.year.value;
+	var nights = document.ResNetGetRates.nights.value;
+	var adults = document.ResNetGetRates.adults.value;
+	var children = document.ResNetGetRates.children.value;
+	var roomType = document.ResNetGetRates.roomType.value;
+	var myyear = year.substring(2,4)
+	document.location.href =
+	"https://"+domain+"/cgi-bin/lansaweb?procfun+rn+resnet+"+partition+"+funcparms+UP(A2560)%3A%3B"+offer+"%3B"+month+date+myyear+"%3B"+nights+"%3B"+adults+"%3B"+children+"%3B"+roomType+"%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3F";
+	}
+
+	else
+	{
+	var partition = "tex";			// From ResNet. Usually a 3 character code that was given to you during ResNet setup
+	var offer = "NET"; 				// From ResNet. If using the default blank offer just leave the two quote marks
+	var domain = "reservations.texas.gaylordhotels.com";	// Example: res.greathotel.com  DO NOT include the https//
+	// DO NOT EDIT BELOW HERE 
+	var month = document.ResNetGetRates.month.value;
+	var date = document.ResNetGetRates.day.value;
+	var year = document.ResNetGetRates.year.value;
+	var nights = document.ResNetGetRates.nights.value;
+	var adults = document.ResNetGetRates.adults.value;
+	var children = document.ResNetGetRates.children.value;
+	var roomType = document.ResNetGetRates.roomType.value;
+	var myyear = year.substring(2,4)
+	document.location.href =
+	"https://"+domain+"/cgi-bin/lansaweb?procfun+rn+resnet+"+partition+"+funcparms+UP(A2560)%3A%3B"+offer+"%3B"+month+date+myyear+"%3B"+nights+"%3B"+adults+"%3B"+children+"%3B"+roomType+"%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3B%3F";
+	}
+
+}
+
+
+}
+/*
+     FILE ARCHIVED ON 02:28:30 Apr 05, 2006 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 07:34:02 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 243.025
+  exclusion.robots: 0.06
+  exclusion.robots.policy: 0.052
+  cdx.remote: 0.048
+  esindex: 0.007
+  LoadShardBlock: 220.06 (3)
+  PetaboxLoader3.datanode: 259.563 (4)
+  load_resource: 189.354
+  PetaboxLoader3.resolve: 29.871
+*/

@@ -1,0 +1,226 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+analyticsRulesObj={};function readTextFile(file,callback){var rawFile=new XMLHttpRequest();rawFile.overrideMimeType("application/json");rawFile.open("GET",file,true);rawFile.onreadystatechange=function(){if(rawFile.readyState===4&&rawFile.status=="200"){callback(rawFile.responseText);}}
+rawFile.send(null);}
+var siteUrl="";if(document.getElementById("hdnSiteUrl")!=null){siteUrl=document.getElementById("hdnSiteUrl").value;}
+readTextFile(siteUrl+"/milestone_common/autoanalyticsrules.json",function(text){analyticsRulesObj=JSON.parse(text);});document.addEventListener("DOMContentLoaded",function(event){setTimeout(function(){processAnaylticsRules();console.log('Auto Data Layer Rules applied');},2000);});var found=false;autoDataLayerLog={};autDataLayerObjRuleMatched=[];autDataLayerObjRuleNotMatched=[];dataLayerValueObj=null;var Download={click:function(node){var ev=document.createEvent("MouseEvents");ev.initMouseEvent("click",true,false,self,0,0,0,0,0,false,false,false,false,0,null);return node.dispatchEvent(ev);},encode:function(data){return 'data:application/octet-stream;base64,'+btoa(data);},link:function(data,name){var a=document.createElement('a');a.download=name||self.location.pathname.slice(self.location.pathname.lastIndexOf('/')+1);a.href=data||self.location.href;return a;}};Download.save=function(data,name){this.click(this.link(this.encode(data),name));};var customIndexOf=function(array,searchElement,fromIndex){try{var returnValue=-1;if(searchElement==""||searchElement==undefined||searchElement=="undefined"||searchElement==null)
+return-1;for(var i=0;i<array.length;i++){if(array[i]==""||array[i]==undefined||array[i]=="undefined")
+continue;if(searchElement.trimStart(" ").trimEnd(" ").toLowerCase().indexOf(array[i].trimStart(" ").trimEnd(" ").toLowerCase())>=0){returnValue=i;break;}}
+return returnValue;}
+catch(error){console.log(error);return-1;}};function processAnaylticsRules(){var elementArray=["a","button","input[type=submit]"];for(var element in elementArray){bindClickEvent(elementArray[element]);}
+if(isAutoLog()){generateAutoDataLayerLogFile();}}
+function generateAutoDataLayerLogFile(){try{autoDataLayerLog.autDataLayerObjRuleMatched={autDataLayerObjRuleMatched};autoDataLayerLog.autDataLayerObjRuleNotMatched={autDataLayerObjRuleNotMatched}
+var textToSave=JSON.stringify(autoDataLayerLog);console.log(textToSave)
+Download.save(textToSave,"autoDataLayerLog.txt");}catch(ex){console.log(ex);}}
+function PushDataLayerFromServerSideKeyWord(dataLayerValue){try{if(dataLayerValue!=null&&dataLayerValue!=undefined){dataLayerValueObj=JSON.parse(dataLayerValue);if(dataLayerValueObj["action"]!="form submission"){PushToGTM_global(dataLayerValueObj);}
+else{found=true;}}}
+catch(ex){console.log(ex);}}
+function processElementClickEvent(element){found=false;if(element.getAttribute("data-autodatalayer")==null){if(analyticsRulesObj!=null&&analyticsRulesObj!=undefined&&analyticsRulesObj!="undefined"&&analyticsRulesObj!=""){if(element.getAttribute("data-autoDLValue")!=null&&element.getAttribute("data-autoDLValue")!=undefined){PushDataLayerFromServerSideKeyWord(element.getAttribute("data-autoDLValue"));}
+else{checkDataLayerRules(analyticsRulesObj,element);}}}}
+function bindClickEvent(element){try{var elements=document.querySelectorAll(element);var targetText="";for(var i=0,len=elements.length;i<len;i++){addClickEventListner(elements[i],i);}}
+catch(error){console.log(error);}}
+function bindClickEventToChildElements(element,parentControlId){try{var elements=document.querySelectorAll(element);var targetText="";for(var i=0,len=elements.length;i<len;i++){addClickEventListner(elements[i],i);}}
+catch(error){console.log(error);}}
+var dataLayerListener=function(e){processElementClickEvent(e.currentTarget);}
+function addClickEventListner(element,index){element.removeEventListener("click",dataLayerListener,false);element.addEventListener("click",dataLayerListener,false);if(isAutoLog()){if(index>0&&found){found=false;}
+processElementClickEvent(element);if(isAutoLog()&&!found){generateAutoLog(false,element,null);}}}
+function removeClickEventListner(element,index){element.removeEventListener('click',(e)=>{processElementClickEvent(e.currentTarget);},false);}
+function getUrlParameter(name){name=name.replace(/[\[]/,'\\[').replace(/[\]]/,'\\]');var regex=new RegExp('[\\?&]'+name+'=([^&#]*)');var results=regex.exec(location.search);return results===null?'':decodeURIComponent(results[1].replace(/\+/g,' '));};function checkDataLayerRules(obj,element){for(var key in obj){try{if(found)
+break;if(obj.hasOwnProperty(key)){var objVal=obj[key];if(Array.isArray(obj[key])){checkDataLayerRules(objVal,element);}
+else{var eventName='';var categoryName='';var action='';var label='';var labelPrefix='';var targetText="";var matchText=objVal.matchingText;var matchTextIndex=-1;var matchTextarray=matchText.split("|");if(objVal.ruleCondition.toLowerCase()=="href"){targetText=element.href;if(targetText!=null&&targetText!=undefined&&targetText.toLocaleLowerCase().indexOf("javascript")>=0){targetText=element.innerText;}}
+else if(objVal.ruleCondition.toLowerCase()=="innertext"){if(element.tagName=="A"){if(element.tagName=="A"&&element.children.length>0&&element.firstElementChild!=null&&element.firstElementChild.tagName=="SPAN"){if(element.firstElementChild.innerText==""||element.firstElementChild.innerText==null||element.firstElementChild.innerText==undefined){targetText=element.lastElementChild.innerText;}
+else{targetText=element.firstElementChild.innerText;}
+if(targetText==""||targetText==null){targetText=element.innerText;}}
+else{targetText=element.innerText;}}
+else if(element.tagName.toLocaleLowerCase()=="button"){targetText=element.value;if(targetText==""){targetText=element.innerText;}}}
+else if(objVal.ruleCondition.toLowerCase()=="value"){targetText=element.value;}
+eventName=objVal.eventName;category=objVal.category;action=objVal.action;label=objVal.label;labelPrefix=objVal.labelPrefix;var closestElementform=element.closest("form");if(matchText!=""&&matchText!=null&&matchText!=undefined&&matchText!="undefined"){matchTextIndex=customIndexOf(matchTextarray,targetText);if(matchTextIndex>=0){found=true;if(objVal.ruleName.toLowerCase()=="booking_entrance_main_widget"){if(element.tagName=="A"&&(element.href!=undefined&&element.href!=null&&(element.href.indexOf("/#")>=0||element.href.indexOf("javascript")>=0))){found=false;continue;}
+if(closestElementform!=null&&closestElementform!=undefined&&closestElementform!=""){}else{found=false;continue;}}
+else if(objVal.ruleName.toLowerCase()=="golf_booking_entrance"){if(element.tagName=="A"&&element.href.indexOf("javascript")<0&&window.location.href.toLowerCase().indexOf("golf")>=0){}
+else{found=false;continue;}}
+else if(objVal.ruleName.toLowerCase()=="booking_entrance"){if(element.tagName=="A"&&(element.href!=undefined&&element.href!=null&&(element.href.indexOf("/#")>=0||element.href.indexOf("javascript")>=0))){found=false;continue;}}
+else if(objVal.ruleName.toLowerCase()=="popup"){if(element.id.indexOf("popup")>=0||element.className.indexOf("popup")>=0){}
+else{found=false;continue;}}
+else if(objVal.ruleName.toLowerCase()=="pdf"){if(objVal.findIn!=null&&objVal.findIn!=undefined&&objVal.findIn!=""&&objVal.findIn!="undefined"&&objVal.findIn=="url"){if(objVal.rules!=null&&objVal.rules!=undefined&&objVal.rules!="undefined"&&objVal.rules.length>0){for(var j=0;j<objVal.rules.length;j++){if(window.location.href.indexOf(objVal.rules[j].text)>=0){labelPrefix=objVal.rules[j].labelPrefix;break;}}}
+else{found=false;continue;}}
+else{found=false;continue;}}
+else if(objVal.ruleName.toLowerCase()=="social_icons"){var socialLabel=IsSocialIcons(targetText,element);if(socialLabel==""){found=false;continue;}
+else{label=socialLabel;found=true;}}
+else if(objVal.ruleName.toLowerCase()=="outbound_map"){if(IsOutBoundMap(element,targetText)){found=true;}
+else{found=false;continue;}}
+else if(objVal.ruleName.toLowerCase()=="outbound_link"){if(IsOutBoundLink(element)){}
+else{found=false;continue;}}}
+else if(objVal.ruleName.toLowerCase()=="social_icons"){var socialLabel=IsSocialIcons(targetText,element);if(socialLabel==""){found=false;continue;}
+else{label=socialLabel;found=true;}}
+else if(objVal.ruleName.toLowerCase()=="outbound_map"){if(IsOutBoundMap(element,targetText)){found=true;}
+else{found=false;continue;}}
+else if(objVal.ruleName.toLowerCase()=="outbound_link"){if(IsOutBoundLink(element)){found=true;}
+else{found=false;continue;}}}
+else if(objVal.ruleName.toLowerCase()=="reviewform"){if(isReviewForm(closestElementform,"formtype")){found=true;}
+else{found=false;continue;}}
+else if(objVal.ruleName.toLowerCase()=="contact_us_form"){var formName="";if(closestElementform!=null){formName=GetClosestformName(closestElementform,"dformId");if(formName!=null&&formName!=undefined&&formName!=""&&formName.indexOf("contact")>=0){found=true;label=replaceRFPFormName(label,formName);}
+else if(window.location.href.indexOf("contact")>=0){formName=getRFPFromNameByName("contact");if(formName!=null&&formName!=""&&formName!=undefined){found=true;label=replaceRFPFormName(label,formName);}}
+else{found=false;continue;}}
+else{found=false;continue;}}
+else if(objVal.ruleName.toLowerCase()=="newsletter_signup"){var formName="";formName=GetClosestformName(closestElementform,"dformId");if(formName!=null&&formName!=undefined&&formName!=""){if(formName!=null&&formName!=""&&formName!=undefined&&(formName.indexOf("subscribe")>=0||formName.indexOf("email subscribe")>=0||formName.indexOf("email offer")>=0)){found=true;label=replaceRFPFormName(label,formName);}}
+else{found=false;continue;}}
+else if(objVal.ruleName.toLowerCase()=="rfp"){var formName="";formName=GetClosestformName(closestElementform,"dformId");if(formName!=null&&formName!=undefined&&formName!=""){found=true;if(objVal.findIn!=null&&objVal.findIn!=undefined&&objVal.findIn!=""&&objVal.findIn!="undefined"&&objVal.findIn=="url"){if(objVal.rules!=null&&objVal.rules!=undefined&&objVal.rules!="undefined"&&objVal.rules.length>0){for(var j=0;j<objVal.rules.length;j++){if(formName.indexOf(objVal.rules[j].text)>=0){labelPrefix=objVal.rules[j].labelPrefix;break;}}}
+else{found=false;continue;}}
+else{found=false;continue;}}}
+else if(objVal.ruleName.toLowerCase()=="outbound_map"){if(IsOutBoundMap(element,targetText)){found=true;}
+else{found=false;continue;}}
+else if(objVal.ruleName.toLowerCase()=="outbound_link"){if(IsOutBoundLink(element)){found=true;}
+else{found=false;continue;}}
+else if(objVal.ruleName.toLowerCase()=="allowed_donotallowed_button_click"){if(objVal.findIn!=null&&objVal.findIn!=undefined&&objVal.findIn!=""&&objVal.findIn!="undefined"&&objVal.findIn=="className"){if(objVal.rules!=null&&objVal.rules!=undefined&&objVal.rules!="undefined"&&objVal.rules.length>0){for(var j=0;j<objVal.rules.length;j++){if(element.innerText.toLocaleLowerCase()==objVal.rules[j].text.toLocaleLowerCase()&&(element.className.toLocaleLowerCase().indexOf(objVal.rules[j].className)>=0||element.parentElement.className.toLocaleLowerCase().indexOf(objVal.rules[j].className)>=0)){label=objVal.rules[j].label;found=true;break;}}}}}
+else if(objVal.ruleName.toLowerCase()=="faq"){if(element.className.toLocaleLowerCase().indexOf("queanchor")>=0){found=true;}}
+else if(objVal.ruleName.toLowerCase()=="booking_reminder"){if(document.getElementById("remindform")!=null){childElements=document.getElementById("remindform").querySelectorAll("button");if(childElements!=null&&childElements!=undefined&&childElements.length>0){for(var i=0;i<childElements.length;i++){if(childElements[i].innerText==element.innerText&&element.innerText.trim().toLowerCase()=="submit"){found=true;}}}}}
+else if(objVal.ruleName.toLowerCase()=="revenue_recovery"){var childElements;if(document.getElementById("divsiteabandonment")!=null){childElements=document.getElementById("divsiteabandonment").querySelectorAll(".button");}
+if(childElements!=null&&childElements!=undefined&&childElements.length>0){for(var i=0;i<childElements.length;i++){if(objVal.rules!=null&&objVal.rules!=undefined&&objVal.rules!="undefined"&&objVal.rules.length>0){for(var j=0;j<objVal.rules.length;j++){if(childElements[i].innerText==element.innerText&&objVal.rules[j].text.toLocaleLowerCase()==element.innerText.toLocaleLowerCase()){found=true;label=objVal.rules[j].label;labelPrefix=objVal.rules[j].labelPrefix;category=objVal.rules[j].category;eventName=objVal.rules[j].eventName;break;}}}}}}
+else if(objVal.ruleName.toLowerCase()=="ota_viewed"){if(document.getElementById("showCompareRatePriceBtn")!=null){childElements=document.getElementById("showCompareRatePriceBtn").querySelectorAll(".check-price-btn");if(childElements!=null&&childElements!=undefined&&childElements.length>0){for(var i=0;i<childElements.length;i++){if(element.innerText.trim().toLowerCase()=="check rates"&&childElements[i].innerText==element.innerText){found=true;}}}}}
+else if(objVal.ruleName.toLowerCase()=="ota_clicked"){if(document.getElementsByClassName("ota-main-box")!=null){childElements=document.getElementsByClassName("ota-main-box");if(childElements!=null&&childElements!=undefined&&childElements.length>0){for(var i=0;i<childElements.length;i++){var newElem=childElements[i].querySelectorAll(".popup-booking-link");if(newElem!=null&&newElem.length>0){for(var j=0;j<newElem.length;j++){if(element.innerText.trim().toLowerCase()=="check availability"&&newElem[j].innerText==element.innerText){found=true;}}}}}}}
+else if(objVal.ruleName=="discountCoupon_popup_bookNow_button"){if(document.getElementById("couponbuttons")!=null){childElements=document.getElementById("couponbuttons").querySelectorAll(".btnbook");if(childElements!=null&&childElements!=undefined&&childElements.length>0){for(var i=0;i<childElements.length;i++){if(childElements[i].innerText==element.innerText){found=true;}}}}}
+else if(objVal.ruleName=="discountCoupon_popup_save_button"){if(document.getElementById("couponbuttons")!=null){childElements=document.getElementById("couponbuttons").querySelectorAll(".btnsave");if(childElements!=null&&childElements!=undefined&&childElements.length>0){for(var i=0;i<childElements.length;i++){if(childElements[i].innerText==element.innerText){found=true;}}}}}
+else if(objVal.ruleName=="discountCoupon_popup_print_button"){if(document.getElementById("couponbuttons")!=null){childElements=document.getElementById("couponbuttons").querySelectorAll(".btnprint");if(childElements!=null&&childElements!=undefined&&childElements.length>0){for(var i=0;i<childElements.length;i++){if(childElements[i].innerText==element.innerText){found=true;}}}}}
+else if(objVal.ruleName=="discountCoupon_page_bookNow_button"){if(document.getElementById("couponbuttons")!=null){childElements=document.getElementById("couponbuttons").querySelectorAll(".coubtn");if(childElements!=null&&childElements!=undefined&&childElements.length>0){for(var i=0;i<childElements.length;i++){if(element.innerText.toLocaleLowerCase().trim()=="book now"&&childElements[i].innerText==element.innerText){found=true;}}}}}
+else if(objVal.ruleName=="discountCoupon_page_save_button"){if(document.getElementById("couponbuttons")!=null){childElements=document.getElementById("couponbuttons").querySelectorAll(".coubtn");if(childElements!=null&&childElements!=undefined&&childElements.length>0){for(var i=0;i<childElements.length;i++){if(element.innerText.toLocaleLowerCase().trim()=="download"&&childElements[i].innerText==element.innerText){found=true;}}}}}
+else if(objVal.ruleName=="discountCoupon_page_print_button"){if(document.getElementById("couponbuttons")!=null){childElements=document.getElementById("couponbuttons").querySelectorAll(".coubtn");if(childElements!=null&&childElements!=undefined&&childElements.length>0){for(var i=0;i<childElements.length;i++){if(element.innerText.toLocaleLowerCase().trim()=="print"&&childElements[i].innerText==element.innerText){found=true;}}}}}
+else{found=false;continue;}
+if(found){if(label!=null&&label!=undefined&&label!="undefined"&&label!=null){if(label.indexOf("{{title}}")>=0){var title='';var parentElementh1h2=getRecursiveParentElement(element,4);if(parentElementh1h2!=null){title=parentElementh1h2.innerText;}
+else{title=getURLPathName();}
+label=label.replace("{{title}}",title);}}
+if(label.indexOf("{{elementText}}")>=0){var elementText='';if(element.tagName=="A"&&element.children.length>0&&element.firstElementChild!=null&&element.firstElementChild.tagName=="SPAN"){if(element.firstElementChild.innerText==""||element.firstElementChild.innerText==null||element.firstElementChild.innerText==undefined){elementText=element.lastElementChild.innerText;}
+else{elementText=element.firstElementChild.innerText;}
+if(elementText==""||elementText==null||elementText==undefined){elementText=element.innerText;}}
+else{elementText=element.innerText;}
+label=label.replace("{{elementText}}",elementText);}
+if(label.indexOf("{{rfpformName}}")>=0){var formName="";formName=GetClosestformName(closestElementform,"dformId");label=replaceRFPFormName(label,formName);}
+if(label.indexOf("{{clickURL}}")>=0){label=label.replace("{{clickURL}}",getURLHostName(element.href));}
+if(labelPrefix!=""&&labelPrefix!=undefined&&labelPrefix!=undefined&&labelPrefix!=null)
+label=labelPrefix+label;if(eventName!=null&&eventName!=""&&eventName!=undefined&&eventName!="undefined"){eventName=eventName.toLocaleLowerCase();}
+if(category!=null&&category!=""&&category!=undefined&&category!="undefined"){category=category.toLocaleLowerCase();}
+if(action!=null&&action!=""&&action!=undefined&&action!="undefined"){action=action.toLocaleLowerCase();}
+if(label!=null&&label!=""&&label!=undefined&&label!="undefined"){if(label.indexOf("{{clickURL}}")>=0){label=label.replace("{{clickURL}}",getURLHostName(window.location.href));}
+if(label.indexOf("{{rfpformName}}")>=0){label=replaceRFPFormName(label,getURLHostName(window.location.href));}
+if(label.indexOf("{{elementText}}")>=0){label=label.replace("{{elementText}}",getURLHostName(window.location.href));}
+if(label.indexOf("{{title}}")>=0){label=label.replace("{{title}}",getURLHostName(window.location.href));}}
+if(label==""||label==null||label==undefined){label=element.innerText;}
+label=label.toLocaleLowerCase();datalayerObj={'event':eventName,'category':category,'action':action,'label':label};if(isAutoLog()){generateAutoLog(true,element,datalayerObj);}
+if(action!="form submission"){PushToGTM_global(datalayerObj);}
+break;}}}}
+catch(error){console.log(error);continue;}}}
+function IsSocialIcons(targetText,element){var label="";if(targetText!=null&&targetText!=""&&targetText!=undefined&&targetText!="undefined"){if(targetText.toLowerCase().indexOf("facebook")>=0||element.innerText.toLowerCase().indexOf("facebook")>=0){label="Facebook";}
+else if(targetText.toLowerCase().indexOf("linkedin")>=0||element.innerText.toLowerCase().indexOf("linkedin")>=0){label="Linkedin";}
+else if(targetText.toLowerCase().indexOf("instagram")>=0||element.innerText.toLowerCase().indexOf("instagram")>=0){label="Instagram";}
+else if(targetText.toLowerCase().indexOf("pinterest")>=0||element.innerText.toLowerCase().indexOf("pinterest")>=0){label="Pinterest";}
+else if(targetText.toLowerCase().indexOf("twitter")>=0||element.innerText.toLowerCase().indexOf("twitter")>=0){label="Twitter";}
+else if(targetText.toLowerCase().indexOf("youtube")>=0||element.innerText.toLowerCase().indexOf("youtube")>=0){label="Youtube";}
+else if(targetText.toLowerCase().indexOf("foursquare")>=0||element.innerText.toLowerCase().indexOf("foursquare")>=0){label="Foursquare";}
+else if(targetText.toLowerCase().indexOf("tripadvisor")>=0||element.innerText.toLowerCase().indexOf("tripadvisor")>=0){label="Tripadvisor";}}
+return label;}
+function IsOutBoundMap(element,targetText){if((element.tagName=="A"&&element.href.indexOf("maps")>=0||(element.tagName=="A"&&element.href.indexOf("/tracking/click-location-map.aspx")>=0))||(targetText!=""&&targetText!=null&&targetText!=undefined&&targetText!="undefined"&&(targetText.toLocaleLowerCase().indexOf("maps")>=0||targetText.toLocaleLowerCase().indexOf("get direction")>=0))){return true;}}
+function IsOutBoundLink(element){if(element.tagName=="A"&&(element.href!=""&&element.href!=null&&!(element.href.indexOf(window.location.host)>=0)||element.href.indexOf("/tracking")>=0)&&element.href.indexOf("javascript")<0){return true;}
+return false;}
+function getURLHostName(url){try{return new URL(url).hostname;}
+catch(ex){console.log(ex);return "";}}
+function getURLPathName(){try{var urlPathName=window.location.pathname;var siteUrl="";if(document.getElementById("hdnmilestoneSiteURL")!=null&&document.getElementById("hdnmilestoneSiteURL")!=""&&document.getElementById("hdnmilestoneSiteURL")!=undefined){siteUrl=document.getElementById("hdnmilestoneSiteURL").value;}
+if(window.location.pathname.startsWith("/")){urlPathName=window.location.href.replace(siteUrl,"");if(urlPathName.indexOf("/")>=0){var urlPathArray=urlPathName.split("/");if(urlPathArray[0]==""){return urlPathArray[1]}
+else{return urlPathArray[0];}}}
+if(urlPathName==""||urlPathName=="/"||urlPathName.startsWith("?")){return "HomePage";}
+else if(urlPathName!=""&&urlPathName!=null&&urlPathName!=undefined&&urlPathName!="undefined"&&urlPathName.length>0){return urlPathName;}
+return "";}
+catch(ex){console.log(ex);return "";}}
+function getRFPFromNameById(formId){try{if(typeof rfpforms=="undefined"){return "";}
+var rfpFormList=JSON.parse(rfpforms);if(rfpFormList==null||rfpFormList==undefined||rfpFormList.length<=0){return "";}
+var formName=rfpFormList.filter(function(el){if(el.formId==formId){return el.formName;}});if(formName!=null&&formName.length>0){var strFormName="";if(formName!=null&&formName.length>0&&formName[0].formName!=null){strFormName=formName[0].formName.toLocaleLowerCase();}
+return strFormName;}
+return "";}
+catch(ex){console.log(ex);return "";}}
+function getRFPFromNameByName(formName){try{if(typeof rfpforms=="undefined"){return "";}
+var rfpFormList=JSON.parse(rfpforms);var formName=rfpFormList.filter(function(el){if(el.formName.toLowerCase().indexOf(formName)>=0){return el.formName;}});if(formName!=null&&formName.length>0){var strFormName="";if(formName!=null&&formName.length>0&&formName[0].formName!=null){strFormName=formName[0].formName.toLocaleLowerCase();}
+return strFormName;}
+return "";}
+catch(ex){console.log(ex);return null;}}
+function pushRFPFormToDataLayer(formName){try{if(formName!=""&&formName!=null&&formName!=undefined&&formName!="undefined"){var labelPrefix="";var label="";var action="";var category="";var eventName="";var objRfpRule;var objVal;if(typeof analyticsRulesObj!="undefined"&&analyticsRulesObj!=null&&analyticsRulesObj.dataLayerRules!=null&&analyticsRulesObj.dataLayerRules.length<0){return;}
+objRfpRule=analyticsRulesObj.dataLayerRules.filter(function(el){if(el.ruleName=="rfp"){return el;}});if(objRfpRule!=null&&objRfpRule!=undefined&&objRfpRule.length>0){objVal=objRfpRule[0];}
+if(objVal!=null&&objVal!=undefined&&objVal!="undefined"){label=objVal.label;action=objVal.action;category=objVal.category;eventName=objVal.eventName;if(objVal.findIn!=null&&objVal.findIn!=undefined&&objVal.findIn!=""&&objVal.findIn!="undefined"&&objVal.findIn=="url"){if(objVal.rules!=null&&objVal.rules!=undefined&&objVal.rules!="undefined"&&objVal.rules.length>0){for(var j=0;j<objVal.rules.length;j++){if(formName.indexOf(objVal.rules[j].text)>=0){labelPrefix=objVal.rules[j].labelPrefix;break;}}}}}
+if(formName.toLocaleLowerCase().indexOf("contact")>=0){objRfpRule=analyticsRulesObj.dataLayerRules.filter(function(el){if(el.ruleName.toLowerCase()=="contact_us_form"){return el;}});objVal=objRfpRule[0];label=objVal.label;action=objVal.action;category=objVal.category;eventName=objVal.eventName;labelPrefix=objVal.labelPrefix;}
+else if(formName.toLocaleLowerCase().indexOf("subscribe")>=0||formName.toLocaleLowerCase().indexOf("email subscribe")>=0){objRfpRule=analyticsRulesObj.dataLayerRules.filter(function(el){if(el.ruleName.toLowerCase()=="newsletter_signup"){return el;}});objVal=objRfpRule[0];label=objVal.label;action=objVal.action;category=objVal.category;eventName=objVal.eventName;labelPrefix=objVal.labelPrefix;}
+label=replaceRFPFormName(label,formName);label=labelPrefix+label;PushToGTM_global({'event':eventName,'category':category,'action':action,'label':label});}}
+catch(ex){console.log(ex);}}
+function GetClosestformName(closestElementform,hiddenFieldName){var formName="";try{if(closestElementform!=null&&closestElementform!=undefined&&closestElementform!=""){if(closestElementform.querySelectorAll("input[id='"+hiddenFieldName+"']")!=null&&closestElementform.querySelectorAll("input[id='"+hiddenFieldName+"']").length>0){var formId=closestElementform.querySelectorAll("input[id='"+hiddenFieldName+"']")[0].value;if(formId!=null&&formId!=""&&formId!=undefined&&formId!="undefined"){formName=getRFPFromNameById(formId);}}}}
+catch(ex){console.log(ex);}
+return formName;}
+function isReviewForm(closestElementform,hiddenFieldName){var isReview=false;try{if(closestElementform!=null&&closestElementform!=undefined&&closestElementform!=""){if(closestElementform.querySelectorAll("input[id='"+hiddenFieldName+"']")!=null&&closestElementform.querySelectorAll("input[id='"+hiddenFieldName+"']").length>0){var hfValue=closestElementform.querySelectorAll("input[id='"+hiddenFieldName+"']")[0].value;if(hfValue!=null&&hfValue!=""&&hfValue!=undefined&&hfValue.toLowerCase().indexOf("review")>=0){return true;}}}}
+catch(ex){console.log(ex);}
+return isReview;}
+function IsLTOForm(){if(document.getElementById("hdnIsLTOPage")!=null&&document.getElementById("hdnIsLTOPage").value=="1"){return true;}
+return false;}
+function replaceRFPFormName(text,replaceText){if(text!=null&&text!=""&&text!=undefined){return text.replace("{{rfpformName}}",replaceText);}
+else{return "";}}
+function sleep(milliseconds){var start=new Date().getTime();for(var i=0;i<1e7;i++){if((new Date().getTime()-start)>milliseconds){break;}}}
+function generateAutoLog(autoDataLayerMatched,element,logValues){var xPath=getElementXPath(element);var obj={"elementTitle":element.innerText,"xPath":xPath,"autoDataLayerMatched":autoDataLayerMatched,"logValues":logValues};if(autoDataLayerMatched){autDataLayerObjRuleMatched.push(obj);}
+else{autDataLayerObjRuleNotMatched.push(obj);}}
+function PushToGTM_global(obj){try{if(!isAutoLog()){console.log(obj);if(obj.label){obj.label=obj.label.toLowerCase().trim();}
+if(typeof dataLayer!="undefined"){dataLayer.push(obj);}}}catch(ex){console.log(ex);}}
+function isAutoLog(){if(getUrlParameter("isautolog")=="1"){return true;}
+return false;}
+function getElementXPath(elt){var path="";for(;elt&&elt.nodeType==1;elt=elt.parentNode){idx=getElementIdx(elt);xname=elt.tagName;if(idx>1)xname+="["+idx+"]";path="/"+xname+path;}
+return path;}
+function getElementIdx(elt){var count=1;for(var sib=elt.previousSibling;sib;sib=sib.previousSibling){if(sib.nodeType==1&&sib.tagName==elt.tagName)count++}
+return count;}
+function stringToArrayBuffer(str){try{var buf=new ArrayBuffer(str.length);var bufView=new Uint8Array(buf);for(var i=0,strLen=str.length;i<strLen;i++){bufView[i]=str.charCodeAt(i);}
+return buf;}
+catch(ex){console.log(ex);return null;}}
+function getRecursiveParentElement(element,level){try{var i=0;var returnElement=null;var parentElement=null;while(i<level){if(i==0){if(parentElement==null){parentElement=element;}
+parentElement=getParentElement(parentElement);}
+else{parentElement=getParentElement(parentElement);}
+if(parentElement!=null){if(parentElement.querySelectorAll("h1")!=null&&parentElement.querySelectorAll("h1").length>0){returnElement=parentElement.querySelectorAll("h1")[parentElement.querySelectorAll("h1").length-1];break;}
+else if(parentElement.querySelectorAll("h2")!=null&&parentElement.querySelectorAll("h2").length>0){returnElement=parentElement.querySelectorAll("h2")[parentElement.querySelectorAll("h2").length-1];break;}}
+i++;}
+return returnElement;}catch(ex){console.log(ex);return null;}}
+function getParentElement(element){try{if(element!=null){return element.parentElement;}
+return null;}
+catch(ex){console.log(ex);return null;}}
+function push_coupon_form(eventName,category,action,label){if(eventName==null||eventName==undefined||eventName==""){eventName="email";}
+if(category==null||category==undefined||category==""){category="email";}
+if(action==null||action==undefined||action==""){action="form submission";}
+if(label==null||label==undefined||label==""){label="email-discount coupon";}
+PushToGTM_global({'event':eventName,'category':category,'action':action,'label':label});}
+var dformIdElement=document.getElementById("dformId");var dformIdValue="";if(dformIdElement!=null&&dformIdElement!=undefined&&dformIdElement!=""){dformIdValue=dformIdElement.value;}
+var isRFPform=false;if(dformIdValue!=""&&dformIdValue!=undefined&&dformIdValue!=null){isRFPform=true;}
+var isBookingReminderForm=false;if((document.getElementById("remindform")!=null&&document.getElementById("remindform")!=undefined)||(document.getElementById("remindForm")!=null&&document.getElementById("remindForm")!=undefined)){isBookingReminderForm=true;}
+if(isRFPform==true||isBookingReminderForm==true){var oldXHR=window.XMLHttpRequest;function newXHR(){var realXHR=new oldXHR();realXHR.addEventListener("readystatechange",function(){if(realXHR.readyState==4&&realXHR.status==200){if(found&&(realXHR.responseURL.indexOf('submitformdata.ashx')>=0||realXHR.responseURL.indexOf('api/BookingReminderApi/InsertBookingReminder')>=0)&&realXHR.responseText.toLocaleLowerCase().indexOf('true')>=0){if(typeof datalayerObj!="undefined"&&datalayerObj!=undefined&&datalayerObj!=null){PushToGTM_global(datalayerObj);}
+else if(typeof dataLayerValueObj!="undefined"&&dataLayerValueObj!=undefined&&dataLayerValueObj!=null){PushToGTM_global(dataLayerValueObj);}}}});return realXHR;}
+window.XMLHttpRequest=newXHR;}
+
+}
+/*
+     FILE ARCHIVED ON 12:45:39 Mar 11, 2023 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 08:23:47 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 90.091
+  exclusion.robots: 0.091
+  exclusion.robots.policy: 0.078
+  cdx.remote: 0.07
+  esindex: 0.01
+  LoadShardBlock: 49.159 (3)
+  PetaboxLoader3.datanode: 301.845 (4)
+  load_resource: 296.391
+  PetaboxLoader3.resolve: 23.368
+*/

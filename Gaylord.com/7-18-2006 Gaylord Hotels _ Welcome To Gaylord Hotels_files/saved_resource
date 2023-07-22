@@ -1,0 +1,997 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"> <!-- Content Copyright Gaylord Entertainment -->
+<!-- Page generated 2006-07-12 10:02:20 by CommonSpot Version 4.5.2.6 (2005-11-23 16:00:00) -->
+<!-- JavaScript & DHTML Code Copyright 1998-2005 PaperThin, Inc.  All rights reserved --> <head> <title>Gaylord Hotels : Welcome To Gaylord Hotels</title> <meta name="Description" id="Description" content="Gaylord Hotels comprise a family of three extraordinary properties, providing guests and attendees the finest in state-of-the-art meetings and convention facilities, luxurious accommodations, and entertainment" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="Keywords" id="Keywords" content="Gaylord Texan,  Gaylord Palms,  Gaylord Opryland,  Gaylord Hotels,  Florida,  Texas,  Tennessee,  Kissimmee,  Orlando,  Nashville,  Grapevine,  Dallas,  Fort Worth,  resort,  meetings,  conferences,  conventions,  centers,  rooms, Company overview, Gaylord Hotels, Gaylord Opryland Nashville, Gaylord Opryland Texas, Gaylord Palms" />
+<meta name="Generator" id="Generator" content="CommonSpot Content Server Version 4.5.2.6" />
+<link rel="stylesheet" href="/style/default.css" type="text/css" /><link rel="stylesheet" href="/style/gaylord.css" type="text/css" /><style type="text/css">
+	.mw { color:#000000;font-family:Verdana,Arial,Helvetica;font-weight:bold;font-size:xx-small;text-decoration:none; }
+	a.mw:link	{color:#000000;font-family:Verdana,Arial,Helvetica;font-weight:bold;font-size:xx-small;text-decoration:none;}
+	a.mw:visited	{color:#000000;font-family:Verdana,Arial,Helvetica;font-weight:bold;font-size:xx-small;text-decoration:none;}
+	a.mw:hover	{color:#0000FF;font-family:Verdana,Arial,Helvetica;font-weight:bold;font-size:xx-small;text-decoration:none;}
+</style> <script type="text/javascript" language="JavaScript">
+	var gMenuControlID=0;
+	var menus_included = 0;
+	var jsPageAuthorMode = 0;
+	var jsSessionPreviewON = 1;
+	var jsDlgLoader = '/loader.cfm';
+	var jsSiteID = 1;
+	var jsSubSiteID = 1;
+	var kurrentPageID = 3404;
+</script>
+<script type="text/javascript" language="JavaScript">
+	function newWindow (name,url)
+	{
+		var externalLinkRegEx = /^https?:[\/\\]{2}/i;
+		var blnPopUpsOffScreen=0;
+		var intTop=200;
+		var intLeft=200;
+		var intHeight=290;
+		var intWidth=480;
+			var cookieStr = document.cookie;
+			var cookieWinRegEx = /CSOFFSCREENPOPUPSALLOWED=\d/i;
+			var rxVal = /\d+/;
+			try
+			{
+				if (cookieStr && cookieStr.match(cookieWinRegEx))
+				{
+					var strVal=cookieStr.match(cookieWinRegEx);
+					if (strVal)
+						blnPopUpsOffScreen=strVal.toString().match(rxVal);
+					else
+						blnPopUpsOffScreen = 0;
+				}
+				else
+					blnPopUpsOffScreen=0;
+			}
+			catch (oErr)
+			{
+				blnPopUpsOffScreen=0;
+			}
+			if(blnPopUpsOffScreen==1)
+			{
+				intTop=window.screen.height - 9;
+				intLeft=window.screen.width - 9;
+				intHeight=1;
+				intWidth=1;
+			}
+			else
+			{
+				intTop=(window.screen.height / 2) - 109;
+				intLeft=(window.screen.width / 2) - 210;
+				intHeight=218;
+				intWidth=421;
+			}
+			if(!url.match(externalLinkRegEx) && url.indexOf('kurrentPageID') == -1)
+			{
+				try
+				{
+					if( url.indexOf ('?') == -1 )
+						url = url + '?kurrentPageID=' + kurrentPageID;
+					else
+						url = url + '&kurrentPageID=' + kurrentPageID;
+				}
+				catch (oErr)
+				{ /* Do Nothing */ }
+			}
+		var re = new RegExp();
+		re = /&amp;/gi;
+		url = url.replace(re,"&");
+		if(url.search(/[\/\\]/g) >= 0 && blnPopUpsOffScreen==0)
+		{
+			if(document.CS_StaticURL && window.location.href.indexOf(document.CS_StaticURL) == -1)
+				url = '/commonspot/utilities/longproc.cfm?onlyurlvars=1&url=' + escape(url);
+		}
+		var strWinOptions = 'toolbar=no,resizable=yes,scrollbars=yes,menubar=no,location=no';
+		if(arguments.length >= 2 && arguments[2])
+		{
+			var strOptions=arguments[2];
+			var strTopPos=strOptions.match(/top=\s*(\d+)/i);
+			if(strTopPos && strTopPos[1] >=0)
+			{
+				intTop=strTopPos[1];
+				strOptions=strOptions.replace(/top=\s*\d+\s*,?/i,'')
+			}
+			var strLeftPos=strOptions.match(/left=\s*(\d+)/i);
+			if(strLeftPos && strLeftPos[1] >=0)
+			{
+				intLeft=strLeftPos[1];
+				strOptions=strOptions.replace(/left=\s*\d+\s*,?/i,'')
+			}
+			var strHeight=strOptions.match(/height=\s*(\d+)/i);
+			if(strHeight && strHeight[1] >=0)
+			{
+				intHeight=strHeight[1];
+				strOptions=strOptions.replace(/height=\s*\d+\s*,?/i,'')
+			}
+			var strWidth=strOptions.match(/width=\s*(\d+)/i);
+			if(strWidth && strWidth[1] >=0)
+			{
+				intWidth=strWidth[1];
+				strOptions=strOptions.replace(/width=\s*\d+\s*,?/i,'')
+			}
+			var strWinOptions = strOptions;
+		}
+		strWinOptions = strWinOptions + ',top='+ intTop + ',left=' + intLeft + ',height=' + intHeight + ',width=' + intWidth;
+			var winWindow=window.open(url,name,strWinOptions);
+		if (!winWindow)
+			alert('Unable to open window - please make sure the pop-up blocker is disabled for this site');
+		if(arguments.length==4 && arguments[3]==1 && winWindow)
+			return winWindow;
+	}
+</script>
+<link rel="stylesheet" href="/commonspot/commonspot.css" type="text/css" /> </head><body lang="en" class="CS_Document"><script type="text/javascript" language="JavaScript">
+document.CS_StaticURL = "http://www.gaylordhotels.com/";
+document.CS_DynamicURL = "http://www.gaylordhotels.com/";
+</script><a name="__topdoc__"></a>
+<script type="text/javascript" language="JavaScript">
+	function newWindow (name,url)
+	{
+		var externalLinkRegEx = /^https?:[\/\\]{2}/i;
+		var blnPopUpsOffScreen=0;
+		var intTop=200;
+		var intLeft=200;
+		var intHeight=290;
+		var intWidth=480;
+			var cookieStr = document.cookie;
+			var cookieWinRegEx = /CSOFFSCREENPOPUPSALLOWED=\d/i;
+			var rxVal = /\d+/;
+			try
+			{
+				if (cookieStr && cookieStr.match(cookieWinRegEx))
+				{
+					var strVal=cookieStr.match(cookieWinRegEx);
+					if (strVal)
+						blnPopUpsOffScreen=strVal.toString().match(rxVal);
+					else
+						blnPopUpsOffScreen = 0;
+				}
+				else
+					blnPopUpsOffScreen=0;
+			}
+			catch (oErr)
+			{
+				blnPopUpsOffScreen=0;
+			}
+			if(blnPopUpsOffScreen==1)
+			{
+				intTop=window.screen.height - 9;
+				intLeft=window.screen.width - 9;
+				intHeight=1;
+				intWidth=1;
+			}
+			else
+			{
+				intTop=(window.screen.height / 2) - 109;
+				intLeft=(window.screen.width / 2) - 210;
+				intHeight=218;
+				intWidth=421;
+			}
+			if(!url.match(externalLinkRegEx) && url.indexOf('kurrentPageID') == -1)
+			{
+				try
+				{
+					if( url.indexOf ('?') == -1 )
+						url = url + '?kurrentPageID=' + kurrentPageID;
+					else
+						url = url + '&kurrentPageID=' + kurrentPageID;
+				}
+				catch (oErr)
+				{ /* Do Nothing */ }
+			}
+		var re = new RegExp();
+		re = /&amp;/gi;
+		url = url.replace(re,"&");
+		if(url.search(/[\/\\]/g) >= 0 && blnPopUpsOffScreen==0)
+		{
+			if(document.CS_StaticURL && window.location.href.indexOf(document.CS_StaticURL) == -1)
+				url = '/commonspot/utilities/longproc.cfm?onlyurlvars=1&url=' + escape(url);
+		}
+		var strWinOptions = 'toolbar=no,resizable=yes,scrollbars=yes,menubar=no,location=no';
+		if(arguments.length >= 2 && arguments[2])
+		{
+			var strOptions=arguments[2];
+			var strTopPos=strOptions.match(/top=\s*(\d+)/i);
+			if(strTopPos && strTopPos[1] >=0)
+			{
+				intTop=strTopPos[1];
+				strOptions=strOptions.replace(/top=\s*\d+\s*,?/i,'')
+			}
+			var strLeftPos=strOptions.match(/left=\s*(\d+)/i);
+			if(strLeftPos && strLeftPos[1] >=0)
+			{
+				intLeft=strLeftPos[1];
+				strOptions=strOptions.replace(/left=\s*\d+\s*,?/i,'')
+			}
+			var strHeight=strOptions.match(/height=\s*(\d+)/i);
+			if(strHeight && strHeight[1] >=0)
+			{
+				intHeight=strHeight[1];
+				strOptions=strOptions.replace(/height=\s*\d+\s*,?/i,'')
+			}
+			var strWidth=strOptions.match(/width=\s*(\d+)/i);
+			if(strWidth && strWidth[1] >=0)
+			{
+				intWidth=strWidth[1];
+				strOptions=strOptions.replace(/width=\s*\d+\s*,?/i,'')
+			}
+			var strWinOptions = strOptions;
+		}
+		strWinOptions = strWinOptions + ',top='+ intTop + ',left=' + intLeft + ',height=' + intHeight + ',width=' + intWidth;
+			var winWindow=window.open(url,name,strWinOptions);
+		if (!winWindow)
+			alert('Unable to open window - please make sure the pop-up blocker is disabled for this site');
+		if(arguments.length==4 && arguments[3]==1 && winWindow)
+			return winWindow;
+	}
+</script>
+<script  src="/commonspot/pagemode/always-include-common.js" type="text/javascript" language="JavaScript"></script><script type="text/javascript" language="JavaScript">
+		// always-include-ie.js  Copyright 1998-2005 PaperThin, Inc. All rights reserved.
+bName = navigator.appName;
+bVer = parseInt(navigator.appVersion);
+var bCanRollover=0
+if (bName == "Netscape")
+{
+	if(bVer >= 3)
+		bCanRollover=1;
+}
+else if (bName == "Microsoft Internet Explorer")
+{
+	if(bVer >= 4)
+		bCanRollover=1;
+}
+function ImageSet(imgID,newTarget)
+{
+	if (bCanRollover)
+		document[imgID].src=newTarget;
+}
+function clearStatus()
+{
+	window.status = "";
+}
+function setStatbar(statbar)
+{
+	var strStatbar=unescape(statbar);
+	window.status=strStatbar;
+}
+function onLoadComplete()
+{
+	if( menus_included == 1 )
+		document.onmouseover = document_mouseover;	// defined in menu_ie.js
+}
+function HandleLink(parentID,link,displaylink) 
+{
+	// links are in one of the following formats:
+	// 		cpe_60_0,CP___PAGEID=100
+	// 		CPNEWWIN:WindowName^params@CP___
+	// 			CPNEWWIN:child^top=110:left=130:ww=140:hh=150:tb=1:loc=1:dir=0:stat=1:mb=1:sb=1:rs=1@CP___PAGEID=3811,Adv-Search-2.cfm,1
+	// displaylink is the server relative URL or fully qualified URL
+	if( jsPageAuthorMode == 0 )
+	{
+		windowname = "";
+		windowparams = "";
+		// "CPNEWWIN:" & NewWindowName & "^" & params & "@" & linkStruct.LinkURL; 
+		pos = link.indexOf("CPNEWWIN:");
+		if (pos != -1)
+		{
+			pos1 = link.indexOf ("^");
+			windowname = link.substring (pos+9, pos1);
+			pos2 = link.indexOf ("@");
+			windowparams = link.substring (pos1 + 1, pos2);
+			link = link.substring (pos2 + 1, link.length);
+		}
+		
+		if( displaylink && displaylink != "" )
+		{		
+			if (windowname == "")
+				window.location = displaylink;
+			else
+			{
+				windowparams = FormatWindowParams(windowparams);
+				window.open (displaylink, windowname, windowparams);
+			}
+		}
+		else
+		{
+			targetLink = link;
+			if (link.indexOf ("CP___") != -1)
+			{
+				httpPos = -1;
+				commaPos = link.indexOf(",");
+				if (commaPos != -1)
+				{
+					targetUrl = link.substr(commaPos + 1);
+					if (targetUrl.indexOf("://") != -1 || targetUrl.indexOf("/") == 0)
+					{
+							httpPos = commaPos + 1;
+					}		
+				}
+					
+				if (httpPos != -1)
+				{
+					targetLink = link.substr(httpPos);
+					commaPos = targetLink.indexOf(",");
+					if (commaPos != -1)
+						targetLink = targetLink.substr(0, commaPos);
+				}
+				else
+					targetLink = jsDlgLoader + "?url=/commonspot/utilities/handle-link.cfm&thelink=" + link;
+				
+				if (windowname == "")
+					window.location = targetLink;
+				else
+				{
+					windowparams = FormatWindowParams(windowparams);
+					window.open (targetLink, windowname, windowparams);
+				}
+			}
+			else
+			{
+				commaPos = link.indexOf(",");
+				if (commaPos != -1)
+					link = link.substr(0, commaPos);
+				if (windowname == "")
+					window.location = link;
+				else
+				{
+					windowparams = FormatWindowParams(windowparams);
+					window.open (link, windowname, windowparams);
+				}
+			}
+		}
+	}
+	else if( jsSessionPreviewON == 1 )
+	{
+		previewLink(link);
+	}
+	else
+	{
+		if( document.all[parentID] )
+			document.all[parentID].click();
+	}
+}
+function doWindowOpen(href,name,params)
+{
+	window.open (href, name, params);
+}
+// 	CPNEWWIN:child^top=110:left=130:ww=140:hh=150:tb=1:loc=1:dir=0:stat=1:mb=1:sb=1:rs=1@CP___PAGEID=3811,Adv-Search-2.cfm,1
+function FormatWindowParams(windowparams)
+{
+	if( windowparams.indexOf(":loc=") != -1 || windowparams.indexOf(":ww=") != -1 || windowparams.indexOf(":hh=") != -1 || 
+	    windowparams.indexOf(":left=") != -1 || windowparams.indexOf(":top=") != -1 )
+	{
+		windowparams = substringReplace(windowparams,':left=',',left=');
+		windowparams = substringReplace(windowparams,'left=','left=');
+		windowparams = substringReplace(windowparams,':ww=',',width=');
+		windowparams = substringReplace(windowparams,'ww=','width=');		
+		windowparams = substringReplace(windowparams,':hh=',',height=');
+		windowparams = substringReplace(windowparams,'hh=','height=');
+		windowparams = substringReplace(windowparams,':loc=',',location=');
+		windowparams = substringReplace(windowparams,'loc=','location=');
+		windowparams = substringReplace(windowparams,':dir=',',directories=');
+		windowparams = substringReplace(windowparams,'dir=','directories=');
+		windowparams = substringReplace(windowparams,':tb=',',toolbar=');
+		windowparams = substringReplace(windowparams,'tb=','toolbar=');
+		windowparams = substringReplace(windowparams,':stat=',',status=');
+		windowparams = substringReplace(windowparams,':mb=',',menubar=');
+		windowparams = substringReplace(windowparams,':sb=',',scrollbars=');
+		windowparams = substringReplace(windowparams,':rs=',',resizable=');
+	}
+	return windowparams;
+}
+function substringReplace(source,pattern,replacement)
+{
+	var pos = 0;
+	var target="";
+	while ((pos = source.indexOf(pattern)) != (-1))
+	{
+		target = target + source.substring(0,pos) + replacement;
+		source = source.substring(pos+pattern.length);
+		pos = source.indexOf(pattern);
+	}
+	return (target + source);
+}
+		</script>
+	<script type="text/javascript" language="JavaScript">
+	function glblLinkHandler(lobj, attr, val)
+	{
+	
+		return;
+	
+	}
+	function onLoadFinished()
+	{
+		onLoadComplete();
+	
+	}
+	var js_gvPageID = 3404;
+	function gotoDiffLang(url)
+	{
+		window.location = url + '&amp;pageid=3404';
+	}
+	</script>
+<script language="JavaScript1.2" src="http://www.gaylordhotels.com/MenuJS_4_2.js"></script>
+<script language="JavaScript1.2" src="http://www.gaylordhotels.com/apps/DQM/dqm_script.js"></script>
+<table width="800" border="0" cellspacing="0" cellpadding="0">
+<tr>
+	<td rowspan="7"><img src="http://www.gaylordhotels.com/images/spacer.gif" width="8" height="2" alt="" border="0"></td>
+	<td><img src="http://www.gaylordhotels.com/images/spacer.gif" width="2" height="8" alt="" border="0"></td>
+</tr>
+<tr>
+	<td colspan="4">
+<table border="0" cellspacing="0" cellpadding="0">
+<tr valign="bottom">
+<td rowspan="2"><a href=""><img src="http://www.gaylordhotels.com/images/headers2/upperleft_corporate.gif" width="192" height="150" alt="" border="0"></a></td>
+	<td colspan="3"><img src="http://www.gaylordhotels.com/images/spacer.gif" width="2" height="15" alt="" border="0"></td>
+	<td rowspan="2"><img src="http://www.gaylordhotels.com/images/upperright.gif" alt="" width="21" height="135" border="0"></td>
+</tr>
+<tr valign="bottom">
+	<td><img src="http://www.gaylordhotels.com/images/headernav_0_alt.gif" width="1" height="135" alt="" border="0"></td>
+	<td>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+	<td colspan="5" align="center"><a href="/apps/Banner/ClickThrough.cfm?BannerID=56"><img src="/apps/Banner/ViewBanner.cfm?BannerID=56" alt="GH - Header" width="576" height="114" border="0"></a></td>
+</tr>
+	<tr>
+		<td colspan="5"><img src="http://www.gaylordhotels.com/images/headernav_blank.gif" alt="" width="576" height="21" border="0"></td>
+	</tr>
+</table>
+	</td>
+	<td><img src="http://www.gaylordhotels.com/images/headernav_6.gif" width="1" height="21" alt="" border="0"></td>
+</tr>
+</table>
+	</td>
+</tr>
+<tr>
+	<td><img src="http://www.gaylordhotels.com/images/separator_192.gif" width="192" height="1" alt="" border="0"></td>
+</tr>
+<tr valign="top">
+	<td>
+	
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+	<td align="center" bgcolor="#D0CCC1">
+<div class="CS_Element_Schedule"><div  class="CS_Element_Schedule"  title="" id="CS_Sched_3404_2748" ><div class="CS_Element_SearchForm"><form class="cs_default_form" action="/searchresults.cfm" method="post" name="dlgform3563" id="dlgform3563">
+<table class="clsControlBorder" border="0" cellpadding="0" cellspacing="0" width="100%" summary=""><tr>
+	<td width="100%" valign="top" style="text-align:left"><input type="hidden" name="searchType" id="searchType" value="text" /><div><input type="hidden" name="incl_subsites" id="incl_subsites" value="0" /><script type="text/javascript" language="JavaScript">
+	function doLink3563()
+	{
+		window.location.href = '';
+	}
+	function SubmitForm3563()
+	{
+		retval = doSubmit3563();
+		if (retval == true)
+			document.dlgform3563.submit();
+	}
+	function doSubmit3563()
+	{
+		if (document.dlgform3563.srchString.value.length == 0)
+		{
+			alert ("Please enter something to search for");
+			return false;
+		}
+document.dlgform3563.startpage.value=1;
+		document.dlgform3563.curpage.value=1;
+		return true;
+	}
+</script><img src="/images/Search_label.gif" border="0" class="CS_SF_Image" align="absbottom" width="42" height="15" alt="Search" title="Search" />&nbsp;<span class="cpHideForMenus"><input type="text" name="srchString" value=""  class="CS_SF_Input" id="cs_search_form" size="15" /></span>&nbsp;<a href="javascript:SubmitForm3563();"><img src="/gaylordopryland/career/jobs/images/Search_arrow.gif" border="0" class="CS_SF_Image" align="absbottom" width="21" height="20" alt="Execute Search" title="Execute Search" /></a>&nbsp;</div></td>
+</tr></table><input type="hidden" name="showSummaryCheckBox" id="showSummaryCheckBox" value="0" /><input type="hidden" name="UserSelectedSubSites" id="UserSelectedSubSites" value="" /><input type="hidden" value="1" name="startpage" id="startpage" /><input type="hidden" value="1" name="curpage" id="curpage" /></form></div></div></div>
+	</td>
+</tr>
+<tr>
+	<td><img src="http://www.gaylordhotels.com/images/separator_192_2.gif" width="192" height="1" alt="" border="0"></td>
+</tr>
+<tr>
+	<td align="center" bgcolor="#9B978C">
+<table width="100%" border="0" cellspacing="0" cellpadding="14">
+<tr>
+	<td>
+<table width="157" border="0" cellspacing="0" cellpadding="0">
+<tr>
+	<td colspan="2"><img src="http://www.gaylordhotels.com/images/dottedline_nav1.gif" alt="" width="157" height="1" border="0"></td>
+</tr>
+	<tr>
+		<td colspan="2"><a href="/about/"><img src="http://www.gaylordhotels.com/images/nav_about_gh.gif" name="menu0" id="menu0" onMouseOver="DQM_showMenu(event)" onMouseOut="DQM_hideMenu(event)" width="157" height="17" border="0"></a></td>
+	</tr>
+	<tr>
+		<td colspan="2"><img src="http://www.gaylordhotels.com/images/dottedline_nav1.gif" alt="" width="157" height="1" border="0"></td>
+	</tr>
+	
+	<tr>
+		<td colspan="2"><a href="/rates/"><img src="http://www.gaylordhotels.com/images/35335652.gif" name="menu1" id="menu1" onMouseOver="DQM_showMenu(event)" onMouseOut="DQM_hideMenu(event)" width="157" height="17" border="0"></a></td>
+	</tr>
+	<tr>
+		<td colspan="2"><img src="http://www.gaylordhotels.com/images/dottedline_nav1.gif" alt="" width="157" height="1" border="0"></td>
+	</tr>
+	
+	<tr>
+		<td colspan="2"><a href="/meetings/"><img src="http://www.gaylordhotels.com/images/nav_meetings_conferences.gif" name="menu2" id="menu2" onMouseOver="DQM_showMenu(event)" onMouseOut="DQM_hideMenu(event)" width="157" height="17" border="0"></a></td>
+	</tr>
+	<tr>
+		<td colspan="2"><img src="http://www.gaylordhotels.com/images/dottedline_nav1.gif" alt="" width="157" height="1" border="0"></td>
+	</tr>
+	
+	<tr>
+		<td colspan="2"><a href="/career/"><img src="http://www.gaylordhotels.com/images/25960033.gif" name="menu3" id="menu3" onMouseOver="DQM_showMenu(event)" onMouseOut="DQM_hideMenu(event)" width="157" height="17" border="0"></a></td>
+	</tr>
+	<tr>
+		<td colspan="2"><img src="http://www.gaylordhotels.com/images/dottedline_nav1.gif" alt="" width="157" height="1" border="0"></td>
+	</tr>
+	
+	<tr>
+		<td colspan="2"><a href="/spa/"><img src="http://www.gaylordhotels.com/images/nav_spa.gif" name="menu4" id="menu4" onMouseOver="DQM_showMenu(event)" onMouseOut="DQM_hideMenu(event)" width="157" height="17" border="0"></a></td>
+	</tr>
+	<tr>
+		<td colspan="2"><img src="http://www.gaylordhotels.com/images/dottedline_nav1.gif" alt="" width="157" height="1" border="0"></td>
+	</tr>
+	
+	<tr>
+		<td colspan="2"><a href="/press/"><img src="http://www.gaylordhotels.com/images/nav_press_room.gif" name="menu5" id="menu5" onMouseOver="DQM_showMenu(event)" onMouseOut="DQM_hideMenu(event)" width="157" height="17" border="0"></a></td>
+	</tr>
+	<tr>
+		<td colspan="2"><img src="http://www.gaylordhotels.com/images/dottedline_nav1.gif" alt="" width="157" height="1" border="0"></td>
+	</tr>
+	
+	<tr>
+		<td colspan="2"><a href="/nso/"><img src="http://www.gaylordhotels.com/images/nav_nso.gif" name="menu6" id="menu6" onMouseOver="DQM_showMenu(event)" onMouseOut="DQM_hideMenu(event)" width="157" height="17" border="0"></a></td>
+	</tr>
+	<tr>
+		<td colspan="2"><img src="http://www.gaylordhotels.com/images/dottedline_nav1.gif" alt="" width="157" height="1" border="0"></td>
+	</tr>
+	
+	<tr>
+		<td colspan="2"><a href="/contact.cfm"><img src="http://www.gaylordhotels.com/images/nav_contact_gh.gif" name="menu7" id="menu7" onMouseOver="DQM_showMenu(event)" onMouseOut="DQM_hideMenu(event)" width="157" height="17" border="0"></a></td>
+	</tr>
+	<tr>
+		<td colspan="2"><img src="http://www.gaylordhotels.com/images/dottedline_nav1.gif" alt="" width="157" height="1" border="0"></td>
+	</tr>
+	
+</table>
+	</td>
+</tr>
+</table>
+	</td>
+</tr>
+<tr>
+	<td><img src="http://www.gaylordhotels.com/images/spacer.gif" width="2" height="8" alt="" border="0"></td>
+</tr>
+<tr>
+	<td bgcolor="#E1DDD2">
+<table width="100%" border="0" cellspacing="0" cellpadding="14">
+<tr>
+	<td>
+	
+	<a href="/gaylordopryland/" 
+		onMouseOver="document.PropNav_Opryland.src='http://www.gaylordhotels.com/images/propertynav_gaylord_opryland-over.gif';"
+		onMouseOut="document.PropNav_Opryland.src='http://www.gaylordhotels.com/images/propertynav_gaylord_opryland.gif';"><img 
+		name="PropNav_Opryland" src="http://www.gaylordhotels.com/images/propertynav_gaylord_opryland.gif" width="157" height="17" alt="Gaylord Opryland" border="0"></a><br>
+	<img src="http://www.gaylordhotels.com/images/dottedline_propertynav1.gif" width="157" height="1" alt="" border="0"><br>
+	<a href="/gaylordpalms/" 
+		onMouseOver="document.PropNav_Palms.src='http://www.gaylordhotels.com/images/propertynav_gaylord_palms-over.gif';"
+		onMouseOut="document.PropNav_Palms.src='http://www.gaylordhotels.com/images/propertynav_gaylord_palms.gif';"><img 
+		name="PropNav_Palms" src="http://www.gaylordhotels.com/images/propertynav_gaylord_palms.gif" width="157" height="17" alt="Gaylord Palms" border="0"></a><br>
+	<img src="http://www.gaylordhotels.com/images/dottedline_propertynav1.gif" width="157" height="1" alt="" border="0"><br>
+	<a href="/gaylordtexan/" 
+		onMouseOver="document.PropNav_Texas.src='http://www.gaylordhotels.com/images/propertynav_gaylord_texan-over.gif';"
+		onMouseOut="document.PropNav_Texas.src='http://www.gaylordhotels.com/images/propertynav_gaylord_texan.gif';"><img 
+		name="PropNav_Texas" src="http://www.gaylordhotels.com/images/propertynav_gaylord_texan.gif" width="157" height="17" alt="Gaylord Texan" border="0"></a><br>
+	<img src="http://www.gaylordhotels.com/images/dottedline_propertynav1.gif" width="157" height="1" alt="" border="0"><br>
+	<a href="/gaylordnational/" 
+		onMouseOver="document.PropNav_National.src='http://www.gaylordhotels.com/images/propertynav_gaylord_national-over.gif';"
+		onMouseOut="document.PropNav_National.src='http://www.gaylordhotels.com/images/propertynav_gaylord_national.gif';"><img 
+		name="PropNav_National" src="http://www.gaylordhotels.com/images/propertynav_gaylord_national.gif" width="157" height="17" alt="Gaylord National" border="0"></a><br>
+	<img src="http://www.gaylordhotels.com/images/dottedline_propertynav1.gif" width="157" height="1" alt="" border="0"><br>
+	<a href="http://www.corporate-ir.net/ireye/ir_site.zhtml?ticker=GET&amp;script=2100" target="_blank"
+		onMouseOver="document.PropNav_Invest.src='http://www.gaylordhotels.com/images/propertynav_investor_relations-over.gif';"
+		onMouseOut="document.PropNav_Invest.src='http://www.gaylordhotels.com/images/propertynav_investor_relations.gif';"><img 
+		name="PropNav_Invest" src="http://www.gaylordhotels.com/images/propertynav_investor_relations.gif" width="157" height="17" alt="Investor Relations" border="0"></a><br>
+	</td>
+</tr>
+</table>
+<!--  -->
+	</td>
+</tr>
+<tr>
+	<td><img src="http://www.gaylordhotels.com/images/spacer.gif" width="2" height="8" alt="" border="0"></td>
+</tr>
+<tr>
+	<td>
+<div class="CS_Element_Schedule"><div  class="CS_Element_Schedule"  title="" id="CS_Sched_3404_35280" ><div class="CS_Element_Textblock"><div class="CS_Textblock_Text"><P align=center><A onmouseover="return self.status='CPNEWWIN:child^top=20:left=20:ww=450:hh=450:tb=1:loc=1:dir=0:stat=1:mb=1:sb=1:rs=1@http://www.resortquest.com '" style="CURSOR: hand" href="javascript:HandleLink('cpe_553_0','CPNEWWIN:child^top=20:left=20:ww=450:hh=450:tb=1:loc=1:dir=0:stat=1:mb=1:sb=1:rs=1@http://www.resortquest.com ');"></A></P><P align=center><A onmouseover="return self.status='CPNEWWIN:child^top=20:left=20:ww=450:hh=450:tb=1:loc=1:dir=0:stat=1:mb=1:sb=1:rs=1@http://www.resortquest.com '" style="CURSOR: hand" href="javascript:HandleLink('cpe_553_0','CPNEWWIN:child^top=20:left=20:ww=450:hh=450:tb=1:loc=1:dir=0:stat=1:mb=1:sb=1:rs=1@http://www.resortquest.com ');"><IMG height=37 alt="Resort Quest Vacation Rentals" hspace=0 src="/images/68410611.gif" width=175 align=middle border=0></A></P><P align=center>Stay in a rental condominium<BR>or home on your next vacation,<BR><A onmouseover=" return self.status='http://www.resortquest.com'; " onmouseout=" return self.status=''; " href="javascript:HandleLink('cpe_35281_0','CPNEWWIN:child^top=20,left=20,width=450,height=450,toolbar=1,location=1,directory=0,status=1,menubar=1,scrollbars=1,resizable=1@http://www.resortquest.com');">click here</A>.</P></div></div></div></div>
+	</td>
+</tr>
+</table>
+<!-- showPageModeUI not set --><script type="text/javascript" language="JavaScript">
+bName = navigator.appName;
+bVer = parseInt(navigator.appVersion);
+
+var bCanRollover=0
+if (bName == "Netscape")
+{
+	if(bVer >= 3)
+		bCanRollover=1;
+}
+else if (bName == "Microsoft Internet Explorer")
+{
+	if(bVer >= 4)
+		bCanRollover=1;
+}
+
+function ImageSet(imgID,newTarget)
+{
+	if (bCanRollover)
+		document[imgID].src=newTarget;
+}
+</script><!-- -->
+	
+	</td>
+	<td><img src="http://www.gaylordhotels.com/images/spacer.gif" width="8" height="2" alt="" border="0"></td>
+	<td>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+	<td><img src="http://www.gaylordhotels.com/images/spacer.gif" width="16" height="2" alt="" border="0"></td>
+	<td><img src="http://www.gaylordhotels.com/images/spacer.gif" width="557" height="6" alt="" border="0"></td>
+	<td><img src="http://www.gaylordhotels.com/images/spacer.gif" width="2" height="2" alt="" border="0"></td>
+</tr>
+<tr>
+	<td></td>
+	<td id="PageBreadCrumb">
+<div class="CS_Element_LinkBar"><span class="CS_LinkBar_CurrentItem">Welcome To Gaylord Hotels</span><span class="CS_LinkBar_AfterLabel"> </span></div>
+	</td>
+</tr>
+<tr>
+	<td><img src="http://www.gaylordhotels.com/images/spacer.gif" width="2" height="8" alt="" border="0"></td>
+</tr>
+<tr>
+	<td colspan="3" bgcolor="#f6f6f6"><img src="http://www.gaylordhotels.com/images/spacer.gif" width="2" height="4" alt="" border="0"></td>
+</tr>
+<tr valign="top">
+	<td bgcolor="#f6f6f6"><img src="http://www.gaylordhotels.com/images/spacer.gif" width="12" height="2" alt="" border="0"></td>
+	<td bgcolor="#f6f6f6">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top">
+	<td>
+<div class="CS_Element_Schedule"><div  class="CS_Element_Schedule"  title="" id="CS_Sched_3404_510" ><div class="CS_Element_Image"><img src="/images/SectionTitle_welcome.gif" border="0" class="CS_Image_IMG" width="399" height="39" alt="Welcome" title="Welcome" /></div></div></div><div class="CS_Element_Layout"><table id="idLayout507" cellpadding="0" cellspacing="0" class="CS_Layout_Table" width="100%" summary=""><tr class="CS_Layout_TR"><td id="idCell507x1x1" class="CS_Layout_TD"><div class="CS_Element_Textblock"><div class="CS_Textblock_Caption">Welcome To Gaylord Hotels</div><div class="CS_Textblock_Text"><p><a onmouseover=" return self.status='/images/15129543.jpg'; " onmouseout=" return self.status=''; " href="javascript:HandleLink('cpe_881_0','CPNEWWIN:child^top=20,left=30,width=470,height=368,toolbar=0,location=0,directory=0,status=0,menubar=0,scrollbars=0,resizable=0@CP___PAGEID=2752,images/15129543.jpg,1');"><img height="172" alt="Welcome To Gaylord Hotels" hspace="0" src="/images/Delta-over-all_Hero.jpg" width="172" align="right" border="0"></a>Gaylord Hotels comprise a family of three extraordinary properties, providing guests and attendees the finest in state-of-the-art meetings and convention facilities, luxurious accommodations, and entertainment. Each of our spectacular resorts and convention centers celebrates the geographical heritage of the states in which they are located with regional themes and attractions designed exclusively for that resort.<br>
+<br>
+For more information about our properties, please click the locations below to visit their individual sites.<br>
+</p></div></div><div class="CS_Layout_SpacingHeight" style="line-height:1;">&nbsp;</div><div class="Text-Image-element-wht_bkg_tabular_layout"><table id="idLayout49646" cellpadding="4" cellspacing="0" class="CS_Layout_Table" width="100%" summary=""><tr class="CS_Layout_TR"><td id="idCell49646x1x1" class="cell_alignment_top" width="120"><div class="CS_Element_Image"><img src="/images/14283452.jpg" border="0" class="CS_Image_IMG" width="120" height="80" alt="" /></div></td><td id="idCell49646x1x2" class="cell_alignment_top"><div class="Text-Image-element-Text-Format"><div class="CS_Textblock_Text"><P><STRONG><A id=CP___PAGEID=14804,index.cfm,3| href="/gaylordopryland/index.cfm"><FONT color=#6699cc>Gaylord Opryland Nashville</FONT></A><BR></STRONG>The crown jewel of the Gaylord Hotel family, this showcase resort lavishes guests with genuine Southern delights and hospitality.</P></div></div></td></tr>
+	</table>	</div><div class="CS_Layout_SpacingHeight" style="line-height:1;">&nbsp;</div><div class="Text-Image-element-wht_bkg_tabular_layout"><table id="idLayout49651" cellpadding="4" cellspacing="0" class="CS_Layout_Table" width="100%" summary=""><tr class="CS_Layout_TR"><td id="idCell49651x1x1" class="cell_alignment_top" width="120"><div class="CS_Element_Image"><img src="/images/44708608.jpg" border="0" class="CS_Image_IMG" width="120" height="80" alt="" /></div></td><td id="idCell49651x1x2" class="cell_alignment_top"><div class="Text-Image-element-Text-Format"><div class="CS_Textblock_Text"><P><STRONG><A id=http://www.gaylordhotels.com/gaylordpalms/index.cfm| href="http://www.gaylordhotels.com/gaylordpalms/index.cfm"><STRONG>Gaylord Palms Florida<BR></STRONG></A></STRONG>Just minutes from Walt Disney World in Kissimmee, this majestic resort invites guests on a spirited journey through the Sunshine State.</P></div></div></td></tr>
+	</table>	</div><div class="CS_Layout_SpacingHeight" style="line-height:1;">&nbsp;</div><div class="Text-Image-element-wht_bkg_tabular_layout"><table id="idLayout49656" cellpadding="4" cellspacing="0" class="CS_Layout_Table" width="100%" summary=""><tr class="CS_Layout_TR"><td id="idCell49656x1x1" class="cell_alignment_top" width="120"><div class="CS_Element_Image"><img src="/images/GOT_Sailboat_table.jpg" border="0" class="CS_Image_IMG" width="120" height="80" alt="" /></div></td><td id="idCell49656x1x2" class="cell_alignment_top"><div class="Text-Image-element-Text-Format"><div class="CS_Textblock_Text"><P><A id=CP___PAGEID=21501,index.cfm,6| href="/gaylordoprylandtexas/index.cfm"><STRONG><FONT color=#6699cc>Gaylord Texan on Lake Grapevine</FONT><BR></STRONG></A>This stunning lakeside resort is the pride of Texas with its scenic rolling pastures and Lone Star charm.</P></div></div></td></tr>
+	</table>	</div><div class="CS_Layout_SpacingHeight" style="line-height:1;">&nbsp;</div><div class="Text-Image-element-wht_bkg_tabular_layout"><table id="idLayout49662" cellpadding="4" cellspacing="0" class="CS_Layout_Table" width="100%" summary=""><tr class="CS_Layout_TR"><td id="idCell49662x1x1" class="cell_alignment_top" width="120"><div class="CS_Element_Image"><img src="/images/GANA_nightpier_table.jpg" border="0" class="CS_Image_IMG" width="120" height="81" alt="Gaylord National Rendering" title="Gaylord National Rendering" /></div></td><td id="idCell49662x1x2" class="cell_alignment_top"><div class="Text-Image-element-Text-Format"><div class="CS_Textblock_Text"><P><A id=http://www.gaylordhotels.com/gaylordnational/| href="http://www.gaylordhotels.com/gaylordnational/"><STRONG>Gaylord National on the Potomac</STRONG></A><BR><EM>Opening 2008</EM> <BR>Located in Prince George's County, Maryland on the banks of the Potomac River, Gaylord National is primed to take its rightful place as the most exclusive, all encompassing meeting and convention site ever created.&nbsp;</P></div></div></td></tr>
+	</table>	</div></td></tr>
+	</table>	</div>
+	</td>
+	<td><img src="http://www.gaylordhotels.com/images/spacer.gif" width="12" height="2" alt="" border="0"></td>
+	<td width="157" align="center">
+
+<style>
+
+#ResNetTable tr td {
+	font-family: arial, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	color: #fff;
+}
+
+#ResNetTable tr td select {
+	margin: 0;
+	padding: 1px;
+	font-size: 9px;
+	border: 1px solid #000;
+	color: #000;
+}
+
+#ResNetTable {
+	padding: 6px;
+}
+
+</style>
+
+
+<!-- LMS ResNet CHECK RATES Script -->
+<script language='javascript' type="text/javascript" src="/apps/js/ResNet.js"></script>
+
+<!-- start of page code for ResNet URL build -->
+
+<table id="ResNetTable" width="157" bgcolor="#7F0000" cellspacing="0" cellpadding="2" style="border : 4px solid White;">
+
+<!-- LMS ResNet CHECK RATES Form -->
+<!-- It is recommended that the date selectors are built with a serverside -->
+<!-- script so they can be pre-set to the current date. -->
+<!-- If that is not possible you can use JavaScript to build them -->
+<!-- BUT is is not a preferred option -->
+
+<form name="ResNetGetRates">
+	<tr>
+		<td align="center" colspan="3">
+			<img src="/apps/images/ReservationsOnline.gif" width="155" height="12" border="0" alt="Reservations Online">
+
+		</td>
+    <tr>
+      	<td colspan="3"></td>
+    </tr>
+
+    <tr>
+      <td colspan="3">
+      	<select name="hotel" size="1" >
+	  	<option value="GON">Gaylord Opryland</option>
+		
+		 	<option value="GPH">Gaylord Palms</option>
+		
+		  	<option value="GTX">Gaylord Texan</option>
+		
+		</select>
+      </td>
+    </tr>	
+    <tr> 
+      <td colspan="3">Arrival:</td>
+    </tr>
+
+     <tr>
+   <td colspan=3> 
+     <select name="month" size="1">
+	 
+		 	<option value="01">Jan</option>
+		
+		 	<option value="02">Feb</option>
+		
+		 	<option value="03">Mar</option>
+		
+		 	<option value="04">Apr</option>
+		
+		 	<option value="05">May</option>
+		
+		 	<option value="06">Jun</option>
+		
+		 	<option value="07" selected>Jul</option>
+		
+		 	<option value="08">Aug</option>
+		
+		 	<option value="09">Sep</option>
+		
+		 	<option value="10">Oct</option>
+		
+		 	<option value="11">Nov</option>
+		
+		 	<option value="12">Dec</option>
+		
+     </select>
+	 <select name="day" size="1">
+	 
+		 	<option value="01">1</option>
+		
+		 	<option value="02">2</option>
+		
+		 	<option value="03">3</option>
+		
+		 	<option value="04">4</option>
+		
+		 	<option value="05">5</option>
+		
+		 	<option value="06">6</option>
+		
+		 	<option value="07">7</option>
+		
+		 	<option value="08">8</option>
+		
+		 	<option value="09">9</option>
+		
+		 	<option value="10">10</option>
+		
+		 	<option value="11">11</option>
+		
+		 	<option value="12">12</option>
+		
+		 	<option value="13">13</option>
+		
+		 	<option value="14">14</option>
+		
+		 	<option value="15">15</option>
+		
+		 	<option value="16">16</option>
+		
+		 	<option value="17">17</option>
+		
+		 	<option value="18" selected>18</option>
+		
+		 	<option value="19">19</option>
+		
+		 	<option value="20">20</option>
+		
+		 	<option value="21">21</option>
+		
+		 	<option value="22">22</option>
+		
+		 	<option value="23">23</option>
+		
+		 	<option value="24">24</option>
+		
+		 	<option value="25">25</option>
+		
+		 	<option value="26">26</option>
+		
+		 	<option value="27">27</option>
+		
+		 	<option value="28">28</option>
+		
+		 	<option value="29">29</option>
+		
+		 	<option value="30">30</option>
+		
+		 	<option value="31">31</option>
+		
+     </select>
+	 <select name="year" size="1">
+	 
+		 	<option value="2006" selected>2006</option>
+		
+		 	<option value="2007">2007</option>
+		
+		 	<option value="2008">2008</option>
+		
+     </select>
+     </td>
+    <tr>
+      <td>Nights:</td>
+	  <td>Adults:</td>
+
+	  <td>Children:</td>
+	  <!-- <td><font face="arial" size="2" color="#FFFFFF"><b>Rooms:</b></font></td> -->
+      <td>
+	  	
+  		</td>
+     </tr>
+     <tr>
+   <td >
+     <select name="nights" size=1>
+
+       <option value=1>1</option>
+       <option selected value=2>2</option>
+       <option value=3>3</option>
+       <option value=4>4</option>
+       <option value=5>5</option>
+       <option value=6>6</option>
+
+       <option value=7>7</option>
+       <option value=8>8</option>
+       <option value=9>9</option>
+       <option value=10>10</option>
+       <option value=11>11</option>
+       <option value=12>12</option>
+
+       <option value=13>13</option>
+       <option value=14>14</option>
+     </select>
+     </td>
+	 <!-- this is not used but included for future use if needed by property
+   	<td>
+     <select name="rooms" size=1 class="linkage">
+       <option selected value=1>1</option>
+       <option value=2>2</option>
+       <option value=3>3</option>
+       <option value=4>4</option>
+     </select>
+	</td>
+	 -->
+	 <!-- <td width="14%"><font face="arial" size="2" color="#FFFFFF">  -->
+	 <!-- select one of the two input options below. 			-->
+	 <!-- the hidden option let you set a default value  		-->
+
+	 <!-- the select lets the customer.  The choice is yours 	-->
+	 <td>
+	 <!-- <input type="hidden" name="adults" id="adults" value="02"> -->
+	 
+     <select name="adults" size=1>
+       <option value=1>1</option>
+       <option selected value=2>2</option>
+       <option value=3>3</option>
+
+       <option value=4>4</option>
+     </select>
+	 
+	</td>
+	
+	 
+	<!-- <td width="14%"><font face="arial" size="2" color="#FFFFFF">  -->
+	 <!-- select one of the two input options below. 			-->
+	 <!-- the hidden option let you set a default value  		-->
+	 <!-- the select lets the customer.  the choice is yours 	-->
+	 <td>
+
+	<!-- <input type="hidden" name="children" id="children" value="00"> -->
+	 
+     <select name="children" size=1>
+       <option value="0">0</option>
+       <option value=1>1</option>
+       <option selected value=2>2</option>
+       <option value=3>3</option>
+       <option value=4>4</option>
+     </select>
+
+	</td>
+	
+	
+	<td>
+	<!-- room type should stay hidden unless your room selections 		-->
+	<!-- never change.  You can hardcode values into a select set		-->
+	<!-- using the room type sequence numbers from ResNet. Otherwise	-->
+	<!-- just leave this option alone and it will default to the first	-->
+	<!-- room type in the offer. 										-->
+   <input type="hidden" name="roomType" id="roomType" value="010">
+
+</td>
+</tr>
+<tr>
+<td colspan=3 align=right>   
+
+	<!-- this is an image link for the button 				-->
+	<!-- A form type button will NOT work properly. 		-->
+	<!-- You must make and use an image.  					-->
+	<!-- You must also change the name and path as needed 	-->
+	<a href="javascript:gotoResNet();"><img src="/apps/images/Button_CheckRates.gif" 
+	alt="Check Rates" align="top" border="0" width="101" height="21" ></a><br>
+
+</td>
+</tr>
+</table>
+
+</form>
+<!-- -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5" style="border : 4px solid White;">
+<tr>
+	<td bgcolor="#6491B8" align="center">
+	<a href="http://gaylord.rqst4.info/dspSurvey.cfm?N=119&SID=2&SEQ=1" target="_blank"><img src="http://www.gaylordhotels.com/images/emailmespecials.gif" alt="Email me Specials!" width="135" height="30" hspace="2" vspace="2" border="0"></a>
+	</td>
+</tr>
+</table>
+<img src="http://www.gaylordhotels.com/images/spacer.gif" width="2" height="8" alt="" border="0"><br>
+<table width="100%" border="0" cellspacing="0" cellpadding="4" style="border : 4px solid White;">
+<tr>
+	<td bgcolor="#E1DDD2" align="left">
+<a href="./index.cfm?RenderForPrint=1" onClick="this.href=this.href+'&'+document.location.search.substring(1);"><img src="http://www.gaylordhotels.com/images/print_this_page.gif" alt="Print This Page" width="106" height="11" hspace="2" vspace="2" border="0"></a><br>
+<img src="http://www.gaylordhotels.com/images/dottedline_right_nomargin.gif" alt="" width="133" height="1" vspace="3" border="0"><br>
+<a href="/EmailThisPage.cfm?Page=/index.cfm" target="_blank" onClick="window.open('/EmailThisPage.cfm?Page=%2Findex%2Ecfm', 'window_EmailThisPage', 'top=150,left=200,width=370,height=355,status=no,resizable=yes,scrollbars=no'); return false;"><img src="http://www.gaylordhotels.com/images/email_this_page.gif" alt="Email This Page" width="114" height="11" hspace="2" vspace="2" border="0"></a><br>
+	</td>
+</tr>
+</table>
+<br>
+<div class="CS_Element_Schedule"><div  class="CS_Element_Schedule"  title="" id="CS_Sched_3404_732" ></div></div><div class="CS_Element_Layout"><table id="idLayout554" cellpadding="0" cellspacing="0" class="CS_Layout_Table" width="100%" summary=""><tr class="CS_Layout_TR"><td id="idCell554x1x1" class="CS_Layout_TD"><div class="CS_Element_Textblock"><div class="CS_Textblock_Text"><TABLE class="" style="WIDTH: 154px; HEIGHT: 88px" cellSpacing=0 cellPadding=4 width=154 align=left bgColor=#ffffff summary="" background="" border=0><TBODY><TR><TD class="" valign="middle" align=middle background="" bgColor=#6591b8 height=20><P><SPAN class=FeatureBoxTitle>Meeting Planners!</SPAN></P></TD></TR><TR><TD><P align=center>Be sure to check out our <A id=CP___PAGEID=29878,index.cfm,167| href="/meetings/quickdates/index.cfm"><STRONG><FONT color=#cc0000>Quick Dates</FONT></STRONG></A><BR>calendars for special deals&nbsp;on your next event.</P></TD></TR></TBODY></TABLE><P><BR>&nbsp;</P><P>&nbsp;</P><P>&nbsp;</P><P><TABLE class="" cellSpacing=0 cellPadding=4 width=154 align=left bgColor=#ffffff summary="" background="" border=0><TBODY><TR><TD><A id=CP___PAGEID=56275| href="/upload/GaylordHotelsNamedTopsInMeetingNews.pdf"><STRONG><FONT color=#003366>Gaylord Hotels named tops in <EM>MeetingNews</EM></FONT></STRONG></A></TD></TR><TR><TD><IMG id=||CPIMAGE:56276| height=30 alt=MeetingNews hspace=0 src="/images/Logo_MeetingNews.gif" width=160 border=0></TD></TR></TBODY></TABLE></P></div></div></td></tr>
+	</table>	</div>
+	
+	</td>
+</tr>
+</table>
+	</td>
+	<td bgcolor="#f6f6f6"><img src="http://www.gaylordhotels.com/images/spacer.gif" width="8" height="2" alt="" border="0"></td>
+</tr>
+<tr>
+	<td bgcolor="#f6f6f6"><img src="http://www.gaylordhotels.com/images/spacer.gif" width="16" height="2" alt="" border="0"></td>
+	<td bgcolor="#f6f6f6"><img src="http://www.gaylordhotels.com/images/spacer.gif" width="557" height="12" alt="" border="0"></td>
+	<td bgcolor="#f6f6f6"><img src="http://www.gaylordhotels.com/images/spacer.gif" width="2" height="2" alt="" border="0"></td>
+</tr>
+</table>
+	</td>
+	<td><img src="http://www.gaylordhotels.com/images/spacer.gif" width="11" height="2" alt="" border="0"></td>
+</tr>
+<tr>
+	<td colspan="2"></td>
+	<td colspan="2" id="PageFooter">
+<img src="http://www.gaylordhotels.com/images/spacer.gif" width="2" height="2" alt="" border="0"><br>
+<div class="CS_Element_Schedule"><div  class="CS_Element_Schedule"  title="" id="CS_Sched_3404_556" ><div class="CS_Element_LinkBar"><a href="/contact.cfm" class="CS_LinkBar_Item" onmouseout=" setStatbar('');return true;" onmouseover="setStatbar('/contact.cfm');return true;">Contact Gaylord Hotels</a><span class="CS_LinkBar_Separator"> | </span><a href="/privacy.cfm" class="CS_LinkBar_Item" onmouseout=" setStatbar('');return true;" onmouseover="setStatbar('/privacy.cfm');return true;">Privacy Policy</a><span class="CS_LinkBar_Separator"> | </span><a href="/sitemap.cfm" class="CS_LinkBar_Item" onmouseout=" setStatbar('');return true;" onmouseover="setStatbar('/sitemap.cfm');return true;">Site Map</a><span class="CS_LinkBar_Separator"> | </span><a href="/faq.cfm" class="CS_LinkBar_Item" onmouseout=" setStatbar('');return true;" onmouseover="setStatbar('/faq.cfm');return true;">FAQ</a></div></div></div>
+<img src="http://www.gaylordhotels.com/images/spacer.gif" width="2" height="2" alt="" border="0"><br>
+	</td>
+</tr>
+<tr>
+	<td colspan="4">
+<img src="http://www.gaylordhotels.com/images/bottom.gif" width="791" height="38" alt="" border="0">
+	</td>
+</tr>
+<tr>
+	<td colspan="4" align="center" id="PageCopyrightFooter">
+<img src="http://www.gaylordhotels.com/images/spacer.gif" width="2" height="2" alt="" border="0"><br>
+<div class="CS_Element_Schedule"><div  class="CS_Element_Schedule"  title="" id="CS_Sched_3404_733" ><div class="CS_Element_Textblock"><div class="CS_Textblock_Text"><p align="center"><font color="#999999"><strong><font color="#666666">&copy; Gaylord Hotels, All Rights Reserved,</font></strong> <a class="CP___PAGEID_19814" href="/credits.cfm"><strong>Credits<br></strong></a></font><font color="#666666"><strong>One Gaylord Drive; Nashville, TN 37214-1207<br></strong></font><strong><font color="#666666">Email:</font> <a href="mailto:meet@gaylordhotels.com"><strong>meet@gaylordhotels.com</strong></a></strong></p><p align="center">&nbsp;</p></div></div></div></div>
+<img src="http://www.gaylordhotels.com/images/spacer.gif" width="2" height="2" alt="" border="0"><br>
+	</td>
+</tr>
+</table>
+<div style="display:block; clear:left; padding:10px; font-family:Verdana,Arial; font-size:10px; color:gray;"></div></body></html>

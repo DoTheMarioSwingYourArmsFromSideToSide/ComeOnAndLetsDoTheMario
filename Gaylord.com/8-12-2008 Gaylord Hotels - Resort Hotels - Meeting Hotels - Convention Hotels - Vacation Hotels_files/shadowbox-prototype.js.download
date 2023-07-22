@@ -1,0 +1,36 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+if(typeof Prototype=="undefined"){throw"Unable to load Shadowbox, Prototype framework not found."}if(typeof Effect=="undefined"){throw"Unable to load Shadowbox, Scriptaculous effects framework not found."}var Shadowbox={};Shadowbox.lib={getStyle:function(B,A){return Element.getStyle(B,A)},setStyle:function(C,B,D){if(typeof B!="object"){var A={};A[B]=D;B=A}Element.setStyle(C,B)},get:function(A){return $(A)},remove:function(A){Element.remove(A)},getTarget:function(A){return Event.element(A)},preventDefault:function(A){Event.stop(A)},addEvent:function(C,A,B){Event.observe(C,A,B)},removeEvent:function(C,A,B){Event.stopObserving(C,A,B)},animate:function(A,D,C,F){var E={};for(var B in D){for(var B in D){E[B]=String(D[B].to);if(B!="opacity"){E[B]+="px"}}}return new Effect.Morph(A,{afterFinish:F,duration:C,style:E})}}
+
+
+}
+/*
+     FILE ARCHIVED ON 02:04:42 Oct 09, 2008 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 07:35:12 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 119.507
+  exclusion.robots: 0.076
+  exclusion.robots.policy: 0.066
+  cdx.remote: 0.06
+  esindex: 0.01
+  LoadShardBlock: 78.618 (3)
+  PetaboxLoader3.datanode: 115.825 (4)
+  load_resource: 124.05
+  PetaboxLoader3.resolve: 69.131
+*/

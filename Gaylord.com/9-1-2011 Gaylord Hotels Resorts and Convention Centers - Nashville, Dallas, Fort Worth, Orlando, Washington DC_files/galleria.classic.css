@@ -1,0 +1,185 @@
+.galleria-container{position:relative;overflow:hidden;background:#000;}
+.galleria-container img{-moz-user-select:none;-webkit-user-select:none;-o-user-select:none;}
+.galleria-stage{position:absolute;top:0px;bottom:0px;left:0px;right:0px;overflow:hidden;}
+
+/*changed bottom to 200px to float thumbnails over image*/
+.galleria-thumbnails-container{height:50px;bottom:150px;position:absolute;left:50px;right:10px;z-index:2;}
+
+
+
+.galleria-carousel .galleria-thumbnails-list{margin-left:30px;margin-right:30px;}
+
+/*changed .galleria-image border from #000 to #fff and height from 40px to 50px*/
+
+.galleria-thumbnails .galleria-image{width:60px;background:#000;margin:0 5px 0 0;border:1px solid #fff;float:left;cursor:pointer;}
+.galleria-image {
+	height: 45px;
+}
+.galleria-thumbnails {
+	overflow: visible !important;
+	height:48px !important
+}
+
+
+
+.galleria-counter{position:absolute;bottom:10px;left:10px;text-align:right;color:#fff;font:normal 11px/1 arial,sans-serif;z-index:2;}
+.galleria-loader{background:#000;width:20px;height:20px;position:absolute;top:10px;right:10px;z-index:2;display:none;background:url(/web/20110901072617im_/http://www.gaylordhotels.com/include/galleria/src/themes/classic/classic-loader.gif) no-repeat 2px 2px;}
+.galleria-info{width:50%;top:0px;left:0px;z-index:2;position:absolute;}
+/*.galleria-info-text{background-color:#000;background-color:rgba(0,0,0,.9);padding: 12px;}*/
+
+.galleria-info-text{
+	float:left;
+	position:absolute;
+	left:0px;
+	display:block;
+	width:380px;
+	padding:10px 10px 10px 20px;
+	margin:0;
+	z-index:2;
+	font-size:12px;
+	background: url("/web/20110901072617im_/http://www.gaylordhotels.com/parts/black_bg.png") no-repeat scroll 0 99% transparent;
+}
+
+
+
+.galleria-info-title{
+	font:18px "Helvetica","Verdana",arial,sans-serif;
+	line-height:18px;
+	font-weight:normal;
+	color:#FD9700;
+	
+}
+
+a.learn {
+	color:#fff;
+	padding:0;
+	text-decoration:none;
+	display:inline-block;
+	width:125px;
+	height:25px;
+	background: #000 url('/web/20110901072617im_/http://www.gaylordhotels.com/parts/learn.gif') no-repeat 0 0;
+	text-align:center;
+	line-height:25px;
+	font-size:12px;
+	font-weight:bold;
+	margin:0 22px 0 0;
+}
+
+a.learn:hover {
+	background: url('/web/20110901072617im_/http://www.gaylordhotels.com/parts/learn.gif') no-repeat 0 -26px;
+}
+
+.galleria-info-subtitle{font:16px "Helvetica","Verdana",arial,sans-serif;font-weight:normal;line-height:24px;color:#FD9700;}
+.galleria-info-description{
+	color:#FFFFFF;
+display:block;
+font-family:"Helvetica","Verdana",Arial,sans-serif;
+line-height:14px;
+margin:7px 0 10px;
+text-align:left;
+width:92%;
+}
+.galleria-info-title+.galleria-info-description{margin-top:7px;}
+.galleria-info-close{width:9px;height:9px;position:absolute;top:5px;right:5px;background-position:-753px -11px;opacity:.5;cursor:pointer;display:none;}
+.galleria-info-link{
+	background:url("/web/20110901072617im_/http://www.gaylordhotels.com/parts/black_bg.png") no-repeat scroll 0 99% transparent;
+display:none;
+float:left;
+font-size:12px;
+left:0;
+margin:0;
+padding:10px 10px 10px 20px;
+position:absolute;
+width:380px;
+z-index:2;
+	
+}
+
+.galleria-info-link a.open {
+	background:url("/web/20110901072617im_/http://www.gaylordhotels.com/parts/open.gif") no-repeat scroll 0 0 transparent;
+bottom:0;
+cursor:pointer;
+display:block;
+font-size:10px;
+height:42px;
+padding:0;
+position:absolute;
+right:14px;
+text-decoration:none;
+width:28px;
+}
+
+.galleria-close span.close {
+	color:#fff;
+	padding:0;
+	float:right;
+	position:absolute;
+	right:8px;
+	top:6px;
+	text-decoration:none;
+	font-size:10px;
+	cursor:pointer;
+	background: url('/web/20110901072617im_/http://www.gaylordhotels.com/parts/x1.gif') no-repeat 0 0;
+	display:block;
+	width:14px;
+	height:14px;
+}
+.galleria-close span.close:hover {
+	color:#fb9500;
+	background: url('/web/20110901072617im_/http://www.gaylordhotels.com/parts/x2.gif') no-repeat 0 0;
+}
+
+
+.galleria-image-nav{position:absolute;top:50%;margin-top:-15px;width:100%;height:31px;left:0;}
+.galleria-image-nav-left,
+.galleria-image-nav-right{cursor:pointer;width:16px;height:31px;position:absolute;left:10px;z-index:2;}
+.galleria-image-nav-right{left:auto;right:10px;background-position:0 -69px;z-index:2;}
+.galleria-image-nav-left{background-position:0 -1px;}
+.galleria-image-nav-left:hover{background-position: 0 -36px;}
+.galleria-image-nav-right:hover{background-position: 0 -104px;}
+.galleria-thumb-nav-left,
+.galleria-thumb-nav-right{cursor:pointer;display:none;background-position:-495px 5px;position:absolute;left:0;top:0;height:40px;width:23px;z-index:3;opacity:.8;}
+.galleria-thumb-nav-right{background-position:-578px 5px;border-right:none;right:0;left:auto;}
+.galleria-thumbnails-container .disabled,
+.galleria-thumbnails-container .disabled:hover{opacity:.2;cursor:default;}
+.galleria-thumb-nav-left:hover,
+.galleria-thumb-nav-right:hover{opacity:1;background-color:#111;}
+.galleria-carousel .galleria-thumb-nav-left,
+.galleria-carousel .galleria-thumb-nav-right{display:block;}
+.galleria-thumb-nav-left,
+.galleria-thumb-nav-right,
+.galleria-info-close,
+.galleria-image-nav-left,
+.galleria-image-nav-right{background-image:url(/web/20110901072617im_/http://www.gaylordhotels.com/include/galleria/src/themes/classic/chevron2.gif);background-repeat:no-repeat;width:20px;height:32px;}
+
+.gallery_image {
+	display: none;
+}
+
+#splash {
+	float: left;
+	
+}
+
+
+
+/*
+     FILE ARCHIVED ON 07:26:17 Sep 01, 2011 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 07:36:52 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 866.621
+  exclusion.robots: 0.077
+  exclusion.robots.policy: 0.067
+  RedisCDXSource: 0.69
+  esindex: 0.007
+  LoadShardBlock: 845.292 (3)
+  PetaboxLoader3.resolve: 826.957 (4)
+  PetaboxLoader3.datanode: 248.075 (4)
+  load_resource: 242.252
+*/

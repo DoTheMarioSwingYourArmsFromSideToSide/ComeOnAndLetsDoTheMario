@@ -1,0 +1,472 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+/**************** Global Variables ****************/
+var clearLoadingTimer = 0;
+var lastSubNavMenu = null;
+var lastNavMenu = null;
+
+/**************** Function to Rotate right side box images ****************/
+function rotateImage(obj, opt) {
+    if (opt == 0) {
+        var pDiv = obj.parentNode.parentNode;
+        var curDivs = pDiv.getElementsByTagName('DIV');
+        var curImg = curDivs[0].getElementsByTagName('IMG')[0];
+        var curId = curImg.id;
+        curId = curId.replace('i','');
+        curId = 'i' + (parseInt(curId) - 1);
+        var tmpImgs = curDivs[1].getElementsByTagName('IMG');
+        for(var i=0; i < tmpImgs.length; i++)
+        {
+            if (curId == tmpImgs[i].id)
+            {
+                curImg.id = tmpImgs[i].id;
+                curImg.src = tmpImgs[i].src;
+                break;
+            }
+        }
+    }
+    else if (opt == 1) {
+        var pDiv = obj.parentNode.parentNode;
+        var curDivs = pDiv.getElementsByTagName('DIV');
+        var curImg = curDivs[0].getElementsByTagName('IMG')[0];
+        var curId = curImg.id;
+        curId = curId.replace('i','');
+        curId = 'i' + (parseInt(curId) + 1);
+        var tmpImgs = curDivs[1].getElementsByTagName('IMG');
+        for(var i=0; i < tmpImgs.length; i++)
+        {
+            if (curId == tmpImgs[i].id)
+            {
+                curImg.id = tmpImgs[i].id;
+                curImg.src = tmpImgs[i].src;
+                break;
+            }
+        }
+    }
+    return true;
+}
+
+/**************** Function to show/hide the sub nav menu ****************/
+function showHoverMenu(objSender, opt, subnavSuffix) {
+    var strClassName = objSender.className;
+    var subnavFlyout;
+    if (objSender != null) {
+        if (lastSubNavMenu == null) {
+            if (opt == 1) {
+                strClassName = strClassName + "-hover";
+                objSender.className = strClassName;
+                if (subnavSuffix != "00") {
+                    subnavFlyout = document.getElementById("flyout" + subnavSuffix);
+                    subnavFlyout.style.display = "block";
+                }
+            }
+            else if (opt == 0) {
+                strClassName = strClassName.replace("-hover","");
+                objSender.className = strClassName;
+                if (subnavSuffix != "00") {
+                    subnavFlyout = document.getElementById("flyout" + subnavSuffix);
+                    if (subnavFlyout) subnavFlyout.style.display = "none";
+                }
+            }
+        }
+    }
+    return true;
+}
+
+/**************** Function to show the sub nav menu until menu item clicked ****************/
+function fixHoverMenu(objSender, subnavSuffix) {
+    if (lastSubNavMenu != null) {
+        lastSubNavMenu.style.display = "none";
+    }
+    if (lastNavMenu != null) {
+        lastNavMenu.className = lastNavMenu.className.replace("-hover","");
+    }
+    if (objSender != null) {
+        if (objSender.className.indexOf("-hover") == -1)
+            objSender.className = objSender.className + "-hover";
+        lastNavMenu = objSender;
+        if (subnavSuffix != "00") {
+            lastSubNavMenu = document.getElementById("flyout" + subnavSuffix);
+            if (lastSubNavMenu) lastSubNavMenu.style.display = "block";
+        }
+    }
+    return true;
+}
+
+/**************** Function to hide the sub nav menu when menu item or left nav menu clicked ****************/
+function clearSubNavMenu() {
+    if (lastSubNavMenu) lastSubNavMenu.style.display = "none";
+    if (lastNavMenu) lastNavMenu.className = lastNavMenu.className.replace("-hover","");
+    lastSubNavMenu = null;
+    lastNavMenu = null;
+    return true;
+}
+
+/**************** Function to show/hide the sub nav side menu ****************/
+function showHoverSideMenu(objSender, opt, subnavSuffix) {
+    var strClassName = objSender.className;
+    if (objSender != null) {
+        if (lastSubNavMenu == null) {
+            if (opt == 1) {
+                strClassName = strClassName + "-hover";
+                objSender.className = strClassName;                                      
+                if (subnavSuffix != "000")                                               
+                {
+                    var hoverMenu = document.getElementById("flyout" + subnavSuffix);
+                    if (hoverMenu) hoverMenu.style.top = objSender.offsetTop + 'px';
+                    if (navigator.userAgent.indexOf("MSIE") != -1) {
+                        var heroImg = document.getElementById('hero-image-container');
+                        if (heroImg) heroImg.style.zIndex = -1;
+                    }
+                    if (hoverMenu) hoverMenu.style.display = "block";
+                }
+            }
+            else if (opt == 0) {
+                strClassName = strClassName.replace("-hover","");
+                objSender.className = strClassName;
+                if (subnavSuffix != "000")
+                {
+                    var hoverMenu = document.getElementById("flyout" + subnavSuffix);
+                    if (hoverMenu) hoverMenu.style.display = "none";
+                }
+            }
+        }
+    }
+    return true;
+}
+
+/**************** Function to show the sub nav side menu until menu item clicked ****************/
+function fixHoverSideMenu(objSender, subnavSuffix) {
+    if (lastSubNavMenu != null) {
+        lastSubNavMenu.style.display = "none";
+    }
+    if (lastNavMenu != null) {
+        lastNavMenu.className = lastNavMenu.className.replace("-hover","");
+    }
+    if (objSender != null) {
+        if (objSender.className.indexOf("-hover") == -1)
+            objSender.className = objSender.className + "-hover";
+        lastNavMenu = objSender;
+        if (subnavSuffix != "000") {
+            lastSubNavMenu = document.getElementById("flyout" + subnavSuffix);
+            if (lastSubNavMenu) lastSubNavMenu.style.display = "block";
+        }
+    }
+    return true;
+}
+
+/**************** Function to hide the sub nav side menu when menu item or left nav menu clicked ****************/
+function clearSubNavSideMenu() {
+    lastSubNavMenu.style.display = "none";
+    lastNavMenu.className = lastNavMenu.className.replace("-hover","");
+    lastSubNavMenu = null;
+    lastNavMenu = null;
+    return true;
+}
+
+
+
+/**************** Function to retrieve the page size for lightbox overlay background ****************/
+function getPageSize() {
+
+    var xScroll, yScroll;
+
+    if (window.innerHeight && window.scrollMaxY) {
+        xScroll = window.innerWidth + window.scrollMaxX;
+        yScroll = window.innerHeight + window.scrollMaxY;
+    } else if (document.body.scrollHeight > document.body.offsetHeight){ // all but Explorer Mac
+        xScroll = document.body.scrollWidth;
+        yScroll = document.body.scrollHeight;
+    } else { // Explorer Mac...would also work in Explorer 6 Strict, Mozilla and Safari
+        xScroll = document.body.offsetWidth;
+        yScroll = document.body.offsetHeight;
+    }
+
+    var windowWidth, windowHeight;
+
+    if (self.innerHeight) { // all except Explorer
+        if(document.documentElement.clientWidth) {
+            windowWidth = document.documentElement.clientWidth;
+        } else {
+            windowWidth = self.innerWidth;
+        }
+        windowHeight = self.innerHeight;
+    } else if (document.documentElement && document.documentElement.clientHeight) { // Explorer 6 Strict Mode
+        windowWidth = document.documentElement.clientWidth;
+        windowHeight = document.documentElement.clientHeight;
+    } else if (document.body) { // other Explorers
+        windowWidth = document.body.clientWidth;
+        windowHeight = document.body.clientHeight;
+    }
+
+    // for small pages with total height less then height of the viewport
+    if(yScroll < windowHeight) {
+        pageHeight = windowHeight;
+    } else {
+        pageHeight = yScroll;
+    }
+
+    // for small pages with total width less then width of the viewport
+    if(xScroll < windowWidth) {
+        pageWidth = xScroll;
+    } else {
+        pageWidth = windowWidth;
+    }
+    
+    pageWidth = parseInt(pageWidth) + 20;
+    pageHeight = parseInt(pageHeight) + 40;
+
+    arrayPageSize = new Array(pageWidth,pageHeight,windowWidth,windowHeight)
+    return arrayPageSize;
+}
+
+function getScrollTop() {
+    var ScrollTop = document.body.scrollTop;
+    if (ScrollTop == 0)
+    {
+        if (window.pageYOffset)
+            ScrollTop = window.pageYOffset;
+        else
+            ScrollTop = (document.body.parentElement) ? document.body.parentElement.scrollTop : 0;
+    }
+    return ScrollTop;
+}
+
+
+/**************** Function to show the lightbox overlay inupt content ****************/
+function showOverlayInputContent() {
+    //var objLoading = document.getElementById('lightbox-outer-image');
+    //objLoading.style.display = "block";
+    //clearLoadingTimer = setTimeout('clearLoading()',1000);
+    
+    var objOverlay = document.getElementById('lightbox-overlay');
+    var arrayPageSize = getPageSize();
+    objOverlay.style.width = arrayPageSize[0] + 'px';
+    objOverlay.style.height = arrayPageSize[1] + 'px';
+    objOverlay.style.display = "block";
+
+    var objContent = document.getElementById('lightbox-input-content');
+    objContent.style.width = arrayPageSize[0] + 'px';
+    objContent.style.height = arrayPageSize[1] + 'px';
+
+    var objDataContainer = document.getElementById('lightbox-input-data-container');
+    
+    var sTop = getScrollTop();
+    var sMid = parseInt(arrayPageSize[1]) / 2;
+    var cTop = sMid - parseInt(sTop);
+
+    objDataContainer.style.top = (parseInt(sTop) + 100) + 'px';
+    objDataContainer.style.left = (parseInt(arrayPageSize[0]/2) - (542 /2)) + 'px';
+    
+    objDataContainer.style.display = "block";
+    objContent.style.display = "block";
+    
+    return true;
+}
+
+function hideOverlayContent() {
+
+    var objDataContainer = document.getElementById('lightbox-input-data-container');
+    // Do your clean up here like reset the input fields after submitted/saved
+    // The following cleanup is for the current email form
+    
+    var i = 0;
+    var inputFields = objDataContainer.getElementsByTagName("input");
+    for(i=0; i < inputFields.length; i++) {
+        if (inputFields[i].getAttribute('type') == 'text')
+            inputFields[i].value = "";
+    }
+    var txtareaFields = objDataContainer.getElementsByTagName("textarea");
+    for(i=0; i < txtareaFields.length; i++) {
+        txtareaFields[i].value = "";
+    }
+
+    objDataContainer.style.display = "none";
+
+    var objContent = document.getElementById('lightbox-input-content');
+    objContent.style.display = "none";
+
+    var objOverlay = document.getElementById('lightbox-overlay');
+    objOverlay.style.display = "none";
+    
+    return true;
+}
+
+/**************** Function to hide the preloader image in lightbox overlay content ****************/
+function clearLoading() {
+    clearTimeout(clearLoadingTimer);
+    var objLoading = document.getElementById('lightbox-outer-image');
+    objLoading.style.display = "none";
+
+    var objDataContainer = document.getElementById('lightbox-input-data-container');
+    var sTop = getScrollTop();
+    objDataContainer.style.top = (parseInt(sTop) / 3) + 'px';
+    objDataContainer.style.display = "block";
+    return true;
+}
+
+/**************** Function to show the lightbox overlay inupt content ****************/
+function showOverlayImageContent(objImage) {
+
+    var objOverlay = document.getElementById('lightbox-overlay');
+    var arrayPageSize = getPageSize();
+    objOverlay.style.width = arrayPageSize[0] + 'px';
+    objOverlay.style.height = arrayPageSize[1] + 'px';
+    objOverlay.style.display = "block";
+
+    var objContent = document.getElementById('lightbox-image-content');
+    objContent.style.width = arrayPageSize[0] + 'px';
+    objContent.style.height = arrayPageSize[1] + 'px';
+    
+    var objDataContainer = objContent.getElementsByTagName("DIV")[1];
+    
+    var curImg = objDataContainer.getElementsByTagName("IMG")[0];
+
+    curImg.src = objImage.src;
+    curImg.id = objImage.id;
+
+    var newImage = new Image();
+    newImage.src = objImage.src;
+    
+    var srcWidth = newImage.width;
+    var srcHeight = newImage.height;
+
+    if (navigator.userAgent.indexOf("MSIE") != -1) {
+        objDataContainer.style.width = srcWidth + 42 + 'px';
+        objDataContainer.style.height = ((srcHeight + 58) + 25) + 'px';
+    }
+    else {
+        objDataContainer.style.width = srcWidth + 40 + 'px';
+        objDataContainer.style.height = ((srcHeight + 60) + 25) + 'px';
+    }
+
+    var sTop = getScrollTop();
+    var sMid = parseInt(arrayPageSize[1]) / 2;
+    var cTop = sMid - parseInt(sTop);
+
+    objDataContainer.style.top = (parseInt(sTop) + 100) + 'px';
+    objDataContainer.style.left = (parseInt(arrayPageSize[0]/2) - (srcWidth / 2)) + 'px';
+
+
+    objDataContainer.style.display = "block";
+    objContent.style.display = "block";
+    
+    return true;
+}
+
+function hideOverlayImageContent(objImage) {
+
+    var objContent = document.getElementById('lightbox-image-content');
+    objContent.style.display = "none";
+
+    var objOverlay = document.getElementById('lightbox-overlay');
+    objOverlay.style.display = "none";
+    
+    return true;
+}
+
+
+/**************** Function to Rotate lightbox images ****************/
+function rotateLightboxImage(obj, opt) {
+    if (opt == 0) {
+        var pDiv = obj.parentNode.parentNode;
+        var curDivs = pDiv.getElementsByTagName('DIV');
+        var curImg = curDivs[0].getElementsByTagName('IMG')[0];
+        var curId = curImg.id;
+        curId = curId.replace('i','');
+        curId = 'i' + (parseInt(curId) - 1);
+        var tmpImgs = curDivs[1].getElementsByTagName('IMG');
+        for(var i=0; i < tmpImgs.length; i++)
+        {
+            if (curId == tmpImgs[i].id)
+            {
+                curImg.id = tmpImgs[i].id;
+                curImg.src = tmpImgs[i].src;
+                
+                var newImage = new Image();
+                newImage.src = curImg.src;
+                
+                var objDataContainer = document.getElementById('lightbox-image-data-container');
+                if (navigator.userAgent.indexOf("MSIE") != -1) {
+                    objDataContainer.style.width = newImage.width + 42 + 'px';
+                    objDataContainer.style.height = ((newImage.height + 58) + 25) + 'px';
+                }
+                else {
+                    objDataContainer.style.width = newImage.width + 40 + 'px';
+                    objDataContainer.style.height = ((newImage.height + 60) + 25) + 'px';
+                }
+                var arrayPageSize = getPageSize();
+                objDataContainer.style.left = (parseInt(arrayPageSize[0]/2) - ((newImage.width + 40) / 2)) + 'px';
+                break;
+            }
+        }
+    }
+    else if (opt == 1) {
+        var pDiv = obj.parentNode.parentNode;
+        var curDivs = pDiv.getElementsByTagName('DIV');
+        var curImg = curDivs[0].getElementsByTagName('IMG')[0];
+        var curId = curImg.id;
+        curId = curId.replace('i','');
+        curId = 'i' + (parseInt(curId) + 1);
+        var tmpImgs = curDivs[1].getElementsByTagName('IMG');
+        for(var i=0; i < tmpImgs.length; i++)
+        {
+            if (curId == tmpImgs[i].id)
+            {
+                curImg.id = tmpImgs[i].id;
+                curImg.src = tmpImgs[i].src;
+
+                var newImage = new Image();
+                newImage.src = curImg.src;
+
+                var objDataContainer = document.getElementById('lightbox-image-data-container');
+                if (navigator.userAgent.indexOf("MSIE") != -1) {
+                    objDataContainer.style.width = newImage.width + 42 + 'px';
+                    objDataContainer.style.height = ((newImage.height + 58) + 25) + 'px';
+                }
+                else {
+                    objDataContainer.style.width = newImage.width + 40 + 'px';
+                    objDataContainer.style.height = ((newImage.height + 60) + 25) + 'px';
+                }
+                var arrayPageSize = getPageSize();
+                objDataContainer.style.left = (parseInt(arrayPageSize[0]/2) - ((newImage.width + 40) / 2)) + 'px';
+                break;
+            }
+        }
+    }
+    return true;
+}
+
+
+
+}
+/*
+     FILE ARCHIVED ON 05:38:35 Feb 20, 2010 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 07:35:43 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 205.666
+  exclusion.robots: 0.066
+  exclusion.robots.policy: 0.058
+  cdx.remote: 0.052
+  esindex: 0.009
+  LoadShardBlock: 173.968 (3)
+  PetaboxLoader3.datanode: 144.007 (4)
+  load_resource: 51.126
+  PetaboxLoader3.resolve: 19.955
+*/

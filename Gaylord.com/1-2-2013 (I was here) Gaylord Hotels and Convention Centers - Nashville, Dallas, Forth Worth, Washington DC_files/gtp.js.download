@@ -1,0 +1,1857 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+/**
+ * @author Marc Luria
+ */
+
+function Gaylord(){	
+	this.imgsrcs = new Array();
+	this.alts	 = new Array();
+	this.offers  = new Array();
+	this.imgs    = new Array();
+	this.buffering = false;	
+	this.playerready = false;
+	this.playerreadyinterval = null;
+	this.url = "";
+	this.button360ref = "";
+	this.imagedelay = 8000;
+	this.imagedelaylong = 28000;
+	this.imagetimer = null;
+	this.crosstimer = null;
+}
+
+function isIE6(){
+	if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)) { //test for MSIE x.x;
+		var ieversion = new Number(RegExp.$1) // capture x.x portion and store as a number
+		if (ieversion >= 8) 
+			return false;
+		else 
+			if (ieversion >= 7) 
+				return false;
+			else 
+				if (ieversion >= 6) 
+					return true;
+	}
+}
+
+var gaylord = new Gaylord();
+
+function processpano(){
+	debugger;
+	var jsframe = document.getElementById("jsframe");
+	var location = jsframe.contentWindow.location;
+	var hash = location.hash;
+	if (hash) {
+		hash = hash.substring(1);
+	}
+	if (hash) {
+		processhash(hash);
+		var pano = document.getElementById("pan");
+		setTimeout(function () {
+				if (pano) pano.setAutorotate(0,200,0,true);
+		}, 4000);
+		var close360 = document.getElementById("infobox_360_close_id");
+		close360.onmousedown = close360info;
+		var infobox360 = document.getElementById("infobox_360id");
+		infobox360.style.display = "block";
+		infobox360.zIndex = 10;
+		if (pano) pano.setLocked(true); 
+		var panhoverbox = document.getElementById("panhoverbox");
+		panhoverbox.style.visibility = "visible";
+		panhoverbox.onmousedown = close360info;
+//		panhoverbox.onmousemove = hovermousemove;
+		
+//		pano.style.visibility = "hidden";
+		var pandiv = document.getElementById("pandiv");
+//		pano.style.width = "15px";
+	}
+}
+
+/*
+function hovermousemove() {
+	var pano = document.getElementById("pan");
+	switch (hovermousemove.val) {
+		case 0: 
+		case 1:
+		case 2:
+		case 3:
+			hovermousemove.val++; return;
+		case 4: 	
+			pano.style.width = "1px";
+			hovermousemove.val = 5;
+			return;
+		case 5:
+			pano.style.width = "860px";		
+			var panhoverbox = document.getElementById("panhoverbox");
+			panhoverbox.onmousemove = null;
+			hovermousemove.val = 0;
+	}
+}
+*/
+hovermousemove.val = 0;
+
+
+function hovermousemove() {
+	var pano = document.getElementById("pan");
+	switch (hovermousemove.val) {
+		case 0: 
+//			pano.style.height = "300px";
+			if (pano) pano.style.width = "1px";
+//			pano.style.display = "none";
+			setTimeout(function () {
+				hovermousemove.val = 5;
+//				hovermousemove();
+			},10);
+			return;
+		case 5:
+//			pano.style.height = "428px";		
+			if (pano) pano.style.width = "860px";
+//			pano.style.display = "inline";
+			var panhoverbox = document.getElementById("panhoverbox");
+			panhoverbox.onmousemove = null;
+			hovermousemove.val = 0;
+	}
+}
+
+function close360info() {
+		var infobox360 = document.getElementById("infobox_360id");
+		infobox360.style.display = "none";	
+		var imgele = document.getElementById("infobox_360-img");
+     	imgele.src = "";
+		var pano = document.getElementById("pan");
+		var jsframe = document.getElementById("jsframe");
+		jsframe.src ="null.htm";
+		var location = jsframe.contentWindow.location;
+//		location.hash = "#"; 
+		if (pano) pano.setLocked(false); 
+		if (pano) pano.setAutorotate(0.1,8,0,false);
+//		var hash = location.hash; 
+		var panhoverbox = document.getElementById("panhoverbox");
+		panhoverbox.style.visibility = "hidden";
+		if (pano) pano.style.visibility = "visible";
+}
+
+function showswf360 (pan360name) {
+	var pan = document.getElementById("pan");
+	var so = new SWFObject(gaylord.url + '360/' + pan360name + '.swf','pan','860','428','9');
+	so.addVariable('externalinterface','1');
+    so.addParam('wmode','opaque');
+//  so.addParam('wmode','transparent');
+	so.write('pandiv');
+//    swfobject.embedSWF(gaylord.url + '360/' + pan360name + '.swf', 'pandiv', "860", "428", "9");
+}
+
+function processhash(hash){
+	switch (hash) {
+		case "pajama-party":
+			return info360(116.0, 20, 70.0, "national-pajama-party", "Pajama Party", "", "Counting sheep has never been so cozy. Pajama Party, a whimsical upscale pajama store, has PJ fashions to fit every mood, whether comfy, romantic, or simply fun.", "Learn More", "https://web.archive.org/web/20130102213500/http://www.gaylordhotels.com/gaylord-national/dining-activities/national-harbor-shopping/pajama-party/index.html");
+		case "pienza":
+			return info360(70, 20, 60, "national-pienza", "Pienza", "", "Serving up Italian food at its finest Pienza Italian Market Restaurant features five market inspired stations reflecting seasonal specialties, traditional favorites, as well as creative infusions from our passionate culinary team.  (Serving breakfast, lunch, dinner & Sunday Brunch.  Reservations recommended.", "Learn More", "https://web.archive.org/web/20130102213500/http://www.gaylordhotels.com/gaylord-national/dining-activities/national-harbor-restaurants/pienza-italian-market-buffet/index.html");
+		case "stars-and-stripes":
+ 			return info360(262, 21, 70, "national-stars-stripes", "Stars and Stripes", "", "Show your pride and shop for \"national treasures\" at this mercantile-styled store glorifying the colors and character of the good ol' red, white, and blue.", "Learn More", "https://web.archive.org/web/20130102213500/http://www.gaylordhotels.com/gaylord-national/dining-activities/national-harbor-shopping/stars-n-stripes/index.html");
+		case "moon-bay":
+			return info360(293, 29, 60, "national-moonbay", "Moon Bay", "", "Only one restaurant in D.C. transforms the waters of the Potomac into the banks of the Chesapeake. Moon Bay Coastal Cuisine presents the region's most prized seafood delicacies including Maryland's famous crabs and oysters,and blends them with a mix of unique wines and creative rum & tequila cocktails.", "Learn More", "https://web.archive.org/web/20130102213500/http://www.gaylordhotels.com/gaylord-national/dining-activities/national-harbor-restaurants/moon-bay-coastal-cuisine/index.html");
+		case "old-hickory":
+			return info360(284, 40, 60, "national-old-hickory", "Old Hickory Steakhouse", "", "The finest aged Angus beef, artisanal cheeses, signature cocktails & cordials, and impeccable service await guests at Old Hickory Steakhouse. Gaylord National's flagship restaurant, the rich dining ambience of Old Hickory envelops you in contemporary dÃ&#402;Â©cor modeled around a classic Georgian row house.   (Serving dinner.  Reservations recommended.)", "Learn More", "https://web.archive.org/web/20130102213500/http://www.gaylordhotels.com/gaylord-national/dining-activities/national-harbor-restaurants/old-hickory-steakhouse/index.html");
+		case "national-pastime":
+			return info360(176, 20, 70, "national-pastime", "National Pastime", "", "The concept of the sports bar has now been elevated. At National Pastime, the greats from the past collide with the stars of today, all in a contemporary, cutting edge environment that blends HD with VIP.  (Serving lunch and dinner.  Reservations suggested.)", "Learn More", "https://web.archive.org/web/20130102213500/http://www.gaylordhotels.com/gaylord-national/dining-activities/national-harbor-restaurants/national-pastime-sports-bar-grille/index.html");
+		case "belvedere-lounge":
+			return info360(190, 37, 70, "national-belvedere", "Belvedere Lounge", "", "With a birds eye view of the magnificent 18-story atrium and the Potomac River, the Belvedere Lounge is the perfect venue to relax and connect over classic cocktails and conversation. ", "Learn More", "https://web.archive.org/web/20130102213500/http://www.gaylordhotels.com/gaylord-national/dining-activities/national-harbor-restaurants/belvedere-lobby-bar/index.html");
+			
+		case "belvedere-lounge2":
+			return info360(60, -11, 70, "national-belvedere", "Belvedere Lounge", "", "With a birds eye view of the magnificent 18-story atrium and the Potomac River, the Belvedere Lounge is the perfect venue to relax and connect over classic cocktails and conversation. ", "Learn More", "https://web.archive.org/web/20130102213500/http://www.gaylordhotels.com/gaylord-national/dining-activities/national-harbor-restaurants/belvedere-lobby-bar/index.html");
+		case "cherry-blossom":
+			return info360(211, 20, 70, "national-cherry-blossom", "Cherry Blossom Ballroom", "", "There are lasting impressions ... and then there are legendary ones. For events that are both elegant and epic, the Cherry Blossom Ballroom combines a rich blend of contemporary functionality with presidential formalities creating magnificent gatherings of distinction. ", "Learn More", "https://web.archive.org/web/20130102213500/http://www.gaylordhotels.com/gaylord-national/meetings/maryland-washington-dc-meeting-space/ballrooms/");
+		case "relache-spa":
+			return info360(91, 8, 70, "national-relache-spa", "Relache Spa", "", "Rejuvenate the body and invigorate the mind at the ever-relaxing Relache Spa. Here, you'll discover international skin treatments and therapies, as well as a state-of-the-art fitness center and indoor pool.", "Learn More", "https://web.archive.org/web/20130102213500/http://www.gaylordhotels.com/gaylord-national/spa/index.html");
+			
+		case "old-hickory2":
+			return info360(320, 8, 70, "national-old-hickory", "Old Hickory Steakhouse", "", "The finest aged Angus beef, artisanal cheeses, signature cocktails & cordials, and impeccable service await guests at Old Hickory Steakhouse. Gaylord National's flagship restaurant, the rich dining ambience of Old Hickory envelops you in contemporary dÃ&#402;Â©cor modeled around a classic Georgian row house.   (Serving dinner.  Reservations recommended.)", "Learn More", "https://web.archive.org/web/20130102213500/http://www.gaylordhotels.com/gaylord-national/dining-activities/national-harbor-restaurants/old-hickory-steakhouse/index.html");
+		case "guest-room":
+			return info360(90, -6, 70, "national-guestroom", "Atrium View Deluxe Two Queens", "", "Affording guests a soaring view of the 18-story atrium with lush gardens and colonial streetscapes, the Atrium View Deluxe Room envelops guests with dignitary design elements, lavish furnishings, and contemporary comforts making the view as impressive inside the room as it is outside.", "Learn More", "https://web.archive.org/web/20130102213500/http://www.gaylordhotels.com/gaylord-national/rooms-suites/atrium-view-rooms/index.html");
+		case "belvedere-lounge3":
+			return info360(322, -15, 70, "national-belvedere", "Belvedere Lounge", "", "With a birds eye view of the magnificent 18-story atrium and the Potomac River, the Belvedere Lounge is the perfect venue to relax and connect over classic cocktails and conversation. ", "Learn More", "national-dining-details.html");
+		case "cherry-blossom2":
+			return info360(246, -21, 57, "national-cherry-blossom", "Cherry Blossom Ballroom", "", "There are lasting impressions ... and then there are legendary ones. For events that are both elegant and epic, the Cherry Blossom Ballroom combines a rich blend of contemporary functionality with presidential formalities creating magnificent gatherings of distinction. ", "Learn More", "https://web.archive.org/web/20130102213500/http://www.gaylordhotels.com/gaylord-national/meetings/maryland-washington-dc-meeting-space/ballrooms/");
+			
+		case "convention-center":
+			return info360(220, 34, 70, "national-convention-center", "Convention Center", "", "With 470,000 total square feet of meeting and function space just steps from guest rooms and entertaining environments perfect for networking, Gaylord National is the perfect state-of-the-art and versatile venue for hosting large-scale exhibition events or intimate executive meetings.", "Learn More", "national-dining-details.html");
+			
+		case "guest-room":
+			return info360(90, -6, 70, "national-guestroom", "Atrium View Deluxe Two Queens", "", "Affording guests a soaring view of the 18-story atrium with lush gardens and colonial streetscapes, the Atrium View Deluxe Room envelops guests with dignitary design elements, lavish furnishings, and contemporary comforts making the view as impressive inside the room as it is outside.", "Learn More", "national-dining-details.html");
+		case "cascades-wasabi":
+			return info360(-347, 2, 61, "cascades-wasabi", "Wasabi's Sushi Bar", "", "Surrounded by the soothing sound of waterfalls, Wasabi's is a Japanese-style sushi experience in the open-air atmosphere of the Cascades Atrium. The tantalizing menu includes sushi rolls, nigiri sushi and sashimi, as well as traditional sake, cocktails, plum wine and Japanese beers.  (Serving lunch and dinner.  Reservations suggested.)", "Learn More", "https://web.archive.org/web/20130102213500/http://www.gaylordhotels.com/gaylord-opryland/nashville-tn-dining-activities/nashville-tn-restaurants/wasabis-sushi/index.html");
+		case "cascades-american-cafe":
+			return info360(68, -23, 62, "cascades-american-cafe", "Cascades American CafÃ&#402;Â©", "", "Surrounded by winding brooks and dancing fountains, the atmosphere at Cascades American CafÃ&#402;Â© is as inviting as it is casual.  The menu focuses on fresh seasonal dishes with a regional southern flair. (Serving breakfast, lunch and dinner. Reservations suggested.)", "Learn More", "https://web.archive.org/web/20130102213500/http://www.gaylordhotels.com/gaylord-opryland/nashville-tn-dining-activities/nashville-tn-restaurants/cascades-seafood-restaurant/index.html");
+		case "cascades-atrium-gardenview":
+			return info360(-114, 7, 70, "cascades-atrium-gardenview", "Atrium Garden View Double Queen", "", "Escape to your beautiful Atrium Garden View guest room, overlooking the magnificent gardens for which Gaylord Opryland is known.  Extensive amenities and contemporary comforts make the view as impressive inside the room as it is outside.", "Learn More", "https://web.archive.org/web/20130102213500/http://www.gaylordhotels.com/gaylord-opryland/nashville-tn-hotel-rooms-suites/premium-garden-view-rooms/index.html");
+		case "cascades-relache-spa":
+			return info360(-355, 0.1, 56, "cascades-relache-spa", "Relache Spa", "", "Relax and recharge at Gaylord Opryland's most indulgent landmark, our 27,000-square-foot Relache Spa, featuring indoor and outdoor pools, as well as 12 lavish treatment rooms. Our world class massages, facials, body treatments and fitness options are guaranteed to invigorate the mind and body.", "Learn More", "https://web.archive.org/web/20130102213500/http://www.gaylordhotels.com/gaylord-opryland/nashville-tn-day-spa/index.html");
+		case "cascades-terrace-bar":
+			return info360(-377, -1, 56, "cascades-terrace-bar", "Cascades Terrace Lounge", "", "Located in the heart of the Cascade atrium, this unique, gently revolving lounge surrounds a lovely gazebo and is framed by a majestic waterfall. It's the perfect place to network or meet up with friends.", "Learn More", "https://web.archive.org/web/20130102213500/http://www.gaylordhotels.com/gaylord-opryland/nashville-tn-dining-activities/nashville-tn-restaurants/cascades-terrace-lounge/index.html");
+		case "delta-atrium-flatboats":
+			return info360(-32, 8, 70, "delta-atrium-flatboats", "Delta Flatboats", "", "Take a scenic river cruise aboard one of our Mississippi-style Delta River Flatboats and leisurely wind your way through the incredible Delta atrium. ", "", "");
+		case "delta-convention-center":
+			return info360(-236, 18, 70, "delta-convention-center", "Convention Center", "", "Legendary gatherings. Extraordinary events.  Striking the consummate blend between form and function, the Convention Center at Gaylord Opryland s features elegance and opulence supported by all the operational efficiencies you demand to create spectacular meetings - all within steps of guest rooms and entertaining environments perfect for networking.", "Learn More", "https://web.archive.org/web/20130102213500/http://www.gaylordhotels.com/gaylord-opryland/meetings/nashville-tn-meeting-space/index.html");
+		case "delta-delta-island":
+			return info360(-405, 6, 70, "delta-delta-island", "Delta Island", "", "Immerse yourself in the place that has it all, Delta Island. Enjoy casual dining at Waters Edge Marketplace, Pisanos and Stax as well as eclectic shopping opportunities.   Not to be missed - a memorable scenic river cruise aboard a Delta River Flatboat.  ", "", "");
+		case "delta-old-hickory":
+			return info360(-92, 11, 70, "delta-old-hickory", "Old Hickory Steakhouse", "", "With a spectacular view of the Delta atrium, Old Hickory Steakhouse offers a dining experience that is second to none. The menu boasts aged Angus cuts, fresh seafood, handcrafted artisanal cheeses and an award-winning wine list, earning its designation as a Distinguished Restaurant of North America (DiRONA).  (Serving dinner.  Reservations recommended.)", "Learn More", "https://web.archive.org/web/20130102213500/http://www.gaylordhotels.com/gaylord-opryland/nashville-tn-dining-activities/nashville-tn-restaurants/old-hickory-steakhouse/index.html");
+		case "delta-waters-edge":
+			return info360(10, 10, 70, "delta-waters-edge", "Water's Edge Marketplace Buffet Restaurant", "", "Relax near the serene indoor river on Delta Island while experiencing the dynamic menu of Water's Edge Marketplace Buffet Restaurant, where you'll find a variety of global flavors featuring fresh, local ingredients.  (Serving lunch, dinner and Sunday Brunch.  Reservations suggested.)", "Learn More", "https://web.archive.org/web/20130102213500/http://www.gaylordhotels.com/gaylord-opryland/nashville-tn-dining-activities/nashville-tn-restaurants/waters-edge-marketplace-buffet/index.html");
+		case "district-findleys":
+			return info360(-165, 16, 70, "district-findleys", "Findley's Irish Pub", "", "Relax among friends at Findley's Irish Pub with your beverage of choice and live music nightly. The fine selection of draft beers at Findley's includes Guinness, Harp, Bass Pale Ale and Hard Core Cider. Two dozen whiskeys and scotches, plus wine by the glass are also available.", "Learn More", "https://web.archive.org/web/20130102213500/http://www.gaylordhotels.com/gaylord-opryland/nashville-tn-dining-activities/nashville-tn-restaurants/findleys-irish-pub/");
+		case "district-fuse-nightclub":
+			return info360(-145, 11, 70, "district-fuse-nightclub", "Fuse Nightclub", "", "Enjoy the exciting, sultry ambiance of Fuse Nightclub, delivered with a warmth and hospitality that is unique to Nashville.  Trendy music, decadent cocktails, creatively inspired hors d' oeuvres and a high-energy vibe set the mood in this chic nightclub.", "Learn More", "https://web.archive.org/web/20130102213500/http://www.gaylordhotels.com/gaylord-opryland/nashville-tn-dining-activities/nashville-tn-nightlife/index.html");
+		case "district-rustys-sportsbar":
+			return info360(-178, 16, 70, "district-rustys-sportsbar", "Rusty's Sports Bar & Grill", "", "Unwind at Rusty's Sports Bar & Grill while catching the sports highlights on one of our 20 televisions. Don't miss our satisfying menu of chicken wings, sliders, Kobe dogs and hot Italian paninis.  (Serving lunch and dinner)", "Learn More", "https://web.archive.org/web/20130102213500/http://www.gaylordhotels.com/gaylord-opryland/nashville-tn-dining-activities/nashville-tn-restaurants/rustys-sports-bar-grill/");
+		case "district-savannahs":
+			return info360(-276, 18, 70, "district-savannahs", "Savannah's", "", "Love Music City's unique southern style? Take home a piece of the blues at Savannah's, one of Nashville's most exclusive women's boutiques located in the Magnolia - specializing in trendy denim jeans, jackets, novelty tops, career and casual weekend wear. ", "Learn More", "https://web.archive.org/web/20130102213500/http://www.gaylordhotels.com/gaylord-opryland/nashville-tn-dining-activities/nashville-tn-shopping/index.html");
+		case "garden-conservatory-atrium-gardenview":
+			return info360(-81, 0, 70, "garden-conservatory-atrium-gardenview", "Atrium Garden View Double Queen", "", "Escape to your beautiful Atrium Garden View guest room, overlooking the magnificent gardens for which Gaylord Opryland is known.  Extensive amenities and contemporary comforts make the view as impressive inside the room as it is outside.", "Learn More", "https://web.archive.org/web/20130102213500/http://www.gaylordhotels.com/gaylord-opryland/nashville-tn-hotel-rooms-suites/premium-garden-view-rooms/");
+		case "garden-conservatory-cafe":
+			return info360(21, 0, 70, "garden-conservatory-cafe", "Garden Conservatory Cafe", "", "Savor the best coffee and espresso selections, as well as muffins, cakes, pies and other freshly-baked confections. For your convenience, ordering is always quick and easy.", "", "");
+		case "garden-conservatory-jackdaniels":
+			return info360(163, -9, 61, "garden-conservatory-jackdaniels", "Jack Daniel's Saloon", "", "Gather for drinks, feel-good food, live country music and dancing at the world-famous Jack Daniel's Saloon, honoring a fine Tennessee tradition in a barrelhouse setting.  (Serving dinner.  Live entertainment.)", "Learn More", "https://web.archive.org/web/20130102213500/http://www.gaylordhotels.com/gaylord-opryland/nashville-tn-dining-activities/nashville-tn-restaurants/jack-daniels-saloon/index.html");
+		case "garden-conservatory-volares":
+			return info360(165, -33, 70, "garden-conservatory-volares", "Ristorante Volare", "", "Take a stroll through the serene Garden Conservatory to the hidden treasure of Ristorante Volare.  Enjoy an evening of blissful Italian dining in the atrium under the stars or dine inside the Tuscan-themed restaurant where the menu features a wide array of authentic Italian dishes.  (Serving dinner.  Reservations suggested.)", "Learn More", "https://web.archive.org/web/20130102213500/http://www.gaylordhotels.com/gaylord-opryland/nashville-tn-dining-activities/nashville-tn-restaurants/ristorante-volare/");
+		case "palms-wacky-watersports":
+			return info360(109, 4, 103, "palms-wacky-watersports", "Wacky Waterspouts", "", "Ready to flood your kids with safe and zany fun? Wacky Waterspouts is a feisty family of loggerhead turtles playing amidst pop-jets and fountains that will entertain the kids for hours.", "Learn More", "https://web.archive.org/web/20130102213500/http://www.gaylordhotels.com/gaylord-palms/kissimmee-orlando-dining-activities/kissimmee-orlando-recreation/pools/index.html");
+		case "palms-octopus-slide":
+			return info360(76, 6, 103, "palms-octopus-slide", "Octopus Slide", "", "Hovering over the Clearwater Cove pool George, the friendly Octopus Waterslide, where swimmers make their way through the tangled purple tentacles and whisk down the exciting slide into the sparkling pool below.", "Learn More", "https://web.archive.org/web/20130102213500/http://www.gaylordhotels.com/gaylord-palms/kissimmee-orlando-dining-activities/kissimmee-orlando-recreation/pools/index.html");
+		case "palms-H2O-sports-bar":
+			return info360(-1, 15, 75, "palms-H2O-sports-bar", "H20 Sports Bar and Grill", "", "Take a break from the water and dive into casual poolside dining and frozen cocktails at H20 Sports Bar and Grill - a resort hot spot reminiscent of Ocean Drive's sidewalk cafes.", "Learn More", "https://web.archive.org/web/20130102213500/http://www.gaylordhotels.com/gaylord-palms/kissimmee-orlando-dining-activities/kissimmee-orlando-bars-lounges/h2o-sports-bar-grille/index.html");
+		case "palms-kiddie-caye":
+			return info360(-140, 4, 75, "palms-kiddie-caye", "Kiddie Cay", "", "This is where tots rule the pool. This soft-play area features a seashell slide, a misting starfish, plus an oversized crab that playfully squirts anyone who dares to cross his path. ", "Learn More", "https://web.archive.org/web/20130102213500/http://www.gaylordhotels.com/gaylord-palms/kissimmee-orlando-dining-activities/kissimmee-orlando-recreation/pools/index.html");
+		case "palms-terrapin-reef":
+			return info360(-187, 20, 75, "palms-terrapin-reef", "Terrapin Reef", "", "Anchored by a 12-foot waterfall, Terrapin Reef is where families can play among the reef's inhabitants, including manta rays and a giant turtle, which fills with water and randomly dumps on a passerby or two. The reef is also home to sea horse water guns for some family-friendly water wars and aquatic battles. ", "Learn More", "https://web.archive.org/web/20130102213500/http://www.gaylordhotels.com/gaylord-palms/kissimmee-orlando-dining-activities/kissimmee-orlando-recreation/pools/index.html");
+		case "palms-emerald-bay-atrium-view":
+			return info360(42, 10, 103, "palms-emerald-bay-atrium-view", "Atrium View Guest Room", "", "Each Atrium View Guest Room features a glorious view of the expansive atrium, lush gardens and stunning architecture, which re-creates Florida's most heralded landmarks and destinations. ", "Learn More", "https://web.archive.org/web/20130102213500/http://www.gaylordhotels.com/gaylord-palms/kissimmee-orlando-hotel-rooms-suites/index.html");
+		case "palms-java-coast":
+			return info360(-99, -16, 112, "palms-java-coast", "Java Coast", "", "Open 24 hours a day, java Coast serves the finest coffee and espressos, along with freshly baked pastries, sandwiches, gourmet salads and delectable desserts ,  along with a wide selection of beer and wine. ", "Learn More", "https://web.archive.org/web/20130102213500/http://www.gaylordhotels.com/gaylord-palms/kissimmee-orlando-dining-activities/kissimmee-orlando-restaurants/java-coast-coffee/index.html");
+		case "palms-villa-flora":
+			return info360(-201, -33, 104, "palms-villa-flora", "Villa de Flora ", "", "Explore the most taste tantalizing Mediterranean dishes and ambience at Villa de Flora. This market style buffet features an overflowing assortment of delectable dishes all within the olde world charm of the St. Augustine atrium. ", "Learn More", "https://web.archive.org/web/20130102213500/http://www.gaylordhotels.com/gaylord-palms/kissimmee-orlando-dining-activities/kissimmee-orlando-restaurants/villa-de-flora/index.html");
+		case "palms-shops-at-marketplace":
+			return info360(-71, -35, 112, "palms-shops-at-marketplace", "Shops at Marketplace Square", "", "Marketplace Square features a host of unique and fun shops just waiting for you to explore. Choose from stylish accessories and apparel to world famous branded clothing and wares - all in the charming setting of the St. Augustine atrium. ", "Learn More", "https://web.archive.org/web/20130102213500/http://www.gaylordhotels.com/gaylord-palms/kissimmee-orlando-dining-activities/kissimmee-orlando-shopping/index.html");
+		case "palms-castillo-marcos-fort":
+			return info360(-186, 2, 77, "palms-castillo-marcos-fort", "Castillo de San Marcos Fort", "", "Guarding over the St. Augustine atrium is the Castillo de San Marcos Fort, a replica of the real fortress that has stood watch over America's oldest city since the 1600's. Today, you too can be an explorer as you wander through the cobblestone turrets and tunnels at one of Gaylord Palms' most treasured landmarks. ", "Learn More", "https://web.archive.org/web/20130102213500/http://www.gaylordhotels.com/gaylord-palms/kissimmee-orlando-dining-activities/kissimmee-orlando-recreation/best-of-florida-live/index.html");
+		case "palms-relache-spa":
+			return info360(-257, -19, 106, "palms-relache-spa", "Relache Spa", "", "Relax and revive at Gaylord Palms' most indulgent landmark ...  Relache Spa. Here, world-class treatments and therapies blend with the invigorating elements of Florida to create a totally rejuvenated state of mind.", "Learn More", "https://web.archive.org/web/20130102213500/http://www.gaylordhotels.com/gaylord-palms/kissimmee-orlando-day-spa/relache-spa/index.html");
+		case "palms-sawgrass-place":
+			return info360(-245, -22, 106, "palms-sawgrass-place", "Sawgrass Place", "", "Deep in the Everglades atrium, Sawgrass Place is home to several species of non-venomous Florida snakes and a host of baby alligators. ", "Learn More", "https://web.archive.org/web/20130102213500/http://www.gaylordhotels.com/gaylord-palms/kissimmee-orlando-dining-activities/kissimmee-orlando-recreation/best-of-florida-live/index.html");
+		case "palms-everglades-atrium-king":
+			return info360(18, 7, 120, "palms-everglades-atrium-king", "Atrium View King Guest Room", "", "Perched above the rising mists of the awe-inspiring Everglades, this Atrium View King Guest Room wraps you in a beautiful blend of natural luxuries and modern creature comforts.", "Learn More", "https://web.archive.org/web/20130102213500/http://www.gaylordhotels.com/gaylord-palms/kissimmee-orlando-hotel-rooms-suites/index.html");
+			
+		case "palms-old-hickory":
+			return info360(244, -13, 120, "palms-old-hickory", "Old Hickory Steakhouse", "", "Nestled luxuriously within the natural beauty of the Everglades, Old Hickory Steakhouse satisfies the most discerning tastes with 1855 Certified Premium Angus Beef, fresh seafood, artisanal cheeses and an award-winning wine list.", "Learn More", "https://web.archive.org/web/20130102213500/http://www.gaylordhotels.com/gaylord-palms/kissimmee-orlando-dining-activities/kissimmee-orlando-restaurants/old-hickory-steakhouse/index.html");
+			
+		case "palms-almost-the-southern-point":
+			return info360(63, 21, 100, "palms-almost-the-southern-point", "Almost the Southern Most Point Marker", "", "Pose for a photo at this replica of Key West's most famous landmark - the Almost the Southern Most Point Marker, located in the spirited Key West atrium.", "Learn More", "https://web.archive.org/web/20130102213500/http://www.gaylordhotels.com/gaylord-palms/services-amenities/tour/key-west/index.html");
+		case "palms-sunset-sams":
+			return info360(11, 26, 100, "palms-sunset-sams", "Sunset Sam's Fish Camp", "", "Cast your worries overboard and celebrate the Key West way at Sunset Sam's Fishcamp. Dine on fresh seafood and delight to colorful cocktails as you soak up the laid back lifestyle of this famed destination. Nightly entertainment.  Serving lunch & dinner.", "Learn More", "https://web.archive.org/web/20130102213500/http://www.gaylordhotels.com/gaylord-palms/kissimmee-orlando-dining-activities/kissimmee-orlando-restaurants/sunset-sams-fish-camp/index.html");
+			
+		case "palms-key-west-lagoon":
+			return info360(-33, 6, 120, "palms-key-west-lagoon", "Key West Lagoon", "", "Anchored by the 60ft schooner the S.S. Gaylord, this 110,000 gallon lagoon is home to several species of Florida native gamefish (tarpon, redfish and snook) and stingrays.  Check out the fish feedings - schedule varies.", "Learn More", "https://web.archive.org/web/20130102213500/http://www.gaylordhotels.com/gaylord-palms/services-amenities/tour/key-west/index.html");
+			
+		case "palms-duval-street-traders":
+			return info360(189, 17, 120, "palms-duval-street-traders", "Duval Street Traders", "", "Explore fun and festive shopping at Duval Street Traders. This colorful shop features one-of-a-kind island wares, tropical souvenirs, and Key West keepsakes.", "Learn More", "https://web.archive.org/web/20130102213500/http://www.gaylordhotels.com/gaylord-palms/kissimmee-orlando-dining-activities/kissimmee-orlando-shopping/index.html");
+case "texan-lone-star-entrance":
+   return info360(336,23,120, "texan-lone-star-entrance", "Lone Star Atrium Entrance", "", "The great state of Texas in all its big and panoramic glory. Enter the Lone Star Atrium, and feel the pride of Texas in every glorious detail. Gaylord Texan is a wondrous setting brimming with authentic Texas style and hospitality.", "", "");
+case "texan-riverwalk-cafe":
+   return info360(379,14,120, "texan-riverwalk-cafe", "Riverwalk CafÃ&#402;Â©", "", "Reminiscent of the famed San Antonio River Walk, this market-style eatery serves delicious regional foods prepared with Texas flair. The fun and excitement of the open-air cafÃ&#402;Â© features six different stations, including a pasta station, carving station, fajita station and pastry cabinet.   (Serving breakfast, lunch, dinner and Sunday Brunch.  Reservations suggested.)", "Learn More", "https://web.archive.org/web/20130102213500/http://www.gaylordhotels.com/gaylord-texan/grapevine-dallas-dining-activities/grapevine-dallas-restaurants/riverwalk-cafe/");
+case "texan-relache-spa":
+   return info360(170,21,117, "texan-relache-spa", "Relache Spa and Indoor Pool", "", "The European-styled Relache Spa features state-of-the-art fitness, wellness and salon treatment areas that are designed to relax and recharge. Inside the lush and inviting spa area, you'll find spa suites, steam and sauna rooms, and a sparkling indoor pool.", "Learn More", "https://web.archive.org/web/20130102213500/http://www.gaylordhotels.com/gaylord-texan/grapevine-dallas-day-spa/relache-spa/index.html");
+case "texan-fitness-center":
+   return info360(239,18,117, "texan-fitness-center", "Fitness Center", "", "Located next to the spa, our world-class fitness center offers the latest in workout technology. From free weights to treadmills, it's easy to maintain your exercise routine during your stay. ", "Learn More", "https://web.archive.org/web/20130102213500/http://www.gaylordhotels.com/gaylord-texan/grapevine-dallas-day-spa/fitness-center/index.html?intcmp=gt-cnav-fitness");
+case "texan-texan-station":
+   return info360(-238,44,100, "texan-texan-station", "Texan Station Sports Bar", "", "They say everything is bigger and better in Texas, which could explain the 30' high, 52' wide high-def TV screen at Texan Station Sports Bar. With 50 more flat-screen TVs located throughout our state-of-the-art visual sports center, you won't miss a single highlight. In addition to a vast selection of brews and cocktails, our menu incorporates traditional bar snacks and burgers, along with the best barbeque in Texas.   (Serving lunch and dinner.)", "Learn More", "https://web.archive.org/web/20130102213500/http://www.gaylordhotels.com/gaylord-texan/grapevine-dallas-dining-activities/grapevine-dallas-restaurants/texan-station/");
+case "texan-texan-station2":
+   return info360(73,13,84, "texan-texan-station2", "Texan Station Sports Bar", "", "They say everything is bigger and better in Texas, which could explain the 30' high, 52' wide high-def TV screen at Texan Station Sports Bar. With 50 more flat-screen TVs located throughout our state-of-the-art visual sports center, you won't miss a single highlight. In addition to a vast selection of brews and cocktails, our menu incorporates traditional bar snacks and burgers, along with the best barbeque in Texas.   (Serving lunch and dinner.)", "Learn More", "https://web.archive.org/web/20130102213500/http://www.gaylordhotels.com/gaylord-texan/grapevine-dallas-dining-activities/grapevine-dallas-restaurants/texan-station/");
+case "texan-ama-lur":
+   return info360(-37,4,90, "texan-ama-lur", "Ama Lur", "", "Experience first-hand the spirited Southwestern cuisine of Ama Lur.   Partake in one of our many specialty drinks, all beneath the twinkling lights of a festive courtyard setting. The contemporary menu features creative interpretations of wood-fired meats and fresh seafood, coupled with bold flavors and robust seasonings.  (Serving dinner.  Reservations recommended.)", "Learn More", "https://web.archive.org/web/20130102213500/http://www.gaylordhotels.com/gaylord-texan/grapevine-dallas-dining-activities/grapevine-dallas-restaurants/ama-lur/");
+case "texan-lone-star-double-queen":
+   return info360(242,15,120, "texan-lone-star-double-queen", "Atrium View Double Queen Guest Room", "", "These stately guest rooms were inspired by the grandeur of a cattle baron's ranch house. Warm, textured walls provide a sumptuous leathered look, while an elegant color scheme of Texas sage greens, rich gold and deep mocha accents add a dash of understated splendor. No detail has been overlooked.  And the view ... you'll be wowed.", "", "");
+case "texan-dallas-cowboys-deck":
+   return info360(-277,11,120, "texan-dallas-cowboys-deck", "texan-dallas-cowboys-deck", "", "", "", "");
+case "texan-mission-plaza":
+   return info360(33,1,54, "texan-mission-plaza", "Mission Plaza and Bell Tower", "", "The grandeur of the Gaylord Texan is at its finest in Mission Plaza and Bell Tower. Explore the majestic Rio Grande River as it winds past the old mission plaza and a striking nine-story oil derrick, all indoors!", "", "");
+case "texan-shops":
+   return info360(42,7,90, "texan-shops", "Shops", "", "With over 10,000 square feet of retail shops, Gaylord Texan features some of the most distinctive boutiques and retail shops in Texas. You'll find everything from unique souvenirs and exquisite jewelry to basic necessities and authentic regional art. ", "", "");
+case "texan-dallas-cowboys-deck":
+   return info360(0, 0, 0, "texan-dallas-cowboys-deck", "Header", "", "Copy", "", "");
+case "texan-model-train":
+   return info360(274,19,120, "texan-model-train", "Model Trains", "", "If it's a warm feel of yesteryear you desire, then make tracks for the model trains in the Lone Star Atrium. The romance of the rails evoke fond memories of childhood and enable us to see the world with a renewed wonder.", "", "");
+case "texan-coffee-shop":
+   return info360(185,15,106, "texan-coffee-shop", "Coffee Shop", "", "As dawn breaks, the buzz begins with your favorite coffee or espresso beverage served to your exact specifications at our famed coffee shop. ", "", "");
+case "texan-lobby":
+   return info360(220,16,106, "texan-lobby", "Lobby", "", "Upon entrance into this magnificent setting you are greeted by the warmth of the fireplace and the rich, comfortable furnishings that envelope you and welcome you to your Lone Star home away from home.", "Learn More", "https://web.archive.org/web/20130102213500/http://www.gaylordhotels.com/gaylord-texan/grapevine-dallas-dining-activities/grapevine-dallas-bars-lounges/silver-bar/");
+case "texan-java-coast":
+   return info360(-360,21,116, "texan-java-coast", "Java Coast Coffee Bar", "", "What's the buzz all about at Java Coast? Other than the fact that it's open 24 hours a day, this authentic bistro serves only the finest coffee and espressos, along with freshly baked pastries, sandwiches, gourmet salads and delectable desserts, along with a wide selection of beer and wine. ", "Learn More", "https://web.archive.org/web/20130102213500/http://www.gaylordhotels.com/gaylord-texan/grapevine-dallas-dining-activities/grapevine-dallas-restaurants/java-coast-coffee/");
+case "texan-bell-desk":
+   return info360(-1,9,120, "texan-bell-desk", "Bell Desk", "", "We take pride in providing warm hospitality in every detail. For your convenience, we are pleased to offer the best in service, including a 24-hour concierge, to make your stay unforgettable. ", "", "");
+case "texan-silver-bar":
+   return info360( -30,19,120, "texan-silver-bar", "Silver Bar", "", "The Silver Bar is reminiscent of a saloon from the Old West, exemplified by the silver-plated edge that trims the entire bar, but the feel of a living-room setting gives the space an overall sense of warmth and elegance. Located in the main lobby, the Silver Bar serves traditional and classic cocktails daily. ", "Learn More", "https://web.archive.org/web/20130102213500/http://www.gaylordhotels.com/gaylord-texan/grapevine-dallas-dining-activities/grapevine-dallas-bars-lounges/silver-bar/");
+case "texan-lone-star-atrium":
+   return info360(-84,12,70, "texan-lone-star-atrium", "Lone Star Atrium", "", "The Lone Star Atrium is as big as Texas itself!  This centerpiece of the Gaylord Texan Resort features rivers and rocky canyons, a replica of the Alamo, awesome train displays, and Texan Station Sports Bar.  Oh ... and be sure to look up ... and behold the Lone Star emblazoned in the glass atrium rooftop.", "", "");
+case "texan-front-desk":
+   return info360(194,14,120, "texan-front-desk", "Front Desk", "", "Southern hospitality welcomes you the moment you walk up to our front desk, where our attentive staff is dedicated to making your visit to the Gaylord Texan a memorable one. ", "", "");
+	}
+	
+	
+	
+}
+
+function info360(pan,tilt,fov,img,h1,h2,par,buttontext,buttonref) {
+	var pano = document.getElementById("pan");
+	
+	if (pan || tilt || fov) {
+		if (pano) 		pano.moveTo(pan, tilt, fov, 2);
+	}
+	else {
+		var pan = Math.floor(pano.getPan());
+		var tilt = Math.floor(pano.getTilt());
+		var fov = Math.floor(pano.getFov());
+		if (pano) pano.moveTo(pan, tilt, fov, 2);
+//		alert(img + ' ' + pan + "," + tilt + ',' + fov);
+	}
+	var h1ele = document.getElementById("infobox_360-h1");
+	h1ele.className = "";
+	var h2ele = document.getElementById("infobox_360-h2");
+	h2ele.className = "";
+	var pele =  document.getElementById("infobox_360-span");
+	pele.className = "";
+	var imgele = document.getElementById("infobox_360-img");
+	imgele.src = gaylord.url + "360/" + img + ".jpg";
+	pele.style.cursor = "hand";
+	if (h1) h1ele.innerHTML = h1;
+	if (h2) {
+		h2ele.innerHTML = h2;
+		h2ele.style.display = "block";
+	}
+	else {
+		h2ele.style.display = "none";
+	}
+	if (par) {
+		pele.innerHTML = par;
+		pele.style.display = "block";
+	}
+	var buttonele =  document.getElementById("infobox_360-button");
+	if (buttontext) {
+		buttonele.innerHTML = buttontext;
+		buttonele.style.display = "block";
+		buttonele.style.zIndex = 1040;
+		buttonele.onmousedown = button360click;
+//		buttonele.title = buttontext;
+		gaylord.button360ref = buttonref;
+	}
+	else {
+		buttonele.style.display = "none";
+	}
+} 
+
+function button360click() {
+	close360();
+	document.location = gaylord.button360ref;
+	
+}
+ 
+function deoname2(pid, filename, placeholder) {
+    var flashvars = {
+        file: filename,
+        autostart: "false",
+//        stretching: "uniform",
+		bufferlength: "3",
+        controlbar: "over"
+    }
+    var params = {
+        allowfullscreen: "true",
+		wmode: "opaque",
+		id: pid,
+        allowscriptaccess: "always"
+    }
+    var attributes = {
+        id: pid,
+        name: pid
+    }
+    swfobject.embedSWF(gaylord.url + "include/player.swf", placeholder, "962", "595", "9", "", flashvars, params, attributes);
+
+}
+
+function showvideoname2(videoname) {
+	showvideoname2("mpl",gaylord.url + 'videos/' + videoname + '.flv','mediaspace')
+//	setTimeout("doplayerReady()",1000);
+//	  gaylord.playerreadyinterval = setTimeout(function(){
+//			var result = doplayerReady();
+//			if (result) clearInterval(gaylord.playerreadyinterval);
+//			}, 5000);
+}
+
+function showvideoname(videoname) {
+  var so = new SWFObject(gaylord.url + 'include/player.swf','mpl','962','595','9');
+  so.addParam('allowfullscreen','true');
+  so.addParam('allowscriptaccess','always');
+  so.addParam('wmode','opaque');
+  so.addVariable('file',gaylord.url + 'videos/' + videoname + '.flv');
+  so.addVariable('bufferlength','3');
+  so.addVariable('autostart','true');
+  so.addVariable('controlbar','over');
+  so.addVariable('id','mpl');
+//  so.addVariable('oncomplete','rewind');
+//  so.addVariable('mute','true');
+//  so.addVariable('image',gaylord.url + 'videos/' + videoname + '.jpg');
+  so.write('mediaspace');  
+/*  gaylord.playerreadyinterval = setTimeout(function(){
+			var result = doplayerReady();
+			}, 5000); */
+}
+
+
+
+/*
+function showvideo(){
+	var srcswf = gaylord.url + "include/flowplayer-3.1.5.swf";
+	var bkgd   = gaylord.url + "videos/bkgd.jpg";
+	var videodiv = document.getElementById("mpl");
+	if (!videodiv) return;
+	var videoname = videodiv.title;
+	videoname = gaylord.url  + "videos/" + videoname + ".flv";
+	hidehomeimages();
+	player = flowplayer("mpl", 
+	{
+		src:  srcswf,
+		wmode: 'opaque'
+	}, 
+	{
+	    playlist: [ 
+        { 
+            url: bkgd,  
+            scaling: 'orig' 
+        }, 
+        { 
+            url: videoname,  
+            autoPlay: false,               
+            autoBuffering: true  
+        } 
+    ] ,
+		plugins: {
+			controls: {
+				autoHide: 'always',
+				fullscreen: false
+			}
+		},
+//		play: {width: '84', height: 84}, 
+		onLoad: function(){ 
+        	onLoaded();
+    	} 	,
+		onBeforeFinish: function(clip) {
+			onFinish(clip.duration);
+		}
+		}
+
+	);
+//	unhidehomeimages();
+}
+*/
+function showvideo(){
+	var srcswf = gaylord.url + "include/flowplayer-3.1.5.swf";
+	var bkgd   = gaylord.url + "videos/bkgd.jpg";
+	var videodiv = document.getElementById("mpl");
+	if (!videodiv) return;
+	clearTimeout(gaylord.imagetimer);
+	setvisibility("chev-right-id",false);
+	setvisibility("chev-left-id", false);
+	showvideoimage("bkgd");
+	var videoname = videodiv.title;
+	if (isIE6()) {
+		videoname = gaylord.url + "videos/" + videoname + "-6.flv";
+	}
+	else {
+		videoname = gaylord.url + "videos/" + videoname + ".flv";
+	}
+	videodiv.title = "";
+//	hidehomeimages();
+	player = null;
+	player = flowplayer("mpl", 
+	{
+		src:  srcswf ,
+		wmode: 'opaque' 
+	}, 
+	{
+		clip: { 
+        onStart: function() { 
+         	onStoryStart();
+        } 
+    },
+	    playlist: [ 
+        { 
+            url: videoname,  
+            autoPlay: false,               
+            autoBuffering: true  
+        } 
+    ] ,
+		plugins: {
+			controls: {
+				background: '#096AAE url(parts/tube-blue.jpg) no-repeat 0px 0px', 
+        		backgroundGradient: 'none',
+				progressColor:  	'#FFFFFF',
+				progressGradient: 	'none',
+				bufferColor: 	'#999999',
+				scrubberHeightRatio: 0.3,
+//				scrubberBarHeightRatio: 1,
+				bufferGradient: 'none',
+				buttonColor: '#096AAE',
+				buttonOverColor: '#095595',
+				time: false,
+//				autoHide: 'always',
+				fullscreen: false
+			}
+		},
+		onMute: function() {
+			showmutebutton();
+		},
+		onUnmute: function() {
+			showmutebutton();
+		},	
+		onLoad: function(){ 
+        	onLoaded();
+    	} 	,
+		onBeforeLoad: function(){ 
+        	onBeforeLoaded();
+    	} 	,
+		onBeforeFinish: function(clip) {
+			onFinish(clip.duration);
+		}
+		}
+
+	);
+	player.hide();
+
+//	var mpl = document.getElementById("mpl");
+//	mpl.style.height = "1px";
+
+
+//	unhidehomeimages();
+}
+
+
+
+function getvideoname(imagesrc) {
+	var videoname = imagesrc.textAfter("images/");
+	return videoname.subUntil("-large");
+}
+
+
+
+function changeclip(clipnum) {	
+	var playbutton = document.getElementById("play-button");
+	playbutton.style.visibility = "visible";
+	playbutton.zIndex = 39;
+	if (player) {
+		player.stop();
+	}		
+	if (isIE6()) {
+		if (player) {
+			player.unload();
+		}
+		unhidehomeimages();
+
+	}
+	else {
+		player.show();
+		//	player.hide();
+		unhidehomeimages();
+		var videoname = getvideoname(gaylord.imgsrcs[clipnum]);
+		videoname = gaylord.url + "videos/" + videoname + ".flv";
+		var clip = player.getClip(0);
+		clip.update({
+			url: videoname
+		});
+		player.hide();
+		
+		player.startBuffering();
+		var x = 3;
+	}
+}
+
+function showstoryvideo(){
+	if (isIE6()) return; 
+	var srcswf = gaylord.url + "include/flowplayer-3.1.5.swf";
+//	var bkgd   = gaylord.url + "videos/bkgd.jpg";
+//	showvideoimage(bkgd);
+	var videodiv = document.getElementById("mpl");
+	if (!videodiv) return;
+	var videoname = videodiv.title;
+	videoname = gaylord.url  + "videos/" + videoname + ".flv";
+	videodiv.title = "";
+//	hidehomeimages();
+	player = flowplayer("mpl", 
+	{
+		src:  srcswf,
+		wmode: 'opaque'
+	}, 
+	{
+		clip: { 
+        onStart: function() { 
+         	onStoryStart();
+        } 
+    },
+	    playlist: [ 
+        { 
+            url: videoname,  
+            autoPlay: false,               
+            autoBuffering: true  
+        } 
+    ] ,
+		plugins: {
+			controls: {
+				background: '#096AAE url(parts/tube-blue.jpg) no-repeat 0px 0px', 
+        		backgroundGradient: 'none',
+				progressColor:  	'#FFFFFF',
+				progressGradient: 	'none',
+				bufferColor: 	'#999999',
+				scrubberHeightRatio: 0.3,
+//				scrubberBarHeightRatio: 1,
+				bufferGradient: 'none',
+				buttonColor: '#096AAE',
+				buttonOverColor: '#095595',
+				time: false,
+//				autoHide: 'always',
+				fullscreen: false
+			}
+		},
+//		play: {width: '84', height: 84}, 
+		onLoad: function(){ 
+        	onStoryLoaded();
+    	} 	,
+		onBeforeFinish: function(clip) {
+			onStoryFinish(clip.duration);
+		}
+		}
+
+	);
+//	var mpl = document.getElementById("mpl");
+//	mpl.style.height = "1px";
+
+
+//	unhidehomeimages();
+}
+
+function showstoryvideoie6(videoname){
+	var srcswf = gaylord.url + "include/flowplayer-3.1.5.swf";
+//	var bkgd   = gaylord.url + "videos/bkgd.jpg";
+//	showvideoimage(bkgd);
+//	var videodiv = document.getElementById("mpl");
+//	if (!videodiv) return;
+//	var videoname = videodiv.title;
+//	videoname = gaylord.url  + "videos/" + videoname + ".flv";
+videoname = gaylord.url + "videos/" + videoname + "-6.flv";
+	
+//	hidehomeimages();
+//    player.unload();
+	player = flowplayer("mpl", 
+	{
+		src:  srcswf,
+		wmode: 'opaque'
+	}, 
+	{
+		clip: { 
+        onStart: function() { 
+//         	onStoryStart();
+        } 
+    },
+	    playlist: [ 
+        { 
+            url: videoname,  
+            autoPlay: true,               
+            autoBuffering: true  
+        } 
+    ] ,
+		plugins: {
+			controls: {
+				background: '#096AAE url(parts/tube-blue.jpg) no-repeat 0px 0px', 
+        		backgroundGradient: 'none',
+				progressColor:  	'#FFFFFF',
+				progressGradient: 	'none',
+				bufferColor: 	'#999999',
+				scrubberHeightRatio: 0.3,
+//				scrubberBarHeightRatio: 1,
+				bufferGradient: 'none',
+				buttonColor: '#096AAE',
+				buttonOverColor: '#095595',
+				time: false,
+//				autoHide: 'always',
+				fullscreen: false
+			}
+		},
+//		play: {width: '84', height: 84}, 
+		onLoad: function(){ 
+        	if (player) {
+				player.unmute();
+			}
+    	} 	,
+		onBeforeFinish: function(clip) {
+			onStoryFinish(clip.duration);
+		}
+		}
+
+	);
+//	var mpl = document.getElementById("mpl");
+//	mpl.style.height = "1px";
+
+
+//	unhidehomeimages();
+}
+
+function onStoryLoaded() {
+	player.hide();
+	player.unmute();
+	ie6hide();
+	player.startBuffering();
+	var x = 3;
+}
+
+function onBeforeLoaded() {
+	if (player) {
+		player.hide();
+		
+	}
+	return true;
+}
+
+function onLoaded() {
+//		player.hide();
+		player.mute();
+		player.startBuffering();
+		clearTimeout(gaylord.imagetimer);
+//	setTimeout(function() {
+		hidehomeimages();
+		player.show();
+		player.play();
+		showmutebutton();
+
+//s	},1000);
+}
+
+function showmutebutton() {
+	if (!player) return;
+	var image = getfirstimage();
+	var status = player.getStatus();
+	if (status.muted) {
+		setvisibility("audio-off-icon",true);
+		setvisibility("audio-on-icon",false);
+	}
+	else {
+		setvisibility("audio-off-icon",false);
+		setvisibility("audio-on-icon",true);
+	} 	
+}
+
+function playerunmute() {
+	if (player) {
+		player.unmute();
+		showmutebutton();
+	}
+}
+
+function playermute() {
+	if (player) {
+		player.mute();
+		showmutebutton();
+	}
+}
+
+
+function ie6hide() {
+	if (isIE6()) {
+//			alert("IE6 hide");
+			var video = document.getElementById("mpl");
+//			alert(video.style.display);
+			video.style.display = "none";
+		}
+}
+
+function ie6show() {
+	if (isIE6()) {
+//			alert("IE6 show");
+			var video = document.getElementById("mpl");
+			video.style.display = "block";
+		}
+}
+
+
+function onFinish(length) {
+	if (length > 0) {
+		player.hide();
+		unhidehomeimages();
+		ie6hide();
+	}
+	var playbutton = document.getElementById("play-button");
+	if (playbutton) {
+		playbutton.style.visibility = "hidden";
+	}
+	changeimageint(0);
+	increment();
+	hideunmute();
+}
+
+function hideunmute() {
+		setvisibility("audio-off-icon",false);
+		setvisibility("audio-on-icon",false);
+}
+
+function onStoryFinish(length) {
+	if (length > 0) {
+		if (isIE6()) {
+			player.unload();
+			unhidehomeimages();
+			//		ie6hide();
+		
+		}
+		else {		
+			player.hide();
+			unhidehomeimages();
+		}
+//		ie6hide();
+	}
+	var playbutton = document.getElementById("play-button");
+	if (playbutton) {
+		playbutton.style.visibility = "visible";
+	}
+	increment();
+}
+
+
+
+function showvideojs() {
+	var videodiv = document.getElementById("mediaspace");
+	if (!videodiv) return;
+	var videoname = videodiv.title;
+	showvideoimage(videoname);
+	showvideoname(videoname);
+}
+
+function showvideoimage(videoname) {
+	var firstimage = getfirstimage();
+	var imgs = firstimage.getElementsByTagName("img");
+	var img = imgs[0];
+	var num = this.imagenumber;
+	img.src = gaylord.url + 'videos/' + videoname + '.jpg';
+	var buttons = document.getElementById("buttons_cont");
+	if (buttons) {
+		buttons.style.visibility = "hidden";
+	}
+	gaylord.buffering = true;
+}
+
+
+function getTime() {
+	var date = new Date();
+	return date.getTime();
+	
+}
+
+function hidehomeimages() {
+	if (hidehomeimages.hidden) return;
+	var image = getfirstimage();
+	setFirstClass(image,"home_image_cont","div","none");
+	
+	var buttons = document.getElementById("buttons_cont");
+	if (!isStory()) {
+		if (buttons) {
+			buttons.style.visibility = "hidden";
+		}
+		closeinfobox();
+	}
+	unhide();
+/*	setTimeout(function(){
+			changeimagenum(0);
+	}, 1000); */
+	hidehomeimages.hidden = true;
+
+}
+
+function hide() {
+		var video = document.getElementById("mediaspacediv");
+//		var video = document.getElementById("mpl");
+		if (video) {
+			video.style.visibility = "hidden";
+		}
+}
+
+function unhide() {
+		var video = document.getElementById("mediaspacediv");
+//		var video = document.getElementById("mpl");
+		if (video) {
+			video.style.visibility = "visible";
+		}
+}
+
+
+function unhidehomeimages() {
+	var image = getfirstimage();
+	var imagediv = getFirstClass(image,"home_image_cont","div","block");
+	if (imagediv) {
+		setFirstClass(image, "home_image_cont", "div", "block");
+		if (!isStory()) {
+			var video = document.getElementById("mpl");
+			if (video) {
+				video.style.visibility = "hidden";
+			}
+			var buttons = document.getElementById("buttons_cont");
+			if (buttons) {
+				buttons.style.visibility = "visible";
+			}
+		}
+	}
+	else {
+		if (player) {
+			player.seek(0);
+		}
+	}
+	if (!isStory()) {
+		showinfobox();
+	}
+	hidehomeimages.hidden = false;
+
+}
+
+var currentState = "NONE"; 
+var previousState = "NONE"; 
+ 
+var player = null;
+
+function playerReady(thePlayer){
+	doplayerReady();
+}
+
+function doplayerReady() {
+	if (gaylord.playerready) return true;
+	player = document.getElementById("mpl");
+	if (player) {
+		try {
+			player.addModelListener("STATE", "stateListener");
+			player.addModelListener("LOADED", "loadedListener");
+			player.addModelListener("TIME", "timeListener");
+			gaylord.playerready = true;
+			hide();
+			setTimeout(function () {
+				startplayer();
+			}, 500);
+			return;
+		}
+		catch (e) {
+		}
+	}
+	setTimeout("doplayerReady()",100);
+}
+ 
+function startplayer() {
+	player.sendEvent("PLAY", true);	
+}
+ 
+function addListeners() {
+	if (player && player.addModelListener) { 
+	} else {
+		setTimeout("addListeners()",100);
+	}
+}
+
+function timeListener(obj) {
+	var position = obj.position;
+	if (position >= 1) {
+		hidehomeimages();
+	}
+}
+
+ 
+function loadedListener(obj) {
+	var total = obj.total;
+	var loaded = obj.loaded;
+	if (loaded == 0 || total / loaded > 50) {
+//		hide();
+	}
+}
+ 
+function stateListener(obj) { //IDLE, BUFFERING, PLAYING, PAUSED, COMPLETED
+	currentState = obj.newstate; 
+	previousState = obj.oldstate;  
+	if (currentState == "COMPLETED") {
+		changeimagenum(0);
+		unhidehomeimages();
+	}
+	if (currentState == "PLAYING") {
+		hidehomeimages();
+	}
+}
+ 
+
+
+var fps = 10;
+
+function getElementByClassNameId(classname, tag, elemid, num){
+	var elem = document.getElementById(elemid);
+	return getElementByClassName(classname, tag, elem, num);
+}
+
+
+function getElementsByClassName(classname, tag, elemid){
+	var elem = document.getElementById(elemid);
+	var elems = elem.getElementsByTagName(tag);
+	var list = new Array();
+	for (var i = 0; i < elems.length; i++) {
+		var ele = elems[i];
+		if (ele.className && ele.className.indexOf(classname) != -1) {
+			list.push(ele);
+		}
+	} 
+	return list;
+}
+
+
+
+function getElementByClassName(classname, tag, elem,num){
+	var elems = elem.getElementsByTagName(tag);
+	var counter = 0;
+	for (var i = 0; i < elems.length; i++) {
+		var ele = elems[i];
+		if (ele.className && ele.className.indexOf(classname) != -1) {
+			if (counter == num) 
+				return ele;
+			counter++;
+		}
+	} 
+	return null;
+}
+
+function getfirstimage() {
+   return getElementByClassNameId("main_image","div","wrapper2",0);
+}
+
+function getinfobox() {
+	var firstimage = getfirstimage();
+//	var infoboxes = firstimage.getElementsByClassName("trans_box2");
+    return 	getElementByClassName("trans_box2","div",firstimage,firstimage.imagenumber);
+//	return infoboxes[firstimage.imagenumber];	
+}
+
+function creatediv(id,parent) {
+	var newdiv = document.createElement('div');
+	newdiv.id = id;
+	parent.appendChild(newdiv);
+	return newdiv;
+}
+
+function insertAfter( referenceNode, newNode )
+{
+    referenceNode.parentNode.insertBefore( newNode, referenceNode.nextSibling );
+}
+
+function createdivafter(id,parent,after) {
+	var newdiv = document.createElement('div');
+	newdiv.id = id;
+	insertAfter(after,newdiv);
+//	parent.insertBefore(newdiv,before);
+	return newdiv;
+}
+
+
+function createimg(id,parent) {
+	var img = document.createElement('img');
+	img.id = id;
+	parent.appendChild(img);
+}
+
+function createimageref(parentdiv,imagesrc,alt,num) {
+	//             	 <a href="#"><img src="images/img_icon1.gif" alt="img_icon1.gif"/></a>
+	
+	var newref = document.createElement('a');
+	newref.href = "#";
+	imagesrc = imagesrc.textBefore(".jpg");
+	var nonlarge = imagesrc.textBefore("-large");
+	if (nonlarge) imagesrc = nonlarge;
+	newref.innerHTML =  "<img src='" + imagesrc +  "-icon.gif' alt='" + alt + "'/>";
+	parentdiv.appendChild(newref);
+	newref.onmousedown = changeimage;
+	newref.imagenumber = num;
+	return newref;
+}
+
+function delayedincrement() {
+	clearTimeout(gaylord.imagetimer);
+	increment(gaylord.imagedelaylong);
+}
+
+function changeimage(){
+	num = this.imagenumber;
+	if (gaylord.crosstimer) {
+		imagefadeend();
+	}
+	changeimageint(num);
+	delayedincrement();
+}
+
+function nextimage() {
+	var firstimage = getfirstimage();
+	changeimageint(firstimage.imagenumber + 1);
+	delayedincrement();
+}
+
+function previmage() {
+	var firstimage = getfirstimage();
+	changeimageint(firstimage.imagenumber - 1);
+	delayedincrement();
+}
+
+function incrimage() {
+	var firstimage = getfirstimage();
+	changeimageint(firstimage.imagenumber + 1);
+	increment(gaylord.imagedelay);
+}
+
+
+function getnumberofimages() {
+	var	images = getElementsByClassName("home_main_image","div","wrapper2");
+	if (!images.length) {
+		var images = getElementsByClassName("main_image","div","wrapper2");
+	}
+	return images.length;	
+}
+
+function changeimageint(num){
+	var imgcnt = getnumberofimages();
+	if (imgcnt == 0) return;
+	if (num >= imgcnt) num = 0;
+	var nofade = false;
+	if (isStory()) {
+		if (player) {
+			if (!player.isHidden()) {
+				nofade = true;
+			}
+		}
+	}
+	changeimagenum(num,nofade);
+	setvisibility("chev-right-id",imgcnt > num + 1);
+	setvisibility("chev-left-id", num > 0);
+	var infobox = getinfobox();
+	infobox.style.display = "none";
+
+	var firstimage = getfirstimage();
+	firstimage.imagenumber = num;	// this changes the current infobox
+	if (isStory()) {
+		changeclip(num);
+	}
+	else {
+	    infobox = getinfobox();
+		infobox.style.display = "block";
+		infobox.style.top = "-48px";
+		setupslider();
+	}
+}
+
+
+function getimages() {
+	
+}
+
+function doimages(){
+	var linkslen = document.links.length;
+	for (var i=0;i< linkslen;i++) {
+		if (document.links[i].title) document.links[i].title = "";
+	}
+	var home = true;
+	var images = getElementsByClassName("home_main_image", "div", "wrapper2");
+	if (!images.length) {
+		home = false;
+		var images = getElementsByClassName("main_image", "div", "wrapper2");
+	}
+	var firstimage = getfirstimage();
+	createbutton("audio-off-icon", firstimage, 122, 907, playerunmute);
+	createbutton("audio-on-icon", firstimage, 122, 907, playermute);
+	firstimage.imagenumber = 0;
+	var home_image = getFirstClass(firstimage, "home_image_cont", "div");
+	var buttons = creatediv("buttons_cont", firstimage);
+	if (home_image && home_image.style.display == "none") {
+		buttons.style.visibility = "hidden";
+	}
+	if (gaylord.buffering) {
+		buttons.style.visibility = "hidden";
+	}
+	
+	if (home) {
+		buttons.className = "thumb_box home_thumbs";
+	}
+	else {
+		buttons.className = "thumb_box";
+	}
+	if (!home) {
+		var rightbutton = creatediv("right_button", firstimage);
+		rightbutton.innerHTML = "<a href=\"#\">See the Gaylord Experience</a>";
+		rightbutton.onmousedown = open360;
+	}
+	//             <a  class="shev_right">&nbsp;</a>
+	var chev_right = createabutton("chev_right", firstimage, "&nbsp;", "chev-right-id", false, nextimage);
+	if (images.length > 1) {
+		chev_right.style.visibility = "visible";
+	}
+	var chev_left = createabutton("chev_left", firstimage, "&nbsp;", "chev-left-id", false, previmage);
+	
+	for (var i = 0; i < images.length; i++) {
+		var image = images[i];
+		var imgs = image.getElementsByTagName("img");
+		if (imgs.length > 0) {
+			var img = imgs[0];
+			gaylord.imgsrcs.push(img.src);
+			var aref = createimageref(buttons, img.src, img.alt, i);
+			if (i == 0) {
+				//				aref.className = "hov_thumb";
+			}
+		}
+		var infobox = getElementByClassName("trans_box2", "div", image, 0);
+		var h1elem = infobox.getElementsByTagName("h1")[0];
+		var closeref = createa("close", infobox, "&nbsp", "#", h1elem);
+		closeref.onmousedown = closeinfobox;
+		var openref = createa("open", infobox, "&nbsp;", "#");
+		openref.onmousedown = showinfobox;
+		setFirstClass(infobox, "open", "a", "hidden");
+		
+		
+		/*      
+		 <a href="#" class="open">&nbsp;</a>
+		 var newref = document.createElement('a');
+		 newref.onmousedown = closeinfobox;
+		 newref.className = "close";
+		 newref.innerHTML = "x";
+		 newref.href = "#";
+		 infobox.insertBefore(newref, h1elem); */
+		//             <a  class="shev_right">&nbsp;</a>
+		
+		if (i > 0) {
+			image.style.display = "none";
+			img.src = "";
+			firstimage.insertBefore(infobox, buttons);
+			infobox.style.display = "none";
+		}
+		
+	}
+	if (home_image) {
+//if (false){
+//		home_image.id = "home_image_1";
+		home_image.id = "home_image_cont";
+		var imgs = home_image.getElementsByTagName("img");
+		var img = imgs[0];
+		img.id = "home_img_1";
+		var slider = document.getElementById("slider1");
+		var home_image2 = createdivafter("home_image_2", firstimage,home_image);
+		home_image2.style.visibility = "hidden";
+//		home_image2.className = "home_image_cont2";
+		home_image2.id = "home_image_cont2";
+		var img2 = createimg("home_img_2", home_image2);
+		
+	}
+
+	if (isStory()) {
+		doStoryImages();
+	}
+	increment(gaylord.imagedelay + 1000);
+}
+
+ 
+function changeimagenum(num,nofade) {
+	var firstimage = getfirstimage();
+	var imgs = firstimage.getElementsByTagName("img");
+	var img = imgs[0];
+	img.zIndex = 2;
+	if (isIE6()) {
+//		img.zIndex = -1;		
+	}
+	img.alt = gaylord.alts[num];
+	if (!nofade && img.id == "home_img_1" /*&& !isIE6() */) {
+          imagefade(gaylord.imgsrcs[num]);	
+	}
+	else {
+		img.src = gaylord.imgsrcs[num];
+	}
+}
+
+function cacheImages() {
+	for (var i = 0; i < getnumberofimages(); i++) {
+			var img = new Image();
+			img.src = gaylord.imgsrcs[i];
+			gaylord.imgs.push(img);
+	}
+}
+
+function increment(amt) {
+	var cnt = getnumberofimages();
+	if (cnt > 1) {
+		if (amt == undefined) 
+			amt = gaylord.imagedelay;
+		gaylord.imagetimer = setTimeout(function(){
+			incrimage();
+		}, amt);
+	}
+}
+
+function doStoryImages() {
+		 var image = getfirstimage();
+		 var imagediv = getFirstClass(image,"home_image_cont","div");
+		 var firstimage = getfirstimage();
+		 var imgs = firstimage.getElementsByTagName("img");
+		 var img = imgs[0];
+		 var imagesrc = img.src;
+		 var imagename = imagesrc.textAfter("images/");
+		 imagename = imagename.subUntil("-large");
+		 var butimg = createbutton("play-button",image,347,423,playstory);
+ 		 butimg.videoname = imagename;
+		 setvisibility("play-button",true);		 
+/*		 var butimg =  document.createElement("img");
+		 if (isIE6()) {
+		 	butimg.src = "parts/play-button-3.gif";
+		 }
+		 else {		 
+		 	butimg.src = "parts/play-button-1.png";
+		 }
+	     image.appendChild(butimg);
+		 butimg.style.position = "absolute";
+		 butimg.style.top = "347px";
+		 butimg.style.left = "423px";
+		 butimg.id = "playbutton";
+         butimg.style.cursor = 'pointer';
+		 butimg.onclick = playstory;
+		 butimg.style.zIndex = 39;
+		 butimg.videoname = imagename; */
+}
+
+function createbutton(buttonname,parent,top,left,onclick) {
+		 var butimg =  document.createElement("img");
+		 if (isIE6()) {
+		 	butimg.src = "parts/" + buttonname + ".gif";
+		 }
+		 else {		 
+		 	butimg.src = "parts/" + buttonname + ".png";
+		 }
+	     parent.appendChild(butimg);
+		 butimg.style.position = "absolute";
+		 butimg.style.top = top + "px";
+		 butimg.style.left = left + "px";
+		 butimg.id = buttonname;
+         butimg.style.cursor = 'pointer';
+		 butimg.onclick = onclick;
+		 butimg.style.zIndex = 39;
+		 butimg.style.visibility = "hidden";
+		 return butimg;	
+}
+
+function playstory() {
+	var playbutton = document.getElementById("play-button");
+	clearTimeout(gaylord.imagetimer);
+	playbutton.style.visibility = "hidden";
+	setvisibility("home_image_cont2",false);
+//	var mpl = document.getElementById("mpl");
+//	mpl.style.height = "595px";
+	hidehomeimages();
+	if (isIE6()) {
+		//	ie6show();
+		var firstimage = getfirstimage();
+		var clipnum = firstimage.imagenumber;
+		var videoname = getvideoname(gaylord.imgsrcs[clipnum]);
+		showstoryvideoie6(videoname);
+//		videoname = gaylord.url + "videos/" + videoname + ".flv";
+//		setTimeout(function() {
+//			playvideoname(videoname);
+//		},3000);
+	}
+	else {
+		player.show();
+		player.play();
+	}
+//	showstoryvideo();
+}
+
+function playvideoname(videoname) {
+			alert("play2");
+			player.play(videoname);
+	
+}
+
+function onStoryStart() {
+	var xxx = 3;
+}
+
+
+
+String.prototype.subUntil = function(str){
+    var index = this.indexOf(str);
+    if (index == -1) 
+        index = this.length;
+    return this.substring(0, index);
+}
+
+String.prototype.startsWith = function(prefix){
+    var index = this.indexOf(prefix);
+    return (index == 0);
+}
+
+String.prototype.textAfter = function(text){
+    var length = text.length;
+    if (length == 0) 
+        return "";
+    var pos = this.indexOf(text);
+    if (pos == -1) 
+        return "";
+    if (pos + length >= this.length) 
+        return "";
+    var rem = this.substring(pos + length);
+    return rem;
+}
+
+
+String.prototype.endsWith = function(suffix){
+    var startPos = this.length - suffix.length;
+    if (startPos < 0) {
+        return false;
+    }
+    return (this.lastIndexOf(suffix, startPos) == startPos);
+};
+
+// 	createa("chev_right",firstimage,"&nbsp;");
+
+
+function createabutton(className,parent,text,id,visible,func) {
+	var but = createa(className,parent,text);
+	but.id = id;
+	if (!visible) {
+		but.style.visibility = "hidden";
+	}
+	but.onmousedown = func;
+	return but;
+}
+
+function createa(className,parent,text,href,before) {
+	var newref = document.createElement('a');
+	newref.className = className;
+	newref.innerHTML = text;
+	if (href != undefined) {
+		newref.href = href;
+	}
+	if (before == undefined) {
+		parent.appendChild(newref);
+	}
+	else {
+		parent.insertBefore(newref,before);
+	}
+	return newref;
+}
+
+/* 		var img = imgs[0];
+		img.id = "home_img_1";
+		var home_image2 = creatediv("home_image_2", firstimage);
+		home_image2.style.visibility = "hidden";
+		home_image2.className = "home_image_cont2";
+		var img2 = createimg("home_img_2", home_image2);
+ */ 
+
+function imagefade(newsrc) {
+		var home_image2 = document.getElementById("home_image_cont2");
+		home_image2.style.visibility = "visible";
+		var home_img_2 =document.getElementById("home_img_2");
+		home_img_2.src = newsrc;
+		var home_img_1 =document.getElementById("home_img_1");
+		
+	//  fade('before', 5, 'out') ;
+//  fade('after', 5, 'in') ;
+        fade("home_img_1",5,'out'); 
+        fade("home_img_2",5,'in'); 
+}
+
+function imagefadeend(){
+	clearTimeout(gaylord.crosstimer);
+	gaylord.crosstimer = null;
+	var home_img_2 = document.getElementById("home_img_2");
+	var home_img_1 = document.getElementById("home_img_1");
+	home_img_1.src = home_img_2.src;
+	var home_image2 = document.getElementById("home_image_cont2");
+	home_image2.style.visibility = "hidden";
+	home_img_1.style.opacity = 1;
+}
+
+function fade(img, time, dir)
+{
+  img = document.getElementById(img) ;
+  var steps = time * fps;
+  if (typeof img.style.opacity != 'undefined' ) {
+  	    var otype = 'w3c';
+  }
+  else if (typeof img.filters == 'object')
+  {
+    otype = (img.filters.length > 0
+        && typeof img.filters.alpha == 'object'
+        && typeof img.filters.alpha.opacity == 'number')
+        ? 'ie' : 'none';
+  }
+  else {otype = 'none'; }
+  if (otype != 'none')
+  {
+    if (dir == 'out') { dofade(steps, img, 1, false, otype) ; }
+    else { dofade(steps, img, 0, true, otype) ; }
+  }
+}
+
+function fade(img, time, dir){
+	img = document.getElementById(img);
+	var steps = time * fps;
+	if (dir == 'out') {
+		dofade(steps, img, 1, false);
+	}
+	else {
+		dofade(steps, img, 0, true);
+	}	
+}
+
+
+function dofade(steps, img, value, targetvisibility){
+	if (targetvisibility) {
+		value += 1 / steps;
+		if (value >= 1) {
+			value = 1;
+			imagefadeend();
+		}
+		else {
+			setfade(img, value);
+			gaylord.crosstimer = setTimeout(function(){
+				dofade(steps, img, value, targetvisibility);
+			}, 100 / fps);
+		}
+	}
+	else {
+		value += -1 / steps;
+		if (value <= 0) {
+			value = 0;
+		}
+		else {
+			gaylord.crosstimer = setTimeout(function(){
+				dofade(steps, img, value, targetvisibility);
+			}, 100 / fps);
+		}
+	}
+}
+
+
+
+function setfade(img, value, otype)
+{
+  switch(otype)
+  {
+    case 'ie':
+      img.filters.alpha.opacity = value * 100; break;
+	 default:
+      img.style.opacity = (value == 1 ? 0.9999999 : value); break;
+  } 
+} 
+
+
+function setfade(elem, opacityAsInt) {
+     var opacityAsDecimal = opacityAsInt;
+     
+     if (opacityAsInt > 100)
+         opacityAsInt = opacityAsDecimal = 100; 
+     else if (opacityAsInt < 0)
+         opacityAsInt = opacityAsDecimal = 0; 
+     
+    opacityAsDecimal /= 100;
+    if (opacityAsInt < 1)
+        opacityAsInt = 1; // IE7 bug, text smoothing cuts out if 0
+    
+    elem.style.opacity = (opacityAsDecimal);
+    elem.style.filter  = "alpha(opacity=" + opacityAsInt + ")";
+}
+
+function setfade(elem, opacityAsDecimal,dummy) {
+     if (opacityAsDecimal > 1)
+          opacityAsDecimal = 1; 
+     else if (opacityAsInt < 0)
+        opacityAsDecimal = 0; 
+     
+    var opacityAsInt = Math.ceil(opacityAsDecimal * 100);
+    if (opacityAsInt < 1)
+        opacityAsInt = 1; // IE7 bug, text smoothing cuts out if 0
+    
+    elem.style.opacity = (opacityAsDecimal);
+    elem.style.filter  = "alpha(opacity=" + opacityAsInt + ")";
+}
+
+
+function addLoadListener(fn){
+    if(typeof window.addEventListener !='undefined')    window.addEventListener('load',fn,false);
+    else if(typeof document.addEventListener !='undefined')    document.addEventListener('load',fn,false);
+    else if(typeof window.attachEvent !='undefined')    window.attachEvent('onload',fn);
+    else{
+        var oldfn=window.onload
+        if(typeof window.onload !='function')    window.onload=fn;
+        else    window.onload=function(){oldfn();fn();}
+    }
+}
+
+function setupslider() {
+		setTimeout(function(){
+		  showoffer(22,119,-48);  
+		}, 1000);
+}
+
+function isStory() {
+    var loc = "" + document.location;
+	if (loc.endsWith("stories.html")  || loc.endsWith("stories.html#"))  return true;
+	return false;
+}
+
+function setup(url){
+	gaylord.url = url;
+//		gaylord.url = "https://web.archive.org/web/20130102213500/http://www.gaylordhotels.com/";
+	doimages();
+	setTimeout(function() {
+	if (!isStory()) {
+		setupslider();
+		showvideo();
+	}
+	else {
+		showstoryvideo();
+	}
+	} ,500);
+	setTimeout(function() {
+		cacheImages();
+	},2000);
+}
+
+
+
+addLoadListener(function()
+{
+//  fade('before', 5, 'out') ;
+//  fade('after', 5, 'in') ;
+//	doimages();
+//	setupslider();
+//	setup();
+}) ; 
+
+function gettop(div) {
+	var start = div.style.top;
+	start = start.textBefore("px");
+	return start;	
+}
+
+function closeinfobox() {
+	showoffer(11,-48,119,showinfoboxheader);
+}
+
+function close360() {
+	document.getElementById('light').style.display='none';
+	document.getElementById('fade').style.display='none';
+	close360info();
+}
+
+function open360() {
+	document.getElementById('light').style.display='block';
+	document.getElementById('fade').style.display='block';
+	for(var i = 0; i < 4; i++) {
+		var aref = document.getElementById("thumb_360-" + i);
+		if (i == 0) {
+			showswf360(aref.name);
+			showmap(aref.name);
+		}
+		aref.onmousedown = showother360;
+	}
+}
+
+function showmap(mapname) {
+	//  <img id="map_img" img src="./images/national-off.gif" alt="" /  />
+	var mapimg = document.getElementById("map_img");
+	mapimg.src = gaylord.url + '360/' + mapname + '.gif';
+}
+
+function showother360(){
+	close360info();
+	var num = this.id.textAfter("thumb_360-");
+	for (var i = 0; i < 4; i++) {
+		var h1 = document.getElementById("title_360_center-" + i);
+		var thumb = document.getElementById("thumb_360-" + i);
+		if (i == num) {
+			h1.style.display = "block";
+			thumb.className = "uncovered";
+		}
+		else {
+			h1.style.display = "none";
+			thumb.className = "";
+		}
+	}
+	showswf360(this.name);
+	showmap(this.name);
+}
+
+function showinfobox() {
+	showoffer(5,77,119,showinfoboxafter);
+}
+
+function showinfoboxafter() {
+    var infobox = getinfobox();
+    setFirstTag(infobox, "h2", "block");
+    setFirstTag(infobox, "p", "block");
+    setFirstClass(infobox, "boxaction","div", "block");
+
+//    setFirstClass(infobox, "learn", "a","block");
+//	setFirstClass(infobox,"call","span","visible");
+    setFirstClass(infobox, "close", "a","block");
+	setFirstClass(infobox,"open","a","hidden");
+	slide(infobox,22,119,-48);
+}
+
+function showinfoboxheader(){
+    /*
+     <h1 style="visibility: visible;">
+     <h2 style="visibility: visible;">
+     <p>We have specials this weekend that could put you in this luxurious atrium. Come to the Palms with someone you love. </p>
+     <a class="learn" href="#">Learn More</a>
+     <a class="open" href="#"> </a>
+     */
+    var infobox = getinfobox();
+    setFirstTag(infobox, "h2", "none");
+    setFirstTag(infobox, "p", "none");
+    setFirstClass(infobox, "boxaction","div", "none");
+//    setFirstClass(infobox, "learn", "a","none");
+//	setFirstClass(infobox,"call","span","hidden");
+    setFirstClass(infobox, "close", "a","none");
+	setFirstClass(infobox,"open","a","visible");
+	slide(infobox,6,119,78);
+ }
+
+function getFirstTag(parent,tag) {
+	var elems = parent.getElementsByTagName(tag);
+	return elems[0];
+}
+
+function getFirstClass(parent,classname,tag) {
+    return getElementByClassName(classname,tag,parent,0);
+}
+
+function setstyle(elem,value) {
+	switch (value) {
+		case "none": 	elem.style.display 	  = "none"; 	break;
+		case "block": 	elem.style.display 	  = "block";	break;
+		case "visible": elem.style.visibility = "visible"; 	break;
+		case "hidden": 	elem.style.visibility = "hidden"; 	break;
+	}
+}
+
+function setvisibility(id,bool) {
+	var elem = document.getElementById(id);
+	if (bool) {
+		setstyle(elem,"visible");
+	}
+	else {
+		setstyle(elem,"hidden");
+	}
+	
+}
+
+function setFirstTag(parent,tag,value) {
+	var elem = getFirstTag(parent,tag);
+	setstyle(elem,value);
+}
+
+function setFirstClass(parent,classname,tag,value) {
+	var elem = getFirstClass(parent,classname,tag);
+	if (elem) {
+		setstyle(elem, value);
+	}
+}
+
+
+function showoffer(steps, end, start, callafter){
+	var infobox = getinfobox();
+	slide(infobox, steps, end, start, callafter);
+}
+
+function	slide(div, steps, end, start, callafter) {
+	if (start != undefined) {
+		div.style.top = start + "px";
+	}
+	var start = gettop(div);
+	doslide(div,Math.ceil((end-start)/steps),end,callafter);
+}
+
+function doslide(div, amount, end,callafter){
+	var current = Number(gettop(div));
+	if (amount > 0 &&  current + amount >= end || amount < 0 &&  current + amount <= end) {
+		div.style.top = end + "px";
+		if (doslide.interval != undefined) {
+			clearInterval(doslide.interval);
+			doslide.interval = undefined;
+		}
+		if (callafter != undefined) {
+			callafter.apply();
+		}
+	}
+	else {
+		var newamt = 0 + amount - - current;
+		div.style.top = newamt + "px";
+		if (doslide.interval == undefined) {
+			doslide.interval = setInterval(function(){
+				doslide(div, amount, end,callafter);
+			}, 40);
+		}
+	}
+}
+
+String.prototype.textAfter = function(text){
+    var length = text.length;
+    if (length == 0) 
+        return "";
+    var pos = this.indexOf(text);
+    if (pos == -1) 
+        return "";
+    if (pos + length >= this.length) 
+        return "";
+    var rem = this.substring(pos + length);
+    return rem;
+}
+
+String.prototype.textBefore = function(text){
+    var length = text.length;
+    if (length == 0) 
+        return "";
+    var pos = this.indexOf(text);
+    if (pos <= 0) 
+        return "";
+	return this.substring(0,pos);
+}
+
+}
+/*
+     FILE ARCHIVED ON 21:35:00 Jan 02, 2013 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 07:39:00 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 362.225
+  exclusion.robots: 0.071
+  exclusion.robots.policy: 0.061
+  cdx.remote: 0.057
+  esindex: 0.01
+  LoadShardBlock: 281.121 (3)
+  PetaboxLoader3.datanode: 285.299 (4)
+  load_resource: 106.464
+  PetaboxLoader3.resolve: 85.538
+*/

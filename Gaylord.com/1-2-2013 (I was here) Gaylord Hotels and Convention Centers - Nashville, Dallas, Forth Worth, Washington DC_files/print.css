@@ -1,0 +1,52 @@
+#print_logo {height:119px; width:340px; overflow:hidden;}
+#header, #booking_box, #top_nav_box, .main_image, #col_1, #col_3, .white_content, #footer1, .foot_nav2 {display:none;}
+#copy {color: #666666;}
+body {
+	margin:0 auto;
+	padding: 0 ;
+	font-family: Arial,Verdana, Helvetica, sans-serif;
+	font-size: 13px;
+	color: #666666;
+}
+#wrapper1{
+	display:block;
+	width: 999px;
+	margin: 0 0 0 10px;
+	padding:0;
+}
+#footer{
+	display:block;
+	width: 990px;
+	margin: 0 auto;
+	padding:0;
+	height:155px;
+
+}
+
+#footer2{
+	display:block;
+	width: 962px;
+	margin: 0 auto;
+	padding:20px 0 0 0;
+	color:#fff;
+}
+/*
+     FILE ARCHIVED ON 21:37:54 Jan 02, 2013 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 07:39:18 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 646.957
+  exclusion.robots: 1.171
+  exclusion.robots.policy: 1.162
+  cdx.remote: 0.073
+  esindex: 0.009
+  LoadShardBlock: 43.489 (3)
+  PetaboxLoader3.datanode: 49.838 (4)
+  load_resource: 1205.19
+  PetaboxLoader3.resolve: 1192.734
+*/

@@ -1,0 +1,398 @@
+@charset "UTF-8";
+/* CSS Styles for the Gaylord Hotels Experience Homepages V2.1 */
+
+/*changed bottom to 120px for homepage updated version*/
+.galleria-thumbnails-container {
+	bottom:120px;
+}
+
+#SubContent {
+	width: 942px;
+	margin: auto;
+	background-image: url(/web/20110901072855im_/http://www.gaylordhotels.com/assets/images/brand/homepage-bground-fade.jpg);
+	background-repeat: repeat-x;
+	background-position: center top;
+	padding-top: 12px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	background-color: #FFF;
+	text-align: left;
+}
+#SubContent ul {
+	margin: 0px;
+	padding: 0px;
+	list-style-type: none;
+}
+#SubContent ul li {
+	display: block;
+	min-height:120px;
+	padding-top:20px;
+	background-image: url(/web/20110901072855im_/http://www.gaylordhotels.com/assets/images/common/homepage-subfeature-bground-01.png);
+	background-repeat: no-repeat;
+	background-position: center top;
+}
+#SubContent ul li img {
+	float: left;
+	margin-right: 20px;
+}
+#SubContent ul li div {
+	margin-left: 213px;
+}
+#SubContent ul li div strong {
+	font-size: 14px;
+	color: #333;
+	display: block;
+	padding-bottom: 10px;
+}
+#SubContent ul li div p a {
+	color: #0775cf;
+	font-weight: bold;
+	background-image: url(/web/20110901072855im_/http://www.gaylordhotels.com/assets/images/brand/link-arrow.png);
+	background-position: left 3px;
+	padding-left: 10px;
+	text-decoration: none;
+	background-repeat: no-repeat;
+}
+#exp_menu {
+	bottom:26px;
+}
+#SubContent #featureBoxes {
+	margin-bottom: 18px;
+}
+
+#box-360 {
+	width: 962px;
+	margin-right: auto;
+	margin-left: auto;
+	height: 86px;
+	display: block;
+	clear:both;
+}
+
+#box-360 #walkthrough-360-brand-1, #box-360 #walkthrough-360-brand-2, #box-360 #walkthrough-360-brand-3, #box-360 #walkthrough-360-brand-4 {
+	display: block;
+	float: left;
+	height: 86px;
+	width: 240px;
+	}
+#box-360 #walkthrough-360-brand-1 {
+	background-image: url(/web/20110901072855im_/http://www.gaylordhotels.com/assets/images/brand/GH_360-walkthrough-wide_banner.jpg);
+	background-repeat: no-repeat;
+	background-position: left top;
+	
+}
+#box-360 #walkthrough-360-brand-1:hover {
+	background-image: url(/web/20110901072855im_/http://www.gaylordhotels.com/assets/images/brand/GH_360-walkthrough-wide_banner.jpg);
+	background-position: left -344px;
+}
+#box-360 #walkthrough-360-brand-2 {
+	background-image: url(/web/20110901072855im_/http://www.gaylordhotels.com/assets/images/brand/GH_360-walkthrough-wide_banner.jpg);
+	background-repeat: no-repeat;
+	background-position: -240px top;
+	width: 241px;
+}
+.brand-2-alt  {
+	background-image: url(/web/20110901072855im_/http://www.gaylordhotels.com/assets/images/brand/GH_360-walkthrough-wide_banner.jpg);
+	background-repeat: no-repeat;
+	background-position: -240px -86px;
+	width: 241px;
+}
+#box-360 #walkthrough-360-brand-2:hover {
+	background-image: url(/web/20110901072855im_/http://www.gaylordhotels.com/assets/images/brand/GH_360-walkthrough-wide_banner.jpg);
+	background-repeat: no-repeat;
+	background-position: -240px -258px;
+	width: 241px;
+}
+#box-360 #walkthrough-360-brand-3 {
+	background-image: url(/web/20110901072855im_/http://www.gaylordhotels.com/assets/images/brand/GH_360-walkthrough-wide_banner.jpg);
+	background-repeat: no-repeat;
+	background-position: -481px top;
+	width: 241px;
+}
+.brand-3-alt  {
+	background-image: url(/web/20110901072855im_/http://www.gaylordhotels.com/assets/images/brand/GH_360-walkthrough-wide_banner.jpg);
+	background-repeat: no-repeat;
+	background-position: -481px -86px;
+	width: 241px;
+}
+#box-360 #walkthrough-360-brand-3:hover {
+	background-image: url(/web/20110901072855im_/http://www.gaylordhotels.com/assets/images/brand/GH_360-walkthrough-wide_banner.jpg);
+	background-repeat: no-repeat;
+	background-position: -481px -172px;
+	width: 241px;
+}
+#box-360 #walkthrough-360-brand-4 {
+	background-image: url(/web/20110901072855im_/http://www.gaylordhotels.com/assets/images/brand/GH_360-walkthrough-wide_banner.jpg);
+	background-repeat: no-repeat;
+	background-position: -722px top;
+}
+#box-360 #walkthrough-360-brand-4:hover {
+	background-image: url(/web/20110901072855im_/http://www.gaylordhotels.com/assets/images/brand/GH_360-walkthrough-wide_banner.jpg);
+	background-repeat: no-repeat;
+	background-position: -722px -86px;
+}
+
+#walkthrough-360-national {
+	width: 962px;
+	margin-right: auto;
+	margin-left: auto;
+	height: 86px;
+	display: block;
+	background-image: url(/web/20110901072855im_/http://www.gaylordhotels.com/assets/images/national/GN_360-walkthrough-wide.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+#walkthrough-360-texan {
+	width: 962px;
+	margin-right: auto;
+	margin-left: auto;
+	height: 86px;
+	display: block;
+	background-image: url(/web/20110901072855im_/http://www.gaylordhotels.com/assets/images/texan/GT_360-walkthrough-wide.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+#walkthrough-360-palms {
+	width: 962px;
+	margin-right: auto;
+	margin-left: auto;
+	height: 86px;
+	display: block;
+	background-image: url(/web/20110901072855im_/http://www.gaylordhotels.com/assets/images/palms/GP_360-walkthrough-wide.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+#walkthrough-360-opryland {
+	width: 962px;
+	margin-right: auto;
+	margin-left: auto;
+	height: 86px;
+	display: block;
+	background-image: url(/web/20110901072855im_/http://www.gaylordhotels.com/assets/images/opryland/GO_360-walkthrough-wide.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	clear:both;
+}
+
+#walkthrough-360-palms:hover, #walkthrough-360-texan:hover, #walkthrough-360-national:hover, #walkthrough-360-opryland:hover {
+	background-image: url(/web/20110901072855im_/http://www.gaylordhotels.com/assets/images/common/360-walkthrough-wide_over.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+
+#footer {
+	background-image: none;
+	height: inherit;
+	padding: 0px;
+	width: 960px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+#breadcrumbs-box {
+	display: block;
+	width: 962px;
+	margin-right: auto;
+	margin-left: auto;
+	padding: 0px;
+	background-color: #174D8C;
+	height: 40px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+#breadcrumbs-box #search_box_homepage {
+	display: block;
+	float: right;
+	padding-top: 10px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	padding-right: 10px;
+}
+
+/* footer styles */
+
+#footer-brand {
+	width: 962px;
+	margin-right: auto;
+	margin-left: auto;
+	color: #FFF;
+	min-height: 250px;
+	background-color: #191919;
+	font-family:Arial, Helvetica, sans-serif;
+	padding: 0px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+#footer-brand #corporate-footer-list {
+	float: left;
+	margin-top:20px;
+	margin-left:20px;
+}
+#national-footer-list, #opryland-footer-list, #palms-footer-list, #texan-footer-list {
+	width: 165px;
+	float:right;
+	margin-top:20px;
+}
+#social-block {
+	float:right;
+	width:54px;
+	margin-left:10px;
+	margin-top:20px;
+}
+
+
+#social-block a #social-facebook {
+     background-image: url(/web/20110901072855im_/http://www.gaylordhotels.com/assets/images/brand/icon-social-media.png);
+     background-position: 0px -54px;
+     display: block;
+     height: 54px;
+     margin-bottom: 5px;
+     width: 54px;
+}
+
+#social-block a #social-facebook:hover {
+     background-image: url(/web/20110901072855im_/http://www.gaylordhotels.com/assets/images/brand/icon-social-media.png);
+     background-position: -55px -54px;
+     display: block;
+     height: 54px;
+     margin-bottom: 5px;
+     width: 54px;
+}
+
+#social-block a #social-twitter {
+     background-image: url(/web/20110901072855im_/http://www.gaylordhotels.com/assets/images/brand/icon-social-media.png);
+     background-position: 0px 0px;
+     display: block;
+     height: 54px;
+     margin-bottom: 5px;
+     width: 54px;
+}
+
+#social-block a #social-twitter:hover {
+     background-image: url(/web/20110901072855im_/http://www.gaylordhotels.com/assets/images/brand/icon-social-media.png);
+     background-position: -55px 0px;
+     display: block;
+     height: 54px;
+     margin-bottom: 5px;
+     width: 54px;
+}
+
+#social-block a #social-corp {
+     background-image: url(/web/20110901072855im_/http://www.gaylordhotels.com/assets/images/brand/icon-social-media.png);
+     background-position: -0px -108px;
+     display: block;
+     height: 54px;
+     margin-bottom: 5px;
+     width: 54px;
+}
+
+#social-block a #social-corp:hover {
+     background-image: url(/web/20110901072855im_/http://www.gaylordhotels.com/assets/images/brand/icon-social-media.png);
+     background-position: -55px -108px;
+     display: block;
+     height: 54px;
+     margin-bottom: 5px;
+     width: 54px;
+}
+
+
+#social-block img {
+	margin-bottom:5px;
+}
+
+#footer-brand p {
+	margin: 0px;
+	padding: 0px;
+	padding-bottom:2px;
+}
+#footer-brand ul {
+	margin: 0px;
+	padding: 0px;
+}
+#footer-brand ul li {
+	margin-left: 15px;
+	padding-left: 0px;
+	font-size: 12px;
+	padding-bottom:1px;
+}
+#footer-brand .spacing1   {
+	padding-bottom: 14px;
+}
+#footer-brand ul li a:link, #footer-brand ul li a:visited, #footer-brand p a:link, #footer-brand p a:visited  {
+	text-decoration: none;
+	color: #FFF;
+}
+#footer-brand ul li a:hover, #footer-brand p a:hover {
+	color: #F60;
+}
+#footer-brand ul li .get-green:link, #footer-brand ul li .get-green:visited{
+	color: #2A9D45;
+	display: block;
+	background-image: url(/web/20110901072855im_/http://www.gaylordhotels.com/assets/images/brand/footer-get-green-logo.gif);
+	background-repeat: no-repeat;
+	background-position: 65px center;
+}
+#footer-brand ul li .get-green:hover {
+	color: #33ff00;
+	display: block;
+	background-image: url(/web/20110901072855im_/http://www.gaylordhotels.com/assets/images/brand/footer-get-green-logo_hover.gif);
+	background-repeat: no-repeat;
+	background-position: 65px center;
+}
+
+#footer-misc {
+	color: #FFF;
+	font-size: 11px;
+	text-align: center;
+	background-image: url(/web/20110901072855im_/http://www.gaylordhotels.com/parts/bg_content_bottom-2.gif);
+	background-repeat: no-repeat;
+	background-position: center top;
+	margin-bottom: 20px;
+	width: 959px;
+	margin-right: auto;
+	margin-left: auto;
+	padding: 20px;
+}
+
+#footer-misc #footer-copyright {
+	float: left;
+	width: 200px;
+	text-align: left;
+}
+
+#footer-misc #footer-hotelcontact {
+	float: right;
+	text-align: right;
+	font-weight: bold;
+}
+
+#footer-misc a:link, #footer-misc a:visited {
+	color: #FFF;
+}
+/*
+     FILE ARCHIVED ON 07:28:55 Sep 01, 2011 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 07:36:51 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 82.579
+  exclusion.robots: 0.189
+  exclusion.robots.policy: 0.169
+  cdx.remote: 0.128
+  esindex: 0.017
+  LoadShardBlock: 40.169 (3)
+  PetaboxLoader3.datanode: 52.275 (4)
+  load_resource: 49.015
+  PetaboxLoader3.resolve: 22.579
+*/
