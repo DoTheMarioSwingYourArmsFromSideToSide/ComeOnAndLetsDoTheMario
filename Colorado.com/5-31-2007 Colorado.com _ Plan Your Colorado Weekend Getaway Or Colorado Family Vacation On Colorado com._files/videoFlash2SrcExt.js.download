@@ -1,0 +1,43 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+function video2Out() {
+	document.write('<object classid=\"clsid:d27cdb6e-ae6d-11cf-96b8-444553540000\" codebase=\"http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0\" width=\"240\" height=\"203\" id=\"2srcplayer\" align=\"middle\">\n');
+    document.write('<param name=\"movie\" value=\"view/flash/2srcplayer.swf?stringLoc1=data/homepage/stringLoc1.txt&stringLoc2=data/homepage/stringLoc2.txt\">\n');
+	document.write('<param name=\"WMode\" value=\"Transparent\">\n');
+    document.write('<param name=\"quality\" value=\"high\">\n');
+	document.write('<embed src=\"view/flash/2srcplayer.swf?stringLoc1=data/homepage/stringLoc1.txt&stringLoc2=data/homepage/stringLoc2.txt\" quality=\"high\" bgcolor=\"#FFFFFF\" width=\"240\" height=\"203\" name=\"2srcplayer\" align=\"middle\" type=\"application/x-shockwave-flash\" pluginspage=\"http://www.macromedia.com/go/getflashplayer\" /></embed>\n');
+	document.write('</object>\n');
+}
+
+
+}
+/*
+     FILE ARCHIVED ON 23:26:51 May 31, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:33:07 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 1086.07
+  exclusion.robots: 0.063
+  exclusion.robots.policy: 0.055
+  RedisCDXSource: 1.3
+  esindex: 0.007
+  LoadShardBlock: 1067.7 (3)
+  PetaboxLoader3.datanode: 1053.223 (4)
+  load_resource: 304.246
+  PetaboxLoader3.resolve: 267.225
+*/

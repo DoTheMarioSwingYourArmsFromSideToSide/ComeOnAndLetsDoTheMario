@@ -1,0 +1,437 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+(function ($) {
+  $(document).ready(function(){
+    $('a.service-links-google-plus-one').each(function(){
+      var counter = Drupal.settings.ws_gpo.counter ? '' : 'count="false" ';
+      var type = (Drupal.settings.ws_gpo.type == '') ? '' : 'size="'+ Drupal.settings.ws_gpo.type + '" ';
+      var g_text = '<g:plusone ' + counter + type + 'href="' + $(this).attr('href') + '" >' + '</g:plusone>';
+      $(this).replaceWith(g_text);
+    });
+  });
+})(jQuery);
+;
+(function ($) {
+
+$(document).ready(function() {
+
+  // Expression to check for absolute internal links.
+  var isInternal = new RegExp("^(https?):\/\/" + window.location.host, "i");
+
+  // Attach onclick event to document only and catch clicks on all elements.
+  $(document.body).click(function(event) {
+    // Catch the closest surrounding link of a clicked element.
+    $(event.target).closest("a,area").each(function() {
+
+      var ga = Drupal.settings.googleanalytics;
+      // Expression to check for special links like gotwo.module /go/* links.
+      var isInternalSpecial = new RegExp("(\/go\/.*)$", "i");
+      // Expression to check for download links.
+      var isDownload = new RegExp("\\.(" + ga.trackDownloadExtensions + ")$", "i");
+
+      // Is the clicked URL internal?
+      if (isInternal.test(this.href)) {
+        // Skip 'click' tracking, if custom tracking events are bound.
+        if ($(this).is('.colorbox')) {
+          // Do nothing here. The custom event will handle all tracking.
+        }
+        // Is download tracking activated and the file extension configured for download tracking?
+        else if (ga.trackDownload && isDownload.test(this.href)) {
+          // Download link clicked.
+          var extension = isDownload.exec(this.href);
+          _gaq.push(["_trackEvent", "Downloads", extension[1].toUpperCase(), this.href.replace(isInternal, '')]);
+        }
+        else if (isInternalSpecial.test(this.href)) {
+          // Keep the internal URL for Google Analytics website overlay intact.
+          _gaq.push(["_trackPageview", this.href.replace(isInternal, '')]);
+        }
+      }
+      else {
+        if (ga.trackMailto && $(this).is("a[href^='mailto:'],area[href^='mailto:']")) {
+          // Mailto link clicked.
+          _gaq.push(["_trackEvent", "Mails", "Click", this.href.substring(7)]);
+        }
+        else if (ga.trackOutbound && this.href.match(/^\w+:\/\//i)) {
+          if (ga.trackDomainMode == 2 && isCrossDomain($(this).attr('hostname'), ga.trackCrossDomains)) {
+            // Top-level cross domain clicked. document.location is handled by _link internally.
+            event.preventDefault();
+            _gaq.push(["_link", this.href]);
+          }
+          else {
+            // External link clicked.
+            _gaq.push(["_trackEvent", "Outbound links", "Click", this.href]);
+          }
+        }
+      }
+    });
+  });
+
+  // Colorbox: This event triggers when the transition has completed and the
+  // newly loaded content has been revealed.
+  $(document).bind("cbox_complete", function() {
+    var href = $.colorbox.element().attr("href");
+    if (href) {
+      _gaq.push(["_trackPageview", href.replace(isInternal, '')]);
+    }
+  });
+
+});
+
+/**
+ * Check whether the hostname is part of the cross domains or not.
+ *
+ * @param string hostname
+ *   The hostname of the clicked URL.
+ * @param array crossDomains
+ *   All cross domain hostnames as JS array.
+ *
+ * @return boolean
+ */
+function isCrossDomain(hostname, crossDomains) {
+  /**
+   * jQuery < 1.6.3 bug: $.inArray crushes IE6 and Chrome if second argument is
+   * `null` or `undefined`, http://bugs.jquery.com/ticket/10076,
+   * https://github.com/jquery/jquery/commit/a839af034db2bd934e4d4fa6758a3fed8de74174
+   *
+   * @todo: Remove/Refactor in D8
+   */
+  if (!crossDomains) {
+    return false;
+  }
+  else {
+    return $.inArray(hostname, crossDomains) > -1 ? true : false;
+  }
+}
+
+})(jQuery);
+;
+
+jQuery(document).ready(function () {
+
+
+//Grabs the User ID and Name from the hidden div on page so you can use it in click functions
+var sDataUid = jQuery('#gaTrackingBlock').attr('data-uid');
+var sDataName = jQuery('#gaTrackingBlock').attr('data-name');
+
+		/* --------------------------> START LISTINGS <------------------------------ */
+		//Tracking Listings
+		  //Listing Grid: Title Link Click
+		 //  jQuery('a.listing-title-link').live("click", function(){
+			//   _gaq.push(['_trackEvent', 'Partner Tracking' , 'Partner-'+ jQuery(this).attr('data-uid') , 'Listing Grid: Title Link - '+ jQuery(this).attr('title')]);
+		 //  });
+
+		 //  //Listing Grid: More Link Click
+		 //  jQuery('a.listing-more-link').live("click", function(){
+			//   _gaq.push(['_trackEvent', 'Partner Tracking' , 'Partner-'+ jQuery(this).attr('data-uid'), 'Listing Grid: More Link -'+ jQuery(this).attr('alt')]);
+		 //  });
+
+		 //  //Listing Grid: Image Link Click
+		 //  jQuery('a.listing-grid-image').live("click", function(){
+			//   _gaq.push(['_trackEvent', 'Partner Tracking' , 'Partner-'+ jQuery(this).attr('data-uid'), 'Listing Grid: Image Link - '+ jQuery(this).children('img').attr('alt')]);
+		 //  });
+
+   //    //Listing Grid: Website Button Link
+		 //  jQuery('.node-type-mmg-custom-grid-page a.listing-website-link').live("click", function(){
+			//   _gaq.push(['_trackEvent', 'Partner Tracking' , 'Partner-'+ jQuery(this).attr('data-uid'), 'Listing Grid: Visit Website Click - '+ jQuery(this).attr('alt')]);
+		 //  });
+
+   //    //Listing Grid: Book Direct
+		 //  jQuery('.node-type-mmg-custom-grid-page .book-it-button a').live("click", function(){
+			//   _gaq.push(['_trackEvent', 'Partner Tracking' , 'Partner-' + jQuery(this).attr('data-uid'), 'Listing Grid: Book Direct Website Click - ' + jQuery(this).attr('title')]);
+		 //  });
+
+		 //  //Listing Profile: Facebook Share Click
+		 //  jQuery('.node-type-mmg-custom-profile-page a.service-links-facebook').click(function(){
+			// _gaq.push(['_trackEvent', 'Partner Tracking', 'Partner-'+ sDataUid , 'Listing Profile: Facebook Share - '+ sDataName]);
+		 //  });
+
+		 //  //Listing Profile: Twitter Share Click
+		 //  jQuery('.node-type-mmg-custom-profile-page a.service-links-twitter').click(function(){
+			// _gaq.push(['_trackEvent', 'Partner Tracking', 'Partner-'+ sDataUid , 'Listing Profile: Twitter Share - '+ sDataName]);
+		 //  });
+
+		 //  //Listing Profile: Forward This Click
+		 //  jQuery('.node-type-mmg-custom-profile-page a.service-links-forward').click(function(){
+			// _gaq.push(['_trackEvent', 'Partner Tracking' , 'Partner-'+ sDataUid , 'Listing Profile: Forward - '+ sDataName]);
+		 //  });
+
+		 //  //Listing Profile: Business Facebook Click
+		 //  jQuery('.node-type-mmg-custom-profile-page a.listing-social-facebook').click(function(){
+			// _gaq.push(['_trackEvent', 'Partner Tracking', 'Partner-'+ sDataUid , 'Listing Profile: Business Facebook Click - '+ sDataName]);
+		 //  });
+
+		 //  //Listing Profile: Business Twitter Click
+		 //  jQuery('.node-type-mmg-custom-profile-page a.listing-social-twitter').click(function(){
+			// _gaq.push(['_trackEvent', 'Partner Tracking', 'Partner-'+ sDataUid , 'Listing Profile: Business Twitter Click - '+ sDataName]);
+		 //  });
+
+		 //  //Listing Profile: Business Youtbe Click
+		 //  jQuery('.node-type-mmg-custom-profile-page a.listing-social-youtube').click(function(){
+			// _gaq.push(['_trackEvent', 'Partner Tracking' , 'Partner-'+ sDataUid , 'Listing Profile: Business Youtbe Click - '+ sDataName]);
+		 //  });
+
+		 //  //Listing Profile: Business Flickr Click
+		 //  jQuery('.node-type-mmg-custom-profile-page a.listing-social-flickr').click(function(){
+			// _gaq.push(['_trackEvent', 'Partner Tracking' , 'Partner-'+ sDataUid , 'Listing Profile: Business Flickr Click - '+ sDataName]);
+		 //  });
+
+		 //  //Listing Profile: Website Clicks
+		 //  jQuery('.node-type-mmg-custom-profile-page .websites .url a').click(function(){
+			// _gaq.push(['_trackEvent', 'Partner Tracking' , 'Partner-'+ sDataUid , 'Listing Profile: ' + jQuery(this).text() + ' Click - '+ sDataName]);
+		 //  });
+
+		 //  //Listing Profile: Website Button Clicks
+		 //  jQuery('.node-type-mmg-custom-profile-page .profile-website a.listing-website-link').click(function(){
+			// _gaq.push(['_trackEvent', 'Partner Tracking' , 'Partner-'+ sDataUid , 'Listing Profile: ' + jQuery(this).text() + ' Click - '+ sDataName]);
+		 //  });
+
+		 //  //Listing Profile: Website Book Direct Clicks
+		 //  jQuery('.node-type-mmg-custom-profile-page .block-profile-page-book-direct .book-it-button a').click(function(){
+			// _gaq.push(['_trackEvent', 'Partner Tracking' , 'Partner-'+ sDataUid , 'Listing Profile: ' + 'Book Direct Website Click - '+ sDataName]);
+		 //  });
+
+		 //  //Listing Profile: Email Clicks
+		 //  jQuery('.node-type-mmg-custom-profile-page .profile-email a').click(function(){
+			// _gaq.push(['_trackEvent', 'Partner Tracking' , 'Partner-'+ sDataUid , 'Listing Profile: Email Click - '+ sDataName]);
+		 //  });
+		/* --------------------------> END LISTINGS <------------------------------ */
+
+
+		/* --------------------------> START DEALS <------------------------------ */
+		//Tracking Deals
+		  //Deals Grid: Title Link Click
+		 //  jQuery('a.deals-title-link').live("click", function(){
+			//   _gaq.push(['_trackEvent', 'Partner Tracking' , 'Partner-'+ jQuery(this).attr('data-uid'), 'Deal Grid: Title Link -'+ jQuery(this).attr('title')]);
+		 //  });
+
+		 //  //Deals Grid: More Link Click
+		 //  jQuery('a.deals-more-link').live("click", function(){
+			//   _gaq.push(['_trackEvent', 'Partner Tracking' , 'Partner-'+ jQuery(this).attr('data-uid'), 'Deal Grid: More Link - '+ jQuery(this).attr('alt')]);
+		 //  });
+
+		 //  //Deals Grid: Image Link Click
+		 //  jQuery('a.deals-photo-link').live("click", function(){
+			//   _gaq.push(['_trackEvent', 'Partner Tracking' , 'Partner-'+ jQuery(this).attr('data-uid') , 'Deal Grid: Image Link - '+ jQuery(this).children('img').attr('alt')]);
+		 //  });
+
+		 //  //Deals Profile: Facebook Share Click
+		 //  jQuery('.node-type-mmg-custom-deal-page a.service-links-facebook').click(function(){
+			// _gaq.push(['_trackEvent', 'Partner Tracking' , 'Partner-'+ sDataUid, 'Deal Profile: Facebook Share - '+ sDataName]);
+		 //  });
+
+		 //  //Deals Profile: Twitter Share Click
+		 //  jQuery('.node-type-mmg-custom-deal-page a.service-links-twitter').click(function(){
+			// _gaq.push(['_trackEvent', 'Partner Tracking' , 'Partner-'+ sDataUid , 'Deal Profile: Twitter Share - '+ sDataName]);
+		 //  });
+
+		 //  //Deals Profile: Forward This Click
+		 //  jQuery('.node-type-mmg-custom-deal-page a.service-links-forward').click(function(){
+			// _gaq.push(['_trackEvent', 'Partner Tracking' , 'Partner-'+ sDataUid , 'Deal Profile: Forward - '+ sDataName]);
+		 //  });
+
+		 //  //Deals Profile: Email Click
+		 //  jQuery('.node-type-mmg-custom-deal-page .profile-email a').click(function(){
+			// _gaq.push(['_trackEvent', 'Partner Tracking' , 'Partner-'+ sDataUid , 'Deal Profile: Email Click - '+ sDataName]);
+		 //  });
+
+		 //  //Deals Profile: Website Click
+		 //  jQuery('.node-type-mmg-custom-deal-page .profile-website a').click(function(){
+			// _gaq.push(['_trackEvent', 'Partner Tracking' , 'Partner-'+ sDataUid , 'Deal Profile: Website Click - '+ sDataName]);
+		 //  });
+		 /* --------------------------> END DEALS <------------------------------ */
+
+		/* --------------------------> START EVENTS <------------------------------ */
+		//Events Tracking
+		 //Events Grid: Title Link
+		 //  jQuery('a.event-title-link').live("click", function(){
+			// _gaq.push(['_trackEvent', 'Partner Tracking' , 'Partner-'+ jQuery(this).attr('data-uid') , 'Event Grid: Title Link - '+ jQuery(this).attr('title')]);
+		 //  });
+
+		 //  //Events Grid: More Link
+		 //  jQuery('a.event-more-link').live("click", function(){
+			// _gaq.push(['_trackEvent', 'Partner Tracking' , 'Partner-'+ jQuery(this).attr('data-uid') , 'Event Grid: More Link - '+ jQuery(this).attr('alt')]);
+		 //  });
+
+		 //  //Events Grid: Image Link
+		 //  jQuery('a.event-grid-image').live("click", function(){
+			// _gaq.push(['_trackEvent', 'Partner Tracking' , 'Partner-'+ jQuery(this).attr('data-uid') , 'Event Grid: Inage Link - '+ jQuery(this).children('img').attr('alt')]);
+		 //  });
+
+		 //  //Events Profile: Facebook Share Click
+		 //  jQuery('.node-type-mmg-custom-event-page a.service-links-facebook').click(function(){
+			// _gaq.push(['_trackEvent', 'Partner Tracking' , 'Partner-'+ sDataUid, 'Event Profile: Facebook Share - '+ sDataName]);
+		 //  });
+
+		 //  //Events Profile: Twitter Share Click
+		 //  jQuery('.node-type-mmg-custom-event-page a.service-links-twitter').click(function(){
+			// _gaq.push(['_trackEvent', 'Partner Tracking' , 'Partner-'+ sDataUid , 'Event Profile: Twitter Share - '+ sDataName]);
+		 //  });
+
+		 //  //Events Profile: Forward This Click
+		 //  jQuery('.node-type-mmg-custom-event-page a.service-links-forward').click(function(){
+			// _gaq.push(['_trackEvent', 'Partner Tracking' , 'Partner-'+ sDataUid , 'Event Profile: Forward - '+ sDataName]);
+		 //  });
+
+		 //  //Listing Profile: Website Clicks
+		 //  jQuery('.node-type-mmg-custom-event-page .websites .url a').click(function(){
+			// _gaq.push(['_trackEvent', 'Partner Tracking' , 'Partner-'+ sDataUid , 'Event Profile: ' + jQuery(this).text() + ' Click - '+ sDataName]);
+		 //  });
+
+		 //   //Listing Profile: Website Clicks - blue visit website button added
+		 //  jQuery('.node-type-mmg-custom-event-page .profile-website a').click(function(){
+			// _gaq.push(['_trackEvent', 'Partner Tracking' , 'Partner-'+ sDataUid , 'Event Profile: ' + jQuery(this).text() + ' Click - '+ sDataName]);
+		 //  });
+		 /* --------------------------> END EVENTS <------------------------------ */
+
+		 /* --------------------------> START RELATED EVENTS & lISTINGS <-------------------- */
+
+		 //Related Events: Title
+		 jQuery('.related-events-title').live("click", function(){
+			  _gaq.push(['_trackEvent', 'Partner Tracking' , 'Partner-'+ jQuery(this).attr('data-uid') , 'Related Events: Title Link - '+ jQuery(this).attr('title')]);
+		  });
+
+		 //Related Events: Image
+		 jQuery('.related-events-image').live("click", function(){
+			  _gaq.push(['_trackEvent', 'Partner Tracking' , 'Partner-'+ jQuery(this).attr('data-uid') , 'Related Events: Image Link - '+ jQuery(this).attr('title')]);
+		  });
+
+		 //Related Events: More
+		 jQuery('.related-events-more').live("click", function(){
+			  _gaq.push(['_trackEvent', 'Partner Tracking' , 'Partner-'+ jQuery(this).attr('data-uid') , 'Related Events: More Link - '+ jQuery(this).attr('title')]);
+		  });
+
+		 //Related Listings: Title
+		 jQuery('.related-listings-title').live("click", function(){
+			  _gaq.push(['_trackEvent', 'Partner Tracking' , 'Partner-'+ jQuery(this).attr('data-uid') , 'Related Listings: Title Link - '+ jQuery(this).attr('title')]);
+		  });
+
+		 //Related Listings: Image
+		 jQuery('.related-listings-image').live("click", function(){
+			  _gaq.push(['_trackEvent', 'Partner Tracking' , 'Partner-'+ jQuery(this).attr('data-uid') , 'Related Listings: Image Link - '+ jQuery(this).attr('title')]);
+		  });
+
+		 //Related Listings: More
+		 jQuery('.related-listings-more').live("click", function(){
+			  _gaq.push(['_trackEvent', 'Partner Tracking' , 'Partner-'+ jQuery(this).attr('data-uid') , 'Related Listings: More Link - '+ jQuery(this).attr('title')]);
+		  });
+
+		 /* --------------------------> START RELATED EVENTS & lISTINGS <-------------------- */
+
+		 /* -------------------------> START VIRTUAL Form Tracking <----------------- */
+
+		 //International VG on Main Form
+		 jQuery('#internationalGuides a').click(function(){
+			_gaq.push(['_trackEvent', 'Form Tracking' , 'Virtual Guide - International Holiday Guide - '+ jQuery(this).text() , jQuery(this).attr('href') ]);
+		  });
+
+		 //Download Visitors Guides from form lmages
+		 jQuery('a.form-promo-image-link').click(function(){
+			_gaq.push(['_trackEvent', 'Form Tracking' , 'Virtual Guide - '+ jQuery(this).children('img').attr('alt') , jQuery(this).attr('href') ]);
+		  });
+
+		  //Download Visitors Guides from form links
+		 jQuery('a.form-virtual-guide-link ').click(function(){
+			_gaq.push(['_trackEvent', 'Form Tracking' , 'Virtual Guide - Text Link - '+ jQuery(this).text(), jQuery(this).attr('href') ]);
+		  });
+
+		  //Download Guides from Email Links
+		  jQuery('#coVirtualDownload, #coVirtualDownload-Scenic').click(function(){
+			_gaq.push(['_trackEvent', 'Form Tracking' , 'Virtual Guide - Email Link - '+ jQuery(this).children('h2').text() , jQuery(this).attr('href')]);
+		  });
+
+		 jQuery('#ico-forms-guide-order-multi-form .form-item-mailing-country a').click(function(){
+			_gaq.push(['_trackEvent', 'Form Tracking' , 'Virtual Guide - Country Not Available Link' , jQuery(this).attr('href') ]);
+		  });
+
+
+		/* --------------------------> START MISCELLANEOUS <------------------------------ */
+		//Ipad Downloads
+
+		jQuery('a#ipad').live("click", function(){
+			_gaq.push(['_trackEvent', 'iPad', 'Footer Button Click', jQuery(this).attr('href')]);
+		});
+
+		//eNewsletter CTA Clicks
+		jQuery('a.siderail_enewsletter').live("click", function(){
+			_gaq.push(['_trackEvent', 'Sidebar CTA Tracking', 'eNewsletter Button Click', jQuery(this).attr('href')]);
+		});
+
+		//eNewsletter CTA Clicks
+		jQuery('a.siderail_guide').live("click", function(){
+			_gaq.push(['_trackEvent', 'Sidebar CTA Tracking', 'Guide Order Button Click', jQuery(this).attr('href')]);
+		});
+
+		//Events CTA Clicks
+		jQuery('a.siderail_events').live("click", function(){
+			_gaq.push(['_trackEvent', 'Sidebar CTA Tracking', 'Events Button Click', jQuery(this).attr('href')]);
+		});
+
+		//Offers CTA Clicks
+		jQuery('a.siderail_offers').live("click", function(){
+			_gaq.push(['_trackEvent', 'Sidebar CTA Tracking', 'Offers Order Button Click', jQuery(this).attr('href')]);
+		});
+
+		//Added to the Video Player TPL UA-Code is hardcoded here if changed update tpl
+		/*jQuery('span.mediafront_basic_fluid_ui-icon-play').click(function(){
+			_gaq.push(['_trackEvent', 'Video', 'click', 'play']);
+		}); */
+
+		//interactive map click tracking- lives in ico_interactive_map, I needed to put it into map events
+		//most map tracking is in the module js, but infowindow tracking works here
+		jQuery('a.region-cities-links-info-window').live("click", function(){
+			_gaq.push(['_trackEvent', 'Map', 'Link Click', jQuery(this).text()]);
+		});
+		//this tracks links in the filters above Airport with slightly different info window layouts
+		jQuery('.map-window-desc a').live("click", function(){
+			_gaq.push(['_trackEvent', 'Map', 'Link Click', jQuery(this).text()]);
+		});
+		// This tracks clicks from the Bottom footer links
+		jQuery('.block-custompage-footer ul li a').live("click", function(){
+			_gaq.push(['_trackEvent', 'Bottom Footer', jQuery(this).text(), jQuery(this).href()]);
+		});
+
+   /* --------------------------> START Winter Vacations Grid Page <------------------------------ */
+   // This tracks clicks of title links on the winter vacations resort grid page
+   jQuery('.winter-grid-item a.listing-title').live("click", function(){
+     _gaq.push(['_trackEvent', 'Winter Vacations Resort Grid', 'Partner-' + jQuery(this).attr('data-uid'), 'Listing Grid: Website Title Link - '+ jQuery(this).attr('title')]);
+   });
+
+   // This tracks clicks of image links on the winter vacations resort grid page
+   jQuery('.winter-grid-item a.listing-img').live("click", function(){
+     _gaq.push(['_trackEvent', 'Winter Vacations Resort Grid', 'Partner-' + jQuery(this).attr('data-uid'), 'Listing Grid: Website Image Link - '+ jQuery(this).children('img').attr('alt')]);
+   });
+});
+;
+
+
+}
+/*
+     FILE ARCHIVED ON 22:25:42 Jun 25, 2014 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:29:49 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 78.118
+  exclusion.robots: 0.087
+  exclusion.robots.policy: 0.075
+  RedisCDXSource: 0.676
+  esindex: 0.009
+  LoadShardBlock: 49.698 (3)
+  PetaboxLoader3.datanode: 76.715 (5)
+  load_resource: 269.893 (2)
+  PetaboxLoader3.resolve: 187.88 (2)
+*/

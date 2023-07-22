@@ -1,0 +1,36 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+var hookJS={};hookJS.help={},hookJS.help.basic="The function saved in hookJS.hook.hook_name will run when the hook is called.",hookJS.help.register_a_hook_function="To add your function to a given hook, simply save a function into this object  example: hookJS.hook.gridDataWrite.someKey = someVariableAsFunction  It will run whenever the hook gridDataWrite is called by the core code. Instead of a variable as function, you can also run line(s) of code.  Example: hookJS.hook.dataWrite.someKey = 'alert(\"I ran\");'",hookJS.help.create_a_hook="To create a hook, add a new hook object to hookJS.hook.   Example: hookJS.hook.myNewHookName = {};  This is the container to store the functions you want to run when the hook is fired.",hookJS.help.fire_a_hook="In your code when you want the hook to run, simply call hookJS.runHook('myNewHookName');  Calling this function will run the hook function and return the number that were run (useful for debugging).",hookJS.hook={},hookJS.runHook=function(sHookName){if(iCount=0,"object"==typeof hookJS.hook[sHookName]&&Object.keys(hookJS.hook[sHookName]).length>0){iCount=hookJS.hook[sHookName].length;for(var key in hookJS.hook[sHookName])"string"==typeof hookJS.hook[sHookName][key]?eval(hookJS.hook[sHookName][key]):"function"==typeof hookJS.hook[sHookName][key]&&hookJS.hook[sHookName][key]();return iCount}};;
+
+
+}
+/*
+     FILE ARCHIVED ON 01:25:52 Aug 10, 2017 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:27:53 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 1086.759
+  exclusion.robots: 0.15
+  exclusion.robots.policy: 0.137
+  cdx.remote: 0.063
+  esindex: 0.01
+  LoadShardBlock: 1034.268 (3)
+  PetaboxLoader3.datanode: 782.068 (5)
+  load_resource: 156.359 (2)
+  PetaboxLoader3.resolve: 76.398 (2)
+*/

@@ -1,0 +1,261 @@
+﻿var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+$(document).bind('ready', function() {
+    var sPath = window.location.pathname;
+    var sPage = sPath.substring(sPath.lastIndexOf('/') + 1);
+    sPage = sPage.toLowerCase();
+    var breadcrumbContainer = null;
+    breadcrumbContainer = $("#bc_container");
+    var historyHeritagePage = null;
+    historyHeritagePage = $("#DoColoradoHistoryAndHeritageBC");
+    var historicalAttractionsPage = null;
+    historicalAttractionsPage = $("#DoHistoricalLocationsBC");
+    var scenicHistoricByways = null;
+    scenicHistoricByways = $("#ScenicBywaysBC");
+
+    if (historyHeritagePage.attr('id') == undefined) {
+        historyHeritagePage = $("#SeeColoradoHistoryAndHeritageBC");
+    }
+
+    if (historicalAttractionsPage.attr('id') == undefined) {
+        historicalAttractionsPage = $("#HistoricalLocationsBC");
+    }
+    //alert("History / Heritage: " + historyHeritagePage.attr('id'));
+    if (sPage == "see.aspx" || sPage == "do.aspx" || sPage == "eat.aspx" || sPage == "stay.aspx" || sPage == "go.aspx") {
+        for (var i = 7; i <= 10; i++) {
+            $(".item" + i).css("display", "none");
+        }
+        RemoveRightButton();
+        var bottomButtonContainer = $("#horizontal_vactionideas_container");
+        CreateBottomButton(bottomButtonContainer);
+    } else if (sPage == "default.aspx" || sPage == "") {
+        $("#vacationIdeasBottom").remove();
+        $("#vacationIdeasRight").remove();
+        $("#leftContent").removeAttr("style");
+    }
+    else if (historyHeritagePage.attr('id') != undefined || historicalAttractionsPage.attr('id') != undefined || scenicHistoricByways.attr('id') != undefined) {
+        $("#vacationIdeasRight").remove();
+        var bottomButtonContainer = $("#horizontal_vactionideas_container");
+        CreateBottomButton(bottomButtonContainer);
+    }
+    else if (sPage == "bikegame.aspx" || sPage == "raftgame.aspx" || sPage == "connectwithus.aspx" || sPage.indexOf("newsletter") >= 0) {
+        RemoveRightButton();
+        if (sPage == "connectwithus.aspx") {
+            $("#ptitle").css("visibility", "hidden");
+        }
+    }
+    else {
+        $("#vacationIdeasBottom").remove();
+        var rightButtonContainer = $("#right_button_container");
+        CreateRightButton(rightButtonContainer);
+    }
+});
+function RemoveRightButton() {
+    $("#vacationIdeasRight").remove();
+    $("#leftContent").removeAttr("style");
+}
+function CreateRightButton(container) {
+    var rightButton = $(document.createElement('a'));
+    rightButton.attr({
+        href: 'SeeVacationIdeasAndArticles.aspx',
+        id: 'vacationIdeasRight'
+    });
+    rightButton.hover(
+        function() { FadeIn(this, 0, "-190px", false); },
+        function() { FadeOut(this, 0, "0px"); }
+    );
+    container.attr({
+        style: 'width:29%;float:right; vertical-align:top;margin-top:-20px; margin-right:-35px;'
+    });
+    var leftContent = $("#leftContent");
+    leftContent.attr({
+        style: 'width:68%;float:left;'
+    });
+    rightButton.addClass('rightBtn');
+    rightButton.appendTo(container);
+}
+function CreateBottomButton(container) {
+    var bottomButton = $(document.createElement('a'));
+    bottomButton.addClass('mainBtn');
+    bottomButton.attr({
+        href: 'SeeVacationIdeasAndArticles.aspx',
+        id: 'vacationIdeasBottom'
+    });
+    bottomButton.hover(
+        function() { FadeIn(this, 0, "100px", false);},
+        function() { FadeOut(this, 0, "0px"); }
+    );
+    bottomButton.appendTo(container);
+    $("#leftContent").removeAttr("style");
+}
+function FadeIn(obj, left, top, leftnav) {
+    var selectedItem = $('#' + obj.id);
+    var position = left + ' ' + top;
+    selectedItem
+        .css({ backgroundPosition: position })
+        .css('opacity', '0');
+
+    if (leftnav) {
+        selectedItem.animate({ opacity: 1.0 }, 800).stop(false, false).fadeIn();
+        DimOthers(obj);
+    } else {
+        selectedItem.animate({ opacity: 1.0 }, 800).fadeIn();
+    }
+}
+function FadeOut(obj, left, top) {
+    var selectedItem = $('#' + obj.id);
+    var position = left + ' ' + top;
+    //alert(obj.id);
+    if (obj.id == 'subnav2') {
+        ResetOpacity();
+    }
+    else if (obj.id == 'vacationIdeasBottom' || obj.id == 'vacationIdeasRight') {
+    //alert(obj.id);
+        selectedItem
+                .css({ backgroundPosition: position })
+                .css('opacity', '0');
+        selectedItem.animate({ opacity: 1.0 }, 800).fadeIn();
+    } else {
+
+        selectedItem
+            .css({ backgroundPosition: position })
+            .css('opacity', '0');
+        selectedItem.animate({ opacity: 1.0 }, 800).stop(false, false).fadeIn();
+    }
+}
+function DimOthers(selected, optional) {
+    var links = $('#subnav2').find('a');
+    for (z = 0; z <= links.length - 1; z++) {
+
+        if (links[z].id != selected.id) {
+            $('#' + links[z].id).removeAttr('style');
+            $('#' + links[z].id).css('opacity', '1.0');
+        } else {
+            $('#' + selected.id).css('opacity', '1.0');
+        }
+        if (optional != null && optional.id == links[z].id) {
+            $('#' + optional.id).css('opacity', '1.0');
+        }
+    }
+}
+function DimAll() {
+    var links = $('#subnav2').find('a');
+    for (z = 0; z <= links.length - 1; z++) {
+        $('#' + links[z].id).css('opacity', '0.5');
+    }
+}
+function ResetOpacity() {
+    var links = $('#subnav2').find('a');
+    for (z = 0; z <= links.length - 1; z++) {
+        var currentItem = $('#' + links[z].id);
+        currentItem.removeAttr('style');
+    }
+}
+function WorkingUpTheDOM(obj) {
+    if (jQuery.browser.msie) {
+        // if e doesn't exist, get it. 
+        if (!e) var e = window.event;
+
+        // leavingThisElement is the element we're leaving 
+        var leavingThisElement = (window.event) ? e.srcElement : e.target;
+
+        // show me
+        //alert('leaving: ' + leavingThisElement.tagName + ' :: ' + leavingThisElement.id);
+
+        // I have an id on the element, so I can check using ID if tg === container. 
+        // you might have to use some other condition to identify the container
+        if (leavingThisElement.id != 'subnav2') {
+
+            // the element you left is not the container. you probably 
+            // mouseoutted from something inside it. this isn't the mouseout you 
+            // want, so quit now. 
+            return;
+        }
+        // this is the element we've moved to
+        //alert(e.RelatedTarget);
+        var elementMovedTo = (e.relatedTarget) ? e.relatedTarget : e.toElement;
+
+        // starting with the leavingThisElement element, we loop up through the DOM.
+        // we just want to figure out if we're inside the element or outside it
+
+        while (elementMovedTo.tagName != 'BODY') {
+
+            var elementMovedTo = elementMovedTo.parentNode;
+            //alert(elementMovedTo.tagName + ' :: ID: ' + elementMovedTo.id);
+            if (elementMovedTo == leavingThisElement) {
+                // we found tg as a parent. So this is not really leaving the element 
+                return;
+            }
+        }
+        // if you are here, then you have climbed up the DOM to 
+        // the <body> without finding tg
+
+        // so we know that the one we left is the container, not something inside it 
+        // and we know the one we've entered is not a child of the container. 
+        // so go ahead and do what you came here to do.
+        ResetOpacity();
+    }
+    else {
+        FadeOut(obj, 0, 0);
+    }
+}
+function FadeGuide(vacaObj, virtualObj, vacaLeft, vacaTop, virtualLeft, virtualTop, fadeIn) {
+    var vaca = $('#' + vacaObj);
+    var virtual = $('#' + virtualObj);
+    var vacaPos = vacaLeft + ' ' + vacaTop;
+    var virtualPos = virtualLeft + ' ' + virtualTop;
+    vaca
+        .css({ backgroundPosition: vacaPos })
+        .css('opacity', '0');
+
+    vaca.animate({ opacity: 1.0 }, 800).stop(false, false).fadeIn();
+
+    virtual
+        .css({ backgroundPosition: virtualPos })
+        .css('opacity', '0');
+
+    virtual.animate({ opacity: 1.0 }, 800).stop(false, false).fadeIn();
+
+    if (fadeIn) {
+        DimOthers(vaca, virtual);
+    }
+    else {
+        ResetOpacity();
+    }
+}
+
+function NavigateTo(path) {
+    window.location.href = path;
+}
+
+}
+/*
+     FILE ARCHIVED ON 10:26:56 Jul 04, 2010 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:32:05 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 96.799
+  exclusion.robots: 0.082
+  exclusion.robots.policy: 0.071
+  RedisCDXSource: 0.67
+  esindex: 0.012
+  LoadShardBlock: 69.132 (3)
+  PetaboxLoader3.datanode: 117.04 (5)
+  load_resource: 160.622 (2)
+  PetaboxLoader3.resolve: 82.919 (2)
+*/

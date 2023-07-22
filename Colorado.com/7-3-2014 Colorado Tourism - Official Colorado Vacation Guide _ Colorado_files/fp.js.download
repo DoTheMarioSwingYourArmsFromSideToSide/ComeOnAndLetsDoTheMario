@@ -1,0 +1,43 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+/*1404364884,,JIT Construction: v1315448,en_US*/
+
+/**
+ * Copyright Facebook Inc.
+ *
+ * Licensed under the Apache License, Version 2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
+ */
+try {
+(function(){if(typeof fb_param==='undefined'||fb_param===null||!fb_param.pixel_id)return;function a(j){var k=[];for(var l=0,m=j.length;l<m;l++)k.push(j[l][0]+'='+encodeURIComponent(j[l][1]));return k.join('&');}var b='https://web.archive.org/web/20140703052640/https://www.facebook.com/offsite_event.php',c=[];c.push(['id',fb_param.pixel_id]);if(fb_param.value)c.push(['value',fb_param.value]);if(fb_param.currency)c.push(['currency',fb_param.currency]);var d=fb_param.cd;if(d&&typeof d==='object')for(var e in d)if(d.hasOwnProperty(e)){var f=d[e],g=(f===null)?'null':typeof f;if(g in {number:1,string:1,boolean:1}){c.push(['cd['+encodeURIComponent(e)+']',f]);}else if(g==='object'){f=(typeof JSON==='undefined')?String(f):JSON.stringify(f);c.push(['cd['+encodeURIComponent(e)+']',f]);}}var h=b+'?'+a(c),i=new Image();i.src=h;})();} catch (e) {new Image().src="https:\/\/web.archive.org\/web\/20140703052640\/https:\/\/www.facebook.com\/" + 'common/scribe_endpoint.php?c=jssdk_error&m='+encodeURIComponent('{"error":"LOAD", "extra": {"name":"'+e.name+'","line":"'+(e.lineNumber||e.line)+'","script":"'+(e.fileName||e.sourceURL||e.script)+'","stack":"'+(e.stackTrace||e.stack)+'","revision":"1315448","message":"'+e.message+'"}}');}
+
+}
+/*
+     FILE ARCHIVED ON 05:26:40 Jul 03, 2014 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:29:51 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  exclusion.robots: 0.064
+  exclusion.robots.policy: 0.055
+  RedisCDXSource: 0.833
+  esindex: 0.008
+  LoadShardBlock: 158.197 (6)
+  PetaboxLoader3.datanode: 135.237 (7)
+  load_resource: 168.924
+  PetaboxLoader3.resolve: 113.817
+*/

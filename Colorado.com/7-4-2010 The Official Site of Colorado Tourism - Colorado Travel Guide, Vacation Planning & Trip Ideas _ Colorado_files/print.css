@@ -1,0 +1,72 @@
+﻿body { background: none; }
+
+.head, .main, .foot, .flash, .viewMore, .redLabel, 
+.mainRight_thumbs_sm, .mainRight_thumbs_sm .thumb, .detailRight
+{ 
+	position: absolute;
+	visibility: hidden;
+	display: none;
+	height: 0px;
+	width: 0px;
+	top: -9999px;
+	left: -9999px;
+}
+#hdbback, #hdbback div, #hdbbox, #hdbbox div, #hdcon, #hdcon div, #hddiv,
+#liback, #liback div, #libox, #libox div, #licon, #licon div
+{
+	position: absolute;
+	visibility: hidden;
+	display: none;
+	z-index: 0;
+	height: 10px;
+	width: 10px;
+	top: -9999px;
+	left: -9999px;
+}
+#ThePrintDiv	         	
+{ 
+	visibility: visible; 
+	display: block; 
+	z-index: 2000;
+}
+.mainRight_detail 
+{
+	background-image: url(/web/20100704102521im_/http://www.colorado.com/images/div_h_main.png);
+	background-position: left bottom;
+	background-repeat: no-repeat;
+	padding:  0px;
+	margin:   0px;
+	position: relative;
+}
+.mainRight_detail .detailImg 
+{
+	background: url(/web/20100704102521im_/http://www.colorado.com/images/image_bg.png) no-repeat; 
+	padding: 0px;
+	margin:  0px 10px 20px 0px;
+	float:   left;
+	border:  solid 1px #999999;
+}
+.mainRight_content 
+{
+	padding:    0px;
+	background: none;
+}
+/*
+     FILE ARCHIVED ON 10:25:21 Jul 04, 2010 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:32:20 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 176.233
+  exclusion.robots: 0.068
+  exclusion.robots.policy: 0.06
+  cdx.remote: 0.052
+  esindex: 0.008
+  LoadShardBlock: 139.657 (3)
+  PetaboxLoader3.datanode: 134.296 (5)
+  load_resource: 994.502 (2)
+*/

@@ -1,0 +1,685 @@
+﻿var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+
+function TSButton(icn, txt) {
+    this.Icon = icn
+    this.Text = txt
+    this.OnClick
+}
+
+function TravelShare() {
+    this.TSMenu = null
+    this.TSEL = null
+    this.TSUser = ''
+    this.EmailPNL = null
+    this.TitleEL = null
+    this.mposx = 0;
+    this.mposy = 0;
+    this.TrackingImg = null
+
+    this.Initialize = function(el) {
+        if (!TravelShare.BaseUrl) {
+            TravelShare.BaseUrl = (document.location.protocol == "https:") ? "https://web.archive.org/web/20100704071213/https://www.travel-share.com/" : "https://web.archive.org/web/20100704071213/http://www.travel-share.com/"
+        }
+
+        try {
+            var ss = document.createElement('link')
+            ss.rel = 'stylesheet'
+            ss.type = 'text/css'
+            ss.href = TravelShare.BaseUrl + 'styles/travelshare.css'
+            ss.media = 'all'
+            document.getElementsByTagName('head')[0].appendChild(ss)
+        }
+        catch (Error) { }
+
+        this.TSEL = el
+        this.SetClass(this.TSEL, 'tsdiv')
+        this.TSMenu = document.createElement('div')
+        this.TSUser = this.TSEL.getAttribute('username')
+
+        var TheButtonImage = el.getAttribute('buttonimage')
+        var TheButtonHeight = el.getAttribute('buttonheight')
+        var TheButtonWidth = el.getAttribute('buttonwidth')
+
+        if (TheButtonImage) {
+            this.TSEL.style.background = "url('" + TheButtonImage + "') no-repeat"
+
+            if (TheButtonHeight && TheButtonWidth) {
+                this.TSEL.style.height = TheButtonHeight
+                this.TSEL.style.width = TheButtonWidth
+            }
+        }
+        else {
+            this.TSEL.style.background = "url('" + TravelShare.BaseUrl + "images/travelshare.gif') no-repeat"
+            this.TSEL.style.width = '131px'
+            this.TSEL.style.height = '18px'
+        }
+
+        el.onclick = function() {
+            this.removeAttribute('href')
+        }
+
+        if (!this.TSUser) this.TSUser = ''
+
+        this.SetClass(this.TSMenu, 'tsmenu')
+        this.TSMenu.style.visibility = 'hidden'
+        this.TSMenu.style.width = '300px'
+        this.TSMenu.style.top = '-1000px';
+        this.TSMenu.style.left = '-300px';
+        this.TSEL.me = this
+        this.TSEL.appendChild(this.TSMenu)
+
+        this.TrackingImg = document.createElement('img')
+        this.TrackingImg.style.visibility = 'hidden'
+        this.TrackingImg.style.display = 'none'
+        this.TSEL.appendChild(this.TrackingImg)
+
+        this.TSEL.onmouseover = function() {
+            switch (this.getAttribute("orientation")) {
+                case "topright":
+                    this.me.TSMenu.style.top = (-this.me.TSMenu.offsetHeight - 1) + 'px';
+                    this.me.TSMenu.style.left = '1px'
+                    break;
+                case "topleft":
+                    this.me.TSMenu.style.top = (-this.me.TSMenu.offsetHeight - 1) + 'px';
+                    this.me.TSMenu.style.left = (-(this.me.TSMenu.offsetWidth - this.offsetWidth) - 1) + 'px'
+                    break;
+                case "bottomright":
+                    this.me.TSMenu.style.top = (this.offsetHeight + 1) + 'px';
+                    this.me.TSMenu.style.left = '1px'
+                    break;
+                case "bottomleft":
+                    this.me.TSMenu.style.top = (this.offsetHeight + 1) + 'px';
+                    this.me.TSMenu.style.left = (-(this.me.TSMenu.offsetWidth - this.offsetWidth) - 1) + 'px'
+                    break;
+                default:
+                    this.me.TSMenu.style.top = (-this.me.TSMenu.offsetHeight - 2) + 'px';
+                    this.me.TSMenu.style.left = '1px'
+                    break;
+            }
+
+            this.me.TSMenu.style.visibility = 'visible'
+        }
+
+        this.CreateContainer(this.TSMenu)
+    }
+    this.GetAbsolutePosition = function(el) {
+        var r = { x: el.offsetLeft, y: el.offsetTop }
+
+        if (el.offsetParent) {
+            var tmp = this.GetAbsolutePosition(el.offsetParent)
+
+            r.x += tmp.x
+            r.y += tmp.y
+        }
+
+        return r
+    }
+    this.OnMouseMove = function(e) {
+        this.GetMousePosition(e)
+
+        var TheAbsPos = this.GetAbsolutePosition(this.TSMenu)
+
+        var TheTop = TheAbsPos.y
+        var TheLeft = TheAbsPos.x
+        var TheWidth = this.TSMenu.offsetWidth
+        var TheHeight = this.TSMenu.offsetHeight
+
+        var mlposx = 0
+        var muposx = 0
+        var mlposy = 0
+        var muposy = 0
+
+        switch (this.TSEL.getAttribute("orientation")) {
+            case "topright":
+                mlposx = TheLeft
+                muposx = TheLeft + TheWidth + 5
+                mlposy = TheTop + 5
+                muposy = TheTop + TheHeight + 30
+                break;
+            case "topleft":
+                mlposx = TheLeft
+                muposx = TheLeft + TheWidth + 5
+                mlposy = TheTop + 5
+                muposy = TheTop + TheHeight + 30
+                break;
+            case "bottomright":
+                mlposx = TheLeft
+                muposx = TheLeft + TheWidth + 5
+                mlposy = TheTop - 20
+                muposy = TheTop + TheHeight + 5
+                break;
+            case "bottomleft":
+                mlposx = TheLeft
+                muposx = TheLeft + TheWidth + 5
+                mlposy = TheTop - 20
+                muposy = TheTop + TheHeight + 5
+                break;
+            default:
+                mlposx = TheLeft
+                muposx = TheLeft + TheWidth + 5
+                mlposy = TheTop + 5
+                muposy = TheTop + TheHeight + 30
+                break;
+        }
+
+        if (!((this.mposx >= mlposx) && (this.mposx <= muposx) && (this.mposy >= mlposy) && (this.mposy <= muposy))) {
+            this.TSMenu.style.visibility = 'hidden'
+        }
+    }
+    this.GetMousePosition = function(e) {
+        if (!e) e = window.event;
+
+        if (e.pageX || e.pageY) {
+            this.mposx = e.pageX;
+            this.mposy = e.pageY;
+        }
+        else if (e.clientX || e.clientY) {
+            this.mposx = e.clientX + document.documentElement.scrollLeft;
+            this.mposy = e.clientY + document.documentElement.scrollTop;
+        }
+    }
+    this.CreateContainer = function(el) {
+        this.TitleEL = document.createElement('div')
+
+        var midel = document.createElement('div')
+        var botel = document.createElement('div')
+        var botl = document.createElement('div')
+        var botli = document.createElement('img')
+        var botr = document.createElement('div')
+        var botcl = document.createElement('div')
+
+        this.EmailPNL = document.createElement('div')
+
+        botli.src = TravelShare.BaseUrl + 'images/sh_download.gif'
+
+        botel.style.backgroundColor = '#EEEEEE'
+        botel.style.font = '10px arial'
+
+        this.SetFloat(botl, 'right')
+        botl.style.backgroundColor = '#EEEEEE'
+        botl.style.margin = '1px 5px 2px 5px'
+        botl.innerHTML = '<a style="float: left; padding: 2px 3px 0px 0px; text-transform: none; text-decoration: none;" href="https://web.archive.org/web/20100704071213/http://www.travel-share.com">Travel Share</a><a style="float: left;" href="https://web.archive.org/web/20100704071213/http://www.travel-share.com"><img border="0" style="padding: 2px 0px 1px 0px;" src="' + TravelShare.BaseUrl + 'images/sh_download.gif" /></a><div style="clear: both;">'
+
+        this.SetFloat(botr, 'left')
+        botr.style.backgroundColor = '#EEEEEE'
+        botr.style.padding = '3px 5px 2px 5px'
+        botr.innerHTML = 'Powered by <a href="https://web.archive.org/web/20100704071213/http://www.mmgworldwide.com" style="text-decoration: none;">MMG Worldwide</a>'
+
+        botcl.style.clear = 'both'
+
+        this.TitleEL.id = 'tstitle'
+        this.TitleEL.style.backgroundColor = '#EEEEEE'
+        this.TitleEL.style.font = 'bold 11px arial'
+        this.TitleEL.style.padding = '2px'
+        this.TitleEL.innerHTML = 'Bookmark & Share Your Travel Experiences'
+
+        midel.style.padding = '0px 0px 5px 0px'
+        midel.style.margin = '0px'
+        midel.style.textAlign = 'left'
+
+        botel.appendChild(botl)
+        botel.appendChild(botr)
+        botel.appendChild(botcl)
+
+        this.CreateButtons(midel)
+
+        el.appendChild(this.TitleEL)
+        el.appendChild(midel)
+        el.appendChild(botel)
+
+        try
+        {
+            this.EmailPNL.style.border = 'solid 1px #DDDDDD'
+            this.EmailPNL.style.backgroundColor = '#EEEEEE'
+            this.EmailPNL.style.left = '5px'
+            this.EmailPNL.style.position = 'absolute'
+            this.EmailPNL.style.visibility = 'hidden'
+            this.EmailPNL.style.width = (midel.offsetWidth - 12) + 'px'
+            this.EmailPNL.style.top = (this.TitleEL.offsetHeight + 5) + 'px'
+            this.EmailPNL.style.height = (el.offsetHeight - this.TitleEL.offsetHeight - botel.offsetHeight - 12) + 'px'
+            
+            if (!this.EmailPNL.style.width)
+            {
+                this.EmailPNL.style.top    = '23px'
+		this.EmailPNL.style.width  = '288px'
+                this.EmailPNL.style.height = '168px'
+            }
+        }
+        catch (err)
+        {
+            this.EmailPNL.style.width  = '288px'
+            this.EmailPNL.style.top    = '23px'
+            this.EmailPNL.style.height = '168px'
+        }
+
+        this.CreateEmailPanel(this.EmailPNL)
+
+        midel.appendChild(this.EmailPNL)
+    }
+    this.CreateEmailPanel = function(el) {
+        el.style.display = 'inline'
+
+        var elbl = document.createElement('div');
+        var etb = document.createElement('input');
+        var eclr = document.createElement('div');
+        var flbl = document.createElement('div');
+        var ftb = document.createElement('input');
+        var fclr = document.createElement('div');
+        var ecl = document.createElement('img');
+        var mlbl = document.createElement('div');
+        var mtb = document.createElement('textarea');
+        var mclr = document.createElement('div');
+        var slbl = document.createElement('div');
+        var sbtn = document.createElement('a');
+        var sclr = document.createElement('div');
+
+        this.SetFloat(elbl, 'left')
+        elbl.style.margin = '7px 5px 0px 5px'
+        elbl.style.width = '50px'
+        elbl.style.textAlign = 'right'
+        elbl.style.padding = '0px'
+        elbl.style.font = '11px arial'
+        elbl.innerHTML = 'To:'
+
+        this.SetFloat(etb, 'left')
+        etb.style.margin = '5px 5px 4px 0px'
+        etb.style.font = '11px arial'
+        etb.style.padding = '2px'
+        etb.style.width = '180px'
+        etb.type = 'text'
+        this.aim(etb, "Email Address")
+
+        this.SetFloat(flbl, 'left')
+        flbl.style.margin = '2px 5px 0px 5px'
+        flbl.style.width = '50px'
+        flbl.style.textAlign = 'right'
+        flbl.style.padding = '0px'
+        flbl.style.font = '11px arial'
+        flbl.innerHTML = 'From:'
+
+        this.SetFloat(ftb, 'left')
+        ftb.style.margin = '0px 5px 4px 0px'
+        ftb.style.font = '11px arial'
+        ftb.style.padding = '2px'
+        ftb.style.width = '180px'
+        ftb.type = 'text'
+        this.aim(ftb, "Email Address")
+
+        ecl.style.display = 'inline'
+        this.SetFloat(ecl, 'right')
+        ecl.style.height = '12px'
+        ecl.style.width = '12px'
+        ecl.style.margin = '5px 5px 0px 0px'
+        ecl.style.cursor = 'pointer'
+        ecl.src = TravelShare.BaseUrl + 'images/closebtn.gif'
+        ecl.me = this
+        ecl.onclick = function() {
+            this.me.EmailPNL.style.visibility = 'hidden'
+            this.me.TitleEL.innerHTML = 'Bookmark & Share Your Travel Experiences'
+        }
+
+        this.SetFloat(mlbl, 'left')
+        mlbl.style.margin = '2px 5px 0px 5px'
+        mlbl.style.width = '50px'
+        mlbl.style.textAlign = 'right'
+        mlbl.style.padding = '0px'
+        mlbl.style.font = '11px arial'
+        mlbl.innerHTML = 'Message:'
+
+        this.SetFloat(mtb, 'left')
+        mtb.style.margin = '0px 5px 5px 0px'
+        mtb.style.font = '11px arial'
+        mtb.style.padding = '2px'
+        mtb.style.width = '180px'
+        mtb.style.height = '28px'
+
+        this.SetFloat(slbl, 'left')
+        slbl.style.margin = '7px 5px 0px 5px'
+        slbl.style.width = '50px'
+
+        this.SetClass(sbtn, 'tssbtn')
+        sbtn.style.padding = '2px'
+        sbtn.innerHTML = 'Send'
+        sbtn.style.font = 'bold 11px arial'
+        sbtn.onclick = function() {
+            var msg = ftb.value + ' has sent you the following link: ' + document.URL + '\r\n\r\n'
+            sbtn.href = 'mailto:' + etb.value + '&Subject=' + escape('Your Friend has sent you a link!') + '&Body=' + escape(msg + mtb.value);
+
+            etb.value = etb.getAttribute('Mask')
+            etb.style.color = '#AAAAAA'
+            ftb.value = ftb.getAttribute('Mask')
+            ftb.style.color = '#AAAAAA'
+            mtb.value = ''
+            this.EmailPNL.style.visibility = 'hidden'
+            this.TitleEL.innerHTML = 'Bookmark & Share Your Travel Experiences'
+            return true
+        }
+
+        eclr.style.clear = 'both'
+        fclr.style.clear = 'both'
+        mclr.style.clear = 'both'
+        sclr.style.clear = 'both'
+
+        el.appendChild(elbl)
+        el.appendChild(etb)
+        el.appendChild(ecl)
+        el.appendChild(eclr)
+        el.appendChild(flbl)
+        el.appendChild(ftb)
+        el.appendChild(fclr)
+        el.appendChild(mlbl)
+        el.appendChild(mtb)
+        el.appendChild(mclr)
+        el.appendChild(slbl)
+        el.appendChild(sbtn)
+        el.appendChild(sclr)
+    }
+    this.CreateButtons = function(el) {
+        var TheButtons = new Array()
+        var TheEmailBTN = new TSButton(TravelShare.BaseUrl + 'images/sh_eml.gif', 'Email')
+        var ThePrintBTN = new TSButton(TravelShare.BaseUrl + 'images/sh_prnt.gif', 'Print')
+        var TheFacebookBTN = new TSButton(TravelShare.BaseUrl + 'images/sh_fcbk.gif', 'Facebook')
+        var TheTwitterBTN = new TSButton(TravelShare.BaseUrl + 'images/sh_twttr.gif', 'Twitter')
+        var TheFavoritesBTN = new TSButton(TravelShare.BaseUrl + 'images/sh_fvrts.gif', 'Favorites')
+        var TheMySpaceBTN = new TSButton(TravelShare.BaseUrl + 'images/sh_myspc.gif', 'MySpace')
+        var TheGoogleBTN = new TSButton(TravelShare.BaseUrl + 'images/sh_ggl.gif', 'Google')
+        var TheStumbleUponBTN = new TSButton(TravelShare.BaseUrl + 'images/sh_stmblpn.gif', 'StumbleUpon')
+        var TheDiggBTN = new TSButton(TravelShare.BaseUrl + 'images/sh_dgg.gif', 'Digg')
+        var TheLiveBTN = new TSButton(TravelShare.BaseUrl + 'images/sh_lv.gif', 'Live')
+        var TheYahooBTN = new TSButton(TravelShare.BaseUrl + 'images/sh_yhbzz.gif', 'Yahoo! Buzz')
+        var TheDeliciousBTN = new TSButton(TravelShare.BaseUrl + 'images/sh_dlcs.gif', 'Del.icio.us')
+        var TheTripAdvisorBTN = new TSButton(TravelShare.BaseUrl + 'images/sh_tripadvisor.gif', 'TripAdvisor')
+        var TheTripItBTN = new TSButton(TravelShare.BaseUrl + 'images/sh_tripit.gif', 'TripIt')
+
+        TheEmailBTN.OnClick = function(el) {
+            el.me.EmailPNL.style.visibility = 'inherit';
+            el.me.TitleEL.innerHTML = 'Email a Friend'
+        }
+        ThePrintBTN.OnClick = function(el) {
+            el.me.TSMenu.style.visibility = 'hidden'
+            el.me.MakeRequest(document.URL, 'Print')
+            if (window.print) window.print();
+        }
+        TheFacebookBTN.OnClick = function(el) {
+            el.me.MakeRequest(document.URL, 'Facebook')
+            el.btn.link.href = 'https://web.archive.org/web/20100704071213/http://www.facebook.com/sharer.php?u=' + escape(document.URL) + '&t=' + escape(document.title)
+            return true
+        }
+        TheTwitterBTN.OnClick = function(el) {
+            el.me.MakeRequest(document.URL, 'Twitter')
+            el.btn.link.href = 'https://web.archive.org/web/20100704071213/http://twitter.com/home?status=' + escape(document.URL + ' via @Travel_Share')
+            return true
+        }
+        TheFavoritesBTN.OnClick = function(el) {
+            if (navigator && navigator.userAgent) {
+                if (navigator.userAgent.toLowerCase().indexOf('chrome') != -1) {
+                    el.me.MakeRequest(document.URL, 'Favorites')
+                    alert('Press <Control>+D to bookmark in Chrome')
+                    return
+                }
+            }
+
+            el.me.MakeRequest(document.URL, 'Favorites')
+            var title = document.title
+            var url = document.URL
+            if (window.sidebar) window.sidebar.addPanel(title, url, "");
+            else if (window.external) window.external.AddFavorite(url, title);
+        }
+        TheMySpaceBTN.OnClick = function(el) {
+            el.me.MakeRequest(document.URL, 'MySpace')
+            el.btn.link.href = 'https://web.archive.org/web/20100704071213/http://www.myspace.com/Modules/PostTo/Pages/?u=' + escape(document.URL) + '&t=' + escape(document.title)
+            return true
+        }
+        TheGoogleBTN.OnClick = function(el) {
+            el.me.MakeRequest(document.URL, 'Google')
+            el.btn.link.href = 'https://web.archive.org/web/20100704071213/http://www.google.com/bookmarks/mark?op=add&bkmk=' + escape(document.URL) + '&title=' + escape(document.title)
+            return true
+        }
+        TheStumbleUponBTN.OnClick = function(el) {
+            el.me.MakeRequest(document.URL, 'StumbleUpon')
+            el.btn.link.href = 'https://web.archive.org/web/20100704071213/http://www.stumbleupon.com/submit?url=' + escape(document.URL) + '&title=' + escape(document.title)
+            return true
+        }
+        TheDiggBTN.OnClick = function(el) {
+            el.me.MakeRequest(document.URL, 'Digg')
+            el.btn.link.href = 'https://web.archive.org/web/20100704071213/http://digg.com/submit/?phase=2&url=' + decodeURIComponent(document.URL) + '&title=' + decodeURIComponent(document.title)
+            return true
+        }
+        TheLiveBTN.OnClick = function(el) {
+            el.me.MakeRequest(document.URL, 'Live')
+            el.btn.link.href = 'https://web.archive.org/web/20100704071213/https://login.live.com/login.srf?wa=wsignin1.0&rpsnv=10&ct=' + new Date().valueOf() + '&rver=4.0.1534.0&wp=MBI&wreply=https:%2F%2Ffavorites.live.com%2Fquickadd.aspx%3Fmarklet%3D0%26mkt%3Den-us%26url%3D' + escape(document.URL + '&title=' + document.title) + '%26top%3D1&lc=1033&id=66867'
+            return true
+        }
+        TheYahooBTN.OnClick = function(el) {
+            el.me.MakeRequest(document.URL, 'Yahoo')
+            el.btn.link.href = 'https://web.archive.org/web/20100704071213/http://buzz.yahoo.com/buzz?targetUrl=' + encodeURIComponent(document.URL) + '&submitHeadline=' + encodeURIComponent(document.title)
+            return true
+        }
+        TheDeliciousBTN.OnClick = function(el) {
+            el.me.MakeRequest(document.URL, 'Delicious')
+            el.btn.link.href = 'https://web.archive.org/web/20100704071213/https://secure.delicious.com/login?noui=yes&v=4&jump=http%3A%2F%2Fdelicious.com%2Fsave%3Furl%3D' + escape(document.URL) + '%26title%3D' + escape(document.title) + '%26notes%3D%26tags%3D%26v%3D4%26noui%3D%26share%3Dyes%26jump%3Dclose%26time%3D1235403055'
+            return true
+        }
+        TheTripAdvisorBTN.OnClick = function(el) {
+            el.me.MakeRequest(document.URL, 'TripAdvisor')
+            el.btn.link.href = 'https://web.archive.org/web/20100704071213/http://www.tripadvisor.com/UserReview'
+            return true
+        }
+        TheTripItBTN.OnClick = function(el) {
+            el.me.MakeRequest(document.URL, 'TripIt')
+            el.btn.link.href = 'https://web.archive.org/web/20100704071213/http://www.tripit.com/trip_item/createBookmark?url=' + encodeURIComponent(document.URL) + '&display_name=' + encodeURIComponent(document.title);
+            return true
+        }
+        TheButtons.push(TheEmailBTN)
+        TheButtons.push(TheFavoritesBTN)
+        TheButtons.push(ThePrintBTN)
+        TheButtons.push(TheFacebookBTN)
+        TheButtons.push(TheTwitterBTN)
+        TheButtons.push(TheMySpaceBTN)
+        TheButtons.push(TheGoogleBTN)
+        TheButtons.push(TheStumbleUponBTN)
+        TheButtons.push(TheDiggBTN)
+        TheButtons.push(TheLiveBTN)
+        TheButtons.push(TheYahooBTN)
+        TheButtons.push(TheDeliciousBTN)
+        TheButtons.push(TheTripAdvisorBTN)
+        TheButtons.push(TheTripItBTN)
+
+        for (var i = 0; i < TheButtons.length; i++) {
+            var conel = document.createElement('a')
+            var iconel = document.createElement('img')
+            var textel = document.createElement('div')
+            var clrel = document.createElement('div')
+
+            clrel.style.clear = 'both'
+
+            conel.setAttribute('class', 'tsbtn')
+            conel.setAttribute('className', 'tsbtn')
+            conel.style.display = 'inline'
+            conel.style.margin = '5px 0px 0px 5px'
+            conel.style.styleFloat = 'left'
+            conel.style.cssFloat = 'left'
+            conel.style.width = '142px'
+            conel.style.padding = '0px'
+            conel.style.font = '11px arial'
+            conel.style.cursor = 'pointer'
+            conel.target = '_blank'
+            conel.btn = TheButtons[i]
+
+            conel.onmouseover = function() { this.style.backgroundColor = '#EEEEEE'; }
+            conel.onmouseout = function() { this.style.backgroundColor = '#F9F9F9'; }
+
+            this.SetFloat(iconel, 'left')
+            iconel.style.display = 'inline'
+            iconel.style.border = 'none'
+            iconel.style.width = '16px'
+            iconel.style.height = '16px'
+            iconel.style.padding = '2px 2px 2px 2px'
+            iconel.src = TheButtons[i].Icon
+
+            this.SetFloat(textel, 'left')
+            textel.style.padding = '3px 0px 0px 3px'
+            textel.style.textTransform = 'none';
+            textel.innerHTML = TheButtons[i].Text
+
+            TheButtons[i].link = conel
+
+            conel.appendChild(iconel)
+            conel.appendChild(textel)
+            conel.appendChild(clrel)
+            conel.me = this
+
+            conel.onclick = function() { this.btn.OnClick(this); }
+
+            el.appendChild(conel)
+        }
+
+        var clel = document.createElement('div')
+        clel.style.clear = 'both'
+        el.appendChild(clel)
+    }
+
+    this.MakeRequest = function(tsrurl, tsaction, func) {
+        this.TrackingImg.src = TravelShare.BaseUrl + 'Controllers/Analytics/LogHit?username=' + this.UrlEncode(this.TSUser)
+                                                                              + '&url=' + this.UrlEncode(tsrurl)
+                                                                              + '&logaction=' + tsaction
+                                                                              + '&pagetitle=' + document.title
+                                                                              + '&r=' + Math.random()
+    }
+
+    this.UrlEncode = function(str) {
+        var histogram = [], histogramv = [], tmp_arr = [];
+        var ret = str.toString();
+
+        var replacer = function(search, replace, str) {
+            var tmp_arr = [];
+            tmp_arr = str.split(search);
+            return tmp_arr.join(replace);
+        };
+
+        histogram.push("'"); histogramv.push('%27');
+        histogram.push("("); histogramv.push('%28');
+        histogram.push(")"); histogramv.push('%29');
+        histogram.push("*"); histogramv.push('%2A');
+        histogram.push("~"); histogramv.push('%7E');
+        histogram.push("!"); histogramv.push('%21');
+        histogram.push("%20"); histogramv.push('+');
+
+        ret = encodeURIComponent(ret);
+
+        for (var i = 0; i < histogram.length; i++) 
+        {
+            ret = replacer(histogram[i], histogramv[i], ret)
+        }
+
+        return ret.replace(/(\%([a-z0-9]{2}))/g, function(full, m1, m2) 
+        {
+            return "%" + m2.toUpperCase();
+        });
+
+        return ret;
+    }
+    this.aim = function(el, mask) {
+        el.Mask = mask
+        el.value = mask
+        el.style.color = "#AAAAAA";
+        el.me = this
+        el.onfocus = function() { this.me.OnItemFocus(this); }
+        el.onblur = function() { this.me.OnItemBlur(this); }
+    }
+    this.OnItemFocus = function(el) {
+        if (el.value == el.Mask) {
+            el.value = "";
+            el.style.color = "#000000";
+        }
+    }
+    this.OnItemBlur = function(el) {
+        if ((el.value == "") || (el.value == el.Mask)) {
+            el.value = el.Mask;
+            el.style.color = "#AAAAAA";
+        }
+    }
+    this.SetFloat = function(el, afloat) {
+        el.style.styleFloat = afloat
+        el.style.cssFloat = afloat
+    }
+
+    this.SetClass = function(el, name) {
+        el.className = name
+        el.setAttribute('class', name)
+    }
+}
+
+if (!window.TravelShareLoaded) {
+    window.TravelShareLoaded = true;
+
+    TravelShare.prototype.BaseUrl = (document.location.protocol == "https:") ? "https://web.archive.org/web/20100704071213/https://www.travel-share.com/" : "https://web.archive.org/web/20100704071213/http://www.travel-share.com/"
+
+    var TheTravelShares = new Array()
+
+    var TheTSOldLoad = window.onload
+    var TheTSOldMove = document.onmousemove
+
+    window.onload = function() {
+        if (TheTSOldLoad) TheTSOldLoad()
+
+        var TheTravelShareElements = document.getElementsByName('tsdiv')
+        var TheTravelShareElement = document.getElementById('tsdiv')
+
+        for (var i = 0; i < TheTravelShareElements.length; i++) {
+            var TheTravelShare = new TravelShare()
+            TheTravelShare.Initialize(TheTravelShareElements[i])
+            TheTravelShares.push(TheTravelShare)
+        }
+
+        if (TheTravelShareElement) {
+            var TheTravelShare = new TravelShare()
+            TheTravelShare.Initialize(TheTravelShareElement)
+            TheTravelShares.push(TheTravelShare)
+        }
+
+        document.onmousemove = function(e) {
+            if (TheTSOldMove) TheTSOldMove(e)
+
+            for (var i = 0; i < TheTravelShares.length; i++) {
+                TheTravelShares[i].OnMouseMove(e)
+            }
+        }
+    }
+}
+
+
+
+
+}
+/*
+     FILE ARCHIVED ON 07:12:13 Jul 04, 2010 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:32:08 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 153.15
+  exclusion.robots: 0.064
+  exclusion.robots.policy: 0.056
+  cdx.remote: 0.05
+  esindex: 0.008
+  LoadShardBlock: 101.611 (3)
+  PetaboxLoader3.datanode: 186.579 (4)
+  load_resource: 255.29
+  PetaboxLoader3.resolve: 126.468
+*/

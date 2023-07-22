@@ -1,0 +1,100 @@
+﻿.tsdiv { behavior: none; }
+#tsdiv { behavior: none; }
+#tsmenu, .tsmenu
+{
+	position: absolute;
+    background-color: #FFFFFF;
+    border: solid 1px #DDDDDD;
+    cursor: default;
+    margin: 0px;
+    padding: 0px;
+}
+
+#tsmenu a:hover, #tsmenu a:link, #tsmenu a:visited,
+.tsmenu a:hover, .tsmenu a:link, .tsmenu a:visited
+{
+	color: #000000;
+}
+#tsdiv, .tsdiv
+{
+	color: #000000;
+	position: relative;
+	cursor: pointer;
+	z-index: 0;
+	width: 131px;
+	height: 18px; 
+	text-align: center;
+	padding: 0px;
+	margin: 0px;
+	display: inline-block;
+	line-height: normal;
+}
+a#tsdiv, a.tsdiv
+{
+	color: #000000;
+	position: relative;
+	cursor: pointer;
+	z-index: 0;
+	width: 131px;
+	height: 18px;
+	text-align: center;
+	padding: 0px;
+	margin: 0px;
+	display: inline-block;
+	line-height: normal;
+}
+#tsdiv:hover, .tsdiv:hover   { color: #000000; }
+a#tsdiv:hover, a.tsdiv:hover { color: #000000; }
+#tssbtn, .tssbtn
+{
+	display: block;
+	float: left;
+	border: solid 1px #CCCCCC;
+	margin: 0px;
+	padding: 2px;
+	text-align: center;
+	width: 180px;
+	font-weight: bold;
+	cursor: pointer;
+}
+.tsbtn
+{
+	background-color: #F9F9F9;
+	font: 14px arial;
+}
+.tsbtn:hover
+{
+	background-color: #EEEEEE;
+}
+.tsbtn:visited
+{
+	text-transform: none;
+}
+.tsbtn:link
+{
+	text-transform: none;
+}
+#tstitle
+{
+
+}
+/*
+     FILE ARCHIVED ON 12:27:49 Mar 30, 2011 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:32:20 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 93.063
+  exclusion.robots: 0.098
+  exclusion.robots.policy: 0.085
+  cdx.remote: 0.08
+  esindex: 0.013
+  LoadShardBlock: 62.489 (3)
+  PetaboxLoader3.datanode: 79.253 (4)
+  load_resource: 127.007
+  PetaboxLoader3.resolve: 94.929
+*/

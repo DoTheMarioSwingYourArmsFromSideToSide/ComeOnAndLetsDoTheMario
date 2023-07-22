@@ -1,0 +1,167 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+if (document.images) {
+	Exploreon = new Image();
+	Exploreon.src = "/site_media/images/black.gif";
+	Adventureon = new Image();
+	Adventureon.src = "/site_media/images/black.gif";
+	Leisureon = new Image();
+	Leisureon.src = "/site_media/images/black.gif";
+	Businesson = new Image();
+	Businesson.src = "/site_media/images/black.gif";
+	Familyon = new Image();
+	Familyon.src = "/site_media/images/black.gif";
+	Heritageon = new Image();
+	Heritageon.src = "/site_media/images/black.gif";
+
+	Exploreoff = new Image();
+	Exploreoff.src = "/site_media/images/black.gif";
+	Adventureoff = new Image();
+	Adventureoff.src = "/site_media/images/black.gif";
+	Leisureoff = new Image();
+	Leisureoff.src = "/site_media/images/black.gif";
+	Businessoff = new Image();
+	Businessoff.src = "/site_media/images/black.gif";
+	Familyoff = new Image();
+	Familyoff.src = "/site_media/images/black.gif";
+	Heritageoff = new Image();
+	Heritageoff.src = "/site_media/images/black.gif";
+}
+
+function randomNumbers(numNum,lowestNum,highestNum){
+// this function returns an array (called ranNum) of numNum numbers between lowestNum and highestNum
+// it may return duplicates - which is fine
+	range = highestNum - lowestNum;
+	ranNum = new Array(numNum);
+	var count = 1;
+	while (count  <= numNum) {
+		ranNum[count] = Math.round(Math.random() * range) + lowestNum;
+		count++;
+	} // while
+	return ranNum;
+} randomNumbers
+	
+function randomImages(){
+		
+	// dir = relative directory location of images
+	// totalImgs = total number of sets of images in the directory
+	// numImgs = number of images to be selected randomly
+
+	var dir = "/site_media/images/random/";
+	// set season based on today's month
+	// season = winter,spring,summer, fall
+	var today = new Date();
+	var month = today.getMonth() + 1;
+	switch (month) {
+		case 11:
+		case 12:
+		case 1:
+		case 2:
+			var season = "winter";
+			break;
+		case 3:
+		case 4:
+		case 5:
+			var season = "spring";
+			break;
+		case 6:
+		case 7:
+		case 8:
+			var season = "summer";
+			break;
+		case 9:
+		case 10:
+			var season = "fall";
+			break;
+	}
+	var totalImgs = 3;
+	var numImgs = 6;
+	
+	randomNumbers(numImgs,1,totalImgs);
+
+	ExploreImages = new Array;
+	AdventureImages = new Array;
+	LeisureImages = new Array;
+	BusinessImages = new Array;
+	FamilyImages = new Array;
+	HeritageImages = new Array;
+		
+	for (var i = 1; i <= totalImgs; i++){
+		ExploreImages[i] = dir + season + "/explore" + i + ".jpg";
+		AdventureImages[i] = dir + season + "/adventure" + i + ".gif";
+		LeisureImages[i] = dir + season + "/leisure" + i + ".gif";
+		BusinessImages[i] = dir + season + "/business" + i + ".gif";
+		FamilyImages[i] = dir + season + "/family" + i + ".gif";
+		HeritageImages[i] = dir + season + "/heritage" + i + ".gif";
+	} //for
+
+		
+	document.images["Explore"].src = ExploreImages[ranNum[1]];
+	document.images["Adventure"].src = AdventureImages[ranNum[2]];
+	document.images["Leisure"].src = LeisureImages[ranNum[3]];
+	document.images["Business"].src = BusinessImages[ranNum[4]];
+	document.images["Family"].src = FamilyImages[ranNum[5]];
+	document.images["Heritage"].src = HeritageImages[ranNum[6]];
+
+	 if (document.images) {            // Active Images
+		Adventureon.src = dir + season + "/adventure" + ranNum[2] + "on.jpg";
+		Leisureon.src = dir + season + "/leisure" + ranNum[3] + "on.jpg";
+		Businesson.src = dir + season + "/business" + ranNum[4] + "on.jpg";
+		Familyon.src = dir + season + "/family" + ranNum[5] + "on.jpg";
+		Heritageon.src = dir + season + "/heritage" + ranNum[6] + "on.jpg";
+
+		Adventureoff.src = AdventureImages[ranNum[2]];
+		Leisureoff.src = LeisureImages[ranNum[3]];
+		Businessoff.src = BusinessImages[ranNum[4]];
+		Familyoff.src = FamilyImages[ranNum[5]];
+		Heritageoff.src = HeritageImages[ranNum[6]];
+	} // if
+} // randomImages
+
+// Function to 'activate' images.
+function imgOn(imgName) {
+	if (document.images) {
+		document[imgName].src = eval(imgName + "on.src");
+	} // if
+} // imgOn
+
+// Function to 'deactivate' images.
+function imgOff(imgName) {
+	if (document.images) {
+		document[imgName].src = eval(imgName + "off.src");
+	}
+}
+
+
+
+}
+/*
+     FILE ARCHIVED ON 09:25:53 Aug 03, 2002 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:36:32 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 122.745
+  exclusion.robots: 0.065
+  exclusion.robots.policy: 0.058
+  cdx.remote: 0.049
+  esindex: 0.008
+  LoadShardBlock: 94.701 (3)
+  PetaboxLoader3.datanode: 86.463 (4)
+  load_resource: 68.615
+  PetaboxLoader3.resolve: 35.511
+*/

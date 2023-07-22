@@ -1,0 +1,1541 @@
+﻿body {
+	background:url(/web/20100704102441im_/http://www.colorado.com/images/bg_paper.jpg) repeat center; 
+	margin:0; 
+	padding:0; 
+	color:#333; 
+	font-family:Arial, Helvetica, sans-serif; 
+	font-size:12px;
+}
+.container {
+	min-height: 100%; 
+	height:auto !important; 
+	height:100%; 
+	margin-bottom: 0; 
+	position: relative;
+}
+a img {
+	border:0;
+	margin:0;
+}
+a.redLink:link, a.redLink:visited {
+	color:#d34528; 
+}
+p.intro 
+{
+	font-size:14px;
+	line-height:1.6;
+	color:#254870;
+}
+p.intro a:link, p.intro a:visited
+{	
+	color:#254870;
+}
+p.intro a:hover
+{
+	color:#bdc8cb; 
+}
+.detailImg_right 
+{
+	background:url(/web/20100704102441im_/http://www.colorado.com/images/image_bg.png) no-repeat; 
+	padding:11px;
+	margin:-5px -15px 10px 20px;
+	width:202px;
+	float:right;
+}
+/* ---- FONTS ---- */
+input {color:#000; font-size:11px; letter-spacing:.1em;}
+input.checkbox { margin: 0px; width: 15px; height: 15px; }
+
+h1, h2, h3, h4, h5, h6 
+{
+	color:#254870;
+	font-weight:normal;
+	text-transform:uppercase;
+}
+h6
+{
+	font-size: 13px;
+	color:#254870;
+	font-weight:normal;
+	text-transform:none;
+}
+.mainRight_content p a.pager
+{
+	color:#254870;
+}
+.mainRight_content p a.pager:visited, a.pager:visited
+{
+	color:#254870;
+}
+.mainRight_content p a.pager:hover
+{
+	color:#bdc8cb;
+	text-decoration: none;
+}
+.mainRight_promos 
+{
+      background:url(/web/20100704102441im_/http://www.colorado.com/images/div_v_1px.png) repeat-y left;
+}
+table.promos 
+{
+      margin: 60px 0 0 0;
+}
+td.rowOdd 
+{
+      background:url(/web/20100704102441im_/http://www.colorado.com/images/bg1_promoLeft.png) no-repeat;
+}
+td.rowEven 
+{
+      background:url(/web/20100704102441im_/http://www.colorado.com/images/bg2_promoLeft.png) repeat-y;
+}
+table.promos td 
+{
+      height:50px;
+      vertical-align:middle;
+}
+table.promos img 
+{
+      float:right;
+      margin-right:10px;
+}
+h1 {
+	font-size:18px;
+	margin: 0;
+	padding: 10px 0;
+}
+h3 {
+	font-size:14px;
+	margin: 0;
+	padding: 8px 0 4px 0;
+}
+h4 {
+	font-size:12px;
+	margin: 0;
+	padding: 2px 0;
+}
+h5 {
+	font-size:12px;
+	color:#333;
+	margin: 0;
+	padding: 0;
+}
+.blue {color:#254870;}
+.blueLabel {
+	color:#254870; 
+	text-transform:uppercase;
+}
+.redLabel {
+	color:#d34528; 
+	text-transform:uppercase;
+}
+p {
+	line-height:1.5;
+	margin:4px 0 8px 0;
+	color:#333;
+}
+a:link,  a:visited, .f1 a:link, .f1 a:visited {
+	color:#254870;
+	text-decoration:none;
+}
+a:hover, .f1 a:hover {
+	color:#bdc8cb; 
+}
+.breadcrumb {
+	font-size:10px;
+	text-transform:uppercase;
+	color:#254870;
+	padding:0px 0 5px 0;
+	height: 12px;
+}
+.mainRight_content p a:link, p a:visited {
+	color:#2466B2;
+	text-decoration:none;
+}
+.mainRight_content p a:hover {
+	color:#2466B2; 
+	text-decoration:underline;
+}
+/* ---- PAGER ---- */
+a.ipager
+{
+	color: White;
+}
+a.ipagerdis
+{
+	color: #999999;
+}
+a.ipager:hover, a.ipager:visited, a.ipager:link
+{
+	color: White;
+}
+a.ipagerdis:hover, a.ipagerdis:visited, a.ipagerdis:link
+{
+	color: #999999;
+}
+/* ---- LINK PAGER ---- */
+a.ilpager
+{
+	font: bold 12px arial;
+}
+a.ilpagerdis
+{
+	font: bold 12px arial;
+	color: #AAAAAA;
+}
+.ilpagerpage
+{
+	font: bold 12px arial;
+	color:#254870;
+}
+a.ilpager:visited, a.ilpager:link
+{
+	color:#254870;
+}
+a.ilpager:hover
+{
+	color:#AAAAAA;
+}
+a.ilpagerdis:hover, a.ilpagerdis:visited, a.ilpagerdis:link
+{
+	color: #AAAAAA;
+}
+/* ---- HEADER ---- */
+
+.head {
+	background:url(/web/20100704102441im_/http://www.colorado.com/images/bg_sky.jpg) no-repeat center; 
+	margin:0; padding:0; 
+	height:200px;
+}
+.head2 {
+	background:url(/web/20100704102441im_/http://www.colorado.com/images/bg_clouds.png) no-repeat center; 
+	margin:0; padding:0; 
+	height:200px;
+}
+.headMain {
+	width:986px; 
+	margin: 0 auto;
+}
+.search {
+	background:transparent url(/web/20100704102441im_/http://www.colorado.com/images/search.png) top left no-repeat !important; 
+	width:215px; 
+	padding:8px 8px 8px 18px; 
+	border:none; 
+	float:right; 
+	margin:40px 0 0 0;
+}
+.logo {
+	margin:12px 50px 0 28px;
+}
+
+
+/* ---- FLASH ---- */
+
+.flash 
+{
+	margin:-120px auto -40px auto;
+	width:986px;
+	z-index:2;
+	position:relative;
+}
+.flashSub 
+{
+	margin:-120px auto -40px auto; 
+	width:986px;
+	z-index:2;
+	position:relative;
+}
+
+/* ---- MAIN AREA ---- */
+
+.main { 
+	width:986px; 
+	margin:0 auto;
+	position:relative;
+	z-index:1;
+}
+
+/* -- LEFT SIDE -- */
+.mainLeft 
+{
+	float:left; 
+	margin:50px 0px 0 0;
+	width: 280px;
+}
+.nav 
+{
+}
+.nav ul 
+{
+	list-style:none;
+	padding: 0 0 20px 30px;
+	margin: 0;
+}
+.nav li 
+{
+	list-style:none;
+	display:inline;
+	padding: 0;
+	margin: 0 5px;
+	text-align: center;
+	font-size:16px;
+	font-weight:normal;
+}
+.nav li a.active {color:#254870;}
+.nav li a.nonactive {color:#bdc8cb;}
+.nav li a.nonactive:hover {color:#254870;}
+
+.nav p {
+	margin: 15px 30px 50px 30px; 
+	width:210px;
+}
+.subnav {
+	list-style: none; 
+	margin:20px 0 0 35px; 
+	padding:0;
+}
+.subnav li{
+	margin:0 0 10px 0; 
+	font-size:12px;
+}
+.subnav li.active {
+	background:url(/web/20100704102441im_/http://www.colorado.com/images/arrow.gif) no-repeat 2px 4px;
+}
+.subnav li li.active {
+	background:url(/web/20100704102441im_/http://www.colorado.com/images/arrow.gif) no-repeat 16px 1px;
+}
+.subnav a{
+	padding-left: 15px; 
+	text-transform:	uppercase; 
+	text-decoration: none;
+}
+.subnav ul{
+	list-style: none outside; 
+	padding:0; 
+	margin: 0 0 3px 0;
+}
+.subnav ul li{
+	background:none; 
+	margin: 10px 0 0 0;
+}
+.subnav li.active ul li a{
+	background:none; 
+	margin-left:15px; 
+	text-decoration: none; 
+	text-transform: none;
+}
+table.feature {
+}
+table.feature td.f1 {
+	background-image:url(/web/20100704102441im_/http://www.colorado.com/images/nav_0.jpg);
+	background-position: 0 80px;
+	background-repeat:no-repeat;
+}
+table.feature td.f2 {
+	background-image:url(/web/20100704102441im_/http://www.colorado.com/images/nav_0.jpg);
+	background-position: 0 60px;
+	background-repeat:no-repeat;
+}
+table.feature p, table.feature td p {
+	line-height:1;
+}
+
+.promos_2 {
+	background:url(/web/20100704102441im_/http://www.colorado.com/images/bg_subnav.png) no-repeat; 
+	width:289px; 
+	height: 143px; 
+	position:relative; 
+	font-size:11px;
+}
+.promos_2A {
+	position:absolute; 
+	top:27px; 
+	left:50px; 
+	width:130px;
+	height:50px;
+}
+.promos_2B {
+	position:absolute; 
+	top:94px; 
+	left:80px; 
+	width:110px; 
+	height:30px;
+}
+ul.subnav_2 {
+	color:#254870;
+	margin:0;
+	padding:0;
+}
+ul.subnav_2 li {
+	background:url(/web/20100704102441im_/http://www.colorado.com/images/arrow_small.gif) left no-repeat; 
+	margin: 5px 0;
+	padding:0;
+}
+ul.subnav_2 a:link, ul.subnav_2 a:visited {
+	text-transform:none;
+}
+
+/* ---- RIGHT SIDE ---- */
+.mainRight {
+	float:left;
+	margin: 0;
+	padding:10px 0 0 0;
+	width:695px;
+}
+
+.mainRight_bg {
+	background:url(/web/20100704102441im_/http://www.colorado.com/images/div_v_1px.png) repeat-y left;
+	padding: 20px 0 10px 0;
+}
+
+.mainRight_content {
+	width:625px;
+	padding: 20px 0 20px 50px;
+	background:none;
+}
+
+.mainRight_features {
+	background:url(/web/20100704102441im_/http://www.colorado.com/images/div_features_bg.png) no-repeat top left;
+	padding: 0 0 50px 38px;
+	margin-bottom:10px;
+}
+
+.mainRight_thumbs {
+	background-image:url(/web/20100704102441im_/http://www.colorado.com/images/div_h_main.png);
+	background-position: 0 115px;
+	background-repeat:no-repeat;
+	padding:10px 0 0 40px;
+}
+.mainRight_thumbs_sm {
+	background-image:url(/web/20100704102441im_/http://www.colorado.com/images/div_h_main.png);
+	background-position: 0 100px;
+	background-repeat:no-repeat;
+	padding:10px 0 0 40px;
+}
+.mainRight_thumbs .thumb {
+	padding:14px 14px 0 14px; 
+	background:url(/web/20100704102441im_/http://www.colorado.com/images/thumb_bg.png) no-repeat top left;
+	width:112px;
+	float:left;
+	margin: 0;
+}
+.mainRight_thumbs_sm .thumb {
+	padding:11px 11px 0 11px; 
+	background:url(/web/20100704102441im_/http://www.colorado.com/images/thumb_bg_sm.png) no-repeat top left;
+	width:92px;
+	float:left;
+	margin: 0;
+}
+.mainRight_thumbs .thumb p, .mainRight_thumbs_sm .thumb p {
+	text-transform:uppercase;
+	text-align:center;
+	margin: 10px 0 0 0;
+	color:#254870;
+}
+
+.mainRight_foot {
+	background:url(/web/20100704102441im_/http://www.colorado.com/images/div_v_bottom.png) no-repeat top left;
+	height:70px; 
+	width:100%;
+}
+
+.mainRight .viewMore {
+	float:right;
+	text-transform:uppercase;
+	margin: 0;
+	padding: 10px 5px 0 0;
+	color:#254870;
+}
+
+.mainRight .buttons {
+	float:right;
+	margin: 0;
+	padding: 8px 0 0 0;
+}
+
+.mainRight select {
+	font-size:10px;
+	color:#000;
+}
+.mainRight_detail {
+	background-image:url(/web/20100704102441im_/http://www.colorado.com/images/div_h_main.png);
+	background-position: left bottom;
+	background-repeat:no-repeat;
+	padding: 0px 0 10px 42px;
+	margin:0px 0 0 0;
+	position:relative;
+}
+.mainRight .detailImg {
+	background:url(/web/20100704102441im_/http://www.colorado.com/images/image_bg.png) no-repeat; 
+	padding:11px;
+	margin-top:-5px;
+	width:202px;
+	float:left;
+}
+.detailImg2 {
+	background:url(/web/20100704102441im_/http://www.colorado.com/images/image_bg.png) no-repeat; 
+	padding: 11px 11px 11px 11px;
+	width:202px;
+	float:left;
+}
+.detailImg3 {
+	background:url(/web/20100704102441im_/http://www.colorado.com/images/image_bg_150x100.png) no-repeat; 
+	padding: 11px 11px 11px 11px;
+	margin-top:-5px;
+	width:154px;
+}
+.detailImg4 {
+	background:url(/web/20100704102441im_/http://www.colorado.com/images/img_bg_115x150.png) no-repeat; 
+	padding: 11px 11px 11px 11px;
+	width:154px;
+}
+.detailImg5 {
+	background:url(/web/20100704102441im_/http://www.colorado.com/images/image_bg.png) no-repeat; 
+	padding: 11px 11px 11px 11px;
+	width:202px;
+	float:left;
+	margin-left: -5px;
+}
+.detailRight {
+	text-align:right;
+	width:200px;
+	margin: 20px 10px 15px 20px;
+	padding: 0;
+	position:absolute;
+	bottom:0;
+	right:0;
+}
+.detailRight .blueLabel {
+	background-image:url(/web/20100704102441im_/http://www.colorado.com/images/arrow.gif);
+	background-position:right 4px;
+	background-repeat:no-repeat;
+	padding: 0 15px 5px 0;
+	margin: 0;
+}
+.xdetailRight .blueLabel {
+	background-image:url(/web/20100704102441im_/http://www.colorado.com/images/arrow.gif);
+	background-position:right 4px;
+	background-repeat:no-repeat;
+	padding: 0 15px 5px 0;
+	margin: 0;
+}
+.detailRight .redLabel {
+	background-position:right 4px;
+	background-repeat:no-repeat;
+	padding: 0 15px 5px 0;
+	margin: 0;
+}
+table.list tr.item:hover {
+	background:#e1f2f1 url(/web/20100704102441im_/http://www.colorado.com/images/div_v_1px.png) repeat-y left;
+}
+table.list tr.item {
+	background: url(/web/20100704102441im_/http://www.colorado.com/images/div_h_main.png) bottom left no-repeat;
+}
+table.list tr.list_item_header {
+	background: url(/web/20100704102441im_/http://www.colorado.com/images/div_h_main.png) bottom left no-repeat;
+}
+table.list tr.item tr:hover {
+	background: url(/web/20100704102441im_/http://www.colorado.com/images/div_h_main.png) bottom left no-repeat;
+}
+table.list .listImage {
+	background:url(/web/20100704102441im_/http://www.colorado.com/images/s.gif) repeat; 
+	padding:10px;
+	margin: 0 10px;
+	width:70px;
+	height: 70px;
+	float:left;
+}
+table.list .listImage_lg {
+	background:url(/web/20100704102441im_/http://www.colorado.com/images/list_thumb_lg.png) no-repeat; 
+	padding:10px;
+	width:90px;
+	height:90px;
+	float:left;
+}
+table.list .listImage_wide {
+	background:url(/web/20100704102441im_/http://www.colorado.com/images/bg_thumb_wide.png) no-repeat; 
+	padding:10px;
+	width:129px;
+	float:left;
+}
+table.list .listLeft {
+	float:left;
+	width:465px;
+	border-right:1px solid #d4d5ce;
+	padding-right:20px;
+}
+table.list .listLeftnobut {
+	float:left;
+	width:565px;
+	border-right:1px solid #d4d5ce;
+	padding-right:20px;
+}
+table.list .listRight {
+	float:left;
+	width:124px;
+	text-align:center;
+}
+
+/* ---- FOOTER ---- */
+.adspace {
+	clear:both;
+	width:986px; 
+	margin: 10px auto; 
+	background:url(/web/20100704102441im_/http://www.colorado.com/images/div_h_wide_top.png) top center no-repeat; 
+	padding:27px 0 10px 0;
+	text-align:center;
+}
+.adspace .ad {
+	margin: 20px 0;
+}
+
+.foot 
+{
+	position: relative;
+	background:url(/web/20100704102441im_/http://www.colorado.com/images/bg_footer.jpg) repeat-x; 
+	padding:0; 
+	height:123px; 
+	margin: 0; 
+	font-family:"Times New Roman", Times, serif; 
+	color:#9E9E9E; 
+	font-size:11px; 
+	clear:both;
+}
+.footMain {
+	width:986px; 
+	margin: 0 auto; 
+	background:url(/web/20100704102441im_/http://www.colorado.com/images/div_h_wide.png) top center no-repeat; 
+	padding:15px 0 40px 0;
+}
+.foot .logo {
+	float:left; 
+	margin: 0 10px 0 25px;
+}
+.foot p { 
+	line-height:13px; 
+	color:#9E9E9E;
+	margin: 0; 
+	*margin:25px 0 0 0;
+}
+.foot a:link, .foot a:visited {
+	color:#9E9E9E; 
+	text-decoration:none;
+}
+.foot a:hover {
+	color:#666
+}
+.foot ul {
+	margin: 0; 
+	padding:2px 0;
+}
+.foot li {
+	display: inline; 
+	margin: 0; 
+	padding: 0 5px 0 6px; 
+	border-right: 1px solid #9E9E9E;
+}
+.foot li.last {
+	border:none;
+	padding: 0 0 0 6px;
+}
+.footRight {
+	float:right; 
+	margin: 0px 30px 0 20px; 
+	text-align:right;
+}
+.footRight p {
+	margin: 0;
+}
+.flags
+{
+	width: 170px;
+}
+.flags img {
+	margin: 0 2px 2px 0;
+}
+.footLeft {
+	margin:5px 0 0 0;
+	*margin:23px 0 0 0;
+}
+
+.CatTable
+{
+	border-collapse: collapse;
+	border: solid 1px #AAAAAA;
+	background-color: #EEEEEE;
+	width: 150px;
+}
+.MapDiv  { border: solid 1px #AAAAAA; }
+.MCatRow { background-color: #CCCCCC; }
+.MCatCol { font: bold 11px Arial; }
+.CatRow  { }
+.CatICol { padding-left: 5px; }
+.CatCCol { }
+.CatTCol { font: bold 11px Arial; }
+.ItDiv
+{
+	border: solid 1px #AAAAAA;
+	background-color: #EEEEEE;
+	font: bold 11px Arial;
+}
+.DirDiv
+{
+	border: solid 1px #AAAAAA;
+	background-color: #EEEEEE;
+}
+.ili, .dli, .ilin, .dlin, .pli, .plin, .dlih
+{
+    margin: 2px; 
+    border: solid 1px #AAAAAA;
+    background-color: #DDDDDD;
+    font: bold 11px Arial;
+    padding: 0px;
+    cursor: move;
+    width: 320px;
+    padding-left: 5px;
+}
+
+.ilin, .dlin, .dli, .pli, .plin, .dlih { cursor: default; }
+.dli, .pli   { font: 11px Arial; }
+.dlin, .plin { text-align: center; }
+.iitbl, .iitbln
+{
+    border-collapse: collapse;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+.itbl
+{
+    border-collapse: collapse;
+    border: solid 1px #AAAAAA;
+    background-color: #EEEEEE;
+}
+
+.ilist, .dlist, .plist
+{
+    list-style-type: none;
+    line-height: normal;
+    display: block;
+    margin: 0px;
+    padding: 0px;
+    font: 11px Arial;
+}
+.iim
+{
+	cursor: pointer;
+}
+
+.iirow
+{
+	margin: 0px;
+	padding: 0px;
+}
+
+.iic1, .iic2, .iic3, .dimg
+{
+	margin: 0px;
+	padding: 0px;
+}
+
+.iic2
+{
+	padding-left: 5px;
+}
+.iic3
+{
+	width: 20px;
+}
+
+.dimg
+{
+	margin: 2px 0px 1px 0px;
+	cursor: pointer;
+}
+
+.iirown
+{
+	margin: 0px;
+	padding: 0px;
+}
+
+.iicn
+{
+	margin: 0px;
+	padding: 0px;
+	text-align: center;
+}
+
+.mttbl,.sttbl
+{
+	border-collapse: collapse;
+	font: bold 11px Arial;
+	margin: 0px;
+	padding: 0px;
+}
+
+.mtrow
+{
+	background-color: #CCCCCC;
+}
+
+.cathdv { padding: 2px; cursor: pointer; width: 300px; background-color: #CCCCCC; }
+.catcdv { padding: 2px; visibility: hidden; height: 0px; position: absolute; }
+
+/* For Main Menu */
+.mml
+{
+	font: 15px Arial;
+	color: RGB(34,72,109);
+	text-decoration: none;
+	text-transform: uppercase;
+	margin: 0px 12px 0px 0px;
+}
+
+.dmml
+{
+	font: 15px Arial;
+	color: RGB(150,150,150);
+	text-decoration: none;
+	text-transform: uppercase;
+	margin: 0px 12px 0px 0px;
+}
+
+.sml
+{
+	font: 12px Arial;
+	color: RGB(34,72,109);
+	text-decoration: none;
+}
+
+.sm1,.sm2,.sm3,.dsm1,.dsm2,.dsm3
+{
+	font: 12px Arial;
+	color: RGB(34,72,109);
+	text-decoration: none;
+}
+
+.smlc
+{
+	width: 10px;
+	text-align: right;
+}
+
+.mmtbl
+{
+	border-collapse: collapse;
+	margin: 0px;
+	padding: 0px;
+	width: 250px;
+}
+
+/* For BreadCrumbs */
+.bcdv
+{
+	margin: 5px 0px 0px 0px;
+	padding: 0px;
+}
+
+.bclk
+{
+	font: 9px Arial;
+	color: RGB(34,72,109);
+	text-decoration: none;
+	text-transform: uppercase;
+	margin: 0px;
+	padding: 0px;
+}
+
+.bcsp
+{
+	font: 11px Arial;
+	color: RGB(34,72,109);
+	margin: 0px;
+	padding: 0px;
+}
+
+/* Main Table */
+.SEMainTable
+{
+	border-collapse: collapse;
+	width: 320px;
+}
+
+.SEFirstRow
+{
+	background-image: url('/web/20100704102441im_/http://www.colorado.com/images/topborder.gif');
+	padding: 0px;
+	margin: 0px;
+}
+
+.SEFirstColumn
+{
+	background-image: url('/web/20100704102441im_/http://www.colorado.com/images/topborder.gif');
+	height: 9px;
+}
+
+.SELastRow
+{
+	background-image: url('/web/20100704102441im_/http://www.colorado.com/images/bottomborder.gif');
+}
+
+.SELastColumn
+{
+	background-image: url('/web/20100704102441im_/http://www.colorado.com/images/bottomborder.gif');
+	height: 9px;
+}
+
+.SEHeaderRow
+{
+
+}
+
+.SEHeaderColumn
+{
+	font: bold 11px Arial;
+	text-transform: uppercase;
+	background-color: #8cc1d3;
+	text-indent: 5px;
+	color: #ffffff;
+}
+
+.SEItemRow
+{
+	padding: 0px;
+	margin: 0px;
+}
+
+.SEViewAllRow
+{
+
+}
+
+.SEViewAllColumn
+{
+	background-color: #89c1da;
+	text-align: right;
+	padding-right: 5px;
+}
+
+.SEViewAllLink
+{
+	font: bold 11px Arial;
+	color: #ffffff;
+	text-decoration: none;
+}
+
+.SEViewAllLink:hover
+{
+	color: #eeeeee;
+}
+
+/* Item Table */
+.SEItemTitleLink
+{
+	font: bold 11px Arial;
+	color: #555555;
+	text-decoration: none;
+	margin: 0px;
+	padding: 0px;
+	display: block;
+}
+
+.SEItemTitleLink:hover { color: #555555; }
+
+.SEItemSummaryLink
+{
+	font: 9px Arial;
+	color: #555555;
+	text-decoration: none;
+	margin: 0px;
+	padding: 0px;
+	display: block;
+}
+.SEItemSummaryLink:hover { color: #555555; }
+
+.SEItemTitleDiv
+{
+	display: block;
+	margin: 0px;
+	padding: 0px;
+	padding-top: 5px;
+}
+
+.SEItemSummaryDiv
+{
+	display: block;
+	margin: 0px;
+	padding: 0px 5px 0px 0px;
+}
+
+.SEItemImage
+{
+	display: block;
+	border: solid 2px white;
+	margin: 0px;
+	padding: 0px;
+}
+
+.SEItemImage2
+{
+	display: block;
+	margin: 0px;
+	padding: 0px;
+}
+
+.SEItemImageLink
+{
+	display: block;
+	margin: 0px;
+	padding: 0px;
+}
+
+.SEItemTableColumn1
+{
+	vertical-align: top;
+	text-align: left;
+	width: 45px;
+	padding: 5px;
+	margin: 0px;
+}
+
+.SEItemTableColumn2
+{
+	vertical-align: top;
+	text-align: left;
+	padding: 0px;
+	margin: 0px;
+}
+
+.SEItemTable
+{
+	border-collapse: collapse;
+	margin: 0px;
+	padding: 0px;
+}
+
+.SEItemColumn
+{
+	background-color: #cfeef3;
+	padding: 0px;
+	margin: 0px;
+}
+
+td.SEItemColumn:hover  { background-color: #B7DFE7; }
+
+
+.gallery {
+	text-align:center; 
+	margin:0 0 0 40px; 
+	width:636px;
+}
+.gallery table td {
+	text-align:center;
+}
+table.gallerySearch {
+	margin-left: 6px;
+}
+table.gallerySearch  td {
+	float:left;
+	width: 120px;
+	text-align:left;
+	font-size:11px;
+}
+.gallery_hrz_lg {
+	background:url(/web/20100704102441im_/http://www.colorado.com/images/bg_gallery_hrz.png) no-repeat; 
+	width: 460px; 
+	padding:22px; 
+	text-align:left;
+	float:left;
+}
+.gallery_vrt_lg {
+	background:url(/web/20100704102441im_/http://www.colorado.com/images/bg_gallery_vrt.png) no-repeat top center; 
+	width: 307px; 
+	margin:0 76px;
+	padding:22px; 
+	text-align: center;
+	float:left;
+	_margin: 0 37px;
+}
+.gallery_vrt_tn {
+	background:url(/web/20100704102441im_/http://www.colorado.com/images/bg_galleryTN_vrt.jpg) no-repeat top center; 
+	width:117px;
+	padding:7px 0; 
+	text-align: center;
+}
+.gallery_hrz_tn {
+	background:url(/web/20100704102441im_/http://www.colorado.com/images/bg_galleryTN_hrz.jpg) no-repeat top center; 
+	width:117px;
+	padding:7px 0; 
+	text-align: center;
+}
+
+.myColorado {
+background:url(/web/20100704102441im_/http://www.colorado.com/images/bg_shadow.png) no-repeat top left;
+width: 622px;
+padding: 7px 9px 372px 9px;
+margin: 0px 0px 0px 40px; 
+}
+
+.myNav {
+margin:0;
+padding:0;
+list-style:none;
+}
+
+.myNav li {
+float:left;
+background:url(/web/20100704102441im_/http://www.colorado.com/images/my_tabLeft.jpg) no-repeat left top;
+margin:0;
+padding:0 0 0 8px;
+}
+
+.myNav a {
+	display:block;
+	background:url(/web/20100704102441im_/http://www.colorado.com/images/my_tabRight.jpg) no-repeat right top;
+	padding: 7px 14px 10px 6px;
+	text-decoration:none;
+	color:#254870;
+	text-transform:uppercase;
+	cursor: pointer;
+  }
+/* Commented Backslash Hack
+
+   hides rule from IE5-Mac \*/
+.myNav a {float:none;}
+
+/* End IE5-Mac hack */
+.myNav a:hover 
+{
+color:#bdc8cb;
+cursor: pointer;
+}
+.myNav .current 
+{
+background-image:url(/web/20100704102441im_/http://www.colorado.com/images/my_tabLeft_current.jpg);
+}
+.myNav .current a 
+{
+background-image:url(/web/20100704102441im_/http://www.colorado.com/images/my_tabRight_current.jpg);
+color:#FFF;
+}
+.subhead
+{
+	background-color: #888888; 
+	color: #FFFFFF; 
+	text-align: center; 
+	font: bold 11px Arial;
+}
+table.tan1 
+{
+	background: url(/web/20100704102441im_/http://www.colorado.com/images/bg_tan_sm.png) no-repeat bottom;
+	height:30px;
+}
+table.tan2 
+{
+	background: url(/web/20100704102441im_/http://www.colorado.com/images/bg_tan_med.png) no-repeat bottom;
+	height:45px;
+}
+table.tan3 
+{
+	background: url(/web/20100704102441im_/http://www.colorado.com/images/bg_tan_lrg.png) no-repeat bottom;
+	height:45px;
+}
+#ThePrintDiv	         	
+{ 
+	visibility: hidden;
+	display: none;
+}
+.hdcal .ajax__calendar_container {background-color: #ffffff; border: solid 1px #254870; padding: 0px; margin-top: 4px; }
+.hdcal .ajax__calendar_dayname   { font: bold 11px arial; color: #254870; }
+.hdcal .ajax__calendar_header    { background-color: #254870; color: #ffffff; padding: 0px; margin: 0px; }
+.hdcal .ajax__calendar_title     { padding: 3px 0px 0px 0px; }
+.hdcal .ajax__calendar_prev      { background: url('/web/20100704102441im_/http://www.colorado.com/images/cal_prev.jpg') 2px 2px no-repeat; height: 18px; width: 17px; }
+.hdcal .ajax__calendar_next      { background: url('/web/20100704102441im_/http://www.colorado.com/images/cal_next.jpg') 0px 2px no-repeat; height: 18px; width: 17px; }
+.hdcal .ajax__calendar_footer    { border-top: solid 1px #254870; }
+.hdcal .ajax__calendar_days      { border-top: solid 1px #254870; }
+.hdcal .ajax__calendar_day       { color: #254870; font-weight: bold; }
+.hdcal .ajax__calendar_other .ajax__calendar_day { color: #999999; font-weight: bold; }
+.hdcal .ajax__calendar_hover .ajax__calendar_day { background-image: url('/web/20100704102441im_/http://www.colorado.com/images/caldbk.jpg'); font-weight: bold; }
+.hdcal .ajax__calendar_dead  .ajax__calendar_day { color: #DDDDDD; font-weight: bold; }
+.hdcal .ajax__calendar_active    { font-weight: bold; }
+
+.calicn
+{
+	background: url('/web/20100704102441im_/http://www.colorado.com/images/cal_icon.gif') 0px 0px no-repeat;
+	height: 21px;
+	width:  25px;
+	cursor: pointer;
+	float: left;
+	margin-left: 2px;
+	margin-right: 10px;
+}
+.vabbtn
+{
+	background-image: url('/web/20100704102441im_/http://www.colorado.com/images/all_deals.png');
+	height: 33px;
+	width: 108px;
+	cursor: pointer;
+}
+.clrbtn
+{
+	background-image: url('/web/20100704102441im_/http://www.colorado.com/images/clear_filters.png');
+	height: 21px;
+	width: 84px;
+	cursor: pointer;
+}
+.searchbtn
+{
+	background-image: url('/web/20100704102441im_/http://www.colorado.com/images/hdsearch_btn.png');
+	height: 21px;
+	width: 84px;
+	cursor: pointer;
+}
+.atmbtn
+{
+	background-image: url('/web/20100704102441im_/http://www.colorado.com/images/list_add.png');
+	height: 21px;
+	width: 108px;
+	cursor: pointer;
+	margin: 5px 0px 0px 1px;
+}
+.hdamcbtn, .hdstfbtn, .hdphdbtn
+{
+	height: 21px;
+	width: 117px;
+	cursor: pointer;
+	margin: 0px 0px 0px 5px;
+}
+.hdsendbtn
+{
+	background-image: url('/web/20100704102441im_/http://www.colorado.com/images/hdsnd_btn.jpg');
+	height: 21px;
+	width:  75px;
+	cursor: pointer;
+	display: block;
+}
+.hdvadbbtn
+{
+	background: url('/web/20100704102441im_/http://www.colorado.com/images/hdvadb_btn.jpg') no-repeat;
+	height: 46px;
+	width: 179px;
+	cursor: pointer;
+	margin: 5px 0px 15px 5px;
+}
+.hdvadbtn
+{
+	background-image: url('/web/20100704102441im_/http://www.colorado.com/images/hdvad_btn.jpg');
+	height: 21px;
+	width: 97px;
+	cursor: pointer;
+	margin: 5px 0px 15px 5px;
+}
+.hdprmbtn
+{
+	background-image: url('/web/20100704102441im_/http://www.colorado.com/images/hdprm_btn.png');
+	height: 21px;
+	width: 101px;
+	cursor: pointer;
+	margin: 5px 0px 0px 0px;
+}
+.hdamcbtn { background-image: url('/web/20100704102441im_/http://www.colorado.com/images/hdamc_btn.jpg'); }
+.hdstfbtn { background-image: url('/web/20100704102441im_/http://www.colorado.com/images/hdstf_btn.jpg'); }
+.hdphdbtn { background-image: url('/web/20100704102441im_/http://www.colorado.com/images/hdphd_btn.jpg'); }
+.hdcon
+{
+	background-color: #F5F5F5;
+	width: 690px;
+	margin-top: 170px;
+	text-align: left;
+	position: relative;
+	padding: 5px;
+}
+.hdicon
+{
+	background-color: #F5F5F5;
+	width: 490px;
+	margin: 150px 0px 0px 100px;
+	text-align: left;
+	position: relative;
+	padding: 5px;
+}
+.licon
+{
+	background-color: #F5F5F5;
+	width: 590px;
+	margin-top: 220px;
+	text-align: left;
+	position: relative;
+	padding: 5px;
+}
+#hdbback
+{
+	position: absolute; 
+	visibility: hidden; 
+	display: none; 
+	top: 0px; 
+	left: 0px; 
+	height: 10px; 
+	width: 10px; 
+	background-color: #000000; 
+	opacity: 0.75; 
+	-moz-opacity: 0.75; 
+	filter: alpha(opacity=75); 
+	z-index: 100;
+}
+#hdbbox
+{
+	position: absolute; 
+	visibility: hidden; 
+	display: none; 
+	top: 0px; 
+	left: 0px; 
+	z-index: 101;
+}
+#liback
+{
+	position: absolute; 
+	visibility: hidden; 
+	display: none; 
+	top: 0px; 
+	left: 0px; 
+	height: 10px; 
+	width: 10px; 
+	background-color: #000000; 
+	opacity: 0.75; 
+	-moz-opacity: 0.75; 
+	filter: alpha(opacity=75); 
+	z-index: 200;
+}
+#libox
+{
+	position: absolute; 
+	visibility: hidden; 
+	display: none; 
+	top: 0px; 
+	left: 0px; 
+	z-index: 201;
+}
+.hdltitle
+{
+	font: 20px arial; 
+	color: #254870;
+	margin: 0px 0px 10px 5px;
+	padding: 0px;
+}
+.hdlimgbk, .hdlimgbkmo
+{
+	float: left;
+	height: 74px; 
+	width: 74px; 
+	padding: 10px 20px 10px 10px;
+}
+.hdlimgbk   { background: url('/web/20100704102441im_/http://www.colorado.com/images/list_thumb_lg.jpg')   no-repeat; }
+.hdlimgbkmo { background: url('/web/20100704102441im_/http://www.colorado.com/images/list_thumb_lgmo.jpg') no-repeat; }
+.hdlimg
+{
+	height: 74px; 
+	width: 74px;
+}
+.hdldvd
+{
+	height: 1px;
+	margin: 0px;
+	font-size: 1px;
+	border-top: solid 1px #254870;
+}
+.hdlimv
+{
+	background-color: #e1f2f1;
+	border-top: solid 1px #254870;
+	padding: 5px 10px 6px 5px;
+}
+.hdlimo
+{
+	background-color: inherit;
+	border-top: solid 1px #254870;
+	padding: 5px 10px 6px 5px;
+}
+
+.dtl, .dtr, .dbl, .dbr
+{
+	font-size: 1px; 
+	height: 4px; 
+	width: 4px; 
+	
+}
+.dtl { background: url('/web/20100704102441im_/http://www.colorado.com/images/hdtl.jpg'); }
+.dtr { background: url('/web/20100704102441im_/http://www.colorado.com/images/hdtr.jpg'); }
+.dbl { background: url('/web/20100704102441im_/http://www.colorado.com/images/hdbl.jpg'); }
+.dbr { background: url('/web/20100704102441im_/http://www.colorado.com/images/hdbr.jpg'); }
+.hdmenui, .hdmenui:link, .hdmenui:visited
+{
+	color: #FF0000; font-weight: bold;
+}
+.hdmenui:hover
+{
+	color: #AAAAAA; font-weight: bold;
+}
+#hdbusname, #hdbusname:link, #hdbusname:visited
+{
+	font: bold 16px arial; 
+	color: #254870; 
+	padding: 0px 0px 0px 10px; 
+	margin: 15px 0px 0px 0px; 
+	display: inline-block; 
+	background: url('/web/20100704102441im_/http://www.colorado.com/images/barrow.jpg') 0px 4px no-repeat; 
+	cursor: pointer;
+	text-decoration: underline;
+}
+#hdbusname:hover
+{
+	color: #AAAAAA;
+}
+#hdtitle, #hdtitle:link, #hdtitle:visited
+{
+	font: 24px arial; 
+	color: #254870;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+#hdtitle:hover
+{
+	color: #AAAAAA;
+}
+.promos_3 {background:url(/web/20100704102441im_/http://www.colorado.com/images/bg_subnav_2.png) no-repeat; width:289px; height: 183px; position:relative; font-size:11px;}
+.promos_3A {position:absolute; top:27px; left:50px; width:120px; height:50px;}
+.promos_3A_img {position:absolute; left:175px; top:0;}
+.promos_3B {position:absolute;top:84px;left:50px;width:120px;height:20px; font-size:9px;}
+.promos_3C {position:absolute;top:115px;left:85px;width:110px;height:30px;}
+.promos_3C_img {position:absolute; left:40px; top:114px; width:30px; height:30px;}
+
+.tg_callout {background:url(/web/20100704102441im_/http://www.colorado.com/images/tg_back.jpg) no-repeat top left; padding:20px 0 0 50px; color:#606265;}
+.tg_callout a, .tg_callout a:visited {color:#006ebc;} .tg_callout a:hover {text-decoration:underline;}
+.tg_callout p {color:#606265;}
+.tg_callout h1 {padding:5px 0;}
+.tg_callout h2 {font-size:16px; font-weight:bold; color:#535558; text-transform:none}
+.tg_callout input.short, .tg_callout input.med, .tg_callout input.wide, .tg_callout input.wider, .tg_callout select.short, .tg_callout select.wide {font-size:14px; height:18px; padding:10px 12px; border:0; letter-spacing:0; margin:0 10px 10px 0; font-weight:bold; color:#535558;}
+.tg_callout input.short {background:url(/web/20100704102441im_/http://www.colorado.com/images/input_120.png) no-repeat; width:96px;}
+.tg_callout input.med {background:url(/web/20100704102441im_/http://www.colorado.com/images/input_250.png) no-repeat; width:226px;}
+.tg_callout select.short {background:url(/web/20100704102441im_/http://www.colorado.com/images/select_168.png) no-repeat; width:168px; padding:6px 6px 6px 12px; height:38px;}
+.tg_callout input.wide {background:url(/web/20100704102441im_/http://www.colorado.com/images/input_275.png) no-repeat; width:251px;}
+.tg_callout select.wide {background:url(/web/20100704102441im_/http://www.colorado.com/images/input_275.png) no-repeat; width:275px; padding:6px 6px 6px 12px; height:38px;}
+.tg_callout input.wider {background:url(/web/20100704102441im_/http://www.colorado.com/images/input_310.png) no-repeat; width:286px;}
+
+.fixedTab {
+	position:fixed;
+	bottom:0;
+	right:4%;
+	z-index:50;
+	display:block;
+	width:157px;
+	height:69px;
+	background-image:url(/web/20100704102441im_/http://www.colorado.com/images/tab.png);
+	background-repeat:no-repeat; cursor: pointer;
+}
+
+/*Start of Left Subnav for All Pages*/
+.main .mainleft .subnav2 {width:280px;  margin-top:-250px; display:block; position:absolute;}
+.subnav2 a{background:url(/web/20100704102441im_/http://www.colorado.com/images/side_nav.jpg); display:block; width:260px; text-align:center; height:40px; outline:none;}
+.subnav2 #OrderGuide{height:102px;background-position:0 0;}
+.subnav2 #VirtualGuide{height:41px;background-position:0 -102px;}
+.subnav2 #ENews{height:62px; background-position:0 -143px;}
+.subnav2 #InteractiveMap{height:59px; background-position:0 -205px;}
+/*.subnav2 .item5 a{height:57px; background-position:0 -264px;}*/
+.subnav2 #Explore{height:53px; background-position:0 -321px;}
+.subnav2 #Inspired{height:56px; background-position:0 -374px;}
+.subnav2 #FreeStuff{height:41px; background-position:0 -430px;}
+.subnav2 #Kids{height:42px; background-position:0 -471px;}
+.subnav2 #SneakPeak{height:52px; background-position:0 -513px;}
+a.mainBtn, a.mainBtn:visited {background:url(/web/20100704102441im_/http://www.colorado.com/images/vaca_ideas.jpg); width:450px; height:100px; display:block; margin:0; outline:none;}
+a.rightBtn, a.rightBtn:visited {background:url(/web/20100704102441im_/http://www.colorado.com/images/vaca_ideas_rt.jpg); width:200px; height:190px; float:right; margin-left:30px; text-indent:-9999px; outline:none;}
+#subnav2 {padding:5px;}
+/*End of Left Subnav for All Pages*/
+
+/*Start of Vacation Ideas & Articles Landing Page Category Listings*/
+.ft_thumb {background:url(/web/20100704102441im_/http://www.colorado.com/styles/images/bg_third.png) no-repeat; width:172px; min-height:175px; padding:11px; float:left; margin:0 -13px 10px 38px}
+.ft_thumb h3 {padding:8px 0 0 0;}
+.ft_thumb a {color:#006ebd;}
+/*End of Vacation Ideas & Articles Landing Page Category Listings*/
+
+/*Start Welcome Offers Full Details*/
+.full_container
+{
+visibility:hidden;
+cursor:default;
+display:block;
+left:80px;
+position:relative;
+top:-75px;
+width:382px;
+z-index:5000;
+#margin-top:35px;
+}
+.full_bg
+{
+background:url("/web/20100704102441im_/http://www.colorado.com/images/offer_bg.png") no-repeat scroll 0 0 transparent;
+width:382px;
+z-index:5000;
+}
+.full_details
+{
+line-height:17px;
+margin-left:30px;
+width:300px;
+z-index:5000;
+}
+.promo_synopsis_details
+{
+    width:395px;
+    *width:355px;
+}
+.welcomelistitem
+{
+    height:125px;
+    cursor: pointer; 
+    margin-right: 10px;
+    border:none;
+}
+.welcometitle
+{
+    width:385px;
+    *width:355px;
+}
+/*End Welcome Offers Full Details*/
+
+.listing_top
+{
+    clear:both;
+	width:926px; 
+	margin: 10px auto; 
+	background:url(/web/20100704102441im_/http://www.colorado.com/images/div_h_wide_top.png) top center no-repeat; 
+	padding:27px 0 10px 0;
+	text-align:center;
+}
+.listing_header
+{
+    background: url(/web/20100704102441im_/http://www.colorado.com/images/div_h_main.png) bottom left no-repeat;
+}
+.rowspacer
+{
+}
+/*
+     FILE ARCHIVED ON 10:24:41 Jul 04, 2010 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:32:04 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 80.515
+  exclusion.robots: 0.105
+  exclusion.robots.policy: 0.091
+  cdx.remote: 0.076
+  esindex: 0.011
+  LoadShardBlock: 45.343 (3)
+  PetaboxLoader3.datanode: 108.916 (4)
+  load_resource: 125.862
+  PetaboxLoader3.resolve: 56.439
+*/

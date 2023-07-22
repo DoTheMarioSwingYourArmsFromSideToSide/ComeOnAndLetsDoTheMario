@@ -1,0 +1,145 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+/* 
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+var sMmg_oas_rand = new Date().getTime();
+var positionList = '';
+
+(function($){   
+	Drupal.behaviors.oas = {
+		attach: function(context, settings) {
+			// This is to fill in the adds with iframes onload			
+			// loop though all visable add divs to set up positionList that is needed in the iframe call so we get no dupe adds
+			$('.OAS_AD:visible').each(function(i, obj) {				
+				var thisId = jQuery( this ).attr( "id" ).split("_");
+            positionList += (positionList.length > 0 ? ',' : '') + thisId[1];
+			});
+			
+			$('.OAS_AD:visible').each(function(i, obj) {
+				
+				var sMmg_oas_id = jQuery(this).attr( "id" );
+				var iframe = getOasIFrame(sMmg_oas_id);
+				$(this).html(iframe);				
+			});
+						
+			// this is for any newly unhidden add divs that need to be filled in on resize.
+			$(window).resize(function() {				
+				var anyNew = 0;
+				// loop though all visable add divs to add any newly shown add divs and add to positionList that is needed in the iframe call so we get no dupe adds
+				$('.OAS_AD:visible').each(function(i, obj) {		
+					var anyAdd = $(this).html();
+					if	(anyAdd == '')
+					{
+						var thisId = jQuery( this ).attr( "id" ).split("_");
+						positionList +=  thisId[1] + ',';
+						anyNew = 1;
+					}	
+				});
+			
+				// now we need to get the iframe if we have newly shown add divs
+				if (anyNew == 1)
+				{
+					// on resize new adds were found get adds
+					$('.OAS_AD:visible').each(function(i, obj) {
+						var anyAdd = $(this).html();
+						if	(anyAdd == '')
+						{
+							var sMmg_oas_id = jQuery(this).attr( "id" );
+							var iframe = getOasIFrame(sMmg_oas_id);
+							$(this).html(iframe);
+						}				
+					});
+				}
+			});
+		}
+	}
+	
+	function getOasIFrame(sMmg_oas_id)
+	{
+		var sMmg_oas_domain = Drupal.settings.mmg_oas.sMmg_oas_domain;
+		var sSafe_location = Drupal.settings.mmg_oas.sSafe_location;
+		var sAdded_location_data = Drupal.settings.mmg_oas.sAdded_location_data;
+		var aMmg_oas_id = sMmg_oas_id.split("_");
+		sMmg_oas_id = aMmg_oas_id[1];
+	
+		var url = 'http://'+sMmg_oas_domain+'/RealMedia/ads/adstream_sx.ads/'+sSafe_location+'/'+sAdded_location_data+'1'+sMmg_oas_rand+'@'+positionList+'!'+sMmg_oas_id;
+		
+		var iframe = '<iframe class="oas_ads_iframe" src="'+url+'"  width="100%" height="100%" SCROLLING="no" allowtransparency="true"></iframe>';	
+		return iframe;	
+	}    
+})(jQuery)
+
+function mmgGridPagesRunAjaxExtend()
+{
+	if (oGrid.fromHashReload != 1)
+	{
+		var randomnumber = Math.floor(Math.random()*1001);
+                
+		if (oGrid.filter_string.length > 0)
+		{
+			var positionList = '';
+			jQuery('.OAS_AD').each(function(i, obj) {
+				var thisId = jQuery( this ).attr( "id" ).split("_");
+            positionList += (positionList.length > 0 ? ',' : '') + thisId[1];
+			});
+			
+			jQuery('.OAS_AD').each(function(i, obj) {
+				mmg_oas_get_iframe(jQuery( this ).attr( "id" ),oGrid.filter_string, randomnumber, positionList);
+			});
+		}               
+	}       
+}
+
+function mmg_oas_get_iframe(oasId,filter_string,randomnumber,positionList)
+{               
+	jQuery.ajax({
+		type: "POST",
+		url: "/mmg_oas_ajax_iframe/",
+		data: "filters="+filter_string+'&oas_id='+oasId+'&rand='+randomnumber+'&position_list='+positionList,
+		dataType: 'json',
+		success: function(data){
+			if (data.any == 1)
+			{
+				jQuery("#"+data.oas_id).html(data.oas_iframe);
+			}
+		},
+		error: function (xmlhttp) {
+			//alert('An HTTP error '+ xmlhttp.status +' occured.\n' + xmlhttp);
+		}       
+	});     
+};
+
+
+}
+/*
+     FILE ARCHIVED ON 21:14:58 Jun 25, 2014 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:29:40 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 136.838
+  exclusion.robots: 0.087
+  exclusion.robots.policy: 0.075
+  RedisCDXSource: 0.917
+  esindex: 0.01
+  LoadShardBlock: 113.464 (3)
+  PetaboxLoader3.resolve: 322.435 (3)
+  PetaboxLoader3.datanode: 112.862 (5)
+  load_resource: 355.539 (2)
+*/

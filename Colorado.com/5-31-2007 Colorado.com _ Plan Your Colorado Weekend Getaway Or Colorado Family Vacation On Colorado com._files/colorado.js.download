@@ -1,0 +1,187 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+
+// CSS Top Menu- By JavaScriptKit.com (http://www.javascriptkit.com)
+// Adopted from SuckerFish menu
+// For this and over 400+ free scripts, visit JavaScript Kit- http://www.javascriptkit.com/
+// Please keep this credit intact
+
+startMenu=function(){
+	if (document.all&&document.getElementById){
+		// Add a shim to hide select items for drop down menus.
+		if (navigator.appVersion.substr(22,3)!="5.0")
+			window.csstopmenu.innerHTML=('<iframe id="menushim" src="about:blank" scrolling="no" frameborder="0" style="position:absolute;display:none;filter: progid:DXImageTransform.Microsoft.Alpha(style=0,opacity=0);"></iframe>' + window.csstopmenu.innerHTML);
+		navRoot=document.getElementById("csstopmenu");
+		for (i=0;i<navRoot.childNodes.length;i++){
+			node=navRoot.childNodes[i];
+			if (node.nodeName=="LI"&&node.getElementsByTagName("UL").length>0){
+				node.onmouseover=function(){
+					if(this.className.indexOf("over")==-1){
+						this.className+=" over";
+						hideDropdowns(this.getElementsByTagName("UL")[0],true);
+					}
+				}
+				node.onmouseout=function(){
+					if(!isInParent(event.toElement, this)){
+						this.className=this.className.replace(" over","");
+						hideDropdowns(this.getElementsByTagName("UL")[0],false);
+					}
+				}
+			}
+		}
+	}
+}
+function isInParent(el, parent){
+	var aEls=parent.getElementsByTagName(el.tagName)
+	if(aEls.length==0)
+		return false;
+	for(var i=0;i<aEls.length;i++){
+		if(el==aEls[i])
+			return true;
+	}
+	return false;
+}
+function hideDropdowns(obj, bool){
+	if (navigator.appVersion.substr(22,3)=="5.0"){
+		if(bool)
+			hideSelects();
+		else
+			showSelects();
+		return;
+	}
+	var mnuShim=document.getElementById("menushim");
+	if(bool){
+		mnuShim.style.left=getPageOffsetLeft(obj)+"px";
+		mnuShim.style.top=getPageOffsetTop(obj)+"px";
+		mnuShim.style.width=obj.offsetWidth+"px";
+		mnuShim.style.height=obj.offsetHeight+"px";	
+		obj.style.zIndex="101";
+		mnuShim.style.zIndex="0";
+		mnuShim.style.display="block";
+	} else
+		mnuShim.style.display="none";
+}
+function getPageOffsetLeft(el){
+	var x;
+	x=el.offsetLeft;
+	if (el.offsetParent!=null)
+		x+=getPageOffsetLeft(el.offsetParent);
+	return x;
+}
+function getPageOffsetTop(el){
+	var y;
+	y=el.offsetTop;
+	if (el.offsetParent!=null)
+		y+=getPageOffsetTop(el.offsetParent);
+	return y;
+}
+function hideSelect(id){
+	var el=document.getElementById(id);
+	if (el!=null)
+		el.className+=" hide";
+}
+function hideSelects(){
+	var oSelects=document.getElementsByTagName("select");
+	for(var i=0;i<oSelects.length;i++)
+		oSelects[i].className+=" hide";
+}
+function showSelects(){
+	var oSelects=document.getElementsByTagName("select");
+	for(var i=0;i<oSelects.length;i++)
+		oSelects[i].className=oSelects[i].className.replace(" hide","");
+}
+function addEvent(obj, evType, fn) {
+	// adds an eventListener for browsers which support it
+	// Written by Scott Andrew: nice one, Scott
+	if (obj.addEventListener){
+		obj.addEventListener(evType,fn,true);
+		return true;
+	} else if (obj.attachEvent){
+		var r = obj.attachEvent("on"+evType,fn);
+		return r;
+	} else {
+		return false;
+	}
+}
+addEvent(window,"load",startMenu);
+
+
+
+
+
+//
+// rollover code, snagged from dreamweaver
+//
+function MM_findObj(n, d) {
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x; }
+function MM_swapImage() { 
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}}
+function MM_swapImgRestore() { 
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;}
+function MM_preloadImages() {
+ var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+   var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+   if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}}
+
+
+
+// function to jump with empty search box
+//
+function jumpToPage(type) {
+ switch (type)
+ {
+  case "article":
+  location.href="https://web.archive.org/web/20070531232608/http://colorado.com/magazine.php";
+  break;
+  case "listing":
+  location.href="https://web.archive.org/web/20070531232608/http://colorado.com/places.php";
+  break;
+  case "place":
+  location.href="https://web.archive.org/web/20070531232608/http://colorado.com/regions.php";
+  break;
+  case "event":
+  location.href="https://web.archive.org/web/20070531232608/http://colorado.com/events.php";
+  break;
+  case "industry":
+  location.href="https://web.archive.org/web/20070531232608/http://colorado.com/static.php?file=industry_partners";
+  break;
+ }
+}
+
+
+}
+/*
+     FILE ARCHIVED ON 23:26:08 May 31, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:33:05 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 889.782
+  exclusion.robots: 0.068
+  exclusion.robots.policy: 0.059
+  RedisCDXSource: 0.626
+  esindex: 0.007
+  LoadShardBlock: 869.745 (3)
+  PetaboxLoader3.datanode: 920.848 (4)
+  load_resource: 130.954
+  PetaboxLoader3.resolve: 45.253
+*/

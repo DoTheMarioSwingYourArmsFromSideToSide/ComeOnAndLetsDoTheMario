@@ -1,0 +1,320 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+jQuery(document).ready(function() {
+  var groupClasses = new Array();
+  jQuery('.search-result.solr-grouped').each(function(index, item){      
+    item = jQuery(item)
+    //item.children('a.nds-version-link').prependTo(item.children('h3'));
+    
+    currentGroupClass = item.attr('class').substr(item.attr('class').lastIndexOf('solr-group-')); 
+    if(jQuery.inArray(currentGroupClass, groupClasses) < 0) {        
+      groupClasses.push(currentGroupClass);
+    }      
+  });
+  
+  jQuery.each(groupClasses, function(index, item) {
+    currentGroup = jQuery('.search-result.solr-grouped.' + item);
+    currentGroup.wrapAll('<div id="' + item + '" />');           
+    currentGroup.each(function(index, item) {
+      if(index == 0) { return true; }
+      item = jQuery(item);
+      item.css('margin-left', '2em');
+      item.css('display', 'none');
+		
+      jQuery("<h4>" + item.children('h3').first().html() + "</h4>").prependTo(item.children('.search-snippet-info').first());
+      item.find('h3 a').css('display', 'inline');
+      item.accordion({
+        active: false,
+        autoHeight: false,        
+        collapsible: true
+      });
+    });
+  });
+});
+;
+jQuery(document).ready(function() {
+  var groupClasses = new Array();
+  jQuery('.search-result.solr-grouped').each(function(index, item){
+    item = jQuery(item)
+    currentGroupClass = item.attr('class').substr(item.attr('class').lastIndexOf('solr-group-'));
+    if(jQuery.inArray(currentGroupClass, groupClasses) < 0) {
+      groupClasses.push(currentGroupClass);
+    }
+  });
+
+  jQuery.each(groupClasses, function(index, item) {
+    currentGroup = jQuery('.search-result.solr-grouped.' + item);
+    currentGroup.wrapAll('<li id="' + item + '-all" />');
+    currentGroup.wrapAll('<ol class="apachesolr_search-results-grouped search-results-grouped">');
+    jQuery('#' + item + '-all').prepend('<span>Group: ' + item.replace('solr-group-', '') +'</span>');
+  });
+});
+;
+/**
+ * @file
+ * Loads report blocks via ajax.  This is done because the API requests to Google
+ * Analytics can add signifigant latency to page loads otherwise.
+ */
+(function ($) {
+
+Drupal.behaviors.googleAnalyticsReports = {
+  attach: function (context, settings) {
+    $('#block-google-analytics-reports-path-mini,#block-google-analytics-reports-dashboard', context).show();
+
+    if ($('.google-analytics-reports-path-mini', context).length) {
+      $.ajax({
+        url: Drupal.settings.googleAnalyticsReportsAjaxUrl + '/path-mini',
+        dataType: 'json',
+        data: ({ path: window.location.pathname + window.location.search }),
+        success: function(data) {
+          $('.google-analytics-reports-path-mini', context).html(data.content).hide().slideDown('fast');
+        },
+        error: function(data) {
+          // @TODO
+        }
+      });
+    }
+
+    if ($('.google-analytics-reports-dashboard', context).length) {
+      $.ajax({
+        url: Drupal.settings.googleAnalyticsReportsAjaxUrl + '/dashboard',
+        dataType: 'json',
+        success: function(data) {
+          $('.google-analytics-reports-dashboard', context).html(data.content).hide().slideDown('fast');
+        },
+        error: function(data) {
+          // @TODO
+        }
+      });
+    }
+  }
+}
+
+})(jQuery);;
+/**
+ * @author Swirt
+ */
+
+
+var urlParams = {};
+(function () {
+    var match,
+        pl     = /\+/g,  // Regex for replacing addition symbol with a space
+        search = /([^&=]+)=?([^&]*)/g,
+        decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
+        query  = window.location.search.substring(1);
+
+    while (match = search.exec(query))
+       urlParams[decode(match[1])] = decode(match[2]);
+})();
+
+
+;(function($) {
+    $(document).ready(function(){
+        // the document is ready so make sure to grab new classes from the body
+        Drupal.body.readClass();
+		// CHECK FOR screen size TO SET  BODY data and Drupal.settings.screensize.current/////
+		mmgBlockThrowerSetScreenSize();
+       // Continue to update the screensize if window is adjusted
+       $(window).resize(mmgBlockThrowerSetScreenSize);
+    })
+})(jQuery);
+
+;function consoleMe(sMessage) {
+      //if (Drupal.body.hasClass('admin')) {
+     if (urlParams["debug"] == 'blocks') {
+        // person is logged in as admin so it is safe to output debug
+        console.log (sMessage);
+     }
+};
+
+;function RunThrowCalls(){
+    if (!!Drupal.settings.BlockThrower.throwCalls){
+        //there are some thowCalls to re-run
+        for( var blockIDkey in Drupal.settings.BlockThrower.throwCalls ){
+            eval(Drupal.settings.BlockThrower.throwCalls[blockIDkey]);
+        }
+    }
+};
+
+
+;function mmgBlockThrowerSetScreenSize (){
+ 	//Ensure global _gaq Google Analytics queue has been initialized.
+ 	if (typeof _gaq == 'undefined') {
+ 		_gaq = [];
+ 	}
+    var screenSizeNew = 'mobile';//sets minimum default in case all logic fails
+    var aSubBrackets = new Array();
+    if (!!Drupal.settings.screensize.bracket) {
+        //Loop through bracket states to determine which applies currently (race condition, last one to fit the size wins)
+        for( var key in Drupal.settings.screensize.bracket ){
+            if (jQuery(window).width() >= Drupal.settings.screensize.bracket[key]) {
+                screenSizeNew = key;
+                aSubBrackets.push(key + '-up');
+            }
+        }
+       //unset the last value of the array
+       aSubBrackets.pop();
+       //implode the array.
+       sSubBrackets = aSubBrackets.join(' ');
+    }//end check for bracket
+
+	//check to see if this is the first init or a resize
+	if (Drupal.settings.screensize.initialized != "TRUE") {
+	    //this is the first time this has been run
+	    jQuery('html').attr('data-screensize', screenSizeNew +' '+ sSubBrackets);
+        Drupal.settings.screensize.current = screenSizeNew;
+        Drupal.settings.screensize.initialized = "TRUE";
+        //track the layout
+        _gaq.push(["_trackEvent", "Site Layout",'responsive-layout-'+screenSizeNew,,, true]);
+        consoleMe('Initialized as: ' + screenSizeNew);
+        RunThrowCalls();
+	} else {
+	    //this is being run on resize
+	    if(Drupal.settings.screensize.current  != screenSizeNew) {
+            //Means there has been a change from one screen state to another
+            var sOldScreenState = Drupal.settings.screensize.current
+            //update data in both locations
+            consoleMe('Changed to state: ' + screenSizeNew);
+            //This sets data-screensize on the body tag AND html tag so it can be referenced by css.
+            jQuery('html').attr('data-screensize', screenSizeNew +' '+ sSubBrackets);
+            Drupal.settings.screensize.current = screenSizeNew;
+            //track the layout
+        	_gaq.push(["_trackEvent", "Site Layout",'responsive-layout-'+screenSizeNew,,, true]);
+            //re-run the thrower function calls
+            // console.log(jQuery(this));
+            jQuery(this).trigger('screensizeUpdated');
+            RunThrowCalls();
+            //call to possible other change of state function
+            if (typeof myScreenStateChanged == 'function') {
+			  //To make use of this, declare this function in your theme js and have it do whatever you need done when the screen size changes state.
+			  myScreenStateChanged(screenSizeNew, sOldScreenState);
+			}
+
+        }
+	}
+
+};
+
+;function ThrowBlock (sBlockName, aStates, sTargetID, bDoNow) {
+     var sSanitizedBlockName = sBlockName.replace(":","-");
+     var sSanitizedBlockName = sSanitizedBlockName.replace(/_/g,"-");
+     var bDoNow = bDoNow || false;
+     var sTargetID = sTargetID || "target-" + sSanitizedBlockName;
+	 var sTargetInnerClass =  'thrown_' + sTargetID;
+	 var sUniqueBlockID = sSanitizedBlockName + '-to-' + sTargetID;
+
+    //see if it should throw it now or just store the callback
+    if (bDoNow == 'true') {
+        //means it should do it now
+        //examine the states and see if it should throw the block
+        var presence = aStates.indexOf(Drupal.settings.screensize.current);
+        if (presence != -1) {
+            //the current size is within aStates
+            sMessage = 'Throwing ' + sBlockName + ' into ' + sTargetID;
+            consoleMe(sMessage);
+            jQuery("#" + sTargetID).html('<div class="' + sTargetInnerClass + '">' + Drupal.settings.BlockThrower[sBlockName] + '</div>');
+
+        } else {
+            //the current state is not in the throw request so eat the block contents
+            sMessage = 'Eating ' + sBlockName + ' from ' + sTargetID;
+            consoleMe(sMessage);
+            jQuery('#' + sTargetID + '  .' + sTargetInnerClass).remove();
+        }//end check for presence
+    } // end check for bDoNow
+    //save a copy of this function call in Drupal.settings.BlockThrower.throwCalls
+    Drupal.settings.BlockThrower.throwCalls[sUniqueBlockID] = 'ThrowBlock (\'' + sBlockName + '\', \'' + aStates + '\', \'' + sTargetID + '\', \'true\');';
+};
+
+
+;function ThrowBlockAjax (sModuleNameAJX, sBlockNameAJX, aStatesAJX, sTargetIDsAJX, bDoNowAJX) {
+     var bDoNowAJX = bDoNowAJX || false;
+     var sModuleNameAJX = sModuleNameAJX || '';
+     var sBlockNameAJX = sBlockNameAJX || '';
+     var sTargetIDsAJX = sTargetIDsAJX || '';
+     var aStatesAJX = aStatesAJX || '';
+     var  sUniqueBlockName = 'AJX-' + sModuleNameAJX + ':' + sBlockNameAJX;
+     var sUniqueCallBackName = 'AJX-' + sModuleNameAJX + '-' + sBlockNameAJX + '-to-';
+     var  sUniqueCallBackName = sUniqueCallBackName.replace(/_/g,"-")  + sTargetIDsAJX;
+
+    //see if it should throw it now or just store the callback
+    if (bDoNowAJX == 'true') {
+            //examine the states and see if it should throw the block
+            var presence = aStatesAJX.indexOf(Drupal.settings.screensize.current);
+            if ((presence != -1) && (!!sModuleNameAJX) && (!!sBlockNameAJX) && (!!sTargetIDsAJX)) {
+                //the current size is within aStatesAJX and it contains all the necessary params
+               sMessage = 'AJAX Throwing ' + sModuleNameAJX + ':' + sBlockNameAJX+ ' into ' + sTargetIDsAJX;
+               consoleMe(sMessage);
+                //check to see if we already have the block has already been ajaxed into block data
+                if (!!Drupal.settings.BlockThrower[sUniqueBlockName]) {
+                    //it exists so read throw it from data
+                    ThrowBlock(sUniqueBlockName, aStatesAJX, sTargetIDsAJX, 'true');
+
+                } else {
+                    //it does not exist so ajax load it and save into data for the next time.
+                    //jQuery("#" + sTargetIDsAJX).load('ajax/block/' + sModuleNameAJX + '/' + sBlockNameAJX, function() {
+                        jQuery.get('/ajax/block/' + sModuleNameAJX + '/' + sBlockNameAJX, null, function(data,status){
+                          if (status == 'success'){
+                              //save it to data
+                              Drupal.settings.BlockThrower[sUniqueBlockName] = data;
+
+                             //TODO it is possible that the carriage returns here and others in Drupal.settings.BlockThrower may create some issues in IE
+                              sMessage = 'AJAX Load Success: Data now in Drupal.settings.BlockThrower.' + sUniqueBlockName;
+                              consoleMe(sMessage);
+                              //throw it
+                              ThrowBlock(sUniqueBlockName, aStatesAJX, sTargetIDsAJX, 'true');
+                          } else {
+                              sMessage = 'AJAX Load FAILED: ' + sUniqueBlockName;
+                              consoleMe(sMessage);
+                              //save a copy of this function call in Drupal.settings.BlockThrower.throwCalls  for retry next resize
+                              Drupal.settings.BlockThrower.throwCalls[sUniqueCallBackName] = 'ThrowBlockAjax (\'' + sModuleNameAJX + '\', \'' + sBlockNameAJX + '\', \'' + aStatesAJX + '\', \'' + sTargetIDsAJX + '\', \'true\');';
+
+                          }
+                        });
+                }
+            } else {
+                //This is not the right state so just make sure this function call gets saved for resize by
+                //putting this function call in Drupal.settings.BlockThrower.throwCalls
+
+                Drupal.settings.BlockThrower.throwCalls[sUniqueCallBackName] = 'ThrowBlockAjax (\'' + sModuleNameAJX + '\', \'' + sBlockNameAJX + '\', \'' + aStatesAJX + '\', \'' + sTargetIDsAJX + '\', \'true\');';
+
+            } //end check for data exists
+    } else {
+        //This is not bDoNowAJX so just save it into Drupal.settings.BlockThrower.throwCalls
+        Drupal.settings.BlockThrower.throwCalls[sUniqueCallBackName] = 'ThrowBlockAjax (\'' + sModuleNameAJX + '\', \'' + sBlockNameAJX + '\', \'' + aStatesAJX + '\', \'' + sTargetIDsAJX + '\', \'true\');';
+    }// end check for bDoNowAJX
+};
+;
+
+
+}
+/*
+     FILE ARCHIVED ON 22:17:14 Jun 25, 2014 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:29:50 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 210.655
+  exclusion.robots: 0.068
+  exclusion.robots.policy: 0.059
+  cdx.remote: 0.057
+  esindex: 0.01
+  LoadShardBlock: 79.71 (3)
+  PetaboxLoader3.datanode: 115.823 (5)
+  load_resource: 192.953 (2)
+  PetaboxLoader3.resolve: 82.617 (2)
+*/

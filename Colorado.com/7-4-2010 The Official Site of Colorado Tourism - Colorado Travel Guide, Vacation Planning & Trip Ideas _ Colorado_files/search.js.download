@@ -1,0 +1,326 @@
+﻿var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+/// <reference name="MicrosoftAjax.js" />
+
+//Search Results Menu Event Handlers
+var Count             = 0
+var ItemHidden        = true
+var TheCurrentOpacity = 0
+
+//Search Results Menu About Ready To Show
+function ClientShowing(sender, eventArgs)
+{
+    //DEBUG: document.getElementById("ErrorDIV").appendChild(document.createTextNode("<Showing>"))
+    ItemHidden=false
+    //Cancel the Built-in Menu from showing
+    eventArgs.set_cancel(true)
+    if (TheCurrentOpacity == 0) fadeIn(0)
+    document.getElementById("SearchMenu").style.visibility = "visible";
+}
+
+//Search Results Menu About Ready To Hide
+function ClientHiding(sender, eventArgs)
+{
+    var DoAction = ++Count;
+    
+    if (DoAction == 1)
+    {
+        if (!ItemHidden)
+        {
+            ItemHidden = true
+            setTimeout("ResetHide()", 1000)
+            fadeOut(100)
+        }
+        Count = 0;
+    }
+}
+
+//Search Results Have been obtained, Put them in Custom Menu
+function ClientPopulated(sender, eventArgs)
+{
+    CreateSearchResults(sender);
+}
+
+//FadeIn/FadeOut Functions
+function ResetHide()
+{
+    Count = 0
+}
+
+function fadeOut(opacity)
+{
+    if (opacity > 0)
+    {
+        opacity -= 25
+        document.getElementById("SearchMenu").style.filter = "alpha(opacity=" + opacity + ")"
+        document.getElementById("SearchMenu").style.opacity = opacity / 100
+        setTimeout("fadeOut(" + opacity + ")", 25)
+        TheCurrentOpacity = opacity
+    }
+    else
+    {
+        if (document.getElementById("SearchMenu").firstChild)
+        {
+            document.getElementById("SearchMenu").removeChild(document.getElementById("SearchMenu").firstChild)
+        }
+    }
+}
+
+function fadeIn(opacity)
+{
+    if (opacity < 100)
+    {
+        opacity += 25
+        document.getElementById("SearchMenu").style.filter = "alpha(opacity=" + opacity + ")"
+        document.getElementById("SearchMenu").style.opacity = opacity / 100
+        setTimeout("fadeIn(" + opacity + ")", 25)
+        TheCurrentOpacity = opacity
+    }
+}
+
+//Create Search Results Menu
+function CreateSearchResults(sender) 
+{
+    if (sender)
+    {
+        var TheCompletionList = sender.get_completionList();
+
+        if (TheCompletionList)
+        {
+            var TheCompletionListItems = TheCompletionList.getElementsByTagName("li");
+            var TheMainTable           = document.createElement('table')
+            var TheFirstRow            = TheMainTable.insertRow(-1)
+            var TheFirstColumn         = TheFirstRow.insertCell(0-1)
+            var TheCategoryCount       = 0;
+            var ThePreviousCategory    = "";
+
+            if (!TheCompletionListItems.length || (TheCompletionListItems.length == 0)) return
+
+            TheMainTable  .className = "SEMainTable"
+            TheFirstRow   .className = "SEFirstRow"
+            TheFirstColumn.className = "SEFirstColumn"
+            
+            TheMainTable.setAttribute("cellspacing", "0")
+            TheMainTable.setAttribute("cellpadding", "0")
+            TheMainTable.setAttribute("border", "0")
+
+            for (var i = 0; i < TheCompletionListItems.length; i++)
+            {
+                var TheItem = TheCompletionListItems[i].firstChild
+                
+                if (TheItem)
+                {
+                    //Header Row
+                    if (TheItem.nodeValue.split(',')[0] == "H")
+                    {
+                        if (ThePreviousCategory != replaceAll(TheItem.nodeValue.split(',')[1],'<-->', ','))
+                        {
+                            ThePreviousCategory = replaceAll(TheItem.nodeValue.split(',')[1],'<-->', ',')
+                            TheCategoryCount = 0
+                        }
+                        
+                        var TheRow    = TheMainTable.insertRow(-1)
+                        var TheColumn = TheRow.insertCell(-1)
+                        
+                        TheRow   .className = "SEHeaderRow"
+                        TheColumn.className = "SEHeaderColumn"
+                    
+                        TheColumn.appendChild(document.createTextNode(replaceAll(TheItem.nodeValue.split(',')[1],'<-->', ',')))
+                    }
+                    //SearchResult Item Row
+                    else if (TheItem.nodeValue.split(',')[0] == "I")
+                    {
+                        TheCategoryCount++
+                        
+                        var TheRow    = TheMainTable.insertRow(-1)
+                        var TheColumn = TheRow.insertCell(-1)
+                        
+                        var TheItemTable       = document.createElement('table')
+                        var TheItemRow         = TheItemTable.insertRow(-1)
+                        var TheItemColumn1     = TheItemRow.insertCell(-1)
+                        var TheItemColumn2     = TheItemRow.insertCell(-1)
+                        var TheItemTitleDiv    = document.createElement('div')
+                        var TheItemSummaryDiv  = document.createElement('div')
+                        var TheItemTitleLink   = document.createElement('a')
+                        var TheItemSummaryLink = document.createElement('a')
+                        var TheItemImageLink   = document.createElement('a')
+                        var TheItemImage       = document.createElement('img')
+                        
+                        TheItemTable      .className = "SEItemTable"
+                        TheRow            .className = "SEItemRow"
+                        TheColumn         .className = "SEItemColumn"
+                        TheItemRow        .className = "SEItemTableRow"
+                        if (TheItem.nodeValue.split(',')[2] != "") 
+                        {
+                            TheItemColumn1.className = "SEItemTableColumn1"
+                        }
+                        if (TheItem.nodeValue.split(',')[2] != "") 
+                        {
+                            TheItemColumn2.className = "SEItemTableColumn2"
+                        }
+                        else
+                        {
+                            TheItemColumn2.className = "SEItemTableColumn3"
+                        }
+                        
+                        TheItemTitleDiv   .className = "SEItemTitleDiv"
+                        TheItemSummaryDiv .className = "SEItemSummaryDiv"
+                        TheItemTitleLink  .className = "SEItemTitleLink"
+                        TheItemSummaryLink.className = "SEItemSummaryLink"
+                        TheItemImageLink  .className = "SEItemImageLink"
+
+                        if (TheItem.nodeValue.split(',')[2] != "") 
+                        {
+                            if (replaceAll(TheItem.nodeValue.split(',')[2],'<-->', ',') == 'images/searchthumb.gif')
+                            {
+                                TheItemImage.className = "SEItemImage2"
+                            }
+                            else
+                            {
+                                TheItemImage.className = "SEItemImage"
+                            }
+                            
+                            TheItemImageLink.appendChild(TheItemImage)    
+                        }
+                        
+                        TheItemTitleDiv   .appendChild(TheItemTitleLink)
+                        TheItemSummaryDiv .appendChild(TheItemSummaryLink)
+                        if (TheItem.nodeValue.split(',')[2] != "") TheItemColumn1.appendChild(TheItemImageLink)
+                        TheItemColumn2    .appendChild(TheItemTitleDiv)
+                        TheItemColumn2    .appendChild(TheItemSummaryDiv)
+                        TheItemTitleLink  .appendChild(document.createTextNode(replaceAll(TheItem.nodeValue.split(',')[3],'<-->', ',')))
+                        TheItemSummaryLink.appendChild(document.createTextNode(replaceAll(TheItem.nodeValue.split(',')[4],'<-->', ',')))
+
+                        TheItemTitleLink  .setAttribute("href", replaceAll(TheItem.nodeValue.split(',')[1],'<-->', ','))
+                        TheItemSummaryLink.setAttribute("href", replaceAll(TheItem.nodeValue.split(',')[1],'<-->', ','))
+                        
+                        if (TheItem.nodeValue.split(',')[2] != "") 
+                        {
+                            TheItemImageLink .setAttribute("href", replaceAll(TheItem.nodeValue.split(',')[1],'<-->', ','))
+                            TheItemImage     .setAttribute("src",  replaceAll(TheItem.nodeValue.split(',')[2],'<-->', ','))
+                            TheItemImage     .setAttribute("border", "0")
+                            TheItemImage     .setAttribute("height", "38")
+                            TheItemImage     .setAttribute("width", "38")
+                        }
+                        
+                        TheColumn.appendChild(TheItemTable)
+                    }
+                    //View All Search Results Row
+                    else if (TheItem.nodeValue.split(',')[0] == "E")
+                    {
+                        var TheRow    = TheMainTable.insertRow(-1)
+                        var TheColumn = TheRow.insertCell(-1)
+                        var TheLink   = document.createElement('a')
+                        
+                        TheRow   .className = "SEViewAllRow"
+                        TheColumn.className = "SEViewAllColumn"
+                        TheLink  .className = "SEViewAllLink"
+                        TheLink.setAttribute("href", TheItem.nodeValue.split(',')[1].replace('<-->', ','))
+
+                        TheLink.appendChild(document.createTextNode(replaceAll(TheItem.nodeValue.split(',')[2],'<-->', ',')))
+                        TheColumn.appendChild(TheLink)
+                    }
+                }
+            }
+            
+            //Insert Last Row that Ends Table
+            var TheLastRow    = TheMainTable.insertRow(-1)
+            var TheLastColumn = TheLastRow.insertCell(-1)
+            
+            TheMainTable .className = "SEMainTable"
+            TheLastRow   .className = "SELastRow"
+            TheLastColumn.className = "SELastColumn"
+            
+            //Set The Search Menu or Replace it if it exists
+            if (document.getElementById("SearchMenu").firstChild)
+            {
+                document.getElementById("SearchMenu").replaceChild(TheMainTable, document.getElementById("SearchMenu").firstChild);
+            }
+            else
+            {
+                document.getElementById("SearchMenu").appendChild(TheMainTable);
+            }
+        }
+    }
+}
+
+function replaceAll (aString,aStringFrom,aStringTo) 
+{
+	var i = aString.indexOf(aStringFrom);	
+
+	while (i > -1)
+	{		
+	    aString = aString.replace(aStringFrom, aStringTo); 		
+	    i = aString.indexOf(aStringFrom);		
+	}	
+	return aString;
+}
+
+function rowClick (anItem)
+{
+    document.location = anItem.getAttribute("link")
+}
+
+function URLEncode (clearString) 
+{
+    var output = '';
+    var x      = 0;
+    var regex  = /(^[a-zA-Z0-9_.]*)/;
+    
+    clearString = clearString.toString();
+  
+    while (x < clearString.length) 
+    {
+        var match = regex.exec(clearString.substr(x));
+        if (match != null && match.length > 1 && match[1] != '') 
+        {
+    	    output += match[1];
+            x += match[1].length;
+        } 
+        else 
+        {
+            if (clearString[x] == ' ')
+                output += '+';
+            else 
+            {
+                var charCode = clearString.charCodeAt(x);
+                var hexVal = charCode.toString(16);
+                output += '%' + ( hexVal.length < 2 ? '0' : '' ) + hexVal.toUpperCase();
+            }
+            x++;
+        }
+    }
+    return output;
+}
+
+}
+/*
+     FILE ARCHIVED ON 10:25:49 Jul 04, 2010 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:32:04 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 71.287
+  exclusion.robots: 0.065
+  exclusion.robots.policy: 0.056
+  RedisCDXSource: 0.584
+  esindex: 0.009
+  LoadShardBlock: 46.463 (3)
+  PetaboxLoader3.datanode: 125.056 (5)
+  load_resource: 183.378 (2)
+  PetaboxLoader3.resolve: 78.094 (2)
+*/

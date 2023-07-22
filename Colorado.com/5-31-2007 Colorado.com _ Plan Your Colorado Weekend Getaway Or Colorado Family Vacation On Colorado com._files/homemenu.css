@@ -1,0 +1,108 @@
+#csstopmenu, #csstopmenu ul{
+padding: 0px;
+margin: 0px;
+list-style: none;
+}
+
+#csstopmenu li{
+float: left;
+position: relative;
+}
+
+#csstopmenu a{
+text-decoration: none;
+font-size: 12px;
+color: white;
+font-weight: bold;
+font-family: Arial, Helvetica, sans-serif;
+}
+
+.mainitems{
+	background-color: #437DB0;
+	width: 180px;
+	height: 15px;
+	padding: 5px 0px 5px 0px;
+	border-top: none;
+	border-right: 1px solid #FFFFFF;
+	border-bottom: none;
+	border-left: 1px solid #FFFFFF;
+}
+.headerlinks {
+	text-align: left;
+}
+.headerlinks a{
+	margin: 0px;
+	padding: 5px;
+	vertical-align: bottom;
+	font-weight: bold;
+	color: white;
+}
+
+.headerlinks li a:hover{
+background-color: #9e0309;
+}
+
+.submenus{
+	display: none;
+	position: absolute;
+	bottom: 25px;
+	left: 0px;
+	right: 0px;
+	background-color: #437DB0;
+}
+
+.submenus li{
+	width: 100%;
+}
+
+.submenus li a{
+display: block;
+width: 172px;
+text-indent: 0px;
+color: white;
+padding: 5px;
+}
+
+/* non IE browsers
+html>body .submenus li a{ 
+width: auto;
+}
+*/
+.submenus li a:hover{
+background-color: #9e0309;
+}
+/* non IE browsers
+#csstopmenu li>ul { 
+top: auto;
+left: auto;
+}
+*/
+#csstopmenu li:hover ul, li.over ul {
+display: block;
+}
+/*
+html>body #clearmenu{  non IE browsers 
+height: 3px;
+}
+*/
+
+/*
+     FILE ARCHIVED ON 23:27:12 May 31, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:33:05 May 13, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 113.122
+  exclusion.robots: 0.153
+  exclusion.robots.policy: 0.138
+  cdx.remote: 0.137
+  esindex: 0.015
+  LoadShardBlock: 75.674 (3)
+  PetaboxLoader3.datanode: 147.785 (4)
+  load_resource: 142.979
+  PetaboxLoader3.resolve: 49.285
+*/
