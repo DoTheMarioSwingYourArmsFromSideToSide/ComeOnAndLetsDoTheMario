@@ -1,0 +1,405 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+var obj_l;
+var staticTracking;
+var jsvar;
+ 
+/*SETTING VARIABLES TO CHECK*/
+var OMNIVARIABLES = new Array();
+OMNIVARIABLES["SITE SECTION"] = { getvalue:"URLIDSECTION", param1:"1", param2:"SECTION", value:""};
+OMNIVARIABLES["NUMBER"] = { getvalue:"ID", param1:"", param2:"", value:""};
+OMNIVARIABLES["ONSTAR FEATURE NAME"] = { getvalue:"ID", param1:"", param2:"", value:""};
+OMNIVARIABLES["DIVISION SELECTED"] = { getvalue:"ID", param1:"", param2:"", value:""};
+OMNIVARIABLES["PRODUCT SELECTED"] = { getvalue:"ID", param1:"", param2:"", value:""};
+OMNIVARIABLES["RACING DIVISION"] = { getvalue:"URL", param1:"2", param2:"", value:""};
+OMNIVARIABLES["ZIP ENTRY"] = { getvalue:"JSVAR", param1:jsvar, param2:"NO ZIPCODE", value:""};
+OMNIVARIABLES["MODEL"] = { getvalue:"URL", param1:"1", param2:"", value:""};
+OMNIVARIABLES["MD_MODEL"] = { getvalue:"URL", param1:"2", param2:"", value:""};
+OMNIVARIABLES["TRIM"] = { getvalue:"ID", param1:"", param2:"", value:""};
+OMNIVARIABLES["PAGENAME"] = { getvalue:"NAME", param1:"", param2:"", value:""};
+OMNIVARIABLES["LINK DESCRIPTION"] = { getvalue:"REV", param1:"", param2:"", value:""};
+OMNIVARIABLES["VEHICLE TYPE"] = { getvalue:"META", param1:"VehicleType", param2:"", value:""};
+OMNIVARIABLES["POPUP JSP NAME"] = { getvalue:"REV", param1:"", param2:"", value:""};
+OMNIVARIABLES["ZIP CODE"] = { getvalue:"NAME", param1:"", param2:"", value:""}
+OMNIVARIABLES["SEARCH TERM"] = { getvalue:"META", param1:"searchTerm", param2:"", value:""};
+OMNIVARIABLES["IMAGE NAME OR BUTTON SELECTED"] = { getvalue:"REV", param1:"", param2:"", value:""};
+OMNIVARIABLES["BUTTON SELECTED"] = { getvalue:"NAME", param1:"", param2:"", value:""};
+OMNIVARIABLES["SUBMODEL"] = { getvalue:"URL", param1:"2", param2:"", value:""};
+OMNIVARIABLES["SUBMOD"] = { getvalue:"META", param1:"Submod", param2:"", value:""};
+OMNIVARIABLES["IMAGE NAME"] = { getvalue:"META", param1:"CompareImageName", param2:"", value:""};
+OMNIVARIABLES["AUTISMSPEAKS"] = { getvalue:"URL", param1:"2", param2:"", value:""};
+OMNIVARIABLES["STORY NAME"] = { getvalue:"META", param1:"articleName", param2:"", value:""};
+/**/
+var DAYSWEEK = new Array("SUNDAY","MONDAY","TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY");
+/**/
+
+OMNIVARIABLES["DRIVER"] = { getvalue:"META", param1:"driverName", param2:"", value:""};
+OMNIVARIABLES["SUB-DIVISION FOR NHRA"] = { getvalue:"JSVAR", param1:jsvar, param2:"NO SUBDIVISION", value:""};
+
+/* var used on tools on which the values are for landing pages */
+OMNIVARIABLES["TZIPCODE"] = { getvalue:"META", param1:"zipcode", param2:"", value:""};
+OMNIVARIABLES["TMODEL"] = { getvalue:"META", param1:"model", param2:"", value:""};
+OMNIVARIABLES["TTRIM"] = { getvalue:"META", param1:"trim", param2:"", value:""};
+
+/* var used on BYO Tool */ 
+OMNIVARIABLES["INTERIOR COLOR NAME"] = { getvalue:"META", param1:"InteriorColor", param2:"", value:""};
+OMNIVARIABLES["EXTERIOR COLOR NAME"] = { getvalue:"META", param1:"ExteriorColor", param2:"", value:""};
+OMNIVARIABLES["OPTIONS"] = { getvalue:"META", param1:"Options", param2:"", value:""};
+
+/* help center faqs  <<FAQ CATEGORY>> */
+OMNIVARIABLES["FAQ CATEGORY"] = { getvalue:"REV", param1:"", param2:"", value:""};
+OMNIVARIABLES["FAQ CATEGORY QUESTION"] = { getvalue:"REV", param1:"", param2:"", value:""};
+OMNIVARIABLES["INTERNAL SITE SEARCH TERM"] = { getvalue:"REV", param1:"", param2:"", value:""};
+OMNIVARIABLES["LETTER"] = { getvalue:"REV", param1:"", param2:"", value:""};
+OMNIVARIABLES["TERM"] = { getvalue:"REV", param1:"", param2:"", value:""};
+OMNIVARIABLES["PAGE SECTION"] = { getvalue:"URLLASTSECTION", param1:"", param2:"", value:""};
+
+function sendAnalyticsEvent(str){
+ns=s_account; if(str!=null)ns+=","+str;void(s_gs(ns));}  
+function sendLinkEvent(str,lnkname){
+ns=s_account; if(str!=""&&str!=null)ns+=","+str; s_linkType="o"; s_lnk=true; s_linkName=lnkname; void(s_gs(ns));}
+function clickTrack(linkName, zip) { 
+	s_prop5=linkName;
+	s_prop8="CURRENT OFFERS | " + zip;
+	sendLinkEvent('',linkName);   
+	s_prop5 = "";
+	s_prop8 = "";
+}
+
+var links = document.getElementsByTagName("a");
+for (var i=0; i < links.length; i++) {
+	if ((links[i].rel) && (links[i].rel.match("popupdinamic-"))) {
+		var name = links[i].name;
+		var id = links[i].rel.substring("popupdinamic-".length);
+		tracking[id]["s_linkName"] = tracking[id]["s_linkName"].replace("<<TMODEL>>", name);
+		links[i].onclick = function (){
+			onClickTracking(this, "popupdinamic-");
+			if (this.href.match("regionLocation.jsp"))
+				superPopup({url:this.href, type:"regionDetails"}); 
+			else	
+				superPopup({url:this.href, type:"RegionLocation"}); 
+			return false;
+		}
+	}
+	if ((links[i].rel) && (links[i].rel.match("omni-"))) {
+		links[i].onclick = function (){
+			onClickTracking(this, "omni-");
+		}
+	}
+}
+
+function onClickTracking(obj, type){//SENDING THE ANCHOR OBJECT
+	obj_l = obj
+	var id = obj.rel.substring(obj.rel.indexOf(type) + type.length);  
+	staticTracking = true;
+	onClickTrackingById(id);
+	if (type.match("popupdinamic-"))
+		return false;
+	return true;	
+}
+
+function onClickTrackingById(id) { 	
+	clearTracking();
+	var thisDate = new Date();
+	var account = s_account;
+	var newTracking;
+	var flag=false;
+	var p = "";
+	
+	s_prop24 = GetVariableByMeta("lang");
+	if ("" == s_prop24) {
+		if (typeof(htmlLang) != "undefined" && null != htmlLang && "" != htmlLang) {
+			s_prop24 = htmlLang.toUpperCase();
+		} else if (window.location.toString().indexOf("/es/") != -1) {
+			s_prop24 = "ES";
+		} else if (window.location.toString().indexOf("/index_es.jsp") != -1) {
+			s_prop24 = "ES";
+		} else {
+			s_prop24 = "EN";
+		}
+	}
+
+	s_prop25 = "CHEVROLET";
+	s_prop26 = thisDate.getHours();
+	s_prop27 = DAYSWEEK[thisDate.getDay()]
+	
+	if (tracking[id]){
+		flag=true;		
+		if (tracking[id]["s_pageName"]){//Page Tracking
+			newTracking = checkVariableSetup(tracking[id])
+			s_pageName = newTracking["s_pageName"];
+			s_prop1 = newTracking["s_prop1"];
+			s_prop2 = newTracking["s_prop2"];
+			s_prop3 = newTracking["s_prop3"];
+			s_prop5 = newTracking["s_prop5"];
+			s_prop6 = newTracking["s_prop6"];
+			s_prop7 = newTracking["s_prop7"];
+			s_prop8 = newTracking["s_prop8"];
+			s_prop9 = newTracking["s_prop9"];
+			s_prop11 = newTracking["s_prop11"];
+			s_prop12 = newTracking["s_prop12"];
+			s_prop13 = newTracking["s_prop13"];
+			s_prop14 = newTracking["s_prop14"];
+			s_prop15 = newTracking["s_prop15"];
+			s_prop16 = newTracking["s_prop16"];
+			s_prop17 = newTracking["s_prop17"];
+			s_prop19 = newTracking["s_prop19"];
+			s_prop21 = newTracking["s_prop21"];
+			s_events = newTracking["s_events"];
+			s_channel = newTracking["s_channel"];
+			s_lnk=false;
+			s_linkType="";
+		/*Anchor Traking - linkname*/
+		}else{			
+			newTracking = checkVariableSetup(tracking[id]);
+			s_linkName = newTracking["s_linkName"];
+			s_prop5 = s_linkName;
+			s_prop8 = newTracking["s_prop8"];
+			s_prop14 = newTracking["s_prop14"];
+			s_prop21 = newTracking["s_prop21"];
+			s_prop28 = newTracking["s_prop28"];
+			s_events = newTracking["s_events"];
+			s_channel = newTracking["s_channel"];
+			s_lnk=true;
+			s_linkType="o";
+		}
+	}
+	if(id.indexOf('FindShopPage') != -1){
+		flag=true;
+		hackFindShopPage('FindShopPage',id.substring(id.indexOf('-')+1,id.length))
+		s_lnk=true;
+		s_linkType="o";
+	}
+	if(flag==true){
+		void(s_gs(account));
+		clearOmniVariables();
+		clearTracking();
+	}
+	return false;
+}
+
+function clearTracking(){
+	s_pageName = "";	
+	s_prop1 = "";
+	s_prop2 = "";
+	s_prop3 = "";
+	s_prop5 = "";
+	s_prop6 = "";
+	s_prop7 = "";
+	s_prop8 = "";
+	s_prop9 = "";
+	s_prop11 = "";
+	s_prop12 = "";
+	s_prop13 = "";
+	s_prop14 = "";
+	s_prop15 = "";
+	s_prop16 = "";
+	s_prop17 = "";
+	s_prop19 = "";
+	s_prop21 = "";
+	s_prop24 = "";
+	s_prop25 = "";
+	s_prop26 = "";
+	s_prop27 = "";
+	s_prop28 = "";
+	s_prop30 = "";
+    s_events = "";
+	s_channel = "";
+}
+function clearOmniVariables(){
+	for (var omni in OMNIVARIABLES) {
+		OMNIVARIABLES[omni]["value"] = "";
+	}
+}
+/*---------------========================*/
+function checkVariableSetup(tracking_p){
+	var valueToTest;
+	var flag;
+	var variableToReplace;
+	var newValue;
+	var tempTracking = new Array();
+	for (var s_prop in tracking_p) {//BEGIN FOR #1
+		flag=true;
+		tempTracking[s_prop] = tracking_p[s_prop]
+		valueToTest=tracking_p[s_prop];
+		if(valueToTest.indexOf("<<") != -1){//BEGIN IF #1
+			while(flag==true){//BEGIN WHILE #1
+				variableToReplace = valueToTest.substring(valueToTest.indexOf("<<")+2,valueToTest.indexOf(">>")).toUpperCase();
+				
+				if(OMNIVARIABLES[variableToReplace]){//BEGIN IF #2
+					switch (OMNIVARIABLES[variableToReplace].getvalue){
+						case 'ID':
+							newValue=GetVariableByObjID().toUpperCase();
+							break;
+						case 'NAME':
+							newValue=GetVariableByObjName().toUpperCase();
+							break;
+						case 'REV':
+							newValue=GetVariableByObjRev().toUpperCase();
+							break;	
+						case 'META':
+							newValue=GetVariableByMeta(OMNIVARIABLES[variableToReplace].param1);
+							break;
+						case 'URL':
+						    newValue=GetVariableByURL(OMNIVARIABLES[variableToReplace].param1).toUpperCase();
+						   	break;
+						case 'JSVAR':
+						    tmpVar2 = OMNIVARIABLES[variableToReplace].param2;
+						    newValue = (jsvar!="null")?jsvar:tmpVar2;
+ 						    break;
+						case 'URLIDSECTION':
+							newValue=GetVariableBySectionURL(OMNIVARIABLES[variableToReplace].param1, OMNIVARIABLES[variableToReplace].param2).toUpperCase();
+							break;
+						case 'URLLASTSECTION':
+							newValue=GetVariableByLastURLSection().toUpperCase();
+							break;
+					}//END SWITCH
+					OMNIVARIABLES[variableToReplace].value = newValue;
+				}//END IF # 2
+				else {
+					newValue = OMNIVARIABLES[variableToReplace].value;
+				}
+				valueToTest = valueToTest.replace("<<"+variableToReplace+">>", newValue.toUpperCase());
+				if(valueToTest.indexOf("<<") == -1){
+					flag=false;//IF not found a new tag for replace
+					tempTracking[s_prop] = valueToTest;
+				}
+			}//END WHILE #1
+		}//END IF #1
+	}//END FOR #1
+	return tempTracking
+}
+
+function GetVariableByURL(position_p){
+	if (window.location.toString().indexOf("/es/") != -1) {
+		position_p++;
+	}
+	var url = window.location.toString();
+	url = url.substring(url.indexOf("//")+2,url.length);	
+	var urlArray = url.split("/");
+	var variable = urlArray[position_p];
+	if ("2008malibu" == variable) {
+		variable = "malibu";
+	} else 	if ("indy" == variable) {
+		variable = "indy pace car";
+	} else if ("zr1" == variable) {
+		variable = "zr1 blue devil";
+	} else if ("5" == variable) {
+		variable = "aveo5";
+	}
+	
+	if (urlArray.length -1 == 1)
+		return "homepage"
+	else
+		return variable;
+}
+
+function GetVariableByObjID(){
+	return obj_l.id.toUpperCase();
+}
+
+function GetVariableByObjName(){
+	return obj_l.name.toUpperCase()
+}
+
+function GetVariableByObjRev(){
+	return obj_l.rev.toUpperCase()
+}
+
+function GetVariableByMeta(meta_p){
+	var content_t = "";
+	var meta = document.getElementsByTagName("meta");
+	if(meta[meta_p] && meta[meta_p].content!=""){
+		content_t = meta[meta_p].content;
+		
+		if (("model" == meta_p) && (content_t.indexOf(" ") != -1)) {
+			content_t = content_t.substring(0, content_t.indexOf(" "));	
+		}
+	}
+	return content_t;
+}
+
+function GetVariableBySectionURL(position_p, arrayToUse_p){
+	var value = GetVariableByURL(position_p);
+	switch (arrayToUse_p){
+		case "SECTION":
+			return GetValueFromSection(value);
+			break;
+		default:
+			return value.toUpperCase();
+			break;
+	}
+}
+
+function GetVariableByLastURLSection(){
+	var url = window.location.toString();
+	url = url.substring(url.indexOf("//")+2,url.length);	
+	var urlArray = url.split("/");
+	var nPosition = 0;
+	if (urlArray.length>=2)
+		nPosition = urlArray.length-2;
+	var variable = urlArray[nPosition];
+	if ("2008malibu" == variable) {
+		variable = "malibu";
+	}
+	if (urlArray.length -1 == 1)
+		return "homepage"
+	else
+		return variable;
+}
+
+function GetValueFromSection(section_p){
+	var sections = new Array();
+	sections={s_homepage:"HOMEPAGE", s_2008malibu:"MODEL HOMEPAGE", s_aveo:"MODEL HOMEPAGE", s_cobalt:"MODEL HOMEPAGE", s_corvette:"MODEL HOMEPAGE", s_hhr:"MODEL HOMEPAGE", s_impala:"MODEL HOMEPAGE", s_malibu:"MODEL HOMEPAGE", s_montecarlo:"MODEL HOMEPAGE", s_avalanche:"MODEL HOMEPAGE", s_colorado:"MODEL HOMEPAGE", s_silverado:"MODEL HOMEPAGE", s_avalanche:"MODEL HOMEPAGE", s_equinox:"MODEL HOMEPAGE", s_hhr:"MODEL HOMEPAGE", s_suburban:"MODEL HOMEPAGE", s_tahoe:"MODEL HOMEPAGE", s_trailblazer:"MODEL HOMEPAGE", s_express:"MODEL HOMEPAGE", s_uplander:"MODEL HOMEPAGE", s_ssturbocharged:"MODEL HOMEPAGE", s_lineup:"LINEUP", s_cars:"LINEUP", s_trucks:"LINEUP", s_suvs:"LINEUP", s_vans:"LINEUP", s_commercial:"LINEUP", s_photogallery:"GALLERY", s_colors:"360 VIEWS", s_features:"FEATURES", s_specifications:"SPECS", s_warranty:"WARRANTY", s_accessories:"ACCESSORIES", s_safety:"SAFETY", s_trailering:"TRAILERING", s_warranty:"WARRANTY", s_byo:"BYO", s_specialoffers:"OFFERS", s_messaging:"RAQ", s_comparator:"COMPARISON", s_vehiclelocator:"VEHLOC", s_index:"REQUEST INFO", s_requestinfo:"REQUEST INFO", s_email:"EMAIL", s_locatedealer:"DEALOC", s_faq:"FAQ", s_newsandevents:"NEWS", s_worldwide:"WORLDWIDE", s_copyright:"COPYRIGHT", s_onstar:"ONSTAR", s_fueleconomy:"FUEL SOLUTIONS", s_e85:"FUEL SOLUTIONS", s_activemanagement:"FUEL SOLUTIONS", s_hybrid:"FUEL SOLUTIONS", s_electriccar:"FUEL SOLUTIONS", s_fuelcell:"FUEL SOLUTIONS", s_sitemap:"SITEMAP", s_fuelsolutions:"FUEL SOLUTIONS", s_mediumduty:"MEDIUM DUTY", s_helpcenter:"HELP CENTER", s_subscribe:"EMAIL SUBSCRIBE",s_contactus:"FAQ SECTION", s_pop:"POP UP" };
+	return sections["s_" + section_p]
+}
+
+/**
+ * Find button on shop page to be tracked on this function by omniture
+ *
+ * @param  id      Id for the tracking array
+ * @param  zipcode Specific zipcode inserted on a flash box
+ * @return void     
+*/
+function hackFindShopPage(id,zipCode){
+	s_linkName = tracking[id]["s_linkName"];
+	s_prop5 = tracking[id]["s_prop5"];
+	s_prop8 = tracking[id]["s_prop8"].replace("<<ZIPCODE>>", zipCode);
+	s_lnk=true;
+	s_linkType="o"; 
+	s_pageName = "";
+}
+
+
+
+}
+/*
+     FILE ARCHIVED ON 04:50:18 May 01, 2008 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:05:30 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 317.73
+  exclusion.robots: 0.067
+  exclusion.robots.policy: 0.059
+  cdx.remote: 0.053
+  esindex: 0.008
+  LoadShardBlock: 292.96 (3)
+  PetaboxLoader3.datanode: 307.531 (4)
+  load_resource: 72.926
+  PetaboxLoader3.resolve: 38.737
+*/

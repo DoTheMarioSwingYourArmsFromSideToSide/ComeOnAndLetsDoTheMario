@@ -1,0 +1,52 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+tracking["CopyRight_Index"]={s_pageName:"CHEVROLET | DIVISIONAL | COPYRIGHT | INDEX", s_prop1:"DIVISIONAL", s_prop2:"COPYRIGHT", s_prop3:"DIVISIONAL | COPYRIGHT", s_prop11:"INDEX", s_prop12:"COPYRIGHT | INDEX", s_prop13:"DIVISIONAL | COPYRIGHT | INDEX", s_prop25:"CHEVROLET"}; 
+tracking["OnstarLeftNavBar"]={s_prop5:"CHEVROLET | <<SITE SECTION>> | LEFT NAV | ONSTAR", s_prop14:"ONSTAR", s_prop28:"ONSTAR INTERNAL", s_linkName:"CHEVROLET | <<SITE SECTION>> | LEFT NAV | ONSTAR"}; 
+tracking["OnstarGeneralLink"]={s_prop5:"CHEVROLET | <<SITE SECTION>> | ONSTAR | <<ONSTAR FEATURE NAME>>", s_prop14:"ONSTAR", s_prop28:"ONSTAR INTERNAL", s_linkName:"CHEVROLET | <<SITE SECTION>> | ONSTAR | <<ONSTAR FEATURE NAME>>"}; 
+tracking["Finance_pay_calc_en"]={s_events:"EVENT12", s_prop5:"FINANCE_PAY_CALC_EN", s_linkName:"FINANCE_PAY_CALC_EN"}; 
+tracking["Finance_credit_app"]={s_events:"EVENT15", s_prop5:"FINANCE_CREDIT_APP", s_linkName:"FINANCE_CREDIT_APP"}; 
+tracking["Finance_afford_calc"]={s_events:"EVENT14", s_prop5:"FINANCE_AFFORD_CALC", s_linkName:"FINANCE_AFFORD_CALC"}; 
+tracking["Trade_In_Appraisal"]={s_events:"EVENT13", s_prop5:"TRADE_IN_APPRAISAL", s_linkName:"TRADE_IN_APPRAISAL"}; 
+tracking["HelpCenterFooter"]={s_prop5:"CHEVROLET | <<SITE SECTION>> | GLOBAL FOOTER | HELP CENTER", s_linkName:"CHEVROLET | <<SITE SECTION>> | GLOBAL FOOTER | HELP CENTER"}; 
+tracking["SiteMapFooter"]={s_prop5:"CHEVROLET | <<SITE SECTION>> | GLOBAL FOOTER | SITE MAP", s_linkName:"CHEVROLET | <<SITE SECTION>> | GLOBAL FOOTER | SITE MAP"}; 
+tracking["GMSitesFooter"]={s_prop5:"CHEVROLET | <<SITE SECTION>> | GLOBAL FOOTER | GM SITES POPUP", s_linkName:"CHEVROLET | <<SITE SECTION>> | GLOBAL FOOTER | GM SITES POPUP"}; 
+tracking["WordwideSiteFooter"]={s_prop5:"CHEVROLET | <<SITE SECTION>> | GLOBAL FOOTER | WORLDWIDE SITES", s_linkName:"CHEVROLET | <<SITE SECTION>> | GLOBAL FOOTER | WORLDWIDE SITES"}; 
+tracking["WarrantyFooter"]={s_prop5:"CHEVROLET | <<SITE SECTION>> | GLOBAL FOOTER | WARRANTY", s_linkName:"CHEVROLET | <<SITE SECTION>> | GLOBAL FOOTER | WARRANTY"}; 
+tracking["GMFooter"]={s_prop5:"CHEVROLET | <<SITE SECTION>> | GLOBAL FOOTER | GM", s_linkName:"CHEVROLET | <<SITE SECTION>> | GLOBAL FOOTER | GM"}; 
+tracking["GMCopyrightFooter"]={s_prop5:"CHEVROLET | <<SITE SECTION>> | GLOBAL FOOTER | GM COPYRIGHT", s_linkName:"CHEVROLET | <<SITE SECTION>> | GLOBAL FOOTER | GM COPYRIGHT"}; 
+tracking["PrivacyFooter"]={s_prop5:"CHEVROLET | <<SITE SECTION>> | GLOBAL FOOTER | PRIVACY", s_linkName:"CHEVROLET | <<SITE SECTION>> | GLOBAL FOOTER | PRIVACY"}; 
+tracking["FindShopPage"]={s_prop5:"SHOP_find_button", s_prop8:"SHOP | <<ZIPCODE>>", s_linkName:"SHOP_find_button"}; 
+tracking["ExperienceOnstarFooter"]={s_prop5:"CHEVROLET | <<SITE SECTION>> | GLOBAL FOOTER | ONSTAR", s_prop14:"ONSTAR", s_prop28:"ONSTAR EXTERNAL", s_linkName:"CHEVROLET | <<SITE SECTION>> | GLOBAL FOOTER | ONSTAR"}; 
+tracking["ChevyMall"]={s_prop5:"ChevyMall_en", s_linkName:"ChevyMall_en"};
+
+}
+/*
+     FILE ARCHIVED ON 04:30:26 May 01, 2008 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:05:27 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 65.488
+  exclusion.robots: 0.094
+  exclusion.robots.policy: 0.083
+  cdx.remote: 0.068
+  esindex: 0.01
+  LoadShardBlock: 37.487 (3)
+  PetaboxLoader3.datanode: 71.955 (4)
+  load_resource: 131.501
+  PetaboxLoader3.resolve: 53.429
+*/

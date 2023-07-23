@@ -1,0 +1,57 @@
+/*Print_all and print_this_section buttons*/
+
+#printButtom {
+	width:624px;
+	height:19px;
+	margin:10px 27px 10px 0!important;	
+	float:right;
+}
+
+.printAll{	
+	height:19px;
+	float:left;
+	margin-left:390px;
+	_margin-left:195px;
+}
+
+.printThis{
+	float:left;	
+	height:19px;
+	margin-left:10px;
+}
+
+.topText{
+	margin-left:27px;
+	margin-top:40px;
+}
+
+.topList{
+	list-style-type:none;
+	margin-left:27px;
+}
+
+/*ul#subtabs li ol.toctabs li#so-ext{
+	background:url('/web/20080501043022im_/http://www.chevrolet.com/i/06/tabs/exterior_on.jpg');
+}*/
+
+
+/*
+     FILE ARCHIVED ON 04:30:22 May 01, 2008 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:05:26 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 106.016
+  exclusion.robots: 0.068
+  exclusion.robots.policy: 0.06
+  RedisCDXSource: 0.512
+  esindex: 0.006
+  LoadShardBlock: 87.555 (3)
+  PetaboxLoader3.datanode: 91.955 (4)
+  load_resource: 191.829
+  PetaboxLoader3.resolve: 34.389
+*/

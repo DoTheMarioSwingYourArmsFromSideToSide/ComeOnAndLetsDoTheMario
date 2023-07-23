@@ -1,0 +1,23 @@
+/* temp fix to correct GMDSST-42442 */
+.withType2Scroller .modMh_1 { width: 100%; }
+#modMh_1_ctaOverlay h2.cta a:after, #modMh_1_ctaOverlay h2.cta div.hidden-video:after { content: ""; }
+/*
+     FILE ARCHIVED ON 21:38:24 Mar 18, 2013 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 03:31:50 May 01, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 111.407
+  exclusion.robots: 0.105
+  exclusion.robots.policy: 0.092
+  RedisCDXSource: 1.383
+  esindex: 0.012
+  LoadShardBlock: 83.164 (3)
+  PetaboxLoader3.datanode: 74.149 (4)
+  load_resource: 139.101
+  PetaboxLoader3.resolve: 89.503
+*/

@@ -1,0 +1,796 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+//-----------------------------------------------------------------
+// = anythingPlayer JQuery Plug-In
+// Version 2.0
+// Release Date: 05/10/2011
+// Update Date: 07/04/2011
+// Created By: Eric Hodonsky
+// Email: Eric.Hodonsky@mrmworldwide.com
+//-----------------------------------------------------------------
+// Update 1.1 Notes:
+// Defined mediaJSON so the plugin can grab more properties out of the XML.
+//-----------------------------------------------------------------
+// --Appearance/CSS --
+// theme: 				Theme name
+// themeDirectory: 		Theme directory & filename {themeName} is replaced by the theme value above
+
+// --Player Properties--
+// plrWidth: 				Override the default CSS width
+// plrHeight: 				Override the default CSS height
+// plrTitle:				Give player a title property
+// plrSubtitle:				Give player a subtitle property
+
+// --Navigation--
+// navEnabled: 			If false, navigation will not show [Default: False]
+// navTitles:			Turns on or off navigation Thumb Titles [Default: False]
+// navThumbSpacer: 		Turns on or off navigation thumb spacer(1px) [Default: false]
+// navThumbWidth: 		Media Thumbs Width [Default: ]
+// navThumbHeight:		Media Thumbs Height[Default: ]
+// navThumbMargin:		Thumb Wrapper Margin. If vertical it will be top and bottom, if horizontal it will be left and right margins.
+// navThumbCount:		Number of thumbs to show in the navigation (this is more for calculations than a perfect visual as the css still needs to be refined)
+// navActiveIndex:		This sets the initial panel [Set usually in the .js reference file]
+// navCurrentPage:		The page at which the navigation is currently on.
+// navTravelDistance:	Distance which the navigation bar should travel. (calculated on the fly unless overwritten)
+// navType:				Default Horizontal (horizontal/vertical)
+// navTravelType:		Sets navigation travel type. [group/single Default: group]
+// navLoop:				Sets navigation to infinite loop instead of back and forth if TRUE. Default: false
+// navEaseDuration:		Sets the ease duration for the navigation during travel
+
+// --Pagination Options--
+// pagEnabled:			If false pagination will not show
+// pagType:				Default 'single'. (single/group)
+// pagImgWidth:			Default img width is 16[px] (for pagination sprite)
+// pagEaseDuration:		Sets the ease duration for the pagination animation
+
+// --Media options--
+// mediaEnabled:		If false media will not show
+// mediaInitId:			Id pulled usually from the URL of the default video to play. If null just uses first in playlist
+// mediaActiveId:		Currently Active video Id (yt$Id-bc$Id-'homepage/something.swf')
+// mediaGroups:			Arary of mediaJSON objects.
+// mediaStack:			Data Stack (youtube_data, or JSON object via XML->JSON) XML file should be in playlist format
+// mediaJSON:			Replaces mediaStack, see above
+// mediaXML:			Stores and XLM String.
+// mediaAutoPlay:		This turns off the media auto play, if available.
+// mediaLocalPath:		Default local swf path = '/assets/en/flash/misc/',
+// mediaCloseBtn:		Turn On/Off a close btn for the media player (Default False)
+
+// --Callbacks--
+// onBeforeInit:		Callback before the plugin initializes
+// onInit:				Callback when the plugin finished initializing
+// onMediaLoad:			Callback for when VideoplayLoads (great for 'tracking');
+// onThumbOver:			Callback for Thumbnail Mouseover
+// onThumbOut:			Callback for Thumbnail Mouseout
+// onThumbClick:		Callback for Thumbnail Click
+// onPagClick:			Callback for Pagination Click
+
+// --Misc options--
+// addWmodeToObject:	Automatically add a wmode parameter with this setting (window/opaque/transparent)
+(function($) {
+	
+	$.anythingPlayer = function(elems, options){
+
+		if($.browser.msie && $.browser.version<8){
+			this.HTML5 = false;
+		}else{
+			var tempObj = document.createElement("input");
+			tempObj.setAttribute("type", "color");
+			this.HTML5 = (tempObj.type !== "text")? true : false;
+		}
+
+		this.navPages = 0;
+		this.elems = elems.replace(' ', '').split(',');
+		var base = this;
+		
+		base.init = function(){
+			base.options = $.extend({}, $.anythingPlayer.defaults, options);
+			
+			base.xml2json();
+			//console.log(base.options.mediaGroups);
+			var mediaGroup = "";
+			for(mediaGroup in base.options.mediaGroups){
+			    if(base.options.mediaGroups.hasOwnProperty(mediaGroup)){
+					base.$el = $("#"+mediaGroup);
+					base.$el.data("anythingPlayer", {});
+					base.$el.data().anythingPlayer.options = base.options;
+					
+					base.$el.data().anythingPlayer.options.mediaJSON = base.options.mediaGroups[mediaGroup];
+					
+					if(base.$el.data().anythingPlayer.options.mediaJSON){
+						base.$el.data().anythingPlayer.options.mediaStack = base.$el.data().anythingPlayer.options.mediaJSON.feed.entry;
+						if(base.$el.data().anythingPlayer.options.mediaJSON.feed.video$properties){
+							base.$el.data().anythingPlayer.options.plrWidth = (base.$el.data().anythingPlayer.options.mediaJSON.feed.video$properties.width.length >=1 && base.options.mediaJSON.feed.video$properties.width !== "undefined")? base.$el.data().anythingPlayer.options.mediaJSON.feed.video$properties.width : base.options.plrWidth;
+							base.$el.data().anythingPlayer.options.plrHeight = (base.$el.data().anythingPlayer.options.mediaJSON.feed.video$properties.height.length >=1 && base.options.mediaJSON.feed.video$properties.height !== "undefined")? base.$el.data().anythingPlayer.options.mediaJSON.feed.video$properties.height : base.options.plrHeight;
+							base.$el.data().anythingPlayer.options.plrTitle = (base.$el.data().anythingPlayer.options.mediaJSON.feed.title.$t.length >=1 && base.options.mediaJSON.feed.title !== "undefined")? base.$el.data().anythingPlayer.options.mediaJSON.feed.title.$t : base.options.plrTitle;
+							base.$el.data().anythingPlayer.options.plrSubtitle = (base.$el.data().anythingPlayer.options.mediaJSON.feed.subtitle.$t.length >=1 && base.options.mediaJSON.feed.subtitle !== "undefined")? base.$el.data().anythingPlayer.options.mediaJSON.feed.subtitle.$t : base.options.plrSubtitle;
+							base.$el.data().anythingPlayer.options.mediaAutoPlay = (base.$el.data().anythingPlayer.options.mediaJSON.feed.video$properties.autoPlay.length >=1 && base.options.mediaJSON.feed.video$properties.autoPlay !== "undefined")? base.stringToBoolean(base.$el.data().anythingPlayer.options.mediaJSON.feed.video$properties.autoPlay) : base.options.mediaAutoPlay;
+							base.$el.data().anythingPlayer.options.navEnabled = (base.$el.data().anythingPlayer.options.mediaJSON.feed.video$properties.navigation.length >=1 && base.options.mediaJSON.feed.video$properties.navigation !== "undefined")? base.stringToBoolean(base.$el.data().anythingPlayer.options.mediaJSON.feed.video$properties.navigation) : base.options.navEnabled;
+							base.$el.data().anythingPlayer.options.pagEnabled = (base.$el.data().anythingPlayer.options.mediaJSON.feed.video$properties.pagination.length >=1 && base.options.mediaJSON.feed.video$properties.pagination !== "undefined")? base.stringToBoolean(base.$el.data().anythingPlayer.options.mediaJSON.feed.video$properties.pagination) : base.options.pagEnabled;
+							base.$el.data().anythingPlayer.options.pagType = (base.$el.data().anythingPlayer.options.mediaJSON.feed.video$properties.paginationType.length >=1 && base.options.mediaJSON.feed.video$properties.paginationType !== "undefined")? base.$el.data().anythingPlayer.options.mediaJSON.feed.video$properties.paginationType : base.options.pagType;
+	
+							base.$el.data().anythingPlayer.options.navThumbCount = ( base.$el.data().anythingPlayer.options.mediaJSON.feed.entry[0].media$group.media$thumbnail[0].showCount.length >=1 && base.options.mediaJSON.feed.entry[0].media$group.media$thumbnail[0].showCount !== "undefined")? parseInt(base.$el.data().anythingPlayer.options.mediaJSON.feed.entry[0].media$group.media$thumbnail[0].showCount, 10) : base.options.navThumbCount;
+							base.$el.data().anythingPlayer.options.navThumbMargin = ( base.$el.data().anythingPlayer.options.mediaJSON.feed.entry[0].media$group.media$thumbnail[0].margin.length >=1 && base.options.mediaJSON.feed.entry[0].media$group.media$thumbnail[0].margin !== "undefined")? parseInt(base.$el.data().anythingPlayer.options.mediaJSON.feed.entry[0].media$group.media$thumbnail[0].margin, 10) : base.options.navThumbMargin;
+							base.$el.data().anythingPlayer.options.navLoop = ( base.$el.data().anythingPlayer.options.mediaJSON.feed.entry[0].media$group.media$thumbnail[0].loop.length >=1 && base.options.mediaJSON.feed.entry[0].media$group.media$thumbnail[0].loop !== "undefined")? base.$el.data().anythingPlayer.options.mediaJSON.feed.entry[0].media$group.media$thumbnail[0].loop : base.options.navLoop;
+							base.$el.data().anythingPlayer.options.navTravelType = ( base.$el.data().anythingPlayer.options.mediaJSON.feed.entry[0].media$group.media$thumbnail[0].travelType.length >=1 && base.options.mediaJSON.feed.entry[0].media$group.media$thumbnail[0].travelType !== "undefined")? base.$el.data().anythingPlayer.options.mediaStack[0].media$group.media$thumbnail[0].travelType : base.options.navTravelType;
+							base.$el.data().anythingPlayer.options.theme = (base.$el.data().anythingPlayer.options.mediaJSON.theme.length >=1)? base.$el.data().anythingPlayer.options.mediaJSON.theme : base.options.theme;
+						}else{
+							base.$el.data().anythingPlayer.options.plrWidth = base.options.plrWidth;
+							base.$el.data().anythingPlayer.options.plrHeight = base.options.plrHeight;
+							base.$el.data().anythingPlayer.options.plrTitle = base.options.plrTitle;
+							base.$el.data().anythingPlayer.options.plrSubtitle = base.options.plrSubtitle;
+							base.$el.data().anythingPlayer.options.mediaAutoPlay =  base.options.mediaAutoPlay;
+							base.$el.data().anythingPlayer.options.navEnabled = base.options.navEnabled;
+							base.$el.data().anythingPlayer.options.pagEnabled = base.options.pagEnabled;
+							base.$el.data().anythingPlayer.options.pagType = base.options.pagType;
+	
+							base.$el.data().anythingPlayer.options.navThumbCount =  base.options.navThumbCount;
+							base.$el.data().anythingPlayer.options.navThumbMargin = base.options.navThumbMargin;
+							base.$el.data().anythingPlayer.options.navLoop = base.options.navLoop;
+							base.$el.data().anythingPlayer.options.navTravelType = base.options.navTravelType;
+							base.$el.data().anythingPlayer.options.theme = base.options.theme;
+						}
+						base.$el.data().anythingPlayer.options.navThumbWidth = ( base.$el.data().anythingPlayer.options.mediaJSON.feed.entry[0].media$group.media$thumbnail[0].width.length >=1 && base.options.mediaJSON.feed.entry[0].media$group.media$thumbnail[0].width !== "undefined")?  parseInt(base.$el.data().anythingPlayer.options.mediaJSON.feed.entry[0].media$group.media$thumbnail[0].width, 10) : base.options.navThumbWidth;
+						base.$el.data().anythingPlayer.options.navThumbHeight = ( base.$el.data().anythingPlayer.options.mediaJSON.feed.entry[0].media$group.media$thumbnail[0].height.length >=1 && base.options.mediaJSON.feed.entry[0].media$group.media$thumbnail[0].height !== "undefined")?  parseInt(base.$el.data().anythingPlayer.options.mediaJSON.feed.entry[0].media$group.media$thumbnail[0].height, 10) : base.options.navThumbHeight;
+					
+					}else{
+						base.$el.data().anythingPlayer.options.navThumbWidth = ( base.$el.data().anythingPlayer.options.mediaStack[0].media$group.media$thumbnail[0].width.length >=1)?  parseInt(base.$el.data().anythingPlayer.options.mediaStack[0].media$group.media$thumbnail[0].width, 10) : base.options.navThumbWidth;
+					}
+	
+					
+					base.$el.addClass('anythingPlayerWrapper').addClass(mediaGroup).css({'width':base.$el.data().anythingPlayer.options.plrWidth, 'height':base.$el.data().anythingPlayer.options.plrHeight});
+					
+					// Add Brightcove Script
+					//$("<script />").attr({'type':'text/javascript', 'language' : 'javascript', 'src' : 'https://web.archive.org/web/20120214153847/http://admin.brightcove.com/js/BrightcoveExperiences.js'}).appendTo('head').attr('src', $(this).attr('src')+'?t=1');
+					
+					// Add theme stylesheet(s)
+					$("<link />").attr({'class':'dynamic-css', 'rel':'stylesheet', 'type':'text/css', 'href':base.$el.data().anythingPlayer.options.themeDirectory.replace(/\{themeName\}/g, 'default') }).appendTo('head');
+					if(base.$el.data().anythingPlayer.options.theme !== 'default'){ $("<link />").attr({ 'class':'dynamic-css', 'rel':'stylesheet', 'type':'text/css', 'href':base.$el.data().anythingPlayer.options.themeDirectory.replace(/\{themeName\}/g, base.$el.data().anythingPlayer.options.theme) }).appendTo('head'); }
+					//update stylesheet URLs so IE can catch the DOM change.
+					$("head link.dynamic-css").each(function(){$(this).attr('href', $(this).attr('href')+"?t=1");});
+					
+					if ($.isFunction(base.$el.data().anythingPlayer.options.onBeforeInit)) { base.$el.bind('onBeforeInit', base.$el.data().anythingPlayer.options.onBeforeInit); }
+					base.$el.trigger('onBeforeInit', base);
+					base.$el.unbind('onBeforeInit');
+					
+					base.$el.data().anythingPlayer.options.navThumbMargin = ($.browser.msie && $.browser.version <= 7)? base.$el.data().anythingPlayer.options.navThumbMargin-1 : base.$el.data().anythingPlayer.options.navThumbMargin;			
+					
+					//Build out
+					if(base.$el.data().anythingPlayer.options.navEnabled === true){
+						$('.anythingPlayerWrapper.'+mediaGroup+' div.thumbs_wrapper_horiz, .anythingPlayerWrapper.'+mediaGroup+' div.thumbs_wrapper_vert').remove();
+						if(base.$el.data().anythingPlayer.options.navType === 'horizontal'){ base.buildTheNavHorizontal(mediaGroup);
+						}else if(base.options.navType === 'vertical'){ base.buildTheNavVertical(mediaGroup);	}
+					}
+					if(base.$el.data().anythingPlayer.options.pagEnabled === true){ base.buildThePagination(mediaGroup); }
+					if(base.$el.data().anythingPlayer.options.mediaEnabled === true){ base.buildThePlayer(mediaGroup); }
+					// Set Element Mouse Events
+					
+					$('.anythingPlayerWrapper.'+mediaGroup+' div.thumbs_container').delegate('a.thumb-link', 'click', function(event){
+						event.preventDefault();
+						base.options.navActiveIndex = $(this).attr('id');
+						base.buildThePlayer($(this).parentsUntil("div.anythingPlayerWrapper").parent().attr('id'));
+						if ($.isFunction(base.options.onThumbClick)){base.$el.bind('onThumbClick', base.options.onThumbClick);}
+						base.$el.trigger('onThumbClick', base);
+						base.$el.unbind('onThumbClick');
+					});
+					
+					$('.anythingPlayerWrapper.'+mediaGroup+' div.thumbs_container').delegate('a.thumb-link', 'mouseover', function(event){
+						event.preventDefault();
+						if ($.isFunction(base.options.onThumbOver)){base.$el.bind('onThumbOver', base.options.onThumbOver);}
+						base.$el.trigger('onThumbOver', base);
+						base.$el.unbind('onThumbOver');
+					});
+					$('.anythingPlayerWrapper.'+mediaGroup+' div.thumbs_container').delegate('a.thumb-link', 'mouseout', function(event){
+						event.preventDefault();
+						if ($.isFunction(base.options.onThumbOut)){base.$el.bind('onThumbOut', base.options.onThumbOut);}
+						base.$el.trigger('onThumbOut', base);
+						base.$el.unbind('onThumbOut');
+					});
+					
+					
+					if ($.isFunction(base.$el.data().anythingPlayer.options.onInit)){base.$el.bind('onInit', base.$el.data().anythingPlayer.options.onInit);}
+					base.$el.trigger('onInit', base);
+					base.$el.unbind('onInit');
+			    }
+			}
+		};
+		base.stringToBoolean = function(string){
+			switch(string.toLowerCase()){
+					case "true": case "yes": case "1": return true;
+					case "false": case "no": case "0": case null: case undefined : case "undefined" : return false;
+					default: return Boolean(string);
+			}
+		};
+		base.xml2json = function(){
+			if(base.options.mediaXML){
+				var xmlDoc = base.options.mediaXML;
+				var $_xml = $_(xmlDoc);
+				$_xml.find("mediaObjects").each(function(){
+					var groupId = $(this).attr('groupid');
+					var thumbWidth = $(this).find("thumbsProperties").attr('width');
+					var thumbHeight = $(this).find("thumbsProperties").attr('height');
+					var showCount = $(this).find("thumbsProperties").attr('showCount');
+					var thumbMargin = $(this).find("thumbsProperties").attr('margin');
+					var navLoop = $(this).find("thumbsProperties").attr('loop');
+					var travelType = $(this).find("thumbsProperties").attr('travelType');
+					var jsonString = '{ "Version": "1.0", "encoding":"UTF-8", "theme" : "'+$(this).find("theme").attr('id')+'", "feed" : {';
+					jsonString += '"id" : { "$t" : "'+groupId+'" }, "title" : { "$t" : "'+$(this).find("title").text()+'" }, "subtitle" : { "$t" : "'+$(this).find("subTitle").text()+'" }, "yt$playlistId" : {"$t" : "'+groupId+'" },';
+					jsonString += '"video$properties" :{ "width" : "'+$(this).find("playerProperties").attr('width')+'", "height" : "'+$(this).find("playerProperties").attr('height')+'","autoPlay" : "'+$(this).find("playerProperties").attr('autoPlay')+'","navigation" : "'+$(this).find("playerProperties").attr('navigation')+'","pagination" : "'+$(this).find("playerProperties").attr('pagination')+'", "paginationType" : "'+$(this).find("playerProperties").attr('paginationType')+'"},"entry" : [';
+					$(this).find("mediaObject").each(function(){
+						jsonString += '{ "title" : { "$t" : "'+$_(this).find('mediaTitle').attr('value')+'"},';
+						jsonString += '"media$group" : { "media$category" : [{ "$t" : "'+$_(this).attr('category')+'","label" : "Media","scheme" : "Media"}],';
+						jsonString += '"media$description" : { "$t" : "'+$_(this).find('description').attr('value')+'","type" : "plain","facebook": "'+$_(this).find('shareCopy').find('facebook').text()+'","twitter" : "'+$_(this).find('shareCopy').find('twitter').text()+'","email" : "'+$_(this).find('shareCopy').find('email').text()+'"},';
+						jsonString += '"media$thumbnail" : [{ "url" : "'+$_(this).find('thumb').attr('src')+'", "height" : "'+thumbHeight+'", "width" : "'+thumbWidth+'","time" : "00:00:00", "yt$name" : "'+$_(this).find('thumb').attr('title')+'","showCount" : "'+showCount+'","margin" : "'+thumbMargin+'","loop" : "'+navLoop+'", "travelType" : "'+travelType+'"}],';
+						jsonString += '"yt$videoid" : { "$t" : "'+$_(this).attr('id')+'" } } },';
+					});
+					jsonString = jsonString.substr(0, jsonString.length-1);
+					jsonString += '] } }';
+					base.options.mediaGroups[groupId] = $_.parseJSON(jsonString);
+				});
+			}else{
+				var elem;
+				for(elem in base.elems){
+					if(base.elems.hasOwnProperty(elem)){
+						var elemName = base.elems[elem];
+						base.options.mediaGroups[elemName] = base.options.mediaJSON;
+					}
+				}
+			}
+		};
+		base.buildTheNavHorizontal = function(mediaGroup){
+			base.$el = $("#"+mediaGroup);
+			var thumbsWrapper = $("<div />").addClass("thumbs_wrapper_horiz").appendTo('.anythingPlayerWrapper.'+mediaGroup);
+			var leftArrow = (base.$el.data().anythingPlayer.options.navThumbCount >= base.$el.data().anythingPlayer.options.mediaStack.length)? "" :"<div class='arrow_left'><a href='#' id='nav_prev'></a></div>";
+			
+			var rightArrow = (base.$el.data().anythingPlayer.options.navThumbCount >= base.$el.data().anythingPlayer.options.mediaStack.length)? "" : "<div class='arrow_right'><a href='#' id='nav_next'></a></div>";
+			var thumbsContainer = "<div class='thumbs_container'></div>";
+			
+			$(leftArrow+rightArrow+thumbsContainer).appendTo(thumbsWrapper);
+			
+			var ul = $('<ul>').appendTo('.anythingPlayerWrapper.'+mediaGroup+' div.thumbs_wrapper_horiz div.thumbs_container');
+			for (i = 0; i < base.$el.data().anythingPlayer.options.mediaStack.length; i++) {
+				var entry = base.$el.data().anythingPlayer.options.mediaStack[i];
+				var title = entry.title.$t;
+				var videoid = entry.media$group.yt$videoid.$t;
+				var thumburl = entry.media$group.media$thumbnail[0].url;
+				var description = entry.media$group.media$description.$t;
+				
+				var active = "";
+				if (base.$el.data().anythingPlayer.options.mediaInitId) {
+					if (videoid.indexOf(base.$el.data().anythingPlayer.options.mediaInitId) > -1){
+						active = "active";
+						base.$el.data().anythingPlayer.options.navActiveIndex = i;
+						base.$el.data().anythingPlayer.options.mediaActiveId = videoid;
+					}else{ active = ""; }
+				}else{
+					active = (i === 0)? "active" : "";
+					base.$el.data().anythingPlayer.options.mediaActiveId = base.$el.data().anythingPlayer.options.mediaStack[i].media$group.yt$videoid.$t;
+				}
+				
+				var liHTML = "<li style='margin:auto "+base.$el.data().anythingPlayer.options.navThumbMargin+"px;width:"+base.$el.data().anythingPlayer.options.navThumbWidth+"px;'><div class='thumbWrapper'><div class='"+active+"'><a class='thumb-link' id='"+i+"' title='"+title+"' href=''><img class='thumbImage' src='"+thumburl+"' height='"+base.$el.data().anythingPlayer.options.navThumbHeight+"px' width='"+base.$el.data().anythingPlayer.options.navThumbWidth+"'>";
+					liHTML += (base.$el.data().anythingPlayer.options.navTitles)? "</a><span>"+title+"</span></div></div></li>" : "</a><span></span></div></div></li>";
+				var liSpacerHTML  = "<li class='thumbSpacer'></li>";
+				
+				
+				if(base.$el.data().anythingPlayer.options.navThumbSpacer){
+					if(i===0){ $(liSpacerHTML).appendTo(ul); }
+					$(liHTML+liSpacerHTML).appendTo(ul);
+				}else{ $(liHTML).appendTo(ul); }
+				if(i%base.$el.data().anythingPlayer.options.navThumbCount === 0 && i!==0){ base.navPages++;}	
+			}
+			
+			base.navPages++;
+			
+			var tempWidth = (base.$el.data().anythingPlayer.options.navThumbSpacer === true)? ((base.navPages*base.$el.data().anythingPlayer.options.navThumbCount*base.$el.data().anythingPlayer.options.navThumbWidth) + base.navPages*base.$el.data().anythingPlayer.options.navThumbCount*2*base.$el.data().anythingPlayer.options.navThumbMargin)+((base.navPages)*(base.$el.data().anythingPlayer.options.navThumbCount)) : (base.navPages*base.$el.data().anythingPlayer.options.navThumbCount*base.$el.data().anythingPlayer.options.navThumbWidth) + base.navPages*base.$el.data().anythingPlayer.options.navThumbCount*2*base.$el.data().anythingPlayer.options.navThumbMargin;
+
+			switch(base.$el.data().anythingPlayer.options.navTravelType){
+				case 'single'	: base.$el.data().anythingPlayer.options.navTravelDistance =  tempWidth/(base.navPages*base.$el.data().anythingPlayer.options.navThumbCount);break;
+				case 'group' 	: base.$el.data().anythingPlayer.options.navTravelDistance =  tempWidth/base.navPages;break;
+				default : base.$el.data().anythingPlayer.options.navTravelDistance =  tempWidth/base.navPages;break;
+			}
+			
+			//console.log("("+base.$el.data().anythingPlayer.options.navLoop+") "+base.$el.data().anythingPlayer.options.navTravelType+" : "+base.$el.data().anythingPlayer.options.navTravelDistance+" -- "+base.$el.data().anythingPlayer.options.mediaStack.length);
+			
+			$('.anythingPlayerWrapper.'+mediaGroup+' div.thumbs_container ul').css({'width':tempWidth+'px'});
+			
+			if (base.$el.data().anythingPlayer.options.navActiveIndex > (base.$el.data().anythingPlayer.options.navThumbCount-1)) {
+				base.$el.data().anythingPlayer.options.navCurrentPage = Math.ceil(base.$el.data().anythingPlayer.options.navActiveIndex/base.$el.data().anythingPlayer.options.navThumbCount);
+				if(base.$el.data().anythingPlayer.options.navActiveIndex === base.$el.data().anythingPlayer.options.mediaStack.length-1 && base.$el.data().anythingPlayer.options.mediaStack.length%base.$el.data().anythingPlayer.options.navThumbCount === 1) {
+					base.$el.data().anythingPlayer.options.navCurrentPage++;
+				}
+				$('.anythingPlayerWrapper.'+mediaGroup+' div.thumbs_container ul').css('left', ((base.$el.data().anythingPlayer.options.navCurrentPage-1)*-base.$el.data().anythingPlayer.options.navTravelDistance));
+			}
+			
+			$('.anythingPlayerWrapper.'+mediaGroup+' div.thumbs_wrapper_horiz #nav_prev').live('click', function(event) {
+				event.preventDefault();
+				var navPrev = this;
+				var container = $('.anythingPlayerWrapper.'+mediaGroup+' div.thumbs_wrapper_horiz div.thumbs_container');
+				var Ul = $('.anythingPlayerWrapper.'+mediaGroup+' div.thumbs_wrapper_horiz div.thumbs_container ul');
+				
+				if($(this).hasClass('disabled') === false){
+					$(this).addClass('disabled');
+					if (base.$el.data().anythingPlayer.options.navCurrentPage > 1) {
+						$(Ul).animate({
+							left: '+='+base.$el.data().anythingPlayer.options.navTravelDistance
+							}, base.$el.data().anythingPlayer.options.navEaseDuration, function() {
+								base.$el.data().anythingPlayer.options.navCurrentPage--;
+								$(navPrev).removeClass('disabled');
+								if(base.$el.data().anythingPlayer.options.pagType === 'group'){ base.updateThePagination(mediaGroup, "left"); }
+						});
+					}else if(base.$el.data().anythingPlayer.options.navLoop){
+						if(base.$el.data().anythingPlayer.options.navTravelType === 'group'){
+							$(Ul).clone().addClass("dup").prependTo(container);
+							$(container).find('ul:first').animate({
+								left:'-='+(base.$el.data().anythingPlayer.options.navTravelDistance*2)
+								}, 0);
+							$(container).find('ul').animate({
+								left: '+='+base.$el.data().anythingPlayer.options.navTravelDistance
+								}, base.$el.data().anythingPlayer.options.navEaseDuration, function() {
+									base.$el.data().anythingPlayer.options.navCurrentPage=base.navPages;
+									$(navPrev).removeClass('disabled');
+									if(!$(this).hasClass("dup")){ $(this).remove(); }else{ $(this).removeClass("dup"); }
+									if(base.$el.data().anythingPlayer.options.pagType === 'group'){ base.updateThePagination(mediaGroup, "left"); }
+							});
+						}else if(base.$el.data().anythingPlayer.options.navTravelType === 'single'){
+							$(Ul).find('li:last').prependTo(Ul);
+							$(Ul).animate({
+								left:'-='+(base.$el.data().anythingPlayer.options.navTravelDistance)
+								}, 0);
+							$(Ul).animate({
+								left: '+='+base.$el.data().anythingPlayer.options.navTravelDistance
+								}, base.$el.data().anythingPlayer.options.navEaseDuration, function() {
+									$(navPrev).removeClass('disabled');
+									if(base.$el.data().anythingPlayer.options.pagType === 'group'){ base.updateThePagination(mediaGroup, "left"); }
+							});
+						}
+					}else{
+						$(this).removeClass('disabled');
+					}
+				}
+			});
+			
+			$('.anythingPlayerWrapper.'+mediaGroup+' div.thumbs_wrapper_horiz #nav_next').live('click', function(event) {				
+				event.preventDefault();
+				var navNext = this;
+				var container = $('.anythingPlayerWrapper.'+mediaGroup+' div.thumbs_wrapper_horiz div.thumbs_container');
+				var Ul = $('.anythingPlayerWrapper.'+mediaGroup+' div.thumbs_wrapper_horiz div.thumbs_container ul');
+				
+				if($(navNext).hasClass('disabled') === false){
+					$(navNext).addClass('disabled');
+					if (base.$el.data().anythingPlayer.options.navCurrentPage < base.navPages || (base.$el.data().anythingPlayer.options.navCurrentPage < (base.$el.data().anythingPlayer.options.mediaStack.length-(base.$el.data().anythingPlayer.options.navThumbCount-1)) && base.$el.data().anythingPlayer.options.navTravelType ==='single') ){
+						$(Ul).animate({
+							left: '-='+base.$el.data().anythingPlayer.options.navTravelDistance
+							}, base.$el.data().anythingPlayer.options.navEaseDuration, function() {
+								base.$el.data().anythingPlayer.options.navCurrentPage++;
+								$(navNext).removeClass('disabled');
+								if(base.$el.data().anythingPlayer.options.pagType === 'group'){ base.updateThePagination(mediaGroup, "right"); }
+						});
+					}else if(base.$el.data().anythingPlayer.options.navLoop){
+						if(base.$el.data().anythingPlayer.options.navTravelType === 'group'){
+							$(Ul).clone().addClass("dup").appendTo(container);
+							$(container).find('ul:last').animate({
+								left: '+='+(base.$el.data().anythingPlayer.options.navTravelDistance*base.navPages)
+								}, 0);
+							$(container).find('ul').animate({
+								left: '-='+base.$el.data().anythingPlayer.options.navTravelDistance
+								}, base.$el.data().anythingPlayer.options.navEaseDuration, function() {
+									base.$el.data().anythingPlayer.options.navCurrentPage=1;
+									$(navNext).removeClass('disabled');
+									if(!$(this).hasClass("dup")){ $(this).remove(); }else{ $(this).removeClass("dup"); }
+									if(base.$el.data().anythingPlayer.options.pagType === 'group'){ base.updateThePagination(mediaGroup, "right"); }
+							});
+						}else if(base.$el.data().anythingPlayer.options.navTravelType === 'single'){
+							$(Ul).find('li:first').appendTo(Ul);
+							$(Ul).animate({
+								left: '+='+(base.$el.data().anythingPlayer.options.navTravelDistance)
+								}, 0);
+							$(container).find('ul').animate({
+								left: '-='+base.$el.data().anythingPlayer.options.navTravelDistance
+								}, base.$el.data().anythingPlayer.options.navEaseDuration, function() {
+									$(navNext).removeClass('disabled');
+									if(base.$el.data().anythingPlayer.options.pagType === 'group'){ base.updateThePagination(mediaGroup, "right"); }
+							});
+						}
+					}else{
+						$(this).removeClass('disabled');
+					}
+				}
+			});
+		};
+		base.buildTheNavVertical = function(mediaGroup){
+			var thumbsWrapper = $("<div />").addClass("thumbs_wrapper_vert").appendTo('.anythingPlayerWrapper.'+mediaGroup);
+			var upArrow = (base.options.navThumbCount >= base.options.mediaStack.length)? "" : "<div class='arrow_up'><a id='nav_prev'></a></div>";
+			var downArrow = (base.options.navThumbCount >= base.options.mediaStack.length)? "" : "<div class='arrow_down'><a id='nav_next'></a></div>";
+			var thumbsContainer = "<div class='thumbs_container'></div>";
+			
+			$(upArrow+downArrow+thumbsContainer).appendTo(thumbsWrapper);
+			
+			var ul = $('<ul>').appendTo('.anythingPlayerWrapper.'+mediaGroup+' div.thumbs_wrapper_vert div.thumbs_container');
+			for (i = 0; i < base.options.mediaStack.length; i++) {
+				var entry = base.options.mediaStack[i];
+				var title = entry.title.$t;
+				var videoid = entry.media$group.yt$videoid.$t;
+				var thumburl = entry.media$group.media$thumbnail[0].url;
+				var description = entry.media$group.media$description.$t;
+				
+				var active="";
+				if (base.options.mediaInitId) {
+					if (videoid.indexOf(base.options.mediaInitId) > -1){
+						active = "active";
+						base.options.navActiveIndex = i;
+						base.options.mediaActiveId = videoid;
+					}else{ active = ""; }
+				}else{
+					active = (i === 0)? "active" : "";
+					base.options.mediaActiveId = base.options.mediaStack[i].media$group.yt$videoid.$t;
+				}
+				var liHTML = "<li style='margin:"+base.options.navThumbMargin+"px auto;'><div class='thumbWrapper'><div class='"+active+"'><a class='thumb-link' id='"+i+"' title='"+title+"' href=''><img class='thumbImage' src='"+thumburl+"' height='"+base.options.navThumbHeight+"px' width='"+base.options.navThumbWidth+"'><span></span></a></div></div></li>";
+				var liSpacerHTML  = "<li class='thumbSpacer'></li>";
+				
+				
+				if(base.options.navThumbSpacer){
+					if(i===0){ $(liSpacerHTML).appendTo(ul); }
+					$(liHTML+liSpacerHTML).appendTo(ul);
+				}else{ $(liHTML).appendTo(ul); }
+				if(i%base.options.navThumbCount === 0 && i!==0){ base.navPages++; }	
+			}
+			
+			base.navPages++;
+			
+			var tempHeight = (base.options.navThumbSpacer === true)? ((base.navPages*base.options.navThumbCount*base.options.navThumbHeight) + base.navPages*base.options.navThumbCount*2*base.options.navThumbMargin)+((base.navPages)*(base.options.navThumbCount)) : (base.navPages*base.options.navThumbCount*base.options.navThumbHeight) + base.navPages*base.options.navThumbCount*2*base.options.navThumbMargin;
+
+			switch(base.options.navTravelType){
+				case 'single'	: base.options.navTravelDistance = tempHeight/base.options.mediaStack.length;break;
+				case 'group' 	: base.options.navTravelDistance = tempHeight/base.navPages;break;
+				default : base.options.navTravelDistance = tempHeight/base.navPages;break;
+			}
+			
+			$('.anythingPlayerWrapper.'+mediaGroup+' div.thumbs_container ul').css({'height':tempHeight+'px'});
+			/** scroll to another page*/
+			if (base.options.navActiveIndex > (base.options.navThumbCount-1)) {
+				base.options.navCurrentPage = Math.ceil(base.options.navActiveIndex/base.options.navThumbCount);
+				if(base.options.navActiveIndex === base.options.mediaStack.length-1 && base.options.mediaStack.length%base.options.navThumbCount === 1) {
+					base.options.navCurrentPage++;
+				}
+				$('.anythingPlayerWrapper.'+mediaGroup+' div.thumbs_container ul').css('left', ((base.options.navCurrentPage-1)*-base.options.navTravelDistance));
+			}
+			
+			$('.anythingPlayerWrapper.'+mediaGroup+' div.thumbs_wrapper_vert #nav_prev').live('click', function() {
+				if(!$(this).hasClass('disabled')){
+					$(this).addClass('disabled');
+					if (base.options.navCurrentPage !== 1) {
+						$('.anythingPlayerWrapper.'+mediaGroup+' div.thumbs_container ul').animate({
+							top: '+='+base.options.navTravelDistance
+							}, base.options.navEaseDuration, function() {
+								base.options.navCurrentPage--;
+								$('.anythingPlayerWrapper.'+mediaGroup+' div.thumbs_wrapper_vert #nav_prev').removeClass('disabled');
+								if(base.options.pagType === 'group'){ base.updateThePagination("up"); }
+						});
+					}else if(base.options.navLoop){
+						if(base.options.navTravelType === 'group'){
+							$('.anythingPlayerWrapper.'+mediaGroup+' div.thumbs_container ul').clone().addClass("dup").prependTo('.anythingPlayerWrapper.'+mediaGroup+' div.thumbs_container');
+							$('.anythingPlayerWrapper.'+mediaGroup+'div.thumbs_container ul:first').animate({
+								top:'-='+(base.options.navTravelDistance*2)
+								}, 0);
+							$('.anythingPlayerWrapper.'+mediaGroup+' div.thumbs_container ul').animate({
+								top: '+='+base.options.navTravelDistance
+								}, base.options.navEaseDuration, function() {
+									base.options.navCurrentPage=base.navPages;
+									$('div.thumbs_wrapper_vert #nav_prev').removeClass('disabled');
+									if(!$(this).hasClass("dup")){ $(this).remove(); }else{ $(this).removeClass("dup"); }
+									if(base.options.pagType === 'group'){ base.updateThePagination("up"); }
+							});
+						}else if(base.options.navTravelType === 'single'){
+							$('.anythingPlayerWrapper.'+mediaGroup+' div.thumbs_container ul li:last').prependTo('.anythingPlayerWrapper.'+mediaGroup+' div.thumbs_container ul');
+							$('.anythingPlayerWrapper.'+mediaGroup+' div.thumbs_container ul').animate({
+								top: '+='+base.options.navTravelDistance
+								}, base.options.navEaseDuration, function() {
+									$('.anythingPlayerWrapper.'+mediaGroup+' div.thumbs_wrapper_vert #nav_prev').removeClass('disabled');
+									if(base.options.pagType === 'group'){ base.updateThePagination("up"); }
+							});
+						}
+					}else{
+						$('.anythingPlayerWrapper.'+mediaGroup+' div.thumbs_wrapper_vert #nav_prev').removeClass('disabled');
+					}
+				}
+			});
+			
+			$('.anythingPlayerWrapper.'+mediaGroup+' div.thumbs_wrapper_vert #nav_next').live('click', function() {
+				if(!$(this).hasClass('disabled')){
+					$(this).addClass('disabled');
+					if (base.options.navCurrentPage !== base.navPages){
+						$('.anythingPlayerWrapper.'+mediaGroup+' div.thumbs_container ul').animate({
+							top: '-='+base.options.navTravelDistance
+							}, base.options.navEaseDuration, function() {
+								base.options.navCurrentPage++;
+								$('.anythingPlayerWrapper.'+mediaGroup+' div.thumbs_wrapper_vert #nav_next').removeClass('disabled');
+								if(base.options.pagType === 'group'){ base.updateThePagination("down"); }
+						});
+					}else if(base.options.navLoop){
+						if(base.options.navTravelType === 'group'){
+							$('.anythingPlayerWrapper.'+mediaGroup+' div.thumbs_container ul').clone().addClass("dup").appendTo('.anythingPlayerWrapper.'+mediaGroup+' div.thumbs_container');
+							$('.anythingPlayerWrapper.'+mediaGroup+' div.thumbs_container ul:last').animate({
+								top: '+='+(base.options.navTravelDistance*2)
+								}, 0);
+							$('.anythingPlayerWrapper.'+mediaGroup+' div.thumbs_container ul').animate({
+								top: '-='+base.options.navTravelDistance
+								}, base.options.navEaseDuration, function() {
+									base.options.navCurrentPage=1;
+									$('.anythingPlayerWrapper.'+mediaGroup+' div.thumbs_wrapper_vert #nav_next').removeClass('disabled');
+									if(!$(this).hasClass("dup")){ $(this).remove(); }else{ $(this).removeClass("dup"); }
+									if(base.options.pagType === 'group'){ base.updateThePagination("down"); }
+							});
+						}else if(base.options.navTravelType === 'single'){
+							$('.anythingPlayerWrapper.'+mediaGroup+' div.thumbs_container ul li:first').appendTo('.anythingPlayerWrapper.'+mediaGroup+' div.thumbs_container ul');
+							$('.anythingPlayerWrapper.'+mediaGroup+' div.thumbs_container ul').animate({
+								top: '-='+base.options.navTravelDistance
+								}, base.options.navEaseDuration, function() {
+									$('.anythingPlayerWrapper.'+mediaGroup+' div.thumbs_wrapper_vert #nav_next').removeClass('disabled');
+									if(base.options.pagType === 'group'){ base.updateThePagination("down"); }
+							});
+						}
+					}else{
+						$('.anythingPlayerWrapper.'+mediaGroup+' div.thumbs_wrapper_vert #nav_next').removeClass('disabled');
+					}
+				}
+			});
+		};
+		base.buildThePagination = function(mediaGroup){
+			base.$el = $("#"+mediaGroup);
+			var bar = $("<div />").addClass('paginationBar').appendTo('.anythingPlayerWrapper.'+mediaGroup);
+			$("<ul style='width:"+(base.$el.data().anythingPlayer.options.pagImgWidth*base.$el.data().anythingPlayer.options.mediaStack.length)+"px;'></ul>").appendTo(bar);
+			
+			for(x=0; x<base.$el.data().anythingPlayer.options.mediaStack.length;x++){
+				$("<li id='pagMedia_"+x+"'></li>").appendTo('.anythingPlayerWrapper.'+mediaGroup+' div.paginationBar ul');
+			}
+			base.updateThePagination(mediaGroup, "");
+			
+			$('.anythingPlayerWrapper.'+mediaGroup+' div.paginationBar ul li').live('click', function(){
+				base.$el.data().anythingPlayer.options.navActiveIndex = $(this).attr('id').split("_")[1];
+				var tempIndex = parseInt(base.$el.data().anythingPlayer.options.navActiveIndex, 10)+1;
+				var currPage = base.$el.data().anythingPlayer.options.navCurrentPage;
+				base.$el.data().anythingPlayer.options.navCurrentPage = (base.$el.data().anythingPlayer.options.navActiveIndex === 0)? 1 : Math.ceil(tempIndex/base.$el.data().anythingPlayer.options.navThumbCount);
+				var pagesDifference = (currPage > base.$el.data().anythingPlayer.options.navCurrentPage)? currPage-base.$el.data().anythingPlayer.options.navCurrentPage : base.$el.data().anythingPlayer.options.navCurrentPage-currPage;
+				
+				 if (currPage !== 1 && currPage > base.$el.data().anythingPlayer.options.navCurrentPage) {
+					$('.anythingPlayerWrapper.'+mediaGroup+' div.thumbs_container ul').animate({
+						left: '+='+(base.$el.data().anythingPlayer.options.navTravelDistance*pagesDifference)
+					}, base.$el.data().anythingPlayer.options.navEaseDuration);					
+				 }else if(currPage !== base.navPages && currPage < base.$el.data().anythingPlayer.options.navCurrentPage){
+					$('.anythingPlayerWrapper.'+mediaGroup+' div.thumbs_container ul').animate({
+						left: '-='+(base.$el.data().anythingPlayer.options.navTravelDistance*pagesDifference)
+					}, base.$el.data().anythingPlayer.options.navEaseDuration);
+				}
+				
+				base.updateThePagination(mediaGroup, "");
+				base.buildThePlayer(mediaGroup);
+				if ($.isFunction(base.$el.data().anythingPlayer.options.onPagClick)){$('.anythingPlayerWrapper.'+mediaGroup).bind('onPagClick', base.$el.data().anythingPlayer.options.onPagClick);}
+				$('.anythingPlayerWrapper.'+mediaGroup).trigger('onPagClick', base);
+				$('.anythingPlayerWrapper.'+mediaGroup).unbind('onPagClick');
+			});
+		};
+		base.updateThePagination = function(mediaGroup, direction){
+			base.$el = $("#"+base.options.mediaGroups[mediaGroup].feed.id.$t);
+			if(base.$el.data().anythingPlayer.options.navTravelType === "group"){
+				for(x=0; x<base.$el.data().anythingPlayer.options.mediaStack.length;x++){
+					var temp = $('.anythingPlayerWrapper.'+mediaGroup+' div.paginationBar ul li#pagMedia_'+x);
+					if(base.$el.data().anythingPlayer.options.pagType === 'single'){
+						if(base.$el.data().anythingPlayer.options.navActiveIndex === x){ $(temp).addClass("active"); }else{ $(temp).removeClass(); }
+					}
+					if(base.$el.data().anythingPlayer.options.pagType === 'group'){
+						if(x >= base.$el.data().anythingPlayer.options.navThumbCount*(base.$el.data().anythingPlayer.options.navCurrentPage-1) && x < base.$el.data().anythingPlayer.options.navThumbCount*base.$el.data().anythingPlayer.options.navCurrentPage){ $(temp).addClass("active"); }else{ $(temp).removeClass(); }
+					}
+				}
+			}else if(base.$el.data().anythingPlayer.options.navTravelType ==="single"){
+				/**if(base.options.navCurrentPage !== 1 && base.options.navCurrentPage !== base.navPages*base.options.navThumbCount){
+					if(direction ==="up" || direction === "left"){
+						$(".anythingPlayerWrapper div.paginationBar ul li.active:last").removeClass("active");
+						$(".anythingPlayerWrapper div.paginationBar ul li.active:first").prev().addClass("active");
+					}else if(direction === "down" || direction === "right"){
+						if($(".anythingPlayerWrapper div.paginationBar ul li.active:first") === $(".anythingPlayerWrapper div.paginationBar ul li:first")){
+							$(".anythingPlayerWrapper div.paginationBar ul li.active:last").removeClass("active");
+							if($(".anythingPlayerWrapper div.paginationBar ul li:last").hasClass("active") === false){
+								$(".anythingPlayerWrapper div.paginationBar ul li:last").next().addClass("active");
+							}else{
+								$(".anythingPlayerWrapper div.paginationBar ul li").each(function(){
+									if($(this).hasClass("active") ===false && ){
+										$(this).prev().addClass()
+									}
+								});
+							}
+						}else if($(".anythingPlayerWrapper div.paginationBar ul li.active:last") === $(".anythingPlayerWrapper div.paginationBar ul li:last")){
+							
+						}else{
+							$(".anythingPlayerWrapper div.paginationBar ul li.active:first").removeClass("active");
+							$(".anythingPlayerWrapper div.paginationBar ul li.active:last").next().addClass("active");
+						}
+					}
+				}else{
+					for(x=0; x<base.options.mediaStack.length;x++){
+						var temp = $(".anythingPlayerWrapper div.paginationBar ul li#pagMedia_"+x);
+						if(base.options.pagType === 'single'){
+							if(base.options.navActiveIndex === x){ $(temp).addClass("active"); }else{ $(temp).removeClass(); }
+						}
+						if(base.options.pagType === 'group'){
+							if(x >= base.options.navThumbCount*(base.options.navCurrentPage-1) && x < base.options.navThumbCount*base.options.navCurrentPage){ $(temp).addClass("active"); }else{ $(temp).removeClass(); }
+						}
+					}
+				}**/
+				console.log('single');
+			}
+		};
+		base.buildThePlayer = function(mediaGroup){
+			console.log(mediaGroup);
+			base.$el = $("#"+mediaGroup);
+			if (base.options.allowPlayerBuild) base.destroyMedia(mediaGroup);
+			if($('.anythingPlayerWrapper.'+mediaGroup+' div.mediaPlayer').length < 1){ $("<div class='mediaPlayer' style='width:"+base.$el.data().anythingPlayer.options.plrWidth+"px;height:"+base.$el.data().anythingPlayer.options.plrHeight+"px;'></div>").appendTo('.anythingPlayerWrapper.'+mediaGroup);}
+			
+			base.$el.data().anythingPlayer.options.mediaActiveId = base.$el.data().anythingPlayer.options.mediaStack[base.options.navActiveIndex].media$group.yt$videoid.$t;
+			var category = base.$el.data().anythingPlayer.options.mediaStack[base.options.navActiveIndex].media$group.media$category[0].$t;
+			if (base.options.allowPlayerBuild) {
+				switch(category){
+					case 'youtube' : base.showVidForYouTube(mediaGroup);break;
+					case 'brightcove' : base.showFlashVidForBrightcove(mediaGroup);break;
+					case 'local' : base.showVidForLocal(mediGroup);break;
+					case 'image' : base.showImage(mediaGroup);break;
+					default: base.showVidForYouTube(mediaGroup);break;
+				}
+			
+			
+				if(base.$el.data().anythingPlayer.options.mediaCloseBtn && $('.anythingPlayerWrapper.'+mediaGroup+' div.mediaPlayer a.closeBtn').length < 1){
+					$('<div style="width:'+base.$el.data().anythingPlayer.options.plrWidth+'px;height:'+base.$el.data().anythingPlayer.options.plrHeight+'px;"><a class="closeBtn" style="display:none;">Close</a></div>').appendTo('.anythingPlayerWrapper div.mediaPlayer');
+					$('.anythingPlayerWrapper.'+mediaGroup+' div.mediaPlayer div a.closeBtn').live('click', function(event){
+						event.preventDefault();
+						base.destroyMedia(mediaGroup);
+					});
+					$('.anythingPlayerWrapper.'+mediaGroup+' div.mediaPlayer div').live('mouseover', function(){
+						$('.anythingPlayerWrapper.'+mediaGroup+' div.mediaPlayer div a.closeBtn').css({'display':'block'});
+					});
+					$('.anythingPlayerWrapper.'+mediaGroup+' div.mediaPlayer div').live('mouseout', function(){
+						$('.anythingPlayerWrapper.'+mediaGroup+' div.mediaPlayer div a.closeBtn').css({'display':'none'});
+					});
+				}
+			}
+			$('.anythingPlayerWrapper.'+mediaGroup+' div.thumbs_container ul li div.active').removeClass("active");
+			$('.anythingPlayerWrapper.'+mediaGroup+' div.thumbs_container ul li div a#'+base.$el.data().anythingPlayer.options.navActiveIndex).parent().addClass("active");
+			
+			if ($.isFunction(base.$el.data().anythingPlayer.options.onMediaLoad)) { base.$el.bind('onMediaLoad', base.$el.data().anythingPlayer.options.onMediaLoad); }
+			base.$el.trigger('onMediaLoad', base);
+			base.$el.unbind('onMediaLoad');
+		};
+		base.showFlashVidForBrightcove = function(mediaGroup){
+			base.$el = $("#"+mediaGroup);
+			var tempAP = (base.$el.data().anythingPlayer.options.mediaAutoPlay)? "true" : "";
+			var url = "https://web.archive.org/web/20120214153847/http://c.brightcove.com/services/viewer/federated_f9?&amp;width="+base.$el.data().anythingPlayer.options.plrWidth+"&amp;height="+base.$el.data().anythingPlayer.options.plrHeight+"&amp;flashID=myExperience"+base.$el.data().anythingPlayer.options.mediaActiveId+"&amp;bgcolor=%23FFFFFF&amp;playerID=90402351001&amp;publisherID=336103926&amp;isVid=true&amp;isUI=true&amp;dynamicStreaming=true&amp;%40videoPlayer="+base.$el.data().anythingPlayer.options.mediaActiveId+"&amp;autoStart="+tempAP+"&amp;debuggerID=";
+			var objectHTML = (!base.HTML5)? "<object width='"+base.$el.data().anythingPlayer.options.plrWidth+"' height='"+base.$el.data().anythingPlayer.options.plrHeight+"' type='application/x-shockwave-flash' data='"+url+"' id='myExperience"+base.$el.data().anythingPlayer.options.mediaActiveId+"' class='BrightcoveExperience' seamlesstabbing='false'><param name='movie' value='"+url+"' /><param name='allowScriptAccess' value='always'><param name='allowFullScreen' value='true'><param name='seamlessTabbing' value='false'><param name='swliveconnect' value='true'><param name='wmode' value='"+base.$el.data().anythingPlayer.options.addWmodeToObject+"'><param name='quality' value='high'><param name='bgcolor' value='#FFFFFF'></object>" : "<object id='myExperience"+base.$el.data().anythingPlayer.options.mediaActiveId+"' class='BrightcoveExperience'><param name='bgcolor' value='#FFFFFF' /><param name='width' value='"+base.$el.data().anythingPlayer.options.plrWidth+"' /><param name='height' value='"+base.$el.data().anythingPlayer.options.plrHeight+"' /><param name='playerID' value='90402351001' /><param name='playerKey' value='AQ~~,AAAAABQIifY~,yBcYMa-7eoKK8aYXmJ7b7eqOpm7fGrpL' /><param name='isVid' value='true' /><param name='wmode' value='"+base.$el.data().anythingPlayer.options.addWmodeToObject+"'><param name='isUI' value='true' /><param name='dynamicStreaming' value='true' /><param name='@videoPlayer' value='"+base.$el.data().anythingPlayer.options.mediaActiveId+"' /></object>";
+			objectHTML += (!base.HTML5)? "" : "<script>brightcove.createExperiences();</script>";
+			$(objectHTML).appendTo('.anythingPlayerWrapper.'+mediaGroup+' div.mediaPlayer');
+			//brightcove.createExperiences();
+		};
+		base.showVidForYouTube = function(mediaGroup) {
+			base.$el = $("#"+mediaGroup);
+			var tempAP = (base.$el.data().anythingPlayer.options.mediaAutoPlay)? "&amp;autoplay=1" : "";
+			var tempWmode = (base.$el.data().anythingPlayer.options.addWmodeToObject.length >= 1)? "&amp;wmode="+base.$el.data().anythingPlayer.options.addWmodeToObject : "";
+			var url = !(base.HTML5)? "https://web.archive.org/web/20120214153847/http://www.youtube.com/v/" + base.$el.data().anythingPlayer.options.mediaActiveId + "&amp;version=3&amp;fs=1&amp;hl=en_US&amp;hd=1&amp;rel=0"+tempAP+tempWmode : "https://web.archive.org/web/20120214153847/http://www.youtube.com/embed/" + base.$el.data().anythingPlayer.options.mediaActiveId + "?fs=1&amp;hl=en_US&amp;hd=1&amp;rel=0"+tempAP+tempWmode;
+			var objectHTML = "";
+			console.log(base.HTML5);
+			if(!base.HTML5){
+				objectHTML = '<object style="width: '+base.$el.data().anythingPlayer.options.plrWidth+'px; height: '+base.$el.data().anythingPlayer.options.plrHeight+'px; " id="youtubePlayer" data="'+url+'" type="application/x-shockwave-flash" width="'+base.$el.data().anythingPlayer.options.plrWidth+'px" height="'+base.$el.data().anythingPlayer.options.plrHeight+'px"';
+				objectHTML += (base.$el.data().anythingPlayer.options.mediaAutoPlay)? ' autoplay="true"><param name="autoplay" value="true" >': '>';
+				objectHTML +='<param name="wmode" value="'+base.$el.data().anythingPlayer.options.addWmodeToObject+'" /><param name="allowFullScreen" value="true"><param name="movie" value="'+url+'" /><embed href="'+url+'" allowfullscreen="true" type="application/x-shockwave-flash" wmode="transparent" allowfullscreen="true" allowscriptaccess="always" width="'+base.$el.data().anythingPlayer.options.plrWidth+'px" height="'+base.$el.data().anythingPlayer.options.plrHeight+'px"></object>';
+			}else{
+				objectHTML = "<iframe class='youtube-player' type='text/html' width='"+base.$el.data().anythingPlayer.options.plrWidth+"' height='"+base.$el.data().anythingPlayer.options.plrHeight+"' src='"+url+"' frameborder='0' ";
+				objectHTML += (base.$el.data().anythingPlayer.options.mediaAutoPlay)? "autoplay='true'></iframe>" : "></iframe>";
+			}
+			$(objectHTML).appendTo('.anythingPlayerWrapper.'+mediaGroup+' div.mediaPlayer');
+		};
+		base.showVidForLocal = function(mediaGroup) {
+			base.$el = $("#"+mediaGroup);
+			var url = base.$el.data().anythingPlayer.options.mediaLocalPath+base.$el.data().anythingPlayer.options.mediaActiveId;
+			var objectHTML = (!base.HTML5)? '<object style="width: '+base.$el.data().anythingPlayer.options.plrWidth+'px; height: '+base.$el.data().anythingPlayer.options.plrHeight+'px; " id="" data="'+url+'" type="application/x-shockwave-flash" width="'+base.$el.data().anythingPlayer.options.plrWidth+'px" height="'+base.$el.data().anythingPlayer.options.plrHeight+'px"><param name="wmode" value="'+base.$el.data().anythingPlayer.options.addWmodeToObject+'" /><param name="allowFullScreen" value="true"><param name="movie" value="'+url+'"><embed href="'+url+'" allowfullscreen="true" type="application/x-shockwave-flash" wmode="transparent" allowfullscreen="true" allowscriptaccess="always" width="'+base.$el.data().anythingPlayer.options.plrWidth+'px" height="'+base.$el.data().anythingPlayer.options.plrHeight+'px"></object>' : "<embed width='"+base.$el.data().anythingPlayer.options.plrWidth+"' height='"+base.$el.data().anythingPlayer.options.plrHeight+"' src='"+url+"' type='application/x-shockwave-flash' />";
+			$(objectHTML).appendTo('.anythingPlayerWrapper.'+mediaGroup+' div.mediaPlayer');
+		};
+		base.showImage = function(mediaGroup){
+			base.$el = $("#"+mediaGroup);
+			var url = base.options.mediaLocalPath+base.options.mediaActiveId;
+			var objectHTML = "<img src='"+url+"' alt='"+""+"' style='width:"+base.options.plrWidth+"px;height:"+base.options.plrHeight+"px;'/>";
+			$(objectHTML).appendTo('.anythingPlayerWrapper.'+mediaGroup+' div.mediaPlayer');
+		};
+		base.destroyMedia = function(mediaGroup){
+			$('.anythingPlayerWrapper.'+mediaGroup+' div.mediaPlayer').children().remove();
+		};
+		
+		
+		
+		//Run Initilization
+		base.init();
+		
+	};
+	$.anythingPlayer.defaults = {		
+		theme               : 'default',
+		themeDirectory      : '/mds/js/plugins/anythingPlayer/anythingPlayerTheme-{themeName}.css', //This is the default but may need to be changed per framework/domain
+		
+		plrWidth            : 950,
+		plrHeight           : 560, 
+		plrTitle			: '',
+		plrSubtitle			: '',
+		
+		navEnabled    		: false,
+		navTitles			: false,
+		navThumbSpacer		: false,
+		navThumbWidth		: 98,
+		navThumbHeight		: 60,
+		navThumbMargin		: 35,
+		navThumbCount		: 5,
+		navActiveIndex      : 0,
+		navCurrentPage		: 1,
+		navTravelDistance	: 0,
+		navType				: 'horizontal',
+		navTravelType		: 'group',
+		navLoop				: false,
+		navEaseDuration		: 500,
+		allowPlayerBuild	: true,
+		
+		pagEnabled			: false,
+		pagType				: 'single',
+		pagImgWidth			: 16,
+		pagEaseDuration		: 500,
+		
+		mediaEnabled		: true,
+		mediaInitId			: null,
+		mediaActiveId		: null,
+		mediaGroups			: [],
+		mediaStack			: null,
+		mediaJSON			: null,
+		mediaXML			: null,
+		mediaAutoPlay       : false,
+		mediaLocalPath		: '/assets/en/',
+		mediaCloseBtn		: false,
+
+		onBeforeInit		: null,
+		onInit				: null,
+		onMediaLoad			: null,
+		onThumbClick		: null,
+		onThumbOver			: null,
+		onThumbOut			: null,
+		onPagClick			: null,
+
+		addWmodeToObject    : "transparent"
+	};
+	$.fn.anythingPlayer = function(options) {
+		return this.each(function(i){
+			if ((typeof(options)).match('object|undefined')){ (new $.anythingPlayer($(this).attr('id'), options)); } 
+		});
+	};
+})($_);
+
+}
+/*
+     FILE ARCHIVED ON 15:38:47 Feb 14, 2012 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 23:03:07 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 128.206
+  exclusion.robots: 0.064
+  exclusion.robots.policy: 0.054
+  cdx.remote: 0.052
+  esindex: 0.008
+  LoadShardBlock: 108.542 (3)
+  PetaboxLoader3.datanode: 84.056 (4)
+  load_resource: 203.435
+  PetaboxLoader3.resolve: 54.339
+*/

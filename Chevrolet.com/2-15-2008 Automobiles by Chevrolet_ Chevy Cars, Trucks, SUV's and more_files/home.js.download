@@ -1,0 +1,40 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+tracking["Home_Link_Masthead"]={s_prop5:"<<PROP1>>_<<PROP2>>_MASTHEAD_<<masthead filename>>", s_linkName:"<<PROP1>>_<<PROP2>>_MASTHEAD_<<masthead filename>>"}; 
+tracking["Home_Link_Left_Promo_Tiles"]={s_prop5:"<<PROP1>>_<<PROP2>>_LEFTPROMO<<#>>_<<tile filename>>", s_linkName:"<<PROP1>>_<<PROP2>>_LEFTPROMO<<#>>_<<tile filename>>"}; 
+tracking["Home_Link_Right_Promo_Tiles"]={s_prop5:"<<PROP1>>_<<PROP2>>_RIGHTPROMO<<#>>_<<tile filename>>", s_linkName:"<<PROP1>>_<<PROP2>>_RIGHTPROMO<<#>>_<<tile filename>>"}; 
+tracking["ChevyHomePage"]={s_pageName:"CHEVROLET | DIVISIONAL | HOMEPAGE | INDEX", s_prop1:"DIVISIONAL", s_prop2:"HOMEPAGE", s_prop3:"DIVISIONAL | HOMEPAGE", s_prop11:"INDEX", s_prop12:"HOMEPAGE | INDEX", s_prop13:"DIVISIONAL | HOMEPAGE | INDEX"}; 
+
+
+
+}
+/*
+     FILE ARCHIVED ON 04:52:25 May 01, 2008 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:04:52 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 210.522
+  exclusion.robots: 0.141
+  exclusion.robots.policy: 0.132
+  RedisCDXSource: 0.656
+  esindex: 0.008
+  LoadShardBlock: 192.798 (3)
+  PetaboxLoader3.resolve: 193.73 (3)
+  PetaboxLoader3.datanode: 137.757 (4)
+  load_resource: 974.197
+*/

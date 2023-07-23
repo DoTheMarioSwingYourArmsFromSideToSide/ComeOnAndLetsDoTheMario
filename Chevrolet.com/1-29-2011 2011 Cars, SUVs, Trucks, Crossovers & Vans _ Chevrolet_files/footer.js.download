@@ -1,0 +1,100 @@
+﻿var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+var iTop = 0;
+var offset = 0;
+var animating = false; 
+var delay;
+jQuery(document).ready(function() {
+	// if the short disclaimer is different than the static disclaimer then set up for rollover.
+	var disabled = (typeof disableDisclaimerTreatment == 'undefined') ? false : disableDisclaimerTreatment
+	//alert("disableDisclaimerTreatment = " + disabled);
+	if(!disabled && jQuery.trim(jQuery('#gMdsDisclaimer #shortDisclaimerContainer').html()) != jQuery.trim(jQuery('#gMdsDisclaimer #staticDisclaimerContainer').html())){
+		// copy the full disclaimer into the popup
+		jQuery('#gMdsDisclaimer #fullDisclaimerContainer #disclaimerContent').html(jQuery('#gMdsDisclaimer #staticDisclaimerContainer').html())
+		// show the short disclaimer and the additional button
+		jQuery('#gMdsDisclaimer #shortDisclaimerContainer').show();
+		jQuery('#gMdsDisclaimer #addtionalDisclaimer').show();
+		// hide the static disclaimer
+		jQuery('#gMdsDisclaimer #staticDisclaimerContainer').hide();
+		
+		// get the disclaimer popup height
+		var containerHeight = 320;//had to hard code it for opera //jQuery('#gMdsDisclaimer #fullDisclaimerContainer').height();
+		
+		// show and hide the disclaimers
+		jQuery('#gMdsDisclaimer #shortDisclaimerContainer, #gMdsDisclaimer #addtionalDisclaimer').mouseenter(function(){
+			// if it's animating don't try to show it.  this keeps it from opening and closing if the mouse is at the edge.
+			if(!animating){
+				// do tracking
+				clickTrack({linkName: s.pageName + ' | VIEW ADDITIONAL DISCLOSURES', prop20: s.pageName + ' | VIEW ADDITIONAL DISCLOSURES', prop24: 'EN', prop25:s.prop25});
+				
+				animating = true;
+				// reset to top each time it shows 
+				jQuery('#gMdsDisclaimer #disclaimerContent').css('top', 0);
+				
+				jQuery("#gMdsDisclaimer #fullDisclaimerContainer").slideDown(400, function(){animating=false;});
+				// calculate offset
+				offset = containerHeight - jQuery('#gMdsDisclaimer #disclaimerContent').height();
+				if(offset > 0) jQuery('#scroller').hide();
+			}
+		});
+		jQuery('#gMdsDisclaimer #fullDisclaimerContainer').mouseleave(function(){
+			// if it's animating don't try to show it.  this keeps it from opening and closing if the mouse is at the edge.
+			if(!animating){
+				delay = setTimeout(function(){animating = true;jQuery("#gMdsDisclaimer #fullDisclaimerContainer").slideUp(400, function(){animating=false;})}, 1000);
+			}
+		});
+		jQuery('#gMdsDisclaimer #fullDisclaimerContainer').mouseenter(function(){
+			clearTimeout(delay);
+		});
+
+		// up and down button click handlers
+		jQuery('#bottomButton').click(function (){
+			iTop -= 200;
+			if(iTop < offset) iTop = offset;
+			jQuery('#gMdsDisclaimer #disclaimerContent').animate({
+				top: iTop
+			},500);
+			return false;
+		});
+		jQuery('#topButton').click(function (){
+			iTop += 200;
+			if(iTop > 0) iTop = 0;
+			jQuery('#gMdsDisclaimer #disclaimerContent').animate({
+				top: iTop
+			},500);
+			return false;
+		});
+	}
+});
+
+}
+/*
+     FILE ARCHIVED ON 03:38:35 Jan 29, 2011 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:51:00 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 176.522
+  exclusion.robots: 0.09
+  exclusion.robots.policy: 0.078
+  RedisCDXSource: 0.58
+  esindex: 0.008
+  LoadShardBlock: 156.707 (3)
+  PetaboxLoader3.datanode: 161.862 (4)
+  load_resource: 180.082
+  PetaboxLoader3.resolve: 137.066
+*/

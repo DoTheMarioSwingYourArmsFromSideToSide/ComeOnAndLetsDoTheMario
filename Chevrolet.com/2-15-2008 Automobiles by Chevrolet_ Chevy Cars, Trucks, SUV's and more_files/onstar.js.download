@@ -1,0 +1,46 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+tracking["OnstarPromoDivisional"]={s_prop5:"CHEVROLET | <<SITE SECTION>> | TILE | ONSTAR", s_prop14:"ONSTAR", s_prop28:"ONSTAR EXTERNAL", s_linkName:"CHEVROLET | <<SITE SECTION>> | TILE | ONSTAR"}; 
+tracking["OnstarStandardOptional"]={s_prop5:"CHEVROLET | SPECS | ONSTAR", s_prop14:"ONSTAR", s_prop28:"ONSTAR EXTERNAL", s_linkName:"CHEVROLET | SPECS | ONSTAR"}; 
+tracking["ExperienceOnstarSitemap"]={s_prop5:"CHEVROLET | SITE MAP | ONSTAR", s_prop14:"ONSTAR", s_prop28:"ONSTAR EXTERNAL", s_linkName:"CHEVROLET | SITE MAP | ONSTAR"}; 
+tracking["OnstarUplanderHomepage"]={s_prop5:"CHEVROLET | MODEL HOMEPAGE | MASTHEAD | ONSTAR", s_prop14:"ONSTAR", s_prop28:"ONSTAR EXTERNAL", s_linkName:"CHEVROLET | MODEL HOMEPAGE | MASTHEAD | ONSTAR"}; 
+tracking["OnstarUplanderPopup"]={s_prop5:"CHEVROLET | MODEL HOMEPAGE | MASTHEAD LINK | ONSTAR", s_prop14:"ONSTAR", s_prop28:"ONSTAR EXTERNAL", s_linkName:"CHEVROLET | MODEL HOMEPAGE | MASTHEAD LINK | ONSTAR"}; 
+tracking["SafetyOnstarTileLink"]={s_prop5:"CHEVROLET | SAFETY | ONSTAR", s_prop14:"ONSTAR", s_prop28:"ONSTAR INTERNAL", s_linkName:"CHEVROLET | SAFETY | ONSTAR"}; 
+tracking["SafetyOnstarImageLink"]={s_prop5:"CHEVROLET | SAFETY | ONSTAR", s_prop14:"ONSTAR", s_prop28:"ONSTAR INTERNAL", s_linkName:"CHEVROLET | SAFETY | ONSTAR"}; 
+tracking["SafetyOnstarLinkText"]={s_prop5:"CHEVROLET | SAFETY | ONSTAR", s_prop14:"ONSTAR", s_prop28:"ONSTAR EXTERNAL", s_linkName:"CHEVROLET | SAFETY | ONSTAR"}; 
+tracking["OnstarTextLandingPage"]={s_prop5:"CHEVROLET | SAFETY | ONSTAR", s_prop14:"ONSTAR", s_prop28:"ONSTAR EXTERNAL", s_linkName:"CHEVROLET | SAFETY | ONSTAR"}; 
+tracking["SafetyResourceOnstar"]={s_prop5:"CHEVROLET | SAFETY | ONSTAR", s_prop14:"ONSTAR", s_prop28:"ONSTAR EXTERNAL", s_linkName:"CHEVROLET | SAFETY | ONSTAR"}; 
+tracking["VehicleSafetyOnstar"]={s_prop5:"CHEVROLET | SAFETY | ONSTAR", s_prop14:"ONSTAR", s_prop28:"ONSTAR EXTERNAL", s_linkName:"CHEVROLET | SAFETY | ONSTAR"}; 
+tracking["VehicleFeaturesOnstar"]={s_prop5:"CHEVROLET | FEATURES | ONSTAR", s_prop14:"ONSTAR", s_prop28:"ONSTAR EXTERNAL", s_linkName:"CHEVROLET | FEATURES | ONSTAR"};
+
+}
+/*
+     FILE ARCHIVED ON 04:31:00 May 01, 2008 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:05:27 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 186.16
+  exclusion.robots: 0.092
+  exclusion.robots.policy: 0.082
+  cdx.remote: 0.065
+  esindex: 0.01
+  LoadShardBlock: 137.611 (3)
+  PetaboxLoader3.datanode: 131.207 (4)
+  load_resource: 63.218
+  PetaboxLoader3.resolve: 39.876
+*/

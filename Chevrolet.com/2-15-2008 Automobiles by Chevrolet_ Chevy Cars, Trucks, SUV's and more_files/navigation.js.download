@@ -1,0 +1,95 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+var lastDiv="";
+var lastElement="";
+
+function toggleNav(element){
+	var divContent=element.substring(1);
+	if(HasClassName(document.getElementById(element), "on")){
+		document.getElementById(divContent).style.display="none";
+		RemoveClassName(document.getElementById(element),'on');
+		AddClassName(document.getElementById(element), "off", true);
+	}
+	else{
+		document.getElementById(divContent).style.display="block";
+		RemoveClassName(document.getElementById(element),'off');
+		AddClassName(document.getElementById(element), "on", true);
+	}
+}
+
+function navRollover(element, action){
+	if (element.className != "on")
+	RemoveClassName(element,'over');
+	var oldClass = element.className;
+	element.className = (action == 'over' ? oldClass + " over": oldClass);
+}
+
+function requestURL(current){
+	this.sitenav = document.getElementById(current);
+	this.url = window.location.href;
+	var anchors = this.sitenav.getElementsByTagName('a');
+	for (var i = 0; i != anchors.length; i++) {
+			var a = anchors[i];
+			if ((this.url.indexOf(a.href) >= 0) && (a.pathname != "")) {
+				a.parentNode.style.display = "block";				
+				var ancestor = document.getElementById("h"+ a.parentNode.id);
+				if (ancestor)
+					ancestor.className += " on";
+				if (a.href.indexOf("onstar")) {
+					a.className +=" over";
+					return;
+				}
+				a.className +=" over";
+			}
+		}
+	}
+	
+function modelURL(modelActive){
+	if(document.getElementById('hvehicles').className=="on"){
+		document.getElementById('vehicles').style.display="none";
+		document.getElementById('hvehicles').className="off"
+	}
+	else{
+		document.getElementById('vehicles').style.display="block";
+		document.getElementById('hvehicles').className="on";
+	}
+	if(modelActive){
+		if(document.getElementById('hvehicles').className=="on"){
+			requestURL("vehicles");
+			document.getElementById('carActive').style.display="none";
+		}else{document.getElementById('carActive').style.display="block";}
+	}
+	return;
+}
+
+}
+/*
+     FILE ARCHIVED ON 04:30:14 May 01, 2008 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:05:27 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 122.289
+  exclusion.robots: 0.076
+  exclusion.robots.policy: 0.064
+  RedisCDXSource: 2.259
+  esindex: 0.008
+  LoadShardBlock: 101.577 (3)
+  PetaboxLoader3.datanode: 174.235 (4)
+  PetaboxLoader3.resolve: 60.231 (2)
+  load_resource: 138.254
+*/

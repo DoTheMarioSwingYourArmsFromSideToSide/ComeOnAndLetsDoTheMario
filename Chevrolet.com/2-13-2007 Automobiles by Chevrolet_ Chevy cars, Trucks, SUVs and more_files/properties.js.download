@@ -1,0 +1,73 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+/** 
+ * constants/properties.js 
+ * Contains global constant object declarations for chevrolet.com
+ * 2006 model year.
+ *
+ * @version 1.0
+ *
+ * @author Jim Amos
+ * @author Matt Dertinger
+ * @author Jason Macemore
+ * @author Bea Manzella
+ * @author Yun Qian
+ *
+ */
+
+/* Associative Arrays used to store window properties for popups, the rel attribute of the activated link determines which object within the array is to be used. */
+var WINPROP = new Array();
+WINPROP["FEATURE"] = { width:475, height:470 };
+WINPROP["ACCESSORY"] = { width:475, height:450 };
+WINPROP["EXTERNAL"] = { width:720, height:470, toolbar:"yes", menubar:"yes", location:"yes", scrollbar:"yes", resizable:"yes" };
+WINPROP["ONSTAR"] = { width:800, height:475 };
+WINPROP["GALLERY"] = { width:775, height:478 };
+WINPROP["WINDOWSTICKER"] = { width:700, height:478 };
+WINPROP["MAP"] = { width:600, height:480 };
+WINPROP["SEATTYPE"] = { width:550, height:435 };
+WINPROP["PHATNOISE"] = { width:650, height:480 };
+WINPROP["JUNEBUG"] = { width:595, height:550 };
+WINPROP["VIDEO"] = { width:700, height:500 };
+WINPROP["AUDIO"] = { width:400, height:200 };
+WINPROP["MEDIUM"] = { width:800, height:600 };
+WINPROP["LARGE"] = { width:1024, height:768 };
+WINPROP["PRELAUNCH2007"] = { width:800, height:600 };
+WINPROP["UPCOMINGAVEO"] = { width:798, height:530, scrollbar:"no", resizable:"no" };
+WINPROP["OPENER"] = { newWinName: "opener" };
+WINPROP["POPINPOP"] = { width:800, height:600, toolbar:"yes", menubar:"yes", location:"yes", scrollbar:"yes", resizable:"yes" , newWinName: "_blank" };
+WINPROP["REDTAGGIF"] = { width:520, height:570 };
+WINPROP["ICAR"] = { width:540, height:700 };
+WINPROP["EXTERNHUGE"] = { width:1024, height:680, toolbar:"yes", menubar:"yes", location:"yes", scrollbar:"yes", resizable:"yes" };
+WINPROP["FLASHVID"] = { width:540, height:440 };
+
+}
+/*
+     FILE ARCHIVED ON 20:52:48 Feb 13, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 21:46:03 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 186.068
+  exclusion.robots: 0.114
+  exclusion.robots.policy: 0.099
+  cdx.remote: 0.083
+  esindex: 0.012
+  LoadShardBlock: 118.112 (3)
+  PetaboxLoader3.datanode: 73.924 (4)
+  PetaboxLoader3.resolve: 74.165 (2)
+  load_resource: 63.422
+*/

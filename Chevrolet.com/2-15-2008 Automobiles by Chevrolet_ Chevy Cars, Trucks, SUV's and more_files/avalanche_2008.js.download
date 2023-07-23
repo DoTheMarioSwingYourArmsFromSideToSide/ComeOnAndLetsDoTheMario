@@ -1,0 +1,71 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+//Flyout pricing initial and lineup
+var startingatprice_avalanche_flyout="$34,335*";
+var priceasshown_avalanche_flyout="$44,775*";
+
+
+//Landing pricing trucks
+var startingatprice_avalanche2008_landing="$34,335*";
+var priceasshown_avalanche2008_landing="$44,775*";
+
+//Legacy
+var startingatprice_avalanche="$xx,xxx*";
+
+// thumbnail starting at price
+var startingatprice_avalanche2008_ls="$34,335*";
+var startingatprice_avalanche2008_lt="$35,205*";
+var startingatprice_avalanche2008_ltz="$41,725*";
+
+// thumbnail price as shown
+var priceasshown_avalanche2008_ls="$34,335*";
+var priceasshown_avalanche2008_lt="$40,475*";
+var priceasshown_avalanche2008_ltz="$41,815";
+
+// trim levels starting at price
+var startingatprice_avalanche2008_ls_2wd="$34,335*";
+var startingatprice_avalanche2008_ls_4x4="$37,385*";
+
+var startingatprice_avalanche2008_lt1_2wd="$35,205*";
+var startingatprice_avalanche2008_lt1_4x4="$38,255*";
+
+var startingatprice_avalanche2008_lt2_2wd="$37,330*";
+var startingatprice_avalanche2008_lt2_4x4="$40,380*";
+
+var startingatprice_avalanche2008_lt3_2wd="$38,395*";
+var startingatprice_avalanche2008_lt3_4x4="$41,445*";
+
+var startingatprice_avalanche2008_ltz_2wd="$41,725*";
+var startingatprice_avalanche2008_ltz_4x4="$44,775*";
+
+}
+/*
+     FILE ARCHIVED ON 04:50:58 May 01, 2008 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:05:27 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 76.533
+  exclusion.robots: 0.069
+  exclusion.robots.policy: 0.059
+  cdx.remote: 0.056
+  esindex: 0.009
+  LoadShardBlock: 49.824 (3)
+  PetaboxLoader3.datanode: 56.624 (4)
+  load_resource: 55.279
+  PetaboxLoader3.resolve: 35.416
+*/

@@ -1,0 +1,62 @@
+#subHeader {
+	clear:both;
+	margin:0px auto 0pt;
+	position:relative;
+	overflow:hidden;
+}
+ul#subMenu li{
+	float:left;
+	list-style: none;
+	background: url(/web/20110129033746im_/http://www.chevrolet.com/assets/en/images/global/navigation/pipe_sm.gif ) right top no-repeat;
+	width:auto;
+	padding: 0 9px 0 6px;
+}
+ul#subMenu li.list-title {
+	position: absolute;
+	left: 0px;
+	z-index: -1;
+	background: none; 
+}
+ul#subMenu li.last{ background: none; }
+ul#subMenu li a,
+ul#subMenu li a span {
+	text-decoration:none;
+}
+
+
+
+
+.Explorer6 ul#subMenu li {
+ background: expression(this.nextSibling==null?'none':'');
+}
+
+ul#subMenu li h3 {
+
+font-size:165%;
+font-weight:bold;
+left:-211px;
+
+margin-top:-4px;
+position:relative;
+}
+
+/*
+     FILE ARCHIVED ON 03:37:46 Jan 29, 2011 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:50:58 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 279.744
+  exclusion.robots: 0.07
+  exclusion.robots.policy: 0.059
+  RedisCDXSource: 0.543
+  esindex: 0.008
+  LoadShardBlock: 255.499 (3)
+  PetaboxLoader3.datanode: 244.678 (4)
+  PetaboxLoader3.resolve: 163.902 (3)
+  load_resource: 192.566
+*/

@@ -1,0 +1,47 @@
+#subHeader {
+	clear:both;
+	margin:0px auto 0pt;
+	position:relative;
+	overflow:hidden;
+}
+
+ul#subMenu {
+	clear:both;
+	height:20px;
+	margin-left:187px;
+}
+
+ul#subMenu li{
+	height:18px;
+	float:left;
+	list-style: none;
+	padding: 3px;
+	border-right:1px solid #dddddd;
+}
+
+#gMdsSubNav {
+}
+
+
+
+
+/*
+     FILE ARCHIVED ON 21:12:27 Feb 19, 2010 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:38:10 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 119.09
+  exclusion.robots: 0.156
+  exclusion.robots.policy: 0.139
+  RedisCDXSource: 0.579
+  esindex: 0.009
+  LoadShardBlock: 91.605 (3)
+  PetaboxLoader3.datanode: 114.309 (4)
+  load_resource: 78.306
+  PetaboxLoader3.resolve: 50.585
+*/

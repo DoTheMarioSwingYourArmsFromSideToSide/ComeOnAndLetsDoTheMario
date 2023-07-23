@@ -1,0 +1,42 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+/*1423848130,,JIT Construction: v1600898,en_US*/
+
+/**
+ * Copyright Facebook Inc.
+ *
+ * Licensed under the Apache License, Version 2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
+ */
+try {(function(a,b,c,d){var e=a.fbq;if(!e)throw new Error('The Facebook tracking code is not installed correctly on your web page.');var f=/^[+-]?\d+(\.\d+)?$/,g='number',h='currency',i=["AED","AFN","ALL","AMD","ANG","AOA","ARS","AUD","AWG","AZN","BAM","BBD","BDT","BGN","BHD","BIF","BMD","BND","BOB","BRL","BSD","BTC","BTN","BWP","BYR","BZD","CAD","CDF","CHF","CLF","CLP","CNY","COP","CRC","CUP","CVE","CZK","DJF","DKK","DOP","DZD","EEK","EGP","ERN","ETB","EUR","FJD","FKP","GBP","GEL","GHS","GIP","GMD","GNF","GTQ","GYD","HKD","HNL","HRK","HTG","HUF","IDR","ILS","INR","IQD","IRR","ISK","JEP","JMD","JOD","JPY","KES","KGS","KHR","KMF","KPW","KRW","KWD","KYD","KZT","LAK","LBP","LKR","LRD","LSL","LTL","LVL","LYD","MAD","MDL","MGA","MKD","MMK","MNT","MOP","MRO","MTL","MUR","MVR","MWK","MXN","MYR","MZN","NAD","NGN","NIO","NOK","NPR","NZD","OMR","PAB","PEN","PGK","PHP","PKR","PLN","PYG","QAR","RON","RSD","RUB","RWF","SAR","SBD","SCR","SDG","SEK","SGD","SHP","SLL","SOS","SRD","STD","SVC","SYP","SZL","THB","TJS","TMT","TND","TOP","TRY","TTD","TWD","TZS","UAH","UGX","USD","UYU","UZS","VEF","VND","VUV","WST","XAF","XAG","XAU","XCD","XDR","XOF","XPF","YER","ZAR","ZMK","ZMW","ZWL"],j={value:{type:g,isRequired:true},currency:{type:h,isRequired:true}},k={reportPageView:{event:'PageView'},reportViewContent:{event:'ViewContent'},reportSearch:{event:'Search'},reportAddToCart:{event:'AddToCart'},reportAddToWishlist:{event:'AddToWishlist'},reportInitiateCheckout:{event:'InitiateCheckout'},reportAddPaymentInfo:{event:'AddPaymentInfo'},reportPurchase:{event:'Purchase',validationSchema:j},reportLead:{event:'Lead'},reportCompleteRegistration:{event:'CompleteRegistration'},reportCustomEvent:{validationSchema:{event:{isRequired:true}}}},l=c.href,m=b.referrer;e.callMethod=function(y,z){z=z||{};if(p(y,z)){var aa=k[y].event;if(!aa){aa=z.event;if(!aa){r('Event not specified for the method call: '+y);return false;}delete z.event;}t(e.pixelId,aa,z);}};for(var n=0,o=e.queue.length;n<o;n++)e.callMethod.apply(e,e.queue[n]);delete e.queue;function p(y,z){var aa=k[y];if(!aa){r('Unsupported method call: '+y);return false;}var ba=aa.validationSchema;for(var ca in ba)if(ba.hasOwnProperty(ca)){var da=ba[ca];if(da.isRequired===true&&!z.hasOwnProperty(ca)){r('Required parameter '+ca+' missing for the method call: '+y);return false;}if(da.type)if(!q(z[ca],da.type)){r('Invalid parameter type for '+ca);return false;}}return true;}function q(y,z){switch(z){case g:return f.test(y);case h:return i.indexOf(y.toUpperCase())!==-1;}return true;}function r(y){a.console&&emptyFunction&&false;}function s(y){var z=[];for(var aa=0,ba=y.length;aa<ba;aa++)z.push(y[aa][0]+'='+encodeURIComponent(y[aa][1]));return z.join('&');}function t(y,z,aa){var ba=[];ba.push(['id',y]);ba.push(['ev',z]);ba.push(['dl',l]);ba.push(['rl',m]);ba.push(['ts',new Date().valueOf()]);if(aa&&typeof aa==='object')for(var ca in aa)if(aa.hasOwnProperty(ca)){var da=aa[ca],ea=(da===null)?'null':typeof da;if(ea in {number:1,string:1,boolean:1}){ba.push(['cd['+encodeURIComponent(ca)+']',da]);}else if(ea==='object'){da=(typeof JSON==='undefined')?String(da):JSON.stringify(da);ba.push(['cd['+encodeURIComponent(ca)+']',da]);}}var fa='https://web.archive.org/web/20150213190121/https://www.facebook.com/tr/',ga=s(ba);if(1024>(fa+'?'+ga).length){var ha=new Image();ha.src=fa+'?'+ga;}else u(fa,ba);}function u(y,z){var aa='fb'+Math.random().toString().replace('.',''),ba=b.createElement('form');ba.method='post';ba.action=y;ba.target=aa;ba.acceptCharset='utf-8';ba.style.display='none';var ca=!!(a.attachEvent&&!a.addEventListener),da=ca?'<iframe name="'+aa+'">':'iframe',ea=b.createElement(da);ea.src='javascript:false';ea.id=aa;ea.name=aa;ba.appendChild(ea);v(ea,function(){for(var fa=0,ga=z.length;fa<ga;fa++){var ha=b.createElement('input');ha.name=z[fa][0];ha.value=z[fa][1];ba.appendChild(ha);}v(ea,function(){ba.parentNode.removeChild(ba);});ba.submit();});b.body.appendChild(ba);}function v(y,z){var aa=function(){if(y.detachEvent){y.detachEvent('onload',aa);}else y.onload=null;z();};if(y.attachEvent){y.attachEvent('onload',aa);}else y.onload=aa;}if(e.disablePushState===true)return;if(!d.pushState||!d.replaceState)return;var w=function(){m=l;l=c.href;e('reportPageView');},x=function(y,z,aa){var ba=y[z];y[z]=function(){var ca=ba.apply(this,arguments);aa.apply(this,arguments);return ca;};};x(d,'pushState',w);x(d,'replaceState',w);a.addEventListener('popstate',w,false);})(window,document,location,history);} catch (e) {new Image().src="https:\/\/web.archive.org\/web\/20150213190121\/https:\/\/www.facebook.com\/" + 'common/scribe_endpoint.php?c=jssdk_error&m='+encodeURIComponent('{"error":"LOAD", "extra": {"name":"'+e.name+'","line":"'+(e.lineNumber||e.line)+'","script":"'+(e.fileName||e.sourceURL||e.script)+'","stack":"'+(e.stackTrace||e.stack)+'","revision":"1600898","message":"'+e.message+'"}}');}
+
+}
+/*
+     FILE ARCHIVED ON 19:01:21 Feb 13, 2015 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 05:05:44 May 01, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  exclusion.robots: 0.069
+  exclusion.robots.policy: 0.058
+  RedisCDXSource: 38.374
+  esindex: 0.009
+  LoadShardBlock: 409.162 (6)
+  PetaboxLoader3.datanode: 347.754 (7)
+  load_resource: 98.212
+  PetaboxLoader3.resolve: 48.431
+*/

@@ -1,0 +1,208 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+// function to set a cookie on the browser's machine
+function setCookie(cookieName, cookieValue) {
+
+   document.cookie = cookieName + "=" + cookieValue + ";path=/;";
+
+}
+
+// function to get a cookie from a browser's machine
+function getCookie(cookieName) {
+   var sCookie = document.cookie;
+   var iLocation = sCookie.indexOf(cookieName+"=");
+
+   if (iLocation >= 0) {
+      sCookie = sCookie.substring(iLocation + cookieName.length + 1, sCookie.length);
+      iLocation = sCookie.indexOf(";");
+      if (iLocation >= 0) sCookie=sCookie.substring(0, iLocation);
+   } else {
+      sCookie="";
+   }
+   return sCookie;
+}
+
+// function with logic to change banner
+function getbanner(asHTML, sBrand) {
+
+   var sFileName;
+   var iCount;
+   var sCount = getCookie('iCount');
+
+   // find out if the user has cookies enabled.
+   var sTestScript;
+   setCookie('testcookie', 'enabled');
+   sTestCookie = getCookie('testcookie');
+
+   // find out if the user is travelling from
+   // one brand to another.  If so, reset cookies
+   var sOldBrand = getCookie('sBrand');
+   if (sOldBrand != sBrand) {     
+      sCount = '';
+      setCookie('sBrand', '');
+      setCookie('HTML0', '');
+   }
+
+   // find out which banner to display
+   // if cookies are enabled, then set the cookies. 
+   // and display the appropriate banner.  
+   // otherwise, display a random banner. 
+   if (sTestCookie == 'enabled') {
+
+      if (sCount == '3' || sCount == '') {
+         iCount = 0;  
+      } else {
+         iCount = parseInt(sCount);
+         iCount++;
+      }
+      
+      if (getCookie('sBrand') == '') {
+         setCookie('sBrand', sBrand);
+      }
+
+      if (getCookie('HTML0') == '') {
+         setCookie('HTML0', asHTML[0]);
+         setCookie('HTML1', asHTML[1]);
+         setCookie('HTML2', asHTML[2]);
+         setCookie('HTML3', asHTML[3]);
+      }
+   
+      setCookie('iCount', iCount);
+      return getCookie('HTML'+iCount);
+   }
+   else {
+      // display a random banner 
+      iCount = Math.floor(4*Math.random());
+      return asHTML[iCount];
+   }
+   
+}
+
+function getfbanner(asFLASH, sBrand) {
+	
+   var sFileName;
+   var fCount = getCookie('fCount');
+   var flashflag = getCookie('flashflag');
+   // find out if the user has cookies enabled.
+   var sTestScript;
+   setCookie('testcookie', 'enabled');
+   sTestCookie = getCookie('testcookie');
+
+   // find out if the user is travelling from
+   // one brand to another.  If so, reset cookies
+   var sOldBrand = getCookie('sBrand');
+   if (sOldBrand != sBrand) {       
+      fCount = '';
+      setCookie('sBrand', '');
+      setCookie('fHTML0', '');
+   }
+   
+   if (flashflag != "0") {
+   		setCookie('fHTML0', '');
+   		setCookie('flashflag','0');
+   		fCount = '';
+   }
+
+   // find out which banner to display
+   // if cookies are enabled, then set the cookies. 
+   // and display the appropriate banner.  
+   // otherwise, display a random banner. 
+   if (sTestCookie == 'enabled') {
+      if (fCount == '3' || fCount == '') {
+         fCount = 0;  
+      } else {
+         fCount = parseInt(fCount);
+         fCount++;
+      }
+      
+      if (getCookie('sBrand') == '') {
+         setCookie('sBrand', sBrand);
+      }
+
+      if (getCookie('fHTML0') == '') {
+         setCookie('fHTML0', asFLASH[0]);
+         setCookie('fHTML1', asFLASH[1]);
+         setCookie('fHTML2', asFLASH[2]);
+         setCookie('fHTML3', asFLASH[3]);
+      }
+   
+      setCookie('fCount', fCount); 
+      return getCookie('fHTML'+fCount);
+   }
+   else {
+      // display a random banner 
+      fCount = Math.floor(4*Math.random());
+      return asFLASH[iCount];
+   }
+   
+}
+
+function spawn_flashcheck(mypage, myname, w, h, scroll, resize, menu,toolbar) {
+
+// ***** browser name sniff
+var browser=navigator.userAgent;
+if (browser.indexOf("AOL") > -1) browser = "AOL";
+if (browser.indexOf("A") > -1) browser = "AOL";
+if (browser.indexOf("IWENG/1.2.003") > -1) browser = "AOL";
+if (browser.indexOf("WebTV") > -1) browser = "WEBTV";
+
+// ***** do if non-webtv
+if(browser != "WEBTV")	{
+
+// ***** window width minus popup window width divided by 2
+var winl = (screen.width - w) / 2;
+
+// ***** window height minus popup window height divided by 2
+var wint = (screen.height - h) / 2;
+
+// ***** window properties
+winprops = 'height='+h+',width='+w+',top='+wint+',left='+winl+',scrollbars='+scroll+',resizable='+resize+',menubar='+menu+',toolbar=no,status=no,toolbar='+toolbar+''
+
+// ***** open popup window
+win = window.open(mypage, myname, winprops)
+
+// ***** if browser >= 4 then focus window
+if (parseInt(navigator.appVersion) >= 4) { win.window.focus(); }
+
+// ***** added func for non-AOL native browser
+if(browser != "AOL"){myname.focus();}
+		
+// ***** if webtv then load new window
+if(browser == "WEBTV"){window.location.href=theUrl;}
+
+}
+		
+}
+
+
+}
+/*
+     FILE ARCHIVED ON 05:52:56 Jun 11, 2002 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 20:31:02 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 93.842
+  exclusion.robots: 0.083
+  exclusion.robots.policy: 0.072
+  cdx.remote: 0.061
+  esindex: 0.009
+  LoadShardBlock: 65.689 (3)
+  PetaboxLoader3.datanode: 84.002 (4)
+  load_resource: 114.268
+  PetaboxLoader3.resolve: 63.35
+*/

@@ -1,0 +1,66 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+// masthead price as shown
+var priceasshown_impala2008="$29,005*";
+
+// legacy
+var startingatprice_impala2008="$22,050*";
+
+// landing page prices /cars
+var startingatprice_impala2008_landing="$22,400*";
+var priceasshown_impala2008_landing="29,585*";
+
+//flyout starting at price initial and lineup
+var startingatprice_impala_flyout="$22,400*";
+var priceasshown_impala_flyout="$23,200*";
+
+// thumbnail price as shown
+var priceasshown_impala2008_ls="$22,500*";
+var priceasshown_impala2008_lt="$23,200*";
+var priceasshown_impala2008_ltz="$28,175*";
+var priceasshown_impala2008_ss="$29,880*";
+
+// thumbnails starting at price
+var startingatprice_impala2008_ls="$22,400*";
+var startingatprice_impala2008_lt="$23,100*";
+var startingatprice_impala2008_ltz="$28,075*";
+var startingatprice_impala2008_ss="$29,780*";
+
+// trim levels starting at price
+var startingatprice_impala2008_ls_ls="$22,400*";
+var startingatprice_impala2008_1lt="$23,100*";
+var startingatprice_impala2008_2lt="$25,755*";
+var startingatprice_impala2008_3lt="$25,335*";
+var startingatprice_impala2008_ltz_ltz="$28,075*";
+var startingatprice_impala2008_ss_ss="$29,485*";
+
+}
+/*
+     FILE ARCHIVED ON 04:51:20 May 01, 2008 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:05:27 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 68.258
+  exclusion.robots: 0.1
+  exclusion.robots.policy: 0.087
+  cdx.remote: 0.085
+  esindex: 0.012
+  LoadShardBlock: 45.013 (3)
+  PetaboxLoader3.datanode: 51.814 (4)
+  load_resource: 27.454
+*/

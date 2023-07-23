@@ -1,0 +1,228 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+function baseballcard() {
+	this.oldModel = "";
+	this.baseballcard_on;
+	this.dd_on; 
+	this.focus_on;
+	this.currentCard; 
+	this.current_on;
+	this.bcOutTimer = setTimeout('',200);
+	this.bcInTimer = setTimeout('',300);
+	
+	this.initBaseballcard = function(){ 
+		var div = document.getElementById('baseballcard');
+		
+		div.onmouseover = function() { baseballcardObj.baseballcard_on=true;baseballcardObj.shut(true); }
+		div.onmouseout = function() { baseballcardObj.baseballcard_on=false;baseballcardObj.bcOutTimer = setTimeout('baseballcardObj.shut();', 280); }
+		var chevyvehicleslist = document.getElementById('chevyvehicleslist').getElementsByTagName('dd');
+		for (i = 0; i < chevyvehicleslist.length; i++) {
+			if (chevyvehicleslist[i].parentNode.id == 'chevyvehicleslist') continue;
+			chevyvehicleslist[i].onmouseover=function() {baseballcardObj.dd_on=true;baseballcardObj.setBaseballCard(this);};
+			chevyvehicleslist[i].onmouseout=function() { baseballcardObj.dd_on=false;baseballcardObj.bcOutTimer = setTimeout('baseballcardObj.shut();', 280);};
+		}
+		addEventListenert(document,'mouseover',this.follow);
+	}
+}
+
+baseballcard.prototype.setBaseballCard = function (obj) {
+	if(this.currentCard != obj){
+		this.currentCard = obj;
+		this.bcInTimer = setTimeout("baseballcardObj.show();baseballcardObj.shut(true);", 200);
+		}
+	}
+
+baseballcard.prototype.hideAll = function() {
+	try{
+		var div = document.getElementById("baseballcard");
+		if (!this.baseballcard_on && !this.dd_on) {
+			div.style.display = "none";
+			var dds = this.currentCard.parentNode.getElementsByTagName('dd');
+			for (i = 0; i < dds.length; i++) {
+				dds[i].className = dds[i].className.replace("hover","");
+			}
+			this.currentCard = null;
+		}
+	}
+	catch(e){
+	
+	}
+}
+
+baseballcard.prototype.shut = function(off) {
+		if (off) {
+			clearTimeout(this.bcOutTimer);
+		} else {
+			this.bcOutTimer = setTimeout('baseballcardObj.hideAll();', 200);
+			
+		}
+	}
+	
+	
+baseballcard.prototype.show = function() {
+	if (this.current_on == this.currentCard || this.focus_on){
+			var y;
+			var obj = this.currentCard;
+			var div = document.getElementById("baseballcard");
+			var dds = this.currentCard.parentNode.getElementsByTagName('dd');
+			for (i = 0; i < dds.length; i++) {
+				if(dds[i] != this.currentCard){
+					dds[i].className = dds[i].className.replace("hover","");
+					
+					}
+				}	
+			obj.className = "hover";
+		//	var model=obj.id.split('-').pop();
+			var model=obj.firstChild.firstChild.nodeValue.toLowerCase();
+			
+			if (model.indexOf("|")!=-1)
+				model=model.split(" ")[0];
+			else model=model.replace(" ","");
+			if (this.dd_on || this.baseballcard_on) {
+				if(model != this.oldModel || div.style.display == "none"){
+					var flashObj= newObject.flash('baseballcard','/m/06/nav_flyout_' + htmlLang + '.swf?modelname='+model,300,200);
+					this.oldModel = model;
+				}
+				div.style.display = "block";
+			}
+			y= positionY(obj) - objHeight(div)/2 + objHeight('cv');
+			
+			if (y < positionY('sitenav'))
+				y = positionY('sitenav') - 2;
+			setLeft('baseballcard',positionX('content'));
+			setTop('baseballcard',y);
+			
+		}
+	}
+	
+	
+baseballcard.prototype.follow = function(evt){
+	var targetEl = evt.target ? evt.target : evt.srcElement;
+	baseballcardObj.current_on = targetEl.parentNode;
+	if (targetEl.parentNode.nodeName.toLowerCase() != 'dd')
+	baseballcardObj.current_on = targetEl.parentNode.parentNode;
+//	baseballcardObj.current_on = getAncestorByTagName(targetEl, 'dd');
+}
+
+/*
+function addEventListenert(elm, evType, fn, useCapture)
+// addEvent and removeEvent
+// cross-browser event handling for IE5+,  NS6 and Mozilla
+// By Scott Andrew
+{
+	elm=getRawObject(elm);
+  if (elm.addEventListener){
+    elm.addEventListener(evType, fn, useCapture);
+    return true;
+  } else if (elm.attachEvent){
+    var r = elm.attachEvent("on"+evType, fn);
+    return r;
+  } else {
+    //alert("Handler could not be added");
+  }
+} */
+
+function positionX(e) {
+  if (!(e=getRawObject(e))) return 0;
+  var x = 0;
+  while (e) {
+    x += e.offsetLeft;
+    e = e.offsetParent;
+  }
+ 
+  return x;
+}
+
+function positionY(e) {
+  if (!(e=getRawObject(e))) return 0;
+  var y = 0;
+  while (e) {
+    y += e.offsetTop;
+    e = e.offsetParent;
+  }
+ 
+  return y;
+}
+
+function objHeight(e) {
+  if(!(e=getRawObject(e))){ return 0;}
+  var objH;
+ 
+  if(e.style && e.offsetHeight) {
+ 	
+    objH=e.offsetHeight;
+  }
+  else if(e.style && e.style.pixelHeight) {
+   
+    objH=e.style.pixelHeight;
+  }
+ 
+  return objH;
+}
+
+function objWidth(e) {
+   if(!(e=getRawObject(e))) return 0;
+  var uW;
+  if(e.style && e.offsetWidth) {
+    uW=e.offsetWidth;
+  }
+  else if(e.style && e.style.pixelWidth) {
+    uW=e.style.pixelWidth;
+  }
+  return uW;
+}
+
+function setTop(e,iY) {
+  if(!(e=getRawObject(e))){ return 0;}
+  if(e.style) { 
+      iY=parseInt(iY);
+      if(isNaN(iY)) iY=0;
+      else e.style.top=iY+'px';
+   
+  }
+ 
+}
+
+function setLeft(e,iX) {
+  if(!(e=getRawObject(e))) return 0;
+ 
+  if(e.style) {
+      iX=parseInt(iX);
+      if(isNaN(iX)) iX=0;
+      else e.style.left=iX+'px';
+   
+  }
+ 
+}
+
+}
+/*
+     FILE ARCHIVED ON 20:53:10 Feb 13, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 21:46:04 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 268.341
+  exclusion.robots: 0.117
+  exclusion.robots.policy: 0.104
+  RedisCDXSource: 39.833
+  esindex: 0.009
+  LoadShardBlock: 206.238 (3)
+  PetaboxLoader3.datanode: 163.248 (4)
+  load_resource: 210.344
+  PetaboxLoader3.resolve: 186.596
+*/

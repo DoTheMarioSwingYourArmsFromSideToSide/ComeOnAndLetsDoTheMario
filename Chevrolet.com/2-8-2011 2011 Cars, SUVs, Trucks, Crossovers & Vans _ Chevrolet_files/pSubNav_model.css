@@ -1,0 +1,220 @@
+#subHeader {
+	width:980px;
+	height:28px;
+}
+
+
+
+#subHeader div {
+	float: left;
+	margin: 0px;
+}
+#subHeader div.subnavitems {
+top:1px;
+}
+
+.Explorer7 #subHeader div.subnavitems {
+top:9px;
+}
+
+.Explorer8 #subHeader div.subnavitems {
+top:0;
+}
+
+.modelHead ul li {
+	float: none !important;
+}
+.modelHead ul {
+	left:0;
+margin-right:10px;
+position:absolute;
+top:-9px;
+}
+.headBrandYear li a {
+	margin: 0px;
+}
+#currentModelYears ul {
+	margin: 0;
+	padding: 0;
+	left:-11px;
+	line-height:8px;
+	top:1px;
+}
+#currentModelYears {
+	position: absolute;
+	height:30px;
+	font-size:9px;
+	color:#CCC;
+	background-color:#FFF;
+	border:none;
+	z-index:900;
+	width:71px;
+	left:0px;
+	top:-10px;
+}
+
+.dark-layout #currentModelYears {
+	position: absolute;
+	height:30px;
+	font-size:9px;
+	color:#CCC;
+	background-color:#FFF;
+	border:none;
+	z-index:900;
+	width:71px;
+	left:0px;
+	top:-2px;
+}
+
+.Explorer7 #currentModelYears {
+	position: relative;
+	top:-10px;
+	height:40px;
+}
+
+.dark-layout .Explorer7 #currentModelYears {
+	position: absolute;
+	top:15px;
+	height:50px;
+}
+
+.Explorer7 #camaro_2010 #currentModelYears {
+	position: relative;
+	top:-28px;
+}
+
+#currentModelYears ul li {
+	float:left !important;
+	font-size:8px;
+	font-weight:bold;
+	margin:3px 16px;
+}
+.upperHead {
+	text-transform: uppercase;
+	font-size: 14px;
+	font-weight: bold;
+	color:#000;
+	
+}
+
+.dark-layout .upperHead {
+	text-transform: uppercase;
+	font-size: 14px;
+	font-weight: bold;
+	color:#000;
+	position: relative;
+	top: 10px;
+}
+.hiddenArea {
+	display: none;
+}
+.displayedArea {
+	display: block;
+}
+
+#changeYearLink, 
+#addToMySavedInfoLink {
+	font-size: 7px;
+	font-weight: bold;
+}
+
+.dark-layout #changeYearLink {
+	font-size: 7px;
+	font-weight: bold;
+	position: relative;
+	top: -14px;
+}
+
+
+.modelHead ul {
+	padding:0;
+	margin:0;
+}
+#addToMySavedInfoLink {
+	position:relative;
+	left:92px;
+	display: none;
+}
+#headYear {
+	position:relative;
+	top:16px;
+	left:0px;
+}
+#camaro_2010 #headYear {}
+#camaro_2010 #headBrand {position:relative; }
+#camaro_2010 #addToMySavedInfoLink { left:-10px; }
+
+#gMdsSubNav ul.camaro_2010 {}
+.Explorer6 #gMdsSubNav ul.camaro_2010,
+.Explorer7 #gMdsSubNav ul.camaro_2010,
+.Explorer8 #gMdsSubNav ul.camaro_2010{}
+
+.Explorer7 #camaro_2010 #changeYearLink {
+	top:-22px !important;
+}
+
+.Explorer6 #headBrand {
+	position:relative;
+	top:0px;
+	left:0px;
+}
+
+.Explorer7 #headBrand {
+	position:absolute;
+	top:0px;
+	left:0px;
+}
+
+.Explorer7 #headYear, .Explorer6 #headYear {
+	position:relative;
+	top:24px;
+	left:0px;
+}
+
+#currentModelYears ul li a, #currentModelYears ul li a span { font-size:8px; color:#ccc; text-decoration:none; }
+#currentModelYears ul li a:hover, #currentModelYears ul li a:hover span { color: #B49D3F; }
+
+.Explorer6 ul#subMenu,
+.Explorer7 ul#subMenu,
+.Explorer8 ul#subMenu { left:5px; }
+ul#subMenu h3 { display: none; }
+
+/*************************************************
+Specific model changes
+!this is a hack, you know it and i know it.!
+*************************************************/
+
+.subnavitems ul.silverado1500_2010,
+.subnavitems ul.silverado2500hd_2010,
+.subnavitems ul.silverado3500hd_2010 {
+width:650px !important;
+left:30px !important;
+}
+
+ul#subMenu li {
+background:url("/web/20110208165625im_/http://www.chevrolet.com/assets/en/images/global/navigation/pipe_sm.gif") no-repeat scroll right center transparent;
+}
+
+.Explorer7 ul#subMenu li {
+background:url("/web/20110208165625im_/http://www.chevrolet.com/assets/en/images/global/navigation/pipe_sm.gif") no-repeat scroll right bottom transparent;
+}
+/*
+     FILE ARCHIVED ON 16:56:25 Feb 08, 2011 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:52:14 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 171.453
+  exclusion.robots: 0.102
+  exclusion.robots.policy: 0.09
+  RedisCDXSource: 0.72
+  esindex: 0.009
+  LoadShardBlock: 142.702 (3)
+  PetaboxLoader3.resolve: 120.848 (4)
+  PetaboxLoader3.datanode: 68.39 (4)
+  load_resource: 67.206
+*/

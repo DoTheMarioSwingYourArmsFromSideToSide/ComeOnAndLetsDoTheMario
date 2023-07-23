@@ -1,0 +1,85 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+var MP = {
+<!--mp_trans_disable_start -->
+	Version: '3.1.1.0',
+	SrcLang: 'en',
+<!--mp_trans_disable_end -->
+	UrlLang: 'mp_js_current_lang',
+	SrcUrl: decodeURIComponent('mp_js_orgin_url'),
+	oSite: decodeURIComponent('mp_js_origin_baseUrl'),
+	tSite: decodeURIComponent('mp_js_translated_baseUrl'),
+<!--mp_trans_disable_start -->
+	init: function() {
+		if (MP.oSite.indexOf('p_js_') == 1) {
+			MP.SrcUrl = window.top.document.location.href;
+			MP.oSite = MP.tSite = window.top.document.location.host;
+			MP.UrlLang = MP.SrcLang;
+		}
+	},
+	switchLanguage: function(url,pref,sync) {
+		var sync = sync;
+		var oSite=MP.oSite.replace('http://','').replace('https://','').replace(/\/?$/, '');
+		var tSite=MP.tSite.replace('http://','').replace('https://','').replace(/\/?$/, '');
+		url=url.replace('http://','').replace('https://','').replace(/\/?$/, '');
+		if(sync && (typeof MpStorage !== 'undefined')&&(typeof MpStorage.updatePref !== 'undefined')){
+			if(pref){
+			var lang = pref.substring(0, 2);
+			pref = lang == MP.UrlLang ? MP.SrcLang+pref.substring(2):pref;
+			}
+			MpStorage.updatePref(url,pref);
+		}
+		setTimeout(function() {
+			var script = document.createElement('SCRIPT');
+			if (url == oSite) {
+				script.src = location.protocol + '//' + tSite +'?1023749634;' + encodeURIComponent(location.href);
+			} else {
+				script.src = location.protocol + '//' + url +'?1023749632;' + encodeURIComponent(MP.SrcUrl);
+			}
+			var target = document.getElementsByTagName('script')[0];
+			target.parentNode.insertBefore(script, target);
+		}, 500);
+		return false;
+	},
+	switchToLang: function(url) {
+		if(window.top.location.href == url){
+			if((typeof MpStorage !== 'undefined')&&(typeof MpStorage.updatePref !== 'undefined'))
+			MpStorage.updatePref(MP.oSite,MP.SrcLang);
+		}else{
+			window.top.location.href = url;
+		}
+	}
+	<!-- mp_trans_disable_end -->   
+};
+
+}
+/*
+     FILE ARCHIVED ON 07:09:54 Jan 07, 2020 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 19:02:07 May 01, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 148.099
+  exclusion.robots: 0.109
+  exclusion.robots.policy: 0.095
+  RedisCDXSource: 1.372
+  esindex: 0.008
+  LoadShardBlock: 72.197 (3)
+  PetaboxLoader3.datanode: 72.845 (5)
+  load_resource: 123.929 (2)
+  PetaboxLoader3.resolve: 79.944 (2)
+*/

@@ -1,0 +1,51 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+/*!
+ * 
+ * name: @gbds/global-portable-experiences
+ * version: 1.1.2-1.1.2
+ * @gbds/core dependency version: 4.0.7
+ * @gbds/quantum dependency version: 1.3.32
+ * date: Thu Jan 06 2022 18:01:20 GMT-0500 (Eastern Standard Time)
+ * Copyright 2021 GM Global Technology Operations LLC
+ * All Rights Reserved.
+ * This software is proprietary to GM Global Technology Operations LLC
+ * and is protected by intellectual property laws and international
+ * intellectual property treaties. Your access to this software is governed
+ * by the terms of your license agreement with GM Global Technology Operations LLC.
+ * Any other use of the software is strictly prohibited.
+ * 
+ */!function(t){var e={};function n(a){if(e[a])return e[a].exports;var o=e[a]={i:a,l:!1,exports:{}};return t[a].call(o.exports,o,o.exports,n),o.l=!0,o.exports}n.m=t,n.c=e,n.d=function(t,e,a){n.o(t,e)||Object.defineProperty(t,e,{enumerable:!0,get:a})},n.r=function(t){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(t,"__esModule",{value:!0})},n.t=function(t,e){if(1&e&&(t=n(t)),8&e)return t;if(4&e&&"object"==typeof t&&t&&t.__esModule)return t;var a=Object.create(null);if(n.r(a),Object.defineProperty(a,"default",{enumerable:!0,value:t}),2&e&&"string"!=typeof t)for(var o in t)n.d(a,o,function(e){return t[e]}.bind(null,o));return a},n.n=function(t){var e=t&&t.__esModule?function(){return t.default}:function(){return t};return n.d(e,"a",e),e},n.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)},n.p="",n(n.s=86)}({86:function(t,e){(async()=>{if(window.lpTag||function(){try{const t=new Set(["/dealer-locator","/locate-buick-dealer","/locate-gmc-dealer","/locate-dealer"]),e="/index/shopping-tools/dealer-experience/";return t.has(window.location.pathname)||window.location.pathname.startsWith(e)}catch(t){return console.error("Excluding live person chat failed: ",t),!1}}())return;const t=function(t=location.origin){return(t.includes("chevrolet")?"chevrolet":t.includes("gmc")&&"gmc")||t.includes("cadillac")&&"cadillac"||t.includes("buick")&&"buick"||"gm"}();e="65948500",window.lpTag=window.lpTag||{},void 0===window.lpTag._tagCount?(window.lpTag={site:e||"",section:lpTag.section||"",tagletSection:lpTag.tagletSection||null,autoStart:!1!==lpTag.autoStart,ovr:lpTag.ovr||{},_v:"1.8.0",_tagCount:1,protocol:"https:",events:{bind:function(t,e,n){lpTag.defer((function(){lpTag.events.bind(t,e,n)}),0)},trigger:function(t,e,n){lpTag.defer((function(){lpTag.events.trigger(t,e,n)}),1)}},defer:function(t,e){0==e?(this._defB=this._defB||[],this._defB.push(t)):1==e?(this._defT=this._defT||[],this._defT.push(t)):(this._defL=this._defL||[],this._defL.push(t))},load:function(t,e,n){var a=this;setTimeout((function(){a._load(t,e,n)}),0)},_load:function(t,e,n){var a=t;t||(a=this.protocol+"//"+(this.ovr&&this.ovr.domain?this.ovr.domain:"lptag.liveperson.net")+"/tag/tag.js?site="+this.site);var o=document.createElement("script");o.setAttribute("charset",e||"UTF-8"),n&&o.setAttribute("id",n),o.setAttribute("src",a),document.getElementsByTagName("head").item(0).appendChild(o)},init:function(){this._timing=this._timing||{},this._timing.start=(new Date).getTime();var t=this;window.attachEvent?window.attachEvent("onload",(function(){t._domReady("domReady")})):(window.addEventListener("DOMContentLoaded",(function(){t._domReady("contReady")}),!1),window.addEventListener("load",(function(){t._domReady("domReady")}),!1)),void 0===window._lptStop&&this.load()},start:function(){this.autoStart=!0},_domReady:function(t){this.isDom||(this.isDom=!0,this.events.trigger("LPT","DOM_READY",{t:t})),this._timing[t]=(new Date).getTime()},vars:lpTag.vars||[],dbs:lpTag.dbs||[],ctn:lpTag.ctn||[],sdes:lpTag.sdes||[],hooks:lpTag.hooks||[],ev:lpTag.ev||[]},lpTag.init()):window.lpTag._tagCount+=1;var e;let n=!1;function a(t={}){const e=function(t={}){let e,n;if(t.hasOwnProperty("phones")&&t.phones.length>0){const a=t.phones.find(t=>t.hasOwnProperty("phone_type")&&"HOME"===t.phone_type);n=a&&a.hasOwnProperty("phone_number")?a.phone_number:void 0;const o=t.phones.find(t=>t.hasOwnProperty("phone_type")&&"CELL"===t.phone_type);e=o&&o.hasOwnProperty("phone_number")?o.phone_number:void 0}return e||(n||"")}(t);return{type:"personal",personal:{firstname:t.first_name,lastname:t.last_name,contacts:{email:t.email_address,phone:e}}}}function o(t={}){return{type:"ctmrinfo",info:{customerId:function(t={}){let e;return t.hasOwnProperty("onStar")&&t.onStar.hasOwnProperty("accountId")&&t.onStar.accountId.length>0&&(e=t.onStar.accountId[0]),e}(t)}}}n=await async function(){return Promise.race([(window.gbpe&&window.gbpe.auth&&window.gbpe.auth.loaded||new Promise(t=>window.addEventListener("gbpe-authLoaded",async()=>t(await window.gbpe.auth.loaded)))).then(()=>window.gbpe.auth.currentAuthState),new Promise(t=>setTimeout(()=>t(0),5e3))])}(),lpTag.section=function(t="gm",e="en",n=!1){return{authenticated:{en:{gm:"gm_auth",chevrolet:"chevy_auth",buick:"buick_auth",cadillac:"cad_auth",gmc:"gmc_auth"}},unauthenticated:{en:{gm:"gm_na",chevrolet:"chevy_na",buick:"buick_na",cadillac:"cad_na",gmc:"gmc_na"}}}[n&&1===Number(n)?"authenticated":"unauthenticated"][e][t]}(t,"en",n),lpTag.events.bind("LP_OFFERS","OFFER_CLICK",(t,e)=>{1===t.state&&n&&1===Number(n)&&(console.log("pushing user data"),async function(){const[t,e]=await async function(){const t=window.gbpe.user,[e,n]=await Promise.allSettled([t.profile.catch(t=>t),t.vehicles.catch(t=>t)]);return[e,n]}(),n=t.value&&t.value.data?t.value.data:t.data;e.value&&e.value.data?e.value.data:e.data;t&&n&&(lpTag.sdes.push(a(n)),window.console.log("pushed user profile data ",a(n)));t&&n&&n.onStar&&n.onStar.accountId&&(lpTag.sdes.push(o(n)),window.console.log("pushed onstar data ",o(n)))}())})})()}});
+//# sourceMappingURL=https://stage.gm-cdn.com/_gbpe/code/private/prod1/sourcemaps/live-person-chat.js.map
+
+}
+/*
+     FILE ARCHIVED ON 06:23:32 Jan 27, 2022 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:19:35 May 01, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 95.029
+  exclusion.robots: 0.108
+  exclusion.robots.policy: 0.096
+  cdx.remote: 0.082
+  esindex: 0.011
+  LoadShardBlock: 58.161 (3)
+  PetaboxLoader3.datanode: 101.229 (4)
+  load_resource: 82.324
+  PetaboxLoader3.resolve: 34.614
+*/

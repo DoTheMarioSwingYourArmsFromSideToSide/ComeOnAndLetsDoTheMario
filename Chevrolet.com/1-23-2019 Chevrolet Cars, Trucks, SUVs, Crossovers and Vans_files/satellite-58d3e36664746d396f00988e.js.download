@@ -1,0 +1,78 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+_satellite.pushAsyncScript(function(event, target, $variables){
+  //NEW INSTANCE 11_20_2017
+	var tag = document.createElement('script');
+	tag.setAttribute("src", "https://web.archive.org/web/20190205184355/https://www.youtube.com/iframe_api");
+	tag.setAttribute("type", "text/javascript");
+	document.getElementsByTagName("head")[0].prepend(tag);
+
+    var sendMedia = function(event) {
+      	var	instance = event.target;
+      		if (typeof instance.getVideoData === 'function') {
+                            config.title = instance.getVideoData().title;
+               							var videoTitle = config.title;
+                        };
+        var s = _satellite.getToolsByType('sc')[0].getS(),
+            videoPlayer = "YouTube",
+            videoId = event.player.getVideoData().video_id,
+            mediaName = videoPlayer + '|' + videoTitle + '|' + videoId,
+            mediaDuration = Math.floor(event.player.getDuration()),
+            mediaOffset = Math.floor(event.player.getCurrentTime());
+      
+      	
+        if (event.playerState === YT.PlayerState.PLAYING) {
+            if (mediaOffset === 0) {
+                            s.Media.open(mediaName, mediaDuration, videoPlayer);
+            }
+            s.Media.play(mediaName, mediaOffset);
+
+        } else if (event.playerState === YT.PlayerState.PAUSED || event.playerState === YT.PlayerState.BUFFERING) {
+            s.Media.stop(mediaName, mediaOffset);
+
+        } else if (event.playerState === YT.PlayerState.ENDED) {
+            mediaOffset = 0;
+            s.Media.stop(mediaName, mediaOffset);
+            s.Media.close(mediaName);
+        }
+    };
+
+    jQuery(document).on('gmwpYTPlayerStateChange', function(event) {
+        sendMedia(event);
+    });
+
+
+});
+
+
+}
+/*
+     FILE ARCHIVED ON 18:43:55 Feb 05, 2019 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 07:28:48 May 01, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 962.161
+  exclusion.robots: 0.174
+  exclusion.robots.policy: 0.155
+  RedisCDXSource: 2.172
+  esindex: 0.018
+  LoadShardBlock: 928.903 (3)
+  PetaboxLoader3.resolve: 7458.276 (5)
+  PetaboxLoader3.datanode: 2165.714 (7)
+  load_resource: 8720.896 (3)
+*/

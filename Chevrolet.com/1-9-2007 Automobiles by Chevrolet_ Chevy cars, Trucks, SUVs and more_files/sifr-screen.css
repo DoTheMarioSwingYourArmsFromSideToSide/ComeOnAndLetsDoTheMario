@@ -1,0 +1,36 @@
+
+/* SIFR */
+/* These are standard sIFR styles... do not modify */
+.sIFR-replaced { visibility: visible !important; }
+
+.sIFR-flash { visibility:visible !important; margin:0; }
+
+span.sIFR-alternate { position: absolute; left: 0; top: 0; width: 0; height: 0; display: block; overflow: hidden; }
+
+/* These "decoy" styles are used to hide the browser text before it is replaced... the negative-letter spacing in this case is used to make the browser text metrics match up with the sIFR text metrics since the sIFR text in this example is so much narrower... your own settings may vary... any weird sizing issues you may run into are usually fixed by tweaking these decoy styles */
+.sIFR-hasFlash h1#pagetitle, .sIFR-hasFlash h2.sifr, .sIFR-hasFlash em.sifr, 
+.sIFR-hasFlash h2.whitebgsifr { visibility: hidden; }
+/* other sifr styles were moved to sifr-screen.css to fix various printing issues */
+
+
+
+/*
+     FILE ARCHIVED ON 21:37:22 Jan 09, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 21:44:24 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 113.246
+  exclusion.robots: 0.064
+  exclusion.robots.policy: 0.057
+  cdx.remote: 0.049
+  esindex: 0.007
+  LoadShardBlock: 73.832 (3)
+  PetaboxLoader3.datanode: 75.147 (4)
+  load_resource: 72.171
+  PetaboxLoader3.resolve: 37.085
+*/

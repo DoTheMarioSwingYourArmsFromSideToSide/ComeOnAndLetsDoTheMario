@@ -1,0 +1,262 @@
+.seo_promos {
+	display: none;
+}
+
+.scrollBase {
+	left: -900px;
+}
+
+.displayBlock {
+	display: block;
+}
+
+.displayNone {
+	display: none;
+}
+
+#promos {
+	bottom:10px;
+
+left:30px;
+
+padding-top:30px;
+position:absolute;
+width:920px;
+}
+
+/* position and dimensions of the navigator */
+.navi {
+	position: absolute;	
+	right: 0;
+	top: 10px;
+	_top: 25px;
+	display: none !important;
+}
+
+.left-promo {
+	background: url(/web/20110307174715im_/http://www.chevrolet.com/mds/css/promos/left.gif) 0 0 no-repeat;
+	height: 19px;
+	width: 19px;
+	left:-28px;
+	position:absolute;
+	top:97px;
+	z-index: 0;
+}
+
+.right-promo {
+	background: url(/web/20110307174715im_/http://www.chevrolet.com/mds/css/promos/right.gif) 0 0 no-repeat;
+	height: 19px;
+	width: 19px;
+	right:-28px;
+	position:absolute;
+	top:97px;
+}
+
+/* items inside navigator */
+.navi a {
+	width:8px;
+	height:8px;
+	float:left;
+	margin-left:6px;
+	background:url(/web/20110307174715im_/http://www.chevrolet.com/mds/css/promos/navigator.png) 0 0 no-repeat;
+	display:block;
+	font-size:1px;
+	outline: none;	
+	overflow: hidden;
+}
+
+/* mouseover state */
+.navi a:hover {
+	background-position: 0 -8px; 
+	height: 8px;
+	overflow: hidden;     
+}
+
+/* active state (current page state) */
+.navi a.active {
+	background-position:0 -16px;  
+	height: 8px;
+	overflow: hidden;   
+}
+
+#scrollable {
+	/* required settings */
+	position:relative;
+	overflow:hidden;
+	width: 920px;				
+	height: 169px;
+	padding: 2px;		
+}
+
+#promos-container {
+	padding: 4px 4px 4px 0;
+	float: left;
+	clear: both;
+	width: 916px;
+	_margin-top: 15px;
+	z-index: 2;
+}
+
+/*
+	root element for scrollable items. Must be absolutely positioned
+	and it should have a extremely large width to accommodate scrollable items.
+	it's enough that you set width and height for the root element and
+	not for this element.
+*/
+#scrollable .items {
+	/* this cannot be too large */
+	width:20000em;
+	position:absolute;				
+
+}
+
+/*
+	a single item. must be floated in horizontal scrolling.
+	typically, this element is the one that *you* will style
+	the most.
+*/
+
+.items div {
+	float:left;
+}
+
+.small {
+	width: 301px;
+	position: relative;
+	float: left;
+}
+
+.two_third {
+	width: 608px;
+	position: relative;				
+	float: left;
+}
+
+.full {
+	width: 903px;	
+	position: relative;			
+}
+
+.loader {
+	width: 15px;
+	margin: 60px auto;	
+	display: block;			
+}
+
+.content-items {
+	background-color:white;
+	height:141px;
+	left:0;
+	position:absolute;
+	top:2px;
+	width:893px;
+	z-index:100;
+}
+
+#content-expandable {
+	position: relative;
+	background-color: white;
+}
+
+.close {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	display: block;
+	border: 1px solid #eee;
+	padding: 1px 3px;	
+	cursor: pointer;
+	z-index: 101;
+	background-color: white;
+}
+
+.next, .prev {
+	cursor: pointer;
+}
+
+.sub-arrow {
+	background:url("/web/20110307174715im_/http://www.chevrolet.com/assets/en/images/experience/landing/sub-arrow.jpg") no-repeat scroll 0 0 transparent;
+	position: relative;
+	float:left;
+	height:7px;
+	margin-left:5px;
+	margin-top:18px;
+	left:0px;
+	width:6px;
+}
+
+.sub-expand {
+	/*background:url("/web/20110307174715im_/http://www.chevrolet.com/mds/css/promos/expand.jpg") no-repeat scroll 0 0 transparent;*/
+	position: relative;
+	float:left;
+	height:7px;
+	margin-left:5px;
+	margin-top:17px;
+	left:0px;
+	width:6px;
+}
+
+.promo {
+	
+}
+
+.promo_asset {
+	padding: 3px;
+	/*border: 1px solid #bbb;*/
+	margin-right: 0px;
+	height:144px;
+	cursor: pointer;
+	float: left;
+}
+
+.cta_group {
+	clear:both;
+display:none;
+float:left;
+position:relative;
+top:-5px;
+}
+
+a.cta {
+	font-size: 1em;
+	font-weight: bold;
+	display: block;
+	margin-top: 14px;
+	color: #4e8aa7 !important;
+	text-decoration: none !important;
+	float: left;
+	max-width:257px;
+	_margin-right: 5px;
+	clear:left;
+}
+
+a.cta:hover {
+	font-size: 1em;
+	color: #484848 !important;
+}
+
+a.cta:active {
+	color: #a1a1a1 !important;
+}
+
+
+/*
+     FILE ARCHIVED ON 17:47:15 Mar 07, 2011 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:53:15 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 86.132
+  exclusion.robots: 0.066
+  exclusion.robots.policy: 0.057
+  cdx.remote: 0.06
+  esindex: 0.01
+  LoadShardBlock: 54.406 (3)
+  PetaboxLoader3.datanode: 117.393 (5)
+  load_resource: 294.668 (2)
+  PetaboxLoader3.resolve: 176.382 (2)
+*/

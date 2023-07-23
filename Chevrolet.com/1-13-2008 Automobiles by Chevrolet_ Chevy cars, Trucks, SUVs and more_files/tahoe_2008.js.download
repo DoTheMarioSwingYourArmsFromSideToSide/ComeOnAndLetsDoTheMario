@@ -1,0 +1,80 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+
+// masthead price as shown
+var priceasshown_tahoe2008="$44,795";
+
+//flyout starting at price
+var startingatprice_tahoe_flyout="$34,995*";
+var priceasshown_tahoe_flyout="$47,575*";
+
+// landing page prices
+var startingatprice_tahoe2008_landing="$34,995*";
+var priceasshown_tahoe2008_landing="$42,040*";
+
+// thumbnail price as shown
+//var priceasshown_tahoe2008_base="$34,890*";
+var priceasshown_tahoe2008_ls="$35,040*";
+var priceasshown_tahoe2008_lt="$40,020*";
+var priceasshown_tahoe2008_ltz="$50,380*";
+
+// thumbnails starting at price
+//var startingatprice_tahoe2008_base="$34,890*";
+var startingatprice_tahoe2008_ls="$34,995*";
+var startingatprice_tahoe2008_lt="$37,045*";
+var startingatprice_tahoe2008_ltz="$45,680*";
+//var startingatprice_tahoe2008_hybrid="$XX,XXX*";
+
+// trim levels starting at price
+//var startingatprice_tahoe2008_base_2wd="$34,890*";
+//var startingatprice_tahoe2008_base_4x4="$38,490*";
+
+var startingatprice_tahoe2008_ls_2wd="$34,995*";
+var startingatprice_tahoe2008_ls_4x4="$38,795*";
+
+var startingatprice_tahoe2008_1lt_2wd="$37,045*";
+var startingatprice_tahoe2008_1lt_4x4="$39,850*";
+
+var startingatprice_tahoe2008_2lt_2wd="$39,140*";
+var startingatprice_tahoe2008_2lt_4x4="$41,945*";
+
+var startingatprice_tahoe2008_3lt_2wd="$40,200*";
+var startingatprice_tahoe2008_3lt_4x4="$43,005*";
+
+var startingatprice_tahoe2008_ltz_2wd="$45,680*";
+var startingatprice_tahoe2008_ltz_4x4="$48,485*";
+
+//var startingatprice_tahoe2008_hybrid_2wd="$XX,XXX*";
+//var startingatprice_tahoe2008_hybrid_4x4="$XX,XXX*";
+
+}
+/*
+     FILE ARCHIVED ON 04:10:50 Nov 15, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:01:46 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 85.156
+  exclusion.robots: 0.083
+  exclusion.robots.policy: 0.072
+  RedisCDXSource: 4.28
+  esindex: 0.009
+  LoadShardBlock: 60.215 (3)
+  PetaboxLoader3.datanode: 73.964 (4)
+  load_resource: 44.201
+  PetaboxLoader3.resolve: 24.514
+*/

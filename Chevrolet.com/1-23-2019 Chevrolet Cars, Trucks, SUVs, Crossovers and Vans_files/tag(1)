@@ -1,0 +1,119 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+BrightTag.site('3xLRJdY',function(s){
+s.script('//web.archive.org/web/20181130024931/https://s.btstatic.com/lib/20082c8f5a498e72020be44646aed00b68ae5025.js?v\x3d2').script('//web.archive.org/web/20181130024931/https://s.btstatic.com/lib/0b7655015ccda4fd7692c20c362003cac5b50217.js?v\x3d2').script('//web.archive.org/web/20181130024931/https://s.btstatic.com/lib/47eaaaaf00348e7390f8274d3bf4121771f708fb.js?v\x3d2').script('//web.archive.org/web/20181130024931/https://s.btstatic.com/lib/6232f47d0cfdb67015790be5601cdce5196f2fa3.js?v\x3d2').script('//web.archive.org/web/20181130024931/https://s.btstatic.com/lib/9da8cb49278aceeea798d8dd3b5f77ba522082a6.js?v\x3d2').wait(function(){
+s.dbe('tag subgroup: apply for credit', '\x22AFC\x22',{pageId:2101469});
+s.dbe('screen size', 'try{if(digitalData.pageInfo !\x3d undefined) {digitalData.pageInfo.renderedExperience.toLowerCase();} else {digitalData.renderedExperience.toLowerCase();}}catch(e){\x22unable to extract data\x22}\r\n',{pageId:2101469});
+s.dbe('tag group: non-reporting function', '\x22NRF\x22',{pageId:2101469});
+s.dbe('tag subgroup: non-retail landing page', '\x22NRP\x22',{pageId:2101469});
+s.dbe('do not track', '\x27\x27');
+s.dbe('session id', 'sessionStorage.getItem(\x27csid\x27);',{pageId:2101469});
+s.dbe('language', '\x27en-US,en;q\\x3d0.9\x27');
+s.dbe('flag for 404', 'if(jQuery.trim(jQuery(\x27h1,h2,h3,p\x27).text().match(/page.*not.*(available|found)/i))){true} else{false}',{pageId:2101469});
+s.dbe('referrer', '\x27https://www.chevrolet.com/\x27');
+s.dbe('persistent browser id', 'localStorage.getItem(\x27pbid\x27);',{pageId:2101469});
+s.dbe('timestamp ms', '\x271543546171339\x27');
+s.dbe('language (of page)', 'try {if (location.hostname.indexOf(\x27www.\x27) \x3e -1 || location.hostname.indexOf(\x22chat.chevrolet\x22) \x3e -1) {\r\n  \x27en\x27;\r\n} else if (location.hostname.indexOf(\x27es\x27) \x3e -1 || location.hostname.indexOf(\x22chat.gm\x22) \x3e -1) {\r\n  \x27es\x27;\r\n} else if (digitalData !\x3d\x3d undefined \x26\x26 digitalData.pageInfo.languageSelected.length \x3e 1) {\r\n  digitalData.pageInfo.languageSelected.toLowerCase().slice(0,2);\r\n}\r\n} catch(e) {\x22unable to extract data\x22}',{pageId:2101469});
+s.dbe('signal universal id', '\x27M1eKGO+kARu5xxn+edDyvxjBobkNMdiCecFr3er+fp0\\x3d\x27');
+s.dbe('current url', 'location.href;',{pageId:2101469});
+s.dbe('ip address', '\x27207.241.232.185\x27');
+s.dbe('pii filter', '(function(){\r\nvar array \x3d [\x27passport\x27, \x27birth\x27, \x27email\x27, \x27name\x27, \x27phone\x27, \x27address\x27, \x27number\x27];\r\n\r\nvar searchFunction \x3d function(string){\r\n\r\nvar url \x3d location.href.toLowerCase();\r\n\r\nreturn url.indexOf(string) \x3e -1;\r\n\r\n\r\n};\r\nreturn array.some(searchFunction);\r\n\r\n})();\r\n',{pageId:2101469});
+s.dbe('tag group: key buying activity', '\x22KBA\x22',{pageId:2101469});
+s.dbe('referring url', 'if(document.referrer.length \x3c\x3d 0){\x27no referring URL\x27}else{document.referrer.split(/\\?/)[0];}',{pageId:2101469});
+s.dbe('user agent', '\x27Mozilla/5.0 (compatible; archive.org_bot; Wayback Machine Live Record; http://archive.org/details/archive.org_bot)\x27');
+s.dbe('timestamp', '\x272018-11-30T02:49:31.339Z\x27');
+s.events.bind('event data feed',window,'eventDataFeed',{pageId:2101469}).dbe('group','\x22KBA\x22').dbe('subgroup','eventData[0];');
+s.events.bind('time complete',window,'timeComplete',{pageId:2101469}).dbe('page info','(function(){\r\nvar abbr \x3d location.href;\r\nvar info;\r\nif(abbr.indexOf(\x27current-offers\x27) \x3e -1 || abbr.indexOf(\x27current-deals\x27) \x3e -1){info \x3d \x27current offers\x27;}\r\nelse if(abbr.indexOf(\x27chevrolet.com\x27) \x3e -1 \x26\x26 location.pathname \x3d\x3d\x3d \x22/\x22){info \x3d \x27homepage\x27;} \r\nelse if(abbr.indexOf(\x27specs\x27) \x3e -1 || abbr.indexOf(\x27trims\x27) \x3e -1){info \x3d \x27specifications\x27;}\r\nelse{info \x3d \x27model overview\x27;}\r\n\r\nreturn info;\r\n})();');
+s.events.bind('locate a dealer - search button',window,'locatedealercomplete',{pageId:2954973});
+s.events.bind('apply for credit','a[href*\x3d\x22apply.gmfinancial.com\x22]','click mouseup',{pageId:2954973}).dbe('group','\x22KBA\x22').dbe('subgroup','\x22AFC\x22');
+s.events.on('event data feed').fire(13688).appendData('group').appendData('signal universal id').appendData('current url').appendData('subgroup').appendData('timestamp ms').appendData('timestamp').appendData('referring url');
+s.events.on('view offer').fire(13688).appendData('group').appendData('signal universal id').appendData('current url').appendData('subgroup').appendData('timestamp ms').appendData('timestamp').appendData('referring url');
+s.events.on('apply for credit').fire(13688).appendData('group').appendData('signal universal id').appendData('current url').appendData('subgroup').appendData('timestamp ms').appendData('timestamp').appendData('referring url');
+s.events.on('color swatch').fire(13688).appendData('group').appendData('signal universal id').appendData('current url').appendData('subgroup').appendData('timestamp ms').appendData('timestamp').appendData('referring url');
+s.events.on('image carousel').fire(13688).appendData('group').appendData('signal universal id').appendData('current url').appendData('subgroup').appendData('timestamp ms').appendData('timestamp').appendData('referring url');
+s.events.on('gallery').fire(13688).appendData('group').appendData('signal universal id').appendData('current url').appendData('subgroup').appendData('timestamp ms').appendData('timestamp').appendData('referring url');
+s.events.on('video start').fire(13688).appendData('group').appendData('signal universal id').appendData('current url').appendData('subgroup').appendData('timestamp ms').appendData('timestamp').appendData('referring url');
+s.events.on('payment estimator').fire(13688).appendData('group').appendData('signal universal id').appendData('current url').appendData('subgroup').appendData('timestamp ms').appendData('timestamp').appendData('referring url');
+s.events.on('sticky navigation').fire(13688).appendData('group').appendData('signal universal id').appendData('current url').appendData('subgroup').appendData('timestamp ms').appendData('timestamp').appendData('referring url');
+s.events.on('click to call').fire(13688).appendData('group').appendData('signal universal id').appendData('current url').appendData('subgroup').appendData('timestamp ms').appendData('timestamp').appendData('referring url');
+s.events.on('download a brochure').fire(13688).appendData('group').appendData('signal universal id').appendData('current url').appendData('subgroup').appendData('timestamp ms').appendData('timestamp').appendData('referring url');
+s.events.on('custom trigger').fire(13688).appendData('group').appendData('signal universal id').appendData('current url').appendData('subgroup').appendData('timestamp ms').appendData('timestamp').appendData('referring url');
+s.events.on('event data feed').fire(13771).appendData('group').appendData('current url').appendData('ad group').appendData('channel').appendData('subgroup').appendData('ip address').appendData('user agent').appendData('language').appendData('referring url').appendData('keyword').appendData('signal universal id').appendData('referrer').appendData('do not track').appendData('timestamp ms');
+s.events.on('view offer').fire(13771).appendData('group').appendData('current url').appendData('ad group').appendData('channel').appendData('subgroup').appendData('ip address').appendData('user agent').appendData('language').appendData('referring url').appendData('keyword').appendData('signal universal id').appendData('referrer').appendData('do not track').appendData('timestamp ms');
+s.events.on('apply for credit').fire(13771).appendData('group').appendData('current url').appendData('ad group').appendData('channel').appendData('subgroup').appendData('ip address').appendData('user agent').appendData('language').appendData('referring url').appendData('keyword').appendData('signal universal id').appendData('referrer').appendData('do not track').appendData('timestamp ms');
+s.events.on('color swatch').fire(13771).appendData('group').appendData('current url').appendData('ad group').appendData('channel').appendData('subgroup').appendData('ip address').appendData('user agent').appendData('language').appendData('referring url').appendData('keyword').appendData('signal universal id').appendData('referrer').appendData('do not track').appendData('timestamp ms');
+s.events.on('image carousel').fire(13771).appendData('group').appendData('current url').appendData('ad group').appendData('channel').appendData('subgroup').appendData('ip address').appendData('user agent').appendData('language').appendData('referring url').appendData('keyword').appendData('signal universal id').appendData('referrer').appendData('do not track').appendData('timestamp ms');
+s.events.on('gallery').fire(13771).appendData('group').appendData('current url').appendData('ad group').appendData('channel').appendData('subgroup').appendData('ip address').appendData('user agent').appendData('language').appendData('referring url').appendData('keyword').appendData('signal universal id').appendData('referrer').appendData('do not track').appendData('timestamp ms');
+s.events.on('video start').fire(13771).appendData('group').appendData('current url').appendData('ad group').appendData('channel').appendData('subgroup').appendData('ip address').appendData('user agent').appendData('language').appendData('referring url').appendData('keyword').appendData('signal universal id').appendData('referrer').appendData('do not track').appendData('timestamp ms');
+s.events.on('payment estimator').fire(13771).appendData('group').appendData('current url').appendData('ad group').appendData('channel').appendData('subgroup').appendData('ip address').appendData('user agent').appendData('language').appendData('referring url').appendData('keyword').appendData('signal universal id').appendData('referrer').appendData('do not track').appendData('timestamp ms');
+s.events.on('sticky navigation').fire(13771).appendData('group').appendData('current url').appendData('ad group').appendData('channel').appendData('subgroup').appendData('ip address').appendData('user agent').appendData('language').appendData('referring url').appendData('keyword').appendData('signal universal id').appendData('referrer').appendData('do not track').appendData('timestamp ms');
+s.events.on('click to call').fire(13771).appendData('group').appendData('current url').appendData('ad group').appendData('channel').appendData('subgroup').appendData('ip address').appendData('user agent').appendData('language').appendData('referring url').appendData('keyword').appendData('signal universal id').appendData('referrer').appendData('do not track').appendData('timestamp ms');
+s.events.on('download a brochure').fire(13771).appendData('group').appendData('current url').appendData('ad group').appendData('channel').appendData('subgroup').appendData('ip address').appendData('user agent').appendData('language').appendData('referring url').appendData('keyword').appendData('signal universal id').appendData('referrer').appendData('do not track').appendData('timestamp ms');
+s.events.on('custom trigger').fire(13771).appendData('group').appendData('current url').appendData('ad group').appendData('channel').appendData('subgroup').appendData('ip address').appendData('user agent').appendData('language').appendData('referring url').appendData('keyword').appendData('signal universal id').appendData('referrer').appendData('do not track').appendData('timestamp ms');
+s.when('bt_data(\x27current url\x27).indexOf(\x22certified-service\x22) \x3c 0',function(){
+s.events.on('locate a dealer - search button').fire(5017091);
+s.events.on('locate a dealer').fire(5017091);
+});
+s.events.on('apply for credit').fire(5017322);
+s.when('bt_data(\x27current url\x27).indexOf(\x22certified-service\x22) \x3c 0',function(){
+s.events.on('locate a dealer').fire(5020595);
+s.events.on('locate a dealer - search button').fire(5020595);
+});
+s.when('bt_data(\x27current url\x27).indexOf(\x22certified-service\x22) \x3c 0',function(){
+s.events.on('locate a dealer - search button').fire(5020619);
+s.events.on('locate a dealer').fire(5020619);
+});
+s.when('bt_data(\x27flag for 404\x27) \x3d\x3d false',function(){
+s.events.on('time complete').fire(5040636);
+});
+s.when('bt_data(\x27current url\x27).indexOf(\x22certified-service\x22) \x3c 0',function(){
+s.events.on('locate a dealer - search button').fire(5888878);
+s.events.on('locate a dealer').fire(5888878);
+});
+s.domready(function(){
+s.tag('\x3cscript\x3e\n        (function() {\n          var url \x3d \x27https://3924042.fls.doubleclick.net/activityi;src\x3d3924042;type\x3dchevr0;cat\x3dusche0;\x27;\n\n          BrightTag.each(([{key:"u1",value:'+s.dataref("signal universal id")+'},{key:"u2",value:'+s.dataref("language (of page)")+'},{key:"u15",value:'+s.dataref("referring url")+'},{key:"u18",value:'+s.dataref("session id")+'},{key:"u19",value:'+s.dataref("tag group: non-reporting function")+'},{key:"u20",value:'+s.dataref("tag subgroup: non-retail landing page")+'},{key:"u25",value:'+s.dataref("persistent browser id")+'},{key:"u26",value:'+s.dataref("screen size")+'}]).concat([]), function(prop) {\n            url +\x3d encodeURIComponent(prop.key) + \x22\x3d\x22 + encodeURIComponent(prop.value) + \x22;\x22;\n          });\n\n          url +\x3d \x27ord\x3d0743780742;~oref\x3dhttps%3A%2F%2Fwww.chevrolet.com%2F?\x27\n          BrightTag.Content.iframe(url, {display: \x27none\x27});\n        })();\n      \x3c/script\x3e',{tagId:5017305});
+s.tag('\x3c!-- Start Quantcast Tag --\x3e\n\x3cscript type\x3d\x22text/javascript\x22\x3e\nvar _qevents \x3d _qevents || [];\n\n (function() {\n   var elem \x3d document.createElement(\x27script\x27);\n   elem.src \x3d (document.location.protocol \x3d\x3d \x22https:\x22 ? \x22https://secure\x22 : \x22http://edge\x22) + \x22.quantserve.com/quant.js\x22;\n   elem.async \x3d true;\n   elem.type \x3d \x22text/javascript\x22;\n   var scpt \x3d document.getElementsByTagName(\x27script\x27)[0];\n   scpt.parentNode.insertBefore(elem, scpt);\n  })();\n\n_qevents.push({qacct: \x22p-MPeaCmPr94dQZ\x22});\n\n\x3c/script\x3e\n\n\x3c!-- End Quantcast tag --\x3e\n',{tagId:5888912});
+s.secondary(function(c){
+c.when('bt_data(\x27current url\x27).indexOf(\x22certified-service\x22) \x3c 0').fire(1017219);
+c.when('bt_data(\x27pii filter\x27) \x3d\x3d false').fire(1017786);
+c.when('bt_data(\x27current url\x27).indexOf(\x22chevroletevlife\x22) \x3c 0').fire(4254641);
+c.when('bt_data(\x27current url\x27).indexOf(\x22certified-service\x22) \x3e -1').fire(5110336);
+c.when('bt_data(\x27flag for 404\x27) \x3d\x3d true').fire(5343215);
+c.appendData('group').appendData('current url').appendData('ad group').appendData('channel').appendData('subgroup').appendData('ip address').appendData('user agent').appendData('language').appendData('referring url').appendData('keyword').appendData('signal universal id').appendData('referrer').appendData('do not track').appendData('timestamp ms');
+});
+});
+});
+});
+
+
+}
+/*
+     FILE ARCHIVED ON 02:49:31 Nov 30, 2018 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 07:28:30 May 01, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 253.894
+  exclusion.robots: 0.069
+  exclusion.robots.policy: 0.06
+  cdx.remote: 0.064
+  esindex: 0.009
+  LoadShardBlock: 204.155 (3)
+  PetaboxLoader3.datanode: 339.514 (4)
+  load_resource: 329.109
+  PetaboxLoader3.resolve: 184.696
+*/

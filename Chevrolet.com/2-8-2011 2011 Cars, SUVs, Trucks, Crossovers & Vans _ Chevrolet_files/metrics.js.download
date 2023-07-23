@@ -1,0 +1,86 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+/*
+ */
+function fireMetrics(id, options)
+{
+    if (typeof pageTrackJSON != 'undefined') 
+	{
+		var sdata = {};
+    	for (var i=0; i<pageTrackJSON.length; i++) 
+		{
+			var tmp = pageTrackJSON[i]
+			if(tmp.id.toLowerCase() == id.toLowerCase())
+			{
+				/// clone the object so the original is not changed
+				sdata = $merge({}, tmp);
+				break;
+			}
+		}
+		
+		sdata.vars = parseOptions(sdata.vars, options);
+		
+		clickTrack(sdata.vars);
+ 		//alert(sdata.id);
+   }
+}
+
+function parseOptions(sdata, options){
+	//parse out values into an Associative array.
+	var optionArray = {};
+	var tmp = options.split(";;");
+	for(var i=0;i<tmp.length;i++){
+		var t = tmp[i].split("::");
+		optionArray[t[0]] = t[1];
+	}
+	// add hour and day info
+	optionArray['HOUR'] = new Date().getHours()
+	optionArray['DAY'] = weekday[(new Date()).getDay()]
+	
+	var reg = /<<(\w*)>>/;
+	// loop through prop value to replace tokens.
+	for(var i in sdata){
+		if (reg.test(sdata[i])) {
+			for (var x in optionArray) {
+				sdata[i] = sdata[i].replace(new RegExp('<<' + x + '>>','gi'), optionArray[x])
+			}
+		}
+		//alert(sdata[i]);
+	}
+	return sdata;
+}
+
+// for testing
+//fireMetrics("123","DIVISION::321;;NAME2::VALUE2");
+
+}
+/*
+     FILE ARCHIVED ON 16:54:27 Feb 08, 2011 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:52:14 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 81.476
+  exclusion.robots: 0.145
+  exclusion.robots.policy: 0.131
+  cdx.remote: 0.091
+  esindex: 0.011
+  LoadShardBlock: 49.922 (3)
+  PetaboxLoader3.datanode: 51.22 (4)
+  load_resource: 91.43
+  PetaboxLoader3.resolve: 63.998
+*/

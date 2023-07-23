@@ -1,0 +1,51 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+/*!
+ * 
+ * name: @gbds/global-portable-experiences
+ * version: 1.1.11-23.01
+ * @gbds/core dependency version: 4.0.19
+ * @gbds/quantum dependency version: 1.3.88
+ * date: Mon Jan 23 2023 07:44:12 GMT-0500 (Eastern Standard Time)
+ * Copyright 2021 GM Global Technology Operations LLC
+ * All Rights Reserved.
+ * This software is proprietary to GM Global Technology Operations LLC
+ * and is protected by intellectual property laws and international
+ * intellectual property treaties. Your access to this software is governed
+ * by the terms of your license agreement with GM Global Technology Operations LLC.
+ * Any other use of the software is strictly prohibited.
+ * 
+ */!function(e){var t={};function n(a){if(t[a])return t[a].exports;var o=t[a]={i:a,l:!1,exports:{}};return e[a].call(o.exports,o,o.exports,n),o.l=!0,o.exports}n.m=e,n.c=t,n.d=function(e,t,a){n.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:a})},n.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},n.t=function(e,t){if(1&t&&(e=n(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var a=Object.create(null);if(n.r(a),Object.defineProperty(a,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var o in e)n.d(a,o,function(t){return e[t]}.bind(null,o));return a},n.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return n.d(t,"a",t),t},n.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},n.p="",n(n.s=116)}({116:function(e,t){(async()=>{if(window.lpTag||function(){try{const e=new Set(["/dealer-locator","/locate-buick-dealer","/locate-gmc-dealer","/locate-dealer"]),t="/index/shopping-tools/dealer-experience/";return e.has(window.location.pathname)||window.location.pathname.startsWith(t)}catch(e){return console.error("Excluding live person chat failed: ",e),!1}}())return;const e=function(){try{return location.origin.includes(".wpx.")||location.origin.includes(".wpi.")}catch(e){return console.error("Error determining environment",e),!1}}()?"22306820":"65948500",t=function(){try{return location.pathname.endsWith("fr")||location.pathname.includes("/fr/")?"fr":"en"}catch(e){return console.error("Error determining language: ",e),"en"}}(),n=function(e=location.origin){return(e.includes("chevrolet")?"chevrolet":e.includes("gmc")&&"gmc")||e.includes("cadillac")&&"cadillac"||e.includes("buick")&&"buick"||e.includes("onstar")&&"onstar"||e.includes("gmparts")&&"gmparts"||"gm"}();a=e,window.lpTag=window.lpTag||{},void 0===window.lpTag._tagCount?(window.lpTag={site:a||"",section:lpTag.section||"",tagletSection:lpTag.tagletSection||null,autoStart:!1!==lpTag.autoStart,ovr:lpTag.ovr||{},_v:"1.8.0",_tagCount:1,protocol:"https:",events:{bind:function(e,t,n){lpTag.defer((function(){lpTag.events.bind(e,t,n)}),0)},trigger:function(e,t,n){lpTag.defer((function(){lpTag.events.trigger(e,t,n)}),1)}},defer:function(e,t){0==t?(this._defB=this._defB||[],this._defB.push(e)):1==t?(this._defT=this._defT||[],this._defT.push(e)):(this._defL=this._defL||[],this._defL.push(e))},load:function(e,t,n){var a=this;setTimeout((function(){a._load(e,t,n)}),0)},_load:function(e,t,n){var a=e;e||(a=this.protocol+"//"+(this.ovr&&this.ovr.domain?this.ovr.domain:"lptag.liveperson.net")+"/tag/tag.js?site="+this.site);var o=document.createElement("script");o.setAttribute("charset",t||"UTF-8"),n&&o.setAttribute("id",n),o.setAttribute("src",a),document.getElementsByTagName("head").item(0).appendChild(o)},init:function(){this._timing=this._timing||{},this._timing.start=(new Date).getTime();var e=this;window.attachEvent?window.attachEvent("onload",(function(){e._domReady("domReady")})):(window.addEventListener("DOMContentLoaded",(function(){e._domReady("contReady")}),!1),window.addEventListener("load",(function(){e._domReady("domReady")}),!1)),void 0===window._lptStop&&this.load()},start:function(){this.autoStart=!0},_domReady:function(e){this.isDom||(this.isDom=!0,this.events.trigger("LPT","DOM_READY",{t:e})),this._timing[e]=(new Date).getTime()},vars:lpTag.vars||[],dbs:lpTag.dbs||[],ctn:lpTag.ctn||[],sdes:lpTag.sdes||[],hooks:lpTag.hooks||[],ev:lpTag.ev||[]},lpTag.init()):window.lpTag._tagCount+=1;var a;let o=!1;o=await async function(){return Promise.race([(window.gbpe&&window.gbpe.auth&&window.gbpe.auth.loaded||new Promise(e=>window.addEventListener("gbpe-authLoaded",async()=>e(await window.gbpe.auth.loaded)))).then(()=>window.gbpe.auth.currentAuthState),new Promise(e=>setTimeout(()=>e(0),5e3))])}();const c=function(e){try{const t=location.hostname;for(const n in e)if(e.hasOwnProperty(n)){if(!0===e[n].some(e=>new RegExp("(^|[.-]+)"+e+"($|[.-]+)").test(t)))return console.log("match found: ",n),n}return console.log("no match found, returning default market"),"us"}catch(e){return console.error("Error determining market: ",e),"us"}}({ca:["ca","canada"],eu:["eu","europe"],mx:["mx","mexico"],us:["com"]});function r(e={}){const t=function(e={}){let t,n;if(e.hasOwnProperty("phones")&&e.phones.length>0){const a=e.phones.find(e=>e.hasOwnProperty("phone_type")&&"HOME"===e.phone_type);n=a&&a.hasOwnProperty("phone_number")?a.phone_number:void 0;const o=e.phones.find(e=>e.hasOwnProperty("phone_type")&&"CELL"===e.phone_type);t=o&&o.hasOwnProperty("phone_number")?o.phone_number:void 0}return t||(n||"")}(e);return{type:"personal",personal:{firstname:e.first_name,lastname:e.last_name,contacts:{email:e.login_id,phone:t}}}}function i(e={}){return{type:"ctmrinfo",info:{customerId:function(e={}){let t;return e.hasOwnProperty("onStar")&&e.onStar.hasOwnProperty("accountId")&&e.onStar.accountId.length>0&&(t=e.onStar.accountId[0]),t}(e)}}}function u(e=[{},{}]){return{type:"lead",lead:{leadId:(e&&e.garage||[]).map(e=>e&&e.vin?e.vin:void 0).filter(e=>void 0!==e&&17===e.length).toString()}}}lpTag.section=function(e="gm",t="en",n=!1,a="us"){return{us:{authenticated:{en:{gm:"gm_auth",chevrolet:"chevy_auth",buick:"buick_auth",cadillac:"cad_auth",gmc:"gmc_auth",gmparts:"acdelco_auth",onstar:"us_en_onstar_auth"}},unauthenticated:{en:{gm:"gm_na",chevrolet:"chevy_na",buick:"buick_na",cadillac:"cad_na",gmc:"gmc_na",gmparts:"acdelco_na",onstar:"us_en_onstar_na"}}},ca:{authenticated:{en:{gm:"ca_en_gm_auth",chevrolet:"ca_en_chevrolet_auth",buick:"ca_en_buick_auth",cadillac:"ca_en_cadillac_auth",gmc:"ca_en_gmc_auth"},fr:{gm:"ca_fr_gm_auth",chevrolet:"ca_fr_chevrolet_auth",buick:"ca_fr_buick_auth",cadillac:"ca_fr_cadillac_auth",gmc:"ca_fr_gmc_auth"}},unauthenticated:{en:{gm:"ca_en_gm_na",chevrolet:"ca_en_chevrolet_na",buick:"ca_en_buick_na",cadillac:"ca_en_cadillac_na",gmc:"ca_en_gmc_na"},fr:{gm:"ca_fr_gm_na",chevrolet:"ca_fr_chevrolet_na",buick:"ca_fr_buick_na",cadillac:"ca_fr_cadillac_na",gmc:"ca_fr_gmc_na"}}},mx:{authenticated:{en:{gm:"mx_en_gm_auth",chevrolet:"mx_en_chevrolet_auth",buick:"mx_en_buick_auth",cadillac:"mx_en_cadillac_auth",gmc:"mx_en_gmc_auth"},fr:{gm:"mx_fr_gm_auth",chevrolet:"mx_fr_chevrolet_auth",buick:"mx_fr_buick_auth",cadillac:"mx_fr_cadillac_auth",gmc:"mx_fr_gmc_auth"}},unauthenticated:{en:{gm:"mx_en_gm_na",chevrolet:"mx_en_chevrolet_na",buick:"mx_en_buick_na",cadillac:"mx_en_cadillac_na",gmc:"mx_en_gmc_na"},fr:{gm:"mx_fr_gm_na",chevrolet:"mx_fr_chevrolet_na",buick:"mx_fr_buick_na",cadillac:"mx_fr_cadillac_na",gmc:"mx_fr_gmc_na"}}}}[a][n&&1===Number(n)?"authenticated":"unauthenticated"][t][e]}(n,t,o,c),lpTag.events.bind("LP_OFFERS","OFFER_CLICK",(e,t)=>{1===e.state&&o&&1===Number(o)&&(console.log("pushing user data"),async function(){const[e,t]=await async function(){const e=window.gbpe.user,[t,n]=await Promise.allSettled([e.profile.catch(e=>e),e.vehicles.catch(e=>e)]);return[t,n]}(),n=e.value&&e.value.data?e.value.data:e.data,a=t.value&&t.value.data?t.value.data:t.data;e&&n&&(lpTag.sdes.push(r(n)),window.console.log("pushed user profile data ",r(n)));e&&n&&n.onStar&&n.onStar.accountId&&(lpTag.sdes.push(i(n)),window.console.log("pushed onstar data ",i(n)));t&&a&&a.garage&&a.garage.length&&(lpTag.sdes.push(u(a)),window.console.log("pushed vehicle data ",u(a)))}())})})()}});
+//# sourceMappingURL=https://stage.gm-cdn.com/_gbpe/code/private/prod1/sourcemaps/live-person-chat.js.map
+
+}
+/*
+     FILE ARCHIVED ON 04:39:17 Feb 19, 2023 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 23:21:24 May 01, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 287.041
+  exclusion.robots: 0.097
+  exclusion.robots.policy: 0.086
+  RedisCDXSource: 0.882
+  esindex: 0.009
+  LoadShardBlock: 260.061 (3)
+  PetaboxLoader3.datanode: 133.579 (5)
+  load_resource: 193.058 (2)
+  PetaboxLoader3.resolve: 95.747 (2)
+*/

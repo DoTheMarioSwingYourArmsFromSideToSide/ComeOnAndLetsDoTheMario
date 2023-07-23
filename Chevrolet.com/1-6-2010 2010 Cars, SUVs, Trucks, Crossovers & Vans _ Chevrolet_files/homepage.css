@@ -1,0 +1,50 @@
+#Masthead {
+	width: 980px;
+	height: 421px;
+}
+
+#pContent {
+	height:300px;
+	text-align: center;
+	border: 2px dashed rgb(0, 204, 0);
+}
+
+.lowspeed #gMdsContent, .highspeed #gMdsContentFlashHook{
+	display: block;
+}
+
+.lowspeed #gMdsContentFlashHook, .highspeed #gMdsContent{
+	display: none;
+}
+
+
+
+
+.lowspeed  #pContent, .lowspeed #pOnstar, .lowspeed #Well {
+	display: none;
+}
+
+
+#gMdsSubNav {
+	background: none;
+}
+/*
+     FILE ARCHIVED ON 21:06:44 Jun 14, 2010 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:30:50 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 145.53
+  exclusion.robots: 0.08
+  exclusion.robots.policy: 0.072
+  cdx.remote: 0.049
+  esindex: 0.007
+  LoadShardBlock: 98.355 (3)
+  PetaboxLoader3.datanode: 99.212 (4)
+  load_resource: 142.224
+  PetaboxLoader3.resolve: 41.274
+*/

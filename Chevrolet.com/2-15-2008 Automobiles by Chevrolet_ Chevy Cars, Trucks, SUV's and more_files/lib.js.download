@@ -1,0 +1,1774 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+/** 
+ * Common JavaScript methods and properties for chevrolet.com 
+ * 2006 model year.
+*/
+
+/* Global Variables */
+var htmlLang = "en";
+var bodyId;
+var model="";
+var subModel="";
+var discInit = ""
+var ok = false;  
+
+
+
+
+try {
+	htmlLang = document.getElementsByTagName('html').item(0).lang;
+
+	
+} catch (e) {
+	langErrorDescription = e;
+}
+
+/* Omniture Flash Tracking [mears 03.06] */
+function sendAnalyticsEvent(accnt) { 
+	accnt=accnt?accnt:s_account;void(s_gs(accnt))
+	} 
+ 
+function sendLinkEvent(lnkname,type, accnt) { 
+	accnt=accnt?accnt:s_account;s_linkType=type?type:"o";s_lnk=true; 
+	s_linkName=lnkname?lnkname:s_linkName?s_linkName:"Flash Link Event"; 
+	void(s_gs(accnt))
+	} 
+
+/* flash popups */
+function newWin(url,w,h,menubar,toolbar,location,scrollbar,resizable) {  
+	var appWindow = window.open(url, "appWin", "menubar=" + menubar + ", toolbar=" + toolbar + ",location=" + location + ",resizable=" + resizable + ",scrollbars=" + scrollbar + ",left=" + (screen.width - w) / 2 + ",top=" + (screen.height - h) / 2 + ",width=" + w + ",height=" + h);
+}
+
+function newWinEmail(url,w,h,menubar,toolbar,location,scrollbar,resizable) {  
+var qString="?url=" + window.location.href;
+var appWindow = window.open(url+qString, "appWin", "menubar=" + menubar + ", toolbar=" + toolbar + ",location=" + location + ",resizable=" + resizable + ",scrollbars=" + scrollbar + ",left=" + (screen.width - w) / 2 + ",top=" + (screen.height - h) / 2 + ",width=" + w + ",height=" + h);
+}
+
+
+/* Site Navigation */
+var sitenavObj;
+
+function sitenavHandler() {
+	bodyId = document.body.id;
+	this.sitenav = document.getElementById('sitenav');
+	this.dls = this.sitenav.getElementsByTagName('dl');
+	this.dts = this.sitenav.getElementsByTagName('dt');
+	this.dds = this.sitenav.getElementsByTagName('dd');
+	this.category = getCookie(bodyId) ? getCookie(bodyId).toLowerCase() : document.body.className.split(" ")[0];
+	var anchors = this.sitenav.getElementsByTagName('a');
+	this.setSitenav = function() { 
+		for (var i = anchors.length; i != 0; i--) {
+			var a = anchors[i-1];
+			if (a.rel.toLowerCase().indexOf(this.category) != -1 && a.rel.toLowerCase().indexOf(bodyId) != -1) {
+				if (typeof(AVOID_SET_SIDE_NAV)!= "undefined"){
+				    if (!AVOID_SET_SIDE_NAV) a.parentNode.className = "current";
+				}
+				if (a.parentNode.parentNode.parentNode.nodeName.toLowerCase() == "dd") {
+					a.parentNode.parentNode.parentNode.className = "currentcategory";
+				}
+			}
+			if (a.rev != "") a.onclick = function() { setCookie(this.rel.split(" ")[this.rel.split(" ").length-1].toLowerCase(),this.rev);}
+			if (a.rel.indexOf("MediumDuty") == -1) {
+				if (a.parentNode.nodeName.toLowerCase() != "dt") continue;
+				a.onclick = function() { sitenavObj.handleClick(this);return false; };
+			}
+		}
+
+		if(typeof sIFR == "function"){
+	   		sIFR.replaceElement("em.sifr", named({sFlashSrc: "/j/06/sIFR/helveticaneue77.swf", sColor: "#ffffff", sBgColor: "#34638E", nPaddingBottom: "0"}));
+	   	}
+		if (bodyId == 'home') {
+			if(flashVersion >= 7){
+				// Make sure baseballcard.js is being called by testing for existence of function
+				// This prevents errors when baseball cards are disabled on parts of the site (i.e. Chinese)
+				if(typeof baseballcard == "function") {
+					baseballcardObj = new baseballcard;
+					baseballcardObj.initBaseballcard();
+				}
+			}
+			if ( document.getElementById('cv') ) {
+				document.getElementById('cv').onclick = function(){return false;};
+				}
+			if ( document.getElementById('ce') ) {
+				document.getElementById('ce').onclick = function(){return false;};
+				}
+		}
+	}
+}
+
+sitenavHandler.prototype.collapseMenus = function(parent) {
+	var i, categories;
+	if (parent.parentNode.id != "sitenav") {
+		categories = getAncestorByTagName(parent,'dl').getElementsByTagName('dl');
+	} else {
+		categories = document.getElementById("sitenav").getElementsByTagName('dl');
+	}
+
+	for (i = categories.length; i != 0; i--) {
+		if (categories[i-1].className.indexOf("expanded") != -1) {
+			categories[i-1].className = categories[i-1].className.replace("expanded","");
+		}
+	}
+}
+
+sitenavHandler.prototype.handleClick = function(obj) {
+	var elem = getRawObject(obj);
+	var dl = getAncestorByTagName(elem,'dl');	
+	var dt = getAncestorByTagName(elem,'dt');
+	
+	var menuClass = dl.className;
+	
+	this.collapseMenus(dl);
+	if (menuClass.indexOf('expanded') == -1) {
+		dl.className = "expanded";
+		if (dl.id == "chevyvehicleslist" && document.getElementById(this.category + "list")) {
+			document.getElementById(this.category + "list").className = "expanded";
+		}
+	} else {
+		dl.className = "";
+		if (dl.id == "chevyvehicleslist" && document.getElementById(this.category + "list")) {
+			document.getElementById(this.category + "list").className = "";
+		}
+	}
+}
+document.getElementsByClassName = function(cl) {
+	var retnode = [];
+	var myclass = new RegExp('\\b'+cl+'\\b');
+	var elem = this.getElementsByTagName('*');
+	for (var i = 0; i < elem.length; i++) {
+		var classes = elem[i].className;
+		if (myclass.test(classes)) retnode.push(elem[i]);
+	}
+	return retnode;
+};
+
+function myInnerHTML(node) {
+		var nodeNamesWeIgnore = "accessKey|coords|noWrap|dataFormatAs|disabled|dataSrc|object|dataFld|language|compact|contentEditable|inherit|tabIndex|align|clear|shape|charset|urn|dir|css";
+		// that string doesn't let us ignore "hreflang" (href) of "hideFocus" (id)
+		// it might be easier to search for the attributes we DO want instead of those we DON'T want.
+		var result = "";
+
+		switch (node.nodeType) {
+		// http://www.zvon.org/xxl/DOM2reference/DOM2/Output/data/_glossary.html#NodeTypes
+			case 3:	// text node
+				var textValue = node.nodeValue;
+				textValue = textValue.replace(/\t/g, "");
+				textValue = textValue.replace(/\n/g, "");
+				textValue = textValue.replace(/\r/g, "");
+
+				result += textValue;
+				break;
+
+			case 1:
+				result += "<" + node.nodeName.toLowerCase();
+				if (node.attributes != null) {
+					if (node.attributes.length > 0) {
+						for (var i = 0;  i < node.attributes.length; i++) {
+							var nodeName = node.attributes.item(i).nodeName;
+							//if ((node.attributes.item(i).value != "null") && (node.attributes.item(i).value != "") && (nodeNamesWeIgnore.indexOf(nodeName) == -1)) {
+							if ((node.attributes.item(i).value != "null") && (nodeNamesWeIgnore.indexOf(nodeName) == -1)) {
+
+								result += " " + node.attributes.item(i).nodeName;
+								result += "=\"";
+								if(node.attributes.item(i).nodeName == "alt" || node.attributes.item(i).nodeName == "title"){
+									node.attributes.item(i).value = node.attributes.item(i).value.replace("\"", "&#34;");
+								}
+								result += node.attributes.item(i).value +"\"";
+							}
+						}
+					}
+				}
+
+				if (node.childNodes != null) {
+					if (node.childNodes.length > 0) {
+						result += ">";
+						for (var j = 0;  j < node.childNodes.length; j++) {
+							//alert(node.childNodes[j]);
+							result += myInnerHTML(node.childNodes[j]);
+						}
+						result += "</"+ node.nodeName.toLowerCase() +">";
+					} else {
+						result += "/>";
+					}
+				}
+
+				break;
+		}
+
+
+		return result;
+	}
+	
+/*Links arrows - DO NOT MODIFY THIS FUNCTION*/
+function loadArrows (){
+	/* code to create the BLUE arrow */
+	var anchors = document.getElementsByClassName("blueArrow");
+	for (var i = 0 ; i<anchors.length; i++){
+		anchors[i].innerHTML = anchors[i].innerHTML + "<img src='/i/06/gui/nav/linkarrow.gif' alt='arrow' class='arrowSpace' border='0' />"
+	}
+	
+	/* code to create the GREEN arrow */
+	anchors = document.getElementsByClassName("greenArrow");
+	for (var i = 0 ; i<anchors.length; i++){
+		anchors[i].innerHTML = anchors[i].innerHTML + "<img src='/i/06/bg/fuel/linkarrow_fuel.gif' width='5' height='7' alt='arrow' class='arrowSpace' border='0' />"
+	}
+}
+
+
+
+/*Tab nav*/
+function loadFlahNav(id, swfFile, nwidth, nheight, ndiv,nparams){
+	var so = new SWFObject("/m/global/" + swfFile + ".swf" + nparams, "tabmovie" + id, nwidth, nheight, "8", "#FFFFFF");
+	so.addVariable("txtCount",1);
+	var ihtml = myInnerHTML(document.getElementById(ndiv));
+	ihtml = ihtml.split("\"").join(escape("\""));
+	ihtml = ihtml.split("&").join(escape("&"));
+	ihtml = ihtml.split("+").join(escape("%2b"));
+	ihtml = ihtml.split("'").join(escape("%27"));
+	so.addVariable("txt0", ihtml);
+	so.addParam("menu","false");
+	so.addParam("quality", "high");
+	so.addParam("wmode", "transparent");
+	so.write(id);
+}
+
+function setTabNav(){
+	var tabsection = document.getElementById('modeltopnav');
+	if (tabsection) {
+		loadFlahNav('modeltopnav','menunav','678','23','modelnav','');
+	} 
+	tabsection = document.getElementById('safetynav');
+	if (tabsection) {
+		loadFlahNav('safetytopnav','menunav','678','23','safetynav','');
+	}
+	tabsection = document.getElementById('landingnav');
+	if (tabsection) {
+		loadFlahNav('fueltopnav','menunav_green','678','40','landingnav','?green=true');
+	}	
+	tabsection = document.getElementById('landingnavgreen');
+	if (tabsection) {
+		loadFlahNav('fueltopnav','greenMenu','678','38','landingnavgreen','?green=true');
+	}	
+	tabsection = document.getElementById('carstopnav');
+	if (tabsection) {
+		loadFlahNav('carstopnav','menunav','678','23','carsnav','');
+	}		
+	tabsection = document.getElementById('subtabcompare');
+	if (tabsection) {
+		loadFlahNav('subtabcompare','tabbedpanelbr','624','105','submenuFake','');
+	}			
+	tabsection = document.getElementById('subtabcompare1br');
+	if (tabsection) {
+		var curUrl = location.href;
+		var swfParam = "";
+		if (curUrl.indexOf('/comparison/awards/')){
+			swfParam = "?current=4";
+		}else {	
+			swfParam = "?current=3";
+		}
+		loadFlahNav('subtabcompare1br','tabbedpanel1br','624','70','submenuFake',swfParam);
+	}
+	tabsection = document.getElementById('submenu');
+	if (tabsection) {
+		loadFlahNav('submenu','tabbedpanel','624','69','submenuFake','');
+	} 
+	tabsection = document.getElementById('submenuSpecialOffers');
+	if (tabsection) {
+		loadFlahNav('submenuSpecialOffers','tabbedpanel','624','69','submenuFakeSpecialOffers','');
+	} 
+	tabsection = document.getElementById('submenunav');
+	if (tabsection) {
+		loadFlahNav('submenunav','tabbedpanel1','624','35','submenuFake','');
+	}
+	tabsection = document.getElementById('submenunav_green');
+	if (tabsection) {
+		loadFlahNav('submenunav_green','green_tabbedpanel1br','624','39','submenuFake','');
+	}
+	tabsection = document.getElementById('brmenusimple');
+	if (tabsection) {
+		loadFlahNav('brmenusimple','tabbedpanel1br','624','55','submenuFake','');
+	}
+	tabsection = document.getElementById('brmenudouble');
+	if (tabsection) {
+		loadFlahNav('brmenudouble','tabbedpanelbr','624','74','submenuFake','');
+	}
+	tabsection = document.getElementById('comparator_menu_top');
+	if (tabsection) {
+		var modelSelected = "";
+		if (null != document.getElementsByTagName("meta")["model"]) {
+			modelSelected = document.getElementsByTagName("meta")["model"].content;
+			
+			if (modelSelected.indexOf(" ") != -1) {
+				modelSelected = modelSelected.substring(0, modelSelected.indexOf(" "));	
+			}
+		}
+		
+		loadFlahNav('comparator_menu_top','compare_panel_top','624','64','submenuFake','?model=' + modelSelected);
+		loadFlahNav('comparator_menu_bottom','compare_panel_bottom','624','28','submenuFake','?model=' + modelSelected);
+	} 
+}
+
+function switchTab(tabid){
+	if (document.getElementById(tabid)) {
+		this.menunav = document.getElementById(tabid);
+	} else { 
+		this.menunav = document.getElementById('sub-tabnav');  
+	}
+	this.url = window.location.href;
+	var anchors = this.menunav.getElementsByTagName('a');
+	for (var i = anchors.length; i != 0; i--) {
+			var a = anchors[i-1];
+			if ((a.href == this.url)) {
+				a.className="tab";
+			}
+		}
+}
+
+function switchSubTab(tabid){
+	if (document.getElementById(tabid)) {
+		this.menunav = document.getElementById(tabid);
+		this.menunav.className="current";
+	}
+}
+
+
+/* Local Navigation */
+function set() {
+	if (tabName != document.body.className.split(" ").length>1){
+		var tabName = document.body.className.split(" ")[1];
+		if (document.createTextNode && document.getElementById('ln-'+tabName)) {
+			var span = document.createElement("span");
+			document.getElementById('ln-'+tabName).className="current";
+			document.getElementById('ln-'+tabName).appendChild(span);
+		}
+	}
+}
+
+
+
+/* Pricing */
+function getPricing(obj){
+	var priceErrorDescription = "";
+	var hasPrice = false;
+	try {
+		var tmp_string = obj.firstChild.firstChild.firstChild.nodeValue.toLowerCase();
+		while(tmp_string.indexOf(" ") != -1)
+			tmp_string = tmp_string.replace(" ","_");
+		tmp_string = tmp_string.replace(":","");
+		tmp_string = tmp_string.replace("-","");
+		var price = eval(obj.className + "_" + tmp_string);
+		if (price.indexOf("$") == -1) {
+			hasPrice = false;
+		} else {
+			hasPrice = true;
+		}
+	} catch (e) {
+			priceErrorDescription = e;
+			hasPrice = false;
+		}
+	
+	if (hasPrice) {
+		if (obj.childNodes[obj.childNodes.length-1].nodeType == 3) {
+			obj.childNodes[obj.childNodes.length-1].nodeValue = " " + price;
+		} 
+	}
+	
+}
+
+function setPricing() {
+	if (document.getElementById && document.createElement) {
+		var dd = document.getElementById('content').getElementsByTagName('dd');
+		
+		for (var i = dd.length; i != 0; i--) {
+			var thisDesc = dd[i-1];
+			if(thisDesc.className.indexOf('price') == -1 ) continue;
+			getPricing(thisDesc);
+			}
+	
+		var ol =	document.getElementsByTagName('ol');
+		for (var i = ol.length; i != 0; i--) {
+			if (ol[i-1].className == 'toc') break;
+		}
+		if (i>0){
+			var lis =ol[i-1].getElementsByTagName('li');
+			for (var j = lis.length; j != 0; j--) {
+			var thisDesc = lis[j-1];
+			if(thisDesc.className.indexOf('price') == -1 ) continue;
+			getPricing(thisDesc);
+			
+			}
+		}
+		var p =	document.getElementsByTagName('p');	
+		for (var i = p.length; i != 0; i--) {
+			var thisDesc = p[i-1];
+			if(thisDesc.className.indexOf('price') == -1 ) continue;
+			getPricing(thisDesc);
+			}
+	}
+}
+
+/* Table of Contents */
+var sectionDivs = new Array(0);
+var isSectionDivsReady = false;
+
+function setTOCLinks() {
+	var i;
+	var allLinks;
+	
+	if (document.getElementById("submenuFakeSpecialOffers") != null){
+		if (region == null){
+			setTimeout("setTOCLinks()", 100);
+			return;
+		}	
+		if (region.indexOf("EAST") > -1){
+			document.getElementById("east").className=""
+		    allLinks = document.getElementById('submenuFake').getElementsByTagName('a');
+		}	
+		else{ 	
+			document.getElementById("west").className=""
+		    allLinks = document.getElementById('submenuFakeSpecialOffers').getElementsByTagName('a');
+		}	
+	
+	}else{
+		allLinks = document.getElementById('content').getElementsByTagName('a');
+	}	
+	for (i=0;i<allLinks.length;i++) {
+		var lnk = allLinks[i];
+		if( !lnk.href || lnk.href.indexOf('#') == -1) continue;
+		
+		if (getAncestorByTagClass(lnk,'toc') || getAncestorByTagClass(lnk,'toctabs')) {
+			sectionDivs.push(lnk);
+			var li = getAncestorByTagName(lnk,'li');
+			li.onclick= function() { displaySection(this.getElementsByTagName('a').item(0).hash.slice(1)); };
+			lnk.onclick=function(){ return false; };
+		}				
+	}
+	
+}
+
+function delay_displaySection(sectionId){
+
+	setTimeout('displaySection("' + sectionId+'")',10);
+}
+
+function setTOC(){
+	var i;
+	if (!isSectionDivsReady){
+		isSectionDivsReady = true;
+		for (i = 0; i < sectionDivs.length; i++) {
+			if(!document.getElementById(sectionDivs[i].hash.slice(1))){
+				isSectionDivsReady = false;
+				break;
+				}
+		}
+		var t = setTimeout('setTOC()', 250);
+	}else{
+		var activeSection = "";
+		for (i = 0; i < sectionDivs.length; i++) {
+			if(sectionDivs[i].className.indexOf("featured") != -1){
+				activeSection = sectionDivs[i].hash.slice(1);
+				break;
+				}
+		}
+		var defaultSection = window.location.hash.slice(1) ? window.location.hash.slice(1) : activeSection? activeSection : sectionDivs[0] ? sectionDivs[0].hash.slice(1) : null;
+		
+		if (sectionDivs.length > 0 && isSectionDivsReady) {
+			if ( window.location.hash.slice(1) == "" && document.body.className.indexOf("model") != -1) {
+				hide();
+			} else {
+				delay_displaySection(defaultSection);
+			}
+			scroll(0,0);
+		}
+	}
+}
+
+function hide(){
+	var i;
+	for (i = 0; i < sectionDivs.length; i++) {
+		document.getElementById(sectionDivs[i].hash.slice(1)).className += " dn";
+	}
+}
+
+function displaySection(sectionId) {
+	if (sectionDivs.length == 0 ) return;
+	var li,currentLi;
+	var childLi= null;
+	var show = false, childShow = false;
+	var curlocation = location.href;
+	for(var i=0; i< sectionDivs.length; i++){//alert(sectionDivs[i].hash.slice(1));
+		if (document.getElementById(sectionDivs[i].hash.slice(1)).className.indexOf("dn") == -1) {
+			document.getElementById(sectionDivs[i].hash.slice(1)).className += " dn";		
+		}
+		li = getAncestorByTagName(sectionDivs[i],'li');
+		if (sectionDivs[i].hash.slice(1) == sectionId){
+			currentLi =li;
+			li.className="current";
+			if(getDescendantsByTagClass(currentLi, 'toctabs') !=null){
+				var childLis = li.getElementsByTagName('li');
+				childLi = childLis[0];
+				for(var j=0; j< childLis.length; j++)
+					if (childLis[j].className == "current"){
+						childShow = true;
+						childLi = childLis[j];
+					}
+				
+			}
+			show = true;
+		}else li.className="";
+	
+	}
+	
+	/*News and Events section*/	
+	if (curlocation.indexOf('newsandevents') >= 0){
+		//Change Masthead Image
+		var newssection = sectionId.substring(6,sectionId.length);
+
+		/* Spanish site masthead validations */
+		var newSource;
+		
+		// Spanish site validation
+		
+		if (htmlLang == "es")
+		{
+			newSource = "/i/pic/newsandevents/2007/" + newssection + "/masthead_es.jpg";
+		}else
+		{
+			newSource = "/i/pic/newsandevents/2007/" + newssection + "/masthead.jpg";
+		}
+		var mastHeadImg = document.getElementById("mastheadimg");
+		mastHeadImg.setAttribute("src", newSource);
+		
+		//Change Masthead Link
+		var linkVar = newssection + "-masthead-link";
+		var linkPath = document.getElementById(linkVar);
+		var linkRel = linkPath.rel;
+		var mastHeadLink = document.getElementById("mastheadimg").parentNode;
+		mastHeadLink.setAttribute("href", linkPath);	
+		if (linkRel) {
+			if (linkRel.indexOf('Omini-') != -1 ){
+				var newlinkRel = linkRel.replace("thumb","masthead").replace("Omini-","") + "_" + htmlLang;		
+				mastHeadLink.onclick = function() {otherLinks('o',newlinkRel,linkPath );	}
+			}
+		}
+	}
+	
+	/*Special Offers section*/
+	if (curlocation.indexOf('specialoffers') >= 0 && sectionId.length > 11 && sectionId.substring(0,7) == "offers-" ){
+		var curOff = sectionId.substring(0,11);
+		var curOffdiv =	document.getElementById(curOff);
+		curOffdiv.className = "";
+			
+		var li1 = new Array();
+		var divs = curOffdiv.getElementsByTagName('div');
+		for (var k=0; k<divs.length; k++){
+			if (divs[k].className.indexOf("offers") > -1)
+				li1[li1.length] = divs[k];
+		}
+
+		for (var j=0; j< li1.length; j++){				
+			li1[j].className = "offers fade";
+			if (li1[j].id == sectionId)	{					
+				li1[j].style.display = "block";
+			} else {
+				li1[j].style.display = "none";
+			}
+		}			
+	}
+	
+	if(currentLi && getAncestorByTagClass(currentLi, 'toc') != null) return;
+	
+	if (!show){
+		sectionId = sectionDivs[0].hash.slice(1);
+		li = getAncestorByTagName(sectionDivs[0],'li');
+		li.className="current";
+		currentLi =li;
+	}
+
+	sectionId = (document.getElementById(gup('tab')) && pLoad==0 ? gup('tab'):sectionId);
+	var thisSection = document.getElementById(sectionId);
+	
+	if(typeof(pLoad)== "number"){
+		pLoad++;	
+	}
+
+	thisSection.className = thisSection.className.replace(" dn","");
+	thisSection.className = thisSection.className.replace("dn","");
+
+	if (childLi != null){
+		childLi.className = "current";
+		document.getElementById(childLi.firstChild.hash.slice(1)).className = document.getElementById(childLi.firstChild.hash.slice(1)).className.replace(" dn","");
+	}
+	var ul = getAncestorByTagName(document.getElementById('enlarge'),'ul');
+	if (thisSection.className.indexOf("slideshow") != -1 && document.getElementById('flash-caption')){
+		current_id=sectionId;
+		ul.className =ul.className.replace(" vh","");
+		document.getElementById('flash-caption').className = "";
+		gallery(sectionId);
+	}else if(thisSection.id=="downloads"){
+		document.getElementById('masthead-photo').firstChild.src = document.getElementById("defaultImg").src;
+		document.getElementById('masthead-photo').firstChild.alt = document.getElementById("defaultImg").alt;
+		document.getElementById('masthead-caption').getElementsByTagName('strong')[0].firstChild.nodeValue = "";
+		document.getElementById("masthead-description").innerHTML = "";
+		ul.className += " vh";
+		document.getElementById('flash-caption').className = "vh";
+	}
+/**************************************/	
+	if (document.getElementById("disclaimers")) {
+		document.getElementById("disclaimers").innerHTML = ""; 
+		
+		/*HACK FOR INCENTIVES DISCLAIMERS*/
+			sectionId = ((sectionId == "incentives")?"offers-2008":sectionId);
+		/*END HACK*/
+		
+		var ols = document.getElementById(sectionId).getElementsByTagName("p")
+		if (ols){
+			for (i=0; i<=ols.length;i++){
+				var ol = ols[i];
+				if (ol && ol.className.indexOf("disclaimer") >= 0){
+					ol.className += " dn";
+					document.getElementById("disclaimers").innerHTML += "<p class='disclaimer'> " + ol.innerHTML + "</p>";	
+				}	
+			}	
+		}
+		document.getElementById("disclaimers").innerHTML += discInit;
+		
+		var anchors = document.getElementById("disclaimers").getElementsByTagName("a");	
+		for (i = anchors.length; i != 0; i--) {
+			var a = anchors[i-1];
+			for (j in WINPROP) {
+				if (a.rel.toUpperCase().indexOf(j) != -1) {
+					//a.title += l10n._TITLE["OPENS_IN_NEW_WINDOW"];
+					a.onclick = function() { newWindow.setURL(this);return false; };
+					pop = true;
+					break;
+				}
+			}
+		}	
+		
+	}
+
+/**************************************/
+}
+//Get an specific url param
+function gup( name )
+{
+  name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+  var regexS = "[\\?&]"+name+"=([^&#]*)";
+  var regex = new RegExp( regexS );
+  var results = regex.exec( window.location.href );
+  if( results == null )
+    return "";
+  else
+    return results[1];
+}
+
+
+// Create Zebra tables
+function setTables() {
+	var i, j;
+	var tables = document.getElementsByTagName('table');
+	for (i = 0; i < tables.length; i++) {
+		var thisTable = tables[i];
+		var rows = thisTable.getElementsByTagName('tr');
+		for (j = 0; j < rows.length; j++) {
+			var thisRow = rows[j];
+			if (j % 2 == 0) {
+				thisRow.className="even";
+			}
+		}
+	}
+}
+
+// Create Zebra DLs any page
+function setZebraDls() {
+	var i, j;
+	var zebraDls = getElementsByTagClass('div', 'zebra-dls');	
+	for (i = 0; i < zebraDls.length; i++) {
+		var thisDl = zebraDls[i];
+		var Dl = thisDl.getElementsByTagName('dl');
+		for (j = 0; j < Dl.length; j++) {
+			var itemDl = Dl[j];
+			if (j % 2 == 0) {
+				itemDl.className="odd";
+			}
+		}
+	}
+}
+
+// Create Zebra DLs for Accessory pages
+function setDefLists() {
+	var i,j;
+	var divs = document.getElementById('gmaccessories').getElementsByTagName('div');	
+	for(j=0; j<divs.length;j++){
+		var defLists = divs[j].getElementsByTagName('dl');	
+		for (i = 0; i < defLists.length; i++) {
+			var thisDL = defLists[i];
+			if (i % 2 == 1) {
+				thisDL.className="odd";
+			}
+		}
+	}
+}
+
+// Create Zebra DLs any page
+//function setZebraDls() {
+//	var i;
+//	var zebraDls = getElementsByTagClass('div', 'zebra-dls')[0].getElementsByTagName('dl');	
+//	for (i = 0; i < zebraDls.length; i++) {
+//		var thisDL = zebraDls[i];
+//		if (i % 2 == 0) {
+//			thisDL.className="odd";
+//		}
+//	}
+//}
+
+// Replacement calls. Please see readme.txt for more information.
+// sIFR.replaceElement(sSelector, sFlashSrc, sColor, sLinkColor, sHoverColor, sAltColor, sBgColor, nPaddingTop, 
+// nPaddingRight, nPaddingBottom, nPaddingLeft, sFlashVars, sCase, sWmode)
+// sFlashVars can include any of the folllowing:
+// textalign=center: Center text horizontally
+// offsetLeft=5: Pushes text 5px to the right. Of course you can use any number here.
+// offsetTop=5: Pushes text 5px down.
+// underline=true: Adds underline to links on hover.
+// details: http://wiki.novemberborn.net/sifr/show/How+to+use
+
+function fr() {
+	if(typeof sIFR == "function" && htmlLang != "zh-Hant"){ //zh-Hant has been excluded due to font limitations
+
+		/**/ 	
+		 sIFR.replaceElement("h2.myriaDPro", named({sFlashSrc: "/j/06/sIFR/myriadpro.swf", sColor: "#333333", sBgColor: "#f7f6f2", nPaddingBottom: "0", sCase: "upper"})); 
+		/**/ 
+		
+		/*fuelsolutions*/ 	
+		 sIFR.replaceElement("h1.sifr_title_fs", named({sFlashSrc: "/j/06/sIFR/klavikachbold.swf", sColor: "#3C672A", sBgColor: "", nPaddingBottom: "0", sCase: "upper"})); 
+		 
+		 sIFR.replaceElement("h2.sifr_titlebox_fs", named({sFlashSrc: "/j/06/sIFR/klavikachbold.swf", sColor: "#3C672A", sBgColor: "#E6E6E6", sFlashVars:"textalign=center",  nPaddingBottom: "0", sCase: ""})); 
+		 
+		 sIFR.replaceElement("h3.sifr_titlearticle_fs", named({sFlashSrc: "/j/06/sIFR/klavikachbold.swf", sColor: "#3C672A", sBgColor: "", nPaddingBottom: "0", sCase: "upper"})); 
+		 
+		 sIFR.replaceElement("h3.sifr_titlefind_fs", named({sFlashSrc: "/j/06/sIFR/klavikachbold.swf", nWidth:140,nHeight:20, sColor: "#3C672A", sWmode: "transparent", sFlashVars:"textalign=center",  nPaddingBottom: "0", sCase: "upper"})); 
+		 
+		  sIFR.replaceElement("p.sifr_autor_fs", named({sFlashSrc: "/j/06/sIFR/KlavikaCHRegular.swf", sColor: "#000000", sWmode: "transparent", sFlashVars:"textalign=right",  nPaddingBottom: "0", sCase: ""})); 
+		 
+		if (typeof(sVars)!="undefined"){
+		 sIFR.replaceElement("h1.modelPagetitle_fs", named({sFlashSrc: "/j/06/sIFR/header.swf", nWidth:678,nHeight:90, nsColor: "#FFFFFF", sWmode: "transparent", nPadding: "0",nMargin: "0", sCase: "upper", sFlashVars: sVars}));
+		}
+		/*fuelsolutions*/ 
+		
+		var sifrSrc = "/j/06/sIFR/helveticaneue77.swf";
+		var color = "#003366";
+		if(document.location.href.indexOf("/chevyracing/")!=-1)color="#333333";
+		
+        sIFR.replaceElement("h2.sifr", named({sFlashSrc: sifrSrc, sColor: color, nPaddingBottom: "0", sCase: "upper", sWmode: "transparent"}));
+        var bgcolor = "#ffffff";
+		if(document.body.id == "warranty"){
+        	bgcolor = "#F7F6F2";
+        }
+	
+        sIFR.replaceElement("h2.whitebgsifr", named({sFlashSrc: sifrSrc, sColor: "#333333", sBgColor: bgcolor, nPaddingBottom: "0", sCase: "upper"}));
+	   sIFR.replaceElement("h1.modelPagetitle", named({sFlashSrc: "/j/06/sIFR/header.swf", nWidth:600,nHeight:45, nsColor: "#FFFFFF", sWmode: "transparent", nPadding: "0",nMargin: "0", sCase: "upper"}));
+	   
+	   sIFR.replaceElement("h2.modelPagetitle_U", named({sFlashSrc: "/j/06/sIFR/model_title.swf", nWidth:600,nHeight:30, nsColor: "#FFFFFF", sWmode: "transparent", nPadding: "0",nMargin: "0", sCase: "upper"}));
+	   sIFR.replaceElement("h2.greybgsifr", named({sFlashSrc: sifrSrc, sColor: "#333333", sBgColor: "#D7D5CC", nPaddingBottom: "0", sCase: "upper"}));
+        sIFR.replaceElement("body#safety h2.bluehrdsifr", named({sFlashSrc: "/j/06/sIFR/helvetica95black.swf", sColor: "#ffffff", sBgColor: "#004e8c", sWmode: "transparent", nPaddingRight: "25", nPaddingLeft: "75", nPaddingBottom: "10", nPaddingTop: "27", sCase: "upper"}));
+		sifrSrc = "/j/06/sIFR/helveticaneue97.swf";
+		sIFR.replaceElement("span.sifr", named({sFlashSrc: sifrSrc, sColor: "#052145", sBgColor: "#f7f6f2", nPaddingBottom: "0"}));
+		sIFR.replaceElement("span.mpg-num", named({sFlashSrc: "/j/06/sIFR/helvetica95black.swf", sColor: "#3e4f22", sBgColor: "#E8E7E4", sWmode: "transparent", nPaddingBottom: "0"})); //Fuel economy MPG numbers
+		showhideMovie();
+	}
+	
+}
+
+function replace_Flash(obj){
+	if(obj.getElementsByTagName("img").length>0){
+		var img = document.createElement("img"); 
+	//	img.src = "/i/06/pic/"+bodyId+"/homepage/masthead_en.jpg";
+		img.src = obj.getElementsByTagName("img")[0].src;
+		
+		img.width = obj.width;
+		img.height = obj.height;
+		obj.parentNode.appendChild(img);
+		obj.parentNode.removeChild(obj);
+	}
+}
+
+function setMasthead(){
+	if (flashVersion < 7){
+		if(document.getElementById("masthead")){
+			var masthead = document.getElementById("masthead");
+			masthead.className = "oldFlash";
+			}
+		/*if(masthead.getElementsByTagName("object").length > 0 && flashVersion < 5){
+				var obj = masthead.getElementsByTagName("object")[0];
+				var img = document.createElement("img"); 
+				img.src = "/i/06/pic/"+bodyId+"/homepage/masthead_en.jpg";
+				img.width = "620";
+				img.height = "280";
+				document.getElementById("masthead-photo").removeChild(obj);
+				document.getElementById("masthead-photo").appendChild(img);
+			}*/
+			
+			if(flashVersion < 5 && !isActiveX){
+			var flashObjects = document.getElementsByTagName("object");
+			
+			for(var i=flashObjects.length-1; i>=0; i--){
+				if (!flashObjects[i].type || flashObjects[i].type.indexOf("flash") == -1) continue;
+				replace_Flash(flashObjects[i]);
+			}
+		}
+	}
+
+}
+
+function childWindowHandler(url,w,h,t,l,mb,tb,lb,sb,r) {
+	this.url = url;
+	this.w = w ? w : screen.width - "50";
+	this.h = h ? h : screen.height - "150";
+	this.l = l ? l : (screen.width - this.w) / 2;
+	this.t = t ? t : (screen.height - this.h) / 2; 
+	this.mb = mb ? mb : "no";
+	this.tb = tb ? tb : "no";
+	this.lb = lb ? lb : "no";
+	this.sb = sb ? sb : "yes";
+	this.r = r ? r : "yes";
+	this.newWinName = "appWin";
+	this.setWindow = function(name) {
+		if(name) this.newWinName = name;
+		if(this.newWinName.indexOf("opener") != -1){
+			window.opener.location = this.url;
+			window.close();
+		}else{
+			var newWin = window.open(this.url, this.newWinName, "menubar=" + this.mb + ", toolbar=" + this.tb + ",location=" + this.lb + ",resizable=" + this.r + ",scrollbars=" + this.sb + ",left=" + this.l + ",top=" + this.t + ",width=" + this.w + ",height=" + this.h);
+			newWin.focus();
+			try{
+				newWin.resizeTo(this.w ,this.h);
+				}
+			catch(e){
+			}
+		}
+	}
+}
+
+childWindowHandler.prototype.setURL = function(el,w,h,l,t,mb,tb,lb,sb,r,useTarget,newWinName) {
+	this.url = el.href ? el.href : "";
+	var i, propName;
+	if (el.rel) {
+		for (i in WINPROP) {
+			if (el.rel.toUpperCase().indexOf(i) != -1) {
+				propName = i;
+				break;
+			}
+		}
+		if(el.rel.indexOf("Omini-") != -1){
+			var rels = el.rel.split(" ").pop();
+			var linkName = rels.replace("Omini-","") + "_"+ htmlLang;
+			var linkType = propName.substring(0,1).toLowerCase();
+			if (linkType!="e" && linkType!="d")
+				linkType = "o";
+			otherLinks(linkType, linkName, el);
+		}
+		if(el.rel.indexOf("omni-") != -1){
+			var linkName = el.name;
+			var linkType = propName.substring(0,1).toLowerCase();
+			if (linkType!="e" && linkType!="d")
+				linkType = "o";
+			otherLinks(linkType, linkName, el);
+		}
+	}
+	if (el.action) {
+		this.url = el.action;
+		for (i in WINPROP) {
+			if (el.className.toUpperCase().indexOf(i) != -1) {
+				propName = i;
+				el.target= this.newWinName;
+				break;
+			}
+		}
+	}
+	this.w = w ? w : WINPROP[propName].width ? WINPROP[propName].width : "475";
+	this.h = h ? h : WINPROP[propName].height ? WINPROP[propName].height :  "470";
+	this.l = l ? l : WINPROP[propName].left ? WINPROP[propName].left : (screen.width - this.w) / 2;
+	this.t = t ? t : WINPROP[propName].top ? WINPROP[propName].top : (screen.height - this.h) / 2;
+	this.mb = mb ? mb : WINPROP[propName].menubar ? WINPROP[propName].menubar : "no"
+	this.lb = lb ? lb : WINPROP[propName].location ? WINPROP[propName].location : "no"
+	this.sb = sb ? sb : WINPROP[propName].scrollbar ? WINPROP[propName].scrollbar : "yes"
+	this.r = r ? r : WINPROP[propName].resizable ? WINPROP[propName].resizable : "yes"
+	this.tb = tb ? tb : WINPROP[propName].toolbar ? WINPROP[propName].toolbar : "no"	
+	
+	
+	newWindow.newWinName = newWinName ? newWinName : WINPROP[propName].newWinName ? WINPROP[propName].newWinName : "appWin"
+
+	if (useTarget) {
+		this.setWindow(el.target);
+	//	el.target = "appWin";
+	} else {
+		this.setWindow();
+	}
+}
+
+var newWindow = new childWindowHandler();
+
+function checkOS(link){
+	var screensaver = "/m/06/chevyracing/screensavers/chevy_winning_moments";
+	if(isMac)
+		screensaver += "_macx.zip"
+	else if (isWin)
+		screensaver += "_pc.zip"
+	else {
+		link.rel = link.rel.replace("Screensaver","Feature"); 
+		newWindow.setURL(link);
+		return false;
+	}
+	link.href = screensaver;
+	return true;
+}
+
+function getStyle(modelYear, modelName, subModelId){
+	var selectedValue = "";
+	for (i in VEHICLES[modelYear][modelName]) {
+		var subModel = VEHICLES[modelYear][modelName][i];
+		if (subModel.id == subModelId) { selectedValue = i; }
+		if (typeof subModel.id == "undefined") continue;
+	}
+	return selectedValue;
+}
+
+function setOmini(el){
+	var rels = el.rel.split(" ").pop();
+	var linkName = rels.replace("Omini-","") + "_"+ htmlLang;
+	var linkType = "o";
+	otherLinks(linkType, linkName, el);
+}
+
+function setOmni(el){
+
+	var linkName = el.name.toUpperCase();
+	s_prop5 = linkName;
+	s_pageNssssame="";
+	s_prop2="";
+	s_prop3="";
+	s_prop8="";
+	s_prop14="";
+	s_prop13="";
+	s_prop25="";
+	s_prop28="";
+	var linkType = "o";
+	otherLinks(linkType, linkName, el);
+}
+
+function setOnClick() {
+	if (document.getElementById('disclaimers')) { 
+		discInit = document.getElementById('disclaimers').innerHTML;
+	}
+	if (!document.getElementsByTagName) return;
+	var i, j, pop=false;
+	var anchors = document.getElementsByTagName("a");	
+	for (i = anchors.length; i != 0; i--) {
+		var a = anchors[i-1];
+		pop=false;
+		if(a.className=="inline-popup") a.onclick= function(){return false;}
+		if (!a.href || !a.rel) continue;
+		if(a.rel=="Bookmark Accessibility") addPathinfo(a);
+		if(a.rel.indexOf("Screensaver") != -1){
+			a.onclick = function(){ return checkOS(this);};
+			continue;
+			}
+		for (j in WINPROP) {
+			if (a.rel.toUpperCase().indexOf(j) != -1 && a.rel.indexOf("MediumDuty") == -1 && a.rel.indexOf("mediumduty") == -1) {
+				if (a.rel == "External Sibling")
+					kn = 0;
+				
+				if ( a.href.toUpperCase().indexOf('WWW.ONSTAR.COM/US_ENGLISH') != -1 && htmlLang == "es" ) {
+					a.title += l10n._TITLE_EN["OPENS_IN_NEW_WINDOW_EN"];
+					if (typeof(a.childNodes[0].rel) != "undefined") {
+						try {
+							a.getElementsByTagName("img")[0].setAttribute("alt", l10n._TITLE_EN["OPENS_IN_NEW_WINDOW_EN"]);
+						} catch (e) {}
+					}
+				}
+				else{
+					a.title += l10n._TITLE["OPENS_IN_NEW_WINDOW"];
+				}
+				if(a.rel.toUpperCase().indexOf("omni-") != -1){
+					a.onclick = function() { newWindow.setURL(this);return false; };
+				}
+				else{
+					if (!a.rel.match("omniImageLink-")) {
+						a.onclick = function() { 
+						try{
+							newWindow.setURL(this); 
+							if (this.rel.indexOf("omni-"))
+								onClickTracking(this,"omni-"); 
+							return false; 
+						}catch(err){
+							newWindow.setURL(this); return false;
+							}
+						};
+					}
+				}
+				pop = true;
+				break;
+			}
+		}
+		
+		if(a.rel.indexOf("omni-") != -1 && !pop){
+			a.onclick = function() { 
+			try{
+			onClickTracking(this,"omni-"); 
+			}catch(err){
+				return false;
+				}
+			};
+		}		
+		if(a.rel.indexOf("Omini-") != -1 && !pop){
+			a.onclick = function() { setOmini(this); };
+		}
+		if (a.rel.indexOf("ShoppingTools") != -1 && a.rel.indexOf("FinancialTools") == -1 && a.rel.indexOf("SpecialOffers") == -1) {
+			var zipcookie = (getCookie('zipcookie') != null) ? getCookie('zipcookie') : "";
+			if (zipcookie != "") {
+				a.href += "&zip=" + zipcookie;
+			}
+		}
+	}
+
+	if (document.getElementById('printoptions')) { 
+		var printOptions = document.getElementById('printoptions').getElementsByTagName('input');
+		for (i = printOptions.length; i != 0; i--) {
+			if (printOptions[i-1].type != "image") continue;
+			printOptions[i-1].onclick = function() { printPage(this.value);return false; };
+		}
+	}
+}
+
+function setLAD() {
+	var ladzipcode = document.getElementById('ladzipcode');
+	ladzipcode.value = (getCookie('zipcookie') != null) ? getCookie('zipcookie') : ladzipcode.value;
+	ladzipcode.onblur = function() {
+		var reLADZIP = /(^\d{5}$)|(^\d{5}\d{4}$)/;
+		if (reLADZIP.test(this.value)) {
+			setCookie("zipcookie",this.value);
+		}
+	};
+	var zipcode = document.getElementById('zipcode');
+	if(zipcode)
+		zipcode.value = ladzipcode.value;
+}
+		
+
+function printPage(value) {
+	if (document.body.className.indexOf(" printall") != -1) {
+		document.body.className = document.body.className.replace("printall", value);
+	} else if (document.body.className.indexOf(" printsection") != -1) {
+		document.body.className = document.body.className.replace("printsection", value);
+	} else {
+		document.body.className += " " + value;
+	}
+	window.print();
+}
+
+			
+function hidePrice(){
+	if (!document.getElementsByTagName) return;
+	var dds = document.getElementById("masthead").getElementsByTagName("dd");
+	if (dds[dds.length-1].className == "priceasshown")
+		dds[dds.length-1].style.visibility = "hidden";
+}
+
+
+
+function showhideMovie(){
+	if (document.getElementById("hiddenMovie") && flashVersion > 0 ){
+		var hiddenMovie = document.getElementById("hiddenMovie");
+		var sifr = document.getElementById("model-sifr");
+		var model = document.body.id;
+		if(hiddenMovie.className=="dn"){
+			hiddenMovie.className="";
+			if(sifr.className.indexOf("replace") == -1)
+				setTimeout("document.getElementById('model-sifr').className +=' dn'",10);
+			else sifr.className += " dn";
+			}
+		else{
+			var flashObj= newObject.flash('hiddenMovie','/m/06/'+model+'/enhancement/shell.swf?model='+model,624,517,"");
+			setTimeout("document.getElementById('model-sifr').className=document.getElementById('model-sifr').className.replace(' dn','')",250);
+			hiddenMovie.className="dn";	
+			
+			}
+		}
+}
+
+function displayObj(ele){
+	obj = document.getElementById(ele);
+	obj.className = obj.className.replace(" dn","");
+
+}
+
+function changeLoc(sel){
+	window.location=sel.options[sel.selectedIndex].value;
+}
+
+function setOnChange(){
+	if (!document.getElementsByTagName) return;
+	var selects = document.getElementsByTagName("select");
+	for (var i=0; i< selects.length; i++)
+		if (selects[i].className == "changeLoc")
+			selects[i].onchange = function() {changeLoc(this);};
+}
+
+function addPathinfo(link){
+	var url = window.location.toString();
+	var path = url.substring(0,url.lastIndexOf("/")+1);
+	link.href = path + link.href.substring(link.href.indexOf("#"),link.href.length);
+}
+
+function otherLinks(linkType, linkName, lnk) {
+	s_linkType = linkType;
+	s_linkName = linkName;
+	if(window.s_co)
+		s_lnk = s_co(lnk);
+	if(window.s_gs)
+		s_gs('gmchevrolet');
+}
+
+function clickTrack( linkType, linkName, lnk ){
+   s_linkType=linkType;
+   s_linkName = linkName;
+   s_lnk = s_co(this);
+   s_gs( 'gmchevrolet' );
+   if (!lnk==''){
+	   var httpPos = lnk.indexOf("http");
+	   if (httpPos == 0) {
+		  document.location.href= lnk;
+	   } else {
+		  eval(lnk);
+	   } 
+   } else { 
+   	return true;
+   }
+}
+
+
+function print_worksheet(thisform) {
+	var url= thisform.action +"?";
+	for(var i=0; i<thisform.elements.length;i++) { 
+		if (thisform.elements[i].type=="radio" && ! thisform.elements[i].checked) continue;
+		url += thisform.elements[i].name +"=" + thisform.elements[i].value + "&";
+		}
+		var submit_button = document.getElementById("WorksheetQuote");
+		submit_button.onsubmit = function(){ return print_worksheet(this); }; 
+		return false;
+}
+
+function setConcatUsForm(){
+	var form = document.getElementById("contactusform");
+	form.onsubmit = redirectConcatUs ;
+	
+}
+
+redirectConcatUs = function(){ 
+	var form = document.getElementById("contactusform");
+	var	value = "";
+ //   try{
+ 		
+    	for(var i=0; i< form['emailTopic'].length; i++){
+    		if(form['emailTopic'][i].checked)
+    	 		value = form['emailTopic'][i].value ;
+    	 }
+    	var action = form.action;
+		var className = form.className;
+		if(value.indexOf("/") != -1){
+			form.action = value;
+			if(value.substring(0,1) != "/")
+				form.action = document.getElementsByTagName("base")[0].href + value;
+			if(value.indexOf("http://") != -1){
+				form.action = value;
+				form.className += " external";
+				newWindow.setURL(form);
+				form.className = className;
+				form.action = action;
+				form.target = "";
+				return false;
+				}
+		}
+		form.submit();
+//	}catch(e){
+	
+//	}
+	
+}
+
+
+
+/* Survey functions - present on model landing pages - see also: initBrandSurvey */
+
+/* function setBrandSurveyFunctions(){
+	var probability = 10;
+	var onTrucks = true;
+
+	if (window.ActiveXObject
+		&& !(getCookie('brandsurvey') == 'used')
+		&& (onTrucks || document.body.className.indexOf("trucks") == -1)
+		&& isSelected(probability)
+		) {
+
+		contentarea = document.getElementById("content");	
+		subheads = contentarea.getElementsByTagName("h2");
+		for (i = 0; i < subheads.length; i++) {
+			subheads[i].style.display = "none";
+			}
+
+		survey = document.getElementById("brandsurvey");
+		survey.style.display = "block";
+		
+		yesarea = document.getElementById("brandsurveyyes");
+		yesarea.onclick = brandSurveyYes;
+	
+		noarea = document.getElementById("brandsurveyno");
+		noarea.onclick = brandSurveyNo;
+	
+		rulesarea = document.getElementById("brandsurveyrules");
+		rulesarea.onclick = brandSurveyRules;
+		}
+	}
+
+
+brandSurveyYes = function() {
+	var newWin = window.open('https://web.archive.org/web/20080501043039/http://webiq001.webiqonline.com/webhq/answerlab/BrandHouse/Chevy/01/index.asp', 'brandsurvey', "menubar=no, toolbar=no,location=no,resizable=no,scrollbars=yes,height=600, width=850");
+	survey = document.getElementById("brandsurvey");
+	survey.style.display = "none";
+	setCookie('brandsurvey','used');
+	newWin.focus();
+	return false;
+	}
+
+brandSurveyNo = function() {
+	survey = document.getElementById("brandsurvey");
+	survey.style.display = "none";
+
+	contentarea = document.getElementById("content");	
+	subheads = contentarea.getElementsByTagName("h2");	
+	for (i = 0; i < subheads.length; i++) {
+		subheads[i].style.display = "block";
+		}
+	setCookie('brandsurvey','used');
+	return false;
+	}
+
+brandSurveyRules = function() {
+	var newWin = window.open('/pop/shared/survey_details_en.jsp', 'brandsurveylegal', "width=475, height=470,scrollbars=yes");
+	return false;
+	}
+
+
+function isSelected(nSelectionProbability) {
+    var bIsSelected = false;
+    try {
+        if ( (  Math.floor ( nSelectionProbability * (Math.random() % 1) ) ) == 0 ) {
+            bIsSelected = true;
+			}
+		}
+    catch (oException) {
+        bIsSelected = false;
+		}
+    return bIsSelected;
+	} */
+
+
+function initAllTabs(){
+	set();
+	setTabNav();
+}
+/* Init Functions - The following functions create new domFunction() objects to
+ * perform dom methods as the page loads and elements become available.  These 
+ * methods must come after all functions that may be referenced by them.
+*/
+var initBookmark = new domFunction(function() {
+		var links = document.getElementsByTagName("link");
+		for(var i=0; i<links.length;i++)
+			if(links[i].rel == "Bookmark Accessibility")
+				addPathinfo(links[i]);
+	}, { 'link' : 'tag' } );
+	
+var initPageTitle = new domFunction(function() {
+		var color = "#052145";
+		if (document.body.className.indexOf("chevyracing") != -1) {
+			color = "#000";
+		}	
+		if (typeof sIFR == "function") {
+			var sifrSrc = "/j/06/sIFR/titleRACING.swf";	
+			sIFR.replaceElement("h1#pagetitle", named({sFlashSrc: sifrSrc, sColor: color, sBgColor: "#f7f6f2", nPaddingBottom: "0", sCase: "upper"}));
+		}
+	}, { 'pagetitle' : 'id' } );
+
+var initSitenav = new domFunction(function() {
+		sitenavObj = new sitenavHandler();
+		sitenavObj.setSitenav();
+}, { 'sitenav' : 'id' } );
+
+var initLAD = new domFunction(function() {
+		setLAD();
+	}, { 'ladzipcode' : 'id' } );
+			
+var init = new domFunction(function() {
+		set();
+	}, { 'ul.' : 'class' } );
+
+var initTOCLinks = new domFunction(function() {
+		setTOCLinks();
+	}, { 'content' : 'id','li.toc' : 'class' } );
+/*	
+var initTOC = new domFunction(function() {
+		setTOC();
+	}, { 'div.fade' : 'class' } );
+	*/
+var initSmoothScroll = new domFunction(function() {
+	if ( document.body.id != "fueleconomy" ) {
+		ss_fixAllLinks();
+		}
+	}, { 'ol.toc' : 'class' } );
+
+var initTables = new domFunction(function() {
+		setTables()
+	}, { 'fspec' : 'id', 'table' : 'tag' } );
+
+// Zebra DLs
+var initDefLists = new domFunction(function() {
+		setDefLists();
+	}, { 'gmaccessories' : 'id' } );
+
+// Zebra DLs for any page
+var initzebraDls = new domFunction(function() {
+		setZebraDls();
+	}, { 'footer' : 'id' } );
+
+var initSubscribe = new domFunction(function() {
+		if (window.location.href.indexOf("subscribe/email/")){									 
+			if (document.getElementById("BaseballPrice"));
+				document.getElementById("BaseballPrice").className="dn";
+		}
+	}, { 'BaseballPrice' : 'id' } );
+
+
+var initSIFR = new domFunction(function() {
+    	fr();
+    	setTOC();
+	}, { 'footer' : 'id'} );
+
+var initArrows = new domFunction(function() {
+	loadArrows();	
+	}, { 'content' : 'id' } );
+
+var initColors = new domFunction(function() { 
+        if (document.getElementById("color")) 
+              document.getElementById("color").className = " vv"; 
+}, { 'footer' : 'id'} );
+
+var initMasthead = new domFunction(function() {
+		setMasthead();
+	}, { 'masthead' : 'id'} );
+
+		
+var initPricing = new domFunction(function() {
+		setPricing();
+	}, { 'footerContainer' : 'id'} );
+	
+var initOnChange = new domFunction(function() {
+		setOnChange();
+	}, { 'footer' : 'id', 'select' : 'tag' } );
+	
+var initOnClick = new domFunction(function() {
+		setOnClick();
+	}, { 'footer' : 'id' } );
+
+var initTabs = new domFunction(function() {
+	initAllTabs();	
+	}, { 'footer' : 'id' } );
+
+var initSAF = new domFunction(function() {
+		if (typeof safHandler == "function") {
+			safObj = new safHandler();
+			safObj.setSAF();
+		}
+	}, { 'footer' : 'id' } );
+	
+	
+var initConcatUsForm = new domFunction(function() {
+		setConcatUsForm();		
+	}, { 'contactusform' : 'id' } );
+	
+function alignTableHeader(){
+	if (document.getElementById("tableHeader")){
+	    document.getElementById("tableHeader").style.display = "block";	
+		var sFloat;
+		if (document.all) {   // very basic browser detection
+		  document.getElementById("tableHeader").style.styleFloat = "left"; //ie
+		} else {
+			document.getElementById("tableHeader").style.cssFloat = "left"; //firefox
+		}    
+	}
+}
+
+var initTableHeader = new domFunction(function() {
+		if (document.getElementById("tableHeader")){
+			setTimeout("alignTableHeader()", 200);
+		}
+	}, { 'footer' : 'id' } );
+	
+/* var initBrandSurvey = new domFunction(function() {
+		setTimeout("setBrandSurveyFunctions()",500);
+		
+	}, { 'brandsurvey' : 'id' } );	
+	*/
+	
+function superPopup(pOptions){
+	
+	var url, type, directories, location, menubar, resizable, scrollbars, status, toolbar, top, left, width, height, winName, clickTrackValue;
+	
+	// URL is the only required field.
+	if (pOptions.url != null) {	url = pOptions.url;} else { alert('Error: Link URL Missing')};
+	
+	if (pOptions.type != null) { type = pOptions.type;};
+
+	// type will set some basic options to make the function cleaner -- otherwise all values can be set
+	if(type == "_blank"){	//used to generate a window the same size as the previous
+		var windowWidth = f_clientWidth();
+		var windowHeight = f_clientWidth();	
+			
+		//used to generate original "window names"
+		var randomNumber = Math.floor(Math.random()*1000);
+		winName="blank" + randomNumber; width=windowWidth; height=windowHeight; scrollbars="yes"; menubar="yes"; toolbar="yes"; directories="yes"; location="yes"; top="0"; left="0";
+	} else if(type == "regionDetails"){
+		winName="regionDetails"; width = "350"; height= "300"; scrollbars = "yes"; resizable = "yes"; toolbar="no"; directories="no"; location="no"; status="no"; menubar="no";
+	} else if(type == "toChevy"){
+		winName="toChevy"; width = "1024"; height= "768"; scrollbars = "yes"; resizable = "yes"; toolbar="yes"; directories="yes"; location="yes"; status="yes"; menubar="yes";
+	} else if(type == "toPopupMenu"){
+		winName="toPopupMenu"; width = "1024"; height= "768"; scrollbars = "yes"; resizable = "yes"; toolbar="yes"; directories="yes"; location="yes"; status="yes"; menubar="yes";
+
+	} else if(type == "RegionLocation"){
+		winName="RegionLocation"; width = "750"; height= "700"; scrollbars = "yes"; resizable = "yes"; toolbar="no"; directories="no"; location="no"; status="no"; menubar="no";
+    } 
+	 
+					
+	// test to see if we have set a window option on the function or in a profile above, if not then set the value to be a default.
+	if (pOptions.directories != null) { directories = pOptions.directories;} else if (directories == null) { directories = "no" ;}
+	if (pOptions.location != null) { location = pOptions.location;} else if (location == null) { location = "no" ;}
+	if (pOptions.menubar != null) { menubar = pOptions.menubar;} else if (menubar == null) { menubar = "no" ;}
+	if (pOptions.resizable != null) { resizable = pOptions.resizable;} else if (resizable == null) { resizable = "no" ;}
+	if (pOptions.scrollbars != null) { scrollbars = pOptions.scrollbars;} else if (scrollbars == null) { scrollbars = "yes" ;}
+	if (pOptions.status != null) { status = pOptions.status; } else if (status == null) { status = "yes" ;}
+	if (pOptions.toolbar != null) { toolbar = pOptions.toolbar; } else if (toolbar == null) { toolbar = "no" ;}
+	if (pOptions.top != null) { top = pOptions.top} else if (top == null) { top = "50";}
+	if (pOptions.left != null) { left = pOptions.left;} else if (left == null) { left = "50" ;}
+	if (pOptions.width != null) { width = pOptions.width;} else if (width == null) { width = "250" ;}
+	if (pOptions.height != null) { height = pOptions.height;} else if (height == null) { height = "250" ;}
+	if (pOptions.winName != null) { winName = pOptions.winName;} else if (winName == null) { winName = "popUp" ;}
+	if (pOptions.clickTrack != null) { clickTrackValue = pOptions.clickTrack;}
+	
+	// build our complete window options statement
+	windowOptions = "width=" + width + ", height=" + height + ", directories=" + directories + ", location=" + location + ", menubar=" + menubar + ", resizable=" + resizable + ", scrollbars=" + scrollbars + ", toolbar=" + toolbar + ", status=" + status + ", toolbar=" + toolbar + ", top=" + top + ", left=" + left;
+	
+//	if(clickTrackValue != null){
+		//alert(clickTrackValue);
+	//	clickTrack({s_linkName: clickTrackValue});
+//	}*/
+	
+	var newWindow = window.open(url,winName,windowOptions);
+	//alert(windowOptions);
+	if (newWindow == null){
+		//alert('A popup containing important information was blocked by your browser. Please enable popups for this site in order to view this information.');
+		var errorBox = document.getElementById("blockedPopup");
+		errorBox.style.display = "block";
+
+		
+	} else { 
+		if (window.focus && newWindow) { newWindow.focus() }
+	}
+}
+		
+function formatPrice(num) {
+	num = num.toString().replace(/\$|\,/g,'');
+
+	if(isNaN(num))
+		num = "0";
+
+	var originalNum=num.toString();
+	//Block to insert comma into the integral part
+
+	if(num*2==0)
+	{
+		for (var i = 0; i < Math.floor((num.length-(1+i))/3); i++)
+			num = num.substring(0,num.length-(4*i+3))+','+num.substring(num.length-(4*i+3));
+	}
+	else
+	{
+		num = Math.floor(num*100+0.50000000001);
+		num = Math.floor(num/100).toString();
+		for (var i = 0; i < Math.floor((num.length-(1+i))/3); i++)
+			num = num.substring(0,num.length-(4*i+3))+','+num.substring(num.length-(4*i+3));
+	}
+	//block to retain the decimal part to 2 digits.
+	var decimalNum="";
+	var decimalPt = originalNum.lastIndexOf(".");
+
+	if(decimalPt==-1)
+		decimalNum = "00";
+	else
+	{
+		decimalNum = originalNum.substring(decimalPt+1);
+		if(decimalNum.length==1)
+			decimalNum = decimalNum+"0";
+		else if(decimalNum.length>1)
+			decimalNum=decimalNum.substring(0,2);
+	}
+	num=num + "." + decimalNum;
+
+	return (num);
+}
+	
+
+function getOmniAccount() {
+		return s_account;
+}
+
+function getOmniGreenCard(){
+	clearTracking();
+	s_pageName = "SUVs: Tahoe: Standard/Optional: 2008 Green Car Award";
+	s_channel = "Vehicle Features and Specs";
+	s_prop2 = "English Chevrolet";
+	s_prop3 = "Tahoe";
+	s_prop25 = "CHEVROLET";
+	s_lnk=false;
+	s_linkType="";
+	void(s_gs(getOmniAccount()));
+}
+
+// ----------------------------------------------------------------------------
+// RemoveClassName
+//
+// Description : removes a class from the class attribute of a DOM element
+//    built with the understanding that there may be multiple classes
+//
+// Arguments:
+//    objElement              - element to manipulate
+//    strClass                - class name to remove
+//
+function RemoveClassName(objElement, strClass)
+   {
+
+   // if there is a class
+   if ( objElement.className )
+      {
+
+      // the classes are just a space separated list, so first get the list
+      var arrList = objElement.className.split(' ');
+
+      // get uppercase class for comparison purposes
+      var strClassUpper = strClass.toUpperCase();
+
+      // find all instances and remove them
+      for ( var i = 0; i < arrList.length; i++ )
+         {
+
+         // if class found
+         if ( arrList[i].toUpperCase() == strClassUpper )
+            {
+
+            // remove array item
+            arrList.splice(i, 1);
+
+            // decrement loop counter as we have adjusted the array's contents
+            i--;
+
+            }
+
+         }
+
+      // assign modified class name attribute
+      objElement.className = arrList.join(' ');
+
+      }
+   // if there was no class
+   // there is nothing to remove
+
+   }
+// 
+// RemoveClassName
+// ----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
+// AddClassName
+//
+// Description : adds a class to the class attribute of a DOM element
+//    built with the understanding that there may be multiple classes
+//
+// Arguments:
+//    objElement              - element to manipulate
+//    strClass                - class name to add
+//
+function AddClassName(objElement, strClass, blnMayAlreadyExist)
+   {
+
+   // if there is a class
+   if ( objElement.className )
+      {
+
+      // the classes are just a space separated list, so first get the list
+      var arrList = objElement.className.split(' ');
+
+      // if the new class name may already exist in list
+      if ( blnMayAlreadyExist )
+         {
+
+         // get uppercase class for comparison purposes
+         var strClassUpper = strClass.toUpperCase();
+
+         // find all instances and remove them
+         for ( var i = 0; i < arrList.length; i++ )
+            {
+
+            // if class found
+            if ( arrList[i].toUpperCase() == strClassUpper )
+               {
+
+               // remove array item
+               arrList.splice(i, 1);
+
+               // decrement loop counter as we have adjusted the array's contents
+               i--;
+
+               }
+
+            }
+
+         }
+
+      // add the new class to end of list
+      arrList[arrList.length] = strClass;
+
+      // add the new class to beginning of list
+      //arrList.splice(0, 0, strClass);
+      
+      // assign modified class name attribute
+      objElement.className = arrList.join(' ');
+
+      }
+   // if there was no class
+   else
+      {
+
+      // assign modified class name attribute      
+      objElement.className = strClass;
+   
+      }
+
+   }
+// 
+// AddClassName
+// ----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
+// HasClassName
+//
+// Description : returns boolean indicating whether the object has the class name
+//    built with the understanding that there may be multiple classes
+//
+// Arguments:
+//    objElement              - element to manipulate
+//    strClass                - class name to add
+//
+function HasClassName(objElement, strClass)
+   {
+
+   // if there is a class
+   if ( objElement.className )
+      {
+
+      // the classes are just a space separated list, so first get the list
+      var arrList = objElement.className.split(' ');
+
+      // get uppercase class for comparison purposes
+      var strClassUpper = strClass.toUpperCase();
+
+      // find all instances and remove them
+      for ( var i = 0; i < arrList.length; i++ )
+         {
+
+         // if class found
+         if ( arrList[i].toUpperCase() == strClassUpper )
+            {
+
+            // we found it
+            return true;
+
+            }
+
+         }
+
+      }
+
+   // if we got here then the class name is not there
+   return false;
+
+   }
+// 
+// HasClassName
+// ----------------------------------------------------------------------------
+
+// read data from URL 
+function GetVariableBySectionURL2(position_p){
+	var value = GetVariableByURL2(position_p);
+	return value.toUpperCase();
+}
+function GetVariableByURL2(position_p){
+	if (window.location.toString().indexOf("/es/") != -1) {
+		position_p++;
+	}
+	var url = window.location.toString();
+	url = url.substring(url.indexOf("//")+2,url.length);	
+	var urlArray = url.split("/");
+	var variable = urlArray[position_p];
+	variableName = urlArray[1];
+	if ("2008malibu" == variableName) {
+		variableName = "malibu";
+	}
+	if (variable == ""){
+		variable = variableName + " homepage";
+	}else{
+		variable = variableName + " " + variable;
+	}
+	if (urlArray.length -1 == 1 || variable == "")
+		return "model homepage"
+	else
+		return variable;
+}
+
+}
+/*
+     FILE ARCHIVED ON 04:30:39 May 01, 2008 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:05:27 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 79.513
+  exclusion.robots: 0.091
+  exclusion.robots.policy: 0.079
+  cdx.remote: 0.065
+  esindex: 0.017
+  LoadShardBlock: 45.671 (3)
+  PetaboxLoader3.datanode: 58.774 (4)
+  load_resource: 377.828
+  PetaboxLoader3.resolve: 360.323
+*/

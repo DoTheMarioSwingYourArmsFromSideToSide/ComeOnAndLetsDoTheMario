@@ -1,0 +1,74 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+function initObject() {
+	this.parentId = "";
+	this.data = "";
+	this.width = "";
+	this.height = "";
+	this.wmode = "transparent";
+	this.checkVar = 0;
+	this.fallback = "";
+	this.insertObject = function() {
+		if (document.getElementById && document.createElement) {
+			var parentEl = document.getElementById(this.parentId);
+			if (this.checkVar) {
+				parentEl.innerHTML = this.success;
+			} else {
+				parentEl.innerHTML = this.fallback;
+			}
+		}
+	}
+}
+
+initObject.prototype.flash = function(parentId,data,width,height,wmode) {
+	this.parentId = parentId;
+	this.data = data;
+	this.width = width;
+	this.height = height;
+	var param_wmode ="";
+	
+	if(wmode != undefined){
+		this.wmode = wmode;
+		}
+	if(this.wmode != "")
+	  param_wmode = '<param name="wmode" value="'+this.wmode+'" />';
+		
+	this.success = '<object id="masthead-object" data="' + this.data + '" type="application/x-shockwave-flash" width="'+this.width+'" height="'+this.height+'" alt="" wmode="'+this.wmode+'"><param name="movie" value="' + this.data + '" /><param name="loop" value="false" /><param name="menu" value="false" /><param name="quality" value="high" />'+param_wmode+'<\/object>'
+	this.checkVar = 1;
+	//this.fallback = noFlashMsg;
+	this.insertObject();
+}
+
+var newObject = new initObject();
+
+}
+/*
+     FILE ARCHIVED ON 23:00:27 Mar 13, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 21:46:34 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 159.303
+  exclusion.robots: 0.061
+  exclusion.robots.policy: 0.054
+  cdx.remote: 0.053
+  esindex: 0.009
+  LoadShardBlock: 121.382 (3)
+  PetaboxLoader3.datanode: 107.191 (4)
+  load_resource: 92.236
+  PetaboxLoader3.resolve: 78.347
+*/

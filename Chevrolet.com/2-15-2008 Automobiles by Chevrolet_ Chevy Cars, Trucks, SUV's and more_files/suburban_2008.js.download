@@ -1,0 +1,92 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+// masthead price as shown
+//var priceasshown_suburban2008="$XX,XXX*";
+
+// legacy
+//var startingatprice_suburban="$XX,XXX*";
+
+
+// flyout price
+var startingatprice_suburban_flyout="$38,985*";
+var priceasshown_suburban_flyout="$53,200*";
+
+// landing page prices
+var startingatprice_suburban2008_landing="$38,985*";
+var priceasshown_suburban2008_landing="$53,200*";
+
+// thumbnail price as shown
+var priceasshown_suburban2008_half_ton_ls="$38,985*";
+var priceasshown_suburban2008_half_ton_lt="$42,770*";
+var priceasshown_suburban2008_half_ton_ltz="$50,355*";
+var priceasshown_suburban2008_three_quarter_ton_ls="$43,235*";
+var priceasshown_suburban2008_three_quarter_ton_lt="$44,625*";
+
+// thumbnails starting at price
+var startingatprice_suburban2008_half_ton_ls="$38,985*";
+var startingatprice_suburban2008_half_ton_lt="$39,925*";
+var startingatprice_suburban2008_half_ton_ltz="$48,460*";
+var startingatprice_suburban2008_three_quarter_ton_ls="$40,395*";
+var startingatprice_suburban2008_three_quarter_ton_lt="$44,160*";
+
+// trim levels starting at price
+var startingatprice_suburban2008_half_ton_ls_2wd="$38,985*";
+var startingatprice_suburban2008_half_ton_ls_4x4="$41,830*";
+
+var startingatprice_suburban2008_half_ton_1lt_2wd="$39,925*";
+var startingatprice_suburban2008_half_ton_1lt_4x4="$42,770*";
+
+var startingatprice_suburban2008_half_ton_2lt_2wd="$42,450*";
+var startingatprice_suburban2008_half_ton_2lt_4x4="$45,295*";
+
+var startingatprice_suburban2008_half_ton_3lt_2wd="$43,515*";
+var startingatprice_suburban2008_half_ton_3lt_4x4="$46,360*";
+
+var startingatprice_suburban2008_half_ton_ltz_2wd="$48,460*";
+var startingatprice_suburban2008_half_ton_ltz_4x4="$51,305*";
+
+var startingatprice_suburban2008_three_quarter_ton_ls_2wd="$40,395*";
+var startingatprice_suburban2008_three_quarter_ton_ls_4x4="$43,235*";
+
+var startingatprice_suburban2008_three_quarter_ton_1lt_2wd="$41,315*";
+var startingatprice_suburban2008_three_quarter_ton_1lt_4x4="$44,160*";
+
+var startingatprice_suburban2008_three_quarter_ton_2lt_2wd="$43,840*";
+var startingatprice_suburban2008_three_quarter_ton_2lt_4x4="$46,685*";
+
+var startingatprice_suburban2008_three_quarter_ton_3lt_2wd="$44,905*";
+var startingatprice_suburban2008_three_quarter_ton_3lt_4x4="$47,750*";
+
+
+
+}
+/*
+     FILE ARCHIVED ON 04:51:53 May 01, 2008 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:05:28 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 90.993
+  exclusion.robots: 0.114
+  exclusion.robots.policy: 0.102
+  RedisCDXSource: 0.708
+  esindex: 0.01
+  LoadShardBlock: 72.334 (3)
+  PetaboxLoader3.datanode: 304.664 (4)
+  load_resource: 311.47
+  PetaboxLoader3.resolve: 42.165
+*/

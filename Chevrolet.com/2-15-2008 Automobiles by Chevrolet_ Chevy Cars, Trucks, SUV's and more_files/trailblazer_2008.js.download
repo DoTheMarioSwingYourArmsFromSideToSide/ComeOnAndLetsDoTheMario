@@ -1,0 +1,72 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+// masthead price as shown
+//var priceasshown_trailblazer="$35,200*";
+
+//legacy
+//var startingatprice_trailblazer="$25,365*";
+
+//flyout 
+var startingatprice_trailblazer_flyout="$28,150*";
+var priceasshown_trailblazer_flyout="$35,995*";
+
+//landing page
+var startingatprice_trailblazer2008_landing="$28,150*";
+var priceasshown_trailblazer2008_landing="$35,995*";
+
+// thumbnail price as shown
+var priceasshown_trailblazer2008_lt="$32,985*";
+var priceasshown_trailblazer2008_ss="$35,995*";
+
+// thumbnail starting at price
+var startingatprice_trailblazer2008_lt="$28,150*";
+var startingatprice_trailblazer2008_ss="$32,560*";
+
+// trim levels starting at price
+var startingatprice_trailblazer2008_1lt_2wd="$28,150*";//
+var startingatprice_trailblazer2008_1lt_4x4="$30,285*";//
+
+var startingatprice_trailblazer2008_2lt_2wd="$30,185*";//
+var startingatprice_trailblazer2008_2lt_4x4="$32,315*";//
+
+var startingatprice_trailblazer2008_3lt_2wd="$32,215*";//
+var startingatprice_trailblazer2008_3lt_4x4="$34,350*";//
+
+var startingatprice_trailblazer2008_1ss="$32,560*";
+var startingatprice_trailblazer2008_1ss_awd="$34,695*";
+
+var startingatprice_trailblazer2008_3ss="$35,995*";
+var startingatprice_trailblazer2008_3ss_awd="$38,130*";
+
+
+}
+/*
+     FILE ARCHIVED ON 04:50:23 May 01, 2008 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:05:27 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 88.419
+  exclusion.robots: 0.082
+  exclusion.robots.policy: 0.072
+  cdx.remote: 0.065
+  esindex: 0.009
+  LoadShardBlock: 57.185 (3)
+  PetaboxLoader3.datanode: 65.659 (4)
+  load_resource: 45.98
+  PetaboxLoader3.resolve: 20.754
+*/

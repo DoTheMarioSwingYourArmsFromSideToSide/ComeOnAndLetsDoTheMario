@@ -1,0 +1,92 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+var $$FSR = {
+    'timestamp': 'December 19, 2012 @ 2:13 PM',
+    'version': '15.2.7',
+    'enabled': true,
+    'frames': false,
+    'sessionreplay': true,
+    'auto': true,
+    'encode': false,
+    'files': '/foresee/',
+    // needs to be set when foresee-transport.swf is not located at 'files'
+    //'swf_files': '__swf_files_'
+    'id': 'BdFsJRxdZk18otEgE99EcA==',
+    'definition': 'foresee-surveydef.js',
+    'embedded': false,
+    'replay_id': 'gm.com',
+    'attach': false,
+    'renderer': 'W3C', // or "ASRECORDED"
+    'layout': 'CENTERFIXED', // or "LEFTFIXED" or "LEFTSTRETCH" or "CENTERSTRETCH"
+    'pools': [{
+        path: '.',
+        sp: 100 // CHANGE ONLY WHEN INCLUDING SESSION REPLAY
+    }],
+    'sites': [{
+        name: 'chevy.com',
+        path: 'chevy.com',
+        domain: 'default'
+    }, {
+        name: 'chevy.com',
+        path: 'chevrolet.com',
+        domain: 'default'
+    }, {
+        name: 'cadillac.com',
+        path: 'cadillac.com',
+        domain: 'default'
+    }, {
+        name: 'buick.com',
+        path: 'buick.com',
+        domain: 'default'
+    }, {
+        name: 'GMC.com',
+        path: 'gmc.com',
+        domain: 'default'
+    }, {
+        name: 'GM.com',
+        path: 'gm.com',
+        domain: 'default'
+    }, {
+        path: '.',
+        domain: 'default'
+    }],
+    storageOption: 'cookie'
+};
+
+var FSRCONFIG = {};
+
+// -------------------------------- DO NOT MODIFY ANYTHING BETWEEN THE DASHED LINES --------------------------------
+(function(a,c,f){for(var c=a.sites,b=0,g=c.length;b<g;b++){var d;"[object Array]"!==Object.prototype.toString.call(c[b].path)&&(c[b].path=[c[b].path]);for(var e=0,h=c[b].path.length;e<h;e++)if(d=f.location.href.toLowerCase().match(c[b].path[e])){a.siteid=b;a.site=a.sites[b];a.site.domain?"default"==a.site.domain&&(a.site.domain=null):a.site.domain=d[0];a.site.secure||(a.site.secure=null);a.site.name||(a.site.name=d[0]);break}if(d)break}f.cookie="fsr.a"+(a.site.cookie?"."+a.site.cookie:"")+"=suspended;path=/"+
+(a.site.domain?";domain="+a.site.domain+";":";")+(a.site.secure?"secure":"")})($$FSR,window,window.document);
+
+}
+/*
+     FILE ARCHIVED ON 08:46:36 Jan 16, 2014 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 04:04:04 May 01, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 167.102
+  exclusion.robots: 0.105
+  exclusion.robots.policy: 0.092
+  RedisCDXSource: 41.174
+  esindex: 0.01
+  LoadShardBlock: 88.388 (3)
+  PetaboxLoader3.datanode: 101.331 (5)
+  load_resource: 459.319 (2)
+  PetaboxLoader3.resolve: 388.866 (2)
+*/

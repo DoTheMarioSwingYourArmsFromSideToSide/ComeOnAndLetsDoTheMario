@@ -1,0 +1,118 @@
+#subHeader {
+	width:920px;
+	height:106px;
+}
+
+#subHeader div{
+	float: left;
+	margin: 0px;
+
+}
+
+.modelHead{
+	padding-top:0px;
+}
+
+.modelHead ul li{
+	float: none !important;
+}
+
+.modelHead ul{
+	float: left !important;
+	margin-right: 10px;
+}
+
+.headBrandYear li a{
+	margin: 0px;
+}
+
+#currentModelYears ul{
+	margin: 0;
+	padding: 0;
+}
+
+#currentModelYears{
+	position: absolute;
+	background: silver;
+	border: 1px solid #000;
+}
+
+#currentModelYears ul li{
+	float:left !important;
+	font-size:9px;
+	font-weight:bold;
+	margin:3px 6px;
+}
+
+.upperHead{
+	text-transform: uppercase;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.hiddenArea{
+	display: none;
+}
+
+.displayedArea{
+	display: block;
+}
+
+#changeYearLink, #addToMySavedInfoLink{
+	font-size: 7px;
+	font-weight: bold;
+}
+
+ul#subMenu {
+	float:left;
+	margin:0px 0px 0px 0px;
+	position:absolute;
+	left:187px;
+	width:720px;
+}
+
+ul#subMenu li{
+	padding: 3px 20px 0 20px;
+}
+
+ul#subMenu li.tab01{
+
+}
+
+ul#subMenu li.tab02{
+
+}
+
+ul#subMenu li.tab03{
+
+}
+ul#subMenu li.tab04{
+}
+
+ul#subMenu li.tab05{
+
+}
+
+ul#subMenu li.tabActive {
+	font-weight:bold;
+}
+/*
+     FILE ARCHIVED ON 22:47:52 Dec 19, 2009 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:29:29 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 145.234
+  exclusion.robots: 0.063
+  exclusion.robots.policy: 0.056
+  cdx.remote: 0.05
+  esindex: 0.009
+  LoadShardBlock: 116.552 (3)
+  PetaboxLoader3.datanode: 126.488 (4)
+  load_resource: 591.693
+  PetaboxLoader3.resolve: 66.209
+*/

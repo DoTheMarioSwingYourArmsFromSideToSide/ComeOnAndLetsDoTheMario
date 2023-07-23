@@ -1,0 +1,489 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+<!-- DO NOT EDIT THESE SCRIPTS -->
+var scripts = document.getElementsByTagName('script');var myScript = scripts[ scripts.length - 1 ];var queryString = myScript.src.replace(/^[^\?]+\??/,'');var params = parseQuery( queryString );
+function parseQuery ( query ) {var Params = new Object ();if ( ! query ) return Params; var Pairs = query.split(/[;&]/); for ( var i = 0; i < Pairs.length; i++ ) {var KeyVal = Pairs[i].split('=');if ( ! KeyVal || KeyVal.length != 2 ) continue;var key = unescape( KeyVal[0] );var val = unescape( KeyVal[1] );val = val.replace(/\+/g, ' ');Params[key] = val;}return Params;}
+<!-- END PARAM SCRIPTS -->
+
+
+// Namespace our Object
+var gnav = {};
+var $_;
+
+// Object Definition
+gnav = {	
+	
+	context: "",
+	utils: {
+		random: function(nums){
+			var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
+				var string_length = nums;
+				var random = '';
+				for (var i=0; i<string_length; i++) {
+					var rnum = Math.floor(Math.random() * chars.length);
+					random += chars.substring(rnum,rnum+1);
+				}
+			return random;
+		},
+		openNav: function(type){
+			$_("#gnav_"+type).removeClass('section-closed').addClass("section-open");
+			$_("#gnav_" + type + " .bb-closed").removeClass('bb-closed').addClass("bb-open");
+		}
+	},
+	
+	fontReplace : { // sIFR font replacement setup
+		init: function(){ 
+			Cufon.replace(".bb-closed .title a", {
+				fontFamily: 'Klavika CH Medium',
+				hover: true
+			});
+		}
+	},
+	
+	init: function(){
+		// Init object	
+		
+		this.contrast();
+		this.env();
+		this.events();
+		this.fontReplace.init();
+		$_('#winMask').remove();
+		
+		try {
+			if($_("#subMenu li.last a span").html().contains("Build") == true && $_("#subMenu li:last").attr("class").contains("tabActive") == false){
+				$_("#subMenu li.last").addClass("byoSelected");
+			}
+		} catch(err){}
+	},
+	
+	contrast: function(){
+		var beta = [
+			"/pages/mds/misc/homepage.do",
+			"/pages/open/default/family/camaro.do",
+			"/pages/open/default/family/corvette.do",
+			"/pages/open/default/sitelet/silveradofamily.do",
+			"/pages/open/default/family/suburban.do",
+			"/pages/open/default/family/tahoe.do",
+			"/vehicles/2011/camaro/overview.do",
+			"/vehicles/2011/camaroconvertible/overview.do",
+			"/vehicles/2011/corvetteconvertible/overview.do",
+			"/vehicles/2011/corvettecoupe/overview.do",
+			"/vehicles/2011/corvettegs/overview.do",
+			"/vehicles/2011/corvettegscoupe/overview.do",
+			"/vehicles/2011/corvettez06/overview.do",
+			"/vehicles/2011/corvettezr1/overview.do",
+			"/vehicles/2011/cruze/overview.do",
+			"/vehicles/2011/equinox/overview.do",
+			"/vehicles/2011/malibu/overview.do",
+			"/vehicles/2011/silverado1500/overview.do",
+			"/vehicles/2011/silverado2500/overview.do",
+			"/vehicles/2011/silverado2500hd/overview.do",
+			"/vehicles/2011/silverado3500/overview.do",
+			"/vehicles/2011/silverado3500hd/overview.do",
+			"/vehicles/2011/silveradohybrid/overview.do",
+			"/vehicles/2011/suburban1-2ton/overview.do",
+			"/vehicles/2011/suburban3-4ton/overview.do",
+			"/vehicles/2011/tahoe/overview.do",
+			"/vehicles/2011/tahoehybrid/overview.do",
+			"/vehicles/2011/traverse/overview.do",
+			"/vehicles/2011/volt/overview.do",
+			"/pages/open/default/family/silverado.do",
+			"/pages/mds/experience/superbowl.do"
+		];
+		
+		if($_.inArray( INTERNAL_URL, beta) > -1){
+			$_("html").addClass("dark-layout");
+			
+			Cufon.replace("li.upperHead", {
+				fontFamily: 'Klavika CH Medium',
+				color: 'white',
+				fontSize: '20px'
+			});
+			
+			Cufon.replace("#subMenu .list-title", {
+				fontFamily: 'Klavika CH Medium',
+				color: 'white',
+				fontSize: '20px'
+			});
+			
+		} else {
+			$_("html").addClass("light-layout");
+			
+			Cufon.replace("li.upperHead", {
+				fontFamily: 'Klavika CH Medium',
+				color: 'black',
+				fontSize: '20px'
+			});
+			
+			Cufon.replace("#subMenu .list-title", {
+				fontFamily: 'Klavika CH Medium',
+				color: 'black',
+				fontSize: '20px'
+			});
+		}
+		
+	},
+	
+	events: function(){
+		
+		var timeout;
+		
+		
+		$_("#gnav li.header").live("mouseover", function(){	
+			clearTimeout(timeout);		
+			$_("#gnav li.header a").removeClass('headerSelected');
+			$_("a", this).addClass('headerSelected');			
+			var navSection = $_(this).attr('rel');			
+			gnav.openNav(navSection);
+			if ( $_('#winMask').length <= 0 ) {
+				createWinMask();
+			}
+			
+			if($_('#winMask').is("visible") == false){
+				$_('#winMask').css("visibility","visible").fadeTo('slow',0.25);
+			}
+		});
+		
+		$_(".hasSub").bind("mouseenter", function(){
+			var subSection = $_(this).attr('rel');
+			if($_("#"+subSection).hasClass('sub-open')== false){
+				gnav.openSub(subSection);
+			}
+		});
+		
+		$_(".nonvehicle").bind("mouseenter", function(){
+			$_(".navSelected").removeClass('navSelected');
+		});
+		
+		
+		
+		$_("#gMdsSubNav").bind("mouseenter",function(){
+			timeout = setTimeout('gnav.clearNavs.delay(150,"",true)', 150);
+			removeWinMask();
+	    });
+		
+		$_("#mdsNavGlobal").bind("mouseenter",function(){
+			timeout = setTimeout('gnav.clearNavs.delay(150,"",true)', 150);
+			removeWinMask();
+	    });
+		
+		$_("#gMdsNav").bind("mouseleave", function(){
+			timeout = setTimeout('gnav.clearNavs.delay(150,"",true)', 150);
+			removeWinMask();
+		});
+		
+		$_("#gnav_container").bind("mouseenter",function(){
+			clearTimeout(timeout);
+	    });
+		
+		
+		$_(".bb-open").live("click", function(){
+			var lochref = $_(".title a", this).attr("href");
+			window.location = lochref;
+		})
+	
+		
+		$_(".bb-open").live("mouseover mouseout", function(event){
+			
+			if (event.type == 'mouseover') {
+				$_(".title a", this).css({
+					"backgroundColor": "#4e8aa4",
+					"color": "white",
+					"backgroundImage": "url("+BASE_CONTEXT+"/assets/en/images/global/navigation/learn_more_arrow_over.png)"
+				});
+				
+				Cufon.replace($_(".title", this), {
+					fontFamily: 'Klavika CH Medium',
+					color: 'white',
+					hover: true
+				});
+				
+			} else {
+				$_(".title a", this).css({
+					"backgroundColor": "transparent",
+					"color": "#a5a2a2",
+					"backgroundImage": "url("+BASE_CONTEXT+"/assets/en/images/global/navigation/learn_more_arrow.png)"
+				});
+				
+				Cufon.replace($_(".title", this), {
+					fontFamily: 'Klavika CH Medium',
+					color: '#a5a2a2'
+				});
+			
+			}
+		});
+		
+		
+		
+		
+		
+		$_("#gnav_cars .segmented_nav_section a").bind("click", function(e){
+			e.stopPropagation();	
+			s.pe = "lnk_o";
+			s.pev2 = "CAR | " + $_(this).text() + " | " + $_(this).attr("href")
+			s.prop20 = "CHEVROLET | DIVISIONAL | "+s.prop3+" | GNAV";
+			s.t();
+		});
+		
+		$_("#gnav_crossovers .segmented_nav_section a").bind("click", function(e){
+			e.stopPropagation();	
+			s.pe = "lnk_o";
+			s.pev2 = "CROSSOVER_SUV | " + $_(this).text() + " | " + $_(this).attr("href")
+			s.prop20 = "CHEVROLET | DIVISIONAL | "+s.prop3+" | GNAV";
+			s.t();
+		});
+		
+		$_("#gnav_trucks .segmented_nav_section a").bind("click", function(e){
+			e.stopPropagation();	
+			s.pe = "lnk_o";
+			s.pev2 = "TRUCKS_VANS | " + $_(this).text() + " | " + $_(this).attr("href")
+			s.prop20 = "CHEVROLET | DIVISIONAL | "+s.prop3+" | GNAV";
+			s.t();
+		});
+		
+		
+		$_("#gnav_cars ul.nonvehicle li a").bind("click", function(e){
+			if($_(this).hasClass("external") == false){
+				e.stopPropagation();	
+				s.pe = "lnk_o";
+				s.pev2 = "CAR | " + $_(this).attr("href");
+				s.prop20 = "CHEVROLET | DIVISIONAL | "+s.prop3+" | GNAV";
+				s.t();
+			}
+		});
+		
+		$_("#gnav_crossovers ul.nonvehicle li a").bind("click", function(e){
+			if($_(this).hasClass("external") == false){
+				e.stopPropagation();	
+				s.pe = "lnk_o";
+				s.pev2 = "CROSSOVER_SUV | " + $_(this).attr("href");
+				s.prop20 = "CHEVROLET | DIVISIONAL | "+s.prop3+" | GNAV";
+				s.t();
+			}
+		});
+		
+		$_("#gnav_trucks ul.nonvehicle li a").bind("click", function(e){
+			if($_(this).hasClass("external") == false){
+				e.stopPropagation();	
+				s.pe = "lnk_o";
+				s.pev2 = "TRUCKS_VANS | " + $_(this).attr("href");
+				s.prop20 = "CHEVROLET | DIVISIONAL | "+s.prop3+" | GNAV";
+				s.t();
+			}
+		});
+		
+		$_("#gnav_container .external").bind("click", function(e){
+			e.stopPropagation();	
+			s.pe = "lnk_e";
+			s.pev2 = $_(this).attr("href");
+			s.prop20 = "CHEVROLET | DIVISIONAL | "+s.prop3+" | GNAV";
+			s.t();
+		});
+		
+		$_("#gnav_pricing ul.nonvehicle li a[class!='external']").bind("click", function(e){
+			e.stopPropagation();	
+			s.pe = "lnk_o";
+			s.pev2 = $_(this).attr("href");
+			s.prop20 = "CHEVROLET | DIVISIONAL | "+s.prop3+" | GNAV";
+			s.t();
+		});
+		
+		$_("#gnav_experience ul.nonvehicle li a[class!='external']").bind("click", function(e){
+			e.stopPropagation();	
+			s.pe = "lnk_o";
+			s.pev2 = $_(this).attr("href");
+			s.prop20 = "CHEVROLET | DIVISIONAL | "+s.prop3+" | GNAV";
+			s.t();
+		});
+		
+		$_("#gnav_owners ul.nonvehicle li a[class!='external']").bind("click", function(e){
+			e.stopPropagation();	
+			s.pe = "lnk_o";
+			s.pev2 = $_(this).attr("href");
+			s.prop20 = "CHEVROLET | DIVISIONAL | "+s.prop3+" | GNAV";
+			s.t();
+		});
+		
+		
+		
+	},
+	
+	closeNav: function(){
+		$_('.section-open').removeClass('section-open').addClass('section-closed');
+	},
+	
+	clearNavs: function(type){
+		$_('.section-open').removeClass('section-open').addClass('section-closed');
+		$_('.sub-open').removeClass('sub-open').addClass('sub-closed');
+		$_(".navSelected").removeClass('navSelected');
+		$_('.bb-open').removeClass('bb-open').addClass('bb-closed');
+		if(type == true){
+			$_("#gnav li.header a").removeClass('headerSelected');
+		}
+	},
+	
+	openBB: function(section){
+		$_('.bb-open').removeClass('bb-open').addClass('bb-closed');
+		var position = $_("li[rel='"+section+"']").position().left;
+		var position_x = $_("li[rel='"+section+"']").position().top;
+		
+		if(position_x > 80){
+			position_x = position_x - 40;
+		}
+		
+		$_("#"+section).removeClass('bb-closed').css({'left': (position+300)+'px','opacity':'0','z-index':'900','top': position_x +"px"}).animate({"left":"300px","opacity":"1"}, 300).addClass('bb-open');		
+		$_(".hasFlyOut a.navSelected").removeClass('navSelected');
+		$_("li[rel='"+section+"'] a").addClass('navSelected');
+		
+		if($_(".bb-open .msrp").html() != ""){
+			$_(".small-msrp").remove();			
+			var msrpText = "<span class='small-msrp'>MSRP: Starting at</span>";
+			$_(".bb-open .msrp").before(msrpText);			
+		}
+		$_("li[rel='"+section+"'] a").addClass('navSelected');
+		
+		if($_(".bb-open .msrp").html() != ""){
+			$_(".small-msrp").remove();			
+			var msrpText = "<span class='small-msrp'>MSRP: Starting at</span>";
+			$_(".bb-open .msrp").before(msrpText);
+					
+		}
+	},
+	
+	openSub: function(section){
+		console.log(section)
+		$_('.bb-open').removeClass('bb-open').addClass('bb-closed');
+		$_('.sub-open').removeClass('sub-open').addClass('sub-closed');
+		var position = $_("li[rel='"+section+"']").position().left;
+		$_("#"+section).removeClass('sub-closed').css({'left': (position+300)+'px','opacity':'0','z-index':'9999'}).animate({"left":"194px","opacity":"1"}, 300).addClass('sub-open');
+		$_(".section-open .navSelected").removeClass('navSelected');
+		$_("li[rel='"+section+"'] a").addClass('navSelected');
+		
+		var firstFlyOut = $_("div.sub-open li.hasFlyOut").attr('rel');		
+		this.openBB(firstFlyOut);
+	},
+	
+	openNav: function(section){
+		this.clearNavs(false);
+		var navPos = $_("#gnav_container").position().left;
+
+		var position = $_("li[rel='"+section+"']").position().left;
+			
+		var data_section = $_("#"+section).attr("rel");
+		
+		if(data_section == "vehicle_data" || data_section == "gnav_cars" || data_section == "gnav_crossovers" || data_section == "gnav_trucks"){
+			
+			if(($_.browser.msie == true && $_.browser.version == "7.0") && INTERNAL_URL == "/pages/mds/misc/homepage.do"){
+				$_("#"+section).removeClass('section-closed').css({"left":"0px","top":"10px"}).addClass('section-open').css({'display':'none'}).fadeIn('fast');
+			} else {
+				if(($_.browser.msie == true && $_.browser.version == "7.0")){
+					$_("#"+section).removeClass('section-closed').css({"left":"0px","top":"10px"}).addClass('section-open').css({'display':'none'}).fadeIn('fast');
+				} else {
+					$_("#"+section).removeClass('section-closed').addClass('section-open').css({'display':'none'}).fadeIn('fast');
+				}
+					
+			}
+			
+			
+		} else {
+			if(($_.browser.msie == true && $_.browser.version == "7.0")){
+				$_("#"+section).removeClass('section-closed').css({'left': (position)+"px","top":"10px"}).addClass('section-open').css({'display':'none'}).fadeIn('fast');
+			} else {
+				$_("#"+section).removeClass('section-closed').css('left', (position)+"px").addClass('section-open').css({'display':'none'}).fadeIn('fast');
+			}
+		}
+		
+		$_(".bb-closed").removeClass("bb-closed").addClass("bb-open");
+		
+		
+		$_("#gMdsNav").css("z-index","99999");
+		
+		
+		
+	},
+	
+	setup: function(){		
+		
+		$_.ajax({
+			url: "https://web.archive.org/web/20110318060231/http://prj.chevrolet.mrmworldwide.com/mds/tiles/common/inc_navigation.jsp",
+			success: function(data){
+				$_("<div id='nav' />").appendTo("body");
+				
+				$_("#nav").html(data);
+			}
+		});
+		
+		
+		
+	},
+	
+	env: function(){
+		// Get Environment (External or Local)
+		this.context = (params.env == "local") ? BASE_CONTEXT : "https://web.archive.org/web/20110318060231/http://www.chevrolet.com";
+		
+		// Check if Jquery is loaded
+		if (typeof(jQuery) != "function") {  
+		    this.loadJquery();
+		} 
+		
+		
+	},
+	
+	loadJquery: function(){
+		
+		var head= document.getElementsByTagName('head')[0];
+		var script = document.createElement( 'script' );
+		script.type = 'text/javascript';
+		script.src = 'https://web.archive.org/web/20110318060231/http://www.google.com/jsapi';
+		head.appendChild(script);
+		
+		google.load("jquery", "1.4.2");
+		var $_ = jQuery.noConflict();
+
+		this.init();
+	}
+}
+
+
+if (!jQuery) {  
+    gnav.loadJquery();
+} else {	
+	$_(document).ready(function(){		
+		gnav.init();
+	});
+}
+
+
+
+
+}
+/*
+     FILE ARCHIVED ON 06:02:31 Mar 18, 2011 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:53:15 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 88.407
+  exclusion.robots: 0.066
+  exclusion.robots.policy: 0.056
+  RedisCDXSource: 0.54
+  esindex: 0.007
+  LoadShardBlock: 69.697 (3)
+  PetaboxLoader3.datanode: 92.725 (5)
+  load_resource: 205.304 (2)
+  PetaboxLoader3.resolve: 102.138 (2)
+*/
