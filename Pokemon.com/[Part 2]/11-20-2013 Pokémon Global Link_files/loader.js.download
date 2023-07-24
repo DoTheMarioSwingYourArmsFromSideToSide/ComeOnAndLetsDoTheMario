@@ -1,0 +1,64 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+
+(function () {
+	window.PGL = { INFO:{} };
+	var envname = location.hostname.replace(/(?:-sp)?\.pokemon-gl\.com$/, '');
+	document.write('<script src="/share/js/path/' + envname + '.js"></script>');
+	
+	var getCdnPrefix = (function () {
+		var cdnPrefix;
+		var f = function () {
+			if (!cdnPrefix && PGL && PGL.INFO && PGL.INFO.PATH) {
+				cdnPrefix = PGL.INFO.PATH.cmsUploads;
+			}
+			return cdnPrefix;
+		};
+		f();
+		return f;
+	})();
+	
+	window.loadStyles = function (list) {
+		$.each(list, function (index, item) {
+			document.write('<link rel="stylesheet" type="text/css" href="' + getCdnPrefix() + item + '"/>');
+		});
+	};
+	window.loadScripts = function (list) {
+		$.each(list, function (index, item) {
+			document.write('<script src="' + getCdnPrefix() + item + '"></script>');
+		});
+	};
+})();
+
+
+}
+/*
+     FILE ARCHIVED ON 21:31:25 Nov 12, 2013 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 02:52:03 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 134.489
+  exclusion.robots: 0.063
+  exclusion.robots.policy: 0.055
+  cdx.remote: 0.048
+  esindex: 0.009
+  LoadShardBlock: 108.946 (3)
+  PetaboxLoader3.datanode: 134.727 (4)
+  load_resource: 111.448
+  PetaboxLoader3.resolve: 56.087
+*/
