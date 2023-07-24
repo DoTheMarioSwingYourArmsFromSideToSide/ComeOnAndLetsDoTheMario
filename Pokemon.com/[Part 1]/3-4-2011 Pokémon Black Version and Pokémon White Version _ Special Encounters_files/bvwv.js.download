@@ -1,0 +1,1361 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+/**
+ * Detect mobile
+ */
+
+BVWV.mobileDetect = function(){
+	var iphone = (navigator.platform.indexOf('iPhone')>=0) ? true : false,
+		ipad = (navigator.platform.indexOf('iPad')>=0) ? true : false,
+		android = (navigator.userAgent.indexOf('Android')>=0) ? true : false;
+
+	if(iphone || ipad || android){
+		return true;
+	}else{
+		return false;
+	}
+};
+
+/**
+ * Create cross-fading buttons
+ * @param targets string
+ * @param options object
+ */
+BVWV.buttons = function(targets, options) {
+	
+	var self = this;
+	this.els = $(targets);
+	
+	// set defaults
+	this.options = $.extend({
+		animationDuration: 250, // time in milliseconds to animate
+		animationType: 'fade', // type of animation, currently supported: fade / expand. @TODO: actually implement
+		copyCSS: true, // set this to false if you don't want to automatically copy the parents styles
+		hoverClass: 'hover' // the class of the added element
+	}, options || {});
+	
+	var span = [];
+	
+	// does the browser support opacity? If not, they don't get animations.
+	this.animate = (jQuery.support.opacity) ? true : false;
+	
+	// iterate through elements
+	for(var i = 0, length = this.els.length; i < length; i++) {
+		// create new element
+		span.push(this.createElements(this.els[i]));
+		
+		// handle hover events
+		(function(i) {
+			$(self.els[i]).hover(
+				function(e) {
+					self.crossFadeIn($(span[i]));
+					//self.expand($(span[i]));
+				},
+				function(e) {
+					self.crossFadeOut($(span[i]));
+					//self.contract($(span[i]));
+				}
+			);
+		}(i));
+		
+	}
+};
+
+BVWV.buttons.prototype = {
+	
+	// creates the necessary structure to animate buttons
+	createElements: function(el) {
+		var span;
+		var element = $(el);
+		var bg = (this.options.copyCSS === true) ? element.css('background-image') : '';
+		if(this.animate) {
+			span = $('<span class="' + this.options.hoverClass + '"></span>').css({'opacity': 0, 'background-image': bg});
+		} else {
+			span = $('<span class="' + this.options.hoverClass + '"></span>').css({'background-image': bg}).hide();
+		}
+		
+		element.prepend(span);
+		return span;
+	},
+	
+	crossFadeIn: function(el) {
+		if(this.animate) {
+			el.stop().fadeTo(this.options.animationDuration, 1);
+		} else {
+			el.show();
+		}
+		
+	},
+	
+	crossFadeOut: function(el) {
+		if(this.animate) {
+			el.stop().fadeTo(this.options.animationDuration, 0);
+		} else {
+			el.hide();
+		}
+
+	},
+	
+	expand: function(el) {
+		el.stop().animate({
+			'width': '232px'
+		}, this.options.animationDuration);
+	},
+	
+	contract: function(el) {
+		el.stop().animate({
+			'width': '0px'
+		}, this.options.animationDuration);
+	}
+	
+};
+
+/**
+ * Carousel / slider
+ * @param target string
+ * @param options object
+ */
+BVWV.carousel = function(target, options) {
+
+	// defaults
+	this.options = $.extend({
+		animationDuration: 200, // time, in milliseconds, it takes for animation to complete
+		captions: true, // has captions?
+		captionsClass: 'caption', // CSS classname of the caption element
+		inGroupsOf: 4, // how many items should slide at once
+		initialIndex: 0, // where to start
+		navClass: 'nav', // nav class - wrapper for next / previous buttons, and states
+		nextBtnClass: 'next', // class of next button
+		offsetLeft: 30, // additional x space (to make up for padding and stuff)
+		playSound: true, // play flash sounds?
+		prevBtnClass: 'prev', // class of previous button
+		soundId: 'soundTarget', // name of the flash id that'll play sounds
+		soundHoverName: 'screenshotHover', // name of the sound to play
+		soundSlideName: 'screenshotSlider', // name of the sound to play
+		hasCounter: false, //add '4 of 5', etc text
+		slideCounterClass: 'slideCounter',
+		updateLinks: false //added for very specific wallpaper functionality
+	}, options || {});
+	
+	this.index = this.options.initialIndex;
+	this.states = false;
+	
+	var targets = $(target);
+	
+	// set caption area
+	// @TODO: make this less strict, pass in as options
+	//this.cap = $(targets).find('div.caption');
+	
+	for(var i = 0; i < targets.length; i++) {
+		// find the ul
+		var scrollwindow = $(targets[i]).find('ul');
+		// remove no js class if it exists
+		scrollwindow.removeClass('nojs');
+		
+		// find children
+		var children = scrollwindow.find('li');
+		// use the first child as measure for width
+		var childWidth = $(children[0]).width();
+
+		var scrollwindowWidth = (childWidth + this.options.offsetLeft) * children.length + 'px';
+
+		// set the scrollwindowWidth
+		scrollwindow.css({'width': scrollwindowWidth});
+
+		var counter = 1;
+		for(var j = 0; j < children.length; j++) {
+			 if(j == 0 || j % this.options.inGroupsOf == 0) {
+				  $(children[j]).attr('data-index', counter);
+				  counter++;
+			 }
+		}
+		//add counter if has scrollCounter div - added for videos
+		//slideCounter = $(targets[i]).find('.slideCounter');
+		/*if(slideCounter.length){
+			this.updateCounter(this.options.initialIndex, counter - 1, slideCounter);
+		}*/
+		// save the total and current index
+		$(targets[i]).data('total', counter - 1);
+		$(targets[i]).data('index', this.options.initialIndex);
+
+		// create navigation
+		if(children.length > this.options.inGroupsOf) {
+			this.createNav($(targets[i]), children);
+		}
+		
+	}
+
+
+};
+
+BVWV.carousel.prototype = {
+	
+	createNav: function(target, children, slideCounter) {
+		
+		var self = this;
+		
+		// create nav wrapper
+		var nav = $('<div/>', {'class': this.options.navClass}).appendTo(target);
+		
+		// create next and previous links / buttons
+		var prevBtn = $('<a/>', {'class': this.options.prevBtnClass}).appendTo(nav);
+		var nextBtn = $('<a/>', {'class': this.options.nextBtnClass}).appendTo(nav);
+		
+		// create counter
+		if(this.options.hasCounter)
+			var counter = $('<div/>', {'class': this.options.slideCounterClass}).appendTo(target);			
+		
+		// events 
+		prevBtn.click(function(e) {
+			e.preventDefault();
+			self.previous(target);
+		});
+		nextBtn.click(function(e) {
+			e.preventDefault();
+			self.next(target);
+		});
+		this.updateCounter(target, this.options.initialIndex+1);
+		this.updateBtns(target);
+	},
+	
+	next: function(target) {
+		var next = target.data('index') + 1;
+		var total = target.data('total');
+		if(next < total) {
+			this.slideTo(target, next);
+		}
+	},
+	
+	previous: function(target) {
+		var prev = target.data('index') - 1;
+		if(prev >= 0) {
+			this.slideTo(target, prev);
+		}
+	},
+	
+	slideTo: function(target, index) {
+		var self = this;
+		// update index
+		target.data('index', index);
+
+		var i = index + 1;
+		
+		// find element
+		var el = target.find('li[data-index=' + i + ']');
+		
+		// find offset
+		var left = '-' + el[0].offsetLeft + 'px';
+		var scrollwindow = target.find('ul');
+		// animate
+		scrollwindow.stop().animate({left: left}, this.options.animationDuration, function(e) {
+			if(self.options.captions === true) {
+				// update captions
+				self.updateCaption(target, el);
+			}	
+		});
+		// attempt to play sound, if set to true
+		if(this.options.playSound === true) {
+			try {
+				this.soundId = $('#' + this.options.soundId)[0];
+				this.soundId.playSound(this.options.soundSlideName);
+			}	
+			catch(e) {}
+		}
+		// update buttons
+		this.updateBtns(target);
+		this.updateCounter(target, i);
+		target.trigger('BVWV:carousel:change', [index]); // fire custom change event
+		
+	},
+	
+	updateCounter: function(target, index){
+		var slideCounter = target.find('.'+this.options.slideCounterClass);
+		var total = target.data('total');
+		if(slideCounter.length){
+			slideCounter.html(index+' / '+total);
+		}
+	},
+	
+	updateCaption: function(target, el) {
+		var self = this;
+		var title = el.attr('title');
+		// empty out previous title
+		var cap = target.find('.' + this.options.captionsClass);
+		cap.fadeTo(100, 0, function(e) {
+			cap.html(title).fadeTo(200, 1);
+		});
+		if(self.options.updateLinks){
+			self.updateLinks(target, el);
+		}
+	},
+	
+	updateLinks: function(target, el){
+		
+		var self = this;
+		var a = target.find('.assetList a');
+		var id = el.attr('id');
+		
+		$(a).each(function(i){
+			var ths = $(this);
+			var temp = ths.attr('href');
+			var tempArray = temp.split('/');
+			tempArray.pop();
+			var tempString = tempArray.join('/');
+			ths.attr('href', tempString+'/'+id+'.jpg');
+		});
+	},
+	
+	updateBtns: function(target) {
+		var self = this;
+		var prevBtn = target.find('.' + this.options.prevBtnClass);
+		var nextBtn = target.find('.' + this.options.nextBtnClass);
+		// 'disable' buttons if they are out of bounds
+		if(target.data('index') <= 0) {
+			prevBtn.addClass('disabled');
+			prevBtn.unbind('mouseenter');
+		} else {
+			prevBtn.removeClass('disabled');
+			// play sound, if set to true
+			if(this.options.playSound === true) {
+				try {
+					prevBtn.bind('mouseenter', function(e) {
+						self.soundId = $('#' + self.options.soundId)[0];
+						self.soundId.playSound(self.options.soundHoverName);
+					});
+				}	
+				catch(e) {}
+			}
+		}
+
+		if(target.data('index') + 1 >= target.data('total')) {
+			nextBtn.addClass('disabled');
+			nextBtn.unbind('mouseenter');
+		} else {
+			nextBtn.removeClass('disabled');
+			if(this.options.playSound === true) {
+				try {
+					nextBtn.bind('mouseenter', function(e) {
+						self.soundId = $('#' + self.options.soundId)[0];
+						self.soundId.playSound(self.options.soundHoverName);
+					});
+				}	
+				catch(e) {}
+			}
+		}
+		
+	}
+	
+};
+
+/**
+ * Get / set / destroy cookie
+ */
+BVWV.cookie = {
+	set: function (name,value,days,domain) {
+		var expires;
+		if (days) {
+			var date = new Date();
+			date.setTime(date.getTime()+(days*24*60*60*1000));
+			expires = "; expires="+date.toGMTString();
+		} else {
+			expires = "";	
+		}
+		if(domain) {
+			domain = "; domain=" + domain + ";";
+		} else {
+			domain = "";
+		}
+		document.cookie = name+"="+value+expires+"; path=/"+domain;
+	},
+	
+	get: function (name) {
+		var nameEQ = name + "=";
+		var ca = document.cookie.split(';');
+		for(var i=0;i < ca.length;i++) {
+			var c = ca[i];
+			while (c.charAt(0)==' ') c = c.substring(1,c.length);
+			if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+		}
+		return null;
+	},
+	
+	destroy: function(name) {
+		this.set(name,"",-1);
+	}
+	
+};
+
+/**
+ * Modal - open modal/lightwindow window
+ * @TODO: cleanup, there's a lot that's not being used
+ * @param targets string
+ * @param options object
+ */
+BVWV.modal = function(target, options){
+	
+	// create alias
+	var self = this;
+
+	// setup defaults
+	this.options = $.extend({
+		className: 'modal-window', // name of newly created modal window
+		interstitial: false, // is it an interstitial (exit gate)?
+		interstitialTarget: 'div.interstitial', // selector of interstitial content target
+		pagingButtons: false, // ?
+		pagingContent: 'div.modal-content', // ?
+		callback: function() {} 
+		}, options || {});
+	
+	this.target = $(target);
+
+	// event handler
+	this.target.click(function(e) {
+		// stop default propagation
+		e.preventDefault();
+		
+		// get target
+		self.elClicked = $(this);
+		self.targetLink = self.elClicked.attr('href');
+		
+		// create modal window
+		self.createModal(self.elClicked);
+	});
+};
+
+BVWV.modal.prototype = {
+	modalEventHandlers:function(){
+		var self = this;
+
+		self.elOverlay.click(function(){
+			self.__modalHide(400);
+		});
+		self.elBtnClose.click(function(){
+			self.__modalHide(400);
+		});
+		$(window).bind('resize', function(){
+			self.positionModal();
+		});
+		$(document).keydown(function(e){
+			if(e.keyCode == '27') {
+				self.handleEscape();
+			}
+		});
+	},
+	interstitialEventHandlers:function(){
+		var self = this;
+
+		self.elBtnContinue.click(function(){
+			self.__modalHide(400);
+		});
+		self.elBtnCancel.click(function(){
+			self.__modalHide(400);
+		});
+	},
+	pagingEventHandlers:function(el){
+		var self = this;
+
+		self.elPrev = $(el).parent('li').prevAll('li:first').children(self.options.pagingContent);
+		self.elNext = $(el).parent('li').nextAll('li:first').children(self.options.pagingContent);
+
+		if(self.elPrev.length >= 1){
+			self.elBtnBack.click(function(){
+				self.__modalHide(0);
+				self.__createModal(self.elPrev);
+			});
+		} else{
+			self.elBtnBack.addClass('disabled');
+		}
+
+		if(self.elNext.length >= 1){
+			self.elBtnNext.click(function(){
+				self.__modalHide(0);
+				self.__createModal(self.elNext);
+			});
+		}else{
+			self.elBtnNext.addClass('disabled');
+		}
+	},
+	
+	modalElements:function() {
+		// create generic modal elements
+		this.elOverlay = $('<div id="overlay" />').fadeTo(0, 0.9);
+		this.elModalWindow = $('<div id="modal-window" />').addClass(this.options.className);
+		this.elBtnClose = $('<a class="btn" id="btn-modal-close"><span class="offscreen">Close</span></a>');
+
+		if(typeof document.body.style.maxHeight === 'undefined' || navigator.platform == "Nintendo Wii"){
+			this.elOverlay.css({
+				height: ($(document.viewport).height() > $(document.body).height() ? $(document.viewport).height() : $(document.body).height()) + 'px'
+			});
+		}
+	},
+	
+	interstitialElements:function(){
+		// create interstitial modal elements
+		this.buttonWrapper = $('<div class="btns" />');
+		this.elBtnCancel = $('<a class="btn" id="btn-modal-cancel"><span>Cancel</span></a>').appendTo(this.buttonWrapper);
+		this.elBtnContinue = $('<a class="btn" id="btn-modal-continue" target="_blank"><span>Continue</span></a>').attr('href', this.targetLink).appendTo(this.buttonWrapper);
+	},
+	pagingElements:function(){
+		var self = this;
+
+		self.elBtnWrapper = $('<ul class="buttons" />');
+		self.elBtnBack = $('<a class="btn-back"><span>Back</span></a>');
+		self.elBtnNext = $('<a class="btn-next"><span>Next</span></a>');
+
+		self.elBtnWrapper.append($('<li />').append(self.elBtnBack)).append($('<li />').append(self.elBtnNext));
+	},
+	positionModal:function(){
+
+		this.elModalWindow.css({
+			'left' : ($(document.body).width() - this.elModalWindow.width()) / 2 + 'px',
+			'top' : ($(window).height() - this.elModalWindow.height()) / 2 + 'px'
+		});
+	},
+	createModal:function(el){
+		var self = this, modalWindowContent;
+
+		this.elOrigin = el;
+		this.modalElements();
+		this.modalEventHandlers();
+
+		if(this.options.interstitial) {
+			modalWindowContent = this.elModalWindow.html($(this.options.interstitialTarget).html());
+			// create the default interstitial elements
+			this.interstitialElements();
+			this.interstitialEventHandlers();
+			this.elModalWindow.append(this.buttonWrapper);
+		}else if(self.options.pagingButtons){
+			modalWindowContent = self.elModalWindow.html($(self.elOrigin).siblings('div.modal-content').html());
+
+			self.pagingElements();
+			self.pagingEventHandlers(self.elOrigin);
+			self.elModalWindow.append(self.elBtnClose, self.elBtnWrapper);
+		}else{
+			modalWindowContent = self.elModalWindow.html($(self.elOrigin).siblings('div.modal-content').html());
+
+			self.elModalWindow.append(self.elBtnClose);
+		}
+
+		$('body').append(self.elOverlay, self.elModalWindow);
+		self.elOverlay.fadeIn(400);
+
+		if(ie6){
+			modalWindowContent.show();
+		}else if(ie){
+			modalWindowContent.show();
+		}else{
+			modalWindowContent.fadeIn(400);
+		}
+
+		self.positionModal();
+		self.options.callback.call(self);
+	},
+	__modalHide:function(fadeTime){
+		var self = this,
+			remove = function(){
+				$(this).remove();
+			};
+
+		self.elOverlay.fadeOut(fadeTime, remove);
+		self.elModalWindow.fadeOut(fadeTime, remove).empty();
+
+		if(typeof document.body.style.maxHeight === 'undefined'){
+			$('body', 'html').css({
+				'height' : 'auto',
+				'overflow' : 'auto',
+				'width' : 'auto'
+			});
+		}
+
+		$(document).unbind('keydown', self.handleEscape);
+		if(self.options.exteriorFire){
+			$(document).unbind('modalOpen');
+		}
+	},
+	
+	handleEscape:function(){
+		this.__modalHide(400);
+	}
+};
+
+/**
+ * Modules - rollover animations for homepage buckets
+ * @param targets string
+ * @param options object
+ */ 
+BVWV.modules = function(targets, options) {
+	
+	var self = this;
+	this.targets = $(targets);
+	
+	// setup defaults
+	this.options = $.extend({
+		animationDurationFade: 250, // time, in milliseconds, it should take for fade animation to complete
+		animationDurationText: 250, // time, in milliseconds, it should take for text to animate
+		playSound: true, // play flash sounds?
+		preload: true, // create a preloader effect?
+		rolloverBgClass: 'rollover', // class attribute of rollover background
+		rolloverTextClass: 'rollover-wrapper', // class attribute of the text wrapper
+		soundId: 'soundTarget', // name of the flash id that'll play sounds
+		soundName: 'homeHover', // name of the sound to play
+		textOffset: -30 // offset, in pixels, for text 
+	}, options || {});
+	
+	// find the background rollover elements
+	this.rolloverBgs = $(targets).find('.' + this.options.rolloverBgClass);
+	
+	// reset the css
+	this.rolloverBgs.css({'opacity': 0, 'left': '0px'});
+	
+	this.rolloverText = [];
+	this.left = [];
+	
+	for(var i = 0, l = this.targets.length; i<l; i++) {
+		// if preload is set to true
+		if(this.options.preload) {
+			this.preload(this.targets[i]);
+		}
+		// set css of text to be animated
+		var rollovertext = $(this.targets[i]).find('.' + this.options.rolloverTextClass);
+		// calculate width, add offset and turn into string
+		var left = rollovertext.width() - this.options.textOffset;
+		left = '-' + left + 'px'; 
+		rollovertext.css({'left': left});
+		this.rolloverText.push(rollovertext);
+		this.left.push(left);
+	}
+	
+	// event listeners
+	this.targets.hover(function(e) {
+		// rollover
+		self.animateIn(this);
+	}, function(e) {
+		// rollout
+		self.animateOut(this);
+	});
+	
+	this.targets.click(function() {
+		self.rolloverBgs.css({'opacity': 0, 'left': '0px'});
+	});
+	
+};
+
+BVWV.modules.prototype = {
+	
+	animateIn: function(el) {
+		var self = this;
+		var index = this.targets.index(el);
+		// play sound, if set to true and 
+		if(self.options.playSound === true) {
+			try {
+				self.soundId = $('#' + this.options.soundId)[0];
+				self.soundId.playSound(self.options.soundName);
+			}	
+			catch(e) {}
+		}
+		// queue up the animations
+		var opacity = (jQuery.support.opacity) ? 1 : 0.9;
+		$(this.rolloverBgs[index]).stop().fadeTo(this.options.animationDurationFade, opacity, function(e) {
+			$(self.rolloverText[index]).stop().animate({
+				'left': '15px'
+			}, self.options.animationDurationText);
+		});
+	},
+	
+	animateOut: function(el) {
+		var self = this;
+		var index = this.targets.index(el);
+		// animate in parallel
+		$(this.rolloverBgs[index]).stop().fadeTo(this.options.animationDurationFade, 0);
+		$(this.rolloverText[index]).stop().animate({'left': self.left[index]}, self.options.animationDurationText);
+	},
+	
+	preload: function(el) {
+		// yank out src, and place it in storage
+		var img = $(el).find('img:not(img.loaded)');
+		img.data('src', img.attr('src'));
+		img.removeAttr('src');
+		// set opacity to zero
+		img.fadeTo(0, 0);
+		
+		// call the image load event, only once, before setting the src
+		img.one('load', function(event) {
+			img.fadeTo(400, 1);
+			img.addClass('loaded');
+		});
+		// put the src back back
+		img.attr('src', img.data('src'));
+	}
+	
+};
+
+/**
+ * Navigation
+ * @param targets
+ * @param container
+ * @param options
+ * @return void
+ */
+BVWV.nav = function(targets, container, options) {
+	
+	var self = this;
+	this.targets = $(targets);
+	this.container = $(container);
+
+	// setup defaults
+	this.options = $.extend({
+		animationDurationIn: 200, // time, in milliseconds, it should take for fade animation to complete
+		animationDurationOut: 150, // time, in milliseconds, it should take for text to animate
+		bottomOffset: 'div#footer-wrapper', // a pixel value or CSS selector to get height of
+		containerOffset: 40, // extra offset to add to container (nav)
+		follow: true, // follow the page down?
+		followOffsetY: 20, // extra offset in pixels (for GUS)
+		hoverOffset: 10, // offset to bump out
+		hoverClass: 'hovered', // hover class
+		playSound: true, // play flash sounds?
+		rolloverBgClass: 'rollover', // class attribute of rollover background
+		soundId: 'soundTarget', // name of the flash id that'll play sounds
+		soundName: 'homeHover' // name of the sound to play
+	}, options || {});
+	
+	var width = this.targets.width();
+	var origWidth = width + 'px';
+	var hoverWidth = width + this.options.hoverOffset + 'px';
+	
+	this.bottomOffset = isNaN(this.options.bottomOffset) ? $(this.options.bottomOffset).innerHeight() : this.options.bottomOffset;
+	
+	// animate rollover
+	this.targets.hover(function(e) {
+		$(this).addClass(self.options.hoverClass);
+		$(this).stop().animate({
+			width: hoverWidth
+		}, self.options.animationDurationIn, 'easeOutSine', function() {
+			
+		});
+	}, function(e) {
+		$(this).removeClass(self.options.hoverClass);
+		$(this).stop().animate({
+			width: origWidth
+		}, self.options.animationDurationOut);
+	});
+	
+	if(this.options.follow === true) {
+		this.container = $(container);
+		$(window).resize(function(e) {
+			self.follow();
+		});
+		this.follow();
+	}
+
+};
+BVWV.nav.prototype = {
+	
+	follow: function() {
+		var self = this; // scope alias
+		var containerOffset = this.container.offset();
+		var containerHeight = this.container.height() + this.options.containerOffset;
+		var win = $(window);
+		var winHeight = win.height();
+		var winWidth = win.width();
+		if((containerHeight < (winHeight - this.bottomOffset)) && (winWidth > 1000)) {
+			this.container.addClass('fixed');
+		} else {
+			this.container.removeClass('fixed');
+		}
+		
+	}
+	
+	
+};
+
+
+/**
+ * Set cookie based on region
+ * @param targets
+ * @param name of cookie
+ * @param days -- how long cookie should be set for
+ * @return void
+ */
+BVWV.region = function(targets, name, days, domain) {
+	
+	var self = this;
+	var els = $(targets);
+
+	this.cookieName = name;
+	this.cookieDays = days;
+	this.cookieDomain = domain;
+	els.click(function(e) {
+		e.preventDefault();
+		var id = $(this).attr('id');
+		var path = $(this).attr('href');
+		self.setPath(id, path);
+	});
+
+};
+
+BVWV.region.prototype = {
+	
+	setPath: function(id, path) {
+		
+		// delete old cookie
+		BVWV.cookie.destroy(this.cookieName);
+		
+		// set new one
+		BVWV.cookie.set(this.cookieName, id, this.cookieDays, this.cookieDomain);
+		
+		// forward on to path
+		document.location = path;
+	}
+	
+};
+
+BVWV.tooltip = function(targets, options) {
+	
+	var self = this;
+	this.options = $.extend({
+		animationDuration: 200, // time, in milliseconds, it takes for animation to complete
+		attribute: 'title', // attribute to use as tooltip (most often title)
+		dataAttribute: 'data-tooltip', // name of data-attribute
+		offsetLeft: 0, // additional left offset
+		offsetTop: 0, // additional top offset
+		playSound: true, // play flash sounds?
+		soundId: 'soundTarget', // name of the flash id that'll play sounds
+		soundName: 'tooltipHover', // name of the sound to play
+		tooltipContainer: 'tooltip', // tooltip wrapper id
+		tooltipSeparator: '-' // tooltip separator (i.e. '-' or '_' or '')
+	}, options || {});
+
+	this.targets = $(targets);
+	var size = this.targets.length;
+	if(size > 0) {
+		
+		this.createTooltip();
+		
+		// animate if browser supports opacity, just show otherwise
+		this.animate = (jQuery.support.opacity) ? true : false;
+		
+		// set attributes
+		for (var i = 0; i < size; i++) {
+			this.setAttributes(this.targets[i]);
+		}
+		
+		// events
+		this.targets.mouseenter(function(e) {
+			var el = $(this);
+			if(el.attr(self.options.dataAttribute)) {
+				self.displayTooltip(el, el.attr(self.options.dataAttribute));
+			}
+		});
+		
+		this.targets.mouseleave(function(e) {
+			var el = $(this);
+			if(el.attr(self.options.dataAttribute)) {
+				self.hideTooltip(el);
+			}
+		});
+		
+		this.targets.click(function() {
+			self.tooltip.hide();
+		});
+		
+	}
+
+};
+
+BVWV.tooltip.prototype = {
+	
+	createTooltip: function() {
+		
+		// create the HTML structure for the the tooltip
+		this.tooltip = $('<div/>', {'class': this.options.tooltipContainer, 'style': 'display: none'});
+		this.content = $('<div/>', {'class': this.options.tooltipContainer + this.options.tooltipSeparator + 'content'}).appendTo(this.tooltip);
+		var bottom = $('<div/>', {'class': this.options.tooltipContainer + this.options.tooltipSeparator + 'bottom'}).appendTo(this.tooltip);
+		this.tooltip.appendTo(document.body);
+		this.tooltip.hide();
+	},
+	
+	displayTooltip: function(el, attr) {
+		
+		// update the text
+		this.content.text(attr);
+		// get height of tooltip
+		this.tooltipHeight = this.tooltip.height();
+		this.tooltipWidth = this.tooltip.width();
+		
+		// get position of calling element
+		var pos = el.offset();
+		var elWidth = el.width();
+		var top = (pos.top - this.options.offsetTop) - this.tooltipHeight + 'px';
+		var left = (pos.left + this.options.offsetLeft) - (-(elWidth / 2) + (this.tooltipWidth / 2)) + 'px';
+ 
+		// set css of tooltip
+		
+		// play sound, if set to true
+		if(this.options.playSound === true) {
+			try {
+				this.soundId = $('#' + this.options.soundId)[0];
+				this.soundId.playSound(this.options.soundName);
+			}	
+			catch(e) {}
+		}
+		// animate in tooltip
+		if(this.animate) {
+			this.tooltip.css({'position': 'absolute', 'left': left, 'top': top, 'opacity': 0});
+			this.tooltip.show();
+			this.tooltip.stop().animate({
+				opacity: 1,
+				top: "-=5"
+			}, this.options.animationDuration);
+		} else {
+			this.tooltip.css({'position': 'absolute', 'left': left, 'top': top}).show();
+		}
+
+	},
+	
+	hideTooltip: function(el) {
+		
+		var self = this;
+		if(this.animate) {
+			// animate out tooltip
+			this.tooltip.stop().animate({
+					opacity: 0,
+					top: '-=10'
+				}, 
+				this.options.animationDuration,
+				function() {
+					self.tooltip.hide(); // hide, just in case
+				});
+		} else {
+			this.tooltip.hide();
+		}
+	},
+	
+	setAttributes: function(el) {
+		// copy title to data attribute
+		var element = $(el);
+		if(element.attr(this.options.attribute)) {
+			var attr = element.attr(this.options.attribute);
+			element.attr(this.options.dataAttribute, attr);
+			element.attr('title', '');
+		}
+	}
+	
+};
+
+/**
+ * Infinite scrolling for the homepage
+ */
+
+BVWV.infiniteScroll = function(target, options){
+	var base = this;
+
+	this.options = $.extend({
+		stickyContent: $('#el-one, #el-two, #el-three'),
+		loadTime: 50,
+		fadeTime: 200,
+		afterContentLoad: function(){}
+	}, options || {});
+
+	base.elWrapper = target;
+
+	base.init();
+};
+
+BVWV.infiniteScroll.prototype = {
+	init:function(){
+		var base = this,
+			stickyContent = 0;
+
+		base.elNodes = base.elWrapper.children('li');
+		base.lastNode = $(base.elNodes).get(-1);
+		base.isLoading = false;
+		base.scrollHeight = $(document).scrollTop() + $(window).height();
+
+		for(var i = 0; i < base.options.stickyContent.length; i++){
+			stickyContent += $(base.options.stickyContent[i]).height();
+		};
+
+		base.contentHeight = base.elWrapper.height() + stickyContent;
+
+		base.events();
+	},
+
+	events:function(){
+		var base = this;
+
+		$(window).scroll(function(e){
+			base.pageScroll();
+		});
+	},
+
+	pageScroll:function(){
+		var base = this,
+			scrollPosition = $(document).scrollTop(),
+			windowHeight = $(window).height(),
+			documentHeight = $(document).height();
+
+		if((scrollPosition + windowHeight) >= (documentHeight - $(base.lastNode).height()) || (scrollPosition + windowHeight) == documentHeight){
+			if(!base.isLoading){
+				base.addContent();
+			}
+		}
+
+		if((scrollPosition + windowHeight) < base.scrollHeight + $(base.lastNode).height()){
+			if(!base.isLoading){
+				base.removeContent();
+			}
+		}
+	},
+
+	addContent:function(){
+		var base = this,
+			index = 0;
+
+		base.cloned = $.unique(base.elNodes);
+		base.cloned = $(base.cloned).clone(true).addClass('cloned');
+		base.isLoading = true;
+
+		var loadNodes = setInterval(function(){
+			if(index < base.cloned.length){
+				$(base.elWrapper).append($(base.cloned[index]).hide().fadeIn(base.options.fadeTime));
+				index++;
+			}else{
+				clearInterval(loadNodes);
+
+				base.options.afterContentLoad();
+
+				base.isLoading = false;
+			}
+		}, base.options.loadTime);
+
+		base.scrollHeight = $(document).scrollTop() + $(window).height();
+	},
+
+	removeContent:function(){
+		var base = this;
+
+		$(base.elWrapper).children('li.cloned').remove();
+
+		base.scrollHeight = 0;
+	}
+};
+
+/**
+ * News ticker
+ */
+
+BVWV.ticker = function(target, options){
+	var base = this;
+
+	this.options = $.extend({
+		nodeWrapper: $('ul.nodes'),
+		nodeType: 'li',
+		duration: 700,
+		otherElements: $('#el-one, #el-two, #el-three'),
+		truncateText: true,
+		truncateOffset: 100,
+		truncateAfter: '...',
+		autoCycle: true,
+		cycleSpeed: 5000
+	}, options || {});
+
+	base.elWrapper = target;
+	base.elNodeWrapper = base.options.nodeWrapper;
+	base.elNode = $(base.elNodeWrapper).children(base.options.nodeType);
+	base.totalNodes = Math.ceil(base.elNode.length);
+	base.nodeHeight = $(base.elNode[0]).height();
+	base.currentNode = 0;
+	base.cycling = false;
+
+	base.init();
+};
+
+BVWV.ticker.prototype = {
+	init:function(){
+		var base = this;
+
+		base.nodeWidth = base.elWrapper.innerWidth(true) - base.options.otherElements.outerWidth(true);
+
+		if(base.options.truncateText){
+			base.truncate();
+		}
+
+		base.elNode.filter(':first').clone(true).appendTo(base.elNodeWrapper).addClass('cloned');
+		base.elNode.filter(':last').clone(true).prependTo(base.elNodeWrapper).addClass('cloned');
+
+		base.elNodeWrapper.css({ 'position' : 'absolute', 'top' : '-' + base.nodeHeight + 'px', 'width' : base.nodeWidth + 'px' });
+
+		if(base.totalNodes > 1){
+			base.addControls();
+			base.events();
+	
+			if(base.options.autoCycle){
+				setTimeout(function(){
+					base.autoCycle();
+				}, base.options.cycleSpeed);
+			}
+		}
+	},
+
+	addControls:function(){
+		var base = this;
+
+		base.elBtnNext = $('<li class="btn-next"><a>' + base.elWrapper.attr('data-copy-next') + '</a></li>');
+		base.elBtnPrev = $('<li class="btn-prev"><a>' + base.elWrapper.attr('data-copy-prev') + '</a></li>');
+		base.elNavWrapper = $('<ul class="nav" />').append(base.elBtnPrev, base.elBtnNext);
+
+		$(base.elWrapper).append(base.elNavWrapper);
+	},
+
+	truncate:function(){
+		var base = this,
+			truncateWidth = base.nodeWidth - base.options.truncateOffset,
+			index = 1,
+			placeHolder,
+			nodeText;
+
+		for(var i = 0; i < base.elNode.length; i++){
+			if(($('a', base.elNode[i]).width() - base.options.truncateOffset) > truncateWidth){		 
+				nodeText = $(base.elNode[i]).text();
+
+				$(base.elNode[i]).children('a').html('<span id="truncateWrapper' + '-' + i + '" style="display:inline;">' + base.options.truncateAfter + '</span>');			
+
+				placeHolder = $('#truncateWrapper' + '-' + i);
+
+				while(placeHolder.width() <= truncateWidth){
+					placeHolder.text(nodeText.substr(0, index) + base.options.truncateAfter);
+					index++;
+
+					if(index > truncateWidth){
+						break;
+					}
+				}
+
+				placeHolder.html($('#truncateWrapper' + '-' + i).html());
+			}
+		}
+	},
+
+	events:function(){
+		var base = this;
+
+		base.elBtnNext.click(function(e){
+			e.preventDefault();
+
+			base.moveToNode(base.currentNode + 1);
+		});
+
+		base.elBtnPrev.click(function(e){
+			e.preventDefault();
+
+			base.moveToNode(base.currentNode - 1);
+		});
+	},
+
+	moveToNode:function(node){
+		var base = this,
+			dir = (node < base.currentNode) ? 1 : -1,
+			n = Math.abs(base.currentNode - node),
+			top = base.nodeHeight * dir * n;
+
+		if(!base.cycling){
+			base.cycling = true;
+			clearTimeout(base.resetCycle);
+			clearTimeout(base.progressInterval);
+
+			base.elNodeWrapper.filter(':not(:animated)').animate(
+				{ 'top' : '+=' + top },
+				{ queue: false, duration: base.options.duration, easing: 'easeOutBack', callback: base.snapEnds(node) }
+			);
+		}
+
+		return false;
+	},
+
+	snapEnds:function(node){
+		var base = this;
+
+		if(node < 0){
+			base.elNodeWrapper.css({ 'top' : '-' + (base.nodeHeight * (base.totalNodes + 1)) + 'px' });
+			node = base.totalNodes - 1;
+		}else if(node == base.totalNodes){
+			base.elNodeWrapper.css({ 'top' : 0 });
+			node = 0;
+		}
+
+		base.resetCycle = setTimeout(function(){
+			base.cycling = false;
+		}, base.options.duration);
+
+		base.autoCycle();
+
+		base.currentNode = node;
+	},
+
+	autoCycle:function(){
+		var base = this;
+
+		(function cycleNode(){
+			base.moveToNode(base.currentNode + 1);
+			base.progressInterval = setTimeout(cycleNode, base.options.cycleSpeed);
+		})();
+	}
+};
+
+//Animates Topic page arrows
+BVWV.arrows = function(targets, options) {
+	
+	var self = this;
+	this.els = $(targets);
+	var objs = [];
+	var pos = {};
+	// set defaults
+	this.options = $.extend({
+	}, options || {});
+	
+	// iterate through elements
+	for(var i = 0, length = this.els.length; i < length; i++) {
+		
+		var temp = $(self.els[i]).find('span.c-arrow');
+		objs.push({el: temp, rt: temp.css('right'), btm: temp.css('bottom')});
+	
+		(function(i) {
+			
+			$(self.els[i]).hover(
+				function(e) {
+					self.moveUp(objs[i]);
+				},
+				function(e) {
+					self.moveDown(objs[i]);
+				}
+			);
+		}(i));	
+	}	
+};
+
+BVWV.arrows.prototype = {
+	
+	moveUp: function(obj){
+		
+		$(obj.el).stop().animate({
+			right: '+=15',
+			bottom: '+=15'	
+		}, 100, function(){
+			$(this).animate({
+				right: '-=17',
+				bottom: '-=17'	
+			}, {
+				duration: 1000,
+				easing: 'easeOutElastic'	
+			});	
+		});
+	},
+	
+	moveDown: function(obj){
+		$(obj.el).stop().animate({
+			right: obj.rt,
+			bottom: obj.btm
+		}, {
+			duration: 50,
+			easing: 'easeOutElastic'	
+		});
+	}
+};
+
+
+BVWV.init = function(){
+	
+	// set js-enabled class on body
+	$(document.body).addClass('js-enabled');
+	
+	var nav = new BVWV.nav('#main-nav > li:not(.on) > a', '#nav');
+	
+	// set region cookie, 365 days
+	var regions = new BVWV.region('ul.region-selector li a', 'pokemon-bvwv-lang', 365);
+	
+	// create crossfade buttons
+	// @TODO: it probably makes more sense, if this is going to be used throughout the site,
+	// to set a class element and invoke that 
+	var buttons = new BVWV.buttons('ul.region-selector li a, div.next-previous a, a.home-btn', {animationDuration: 250});
+	
+	//animated topic page arrows
+	var arrow = new BVWV.arrows('div.arrow-panel a');
+	
+	// homepage modules
+	var modules = new BVWV.modules('ul.modules li', {animationDurationFade: 100, animationDurationText: 100});
+	
+	// tooltips
+	var tooltips = new BVWV.tooltip('div.next-previous a[title]');
+	
+	// sliders / carousels
+	var screenshotCarousel = new BVWV.carousel('div#screenshots, div.screenshots-multi', {inGroupsOf: 1, showStates: false});
+	var videoCarousel = new BVWV.carousel('div.screenshots-video', {inGroupsOf: 1, showStates: false, hasCounter: true});
+	var wallpaperCarousel = new BVWV.carousel('div.screenshots-wallpaper', {inGroupsOf: 1, showStates: false, updateLinks: true});
+	
+	var interstials = new BVWV.modal(('a[rel=external]'),{
+		interstitial: true,
+		interstitialTarget: 'div.interstitial-target'
+	});
+
+
+	// detect if the user agent is a mobile device
+	if(!BVWV.mobileDetect()){
+
+		// homepage scroll
+		var homeScroll = new BVWV.infiniteScroll($('body.home ul.modules'),{
+			stickyContent: $('div#gus, div#intro, div#footer-wrapper'),
+			afterContentLoad: function(){
+				var modules = new BVWV.modules('ul.modules li.cloned', {animationDurationFade: 100, animationDurationText: 100});
+			}
+		});
+		if($('div#ticker').length > 0) {
+			var homeTicker = new BVWV.ticker($('div#ticker'),{
+				otherElements: $('div#ticker h2')
+			});
+		}
+
+	}else{
+		$('body').addClass('mobile');
+	}
+};
+
+$(document).ready(function() {
+	swfobject.embedSWF(audio.path, audio.id, audio.width, audio.height, audio.version, audio.expressInstall, flashvars, params);
+	BVWV.init();
+});
+
+$(window).unload(function() {
+	$('div.tooltip').hide();
+});
+
+}
+/*
+     FILE ARCHIVED ON 07:56:07 Mar 03, 2011 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 01:41:56 Apr 29, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 145.232
+  exclusion.robots: 0.079
+  exclusion.robots.policy: 0.07
+  cdx.remote: 0.062
+  esindex: 0.009
+  LoadShardBlock: 119.388 (3)
+  PetaboxLoader3.datanode: 92.625 (4)
+  load_resource: 43.822
+  PetaboxLoader3.resolve: 21.589
+*/

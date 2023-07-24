@@ -1,0 +1,117 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+/*** Region Cookie Set ***/
+/*** Takeover Object ***/
+
+var takeover = function(target, options){
+	var base = this;
+
+	base.options = {
+		redirectUrl: 'https://web.archive.org/web/20151025224919/http://google.com',
+		visitedCookie: 'cookie-name',
+		regionCookie: 'cookie-name',
+		videoPath: '_ui/videos/',
+		video: 'placeholder.flv',
+		swfSettings: {},
+		swfFlashvars: {},
+		swfParams: {},
+		swfAttributes: {}
+	};
+
+	if(options){
+		for(key in base.options){
+			if(typeof options[key] !== 'undefined'){
+				base.options[key] = options[key];
+			}
+		}
+	}
+
+	base.container = target;
+
+	base.init();
+};
+
+takeover.prototype = {
+	init:function(){
+		var base = this,
+			regionCookie = pokemonUI.cookie.get(base.options.regionCookie),
+			visitedCookie = pokemonUI.cookie.get(base.options.visitedCookie);
+
+		if(!visitedCookie){
+			if(regionCookie){
+				base.embedSwf(regionCookie.toString());
+			}else{
+				base.events();
+			}
+		}else{
+			/* document.location = base.options.redirectUrl; */
+		}
+	},
+
+	events:function(){
+		var base = this,
+			anchor = base.container.find('a'),
+			countryCode;
+
+		anchor.click(function(e){
+			e.preventDefault();
+
+			countryCode = $(this).attr('href').slice(base.options.redirectUrl.length, -1)
+
+			base.setRegion(countryCode);
+			base.embedSwf(countryCode);
+		});
+	},
+
+	setRegion:function(countryCode){
+		var base = this;
+
+		pokemonUI.cookie.set(base.options.regionCookie, countryCode, 365);
+	},
+
+	embedSwf:function(countryCode){
+		var base = this,
+			settings = base.options.swfSettings,
+			flashvars = base.options.swfFlashvars,
+			params = base.options.swfParams,
+			attributes = base.options.swfAttributes;
+
+		flashvars.videoUrl = base.options.videoPath + countryCode + '/' + base.options.video;
+
+		swfobject.embedSWF(settings.path, settings.id, settings.width, settings.height, settings.version, settings.expressInstall, flashvars, params, attributes);
+
+		pokemonUI.cookie.set('index-takeover', 'visited')
+	}
+};
+
+}
+/*
+     FILE ARCHIVED ON 22:49:19 Oct 25, 2015 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 02:33:45 Apr 29, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 69.409
+  exclusion.robots: 0.069
+  exclusion.robots.policy: 0.059
+  cdx.remote: 0.056
+  esindex: 0.009
+  LoadShardBlock: 46.86 (3)
+  PetaboxLoader3.datanode: 67.615 (4)
+  load_resource: 75.083
+  PetaboxLoader3.resolve: 34.757
+*/

@@ -1,0 +1,4616 @@
+/**
+ * ------------------------------------------------------------------------- 
+ *  Pokemon White Version Black Version
+ *  all.css
+ * ------------------------------------------------------------------------- 
+ * - FONTS
+ * - RESETS
+ * - REWRITES
+ * - TEMPLATE STRUCTURE
+ * - PAGES
+ * - UTILITY ELEMENTS & REUSABLE CLASSES
+ * - LANGUAGE DEPENDENT STYLES
+ * ------------------------------------------------------------------------- */
+
+/**
+ * FONTS
+ * Web fonts declarations
+ * ------------------------------------------------------------------------- */
+@font-face {
+	font-family: 'TitilliumText22LThin';
+	src: url('/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/fonts/TitilliumText22L001-webfont.eot');
+	src: local('☺'), url('/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/fonts/TitilliumText22L001-webfont.woff') format('woff'), url('/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/fonts/TitilliumText22L001-webfont.ttf') format('truetype'), url('/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/fonts/TitilliumText22L001-webfont.svg#webfontAjEetG2b') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'TitilliumText22LLight';
+	src: url('/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/fonts/TitilliumText22L002-webfont.eot');
+	src: local('☺'), url('/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/fonts/TitilliumText22L002-webfont.woff') format('woff'), url('/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/fonts/TitilliumText22L002-webfont.ttf') format('truetype'), url('/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/fonts/TitilliumText22L002-webfont.svg#webfontSVmpoyem') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'TitilliumText22LRegular';
+	src: url('/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/fonts/TitilliumText22L003-webfont.eot');
+	src: local('☺'), url('/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/fonts/TitilliumText22L003-webfont.woff') format('woff'), url('/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/fonts/TitilliumText22L003-webfont.ttf') format('truetype'), url('/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/fonts/TitilliumText22L003-webfont.svg#webfontpEjTcqmL') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'TitilliumText22LMedium';
+	src: url('/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/fonts/TitilliumText22L004-webfont.eot');
+	src: local('☺'), url('/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/fonts/TitilliumText22L004-webfont.woff') format('woff'), url('/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/fonts/TitilliumText22L004-webfont.ttf') format('truetype'), url('/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/fonts/TitilliumText22L004-webfont.svg#webfontQGJ54wfV') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'TitilliumText22LBold';
+	src: url('/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/fonts/TitilliumText22L005-webfont.eot');
+	src: local('☺'), url('/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/fonts/TitilliumText22L005-webfont.woff') format('woff'), url('/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/fonts/TitilliumText22L005-webfont.ttf') format('truetype'), url('/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/fonts/TitilliumText22L005-webfont.svg#webfontNGnBwuGb') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'TitilliumText22LXBold';
+	src: url('/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/fonts/TitilliumText22L006-webfont.eot');
+	src: local('☺'), url('/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/fonts/TitilliumText22L006-webfont.woff') format('woff'), url('/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/fonts/TitilliumText22L006-webfont.ttf') format('truetype'), url('/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/fonts/TitilliumText22L006-webfont.svg#webfontuuEPbVpX') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/**
+ * RESETS
+ * Let's start on an even footing
+ * ------------------------------------------------------------------------- */
+
+* {
+	outline: none;
+}
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {
+	margin: 0;
+	padding: 0;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+fieldset, 
+img { 
+	border: 0; 
+}
+
+address, 
+caption,
+cite,
+code, dfn, em, strong, th, var {
+	font-style: normal;
+	font-weight: normal;
+}
+
+caption, th { 
+	text-align: left;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-size: 100%; 
+	font-weight: normal;
+}
+
+q:before,
+q:after {
+	content:'';
+}
+
+abbr, acronym {
+	border: 0;
+	font-variant: normal;
+}
+
+sup { 
+	vertical-align: text-top;
+}
+
+sub {
+	vertical-align: text-bottom;
+}
+
+/**
+ * REWRITES
+ * Rewrites of standard HTML elements
+ * ------------------------------------------------------------------------- */
+html {
+	height: 100%;
+}
+body {
+	background: #242424 url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/page.png) 0 0 repeat-x fixed;
+	color: #000;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	height: 100%;
+	line-height: 1.5;
+}
+
+a {
+	color: #3f88bd;
+	text-decoration: underline;
+}
+a:hover, a:active {
+	color: #5ca3d9;
+}
+
+strong, b {
+	font-weight: bold;
+}
+
+em, i {
+	font-style: italic;
+}
+	em em {
+		font-style: normal;
+	}
+	em strong {
+		font-style: italic;
+	}
+	strong em{
+		font-weight: bold;
+	}
+
+p {
+	margin: 0 0 1.5em 0;
+}
+	p + p {
+		margin-top: -0.75em;
+	}
+
+ul, ol, dl {
+	margin: 0 0 1.5em 0;
+}
+
+h1 {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/misc/ruler-full.png) 0 100% no-repeat;
+	font-family: 'TitilliumText22LLight', Arial, Helvetica, sans-serif;
+	font-size: 44px;
+	letter-spacing: -1px;
+	line-height: 1;
+	padding-bottom: 25px;
+}
+
+h2 {
+	font-family: 'TitilliumText22LXBold', Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	text-transform: uppercase;
+}
+
+h3 {
+	font-family: 'TitilliumText22LRegular', Arial, Helvetica, sans-serif;
+}
+/**
+ * TEMPLATE STRUCTURE AND ELEMENTS
+ * Elements which define the overall layout of the site
+ * ------------------------------------------------------------------------- */
+
+div#page {
+	height: 100%;
+	min-height: 100%;
+	min-width: 1000px;
+	position: relative;
+}
+body.mobile div#page {
+	height: auto;
+}
+div#content {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/white-content-wrapper.png) 195px 0 repeat-y;
+	margin: 0 auto;
+	min-height: 100%;
+	/*overflow: hidden;*/
+	position: relative;
+	width: 980px;
+}
+body.transparent div#content {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/content-wrapper.png) 195px 0 repeat-y;
+	margin: 0 auto;
+	min-height: 100%;
+	/*overflow: hidden;*/
+	position: relative;
+	width: 980px;
+}
+div#nav {
+	left: 0;
+	position: absolute;
+	top: 50px;
+	width: 228px;
+	z-index: 10;
+}
+	div#nav.fixed {
+		left: auto;
+		position: fixed;
+	}
+	div#nav div.availability {
+		background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/lang/en-us/availability.png) 0 0 no-repeat;
+		display: block;
+		height: 48px;
+		margin-top: 5px;
+		position: relative;
+		right: -14px;
+		width: 227px;
+		z-index: 10;
+	}
+		div#nav div.availability a {
+		}
+		div#nav div.availability span {
+			left: -99999px;
+			position: absolute;
+		}
+	p#logo, 
+	h1#logo {
+		background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/lang/en-us/pokemon-bvwv-logo.png) 0 0 no-repeat;
+		height: 103px;
+		left: -2px;
+		margin: 50px 0 25px;
+		position: relative;
+		width: 241px;
+		z-index: 10;
+	}
+		p#logo a, 
+		h1#logo a {
+			display: block;
+			height: 157px;
+			width: 277px;
+		}		
+			p#logo a span, 
+			h1#logo a span {
+				position: absolute;
+				left: -99999px;
+			}
+
+ul#main-nav {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/nav/inner.png) 100% 3px repeat-y;
+	margin-right: 12px;
+	position: relative;
+	z-index: 10;
+}
+	ul#main-nav li {
+		font-family: "TitilliumText22LMedium", Arial, sans-serif;
+		font-size: 16px;
+		font-weight: 100;
+		list-style: none;
+		margin-right: -25px;
+		min-height: 42px;
+	}
+	ul#main-nav > li:last-child,
+	ul#main-nav li.last {
+		min-height: 20px;
+	}
+	ul#main-nav li a {
+		background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/nav/nav.png) 100% 0 no-repeat;
+		color: #fff;
+		display: block;
+		float: right;
+		padding: 0 37px 0 0;
+		position: relative;
+		text-decoration: none;
+		width: 190px;
+		z-index: 10;
+		-webkit-font-smoothing: antialiased;
+	}
+		ul#main-nav li a span {
+			background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/nav/nav.png) 0 0 no-repeat;
+			cursor: pointer;
+			display: block;
+			line-height: 1;
+			max-width: 165px;
+			/*padding: 7px 0px 15px 37px;*/
+			padding: 8px 0px 15px 37px;
+		}
+		ul#main-nav li.on a {
+			background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/nav/nav.png) 100% -100px no-repeat;
+		}
+			ul#main-nav li.on a span {
+				background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/nav/nav.png) 0 -100px no-repeat;
+			}
+	ul#main-nav li a.hovered {
+		background-position: 100% -50px;
+	}
+		ul#main-nav li a.hovered span {
+			background-position: 0 -50px;
+		}
+	/* subnav */
+	ul#main-nav li ul {
+		display: none;
+		margin: -9px 0 0px 38px;
+		position: relative;
+		width: 177px;
+		z-index: 1;
+	}
+		ul#main-nav li.on ul {
+			display: block;
+		}
+		ul#main-nav li ul li {
+			background: #3c7fca url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/nav/subnav-divider.png) 0 100% repeat-x;
+			font-size: 11px !important;
+			line-height: 1;
+			margin: 0;
+			min-height: 1px;
+			padding: 0 0 2px;
+			text-transform: uppercase;
+		}
+		ul#main-nav li ul li a,
+		ul#main-nav li.on ul li a  {
+			background: none;
+			float: none;
+			height: auto;
+			padding: 0;
+			width: auto;
+			-moz-transition: all 0.35s ease-in-out;
+			-webkit-transition: all 0.35s ease-in;
+		}
+			ul#main-nav li ul li a span,
+			ul#main-nav li.on ul li a span {
+				background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/nav/subnav-notch.png) 100% 0 repeat-y;
+				padding: 7px 20px 5px;
+			}
+			ul#main-nav li ul li.on a,
+			ul#main-nav li ul li a:hover {
+				background-color: #9ebfe5;
+				color: #103e8e;
+			}
+				ul#main-nav li ul li.on a span {
+					background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/nav/subnav-notch.png) 100% -298px repeat-y;
+				}
+		ul#main-nav li ul li:first-child a {
+			background-image: url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/nav/subnav-shadow.png);
+			background-position: 0 0;
+			background-repeat: repeat-x;
+		}
+			ul#main-nav li ul li:first-child a span {
+				padding-top: 9px;
+			}
+
+div#primary {
+	margin-left: 228px;
+	overflow: hidden;
+	padding: 0 0 110px;
+	position: relative;
+	width: 735px;
+	z-index: 1;
+}
+body.mobile div#primary {
+	padding: 0;
+}
+	div#primary div.content {
+		margin: 0 2px 0 1px;
+		position: relative;
+		z-index: 10;
+	}
+	div.inner-shadow {
+		background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/content-shading.png) 0 0 no-repeat;
+		height: 1050px;
+		left: -1px;
+		position: absolute;
+		width: 735px;
+		z-index: 0;
+	}
+
+/** Footer **/
+div#footer-wrapper {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/footer-wrapper.png) 0 0 repeat-x;
+	bottom: 0;
+	margin-top: -35px;
+	min-width: 1000px;
+	padding-top: 35px;
+	position: fixed;
+	width: 100%;
+	z-index: 100;
+}
+body.mobile div#footer-wrapper {
+	margin-top: 0;
+	padding-top: 0;
+	position: relative;
+}
+div#footer-inner-wrapper {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/pattern-2x2.png) 0 0 repeat;
+}
+div#footer {
+	color: #878787;
+	color: rgba(255, 255, 255, 0.5);
+	font-size: 10px;
+	margin: 0 auto;
+	width: 960px;
+}
+	div#social-media {
+		float: left;
+		min-height: 85px;
+		padding-top: 20px;
+		width: 217px;
+	}
+		ul.social {
+			background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/icons/social-media.png) 0 0 no-repeat;
+			list-style: none;
+			margin: 0;
+			height: 16px;
+			width: 149px;
+		}
+			ul.social li {
+				float: left;
+				margin-left: 7px;
+			}
+				ul.social li:first-child {
+					margin-left: 0px;
+				}
+				ul.social li a {
+					display: block;
+					height: 15px;
+					position: relative;
+					width: 15px;
+				}
+					ul.social li a span {
+						left: -999999px;
+						position: absolute;
+					}
+		p#language-selector {
+			margin: 14px 0 0;
+		}
+			p#language-selector a {
+				background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/icons/arrow-right.png) 100% 50% no-repeat;
+				color: #fff;
+				font-size: 12px;
+				padding-right: 10px;
+				text-decoration: none;
+			}
+				p#language-selector a span {
+					background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/icons/globe.png) 0 50% no-repeat;
+					padding-left: 20px;
+				}
+	div#footer-logos {
+		background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/footer-separator.png) left 0 no-repeat;
+		float: left;
+		padding: 20px 0 0 13px;
+		width: 700px;
+	}
+	div#footer-logos ul.logos {
+		list-style: none;
+		margin: 0 0 10px;
+		width: 750px;
+	}
+		div#footer-logos ul.logos li {
+			float: left;
+		}
+			div#footer-logos ul.logos li a {
+				display: block;
+				position: relative;
+			}
+				div#footer-logos ul.logos li a span {
+					left: -999999px;
+					position: absolute;	
+				}
+			div#footer-logos ul.logos li#nintendo {
+				margin: 0 18px 0 0;
+			}
+				div#footer-logos ul.logos li#nintendo a {
+					background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/logos/footer/nintendo.png) 0 0 no-repeat;
+					height: 23px;
+					width: 100px;
+				}
+			div#footer-logos ul.logos li#pokemon-company {
+				margin: 4px 16px 0 0;
+			}
+				div#footer-logos ul.logos li#pokemon-company a {
+					background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/logos/footer/pokemon-company.png) 0 0 no-repeat;
+					height: 16px;
+					width: 140px;
+				}
+			div#footer-logos ul.logos li#nintendo-ds {
+				margin: 7px 17px 0 0;
+			}
+				div#footer-logos ul.logos li#nintendo-ds a {
+					background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/logos/footer/nintendo-ds.png) 0 0 no-repeat;
+					height: 16px;
+					width: 114px;
+				}
+			div#footer-logos ul.logos li#nintendo-wifi {
+				margin: 5px 18px 0px 0px;
+			}
+				div#footer-logos ul.logos li#nintendo-wifi a {
+					background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/logos/footer/nintendo-wifi.png) 0 0 no-repeat;
+					height: 50px;
+					width: 50px;
+				}
+			div#footer-logos ul.logos li#esrb-kids {
+				margin: -13px 18px 0 0;
+			}
+				div#footer-logos ul.logos li#esrb-kids a {
+					background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/logos/footer/esrb-kids.png) 0 0 no-repeat;
+					height: 82px;
+					width: 68px;
+				}
+			div#footer-logos ul.logos li#esrb-rating {
+				margin: -6px 0 0;
+			}
+				div#footer-logos ul.logos li#esrb-rating a {
+					background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/logos/footer/esrb.png) 0 0 no-repeat;
+					height: 74px;
+					width: 160px;
+				}
+			div#footer-logos ul.logos li#pegi {
+				margin: -5px 0 0;
+			}
+				div#footer-logos ul.logos li#pegi a {
+					background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/logos/footer/pegi-3.png) 0 0 no-repeat;
+					height: 78px;
+					width: 64px;
+				}
+			div#footer-logos ul.logos li#pegi-4 {
+				margin: -5px 0px 0px;
+			}
+				div#footer-logos ul.logos li#pegi-4 a {
+					background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/logos/footer/pegi-4.png) 0 0 no-repeat;
+					height: 78px;
+					width: 64px;
+				}	
+			div#footer-logos ul.logos li#au-classification {
+				margin: 0px;
+			}
+				div#footer-logos ul.logos li#au-classification a {
+					background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/logos/footer/au-classification.png) 0 0 no-repeat;
+					height: 60px;
+					width: 60px;
+				}
+			div#footer-logos ul.logos li#usk {
+				margin: -5px 0px 0px;
+			}
+				div#footer-logos ul.logos li#usk a {
+					background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/logos/footer/usk.png) 0 0 no-repeat;
+					height: 60px;
+					width: 60px;
+				}	
+	p#copyright {
+		float: left;
+		margin: -30px 0 15px;
+		width: 415px;
+	}
+/** End Footer **/
+
+/** Ticker **/
+div#ticker {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/ticker.png) repeat-x left center;
+	border: 2px solid #000;
+	height: 41px;
+	margin: 0px 2px 4px;
+	overflow: hidden;
+	position: relative;
+}
+	div#ticker h2 {
+		background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/ticker-title.png) no-repeat right center !important;
+		color: #fff;
+		float: left;
+		font-family: 'TitilliumText22LMedium',Arial,sans-serif;
+		font-size: 20px;
+		height: 100%;
+		line-height: 2.2em;
+		margin-right: 27px;
+		padding: 0 29px 0 27px !important;
+		text-transform: none;
+	}
+	div#ticker ul.nodes {
+		line-height: 3.5em;
+		list-style: none;
+		margin: 0;
+		position: relative;
+		right: 0;
+		top: 0;
+	}
+		div#ticker ul.nodes li {
+			color: #fff;
+			height: 41px;
+			overflow: hidden;
+		}
+			div#ticker ul.nodes li a {
+				color: #fff;
+				height: 100%;
+				text-decoration: none;
+				font-weight: bold;
+				font-size:1.2em;
+			}
+			div#ticker ul.nodes li a:hover {
+				text-decoration: underline;
+			}
+	div#ticker ul.nav {
+		height: 22px;
+		list-style: none;
+		right: 10px;
+		overflow: hidden;
+		position: absolute;
+		top: 10px;
+	}
+		div#ticker ul.nav li {
+			float: left;
+			height: 100%;
+			margin: 0 3px;
+			text-indent: -999999px;
+			width: 18px;
+		}
+			div#ticker ul.nav li a {
+				background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/buttons/ticker-next-previous.png) no-repeat 0 0;
+				display: block;
+				height: 100%;
+				width: 100%;
+			}
+			div#ticker ul.nav li a:hover {
+				cursor: pointer;
+			}
+			div#ticker ul.nav li.btn-prev a {
+				background-position: 0 -22px;
+			}
+			div#ticker ul.nav li.btn-prev a:hover {
+				background-position: 0 0;
+			}
+			div#ticker ul.nav li.btn-next a {
+				background-position: -18px -22px;
+			}
+			div#ticker ul.nav li.btn-next a:hover {
+				background-position: -18px 0;
+			}
+/** End Ticker **/
+
+div#sounds {
+	left: -9999999px;
+	position: absolute;
+	visibility: hidden;
+}
+
+/**
+ * PAGES/LAYOUTS
+ * Stylesheets for specific pages, templates and layouts
+ * ------------------------------------------------------------------------- */
+
+/** Home **/
+body.home h1 {
+	left: -999999px;
+	position: absolute;
+}
+div#intro {
+	border: 2px solid #000;
+	height: 145px;
+	margin: 0 2px 4px;
+	overflow: hidden;
+	position: relative;
+	text-align: left;
+	width: 724px;
+}
+div#intro object {
+	margin-left: 0.01px; /* Firefox 3.6.x for mac jog fix */
+}
+ul.modules {
+	list-style: none;
+	margin: 4px 0 0;
+	overflow: hidden;
+}
+	ul.modules li {
+		background: #000 url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/misc/ajax-loader.gif) 50% 50% no-repeat;
+		border: 2px solid #000;
+		display: block;
+		float: left;
+		margin: 0 2px 4px;
+		position: relative;
+	}
+		ul.modules li.grid-1x1 {
+			height: 176px;
+			width: 175px;
+		}
+		ul.modules li.grid-1x2  {
+			height: 176px;
+			width: 358px;
+		}
+		ul.modules li.grid-1x3 {
+			height: 176px;
+			width: 541px;
+		}
+		ul.modules li.grid-1x4 {
+			height: 176px;
+			width: 724px;
+		}
+		ul.modules li.grid-2x1 {
+			height: 360px;
+			width: 175px;
+		}
+		ul.modules li.grid-2x2 {
+			height: 360px;
+			width: 358px;
+		}
+		ul.modules li.grid-2x3 {
+			height: 360px;
+			width: 541px;
+		}
+		ul.modules li.grid-2x4 {
+			height: 360px;
+			width: 724px;
+		}
+		ul.modules li.left {
+			float: left;
+		}
+		ul.modules li.right {
+			float: right;
+		}
+		ul.modules li.shift-up-2 {
+			margin-top: -184px;
+		}
+		ul.modules li.map-special {
+			height: 459px;
+			width: 724px;
+		}
+		ul.modules li.buy {
+			height: 129px;
+		}
+	ul.modules li a {
+		color: #fff;
+		display: block;
+		height: 100%;
+		overflow: hidden;
+		position: relative;
+		text-decoration: none;
+		width: 100%;
+	}
+		ul.modules li a span {
+			cursor: pointer;
+			display: block;
+			font-family: "TitilliumText22LMedium", Arial, Helvetica, sans-serif;
+			line-height: 1;
+			text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
+			width: 90%;
+		}
+		ul.modules li a span.rollover {
+			left: -999999px;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			width: 100%;
+		}
+		ul.modules li.blue-70 span.rollover {
+			background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/misc/blue-gradient-70.png) 0 0 repeat-x;
+		}
+		ul.modules li.green-60 span.rollover {
+			background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/misc/green-gradient-60.png) 0 0 repeat-x;
+		}
+		ul.modules li.dark-green-70 span.rollover {
+			background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/misc/dark-green-gradient-70.png) 0 0 repeat-x;
+		}
+		ul.modules li.orange-67 span.rollover {
+			background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/misc/orange-gradient-67.png) 0 0 repeat-x;
+		}
+		ul.modules li.orange-70 span.rollover {
+			background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/misc/orange-gradient-70.png) 0 0 repeat-x;
+		}
+		ul.modules li.pink-70 span.rollover {
+			background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/misc/pink-gradient-70.png) 0 0 repeat-x;
+		}
+		ul.modules li.yellow-60 span.rollover {
+			background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/misc/yellow-gradient-60.png) 0 0 repeat-x;
+		}
+		ul.modules li.yellow-70 span.rollover {
+			background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/misc/yellow-gradient-70.png) 0 0 repeat-x;
+		}
+		ul.modules li.yellow-80 span.rollover {
+			background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/misc/yellow-gradient-80.png) 0 0 repeat-x;
+		}
+		ul.modules li.dark-purple-60 span.rollover {
+			background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/misc/dark-purple-gradient-60.png) 0 0 repeat-x;
+		}
+		ul.modules li.purple-70 span.rollover {
+			background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/misc/purple-gradient-70.png) 0 0 repeat-x;
+		}
+		ul.modules li.red-70 span.rollover {
+			background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/misc/red-gradient-70.png) 0 0 repeat-x;
+		}
+		ul.modules li.red-80 span.rollover {
+			background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/misc/red-gradient-80.png) 0 0 repeat-x;
+		}
+		ul.modules li.dark-red-80 span.rollover {
+			background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/misc/dark-red-gradient-80.png) 0 0 repeat-x;
+		}
+			ul.modules li a.new {
+				background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/lang/en-us/new.png) 0 0 no-repeat;
+				height: 63px;
+				left: -4px;
+				position: absolute;
+				top: -4px;
+				width: 99px;
+				z-index: 10;
+			}
+			/* non-js rollover */
+			ul.modules li a:hover span.rollover {
+				left: auto;
+			}
+		/*added to remove hand for 1/13 build - will remove*/
+			.home ul.modules li.buy a span {
+				cursor: text;
+			}
+			body.en-us.home ul.modules li.buy a span,
+			body.en-ca.home ul.modules li.buy a span,
+			body.fr-ca.home ul.modules li.buy a span,
+			body.en-gb.home ul.modules li.buy a span {
+				cursor: pointer;
+			}
+		/******/
+			ul.modules li a span.rollover span.rollover-wrapper {
+				bottom: 25px;
+				left: 5px;
+				position: absolute;
+			}
+			ul.modules li a span.rollover span.subtitle {
+				font-size: 20px;
+				margin-bottom: 2px;
+			}
+			ul.modules li a span.rollover span.title {
+				font-size: 30px;
+				line-height: 0.9;
+			}
+			ul.modules li.grid-1x1 a span.rollover span.title {
+				font-size: 26px;
+			}
+			ul.modules li.wonderLauncherModule a span.rollover span.title {
+				font-size: 24px;
+			}
+/** End Home **/
+
+/** Choose Region **/
+body.choose div#nav div.availability {
+	display: none;
+}
+div#choose-region {
+	margin: 40px 60px;
+}
+	div#choose-region ul.region-selector {
+		float: left;
+		list-style: none;
+		margin: 30px 0;
+		width: 275px;
+	}
+		div#choose-region ul.region-selector li {
+			margin: 0px 0px 10px;
+		}
+			div#choose-region ul.region-selector li a {
+				display: block;
+				height: 45px;
+				position: relative;
+				width: 232px;
+			}
+				div#choose-region ul.region-selector li a:hover {
+					background-position: 0 100%;
+				}
+				body.js-enabled div#choose-region ul.region-selector li a:hover {
+					background-position: 0 0;
+				}
+				div#choose-region ul.region-selector li a span {
+					left: -999999px;
+					position: absolute;
+				}
+				div#choose-region ul.region-selector li a span.hover {
+					background-position: 0 100%;
+					left: auto;
+					height: 45px;
+					position: absolute;
+					width: 232px;
+				}
+				a#es-la {
+					background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/lang/es-la.png) 0 0 no-repeat;
+				}
+				a#en-au {
+					background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/lang/en-au.png) 0 0 no-repeat;
+				}
+				a#nl-be {
+					background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/lang/nl-be.png) 0 0 no-repeat;
+				}
+				a#fr-be {
+					background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/lang/fr-be.png) 0 0 no-repeat;
+				}
+				a#en-ca {
+					background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/lang/en-ca.png) 0 0 no-repeat;
+				}
+				a#fr-ca {
+					background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/lang/fr-ca.png) 0 0 no-repeat;
+				}
+				a#de-de {
+					background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/lang/de-de.png) 0 0 no-repeat;
+				}
+				a#es-es {
+					background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/lang/es-es.png) 0 0 no-repeat;
+				}
+				a#fr-fr {
+					background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/lang/fr-fr.png) 0 0 no-repeat;
+				}
+				a#it-it {
+					background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/lang/it-it.png) 0 0 no-repeat;
+				}
+				a#nl-nl {
+					background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/lang/nl-nl.png) 0 0 no-repeat;
+				}
+				a#pt-pt {
+					background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/lang/pt-pt.png) 0 0 no-repeat;
+				}
+				a#en-gb {
+					background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/lang/en-gb.png) 0 0 no-repeat;
+				}
+				a#en-us {
+					background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/lang/en-us.png) 0 0 no-repeat;
+				}
+/** End Choose Region **/
+
+/*--------------------------------------
+ 404
+--------------------------------------*/
+div#four-oh-four {
+	margin: 40px 60px;
+	min-height: 300px;
+}
+	div#four-oh-four h1 {
+		margin-bottom: 40px;
+	}
+/*--------------------------------------
+ End 404
+--------------------------------------*/
+
+/*--------------------------------------
+ Topic Pages
+--------------------------------------*/
+
+div.topic {
+	margin: 0 0 0 2px;
+}
+	div.topic h2 {
+		background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/misc/grey-ruler.png) 0 100% no-repeat;
+		font-family: "TitilliumText22LLight", Arial, Helvetica, sans-serif;
+		font-size: 35px;
+		line-height: 1.2;
+		text-transform: none;
+	}
+		div.topic h2 span {
+			color: #3C7FCA;
+			display: block;
+			font-size: 18px;
+			/*text-transform: uppercase;*/
+		}
+	div.topic div.copy {
+		font-size: 14px;
+		font-weight: bold;
+	}
+	div.topic div.copy em {
+		font-weight: bold;
+	}
+div.header-wrapper {
+	height: 140px;
+	width: 728px;
+}
+div#header {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/topic-header.jpg) 0 0 no-repeat;
+	height: 140px;
+	overflow: hidden;
+	position: relative;
+	text-align: center;
+	width: 728px;
+}
+	div#header h1 {
+		background: none;
+		color: #fff;
+		font-family: "TitilliumText22LXBold", Arial, Helvetica, sans-serif;
+		font-size: 54px;
+		font-style: italic;
+		margin-top: 40px;
+		text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+	}
+
+div.arrow-panel {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/base.png) 0 20px no-repeat;
+	margin-left: 19px;
+	min-height: 360px;
+	position: relative;
+}
+	div.arrow-panel a {
+		display: block;
+		min-height: 360px;
+		text-decoration: none;
+	}
+	div.arrow-panel div.bg {
+		left: 10px;
+		position: absolute;
+		top: 30px;
+		z-index: 10;
+	}
+	div.arrow-panel div.cover {
+		color: #fff;
+		height: 360px;
+	}
+	
+	div.arrow-panel div.copy h2 {
+		background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/misc/blue-ruler.png) 0 100% no-repeat;
+		margin-bottom: 15px;
+		padding-bottom: 15px;
+	}
+
+	div.arrow-panel div.cover {
+		background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/left-cover.png) 0 0 no-repeat;
+		float: left;
+		margin-right: 5px;
+		position: relative;
+		width: 405px;
+		z-index: 100;
+	}
+/** dark blue 70 **/	
+		div.arrow-panel div.smDk70 span.corner {
+			background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/buttons/corner-arrows-bg.png) 0 -600px no-repeat;
+			bottom: 0;
+			display: block;
+			height: 150px;
+			position: absolute;
+			right: 0;
+			width: 132px;
+		}
+			div.arrow-panel a:hover div.smDk70 span.corner {
+				background-position: 0 -750px;
+			}
+		div.arrow-panel div.smDk70 span.c-arrow{
+			background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/buttons/corner-arrows-bg.png) 0 -998px no-repeat;
+			display:block;
+			height: 52px;
+			position: absolute;
+			right:20px;
+			bottom:10px;
+			width: 52px;
+		}
+			div.arrow-panel a:hover div.smDk70 span.c-arrow{
+				background-position: 0 -1148px;
+			}
+/** END dark blue 70 **/
+		div.arrow-panel div.copy {
+			margin: 70px 0 0 20px;
+			width: 290px;
+		}
+	
+
+
+	div.arrow-panel.right div.cover {
+		background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/right-cover.png) 0 0 no-repeat;
+		float: right;
+		margin-right: 5px;
+		position: relative;
+		width: 405px;
+		z-index: 100;
+	}
+/** med lite blue 70 **/	
+		div.arrow-panel div.smLt70 span.corner {
+			background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/buttons/corner-arrows-bg.png) 0 -1200px no-repeat;
+			bottom: 60px;
+			display: block;
+			height: 150px;
+			position: absolute;
+			right: 0;
+			width: 132px;
+		}
+			div.arrow-panel a:hover div.smLt70 span.corner {
+				background-position: 0 -1350px;
+			}
+		div.arrow-panel div.smLt70 span.c-arrow{
+			background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/buttons/corner-arrows-bg.png) 0 -998px no-repeat;
+			display:block;
+			height: 52px;
+			position: absolute;
+			right:10px;
+			bottom:80px;
+			width: 52px;
+		}
+			div.arrow-panel a:hover div.smLt70 span.c-arrow{
+				background-position: 0 -1148px;
+			}
+/** END med lite blue 70 **/	
+		
+/** large light blue 90 **/
+	div.arrow-panel div.lgDk90 span.corner {
+			background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/buttons/corner-arrows-bg.png) 0 0 no-repeat;
+			bottom: 0px;
+			display: block;
+			height: 150px;
+			position: absolute;
+			right: 0;
+			width: 132px;
+		}
+			div.arrow-panel a:hover div.lgDk90 span.corner {
+				background-position: 0 -150px;
+			}
+	div.arrow-panel div.lgDk90 span.c-arrow{
+			background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/buttons/corner-arrows-bg.png) 0 -998px no-repeat;
+			display:block;
+			height: 52px;
+			position: absolute;
+			right:10px;
+			bottom:10px;
+			width: 52px;
+		}
+			div.arrow-panel a:hover div.lgDk90 span.c-arrow{
+				background-position: 0 -1148px;
+			}
+/** END large light blue 90 **/
+
+/** large dark blue 90 **/
+	div.arrow-panel div.lgLt90 span.corner {
+			background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/buttons/corner-arrows-bg.png) 0 -300px no-repeat;
+			bottom: 0px;
+			display: block;
+			height: 150px;
+			position: absolute;
+			right: 0;
+			width: 132px;
+		}
+			div.arrow-panel a:hover div.lgLt90 span.corner {
+				background-position: 0 -450px;
+			}
+	div.arrow-panel div.lgLt90 span.c-arrow{
+			background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/buttons/corner-arrows-bg.png) 0 -998px no-repeat;
+			display:block;
+			height: 52px;
+			position: absolute;
+			right:10px;
+			bottom:10px;
+			width: 52px;
+		}
+			div.arrow-panel a:hover div.lgLt90 span.c-arrow{
+				background-position: 0 -1148px;
+			}
+/** END large dark blue 90 **/
+
+		div.arrow-panel.right div.copy {
+			margin: 60px 0 0 100px;
+			width: 290px;
+		}
+/** No link Topic Panels - Dark **/
+
+div.dark.panel div#screenshots div.screenshots-wrapper, div.dark.panel div.screenshots-multi div.screenshots-wrapper {
+	background: url("/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/misc/screenshot-frame-new-pokemon-dark.png") no-repeat 0 0 transparent;
+}
+	div.dark.panel div.screenshots-multi div.caption {
+		font-weight: normal;
+		min-height: 80px;
+		text-indent: 1pt; /*ie cuts off starting 'W'*/
+	}
+	div.dark.panel div.screenshots-multi div.nav {
+		position: relative;
+		z-index: 1;
+	}
+	div.dark.panel div.screenshots-multi div.nav a.prev.disabled {
+		background-position: 0px -75px;
+	}
+	div.dark.panel div.screenshots-multi div.nav a.next.disabled {
+		background-position: -23px -75px;
+	}
+	div.dark.panel div.screenshots-multi div.caption{
+		color:#fff;
+	}
+/** END No link Topic Panels - Dark **/
+
+/** Topic Panels Copy Right/ Left /Auto**/
+div.copyRight.panel div.copy, div.copyRight.new-pokemon div.intro{
+	width: 290px;
+	float: right;
+}
+div.copyRight.panel div.screenshots-multi, div.copyRight.new-pokemon div.screenshots-multi{
+	float: left;
+}
+div.copyLeft.panel div.copy, div.copyLeft.new-pokemon div.intro{
+	width: 290px;
+	float: left;
+}
+div.copyLeft.panel div.screenshots-multi, div.copyLeft.new-pokemon div.screenshots-multi{
+	float: right;
+}
+div.copyAuto.panel div.copy, div.copyAuto.new-pokemon div.intro{
+	margin-bottom: 20px;
+	width: auto;
+}
+/** END Topic Panels Copy Right/ Left **/
+
+div#randomMatchups span.corner{
+	bottom:60px;
+}
+div#randomMatchups span.c-arrow{
+	bottom:70px;
+}
+div#pageDescription {
+	position: relative;
+	margin: 0 -2px -16px -3px;
+}
+	div#pageDescription h2 {
+		background: url("/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/misc/ltGrey-ruler.png") no-repeat 0 100% transparent;
+		line-height: 1;
+		padding-bottom: 20px;
+	}
+	div#pageDescription div.copy {
+		font-size: 14px;
+		font-weight: bold;
+	}
+
+div.panel {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/panel-bg.png) 0 0 repeat-x;
+	margin-left: -3px;
+	min-height: 300px;
+	padding: 30px 60px 40px;
+	position: relative;
+    /*width: 735px;*/
+	width: 615px;
+	z-index: 0;
+	zoom: 1;
+}
+	div.panel p {
+		margin: 0;
+	}
+	div.panel div.bg {
+		bottom: 0px;
+		height: 330px;
+		min-height: 330px;
+		left:0;
+		position: absolute;
+		width: 735px;
+	}
+	div.panel div.copy {
+		color: #fff;
+		/*padding: 30px 0 0 60px;*/
+		width: 290px;
+		z-index: 1;
+	}
+		div.panel div.copy h2 {
+			background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/misc/grey-ruler.png) no-repeat 0 100%;
+			margin-bottom: 15px;
+			padding-bottom: 15px;
+		}
+	div.panel.right div.copy {
+		float: right;
+		padding-right: 60px;
+	}
+div.innerBG {
+	height: 334px;
+	position: absolute;
+	width: 678px;
+	z-index: 1;
+}
+div.flash-panel {
+	position: absolute;
+	top: 30px;
+}
+
+
+	div#pokedexPanel {
+	}
+		div#pokedexPanel div.bg {
+			background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/pokedex-bg.jpg) 0 0 no-repeat;
+			height: 305px;
+			width: 457px;
+		}
+	div#new-pokemon {
+		margin: 0;
+		/*margin-bottom:4px;*/
+	}
+		div#new-pokemon div.header-wrapper {
+			margin-left: 2px;
+		}
+		div#quilt {
+			margin: 0 0 20px;
+		}
+			div#quilt ul.modules li a span.rollover span.title {
+				font-size: 26px;
+			}
+	/* Friends and Foes */
+	div.separatorTop {
+		background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/separatorTop-bg.png) 0 0 repeat-x;
+		height: 5px;
+		margin-left: -3px;
+		margin-top: 16px;
+		width: 736px;
+	}
+	
+	div.separator {
+		background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/separator-bg.png) 0 0 no-repeat;
+		height: 21px;
+		margin-left: -3px;
+		margin-top: -2px;
+		position: relative;
+		width: 736px;
+	}
+	
+	div#trainers {}
+		div#trainers div.bg {
+			background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/trainersBoyAndGirl-bg.png) 0 0 no-repeat;
+			height: 326px;
+			top: 8px;
+			width: 440px;
+			z-index: 10;
+		}
+		div#trainers div.innerBG {
+			background: url("/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/trainers-innerBG.jpg") no-repeat 10px 30px transparent;
+		}
+		div#trainers div.innerBG div.flash-panel {
+			left: 10px;
+		}
+	div#friends {}
+		div#friends div.bg {
+			background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/friends-bg.png) 0 0 no-repeat;
+			height: 351px;
+			top: 8px;
+			width: 668px;
+		}
+		div#friends div.innerBG {
+			background: url("/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/friends-innerBG.jpg") no-repeat 10px 30px transparent;
+		}
+		div#friends div.innerBG div.flash-panel {
+			right: 0;
+			top: 77px;
+		}
+		div#foes div.bg {
+			background: url("/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/fnfFoes-bg.png") no-repeat 0 100% transparent;
+		}
+		div#gymLeaders div.bg {
+			background: url("/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/fnfgymLeaders-bg.png") no-repeat 0 100% transparent;
+		}
+		div#pageDescription.fnf {
+			background: url("/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/fnfPageDesc-bg.png") no-repeat 0 100% transparent;
+			height: 274px;
+			margin: 0 -2px -18px -3px;
+		}
+		div#pageDescription.fnf div.copy {
+			margin-left: 200px;
+			padding-top: 35px;
+		}
+		div#pageDescription.fnf div.copy p {
+			width: 305px;
+			margin-top: 15px;
+		}
+	div#fnfmysteriousN div.innerBG {
+		background: url("/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/mysteriousN-innerBG.jpg") no-repeat 308px 30px transparent;
+	}	
+		div#fnfmysteriousN div.flash-panel {
+			left:340px;
+		}
+	div#fnfmysteriousN {
+		margin-bottom: 15px;
+	}
+		div#fnfmysteriousN div.bg {
+			background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/fnfmysteriousN-bg.png) 0 0 no-repeat;
+			height: 351px;
+			width: 440px;
+		}
+		div#fnfmysteriousN div.bg {
+			left: 330px;
+			top: 4px;
+		}
+	/* End Friends and Foes */
+	
+	/* Pokemon Topic */ 
+	div#pokemonContent div.header {
+		background: url("/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/headers/pokemon.jpg") no-repeat 0 0 transparent;
+	}
+	div#pageDescription.pokemon {
+		background: url("/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/pokemonPageDesc-bg.png") no-repeat 0 100% transparent;
+		height: 357px;
+	}
+		div#pageDescription.pokemon div.copy {
+			margin-left: 60px;
+			padding-top: 35px;
+		}
+		div#pageDescription.pokemon div.copy p {
+			width: 590px;
+			margin-top: 15px;
+		}
+		div#pageDescription.pokemon a.genericButton {
+			bottom: 5px;
+			position: absolute;
+			right: 35px;
+		}
+
+	/* pokemon - the starters */
+	div#starters.panel,
+	div#starters.panel div.bg {
+		min-height: 450px;
+	}
+		div#starters.panel div.bg {
+			background: url("/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/pokemonStarters-bg.png") no-repeat 0 0 transparent;
+			z-index: -1;
+		}
+		div#starters.panel div.copy {
+			width: 600px;
+		}
+			div#starters.panel div.copy div#screenshots {
+				float: left;
+			}
+				div#starters.panel div.copy div#screenshots div.screenshots-wrapper {
+					background: url("/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/misc/screenshot-frame-new-pokemon-dark.png") no-repeat 0 0 transparent;
+				}
+				div#starters.panel div.copy div#screenshots div.caption {
+					font-weight: normal;
+					min-height: 80px;
+				}
+				div#starters.panel div.copy div#screenshots div.nav {
+					position: relative;
+					z-index: 1;
+				}
+				div#starters.panel div.copy div#screenshots div.nav a.prev.disabled {
+					background-position: 0px -75px;
+				}
+				div#starters.panel div.copy div#screenshots div.nav a.next.disabled {
+					background-position: -23px -75px;
+				}
+			div#starters.panel div.copy div.characters {
+				float: left;
+				width: 310px;
+				position: relative;
+				z-index: 1;
+			}
+				div#starters.panel div.copy div.characters a.character {
+					position: absolute;
+				}
+					div#starters.panel div.copy div.characters a.character.snivy {
+						left: 9px;
+						top: 52px;
+					}
+					div#starters.panel div.copy div.characters a.character.tepig {
+						left: 101px;
+						top: 86px;
+					}
+					div#starters.panel div.copy div.characters a.character.oshawott {
+						left: 223px;
+	    				top: 55px;
+					}
+
+	/* pokemon - the legendaries */
+	div#theLegendaries,
+	div#theLegendaries div.bg {
+		height: 345px;
+		padding: 0 0 0 0;
+		width: 735px;
+	}
+		
+		div#theLegendaries div.bg {
+			background: url("/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/theLegendaries-bg.jpg") no-repeat 0 0 transparent;
+		}
+		div#theLegendaries div.copy {
+			color: #000;
+			padding-right: 20px;
+	    	padding-top: 45px;
+		}
+		div#theLegendaries div.characters {}
+			div#theLegendaries div.characters a.character {
+				position: absolute;
+			}
+				div#theLegendaries div.characters a.character.reshiram {
+					left: 0;
+					top: 30px;
+				}
+				div#theLegendaries div.characters a.character.zekrom {
+					left: 215px;
+	    			top: 47px;
+				}
+
+	/* pokemon - special encounters */
+	div#specialEncountersPanel {
+		margin: 19px 0 19px 19px;
+	}
+		div#specialEncountersPanel div.innerBG {
+			background: url("/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/special-encounters-bg.jpg") no-repeat 255px 20px transparent;
+			right: 10px;
+			top: 10px;
+		}
+		div#specialEncountersPanel div.bg {
+			background: url("/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/specialEncounters-bg.png") no-repeat 0 100% transparent;
+			height: 351px;
+			width: 668px;
+			left: 10px;
+			top: 4px;
+		}
+	
+		/* pokemon - special encounters */
+		div#pokemon-differences {
+			margin: 19px 0 19px 19px;
+		}
+			div#pokemon-differences div.bg {
+				background: url("/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/pokemon-differences-bg.jpg") no-repeat 0 100% transparent;
+				height: 305px;
+				width: 450px;
+			}
+	/*Fusion Moves Panel*/
+	div#fusionMovesPanel div.bg{
+		background: url("/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/fusionMoves-bg.jpg") no-repeat 0 0 transparent;
+		height: 351px;
+		width: 668px;
+		left: 10px;
+		top: 30px;
+	}
+			
+	/* pokemon - Evolution */
+	div#evolution.panel{
+		padding-bottom: 240px;
+	}
+	div#evolution.panel div.bg {
+		min-height: 450px;
+	}
+		div#evolution.panel div.bg {
+			background: url("/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/evolutionPanel-bg.png") no-repeat 0 100% transparent;
+			bottom:0;
+			z-index: -1;
+		}
+			div#evolution.panel{			
+				position: relative;
+			}
+				div#evolution.panel div.characters a.character {
+					position: absolute;
+				}
+					div#evolution.panel div.characters a.character.servine {
+						bottom: 10px;
+						left: 30px;
+					}
+					div#evolution.panel div.characters a.character.dewott {
+						bottom: 10px;
+						left: 290px;
+					}
+					div#evolution.panel div.characters a.character.pignite {
+						bottom: 10px;
+						left: 500px;
+					}
+	
+	/* Equipment */
+	div#pageDescription.equipment {
+		background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/equipmentPageDesc.png) no-repeat 370px 100%;
+		min-height: 260px;
+		margin: 0px -2px -21px -3px;
+	}
+	div#pageDescription.equipment div.copy {
+		margin: 0px 0 0 60px;
+		padding-top: 45px;
+		width: 345px;
+	}
+	div#equipment.panel {
+		background: #000 url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/equipment-bg.jpg) no-repeat 0 0;
+		/*min-height: 400px;*/
+	}
+		div#equipment.panel div.copy {
+			width: 620px;
+		}
+		div#equipment.panel ul.thumbs {
+			list-style: none;
+			margin: 35px 0;
+		}
+			div#equipment.panel ul.thumbs li {
+				float: left;
+				margin-right: 8px;
+			}
+				div#equipment.panel ul.thumbs li a {
+					border: 1px solid #444;
+					display: block;
+				}
+					div#equipment.panel ul.thumbs li a:hover {
+						border: 1px solid #fff;
+					}
+		div#equipment .genericButton{
+			margin-top:30px;
+		}
+	
+	div#pokedexPanel {
+	}
+		div#pokedexPanel div.bg {
+			background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/pokedex-bg.jpg) 0 0 no-repeat;
+			height: 305px;
+			width: 457px;
+		}
+	div#xtranceiverPanel div.bg {
+		background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/xtranceiver-bg.jpg) -310px 0 no-repeat;
+		height: 304px;
+		width: 668px;
+	}
+	div#wonderlauncherPanel {
+		margin-bottom:10px;	
+	}
+		div#wonderlauncherPanel div.bg {
+			background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/wonderlauncherPanel-bg.jpg) 0 0 no-repeat;
+			height: 303px;
+			width: 438px;
+			left: 240px;
+		}
+		div#wonderlauncherPanel img#disc{
+			position: absolute;
+			z-index: 100;
+			right: 10px;
+			top: 150px;
+		}
+	div#cgearPanel {
+		margin-bottom:30px;
+	}
+		div#cgearPanel div.bg {
+			background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/cgear-bg.jpg) 300px 0 no-repeat;
+			height: 305px;
+			width: 668px;
+		}	
+	
+	/* ---------------------------------------
+	Fusion Moves
+	---------------------------------------- */ 
+	div#fusionMoves div.details{
+		padding-right: 30px;
+	}
+	
+	
+	/* ---------------------------------------- 
+
+	battle types
+
+	---------------------------------------- */ 
+
+	div#pageDescription.battleTypes {
+		background: url("/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/battleTypesPageDesc-bg.png") no-repeat 0 100% transparent;
+		height: 230px;
+		margin: 0 -2px 0 -3px;
+	}
+	div#pageDescription.battleTypes div.copy {
+		margin-left: 60px;
+		padding-top: 35px;
+		width: 325px;
+	}
+	/* triple battles */
+	div#tripleBattles.vertical {
+		background: url("/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/verticalBase.png") no-repeat 18px 100% transparent;
+		margin: 0 0 20px;
+		float: left;
+		margin-left: 7px;
+	}
+	div#tripleBattles.vertical div.cover {
+		background: url("/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/top-cover.png") no-repeat 0 0 transparent;
+		width: 360px;
+		float: none;
+	}
+	div#tripleBattles.vertical.arrow-panel.right span.corner {
+		/*background: url("/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/top-cover-arrow.png") no-repeat scroll 0 0 transparent;
+		width: 88px;
+		height: 112px;
+		bottom: 60px;*/
+	}
+	div#tripleBattles.vertical a {
+		height: 300px;
+	}
+	div#tripleBattles.vertical div.copy {
+		margin: 0 0 0 40px;
+		padding-top: 30px;
+	}
+	div#tripleBattles.vertical,  div#tripleBattles.vertical div.bg {
+		height: 638px;
+		width: 360px;
+	}
+	div#tripleBattles.vertical div.bg {
+		background: url("/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/tripleBattle-bg.png") no-repeat 8px -32px transparent;
+	}
+	/* random matchups */
+	div#randomMatchups.vertical {
+		background: url("/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/verticalBase.png") no-repeat 18px 100% transparent;
+		margin: 0 0 20px;
+		float: left;
+	}
+	div#randomMatchups.vertical div.cover {
+		background: url("/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/bottom-cover.png") no-repeat 0 0 transparent;
+		bottom: -338px;
+		float: none;
+		width: 360px;
+	}
+	div#randomMatchups.vertical.arrow-panel.left span.corner {
+		/*background: url("/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/corner-arrow-straight.png") no-repeat scroll 0 0 transparent;
+		width: 112px;
+		height: 112px;
+		bottom: 60px;*/
+	}
+	div#randomMatchups.vertical a {
+		height: 300px;
+	}
+
+	div#randomMatchups.vertical div.copy {
+		margin: 0 0 0 40px;
+		padding-top: 65px;
+	}
+	div#randomMatchups.vertical,  div#randomMatchups.vertical div.bg {
+		height: 638px;
+		width: 360px;
+	}
+	div#randomMatchups.vertical div.bg {
+		background: url("/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/randomMatchups-bg.png") no-repeat 10px 0 transparent;
+		top: 0;
+		left: 0;
+	}
+	
+	
+	/* topic panel backgrounds */
+	div#foes div.bg,
+	div#gymLeaders div.bg,
+	div#theLegendaries div.bg {
+		z-index: -1;
+	}
+	
+/*Global Link Topic Page*/
+div#globalLink div.bg{
+	
+}
+div#globalLink div#pageDescription {
+	background: url("/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/globalLinkDesc.png") no-repeat 360px 100% transparent;
+	min-height: 260px;
+	margin: 0px -2px -19px -3px;
+	padding-bottom: 20px;
+}
+	div#globalLink div#pageDescription div.copy {
+		margin: 0px 0 0 60px;
+		padding-top: 45px;
+		width: 345px;
+		float:left;
+	}
+		
+		div#globalLink img.globalLink-logo{
+			margin: 50px 20px 0 0;
+			float:right;
+			width: 289px;
+		}
+div#dreamWorldPanel div.copy {
+	margin-top: 40px;
+}
+	div#dreamWorldPanel div.copy p{
+			font-size: .9em;
+		}
+div#dreamWorldPanel div.innerBG{
+	background: url("/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/dreamworld-bg.jpg") no-repeat 280px 100% transparent;
+}
+div#globalBattlePanel div.bg{
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/globalBattle-panel.png) no-repeat 110px 100%;
+	z-index: 1;
+}
+	div#globalBattlePanel div.copy {
+		z-index: 10;
+		position:relative;
+	}
+div#trackPanel div.bg{
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/wifi-infographic.png) no-repeat 460px 20px;
+	
+}
+	div#trackPanel div.copy{
+		width:370px;
+	}
+div#ezmailPanel div.bg{
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/ezmail.png) no-repeat 0 -20px;
+	top: 0;
+	height: 385px;
+}
+div#customizePanel{
+	z-index: 100;
+	padding-top: 20px;
+	min-height: 219px;
+	max-height: 219px;
+}
+	div#customizePanel div.copy{
+		width:300px;
+	}
+div#customizePanel div.bg{
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/customize.png) no-repeat 100% 100%;
+	bottom: -15px;
+	height: 294px;
+	z-index: 101;
+}
+
+/*Fun Stuff Topic Page*/
+div#funstuff div#ticker{
+	margin-bottom: 0;
+}
+div#funstuff div.pageDescription {
+	background: url("/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/funstuff-bg.png") no-repeat 360px -17px transparent;
+	height: 239px;
+	margin: 0px -2px -19px -3px;
+	padding-bottom: 20px;
+}
+	div#funstuff div.pageDescription div.copy {
+		margin: 0px 0 0 60px;
+		padding-top: 45px;
+		width: 345px;
+		float:left;
+	}
+	
+/*--------------------------------------
+ End Topic Pages
+--------------------------------------*/
+
+/*--------------------------------------
+ Detail Pages
+--------------------------------------*/
+div.textIntro{
+	margin: 40px 0;
+}
+.floatRightMargin{
+	float: right;
+	margin-right: 20px;
+}
+a.evolveLink{
+	position: absolute;
+	text-decoration: none;
+}
+div.content-area {
+	margin: 0 2px 0 2px;
+	min-height: 100%;
+	padding: 50px 20px 50px 50px;
+}
+
+div.nav-buttons {
+	clear: both;
+	margin-top: 30px;
+	position: relative;
+}
+	div.nav-buttons div.next-previous {
+		float: right;
+		position: relative;
+	}
+		div.nav-buttons div.next-previous a {
+			display: block;
+			float: left;
+			height: 41px;
+			position: relative;
+			width: 80px;
+		}
+			div.nav-buttons div.next-previous a span {
+				left: -99999px;
+				position: absolute;
+			}
+			div.nav-buttons div.next-previous a span.hover {
+				left: auto;
+				height: 41px;
+				position: absolute;
+				width: 80px;
+			}
+		div.next-previous a.previous {
+			background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/buttons/next-previous.png) 0 0 no-repeat;
+		}
+			div.next-previous a.previous:hover {
+				background-position: 0 -41px;
+			}
+			body.js-enabled div.next-previous a.previous:hover {
+				background-position: 0 0; /* js-enabled, animating buttons */
+			} 
+			div.next-previous a.previous span.hover {
+				background-position: 0 -41px;
+			}
+		div.next-previous a.next {
+			background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/buttons/next-previous.png) 100% 0 no-repeat;
+			margin-left: -13px;
+		}
+			div.next-previous a.next:hover {
+				background-position: 100% -41px;
+			}
+			body.js-enabled div.next-previous a.next:hover {
+				background-position: 100% 0; /* js-enabled, animating buttons */
+			} 
+			div.next-previous a.next span.hover {
+				background-position: 100% -41px;
+			}
+	div.nav-buttons a.home-btn {
+		background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/lang/en-us/home-button.png) 0 0 no-repeat;
+		display: block;
+		height: 45px;
+		left: -60px;
+		position: absolute;
+		width: 160px;
+	}
+		div.nav-buttons a span {
+			left: -999999px;
+			position: absolute;
+		}
+		div.nav-buttons a.home-btn:hover {
+			background-position: 0 -45px;
+		}
+		body.js-enabled div.nav-buttons a.home-btn:hover {
+			background-position: 0 0;
+		}
+		div.nav-buttons a.home-btn span.hover {
+			background-position: 0 -45px;
+			display: block;
+			height: 45px;
+			left: 0;
+			top: 0;
+			position: absolute;
+			width: 160px;
+		}
+		
+div.stats-wrapper {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/stats-container-shadow.png) 100% 100% repeat-y;
+	float: left;
+	margin: 35px 0;
+	padding: 0px 8px 6px 0px;
+}
+	ul.stats {
+		background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/stats-container.png) 0 0 repeat-y;
+		color: #6a6a6a;
+		font-weight: bold;
+		list-style: none;
+		margin: -1px 0 0;
+		padding-left: 25px;
+		width: 291px;
+	}
+		ul.stats li {
+			background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/8a8a8a-20.png) 0 0 repeat;
+			padding: 7px 10px;
+		}
+			ul.stats li.even {
+				background: transparent none;
+			}
+			ul.stats li span {
+				display: block;
+				float: left;
+				width: 175px;
+				word-wrap: break-word;
+			}
+			ul.stats li span.label {
+				color: #fff;
+				display: block;
+				float: left;
+				padding-right: 25px;
+				text-align: right;
+				vertical-align: top;
+				width: 65px;
+			}
+		
+	div#screenshots {
+		width: 284px;
+	}
+		div#screenshots div.screenshots-wrapper {}
+		div#screenshots div.screenshots-wrapper div.screenshots-wrapper-inner {
+			overflow: hidden;
+			width:251px;
+		} 
+		div#screenshots ul {
+			height: 192px;
+			list-style: none;
+			position: relative;
+			overflow: hidden;
+		}
+		div#screenshots ul li {
+			float: left;
+			height: 192px;
+			margin: 0 20px 0 0;
+			width: 251px;
+		}
+		div#screenshots div.nav {
+			float: right;
+			margin: 5px 17px 0 0;
+		}
+			div#screenshots div.nav ul.states {
+				height: auto;
+			}
+				div#screenshots div.nav ul.states li {
+					height: auto;
+				}
+		div#screenshots div.nav a {
+			background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/buttons/carousel-next-previous.png) 0 0 no-repeat;
+			cursor: pointer;
+			display: inline-block;
+			height: 25px;
+			width: 23px;
+		}
+		div#screenshots div.nav a.prev {
+			background-position: 0 0;
+		}
+		div#screenshots div.nav a.next {
+			background-position: -23px 0;
+		}
+			div#screenshots div.nav a.prev:hover {
+				background-position: 0 -25px;
+			}
+			div#screenshots div.nav a.next:hover {
+				background-position: -23px -25px;
+			}
+			div#screenshots div.nav a.prev.disabled {
+				background-position: 0 -50px;
+				cursor: default;
+			}
+			div#screenshots div.nav a.next.disabled {
+				background-position: -23px -50px;
+				cursor: default;
+			}
+		div#screenshots div.caption {
+			float: left;
+			font-size: 11px;
+			line-height: 1.3;
+			margin: 5px 0 0 17px;
+			min-height: 50px;
+			width: 190px;
+			text-indent: 1pt; /*ie cuts off starting 'W'*/
+		}
+		div.screenshots-multi {
+				width: 284px;
+			}
+				div.screenshots-multi div.screenshots-wrapper {
+					background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/misc/screenshot-frame-new-pokemon.png) 0 0 no-repeat;
+					height: 192px;
+					overflow: hidden;
+					padding: 12px 12px 12px 9px;
+					position: relative;
+					width: 251px;
+				}
+				div#screenshots div.caption {
+					margin: 10px 0 0 10px;
+				}
+				div.screenshots-multi div.screenshots-wrapper div.screenshots-wrapper-inner {
+					overflow: hidden;
+				} 
+				div.screenshots-multi ul {
+					height: 192px;
+					list-style: none;
+					position: relative;
+					overflow: hidden;
+				}
+				div.screenshots-multi ul li {
+					float: left;
+					height: 192px;
+					margin: 0 20px 0 0;
+					width: 251px;
+				}
+				div.screenshots-multi div.nav {
+					float: right;
+					margin: 5px 17px 0 0;
+				}
+					div.screenshots-multi div.nav ul.states {
+						height: auto;
+					}
+						div.screenshots-multi div.nav ul.states li {
+							height: auto;
+						}
+				div.screenshots-multi div.nav a {
+					background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/buttons/carousel-next-previous.png) 0 0 no-repeat;
+					cursor: pointer;
+					display: inline-block;
+					height: 25px;
+					width: 23px;
+				}
+				div.screenshots-multi div.nav a.prev {
+					background-position: 0 0;
+				}
+				div.screenshots-multi div.nav a.next {
+					background-position: -23px 0;
+				}
+					div.screenshots-multi div.nav a.prev:hover {
+						background-position: 0 -25px;
+					}
+					div.screenshots-multi div.nav a.next:hover {
+						background-position: -23px -25px;
+					}
+					div.screenshots-multi div.nav a.prev.disabled {
+						background-position: 0 -50px;
+						cursor: default;
+					}
+					div.screenshots-multi div.nav a.next.disabled {
+						background-position: -23px -50px;
+						cursor: default;
+					}
+				div.screenshots-multi div.caption {
+					float: left;
+					font-size: 11px;
+					line-height: 1.3;
+					margin: 5px 0 0 17px;
+					min-height: 50px;
+					width: 190px;
+					text-indent: 1pt; /*ie cuts off starting 'W'*/
+				}
+/*** Videos ****/
+ul.flashVideo li div{
+	text-align: center;
+}
+ul.flashVideo li div a{
+	text-decoration: none;
+	background: url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/flash/Flash-icon.png) no-repeat 50% 50%;
+	display: block;
+	height: 46px;
+	padding-top: 200px;
+	font-weight: bold;
+}
+div.screenshots-video, 
+div.screenshots-wallpaper {
+	width: auto;
+	position: relative;
+	margin-top: 20px;
+}
+	div.screenshots-video div.screenshots-wrapper,
+	div.screenshots-wallpaper div.screenshots-wrapper{
+		background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/video/video-frame.png) 0 0 no-repeat;
+		height: 279px;
+		overflow: hidden;
+		padding: 13px 8px 0px 8px;
+		margin: auto;
+		position: relative;
+		width: 470px;
+	}
+	div.screenshots-video div.caption {
+		margin: 10px 0 0 10px;
+	}
+	div.screenshots-video div.screenshots-wrapper div.screenshots-wrapper-inner,
+	div.screenshots-wallpaper div.screenshots-wrapper div.screenshots-wrapper-inner{
+		overflow: hidden;
+	} 
+	div.screenshots-video ul,
+	div.screenshots-wallpaper ul{
+		height: 265px;
+		list-style: none;
+		position: relative;
+		overflow: hidden;
+	}
+	div.screenshots-video ul li,
+	div.screenshots-wallpaper ul li{
+		float: left;
+		height: 265px;
+		margin: 0 20px 0 0;
+		width: 471px;
+	}
+	div.screenshots-video div.nav,
+	div.screenshots-wallpaper div.nav{
+		position:absolute;
+		top: 0;
+		left: 0;
+		width: 615px;
+	}
+		div.screenshots-video div.nav ul.states {
+			/*height: auto;*/
+		}
+			div.screenshots-video div.nav ul.states li {
+				/*height: auto;*/
+			}
+	div.screenshots-video div.nav a,
+	div.screenshots-wallpaper div.nav a{
+		background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/video/video-arrows.png) 0 0 no-repeat;
+		cursor: pointer;
+		display: inline-block;
+		height: 49px;
+		width: 33px;
+		position: absolute;
+		top: 100px;
+	}
+	div.screenshots-video div.nav a.prev,
+	div.screenshots-wallpaper div.nav a.prev{
+		background-position: 0 -103px;
+		position: absolute;
+		left: 0px;
+	}
+	div.screenshots-video div.nav a.next,
+	div.screenshots-wallpaper div.nav a.next{
+		background-position: -56px -103px;
+		right: 0px;
+	}
+		div.screenshots-video div.nav a.prev:hover,
+		div.screenshots-wallpaper div.nav a.prev:hover{
+			background-position: 0 -52px;
+		}
+		div.screenshots-video div.nav a.next:hover,
+		div.screenshots-wallpaper div.nav a.next:hover{
+			background-position: -56px -52px;
+		}
+		div.screenshots-video div.nav a.prev.disabled,
+		div.screenshots-wallpaper div.nav a.prev.disabled{
+			background-position: 0 -1px;
+			cursor: default;
+		}
+		div.screenshots-video div.nav a.next.disabled,
+		div.screenshots-wallpaper div.nav a.next.disabled{
+			background-position: -56px -1px;
+			cursor: default;
+		}
+	div.screenshots-video div.caption {
+		float: left;
+		font-size: 11px;
+		line-height: 1.3;
+		margin: 5px 0 0 17px;
+		min-height: 50px;
+		width: 190px;
+	}
+	div.screenshots-video div.slideCounter{
+		color: #fff;
+		text-align: center;
+		font-size: 14px;
+	}
+/****end Videos*****/
+/****Wallpaper****/
+div.screenshots-wallpaper div.screenshots-wrapper{
+	background: url("/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/misc/screenshot-frame-new-pokemon.png") no-repeat scroll 0 0 transparent;
+    height: 192px;
+	float: left;
+	margin: 0 0 0 60px;
+    overflow: hidden;
+    padding: 12px 12px 12px 9px;
+    position: relative;
+    width: 251px;
+}
+	div.screenshots-wallpaper div.caption{
+		color: #fff;
+		float: right;
+		font-size: 18px;
+		margin: 0 60px 0 0;
+		width: 180px;
+	}
+	div.screenshots-wallpaper div.assetList{
+		color: #fff;
+		float: right;
+		font-size: 14px;
+		margin: 0 60px 0 0;
+		width: 180px;
+	}
+		div.screenshots-wallpaper div.assetList a{
+			display: block;
+		}
+	
+/****end Wallpaper****/
+			
+div.alert-page h1 {
+	width:311px;
+}
+	div.alert-page div.content-area {
+		position:relative;
+	}
+div.alert-wrapper {
+	width:311px;
+	top:30px;
+	right:30px;
+	position:absolute;
+}
+	div.alert-left {
+		width:11px;
+		height:40px;
+		float:left;
+		background:url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/modules/alert/alert-msg-short.png) no-repeat 0 -11px;
+	}
+	div.alert-top {
+		width:300px;
+		height:12px;
+		margin-top:-11px;
+		float:right;
+		background:url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/modules/alert/alert-msg-short.png) no-repeat -11px -51px;
+	}
+	div.alert-btm {
+		width:300px;
+		height:10px;
+		float:right;
+		background:url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/modules/alert/alert-msg-short.png) no-repeat -11px -61px;
+	}
+		div.alert-wrapper h2 {
+			font-size:12px;
+			color:#fff;
+			padding:0;
+			height:24px;
+			float:left;
+			position:relative;
+			background:url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/modules/alert/alert-top-spacer.png);
+		}
+			div.alert-wrapper h2 span {
+				display:inline-block;
+				padding:5px 10px 0 16px;
+				height:19px;
+				background:url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/modules/alert/alert-msg-short.png) no-repeat -11px -11px;
+			}
+		span.alert-right {
+			display:inline-block;
+			width:13px;
+			height:24px;
+			position:relative;
+			background:url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/modules/alert/alert-msg-short.png) no-repeat 0 -74px;
+		}
+		div.alert-body {
+			width:267px;
+			height:auto;
+			float:right;
+			padding:3px 16px 3px;
+			margin-right:1px;
+			background:url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/modules/alert/alert-body-spacer.png) repeat-y 0 -2px;
+		}
+		div.alert-body p {
+			color: #fff;
+			line-height: 1.2;
+			margin: 0;
+
+		}
+		div.alert-body a {
+			color: #3c7fca;
+		}
+/*---------------------
+Promotions For Zoroa and Zoroak
+---------------------*/
+div#movie-wrapper {
+	background:url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/misc/bg-promo-movie.jpg) #e7e7e7 no-repeat;
+	border:1px solid #c7c7c7;
+	color:#6a6a6a;
+	float:right;
+	margin:20px 40px 30px 0;
+	min-height:132px;	
+	padding:40px 20px;
+	position:relative;
+	width:195px;
+	
+}
+	div#movie-wrapper img {
+		position:absolute;
+		top:-55px;
+		left:10px;
+	}
+/*---------------------
+End Promotions For Zoroa and Zoroak
+---------------------*/
+.details h2{
+	font-family: 'TitilliumText22LLight', Arial, Helvetica, sans-serif;
+	font-size: 35px;
+	line-height:36px;
+	margin-top:20px;
+	padding:0;
+	text-transform:none;
+}
+div.alert-wrapper h3{
+	font-family: 'TitilliumText22LXBold', Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#fff;
+	padding:0;
+	height:24px;
+	float:left;
+	position:relative;
+/*	min-width:140px;*/
+	background:url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/modules/alert/alert-top-spacer.png);
+}
+	div.alert-wrapper h3 span{
+		display:inline-block;
+		padding:5px 10px 0 16px;
+		height:19px;
+		background:url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/modules/alert/alert-msg.png) no-repeat -11px -11px;
+	}
+
+/*--------------------------------------
+Detail Pages - New Pokemon
+--------------------------------------*/
+p.charCaption{
+	position:absolute;
+	margin:0;
+}
+div.new-pokemon{
+	position: relative;
+}
+	
+	div#screenshots div.screenshots-wrapper {
+		background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/misc/screenshot-frame-new-pokemon.png) 0 0 no-repeat;
+		height: 192px;
+		overflow: hidden;
+		padding: 12px 12px 12px 9px;
+		position: relative;
+		width: 251px;
+	}
+	div#screenshots div.caption {
+		margin: 10px 0 0 10px;
+		min-height: 80px;
+		text-indent: 1pt; /*ie cuts off starting 'W'*/
+	}
+div#zorua {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/green-pattern-detail.png) 100% 0 no-repeat;
+	margin: 40px 0;
+	min-height: 449px;
+	min-width: 396px;
+	position: relative;
+}
+	div#zorua div.intro {
+		font-size: 14px;
+		width: 285px;
+	}
+	div#zorua img.character {
+		height: 257px;
+		position: absolute;
+		right: -300px;
+		top: -10px;
+		width: 240px;
+	}
+div#zoroark {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/gray-pattern-detail.png) 100% 0 no-repeat;
+	margin: 40px 0;
+	min-height: 449px;
+	min-width: 396px;
+	position: relative;
+}
+	div#zoroark div.intro {
+		font-size: 14px;
+		width: 285px;
+	}
+	div#zoroark img.character {
+		height: 325px;
+		position: absolute;
+		right: -400px;
+		top: -10px;
+		width: 361px;
+	}
+div#munna {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/pink-pattern-detail.png) 100% 0 no-repeat;
+	margin: 40px 0;
+	min-height: 310px;
+	min-width: 340px;
+}
+	div#munna div.intro {}
+	div#munna img.character {
+		position: absolute;
+		right: -400px;
+		top: 20px;
+	}
+	div#munna a.evolveLink{
+		top: 300px;
+		right: 250px;
+	}
+div#pidove {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/pidove-pattern-detail.png) 100% 0 no-repeat;
+	margin: 40px 0;
+	min-width: 361px;
+	min-height: 330px;
+}
+	div#pidove div.intro {}
+	div#pidove img.character {
+		position: absolute;
+		right: -400px;
+		top: 20px;
+	}
+div#sandile {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/sandile-pattern-detail.png) 100% 0 no-repeat;
+	margin: 40px 0;
+	min-width: 341px;
+	min-height: 230px;
+}
+	div#sandile div.intro {}
+	div#sandile img.character {
+		position: absolute;
+		right: -400px;
+		top: 20px;
+	}
+div#blitzle {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/blue-pattern-detail.png) 0 0 no-repeat;
+	margin: 40px 0;
+	min-width: 340px;
+	min-height: 355px;
+}
+	div#blitzle div#screenshots {
+		margin-left:40px;
+	}
+	div#blitzle div#screenshots div.caption {
+		margin-left:10px;
+	}
+	div#blitzle div.intro {}
+	div#blitzle img.character {
+		position: absolute;
+		left: -400px;
+		top: 0px;
+	}
+div#blitzle div.details{
+	margin-left:330px;
+}
+div#minccino {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/minccino-pattern-detail.png) 100% 0 no-repeat;
+	margin: 40px 0;
+	min-width: 361px;
+	min-height: 301px;
+}
+	div#minccino div.intro {}
+	div#minccino img.character {
+		position: absolute;
+		right: -400px;
+		top: 20px;
+	}
+div#klink {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/topaz-pattern-detail.png) 100% 20px no-repeat;
+	margin: 0px 0 40px;
+	padding:30px 0 0 0;
+	min-width: 327px;
+	min-height: 287px;
+}
+	div#klink div.intro {}
+	div#klink img.character {
+		position: absolute;
+		right: -400px;
+		top: 20px;
+	}
+div#darmanitan {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/darmanitan-pattern-detail.png) 100% 0 no-repeat;
+	margin: 40px 0;
+	min-width: 391px;
+	min-height: 281px;
+}
+	div#darmanitan div.intro {}
+	div#darmanitan img.character {
+		position: absolute;
+		right: -400px;
+		top: 0px;
+	}
+div#gigalith {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/gigalith-pattern-detail.png) 100% 0 no-repeat;
+	margin: 40px 0;
+	min-width: 362px;
+	min-height: 309px;
+}
+	div#gigalith div.intro {}
+	div#gigalith img.character {
+		position: absolute;
+		right: -400px;
+		top: 0px;
+	}
+div#professor-juniper {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/professor-juniper-pattern-detail.png) 100% 0 no-repeat;
+	margin: 40px 0;
+	min-width: 346px;
+	min-height: 377px;
+}
+	div#professor-juniper div.intro {
+		width:50%;
+	}
+	div#professor-juniper img.character {
+		position: absolute;
+		right: -400px;
+		top: 0px;
+	}
+	div#professor-juniper div#screenshots div.caption {
+		width:260px
+	}
+div.new-pokemon{
+	min-height:300px;
+	margin: 40px 0 40px;
+}
+	div.new-pokemon img.character{
+		position: absolute;
+	}
+
+div#galvantula {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/galvantula-detail-pattern.png) 300px 0 no-repeat;
+}
+	div#galvantula img.character {		
+		right: -350px;
+		top: -20px;
+	}
+div#lillipup {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/lillipup-detail-pattern.png) 300px 0 no-repeat;
+}
+	div#lillipup img.character {
+		right: -350px;
+		top: 0px;		
+	}
+	div#lillipup a.evolveLink{
+		top: 280px;
+		right: 250px;
+	}
+div#purrloin {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/purrloin-detail-pattern.png) 300px 0 no-repeat;
+}
+	div#purrloin img.character {		
+		right: -350px;
+		top: 0px;
+	}
+	div#purrloin a.evolveLink{
+		top: 270px;
+		right: 250px;
+	}
+div#panpour {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/panpour-detail-pattern.png) 300px 0 no-repeat;
+}
+	div#panpour img.character {		
+		right: -350px;
+		top: 0px;
+	}
+div#pansear {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/pansear-detail-pattern.png) 300px 0 no-repeat;
+}
+	div#pansear img.character {		
+		right: -350px;
+		top: 0px;
+	}
+div#audino {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/audino-detail-pattern.png) 300px 0 no-repeat;
+}
+	div#audino img.character {		
+		right: -350px;
+		top: 0px;
+	}
+div#sawsbuck {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/sawsbuck-detail-pattern.png) 300px 0 no-repeat;
+	height:1050px;
+}
+	div#sawsbuck div.intro{
+		float: left;
+		width: 290px;
+	}
+	div#sawsbuck .details{
+		position:relative;
+	}
+		div#sawsbuck .details h2{
+			position: absolute;
+		}
+		div#sawsbuck .details h2.spring{
+			top: 280px;
+			left: 0px;
+		}
+		div#sawsbuck .details h2.summer{
+			top: 280px;
+			left: 320px;
+		}
+		div#sawsbuck .details h2.autumn{
+			top: 640px;
+			left: 0px;
+		}
+		div#sawsbuck .details h2.winter{
+			top: 640px;
+			left: 320px;
+		}
+	div#sawsbuck img.character {		
+		right: -350px;
+		top: 0px;
+	}
+	div#sawsbuck a.evolveLink{
+		top: 1000px;
+		right: 100px;
+	}
+	div#sawsbuck .screenshots-multi.sawsbuck{
+		margin-right:30px;
+	}
+div#fraxure {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/fraxure-detail-pattern.png) 300px 0 no-repeat;
+}
+	div#fraxure img.character {		
+		right: -350px;
+		top: 0px;
+	}
+	div#fraxure a.evolveLink{
+		top: 290px;
+		right: 250px;
+	}
+	div#fraxure a.evolveLink.link2{
+		top: 310px;
+		right: 250px;
+	}
+div#haxorus {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/haxorus-detail-pattern.png) 300px 0 no-repeat;
+}
+	div#haxorus img.character {		
+		right: -350px;
+		top: 0px;
+	}
+	div#haxorus a.evolveLink{
+		top: 270px;
+		right: 290px;
+	}
+div#herdier {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/herdier-detail-pattern.png) 300px 0 no-repeat;
+}
+	div#herdier img.character {		
+		right: -350px;
+		top: 0px;
+	}
+	div#herdier a.evolveLink{
+		top: 280px;
+		right: 250px;
+	}
+div#liepard {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/liepard-detail-pattern.png) 300px 0 no-repeat;
+}
+	div#liepard img.character {		
+		right: -350px;
+		top: 0px;
+	}
+	div#liepard a.evolveLink{
+		top: 280px;
+		right: 250px;
+	}
+div#yamask {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/yamask-detail-pattern.png) 300px 0 no-repeat;
+}
+	div#yamask img.character {		
+		right: -350px;
+		top: 0px;
+	}
+	div#yamask a.evolveLink{
+		top: 270px;
+		right: 250px;
+	}
+div#emolga {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/emolga-detail-pattern.png) 300px 0 no-repeat;
+}
+	div#emolga img.character {		
+		right: -350px;
+		top: 0px;
+	}
+
+div#musical{
+	background: none;
+}
+	div#musical div.intro{
+		width: 300px;
+	}
+	div#musical img.character {		
+		right: 20px;
+		top: 0px;
+	}
+
+div#castelia {
+	margin: 40px 0 10px;
+}
+	div#castelia div#screenshots {
+		float: right;
+		margin-right: 40px;
+	}
+	div#castelia div#screenshots div.screenshots-wrapper {
+		background: url("/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/misc/screenshot-frame-castelia.png") no-repeat scroll 0 0 transparent;
+		height: 204px;
+		margin-bottom:13px;
+		overflow: hidden;
+		padding: 12px 0 0 9px;
+		position: relative;
+		width: 264px;
+	}
+		div#castelia div#screenshots div.caption{
+			margin-left:9px;
+		}
+	div#castelia div.intro {
+		background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/misc/ruler-short.png) 0 100% no-repeat;
+		float: left;
+		font-size: 14px;
+		width: 280px;
+	}
+		div#castelia div.intro p {
+			margin-bottom: 30px;
+		}
+	div#castelia div#large-screens {
+		background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/misc/screenshot-lg-castelia.png) 0 0 no-repeat;
+		height: 459px;
+		margin-top: 50px;
+		padding: 15px 21px 0;
+		width: 620px;
+	}
+		div#castelia div#large-screens img.screen {
+			margin: auto;
+		}
+div#unova-detail {
+	margin: 40px 0 10px;
+}
+	div#unova-detail div#screenshots {
+		float: left;
+		margin-right: 40px;
+	}
+	div#unova-detail div.intro {
+		background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/misc/ruler-short.png) 0 100% no-repeat;
+		float: left;
+		font-size: 14px;
+		width: 280px;
+	}
+		div#unova-detail div.intro p {
+			margin-bottom: 30px;
+		}
+	div#unova-detail div#large-screens {
+		background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/misc/screenshot-frame-large.png) 0 0 no-repeat;
+		height: 403px;
+		margin-top: 50px;
+		padding: 30px 30px 0;
+		width: 620px;
+	}
+		div#unova-detail div#large-screens img.screen {
+			height: 352px;
+			margin: auto;
+			width: 556px;
+		}
+div#pokedex {
+	background: none;
+	margin: 40px 0;
+	min-width: 463px;
+	min-height: 611px;
+}
+	div#pokedex div.intro {
+		width:45%;	
+		float:left;
+	}
+	div#pokedex div#screenshots{
+		float:right;
+		margin-right:30px;
+	}
+	div#pokedex img.character {
+		margin-left:-40px;
+	}	
+div#wonderlauncher {
+	background: none;
+	margin: 40px 0;
+	min-width: 463px;
+	min-height: 611px;
+}
+	div#wonderlauncher div.intro {
+		width:45%;	
+		float:left;
+	}
+	div#wonderlauncher div#screenshots{
+		margin-left:50px;
+	}
+	div#wonderlauncher img.character {
+		margin-top: -150px;
+	}	
+	
+div#randomMatchup {
+	margin: 40px 0 10px;
+}
+	div#randomMatchup div.intro{
+		width:613px;
+	}
+		div#screenshots-top{
+			background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/misc/screenshot-frame-wifi.png) 0 0 no-repeat;
+			width:613px;
+			height:16px;
+		}
+		div#randomMatchup div#screenshots-wrapper{
+			background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/misc/screenshot-frame-wifi.png) 0 bottom no-repeat;
+			min-height:224px;
+			width:613px;
+		}
+		
+		div#randomMatchup div#screenshots-nojs ul{
+			list-style:none;
+			float:left;
+		}
+			div#randomMatchup div#screenshots-nojs li{
+				width:195px;
+				height:224px;
+				overflow:hidden;
+				float:left;
+				margin:0 0 0 7px;
+			}
+				div#randomMatchup div#screenshots-nojs li img{
+					width:195px;
+					height:146px;
+				}
+				div#randomMatchup div.caption {
+					color:#000;
+					font-size: 11px;
+					line-height: 1.3;
+					margin: 5px 0 0 0px;
+					min-height: 50px;
+					width: 185px;
+				}
+div#zorua {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/green-pattern-detail.png) 100% 0 no-repeat;
+	margin: 40px 0;
+	min-height: 449px;
+	min-width: 396px;
+	position: relative;
+}
+	div#zorua div.intro {
+		font-size: 14px;
+		width: 285px;
+	}
+	div#zorua img.character {
+		height: 257px;
+		position: absolute;
+		right: -300px;
+		top: -10px;
+		width: 240px;
+	}
+
+div#zoroark {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/gray-pattern-detail.png) 100% 0 no-repeat;
+	margin: 40px 0;
+	min-height: 449px;
+	min-width: 396px;
+	position: relative;
+}
+	div#zoroark div.intro {
+		font-size: 14px;
+		width: 285px;
+	}
+	div#zoroark img.character {
+		height: 325px;
+		position: absolute;
+		right: -400px;
+		top: 10px;
+		width: 361px;
+	}
+	
+div#zekrom {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/zekrom-blue-glow.png) 100% 0 no-repeat;
+	margin: 40px 0;
+	min-height: 449px;
+	min-width: 396px;
+	position: relative;
+}
+	div#zekrom img.character {
+		height: 443px;
+		position: absolute;
+		right: -400px;
+		top: -10px;
+		width: 358px;
+	}
+	
+div#reshiram {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/reshiram-pattern.png) 0 0 no-repeat;
+	margin: 40px 0  40px -40px;
+	min-height: 449px;
+	min-width: 396px;
+	padding-left: 40px;
+	position: relative;
+}
+	div#reshiram img.character {
+		display: block;
+		height: 387px;
+		left: -420px;
+		position: absolute;
+		top: 10px;
+		width: 344px;
+	}	
+	div#reshiram div.details {
+		margin-left: 330px;
+	}
+
+div#starter-pokemon {}
+	div#starter-pokemon div.characters {
+		background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/starters.png) 0 0 no-repeat;
+		min-height: 550px;
+		margin: -100px -20px 0 -50px;
+		padding: 0 20px 0 50px;
+		position: relative;
+	}
+
+	div#starter-pokemon a.character {
+		position: absolute;
+	}
+	div#starter-pokemon a.snivy {
+		height: 303px;
+		top: -709px;
+		z-index: 100;
+	}
+	div#starter-pokemon a.tepig {
+		height: 272px;
+		left: 253px;
+		top: -700px;
+		z-index: 101;
+	}
+	div#starter-pokemon a.oshawott {
+		height: 265px;
+		left: 476px;
+		top: -718px;
+		z-index: 100;
+	} 
+	div#starter-pokemon div.intro {
+		font-size: 14px;
+		margin: 30px 65px 40px 0;
+		position: relative;
+		z-index: 1;
+	}
+
+div#snivy {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/yellow-pattern-detail.png) 100% 0 no-repeat;
+	margin: 40px 0;
+	min-height: 449px;
+	min-width: 396px;
+	position: relative;	
+}
+	div#snivy img.character {
+		height: 345px;
+		position: absolute;
+		right: -400px;
+		top: 10px;
+		width: 312px;
+	}
+
+div#tepig {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/orange-pattern-detail.png) 0 0 no-repeat;
+	margin: 40px 0px 40px -60px;
+	min-height: 449px;
+	min-width: 396px;
+	padding: 0px 40px;
+	position: relative;
+}
+	div#tepig img.character {
+		height: 307px;
+		position: absolute;
+		left: -400px;
+		top: 10px;
+		width: 271px;
+	}	
+	div#tepig div.details {
+		margin-left: 330px;
+	}
+
+div#oshawott {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/turqoise-pattern-detail.png) 100% 0 no-repeat;
+	margin: 40px 0;
+	min-height: 449px;
+	min-width: 396px;
+	position: relative;	
+}
+	div#oshawott img.character {
+		height: 350px;
+		position: absolute;
+		right: -400px;
+		top: 0px;
+		width: 260px;
+	}
+
+div#pokemon-trainers {
+	margin: 40px 0;
+	position: relative;	
+}
+	div#pokemon-trainers div.characters {
+		background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/gold-sunburst.png) 50% 50% no-repeat;
+		min-height: 449px;
+		position: absolute;
+		right: -20px;
+		top: -5px;
+		width: 390px;
+	}
+	div#pokemon-trainers div.characters img.girl-trainer {
+		position: absolute;
+		left: 20px;
+		height: 358px;
+		top: -600px;
+	}
+	div#pokemon-trainers div.characters img.boy-trainer {
+		position: absolute;
+		left: 186px;
+		height: 333px;
+		top: -624px;
+	}
+	div#pokemon-trainers div.intro {
+		font-size: 14px;
+		width: 285px;
+	}
+	div#pokemon-trainers div#screenshots {
+		margin-top: 45px;
+	}
+div#cheren {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/cheren-detail-pattern.png) 100% 100px no-repeat;
+	margin: 40px 0 40px;
+	min-height: 231px;
+	min-width: 389px;
+	position: relative;
+}
+	div#cheren div.intro {
+		font-size: 14px;
+		width: 285px;
+	}
+	div#cheren img.character {
+		position: absolute;
+		right: -300px;
+		top: -20px;
+	}
+div#bianca {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/bianca-detail-pattern.png) 5px 130px no-repeat;
+	margin: 40px 0 40px -40px;
+	min-height: 235px;
+	min-width: 359px;
+	position: relative;
+}
+	div#bianca div.intro {
+		font-size: 14px;
+		width: 285px;
+	}
+	div#bianca img.character {
+		position: absolute;
+		left: 140px;
+		top: 0px;
+	}
+	div#bianca div#screenshots {
+		margin-left:40px;
+	}
+	div#bianca div#screenshots div.caption {
+		margin-left:10px;
+	}
+	div#bianca div.details {
+		margin-left:370px;
+	}
+div#juniper {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/juniper-pattern-detail.png) 100% 60px no-repeat;
+	margin: 40px 0 40px -40px;
+	min-height: 235px;
+	min-width: 359px;
+	position: relative;
+}
+	div#juniper div.intro {
+		font-size: 14px;
+		width: 285px;
+	}
+	div#juniper img.character {
+		position: absolute;
+		right: 75px;
+		top: 0px;
+	}
+	div#juniper div#screenshots {
+		margin-left:40px;
+	}
+	div#juniper div#screenshots div.caption {
+		margin-left:10px;
+	}
+	div#juniper div.details {
+		margin-left: 40px;
+	}	
+div#fennel {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/fennel-detail-pattern.png) 0 110px no-repeat;
+	margin: 40px 0 40px -40px;
+	min-height: 240px;
+	min-width: 421px;
+	position: relative;
+}
+	div#fennel div.intro {
+		font-size: 14px;
+		width: 285px;
+	}
+	div#fennel img.character {
+		position: absolute;
+		left: 110px;
+		top: 30px;
+	}
+	div#fennel div.details {
+		margin-left:370px;
+	}
+div#mysteriousN{
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/mysteriousN-detail-pattern.png) 100% 0 no-repeat;
+	margin: 40px 0 40px;
+	min-height: 360px;
+	min-width: 394px;
+	position: relative;
+}
+	div#mysteriousN div.intro {
+		font-size: 14px;
+		width: 285px;
+	}
+	div#mysteriousN img.character {
+		position: absolute;
+		right: -300px;
+		top: 0px;
+	}
+/**gym leaders detail**/
+div#chili {
+	margin: 40px 0 40px;
+	min-height: 231px;
+	min-width: 389px;
+	position: relative;
+}
+	div#chili div.intro {
+		font-size: 14px;
+		width: 285px;
+	}
+	div#chili img.character {
+		position: absolute;
+		right: 40px;
+		top: 40px;
+	}
+div#cress {
+	margin: 40px 0 40px -40px;
+	min-height: 235px;
+	min-width: 359px;
+	position: relative;
+}
+	div#cress div.intro {
+		font-size: 14px;
+		width: 285px;
+	}
+	div#cress img.character {
+		position: absolute;
+		left: 40px;
+		top: 0px;
+	}
+	div#cress div#screenshots {
+		margin-left:40px;
+	}
+	div#cress div#screenshots div.caption {
+		margin-left:10px;
+	}
+	div#cress div.details {
+		margin-left:370px;
+	}
+div#cilan {
+	margin: 40px 0 40px -40px;
+	min-height: 235px;
+	min-width: 359px;
+	position: relative;
+}
+	div#cilan div.intro {
+		font-size: 14px;
+		width: 285px;
+	}
+	div#cilan img.character {
+		position: absolute;
+		right: 55px;
+		top: 40px;
+	}
+	div#cilan div#screenshots {
+		margin-left:40px;
+	}
+	div#cilan div#screenshots div.caption {
+		margin-left:10px;
+	}
+	div#cilan div.details {
+		margin-left: 40px;
+	}	
+	
+div#tripleBattles{
+	margin: 40px 0 40px;
+}
+	div#tripleBattles div.intro{
+		width:45%;	
+		float:left;
+	}
+	div#tripleBattles div#screenshots{
+		float:right;
+		margin:0px 40px 50px 0;
+	}
+div#scenarios{
+	margin: 40px 0 40px;
+}
+	div#scenarios div.intro{
+		width:45%;	
+		float:left;
+	}
+	div#scenarios div#screenshots{
+		float:right;
+		margin:0px 40px 50px 0;
+	}
+div#victini {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/victini-detail-pattern.png) 100% 0 no-repeat;
+	margin: 40px 0 40px;
+	min-height: 295px;
+	min-width: 370px;
+	position: relative;
+}
+	div#victini div.intro {
+		font-size: 14px;
+		width: 285px;
+	}
+	div#victini img.character {
+		position: absolute;
+		right: -300px;
+		top: -20px;
+	}
+div#musharna {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/musharna-detail-pattern.png) 100% 0 no-repeat;
+	margin: 40px 0 40px;
+	min-height: 309px;
+	min-width: 304px;
+	position: relative;
+}
+	div#musharna div.intro {}
+	div#musharna img.character {
+		position: absolute;
+		right: -400px;
+		top: -20px;
+	}
+	div#musharna a.evolveLink{
+		top: 300px;
+		right: 250px;
+	}
+div#patrat {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/patrat-detail-pattern.png) 100% 0 no-repeat;
+	margin: 40px 0 40px;
+	min-height: 308px;
+	min-width: 378px;
+	position: relative;
+}
+	div#patrat div.intro {}
+	div#patrat img.character {
+		position: absolute;
+		right: -300px;
+		top: -20px;
+	}
+	div#patrat a.evolveLink{
+		top: 300px;
+		right: 250px;
+	}
+div#woobat {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/woobat-detail-pattern.png) 100% 0 no-repeat;
+	margin: 40px 0 40px;
+	min-height: 264px;
+	min-width: 375px;
+	position: relative;
+}
+	div#woobat div.intro {}
+	div#woobat img.character {
+		position: absolute;
+		right: -400px;
+		top: -20px;
+	}
+div#gothitelle {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/gothitelle-detail-pattern.png) 100% 0 no-repeat;
+	margin: 40px 0 40px;
+	min-height: 308px;
+	min-width: 378px;
+	position: relative;
+}
+	div#gothitelle div.intro {}
+	div#gothitelle img.character {
+		position: absolute;
+		right: -300px;
+		top: -20px;
+	}
+div#reuniclus {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/reuniclus-detail-pattern.png) 100% 0 no-repeat;
+	margin: 40px 0 40px;
+	min-height: 294px;
+	min-width: 308px;
+	position: relative;
+}
+	div#reuniclus div.intro {}
+	div#reuniclus img.character {
+		position: absolute;
+		right: -400px;
+		top: 0px;
+	}
+div#axew {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/axew-detail-pattern.png) 100% 0 no-repeat;
+	margin: 40px 0 40px;
+	min-height: 304px;
+	min-width: 373px;
+	position: relative;
+}
+	div#axew div.intro {}
+	div#axew a.evolveLink{
+		top: 270px;
+		right: 250px;
+	}
+	div#axew img.character {
+		position: absolute;
+		right: -300px;
+		top: -20px;
+	}
+div#braviary {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/braviary-detail-pattern.png) 300px 20px no-repeat;
+	margin: 0 0 40px;
+	padding-top:20px;
+	min-height: 298px;
+	min-width: 306px;
+	position: relative;
+}
+	div#braviary div.intro {}
+	div#braviary img.character {
+		position: absolute;
+		right: -400px;
+		top: -20px;
+	}
+div#drilbur {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/drilbur-detail-pattern.png) 100% 0 no-repeat;
+	margin: 0px 0 40px;
+	padding-top:20px;
+	min-height: 281px;
+	min-width: 371px;
+	position: relative;
+}
+	div#drilbur div.intro {}
+	div#drilbur img.character {
+		position: absolute;
+		right: -300px;
+		top: -20px;
+	}
+	div#drilbur a.evolveLink{
+		top: 300px;
+		right: 200px;
+	}
+div#cofagrigus {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/cofagrigus-detail-pattern.png) 100% 0 no-repeat;
+	margin: 40px 0 40px;
+	min-height: 258px;
+	min-width: 378px;
+	position: relative;
+}
+	div#cofagrigus div.intro {}
+	div#cofagrigus a.evolveLink{
+		top: 280px;
+		right: 240px;
+	}
+	div#cofagrigus img.character {
+		position: absolute;
+		right: -350px;
+		top: -20px;
+	}	
+div#watchog {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/watchog-detail-pattern.png) 100% 0 no-repeat;
+	margin: 40px 0 40px;
+	min-height: 258px;
+	min-width: 378px;
+	position: relative;
+}
+	div#watchog div.intro {}
+	div#watchog img.character {
+		position: absolute;
+		right: -350px;
+		top: -20px;
+	}
+	div#watchog a.evolveLink{
+		top: 280px;
+		right: 250px;
+	}
+div#sewaddle {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/sewaddle-detail-pattern.png) 100% 0 no-repeat;
+	margin: 40px 0 40px;
+	min-height: 263px;
+	min-width: 359px;
+	position: relative;
+}
+	div#sewaddle div.intro {}
+	div#sewaddle img.character {
+		position: absolute;
+		right: -350px;
+		top: 20px;
+	}		
+div#swanna {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/swanna-detail-pattern.png) 100% 0 no-repeat;
+	margin: 40px 0 40px;
+	min-height: 258px;
+	min-width: 378px;
+	position: relative;
+}
+	div#swanna div.intro {}
+	div#swanna img.character {
+		position: absolute;
+		right: -350px;
+		top: -20px;
+	}	
+div#deerling {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/deerling-detail-pattern.png) 100% 0 no-repeat;
+	margin: 40px 0 40px;
+	min-height: 258px;
+	min-width: 378px;
+	position: relative;
+}
+	div#deerling div.intro {
+		float: left;
+		font-size: 14px;
+		width: 250px;
+	}
+	div#deerling div.stats-wrapper {
+		float: right;
+		margin: 0 38px 0 0;
+	}
+	div#deerling img.character {
+		position: absolute;
+		right: -350px;
+		top: 200px;
+	}
+	div#deerling h2 {
+		font-family: 'TitilliumText22LMedium', Arial, Helvetica, sans-serif;
+		font-size: 18px;
+		margin-top: 0;
+	}
+	div#deerling a.evolveLink{
+		top: 470px;
+		right: 250px;
+	}
+	div#deerling p.spring{
+		top:155px;
+		left:360px;
+	}
+	div#deerling p.summer{
+		top:155px;
+		left:485px;
+		margin: 0;
+	}
+	div#deerling p.autumn{
+		top:342px;
+		left:360px;
+	}
+	div#deerling p.winter{
+		top:342px;
+		left:485px;
+		
+	}
+div#alomomola {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/alomomola-detail-pattern.png) 300px 0 no-repeat;
+	margin: 40px 0 40px;
+	min-height: 310px;
+	min-width: 302px;
+	position: relative;
+}
+	div#alomomola div.intro {}
+	div#alomomola img.character {
+		position: absolute;
+		right: -350px;
+		top: -20px;
+	}
+div#pansage {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/pansage-detail-pattern.png) 100% 0 no-repeat;
+	margin: 40px 0 40px;
+	min-height: 263px;
+	min-width: 363px;
+	position: relative;
+}
+	div#pansage div.intro {}
+	div#pansage img.character {
+		position: absolute;
+		right: -350px;
+		top: -20px;
+	}
+div#dewott {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/dewott-detail-pattern.png) 100% 0 no-repeat;
+	margin: 40px 0 40px;
+	min-height: 263px;
+	min-width: 363px;
+	position: relative;
+}
+	div#dewott img.character {
+		position: absolute;
+		right: -350px;
+		top: -20px;
+	}
+div#pignite {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/pignite-detail-pattern.png) 100% 0 no-repeat;
+	margin: 40px 0 40px;
+	min-height: 263px;
+	min-width: 363px;
+	position: relative;
+}
+	div#pignite img.character {
+		position: absolute;
+		right: -350px;
+		top: -20px;
+	}
+div#servine {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/servine-detail-pattern.png) 100% 0 no-repeat;
+	margin: 40px 0 40px;
+	min-height: 263px;
+	min-width: 363px;
+	position: relative;
+}
+	div#servine img.character {
+		position: absolute;
+		right: -350px;
+		top: -20px;
+	}
+div#excadrill {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/excadrill-detail-pattern.png) 100% 0 no-repeat;
+	margin: 40px 0 40px;
+	min-height: 263px;
+	min-width: 363px;
+	position: relative;
+}
+	div#excadrill div.intro {}
+	div#excadrill img.character {
+		position: absolute;
+		right: -350px;
+		top: 45px;
+	}	
+	div#excadrill a.evolveLink{
+		top: 280px;
+		right: 200px;
+	}
+div#basculin {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/basculin-detail-pattern.png) 300px 0 no-repeat;
+	margin: 40px 0 40px;
+	min-height: 285px;
+	min-width: 285px;
+	position: relative;
+}
+	div#basculin div.intro {}
+	div#basculin img.character {
+		position: absolute;
+		right: -350px;
+		top: -20px;
+	}	
+	div#basculin p.red-striped{
+		top:120px;
+		left:300px;
+	}
+	div#basculin p.blue-striped{
+		top:300px;
+		left:300px;
+	}
+div#seasons {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/seasons-detail-pattern.png) 300px 0 no-repeat;
+	margin: 40px 0 40px;
+	min-height: 216px;
+	min-width: 316px;
+	position: relative;
+}
+	div#seasons div.intro {
+		width:280px;
+	}
+	div#seasons img.character {
+		position: absolute;
+		right: 150px;
+		top: -500px;
+	}
+	img#img-seasons-1{
+		
+	}
+	div#seasons img#img-seasons-2{
+		right: 50px;
+	}
+div#infrared {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/infrared-detail-pattern.png) right 0 no-repeat;
+	margin: 40px 0 40px;
+	min-height: 192px;
+	min-width: 386px;
+	position: relative;
+}
+	div#infrared div.intro {
+		width:280px;
+	}
+	div#infrared img.character {
+		position: absolute;
+		right: 150px;
+		top: -500px;
+	}	
+	ul#disclaimers.infrared{
+		list-style: none;
+		margin-bottom:50px;
+	}
+		ul#disclaimers.infrared li{
+			background: none;
+			color:#b6b6b6;
+			font-style: italic;
+			margin: 0;
+		}
+div#xtransceiver {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/xtransceiver-detail-pattern.png) right 0 no-repeat;
+	margin: 40px 0 40px;
+	min-height: 192px;
+	min-width: 386px;
+	position: relative;
+}
+	div#xtransceiver div.intro {
+		width:280px;
+	}
+	div#xtransceiver img.character {
+		position: absolute;
+		top: -500px;
+	}	
+	img#img-xtransceiver-1{
+		right: 205px;
+	}
+	img#img-xtransceiver-2{
+		right: 30px;
+	}
+div#pageDescription h2, div#newsBody h2 {
+	margin-bottom:10px;
+}
+
+div#dreamWorld {
+	
+}
+	div#dreamWorld div.textIntro{
+		margin-bottom:0;
+	}
+	div#dreamWorld  #fennel{
+		background:none;
+		margin: 40px 0;
+	}
+		div#dreamWorld  #fennel .details{
+			margin:0;
+			
+		}
+			div#dreamWorld  #fennel .intro{
+				width: auto;
+			}
+/**C-Gear Topic Page**/
+div#cgear{
+	
+}
+	div#cgear div.next-previous {
+		margin-right:20px;
+	}
+	div#cgear div.bg-bleed{
+		background: url("/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/cGearpageDesc.png") no-repeat 420px 100% transparent;
+	}
+		div#pageDescription.cg {
+			background: url("/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/cGearpageDesc.png") no-repeat 420px 100% transparent;
+			min-height: 220px;
+		}
+			div#pageDescription.cg div.copy {
+				margin: 0 300px 0 60px;
+				padding-top: 45px;
+			}
+
+div#wireless-cg{
+}
+	div#wireless-cg div.bg {
+		background: url("/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/wirelessCgear-bg.png") no-repeat scroll 0 0 transparent;
+		height: 313px;
+		left: 25px;
+		top: 35px;
+		width: 298px;
+		z-index: 10;
+	}
+	div#wireless-cg div.innerBG {
+		background: url("/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/wireless-innerBG.jpg") no-repeat scroll 0 0 transparent;
+		height: 326px;
+		top: 30px;
+		left: 10px;
+		width: 440px;
+	}
+div#entraLinkPanel{
+}
+	div#entraLinkPanel div.bg {
+		z-index: -1;
+	}
+
+div#wifiPanel{}
+	div#wifiPanel div.bg{
+		background: url("/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/wifi-infographic.png") no-repeat 435px 80px;
+		z-index: -1;
+	}
+div#infrared-cg{
+	margin-bottom:30px;
+	margin-top:30px;
+}
+	div#infrared-cg div.bg {
+		background: url("/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/infrared-innerBG.jpg") no-repeat scroll 0 0 transparent;
+		height: 304px;
+		left: 245px;
+		top: 30px;
+		width: 433px;
+		z-index: 10;
+	}
+/**GamePlay Topic Page**/
+
+div#pageDescription.gp {
+	background: url("/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/gameplayPageDesc.png") no-repeat 0 100% transparent;
+	height: 450px;
+	margin: 0 -2px -20px -3px;
+}
+div#pageDescription.gp div.copy {
+	margin: 0 60px;
+	padding-top: 45px;
+}
+div#battletypes {
+	background: url("/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/base-gp-bt.jpg") no-repeat 0 20px transparent;
+	margin-bottom:0px;
+	margin-top:10px;
+}
+div#pokeTransferPanel{
+	padding-bottom: 135px;
+	overflow: hidden;
+}
+div#pokeTransferPanel div.bg{
+	background: url("/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/pokeTransferPanel-bg.png") no-repeat 0 100% transparent;
+}
+/**Unova Region Topic Page**/
+div#unova div.topic-callout{
+	background: url("/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/unova-region-callout.jpg") no-repeat 0 0 transparent;
+	border: solid 5px #000;
+	float: left;
+	height: 168px;
+	margin: 12px 35px 12px 22px;
+	width: 273px;
+}
+	div#unova div#pageDescription div.copy{
+		float:left;
+		width: 315px;
+		margin: 0;
+		padding-top: 25px;
+	}
+div#unova .bg-bleed{
+/*	background: url("/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/unovaPageDesc-bg.png") no-repeat 0 60px transparent;
+	margin: 0 -2px 0 -3px;
+	padding:0 2px 0 3px;*/
+}
+div#pageDescription.ur {
+	min-height: 260px;
+	padding-bottom: 20px;
+}
+	div#pageDescription.ur div.copy {
+		margin: 0 60px;
+		padding-top: 45px;
+	}
+div#battleSubway .details, 
+div#lucky21 .details{
+	padding-right: 30px;
+}
+div#battleSubway div.intro{
+	width: 290px;
+}
+	div#battleSubway div#screenshots{
+		margin-left: 50px;
+	}
+	div#battleSubway div#large-screens{
+		background: url("/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/misc/screenshot-frame-large2.png") no-repeat scroll 0 0 transparent;
+		padding-left: 20px;
+		padding-top: 20px;
+		height: 440px;
+	}
+div#lucky21 img.character{
+	
+}
+div#castelia-ur {
+	background: url("/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/base-ur-castelia.jpg") no-repeat 0 20px transparent;
+}
+div#differences-ur {
+	margin-bottom: 30px;
+	margin-top: 20px;
+}
+div#differences-ur div.bg {
+	background: url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/differences-ur-bg.jpg) no-repeat 0 0 transparent;
+	height: 304px;
+	left: 10px;
+	width: 450px;
+}
+div#seasonsPanel{
+	margin-bottom: 10px;
+}
+	div#seasonsPanel div.bg {
+		background: url("/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/seasons-bg.jpg") no-repeat scroll 100% 0 transparent;
+		height: 304px;
+		left: 228px;
+		width: 450px;
+	}
+div#subwayPanel{
+	margin-bottom: 10px;
+}
+	div#subwayPanel div.bg {
+		background: url("/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/subway-bg.jpg") no-repeat scroll 100% 0 transparent;
+		height: 304px;
+		left: 228px;
+		width: 450px;
+	}
+
+/**News Overview Page**/
+div#news h2{
+	background: url("/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/misc/blue-ruler-wide.png") no-repeat 0 100% transparent;
+	padding-bottom:8px;
+}
+div#newsBody{
+	background:#fff;
+	border:solid 2px #000;
+	margin:0 1px 3px 0;
+	padding:45px 22px;
+}
+	div#newsBody div.copy{
+		margin:40px 0 40px 20px;
+	}
+	div#newsBody .newsCopyLeft{
+		float:left;
+		width:300px;
+		margin-right:20px;
+	}
+	div#newsBody div.copy p{
+		font-weight:100;
+	}
+	div#newsBody ul{
+		list-style:none;
+		margin:0 0 30px;
+		padding:20px 80px 0 30px;
+	}
+	div#newsBody ul li{
+		background: url("/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/misc/blue-bullet.png") no-repeat 0 5px transparent;
+		font-weight:100;
+		margin: 0 0 10px;
+		padding:0 0 0 18px;
+	}
+	
+	div#newsGrid{
+		background:url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/misc/news-grid-repeat.png) repeat-y right 0 transparent;
+		margin-left: 30px;
+		width:581px;
+	}
+		div#newsGrid ul{
+			background:url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/misc/new-grid-left.png) no-repeat;
+			padding:0 0 0 25px;
+			margin: 0;
+		}
+			div#newsGrid ul li{
+				background:url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/misc/news-highlite-repeat.png) repeat-y;
+				font-size: 12px;
+				margin:0;
+				padding:7px 0;
+				width:555px;				
+			}
+			div#newsGrid ul li.even{
+				background:url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/misc/news-repeat.png) repeat-y;
+			}
+				div#newsGrid ul li span{
+					color: #6a6a6a;
+					display: inline-block;
+					margin:0;
+					padding: 0px 10px;
+					vertical-align: middle;
+					width: 174px;
+				}
+				div#newsGrid ul li span.label{
+					color:#fff;
+					width: 125px;
+				}
+	div#newsGridShadow{
+		background:url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/misc/news-grid-shadow.png) no-repeat right 0;
+		height:8px;
+		margin-left: 30px;
+		width:581px;
+	}
+	div#newsBody ul#disclaimers{
+		margin: 10px 0 0 100px;
+		width:400px;
+	}
+		div#newsBody ul#disclaimers li{
+			background: none;
+			color:#b6b6b6;
+			font-style: italic;
+			margin: 0;
+		}
+/* News - Find Victini */
+#news.findVictini ul.screenshots div.screenshot{
+	background: url("/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/misc/screenshot-frame-new-pokemon.png") no-repeat scroll 0 0 transparent;
+    height: 192px;
+	float: left;
+    overflow: hidden;
+    padding: 12px 12px 12px 9px;
+    position: relative;
+    width: 251px;
+}
+	#news.findVictini ul.screenshots{
+	}
+		#news.findVictini ul.screenshots li{
+			background: none;
+			float: left;
+			margin: 0 0 30px;
+			padding: 0;
+			width: 100%;
+		}
+#news.findVictini ul.screenshots div.caption{
+	float: right;
+	font-size: 18px;
+	width: 251px;
+}
+
+/********
+*Unova Region Differences Page
+*********/	
+div#differencesUnova, div#differencesPokemon{
+	margin: 40px 0 10px;
+}
+div#differencesUnova div.intro, div#differencesPokemon div.intro{
+	float:left;
+	width: 280px;
+}
+div#catchAndTrade{
+	padding-top:40px;
+}
+	div#catchAndTrade div.intro{
+		float: right;
+		width: 280px;
+		margin-right: 50px;
+	}
+		div#catchAndTrade div.intro h2{
+			margin-top: 0;
+		}
+div#differencesUnova div#screenshots, div#differencesPokemon div#screenshots{
+	float:right;
+	margin-right:40px;
+}
+div#screenshots div.screenshots-wrapper.plain {
+		background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/misc/screenshot-frame.png) 0 0 no-repeat;
+		height: 201px;
+		overflow: hidden;
+		padding: 20px 12px 12px;
+		position: relative;
+		width: 260px;
+	}
+div#large-screens{
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/misc/screenshot-lg-diffs.png) no-repeat;
+	height: 484px;
+	margin-top: 30px;
+	padding:15px 15px 0;
+	position: relative;
+	width: 582px;	
+}
+div.logo-top{
+	display:none;
+	/*background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/logos/differences/logos-bw-sm.png) no-repeat 0 bottom;
+	height: 57px;
+	position: absolute;
+	top: -20px;
+	left: 115px;
+	width: 95px;*/
+}
+div.logo-top.right{
+	display:none;
+	/*background-position:0 0;
+	left: 410px;*/
+}
+div#large-screens-caption{
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/misc/screenshots-lg-diffs-btm.png) no-repeat 0 bottom;
+	min-height:40px;
+	width:612px;
+}
+	div#large-screens-caption div.caption{
+		float: left;
+		padding: 5px 40px 20px;
+		width: 226px;
+	}
+/***Gameplay topic page*****/
+	
+div#musicalPanel{
+	margin-bottom: 10px;
+}
+	div#musicalPanel div.bg {
+		background: url("/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/musical-bg.png") no-repeat scroll 100% 0 transparent;
+		height: 340px;
+		left: 275px;
+		top: 15px;
+		width: 435px;
+	}
+	
+	
+/***Friends/Foes topic page*****/
+	
+div#foesPanel{
+	margin-top: 10px;
+}
+	div#foesPanel div.copy{
+		margin-top:30px;
+	}
+	div#foesPanel div.bg {
+		background: url("/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/foes-bg.jpg") no-repeat scroll 100% 0 transparent;
+		height: 340px;
+		left: 10px;
+		width: 435px;
+	}
+	div#foesPanel div.innerBG {
+		background: url("/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/foes-innerBG.png") no-repeat 10px 30px transparent;
+		left:30px;
+		top:25px;
+		z-index:11;
+	}
+	div#foesPanel div.copy p{
+		font-size: .9em;
+	}
+div#gymLeadersPanel div.bg {
+	background: url("/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/gymLeaders-bg.jpg") no-repeat scroll 100% 0 transparent;
+	height: 340px;
+	left: 243px;
+	width: 435px;
+}
+/***Foes detail page*****/
+div#teamplasma {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/teamplasma-detail-pattern.png) 100% 0 no-repeat;
+	margin: 40px 0 40px;
+	min-height: 270px;
+	min-width: 389px;
+	position: relative;
+}
+	div#teamplasma div.intro {
+		font-size: 14px;
+		width: 285px;
+	}
+	div#teamplasma img.character {
+		position: absolute;
+		right: -400px;
+		top: -20px;
+	}
+	
+div#ghetsis {
+	background: none;
+	margin: 40px 0 40px -40px;
+	min-height: 392px;
+	min-width: 359px;
+	position: relative;
+}
+	div#ghetsis div.intro {
+		font-size: 14px;
+		width: 285px;
+	}
+	div#ghetsis img.character {
+		position: absolute;
+		left: 30px;
+		top: 0px;
+	}
+	div#ghetsis div#screenshots {
+		margin-left:40px;
+	}
+	div#ghetsis div#screenshots div.caption {
+		margin-left:10px;
+	}
+	div#ghetsis div.details {
+		margin-left:370px;
+	}
+/*** Rotation Battles Topic Panel ***/
+div#rotationBattlesPanel{}
+	
+/*** Special Encounters - Victini ***/
+div#special-encounters-victini{
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/specialEncounters/victini-special-pattern.png) 100% 0 no-repeat;
+	margin: 40px 0;
+	position: relative;
+}
+	div#special-encounters-victini h2{
+		margin-bottom:10px;
+		width: 300px;
+	}
+	div#special-encounters-victini img.character{
+		position: absolute;
+		right: -300px;
+		top: 20px;
+	}
+	div#special-encounters-victini div.firstIntro{
+		width: 300px;
+	}
+	div#special-encounters-victini div.secondIntro{
+		width: 250px;
+		float: right;
+		margin: 60px 40px 0 0;
+	}
+	div#special-encounters-victini div.thirdIntro{
+	
+	}
+	div#special-encounters-victini .floatImg{
+		margin-top: -30px;
+		float: left;
+	}
+		div#special-encounters-victini ul#disclaimers{
+			list-style: none;
+			margin: 10px 0 0 0;
+		}
+			div#special-encounters-victini ul#disclaimers li{
+				background: none;
+				color:#b6b6b6;
+				font-style: italic;
+				margin: 0;
+			}
+	
+/*** The Story Topic Page ***/
+#theStory div.separatorTop.noMargin{
+	margin-top:4px;
+}
+div#teamplasmaPanel.panel{
+	background: url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/story-teamplasma-bg.jpg) #fff repeat-x 0 0;
+}
+
+	div#teamplasmaPanel div.copy{
+		color:#000;
+		width: auto;
+		margin-right: 60px;
+	}
+	
+		div#teamplasmaPanel h2 {
+			background: url("/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/misc/grey-ruler.png") no-repeat 0 100% transparent;
+			line-height: 1;
+			padding-bottom: 20px;
+		}
+
+	div#teamplasmaPanel.panel div#screenshots{
+		margin: 20px 0 0 0;
+	}
+	div#teamplasmaPanel.panel div#screenshots div.screenshots-wrapper {
+		background: url("/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/misc/screenshot-frame-new-pokemon-dark.png") no-repeat scroll 0 0 transparent;
+	}
+	div#teamplasmaPanel.panel img#twins{
+		position: absolute;
+		right: 80px; 
+		bottom: 30px;
+	}
+	
+div#gymLeaderPanel.panel{
+	background: url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/topic/panel-bg-gym.jpg) #111 no-repeat 0 0;
+	padding-bottom: 0;
+}
+	div#gymLeaderPanel #gym{
+		padding: 20px 0 0 90px;
+	}
+	
+/** End Detail Pages **/
+
+/**
+ * UTILITY ELEMENTS & REUSABLE CLASSES
+ * Things like widgets, clearing divs, hide classes, error classes, etc
+ * ------------------------------------------------------------------------- */
+
+.offscreen {
+	left: -999999px;
+	position: absolute;
+}
+
+.clear {
+	clear: both;
+}
+.floatRight{
+	float:right;
+}
+.floatLeft{
+	float:left;
+}
+a.noMarginRight{
+	margin-right: 0 !important;
+}
+.hide {
+	display: none;
+}
+
+div.clear {
+	clear: both;
+	height: 1px;
+	margin: 0 0 -1px 0;
+	overflow: hidden;
+}
+span.hover {
+	cursor: pointer;
+}
+div.hr {
+	border-top: 1px solid #fff;
+	clear: both;
+	height: 1px;
+	margin: 0 0 1.5em 0;
+	overflow: hidden;
+}
+
+div.tooltip {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/misc/tooltip-left-cap.png) 0 0 no-repeat;
+	color: #fff;
+	display: none;
+	font-size: 12px;
+	font-weight: bold;
+	height: 46px;
+	left: -99999px;
+	position: absolute;
+	width: auto;
+	z-index: 100;
+}
+	div.tooltip div.tooltip-content {
+		background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/misc/tooltip-right-cap.png) 100% 0 repeat-x;
+		height: 33px;
+		line-height: 26px;
+		margin-left: 15px;
+		padding: 0px 30px 0px 11px;
+		white-space: nowrap;
+	}
+	div.tooltip div.tooltip-bottom {
+		background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/misc/tooltip-bottom.png) 50% 100% repeat-x;
+		height: 21px;
+		margin: -8px auto 0;
+		position: relative;
+		width: 22px;
+	}
+div#overlay {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/bg/000000-70.png) 0 0 repeat;
+	display: none;
+	min-height: 100%;
+	left: 0;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 10000;
+}
+div#modal-window {
+	background-color: #fff;
+	border: 2px solid #000;
+	display: none;
+	min-height: 300px;
+	margin: 0 auto;
+	position: fixed;
+	width: 500px;
+	z-index: 10001;
+}
+	div#modal-window div.interstitial {
+		margin: 25px 30px;
+	}
+		div#modal-window div.interstitial h3 {
+			background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/misc/ruler-leave.png) 0 100% no-repeat;
+			font-size: 26px;
+			line-height: 1;
+			padding-bottom: 30px;
+		}
+		div#modal-window div.interstitial p {
+			margin: 30px 0;
+			width: 390px;
+		}
+		div#modal-window div.btns {
+			margin-bottom: 30px;
+			text-align: center;
+		}
+			div#modal-window div.btns a {
+				background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/lang/en-us/cancel-continue.png) 0 0 no-repeat;
+				cursor: pointer;
+				display: inline-block;
+				height: 42px;
+				position: relative;
+				width: 158px;
+			}
+				div#modal-window div.btns a span {
+					left: -999999px;
+					position: absolute;
+				}
+			div#modal-window div.btns a#btn-modal-cancel {}
+				div#modal-window div.btns a#btn-modal-cancel:hover {
+					background-position: 0 100%;
+				}
+			div#modal-window div.btns a#btn-modal-continue {
+				background-position: 100% 0;
+				margin-left: -15px;
+				width: 158px;
+			}
+				div#modal-window div.btns a#btn-modal-continue:hover {
+					background-position: 100% 100%;
+				}
+a.genericButton {
+	background: url("/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/buttons/genericButton-a.png") no-repeat top right transparent;
+	color: #fff;
+	display: block;
+	float: right;
+	height: 41px;
+	margin-right: 6px;
+	padding-right: 60px; /* sliding doors padding */
+	text-decoration: none;
+}
+	a.genericButton span {
+		background: url("/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/buttons/genericButton-span.png") no-repeat top left transparent;
+		display: block;
+		line-height: 32px;
+		padding: 0 0 9px 27px;
+	}
+a.genericButton:hover {
+	background-position: bottom right;
+}
+	a.genericButton:hover span {
+		background-position: bottom left;
+	}
+/**
+ * LANGUAGE DEPENDENT STYLES
+ * Markup that only applies to one, or a few, languages
+ * ------------------------------------------------------------------------- */
+
+/** en-us **/
+body.en-us div#content {
+	padding-top: 54px;
+}
+/** es-la **/
+body.es-la div#nav div.availability {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/lang/es-la/availability.png) 0 0 no-repeat;
+}
+body.es-la div#modal-window div.btns a {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/lang/es-la/cancel-continue.png) 0 0 no-repeat;
+}
+body.es-la div.nav-buttons a.home-btn {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/lang/es-la/home-button.png) 0 0 no-repeat;
+	width: 215px;
+}
+body.es-la div.nav-buttons a.home-btn span.hover {
+	width: 215px;
+}
+body.es-la ul.modules li a.new {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/lang/es-la/new.png) 0 0 no-repeat;
+}
+
+/** fr-ca **/
+body.fr-ca div#nav div.availability {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/lang/fr-ca/availability.png) 0 0 no-repeat;
+}
+body.fr-ca div#modal-window div.btns a {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/lang/fr-ca/cancel-continue.png) 0 0 no-repeat;
+}
+body.fr-ca div.nav-buttons a.home-btn {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/lang/fr-ca/home-button.png) 0 0 no-repeat;
+}
+
+/** pt-pt **/
+body.pt-pt div#nav div.availability {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/lang/pt-pt/availability.png) 0 0 no-repeat;
+}
+body.pt-pt div#modal-window div.btns a {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/lang/pt-pt/cancel-continue.png) 0 0 no-repeat;
+}
+body.pt-pt div.nav-buttons a.home-btn {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/lang/pt-pt/home-button.png) 0 0 no-repeat;
+	width: 191px;
+}
+body.pt-pt div.nav-buttons a.home-btn span.hover {
+	width: 191px;
+}
+body.pt-pt ul.modules li a.new {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/lang/pt-pt/new.png) 0 0 no-repeat;
+}
+
+
+/** nl-nl / nl-be **/
+body.nl-nl div#nav div.availability,
+body.nl-be div#nav div.availability {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/lang/nl-nl/availability.png) 0 0 no-repeat;
+}
+body.nl-nl div#modal-window div.btns a,
+body.nl-be div#modal-window div.btns a {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/lang/nl-nl/cancel-continue.png) 0 0 no-repeat;
+}
+body.nl-nl div.nav-buttons a.home-btn,
+body.nl-be div.nav-buttons a.home-btn {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/lang/nl-nl/home-button.png) 0 0 no-repeat;
+	width: 180px;
+}
+body.nl-nl div.nav-buttons a.home-btn span.hover,
+body.nl-be div.nav-buttons a.home-btn span.hover {
+	width: 180px;
+}
+body.nl-nl ul.modules li a.new ,
+body.nl-be ul.modules li a.new {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/lang/nl-nl/new.png) 0 0 no-repeat;
+}
+
+/** it-it **/
+body.it-it p#logo, 
+body.it-it h1#logo {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/lang/it-it/pokemon-bvwv-logo.png) 0 0 no-repeat;
+	height: 103px;
+	left: -2px;
+	margin: 50px 0 25px;
+	position: relative;
+	width: 241px;
+	z-index: 10;
+}
+	body.it-it p#logo a, 
+	body.it-it h1#logo a {
+		height: 103px;
+		width: 241px;
+	}
+body.it-it div#nav div.availability {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/lang/it-it/availability.png) 0 0 no-repeat;
+}
+body.it-it div#modal-window div.btns a {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/lang/it-it/cancel-continue.png) 0 0 no-repeat;
+}
+body.it-it div.nav-buttons a.home-btn {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/lang/it-it/home-button.png) 0 0 no-repeat;
+	width: 204px;
+}
+body.it-it div.nav-buttons a.home-btn span.hover {
+	width: 204px;
+}
+body.it-it ul.modules li a.new {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/lang/it-it/new.png) 0 0 no-repeat;
+}
+body.it-it ul.modules li.wifi span.title {
+	font-size: 24px !important;
+}
+body.it-it #juniper div.screenshots-multi div.caption {
+	width:230px;
+}
+
+/** fr-fr / fr-be **/
+body.fr-be div#nav div.availability,
+body.fr-fr div#nav div.availability {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/lang/fr-be/availability.png) 0 0 no-repeat;
+}
+body.fr-be div#modal-window div.btns a,
+body.fr-fr div#modal-window div.btns a {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/lang/fr-fr/cancel-continue.png) 0 0 no-repeat;
+}
+body.fr-be div.nav-buttons a.home-btn,
+body.fr-fr div.nav-buttons a.home-btn {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/lang/fr-fr/home-button.png) 0 0 no-repeat;
+}
+body.fr-fr div#randomMatchups.vertical div.copy, body.fr-be div#randomMatchups.vertical div.copy {
+    margin: 0 0 0 40px;
+    padding-top: 50px;
+}
+	body.fr-fr div#randomMatchups.vertical div.copy p, body.fr-be div#randomMatchups.vertical div.copy p{
+		padding-right:20px;
+	}
+
+/** fr-fr / fr-be / fr-ca **/
+body.fr-be p#logo, 
+body.fr-be h1#logo,
+body.fr-ca p#logo, 
+body.fr-ca h1#logo,
+body.fr-fr p#logo, 
+body.fr-fr h1#logo {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/lang/fr-fr/pokemon-bvwv-logo.png) 0 0 no-repeat;
+	height: 103px;
+	left: -2px;
+	margin: 50px 0 25px;
+	position: relative;
+	width: 241px;
+	z-index: 10;
+} 
+	body.fr-be p#logo a, 
+	body.fr-be h1#logo a,
+	body.fr-ca p#logo a, 
+	body.fr-ca h1#logo a,
+	body.fr-fr p#logo a, 
+	body.fr-fr h1#logo a {
+		height: 103px;
+		width: 241px;
+	}
+
+body.fr-be ul.modules li a.new ,
+body.fr-ca ul.modules li a.new ,
+body.fr-fr ul.modules li a.new {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/lang/fr-ca/new.png) 0 0 no-repeat;
+}
+
+/** es-es **/
+body.es-es div#nav div.availability {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/lang/es-es/availability.png) 0 0 no-repeat;
+}
+body.es-es div#modal-window div.btns a {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/lang/es-es/cancel-continue.png) 0 0 no-repeat;
+}
+body.es-es p#logo, 
+body.es-es h1#logo {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/lang/es-es/pokemon-bvwv-logo.png) 0 0 no-repeat;
+	height: 103px;
+	left: -2px;
+	margin: 50px 0 25px;
+	position: relative;
+	width: 241px;
+	z-index: 10;
+}
+	body.es-es p#logo a, 
+	body.es-es h1#logo a {
+		height: 103px;
+		width: 214px;
+	}
+body.es-es div.nav-buttons a.home-btn {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/lang/es-es/home-button.png) 0 0 no-repeat;
+	width: 160px;
+}
+body.es-es div.nav-buttons a.home-btn span.hover {
+	width: 160px;
+}
+body.es-es ul.modules li a.new {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/lang/es-es/new.png) 0 0 no-repeat;
+}
+body.es-es ul.modules li.wifi span.title {
+	font-size: 21px !important;
+}
+body.es-es div#randomMatchups.vertical div.copy {
+	padding-top: 70px;
+}
+/** de-de **/
+body.de-de #customizePanel div.copy h2{
+	font-size: 25px;
+}
+body.de-de div#nav div.availability {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/lang/de-de/availability.png) 0 0 no-repeat;
+	height:68px;
+}
+body.de-de div#modal-window div.btns a {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/lang/de-de/cancel-continue.png) 0 0 no-repeat;
+}
+body.de-de p#logo, 
+body.de-de h1#logo {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/lang/de-de/pokemon-bvwv-logo.png) 0 0 no-repeat;
+	height: 103px;
+	left: -2px;
+	margin: 50px 0 25px;
+	position: relative;
+	width: 241px;
+	z-index: 10;
+}
+	body.de-de p#logo a, 
+	body.de-de h1#logo a {
+		height: 103px;
+		width: 241px;
+	}
+body.de-de div.nav-buttons a.home-btn {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/lang/de-de/home-button.png) 0 0 no-repeat;
+	width: 165px;
+}
+body.de-de div.nav-buttons a.home-btn span.hover {
+	width: 165px;
+}
+body.de-de ul.modules li a.new {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/lang/de-de/new.png) 0 0 no-repeat;
+}
+body.de-de ul.modules li.wifi span.title {
+	font-size: 25px !important;
+}
+
+/** en-gb **/
+body.en-gb div#nav div.availability {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/lang/en-gb/availability.png) 0 0 no-repeat;
+}
+
+/** en-au **/
+body.en-au div#nav div.availability {
+	background: transparent url(/web/20110303075552im_/http://www.pokemonblackwhite.com/_ui/img/lang/en-au/availability.png) 0 0 no-repeat;
+}
+/*
+     FILE ARCHIVED ON 07:55:52 Mar 03, 2011 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 01:41:56 Apr 29, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 217.902
+  exclusion.robots: 0.059
+  exclusion.robots.policy: 0.051
+  cdx.remote: 0.053
+  esindex: 0.007
+  LoadShardBlock: 125.853 (3)
+  PetaboxLoader3.datanode: 93.125 (4)
+  load_resource: 36.584
+*/

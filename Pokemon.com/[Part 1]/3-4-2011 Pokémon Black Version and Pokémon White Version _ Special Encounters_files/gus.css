@@ -1,0 +1,138 @@
+div.clear {
+	clear:both;
+	height:1px;
+	margin-top:-1px;
+	overflow:hidden;
+}
+span.offscreen {
+	display:block;
+	position:absolute;
+	left:-999999em;
+}
+
+div#gus {
+	width:100%;
+	z-index: 1000;
+	height: 56px;
+	position: absolute;
+	top:0;
+	left:0;
+	background: url('/web/20110303075555im_/http://www.pokemonblackwhite.com/_ui/img/gus/gus-bg-repeater.png') repeat-x scroll center 0;
+	min-width: 1000px;
+}
+	div#gus div.wrapper {
+		background: url('/web/20110303075555im_/http://www.pokemonblackwhite.com/_ui/img/gus/gus.png') no-repeat scroll top left;
+		width: 960px;
+		height: 56px;
+		margin:auto;
+		position:relative;
+	}
+		div#gus div.wrapper a#pokemonLogo {
+			width:110px;
+			height:44px;
+			position:absolute;
+			left:172px;
+			top:0;
+			display:block;
+			outline:0;
+		}
+		
+		div#gus ul {
+			position:absolute;
+			width:493px;
+			height:43px;
+			left:300px;
+			top:0;
+			margin:0;
+			padding:0;
+			list-style:none;
+		}
+			div#gus ul li {
+				margin:0;
+				padding:0;
+				float:left;
+			}
+				div#gus ul li a {
+					display:block;
+					height:43px;
+					border:0;
+					display:block;
+					background: url('/web/20110303075555im_/http://www.pokemonblackwhite.com/_ui/img/gus/gus-buttons.png') no-repeat;
+					outline:0;
+					cursor:pointer;
+				}
+				
+				div#gus ul li#gus-videoGames a {
+					background-position:0 0;
+					width:95px;
+				}
+				div#gus ul li#gus-videoGames a:hover {
+					background-position:0 -43px;
+				}
+				div#gus ul li#gus-videoGames a:active {
+					background-position:0 -86px;
+				}
+				
+				div#gus ul li#gus-tradingCardGame a {
+					background-position:-95px 0;
+					width:136px;
+				}
+				div#gus ul li#gus-tradingCardGame a:hover {
+					background-position:-95px -43px;
+				}
+				div#gus ul li#gus-tradingCardGame a:active {
+					background-position:-95px -86px;
+				}
+				
+				div#gus ul li#gus-animation a {
+					background-position:-231px 0;
+					width:79px;
+				}
+				div#gus ul li#gus-animation a:hover {
+					background-position:-231px -43px;
+				}
+				div#gus ul li#gus-animation a:active {
+					background-position:-231px -86px;
+				}
+				
+				div#gus ul li#gus-funZone a {
+					background-position:-310px 0;
+					width:76px;
+				}
+				div#gus ul li#gus-funZone a:hover {
+					background-position:-310px -43px;
+				}
+				div#gus ul li#gus-funZone a:active {
+					background-position:-310px -86px;
+				}
+				
+				div#gus ul li#gus-news a {
+					background-position:-386px 0;
+					width:107px;
+				}
+				div#gus ul li#gus-news a:hover {
+					background-position:-386px -43px;
+				}
+				div#gus ul li#gus-news a:active {
+					background-position:-386px -86px;
+				}
+/*
+     FILE ARCHIVED ON 07:55:55 Mar 03, 2011 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 01:41:56 Apr 29, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 505.336
+  exclusion.robots: 0.065
+  exclusion.robots.policy: 0.057
+  cdx.remote: 0.05
+  esindex: 0.007
+  LoadShardBlock: 469.273 (3)
+  PetaboxLoader3.datanode: 411.639 (4)
+  load_resource: 73.028
+  PetaboxLoader3.resolve: 36.72
+*/
