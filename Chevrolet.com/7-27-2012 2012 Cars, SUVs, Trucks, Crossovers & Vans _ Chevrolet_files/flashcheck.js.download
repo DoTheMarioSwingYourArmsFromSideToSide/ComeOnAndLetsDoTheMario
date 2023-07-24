@@ -1,0 +1,224 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+/* namspace gmds */
+var gmds = gmds || 
+{ 
+	"REFERRER_COOKIE" : "gmds_referrer"
+};
+
+
+/**
+ * Check variable if it is empty or undefined.
+ */
+gmds.empty =  function(variable)
+{
+	return (typeof(variable) === "undefined" || variable === "");
+};
+
+/**
+ * FlashCheck class.
+ */
+gmds.flashCheck = function () 
+{
+	// constants
+	var /* String */ 	BANDWIDTH_COOKIE = "bandwidth";
+	
+	var /* String */ 	FLASH_SELECTOR = ".flash";
+	
+	// parameter
+	var /* int */		minFlashVersion = 8;
+
+	// URL parts
+	var /* String */ 	url = window.location.pathname + window.location.search;
+	var /* String */ 	selector = "";
+	var /* String */ 	extension = "";
+	var /* String */ 	query = "";
+	var /* String */ 	anchor = "";
+
+	// private methods
+	/**
+	 * init method, constuctor
+	 */
+	var init = function() {
+		var /* int */ startQuery = url.indexOf('?');
+		var /* int */ startAnchor = url.indexOf('#');
+		if (startQuery > 0 && startAnchor == -1) {
+			query = url.substring(startQuery, url.length);
+			url = url.substring(0, startQuery);
+			anchor = "";
+		} else if (startQuery > 0 && startAnchor > startQuery) {
+			query = url.substring(startQuery, startAnchor);
+			anchor = url.substring(startAnchor, url.length);
+			url = url.substring(0, startQuery);
+		} else if (startAnchor > 0) {
+			anchor = url.substring(startAnchor, url.length);
+			url = url.substring(0, startAnchor);
+		}
+		// split extension
+		var /* int */ startDot = url.lastIndexOf('.');
+		if (startDot > 0) {
+			extension = url.substring(startDot, url.length);
+			url = url.substring(0, startDot);
+		}
+	};
+	
+	/**
+	 * The referrer must be stored for correct tracking by Omniture. See also the content.jsp of t02_home.
+	 */
+	var storeReferrer = function() {
+		if (document.referrer !== null && !gmds.empty(document.referrer)) {
+			gmds.setCookie(gmds.REFERRER_COOKIE, document.referrer, 15 * 1000);
+		}
+	};
+	
+	/**
+	 * This function checks whether flash version 8 or higher is installed or not.
+	 */
+	this.isFlashInstalled = function() {
+		// check flash version
+		var isIE=(navigator.appVersion.indexOf("MSIE") != -1) ? true : false;
+		var isWin=(navigator.appVersion.toLowerCase().indexOf("win") != -1) ? true : false;
+
+		if(isIE && isWin) {
+			try {
+				return ((typeof(ActiveXObject) == "function") && (typeof(new ActiveXObject("ShockwaveFlash.ShockwaveFlash.8")) == "object"));
+			} catch (error) {
+				return false;
+			}
+		} else if (navigator.mimeTypes && navigator.mimeTypes["application/x-shockwave-flash"]) {
+			var flashplugin = navigator.mimeTypes["application/x-shockwave-flash"].enabledPlugin;
+			var flashplugindesc;
+			if (flashplugin!==null && flashplugin.description) {
+				flashplugindesc = parseInt(flashplugin.description.substring(flashplugin.description.indexOf(".")-2),10);
+			}
+		   	return !(!flashplugindesc || flashplugindesc < minFlashVersion);
+		} else {
+			return false;
+		}
+	};
+	
+	/**
+	 * This function test if the upload of an image is done in a given maximal time. A cookie will be set and a
+	 * function will be executed with the result of this test. The functions can be used to do the redirect. Please
+	 * notice that in both cases (success and fail of the test) a redirect can be reasonable.
+	 */
+	this.testBandwidth = function(/*int*/maxBandwidthTime, /* String */bandwidthImage, /* int */cookieExpires, func) {
+		start = (new Date()).getTime();
+		var img = new Image();
+		//img.src = bandwidthImage + '?t=' + escape(start);
+		img.src = bandwidthImage;
+		img.onload = function() {
+			var end = (new Date()).getTime();
+			var flashWorks = end - start < maxBandwidthTime;
+			if (flashWorks) {
+				// store result in cookie
+				gmds.setCookie(BANDWIDTH_COOKIE, "true", cookieExpires);
+				// flash works
+				func(true);
+			} else {
+				// store result in cookie
+				gmds.setCookie(BANDWIDTH_COOKIE, "false", cookieExpires);
+				// flash does not work
+				func(false);
+			}
+		};
+	};
+	
+	/**
+	 * If flash is installed and the bandwidth check ends successfully this function will redirect to the page
+	 * itself but with the FLASH_SELECTOR added.
+	 */
+	this.doT02FlashCheck = function (/*int*/maxBandwidthTime, /* String */bandwidthImage, /* int */cookieExpires) {
+		// check for flash
+		if (this.isFlashInstalled()) {
+			/*
+			 * This function will be executed if both test (flash and bandwidth) end successfully. The flashWorks
+			 * variable is necessary for the bandwidth check.
+			 */
+			var func = function(flashWorks) {
+				if (flashWorks) {
+					selector += FLASH_SELECTOR;
+					
+					storeReferrer();
+					if (url == "/") {
+						if (query != '') {
+							query = "#" + query;
+						}
+						window.location.replace('flash.html' + query + anchor);
+					} else {
+						window.location.replace(url + selector + extension + query + anchor);
+					}
+				}
+			}
+
+			// check for bandwidth
+			if (gmds.getCookie(BANDWIDTH_COOKIE) == null) {
+				this.testBandwidth(/*int*/maxBandwidthTime, /* String */bandwidthImage, /* int */cookieExpires, func);
+			} else if (gmds.getCookie(BANDWIDTH_COOKIE) == "true") {
+				func(true);
+			}
+		}
+	};
+	
+	/**
+	 * This functions redirects to the given redirectTarget if flash is not installed or the bandwidth is not hight enough. 
+	 */
+	this.doFlashFallbackRedirect = function (/*int*/maxBandwidthTime, /* String */bandwidthImage, /* int */cookieExpires, /* String */ redirectTarget) {
+		/*
+		 * This function will be executed if either of the tests (flash and bandwidth) fails. The flashWorks
+		 * variable is necessary for the bandwidth check. 
+		 */
+		var func = function(flashWorks) {
+			if (!flashWorks) {
+				window.location.replace(redirectTarget);
+			}
+		}
+		
+		if (!this.isFlashInstalled()) {
+			func(false);
+		} else {
+			// check for bandwidth
+			if (gmds.getCookie(BANDWIDTH_COOKIE) == null) {
+				this.testBandwidth(/*int*/maxBandwidthTime, /* String */bandwidthImage, /* int */cookieExpires, func);
+			} else if (gmds.getCookie(BANDWIDTH_COOKIE) == "false") {
+				func(false);
+			}
+		}
+	};
+
+	init();
+	
+};
+
+
+}
+/*
+     FILE ARCHIVED ON 07:31:02 Jul 27, 2012 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 23:10:47 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 215.975
+  exclusion.robots: 0.067
+  exclusion.robots.policy: 0.059
+  RedisCDXSource: 16.303
+  esindex: 0.009
+  LoadShardBlock: 182.494 (3)
+  PetaboxLoader3.datanode: 189.443 (4)
+  PetaboxLoader3.resolve: 116.029 (2)
+  load_resource: 146.342
+*/

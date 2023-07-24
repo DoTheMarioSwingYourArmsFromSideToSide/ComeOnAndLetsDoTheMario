@@ -1,0 +1,42 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+BrightTag.site('3xLRJdY',function(s){
+s.domready(function(){
+s.tag('\x3cscript type\x3d\x27text/javascript\x27\x3e\n(function() {\n    var dt \x3d document.createElement(\x27script\x27);\n    dt.type \x3d \x27text/javascript\x27;\n    dt.async \x3d true;\n    dt.src \x3d document.location.protocol + \x27//dt.cobaltgroup.com/dt/1.0/dt.js?sitetype\x3doem\x26format\x3djs\x26cblttags\x3d1\x26referrer\x3d\x27+ encodeURIComponent(document.location.href.substr(0,2000));\n    var s \x3d document.getElementsByTagName(\x27script\x27)[0];\n    s.parentNode.insertBefore(dt,s);\n})();\n\x3c/script\x3e\n',{tagId:1017219});
+s.tag('\x3cscript\x3e\n        (function() {\n          var customVars \x3d [],\n          url \x3d new BrightTag.HTTP.URL(\x27https://googleads.g.doubleclick.net/pagead/viewthroughconversion/\x27 +\n            "997318475"+\x27/\x27).appendParams({\n              \x27value\x27: \x270\x27,\n              \x27label\x27: "MtddCM3zzggQy77H2wM",\n              \x27guid\x27: \x27ON\x27,\n              \x27script\x27: \x270\x27\n            });\n\n          BrightTag.each([], function(prop) {\n            if (BrightTag.Types.isArray(prop.value)) {\n              prop.value \x3d prop.value.join(\x27,\x27);\n            }\n\n            BrightTag.pushIfDefined(customVars, prop.key + \x22\x3d\x22 + prop.value);\n          });\n\n          url.appendParam(\x22data\x22, customVars.join(\x22;\x22));\n\n          new Image().src \x3d url.toString();\n        }());\n      \x3c/script\x3e',{tagId:1017786,group:'yjss'});
+s.tag('\x3cscript\x3e(function(w,d,t,r,u){var f,n,i;w[u]\x3dw[u]||[],f\x3dfunction(){var o\x3d{ti:\x224048704\x22};o.q\x3dw[u],w[u]\x3dnew UET(o),w[u].push(\x22pageLoad\x22)},n\x3dd.createElement(t),n.src\x3dr,n.async\x3d1,n.onload\x3dn.onreadystatechange\x3dfunction(){var s\x3dthis.readyState;s\x26\x26s!\x3d\x3d\x22loaded\x22\x26\x26s!\x3d\x3d\x22complete\x22||(f(),n.onload\x3dn.onreadystatechange\x3dnull)},i\x3dd.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,\x22script\x22,\x22//bat.bing.com/bat.js\x22,\x22uetq\x22);\x3c/script\x3e',{tagId:4254641});
+});
+});
+
+
+}
+/*
+     FILE ARCHIVED ON 02:49:31 Nov 30, 2018 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 07:10:37 May 01, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 239.082
+  exclusion.robots: 0.113
+  exclusion.robots.policy: 0.1
+  cdx.remote: 0.077
+  esindex: 0.012
+  LoadShardBlock: 154.264 (3)
+  PetaboxLoader3.datanode: 75.757 (4)
+  load_resource: 898.514
+  PetaboxLoader3.resolve: 874.651
+*/

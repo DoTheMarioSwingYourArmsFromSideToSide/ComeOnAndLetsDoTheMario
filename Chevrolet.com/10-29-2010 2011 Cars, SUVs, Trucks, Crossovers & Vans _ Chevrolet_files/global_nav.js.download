@@ -1,0 +1,245 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+<!-- DO NOT EDIT THESE SCRIPTS -->
+var scripts = document.getElementsByTagName('script');var myScript = scripts[ scripts.length - 1 ];var queryString = myScript.src.replace(/^[^\?]+\??/,'');var params = parseQuery( queryString );
+function parseQuery ( query ) {var Params = new Object ();if ( ! query ) return Params; var Pairs = query.split(/[;&]/); for ( var i = 0; i < Pairs.length; i++ ) {var KeyVal = Pairs[i].split('=');if ( ! KeyVal || KeyVal.length != 2 ) continue;var key = unescape( KeyVal[0] );var val = unescape( KeyVal[1] );val = val.replace(/\+/g, ' ');Params[key] = val;}return Params;}
+<!-- END PARAM SCRIPTS -->
+
+
+// Namespace our Object
+var gnav = {};
+var $_;
+
+// Object Definition
+gnav = {	
+	
+	context: "",
+	utils: {
+		random: function(){
+			var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
+				var string_length = 17;
+				var random = '';
+				for (var i=0; i<string_length; i++) {
+					var rnum = Math.floor(Math.random() * chars.length);
+					random += chars.substring(rnum,rnum+1);
+				}
+			return random;
+		},
+		openNav: function(type){
+			switch(type){
+				case "vehicles":
+					$_("#gnav_vehicles").removeClass('section-closed').addClass("section-open");
+					$_("#cars").removeClass('sub-closed').addClass("sub-open");
+					$_("#bb_aveo").removeClass('bb-closed').addClass("bb-open");
+				break;
+			}
+		}
+	},
+	
+	fontReplace : { // sIFR font replacement setup
+		init: function(){ 
+			
+		}
+	},
+	
+	init: function(){
+		// Init object	
+		this.env();
+		this.events();
+	},
+	
+	events: function(){
+		
+		var timeout;
+		
+		$_("#gnav li.header").bind("mouseenter", function(){			
+			$_("#gnav li.header a").removeClass('headerSelected');
+			$_("a", this).addClass('headerSelected');			
+			var navSection = $_(this).attr('rel');			
+			gnav.openNav(navSection);
+		});
+		
+		$_(".hasSub").bind("mouseenter", function(){
+			var subSection = $_(this).attr('rel');
+			if($_("#"+subSection).hasClass('sub-open')== false){
+				gnav.openSub(subSection);
+			}
+		});
+		
+		$_(".hasFlyOut").bind("mouseenter", function(){
+			var bbcard = $_(this).attr('rel');
+			gnav.openBB(bbcard);
+		});
+		
+		$_(".nonvehicle").bind("mouseenter", function(){
+			$_('.sub-open').removeClass('sub-open').addClass('sub-closed');
+			$_(".navSelected").removeClass('navSelected');
+		});
+		
+		$_("#gnav_container").bind("mouseleave",function(){
+			timeout = setTimeout('gnav.clearNavs.delay(150,"",true)', 150);
+	    });
+		
+		$_("#gnav_container").bind("mouseenter",function(){
+			clearTimeout(timeout);
+	    });
+		
+		$_("#gnav_container .external").bind("click", function(e){
+			e.stopPropagation();	
+			s.pe = "lnk_e";
+			s.pev2 = $_(this).attr("href");
+			s.prop20 = "CHEVROLET | DIVISIONAL | "+s.prop3+" | GNAV";
+			s.t();
+		});
+		
+		$_("#gnav_container a[class!='external']").bind("click", function(e){
+			e.stopPropagation();	
+			s.pe = "lnk_o";
+			s.pev2 = $_(this).attr("href");
+			s.prop20 = "CHEVROLET | DIVISIONAL | "+s.prop3+" | GNAV";
+			s.t();
+		})
+		
+	},
+	
+	closeNav: function(){
+		$_('.section-open').removeClass('section-open').addClass('section-closed');
+	},
+	
+	clearNavs: function(type){
+		$_('.section-open').removeClass('section-open').addClass('section-closed');
+		$_('.sub-open').removeClass('sub-open').addClass('sub-closed');
+		$_(".navSelected").removeClass('navSelected');
+		$_('.bb-open').removeClass('bb-open').addClass('bb-closed');
+		if(type == true){
+			$_("#gnav li.header a").removeClass('headerSelected');
+		}
+	},
+	
+	openBB: function(section){
+		$_('.bb-open').removeClass('bb-open').addClass('bb-closed');
+		var position = $_("li[rel='"+section+"']").position().left;
+		$_("#"+section).removeClass('bb-closed').css({'left': (position+180)+'px','opacity':'0','z-index':'900'}).animate({"left":"194px","opacity":"1"}, 300).addClass('bb-open');		
+		$_(".hasFlyOut a.navSelected").removeClass('navSelected');
+		$_("li[rel='"+section+"'] a").addClass('navSelected');
+		
+		if($_(".bb-open .msrp").html() != ""){
+			$_(".small-msrp").remove();			
+			var msrpText = "<span class='small-msrp'>MSRP: Starting at</span>";
+			$_(".bb-open .msrp").before(msrpText);			
+		}
+		$_("li[rel='"+section+"'] a").addClass('navSelected');
+		
+		if($_(".bb-open .msrp").html() != ""){
+			$_(".small-msrp").remove();			
+			var msrpText = "<span class='small-msrp'>MSRP: Starting at</span>";
+			$_(".bb-open .msrp").before(msrpText);
+					
+		}
+	},
+	
+	openSub: function(section){
+		$_('.bb-open').removeClass('bb-open').addClass('bb-closed');
+		$_('.sub-open').removeClass('sub-open').addClass('sub-closed');
+		var position = $_("li[rel='"+section+"']").position().left;
+		$_("#"+section).removeClass('sub-closed').css({'left': (position+180)+'px','opacity':'0','z-index':'9999'}).animate({"left":"194px","opacity":"1"}, 300).addClass('sub-open');
+		$_(".section-open .navSelected").removeClass('navSelected');
+		$_("li[rel='"+section+"'] a").addClass('navSelected');
+		
+		var firstFlyOut = $_("div.sub-open li.hasFlyOut").attr('rel');		
+		this.openBB(firstFlyOut);
+	},
+	
+	openNav: function(section){
+		this.clearNavs(false);
+		var navPos = $_("#gnav_container").position().left;
+		var position = navPos + $_("li[rel='"+section+"']").position().left;		
+		$_("#"+section).removeClass('section-closed').css('left', (position+1)+"px").addClass('section-open').css({'display':'none','height':'239px'}).slideDown('fast');
+	},
+	
+	setup: function(){		
+		
+		$_.ajax({
+			url: "https://web.archive.org/web/20101029025115/http://prj.chevrolet.mrmworldwide.com/mds/tiles/common/inc_navigation.jsp",
+			success: function(data){
+				$_("<div id='nav' />").appendTo("body");
+				
+				$_("#nav").html(data);
+			}
+		});
+		
+		
+		
+	},
+	
+	env: function(){
+		// Get Environment (External or Local)
+		this.context = (params.env == "local") ? BASE_CONTEXT : "https://web.archive.org/web/20101029025115/http://www.chevrolet.com";
+		
+		// Check if Jquery is loaded
+		if (!jQuery) {  
+		    this.loadJquery();
+		} 
+		
+		
+	},
+	
+	loadJquery: function(){
+		
+		var head= document.getElementsByTagName('head')[0];
+		var script = document.createElement( 'script' );
+		script.type = 'text/javascript';
+		script.src = 'https://web.archive.org/web/20101029025115/http://www.google.com/jsapi';
+		head.appendChild(script);
+		
+		google.load("jquery", "1.4.2");
+		var $_ = jQuery.noConflict();
+
+		this.init();
+	}
+}
+
+
+if (!jQuery) {  
+    gnav.loadJquery();
+} else {	
+	$_(document).ready(function(){
+		console.log("init ready")
+		gnav.init();
+	});
+}
+
+
+
+
+}
+/*
+     FILE ARCHIVED ON 02:51:15 Oct 29, 2010 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:47:37 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 60.909
+  exclusion.robots: 0.066
+  exclusion.robots.policy: 0.058
+  cdx.remote: 0.054
+  esindex: 0.009
+  LoadShardBlock: 35.029 (3)
+  PetaboxLoader3.datanode: 155.878 (5)
+  load_resource: 664.712 (2)
+  PetaboxLoader3.resolve: 210.812 (2)
+*/

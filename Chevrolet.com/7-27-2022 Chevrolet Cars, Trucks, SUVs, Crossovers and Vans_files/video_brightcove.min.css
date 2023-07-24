@@ -1,0 +1,188 @@
+.q-video-brightcove .video-info-title,.q-video-brightcove .video-info-time{font-size:.8rem;line-height:1.333rem;margin-bottom:.542rem;padding-top:0rem;color:#6e6e6e;font-family:Louis,Tahoma,NotoSansKR,sans-serif;font-style:inherit;font-weight:400;letter-spacing:.15rem;margin:0;padding:0}
+@media print,only screen and (min-width:600px){.q-video-brightcove .video-info-title,.q-video-brightcove .video-info-time{font-size:.8rem;line-height:1.333rem;margin-bottom:.542rem;padding-top:0rem}
+}
+@media only screen and (min-width:1500px){.q-video-brightcove .video-info-title,.q-video-brightcove .video-info-time{font-size:.8rem;line-height:1.333rem;margin-bottom:.542rem;padding-top:0rem}
+}
+.q-video-brightcove .video-info-title a,.q-video-brightcove .video-info-time a{color:#6e6e6e;font-weight:inherit;text-decoration:none}
+.q-video-brightcove .video-info-title a:visited,.q-video-brightcove .video-info-time a:visited{color:#262626}
+.q-video-brightcove .video-info-title a:hover,.q-video-brightcove .video-info-time a:hover,.q-video-brightcove .video-info-title a:active,.q-video-brightcove .video-info-time a:active{color:#cd9834}
+.q-video-brightcove .q-invert.video-info-title,.q-video-brightcove .q-invert.video-info-time{color:#fff}
+.q-video-brightcove .q-invert.video-info-title a,.q-video-brightcove .q-invert.video-info-time a{color:inherit;font-weight:inherit;text-decoration:none}
+.q-video-brightcove .q-invert.video-info-title a:visited,.q-video-brightcove .q-invert.video-info-time a:visited{color:#fff}
+.q-video-brightcove .q-invert.video-info-title a:hover,.q-video-brightcove .q-invert.video-info-time a:hover,.q-video-brightcove .q-invert.video-info-title a:active,.q-video-brightcove .q-invert.video-info-time a:active{color:#e6ac39}
+.q-body3,.q-video-brightcove .video-js.brightcove-player-video .indicator-asset .indicator-asset-text{font-family:Roboto,Helvetica,NanumGothic,sans-serif}
+.q-body3 a,.q-video-brightcove .video-js.brightcove-player-video .indicator-asset .indicator-asset-text a{color:inherit;font-weight:500;text-decoration:underline}
+.q-body3 a:visited,.q-video-brightcove .video-js.brightcove-player-video .indicator-asset .indicator-asset-text a:visited{color:#262626}
+.q-body3 a:hover,.q-video-brightcove .video-js.brightcove-player-video .indicator-asset .indicator-asset-text a:hover,.q-body3 a:active,.q-video-brightcove .video-js.brightcove-player-video .indicator-asset .indicator-asset-text a:active{color:#cd9834}
+.q-body3 ul li,.q-video-brightcove .video-js.brightcove-player-video .indicator-asset .indicator-asset-text ul li,.q-body3 ol li,.q-video-brightcove .video-js.brightcove-player-video .indicator-asset .indicator-asset-text ol li{margin-top:0}
+.q-invert.q-body3,.q-video-brightcove .video-js.brightcove-player-video .indicator-asset .q-invert.indicator-asset-text{color:#fff}
+.q-invert.q-body3 a,.q-video-brightcove .video-js.brightcove-player-video .indicator-asset .q-invert.indicator-asset-text a{color:inherit;font-weight:inherit;text-decoration:underline}
+.q-invert.q-body3 a:visited,.q-video-brightcove .video-js.brightcove-player-video .indicator-asset .q-invert.indicator-asset-text a:visited{color:#fff}
+.q-invert.q-body3 a:hover,.q-video-brightcove .video-js.brightcove-player-video .indicator-asset .q-invert.indicator-asset-text a:hover,.q-invert.q-body3 a:active,.q-video-brightcove .video-js.brightcove-player-video .indicator-asset .q-invert.indicator-asset-text a:active{color:#e6ac39}
+.q-video-brightcove .video-js.brightcove-player-video .indicator-asset .indicator-asset-text{font-size:.9rem;line-height:1.5rem;margin-bottom:.375rem;padding-top:0rem;color:#262626}
+@media print,only screen and (min-width:600px){.q-video-brightcove .video-js.brightcove-player-video .indicator-asset .indicator-asset-text{font-size:.9rem;line-height:1.5rem;margin-bottom:.375rem;padding-top:0rem}
+}
+@media only screen and (min-width:1500px){.q-video-brightcove .video-js.brightcove-player-video .indicator-asset .indicator-asset-text{font-size:.9rem;line-height:1.5rem;margin-bottom:.375rem;padding-top:0rem}
+}
+.q-video-brightcove .video-js.brightcove-player-video .indicator-asset .indicator-asset-text ul,.q-video-brightcove .video-js.brightcove-player-video .indicator-asset .indicator-asset-text ol{margin:0 0 0 1.25rem}
+.q-headline1,.q-headline2,.q-headline3,.q-descriptive1,.q-descriptive2{margin-bottom:0;margin-top:0}
+.q-descriptive-section{font-size:.866rem;line-height:1.333rem;margin-bottom:.542rem;padding-top:0rem;color:#6e6e6e;font-family:Louis,Tahoma,NotoSansKR,sans-serif;font-style:inherit;font-weight:700;letter-spacing:.3rem;margin:0;padding:0;margin-bottom:0}
+@media print,only screen and (min-width:600px){.q-descriptive-section{font-size:.866rem;line-height:1.333rem;margin-bottom:.542rem;padding-top:0rem}
+}
+@media only screen and (min-width:1500px){.q-descriptive-section{font-size:.866rem;line-height:1.333rem;margin-bottom:.542rem;padding-top:0rem}
+}
+.q-descriptive-section a{color:#6e6e6e;font-weight:inherit;text-decoration:none}
+.q-descriptive-section a:visited{color:#262626}
+.q-descriptive-section a:hover,.q-descriptive-section a:active{color:#cd9834}
+.q-descriptive-section.q-invert{color:#fff}
+.q-descriptive-section.q-invert a{color:inherit;font-weight:inherit;text-decoration:none}
+.q-descriptive-section.q-invert a:visited{color:#fff}
+.q-descriptive-section.q-invert a:hover,.q-descriptive-section.q-invert a:active{color:#e6ac39}
+.q-retail-body{font-size:.75rem;line-height:1rem;margin-bottom:.25rem;padding-top:0rem;color:#262626;font-family:Louis,Tahoma,NotoSansKR,sans-serif;font-style:normal;font-weight:700;margin:0;padding:0}
+@media print,only screen and (min-width:600px){.q-retail-body{font-size:.75rem;line-height:1rem;margin-bottom:.25rem;padding-top:0rem}
+}
+@media only screen and (min-width:1500px){.q-retail-body{font-size:.75rem;line-height:1rem;margin-bottom:.25rem;padding-top:0rem}
+}
+.q-retail-body a{color:#262626;font-weight:inherit;text-decoration:none}
+.q-retail-body a:visited{color:#262626}
+.q-retail-body a:hover,.q-retail-body a:active{color:#cd9834}
+.q-retail-body.q-invert{color:#fff}
+.q-retail-body.q-invert a{color:inherit;font-weight:inherit;text-decoration:none}
+.q-retail-body.q-invert a:visited{color:#fff}
+.q-retail-body.q-invert a:hover,.q-retail-body.q-invert a:active{color:#e6ac39}
+.q-retail-label{font-size:1rem;line-height:1.3rem;margin-bottom:.575rem;padding-top:0rem;color:#262626;font-family:Louis,Tahoma,NotoSansKR,sans-serif;font-style:normal;font-weight:700;margin:0;padding:0}
+@media print,only screen and (min-width:600px){.q-retail-label{font-size:1rem;line-height:1.3rem;margin-bottom:.575rem;padding-top:0rem}
+}
+@media only screen and (min-width:1500px){.q-retail-label{font-size:1rem;line-height:1.3rem;margin-bottom:.575rem;padding-top:0rem}
+}
+.q-retail-label a{color:#262626;font-weight:inherit;text-decoration:none}
+.q-retail-label a:visited{color:#262626}
+.q-retail-label a:hover,.q-retail-label a:active{color:#cd9834}
+.q-retail-label.q-invert{color:#fff}
+.q-retail-label.q-invert a{color:inherit;font-weight:inherit;text-decoration:none}
+.q-retail-label.q-invert a:visited{color:#fff}
+.q-retail-label.q-invert a:hover,.q-retail-label.q-invert a:active{color:#e6ac39}
+.q-retail-numeral{font-size:1.75rem;line-height:1.75rem;margin-bottom:.125rem;padding-top:0rem;color:#cd9834;font-family:Louis,Tahoma,NotoSansKR,sans-serif;font-style:normal;font-weight:700;margin:0;padding:0}
+@media print,only screen and (min-width:600px){.q-retail-numeral{font-size:1.75rem;line-height:1.75rem;margin-bottom:.125rem;padding-top:0rem}
+}
+@media only screen and (min-width:1500px){.q-retail-numeral{font-size:1.75rem;line-height:1.75rem;margin-bottom:.125rem;padding-top:0rem}
+}
+.q-retail-numeral a{color:#cd9834;font-weight:inherit;text-decoration:none}
+.q-retail-numeral a:visited{color:#262626}
+.q-retail-numeral a:hover,.q-retail-numeral a:active{color:#cd9834}
+.q-retail-numeral.q-invert{color:#fff}
+.q-retail-numeral.q-invert a{color:inherit;font-weight:inherit;text-decoration:none}
+.q-retail-numeral.q-invert a:visited{color:#fff}
+.q-retail-numeral.q-invert a:hover,.q-retail-numeral.q-invert a:active{color:#e6ac39}
+.q-body3{font-size:.8rem;line-height:1rem;margin-bottom:.25rem;padding-top:0rem;color:#6e6e6e}
+@media print,only screen and (min-width:600px){.q-body3{font-size:.7rem;line-height:.75rem;margin-bottom:.5rem;padding-top:0rem}
+}
+@media only screen and (min-width:1500px){.q-body3{font-size:.7rem;line-height:.75rem;margin-bottom:.5rem;padding-top:0rem}
+}
+@media only screen{.q-body3{margin-bottom:1rem}
+}
+.q-body3 ul,.q-body3 ol{margin:0 0 0 1.25rem}
+.q-video-brightcove .video-info-title,.q-video-brightcove .video-info-time{margin-bottom:0 !important}
+.q-video-brightcove .q-posterframe::after{transition:all;transition-duration:.25s;transition-timing-function:ease-out;background-image:url("/web/20220727053321im_/https://www.chevrolet.com/etc/clientlibs/chevrolet/resources/img/video_play_btn.svg");background-repeat:no-repeat;background-size:100%;content:"";height:5rem;left:50%;opacity:.75;padding-bottom:0;position:absolute;top:50%;transform:translate(-50%,-50%) scale(1);width:5rem}
+.q-video-brightcove .video-overlay{cursor:pointer}
+.q-video-brightcove .q-autosize{cursor:pointer;padding-bottom:56.25%;position:relative}
+.q-video-brightcove .q-autosize.q-posterframe-active{background:#000}
+.q-video-brightcove .q-autosize.q-posterframe-active.q-has-posterframe{padding-bottom:0}
+.q-video-brightcove .q-autosize.q-posterframe-active.q-has-posterframe .q-posterframe{padding:0;position:relative}
+.q-video-brightcove .q-autosize.q-posterframe-active.q-has-posterframe .q-responsive-image .q-content-overlay{display:block}
+.q-video-brightcove .q-autosize.q-posterframe-active.q-has-posterframe .q-content-overlay{display:none}
+.q-video-brightcove .q-autosize.q-posterframe-active .q-posterframe{visibility:visible}
+.q-video-brightcove .q-autosize.q-posterframe-active.q-title-length-shown::after{top:50%;top:calc(50% - 3.125rem / 2)}
+.q-video-brightcove .q-autosize.q-posterframe-active.q-title-length-shown .video-info-container{background:#f2f2f2;bottom:0;padding:.625rem 1.25rem .875rem;position:absolute}
+.q-video-brightcove .q-autosize.q-posterframe-active.q-title-length-shown .video-info-container .video-info-title{color:gray}
+.q-video-brightcove .q-autosize.q-posterframe-active.q-title-length-shown .video-info-container .video-info-time{color:gray}
+.q-video-brightcove .q-autosize.q-posterframe-active .video-js{visibility:hidden}
+.q-video-brightcove .q-autosize .vjs-tech.grab{cursor:grab}
+.q-video-brightcove .q-autosize .vjs-tech.grab.grabbed{cursor:grabbing}
+.q-video-brightcove .q-content-overlay .q-layer{height:95%;height:calc(100% - 1.5625rem);pointer-events:none}
+.q-video-brightcove .q-content-overlay .q-layer>*{pointer-events:auto}
+.q-video-brightcove .q-posterframe{background:#000 center no-repeat;background-size:cover;border:0;height:100%;margin:0;position:absolute;visibility:hidden;width:100%}
+.q-video-brightcove .q-posterframe:hover::after{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.q-video-brightcove .q-posterframe:focus-visible::after{outline:-webkit-focus-ring-color auto 1px}
+.q-video-brightcove .q-autosize.q-title-length-shown:not(.q-posterframe-active) .video-info-container{display:none}
+.q-video-brightcove .video-info-container{height:3.125rem;padding:.625rem 0 .875rem;width:100%}
+.q-video-brightcove .video-info-title{font-weight:400;letter-spacing:1px;padding-right:0;text-transform:uppercase}
+.q-video-brightcove .q-playicon-hidden .q-posterframe::after{display:none}
+.q-video-brightcove .video-js{height:100%;position:absolute;top:0;visibility:visible;width:100%}
+.q-video-brightcove .video-js.disabled{cursor:pointer;pointer-events:none}
+.q-video-brightcove .video-js .vjs-play-progress,.q-video-brightcove .video-js .vjs-volume-level{background-color:#cd9834;background-image:none}
+.q-video-brightcove .video-js .vjs-load-progress{background-color:#fff}
+.q-video-brightcove .video-js .vjs-volume-bar.vjs-slider.vjs-slider-vertical::before{background-color:#fff;box-shadow:none}
+.q-video-brightcove .video-js .vjs-subs-caps-button{margin:0;padding:0}
+.q-video-brightcove .video-js .vjs-control.vjs-close-button,.q-video-brightcove .video-js .vjs-share-control,.q-video-brightcove .video-js .vjs-captions-button,.q-video-brightcove .video-js .vjs-fullscreen-control,.q-video-brightcove .video-js .vjs-play-control{background-color:transparent}
+.q-video-brightcove .video-js .altvideo-toggle{display:flex;justify-content:center}
+.q-video-brightcove .video-js .altvideo-toggle .altvideo-icon{background-image:url("/web/20220727053321im_/https://www.chevrolet.com/etc/clientlibs/chevrolet/resources/img/D_ICON-WHITE.png");background-repeat:no-repeat;background-size:100%;content:"";height:25px;margin:auto;width:25px}
+.q-video-brightcove .video-js.brightcove-player-video[data-loop=true] .vjs-waiting.vjs-seeking .vjs-loading-spinner{display:none}
+.q-video-brightcove .video-js.brightcove-player-video .indicator-asset{bottom:1rem;display:flex;justify-content:flex-end;pointer-events:none;position:absolute;right:1rem;width:100%;z-index:1}
+.q-video-brightcove .video-js.brightcove-player-video .indicator-asset .indicator-asset-text{margin-right:.5rem;text-align:right}
+.q-video-brightcove .video-js.brightcove-player-video .indicator-asset .indicator-asset-image{pointer-events:none}
+.q-video-brightcove .video-js.brightcove-player-video .vjs-big-play-button{display:none}
+.q-video-brightcove .video-js.brightcove-player-video .instruction-asset-image{cursor:grab;height:3.53rem;left:50%;pointer-events:none;position:absolute;top:50%;transform:translate(-50%,-50%);width:3.53rem;z-index:2}
+.q-video-brightcove .video-js.brightcove-player-video .instruction-asset-image.disable{display:none}
+.q-video-brightcove .video-js.brightcove-player-video .left-arrow,.q-video-brightcove .video-js.brightcove-player-video .right-arrow{position:absolute;z-index:2}
+.q-video-brightcove .video-js.brightcove-player-video .left-arrow::after,.q-video-brightcove .video-js.brightcove-player-video .right-arrow::after{content:"";display:inline-block}
+.q-video-brightcove .video-js.brightcove-player-video .colorizer-spinner-wrapper{border-radius:50%;display:none;height:3.2rem;left:50%;position:absolute;top:50%;transform:translate(-50%,-50%);width:3.2rem;z-index:3}
+.q-video-brightcove .video-js.brightcove-player-video .colorizer-spinner-wrapper.visible{display:block}
+.q-video-brightcove .video-js.brightcove-player-video .colorizer-spinner-wrapper .colorizer-spinner-background{background:#555;border-radius:50%;height:100%;opacity:.67;width:100%}
+.q-video-brightcove .video-js.brightcove-player-video .colorizer-spinner-wrapper .spinner-ring{animation:ring-spin 1.2s cubic-bezier(0.5,0,0.5,1) infinite;border:.3rem solid;border-color:#fff transparent transparent;border-radius:50%;height:80%;left:10%;position:absolute;top:10%;width:80%}
+.q-video-brightcove .video-js.brightcove-player-video .colorizer-spinner-wrapper .spinner-ring.ring-1{animation-delay:-0.45s}
+.q-video-brightcove .video-js.brightcove-player-video .colorizer-spinner-wrapper .spinner-ring.ring-2{animation-delay:-0.3s}
+.q-video-brightcove .video-js.brightcove-player-video .colorizer-spinner-wrapper .spinner-ring.ring-3{animation-delay:-0.15s}
+@keyframes ring-spin{0{transform:rotate(0)}
+100%{transform:rotate(360deg)}
+}
+.q-video-brightcove .video-js.brightcove-player-video .colorizer-spinner-wrapper{height:4.7059rem;width:4.7059rem}
+.q-video-brightcove .video-js.brightcove-player-video .colorizer-spinner-wrapper .colorizer-spinner-background{background:#fff;opacity:1}
+.q-video-brightcove .video-js.brightcove-player-video .colorizer-spinner-wrapper .spinner-ring{border:8px solid #cd9834;border-color:#cd9834 transparent transparent}
+.q-video-brightcove .video-js.brightcove-player-video .instruction-asset-image{height:3.529rem;width:3.529rem}
+.q-video-brightcove .video-js.brightcove-player-video .indicator-asset{bottom:auto;display:flex;flex-direction:row-reverse;justify-content:flex-start;left:auto;margin-top:.5rem;right:auto;top:0;width:max-content}
+.q-video-brightcove .video-js.brightcove-player-video .indicator-asset .indicator-asset-image{height:1.893rem;min-height:1.5rem;width:2rem}
+.q-video-brightcove .video-js.brightcove-player-video .indicator-asset .indicator-asset-text{margin-left:.5rem}
+.q-video-brightcove .video-js.brightcove-player-video .left-arrow{left:0}
+.q-video-brightcove .video-js.brightcove-player-video .left-arrow::after{background:url("/web/20220727053321im_/https://www.chevrolet.com/etc/clientlibs/chevrolet/resources/img/assets/arrow-rotate-left.svg") no-repeat center}
+.q-video-brightcove .video-js.brightcove-player-video .right-arrow{right:0}
+.q-video-brightcove .video-js.brightcove-player-video .right-arrow::after{background:url("/web/20220727053321im_/https://www.chevrolet.com/etc/clientlibs/chevrolet/resources/img/assets/arrow-rotate-right.svg") no-repeat center}
+.q-video-brightcove .video-js.brightcove-player-video .left-arrow,.q-video-brightcove .video-js.brightcove-player-video .right-arrow{height:1.765rem;opacity:1;top:50%;transform:translateY(0);width:1.765rem}
+.q-video-brightcove .video-js.brightcove-player-video .left-arrow::after,.q-video-brightcove .video-js.brightcove-player-video .right-arrow::after{height:1.765rem;width:1.765rem}
+@media print,only screen and (min-width:600px){.q-video-brightcove .video-js.brightcove-player-video .colorizer-spinner-wrapper{height:4rem;width:4rem}
+.q-video-brightcove .video-js.brightcove-player-video .instruction-asset-image{height:4.5rem;width:4.5rem}
+.q-video-brightcove .video-js.brightcove-player-video .indicator-asset{margin-top:1rem}
+.q-video-brightcove .video-js.brightcove-player-video .left-arrow,.q-video-brightcove .video-js.brightcove-player-video .right-arrow{height:2.25rem;top:50%;transform:translateY(-50%);width:2.25rem}
+.q-video-brightcove .video-js.brightcove-player-video .left-arrow::after,.q-video-brightcove .video-js.brightcove-player-video .right-arrow::after{height:2.25rem;width:2.25rem}
+}
+@media only screen and (min-width:960px){.q-video-brightcove .video-js.brightcove-player-video .colorizer-spinner-wrapper{height:3.4783rem;width:3.4783rem}
+.q-video-brightcove .video-js.brightcove-player-video .instruction-asset-image{height:6rem;width:6rem}
+.q-video-brightcove .video-js.brightcove-player-video .left-arrow{left:.5rem}
+.q-video-brightcove .video-js.brightcove-player-video .right-arrow{right:.5rem}
+.q-video-brightcove .video-js.brightcove-player-video .left-arrow,.q-video-brightcove .video-js.brightcove-player-video .right-arrow{height:3rem;width:3rem}
+.q-video-brightcove .video-js.brightcove-player-video .left-arrow::after,.q-video-brightcove .video-js.brightcove-player-video .right-arrow::after{height:3rem;width:3rem}
+}
+@media only screen and (min-width:1500px){.q-video-brightcove .video-js.brightcove-player-video .instruction-asset-image{height:5.217rem;width:5.217rem}
+.q-video-brightcove .video-js.brightcove-player-video .left-arrow,.q-video-brightcove .video-js.brightcove-player-video .right-arrow{height:2.61rem;width:2.61rem}
+.q-video-brightcove .video-js.brightcove-player-video .left-arrow::after,.q-video-brightcove .video-js.brightcove-player-video .right-arrow::after{height:2.61rem;width:2.61rem}
+}
+/*
+     FILE ARCHIVED ON 05:33:21 Jul 27, 2022 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:42:06 May 01, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 87.74
+  exclusion.robots: 0.093
+  exclusion.robots.policy: 0.082
+  cdx.remote: 0.074
+  esindex: 0.011
+  LoadShardBlock: 63.649 (3)
+  PetaboxLoader3.datanode: 60.49 (4)
+  load_resource: 102.184
+  PetaboxLoader3.resolve: 50.296
+*/

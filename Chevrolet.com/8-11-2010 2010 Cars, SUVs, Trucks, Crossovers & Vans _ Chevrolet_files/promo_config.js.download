@@ -1,0 +1,273 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+/*
+******************************************************************************************************
+** Promo Setup ***************************************************************************************
+******************************************************************************************************  
+  "volt051010": { // Promo ID - referenced in promoData.xml
+			"type" : {
+				"action" : "static", // expand or static
+				"type" : "image", // image or swf
+				"width" : "small" // small, two_third, full
+			},
+            "path" : "/assets/en/images/promotiles/homepage/promo1.jpg", // path to asset
+            "cta" : "Find Out More", // call to action under promo
+            "link" : "/pages/open/default/future/volt.do?evar3=volt_hom_future", // CTA url
+			"target" : "", // if empty link opens in same window, otherwise _blank should be used
+			"content" : "<div class='expander'>This content expands</div>", // expandable content
+			"disclaimer" : {
+				"mark" : "", // disclaimer edit mark
+				"text" : "another disclaimer" // disclaimer text
+			}
+        }
+ *****************************************************************************************************
+ *****************************************************************************************************
+ */
+
+
+
+var promoConfig = [{
+    "promos": {
+		
+		"full": {
+			"type" : {
+				"action" : "static",
+				"type" : "image",
+				"width" : "full"				
+			},
+            "path" : "/assets/en/images/promotiles/homepage/full.jpg",
+            "cta" : "Find Out More",
+            "link" : "/pages/open/default/future/volt.do?evar3=volt_hom_future",
+			"target" : "_self",
+			"content" : "<div class='expander'><img src='"+BASE_CONTEXT+"/assets/en/images/promotiles/homepage/full.jpg' /></div>",
+			"disclaimer" : {
+				"mark" : "",
+				"text" : ""
+			}
+        },
+		
+		"incentives": {
+			"type" : {
+				"action" : "static",
+				"type" : "image",
+				"width" : "small"
+			},
+            "path" : "/assets/en/images/promotiles/homepage/incentives.jpg",
+            "cta" : "Find Out More",
+            "link" : "/tools/currentoffers/results.do?zipCode=&evar3=hom_incentive_off",
+			"target" : "_self",
+			"content" : "<div class='expander'>This content expands</div>",
+			"disclaimer" : {
+				"mark" : "",
+				"text" : ""
+			}
+        },
+		
+        "volt0510": {
+			"type" : {
+				"action" : "static",
+				"type" : "image",
+				"width" : "small"
+			},
+            "path" : "/assets/en/images/promotiles/homepage/volt.jpg",
+            "cta" : "Find Out More",
+            "link" : "/pages/open/default/future/volt.do?evar3=volt_hom_future",
+			"target" : "_self",
+			"content" : "<div class='expander'>This content expands</div>",
+			"disclaimer" : {
+				"mark" : "",
+				"text" : ""
+			}
+        },
+		
+		"warranty0510": {
+			"type" : {
+				"action" : "static",
+				"type" : "image",
+				"width" : "small"
+			},
+            "path" : "/assets/en/images/promotiles/homepage/warranty.jpg",
+            "cta" : "See How Well You're Covered",
+            "link" : "/owners/warranty/?evar3=warranty_hom_warr",
+			"target" : "_self",
+			"content" : "<div class='expander'>This content expands</div>",
+			"disclaimer" : {
+				"mark" : "",
+				"text" : ""
+			}
+        },
+		
+		"toyota0510": {
+			"type" : {
+				"action" : "static",
+				"type" : "image",
+				"width" : "small"
+			},
+            "path" : "/assets/en/images/promotiles/homepage/toyota.jpg",
+            "cta" : "Find Out More",
+            "link" : "/tools/currentoffers/results.do?zipCode=48317&region=70&countyCode=26099&evar3=toyota_hom",
+			"target" : "_self",
+			"content" : "",
+			"disclaimer" : {
+				"mark" : "",
+				"text" : ""
+			}
+        },
+		
+		"silveradohd0510": {
+			"type" : {
+				"action" : "static",
+				"type" : "image",
+				"width" : "small"
+			},
+            "path" : "/assets/en/images/promotiles/homepage/silveradohd.jpg",
+            "cta" : "Meet the Heavier-Duty Heavy-Duty",
+            "link" : "/pages/open/default/future/silveradohd.do?evar3=newsilveradohd_hom_mhp",
+			"target" : "_self",
+			"content" : "",
+			"disclaimer" : {
+				"mark" : "",
+				"text" : ""
+			}
+        },
+		
+		"mtbcw0510": {
+			"type" : {
+				"action" : "static",
+				"type" : "image",
+				"width" : "small"
+			},
+            "path" : "/assets/en/images/promotiles/homepage/mtbcw.jpg",
+            "cta" : "Compare us to Anyone",
+            "link" : "https://web.archive.org/web/20100823165050/http://www.gm.com/bestcarwin/?brandId=ch&src=hom&evar24=hom_Chevrolet_MTBCW&sectionId=intro",
+			"target" : "_blank",
+			"content" : "",
+			"disclaimer" : {
+				"mark" : "",
+				"text" : ""
+			}
+        },
+		
+		"goodwrench0510": {
+			"type" : {
+				"action" : "static",
+				"type" : "image",
+				"width" : "small"
+			},
+            "path" : "/assets/en/images/promotiles/homepage/goodwrench.jpg",
+            "cta" : "See Offer Details",
+            "link" : "https://web.archive.org/web/20100823165050/http://www.goodwrench.com/auto-service-offers/index.jsp?evar3=CH_HP_brakes1#tagBrakes",
+			"target" : "_blank",
+			"content" : "",
+			"disclaimer" : {
+				"mark" : "",
+				"text" : ""
+			}
+        },
+		
+		"nophone0510": {
+			"type" : {
+				"action" : "static",
+				"type" : "image",
+				"width" : "small"
+			},
+            "path" : "/assets/en/images/promotiles/homepage/nophone.jpg",
+            "cta" : "Find Out More",
+            "link" : "https://web.archive.org/web/20100823165050/http://www.oprah.com/questionaire/ipledge.html?id=4",
+			"target" : "_blank",
+			"content" : "",
+			"disclaimer" : {
+				"mark" : "",
+				"text" : ""
+			}
+        },
+		
+		"diamonddreams0510": {
+			"type" : {
+				"action" : "static",
+				"type" : "image",
+				"width" : "small"
+			},
+            "path" : "/assets/en/images/promotiles/homepage/diamonddreams.jpg",
+            "cta" : "Enter For A Chance To Win",
+            "link" : "https://web.archive.org/web/20100823165050/http://mlb.mlb.com/sponsors/chevy/building_diamonds/index.jsp?chevySrc=Natdigital&cid=chevyhomepagetile",
+			"target" : "_blank",
+			"content" : "",
+			"disclaimer" : {
+				"mark" : "",
+				"text" : ""
+			}
+        },
+		
+		"baseballapp0510": {
+			"type" : {
+				"action" : "static",
+				"type" : "image",
+				"width" : "small"
+			},
+            "path" : "/assets/en/images/promotiles/homepage/baseballapp.jpg",
+            "cta" : "Download It Now For Free",
+            "link" : "https://web.archive.org/web/20100823165050/http://itunes.apple.com/us/app/chevy-baseball/id364657714?mt=8",
+			"target" : "_blank",
+			"content" : "",
+			"disclaimer" : {
+				"mark" : "",
+				"text" : ""
+			}
+        },
+		
+		"onstar": {
+			"type" : {
+				"action" : "static",
+				"type" : "image",
+				"width" : "small"
+			},
+            "path" : "/assets/en/images/promotiles/homepage/onstar.jpg",
+            "cta" : "Download It Now For Free",
+            "link" : "https://web.archive.org/web/20100823165050/http://www.onstar.com",
+			"target" : "_blank",
+			"content" : "",
+			"disclaimer" : {
+				"mark" : "",
+				"text" : ""
+			}
+        }
+		
+		
+		
+		 
+    }
+}]
+
+
+}
+/*
+     FILE ARCHIVED ON 16:50:50 Aug 23, 2010 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:44:28 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 86.294
+  exclusion.robots: 0.086
+  exclusion.robots.policy: 0.075
+  RedisCDXSource: 0.794
+  esindex: 0.009
+  LoadShardBlock: 59.892 (3)
+  PetaboxLoader3.datanode: 62.82 (4)
+  load_resource: 78.373
+  PetaboxLoader3.resolve: 37.406
+*/

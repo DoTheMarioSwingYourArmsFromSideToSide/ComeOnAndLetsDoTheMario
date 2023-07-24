@@ -1,0 +1,94 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+
+var floodlight = function() {
+	var tags = new Array();
+	tags["/idoc/75"] = "src=1139716;type=sbyog208;cat=build863";
+	tags["/idoc/80"] = "src=1139716;type=ebyof345;cat=build077";
+	tags["/idoc/11"] = "src=1139716;type=rcomm231;cat=comme479";
+	tags["/idoc/93"] = "src=1139716;type=rbcen112;cat=comme042";
+	tags["/idoc/68"] = "src=1139716;type=ectxv854;cat=compe562";
+	tags["/idoc/26"] = "src=1139716;type=sctaq704;cat=compe864";
+	tags["/idoc/59"] = "src=1139716;type=sraqr956;cat=conta922";
+	tags["/idoc/60"] = "src=1139716;type=eraqu288;cat=conta877";
+	tags["/idoc/28"] = "src=1139716;type=soffe419;cat=curre694";
+	tags["/idoc/4"] = "src=1139716;type=rgenu973;cat=divis090";
+	tags["/idoc/44"] = "src=1139716;type=osite393;cat=exper319";
+	tags["/idoc/36"] = "src=1139716;type=rbran150;cat=exper993";
+	tags["/idoc/51"] = "src=1139716;type=oexps409;cat=exper502";
+	tags["/idoc/47"] = "src=1139716;type=owarn883;cat=exper998";
+	tags["/idoc/17"] = "src=1139716;type=rspec966;cat=featu311";
+	tags["/idoc/89"] = "src=1139716;type=rfutw918;cat=futur914";
+	tags["/idoc/87"] = "src=1139716;type=rhelp736;cat=helpm430";
+	tags["/idoc/52"] = "src=1139716;type=sladi648;cat=locat018";
+	tags["/idoc/53"] = "src=1139716;type=elada640;cat=locat369";
+	tags["/idoc/56"] = "src=1139716;type=slavz856;cat=locat072";
+	tags["/idoc/57"] = "src=1139716;type=elavf837;cat=locat059";
+	tags["/idoc/58"] = "src=1139716;type=sstic626;cat=locat709";
+	tags["/idoc/14"] = "src=1139716;type=rhome820;cat=model592";
+	tags["/event/onstar"] = "src=1139716;type=ronst336;cat=onsta100";
+	tags["/idoc/15"] = "src=1139716;type=rphot856;cat=photo871";
+	tags["/idoc/27"] = "src=1139716;type=rpric631;cat=price827";
+	tags["/idoc/53"] = "src=1139716;type=seciy770;cat=reque769";
+	tags["/idoc/63"] = "src=1139716;type=rrssu277;cat=reque453";
+	tags["/idoc/86"] = "src=1139716;type=rview954;cat=viewa601";
+	tags["/vehicles/2009/lacrosse/overview.do"] = "src=1139716;type=rhome820;cat=lacro491";
+	tags["/vehicles/2009/lucerne/overview.do"] = "src=1139716;type=rhome820;cat=lucer997";
+	tags["/vehicles/2009/enclave/overview.do"] = "src=1139716;type=rhome820;cat=encla783";
+	tags["/vehicles/2009/lacrosse/gallery.do"] = "src=1139716;type=rphot856;cat=lacro895";
+	tags["/vehicles/2009/lucerne/gallery.do"] = "src=1139716;type=rphot856;cat=lucer567";
+	tags["/vehicles/2009/enclave/gallery.do"] = "src=1139716;type=rphot856;cat=encla272";
+
+	return {
+		writeTag : function(uri) {
+
+			if (tags[uri] != null) {
+				var axel = Math.random()+"";
+				var a = axel * 10000000000000;
+				var url = "https://web.archive.org/web/20130227145623/http://fls.doubleclick.net/activityi;"+ tags[uri] +";ord="+ a ;
+
+				var iframe = document.createElement('iframe');
+				iframe.setAttribute('src', url);
+				iframe.setAttribute('width', "1");
+				iframe.setAttribute('height', "1");
+				iframe.setAttribute('frameborder', "0");
+
+				document.body.appendChild(iframe);
+
+			}
+
+		}
+	};
+}();
+
+}
+/*
+     FILE ARCHIVED ON 14:56:23 Feb 27, 2013 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:27:53 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 167.004
+  exclusion.robots: 0.108
+  exclusion.robots.policy: 0.081
+  cdx.remote: 0.066
+  esindex: 0.01
+  LoadShardBlock: 136.575 (3)
+  PetaboxLoader3.datanode: 85.188 (4)
+  PetaboxLoader3.resolve: 90.83 (3)
+  load_resource: 70.537
+*/

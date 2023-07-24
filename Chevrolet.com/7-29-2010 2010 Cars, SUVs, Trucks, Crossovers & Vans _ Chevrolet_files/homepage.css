@@ -1,0 +1,85 @@
+#Masthead {
+	width: 980px;
+	height: 421px;
+}
+
+#pContent {
+	height:300px;
+	text-align: center;
+	border: 2px dashed rgb(0, 204, 0);
+}
+
+.lowspeed #gMdsContent, .highspeed #gMdsContentFlashHook{
+	display: block;
+}
+
+.lowspeed #gMdsContentFlashHook, .highspeed #gMdsContent{
+	display: none;
+}
+
+
+
+
+.lowspeed  #pContent, .lowspeed #pOnstar, .lowspeed #Well {
+	display: none;
+}
+
+
+#gMdsSubNav {
+	background: none;
+	display:none;
+}
+
+html {
+	background: transparent !important;
+}
+
+body {
+	background: url("/web/20100713013708im_/http://www.chevrolet.com/assets/en/images/experience/landing/main-bg.jpg") no-repeat scroll 0 -48px #FFFFFF;
+}
+
+#page-wrapper {
+	background-color:white;
+border:4px solid #FFFFFF;
+position: relative;
+margin-top:40px;
+min-height:586px;
+height: 586px;
+width:970px;
+box-shadow:rgba(0,0,0,0.5) 0px 0px 24px;
+-webkit-box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.5);;
+-moz-box-shadow:0 0 24px rgba(0, 0, 0, 0.5);
+
+
+}
+
+#page-wrapper #masthead {
+	background-color:#CCCCCC;
+float:left;
+height:360px;
+position:absolute;
+top:1px;
+width:970px;
+z-index:2;
+}
+
+/*
+     FILE ARCHIVED ON 01:37:08 Jul 13, 2010 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:42:36 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 54.798
+  exclusion.robots: 0.106
+  exclusion.robots.policy: 0.092
+  RedisCDXSource: 0.944
+  esindex: 0.014
+  LoadShardBlock: 35.569 (3)
+  PetaboxLoader3.datanode: 48.566 (4)
+  load_resource: 83.247
+  PetaboxLoader3.resolve: 46.577
+*/

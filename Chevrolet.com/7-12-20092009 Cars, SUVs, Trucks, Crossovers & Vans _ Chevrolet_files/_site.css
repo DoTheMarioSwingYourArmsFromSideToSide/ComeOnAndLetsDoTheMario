@@ -1,0 +1,2410 @@
+
+/*
+fonts / global style
+*/
+body{
+margin:0 auto;
+position:relative;
+
+}
+
+
+body,p,li {
+	color: #646B70;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+
+a span,a:active span,a:hover span,a:visited span,a,a:active,a:hover,a:visited,.clickable {
+	color: #363636;
+	text-decoration:none;
+	font-size: 11px;
+	font-family: Verdana, Arial, Helvetica, sans-serif
+
+
+}
+
+a{
+	outline: none !important;
+}
+
+body.Explorer6 #dlDialog input#btnZipGo{
+	top:-25px!important;
+	left:125px!important;
+	text-indent: -9999px;
+	line-height: 100px;
+	position: relative !important;
+}
+#vlDialog.zipCodeDialog form#vlDialogform a#advanceSearch{
+	 margin-left: 0px !important; left: -20px !important;
+}
+
+.Explorer7 #vlDialog.zipCodeDialog form#vlDialogform a#advanceSearch{
+	 margin-top: 40px !important; margin-bottom: 10px !important;
+}
+
+.Explorer7 a#advanceSearch{
+	 margin-left: -20px !important;
+	 margin-top: 45px !important;
+	 width: 220px !important;
+	 left: 0px !important;
+	 margin-bottom: 10px !important;
+}
+
+div#optionsResults{
+		height: 20px; padding-top: 10px; padding-bottom: 5px;
+}
+
+div#descResult{
+	padding-left: 10px;
+}
+
+div#optionsResults a {
+	color: #363636;
+	text-decoration:underline;
+	background:url(/web/20090709061441im_/http://www.chevrolet.com/assets/en/images/global/icon_email.gif) no-repeat left;
+	width:50px; height:16px; text-align: right; padding-left: 20px; padding-right: 35px;
+	text-indent: -9999px;
+}
+
+
+
+div#optionsResults a + a {
+	color: #363636;
+	text-decoration:underline;
+	background:url(/web/20090709061441im_/http://www.chevrolet.com/assets/en/images/global/printer.gif) no-repeat left;
+    text-align: right; padding-left: 22px; padding-bottom: 7px; padding-top: 7px;  text-indent: -9999px;
+	_padding-bottom: 0px; _padding-top: 0px; _padding-left: 0px;
+}
+
+
+
+div#dealerResultContent  h1{
+	background:url(/web/20090709061441im_/http://www.chevrolet.com/assets/en/images/tools/dealerlocator/locate-delaer-result.gif) no-repeat left;
+	width: 211px;  text-indent: -9999px; padding-bottom: 15px; margin: 10px;
+
+}
+/*
+body
+*/
+#gMdsPage {
+	margin: 0 auto;
+	width: 980px;
+}
+
+#gMdsPage>.hook {
+	margin: 0px auto;
+}
+
+#gMdsBody {
+	position: relative;
+}
+
+/*
+nav
+*/
+#gMdsNav ul li {
+	list-style-type: none;
+	float: left;
+}
+
+
+#gMdsNav #mdsNavGlobal ul {
+	padding-left: 200px
+}
+
+#gMdsNav #mdsNavGlobal ul li {
+	padding: 0px 0px 0px 15px;
+}
+
+#gMdsNav #mdsNavDivision {
+	position: absolute;
+	top: 48px;
+	left: 175px;
+	width: 825px;
+	height: 25px;
+
+}
+
+#gMdsNav #mdsNavDivision ul {
+	background-color: #eee;
+	margin-top:0;
+}
+#gMdsNav #mdsNavDivision ul li {
+
+	padding: 3px 15px;
+	font-size: 9px;
+	margin: 0;
+	border-right:1px solid #dddddd;
+}
+
+#gMdsNav #mdsNavDivision ul li.last{
+	border-right:none;
+}
+
+#gMdsNav #mdsVehicleNav {
+	display: none;
+}
+
+#mdsSearchSite {
+	position: absolute;
+	top: 10px;
+	left: 720px;
+}
+
+#mdsSavedInfo {
+	position: absolute;
+	top: 48px;
+	left: 720px;
+	width: 150px;
+	border: 1px dashed green;
+	padding: 3px 0 3px 50px;
+}
+
+#mdsSavedInfo a {
+	font-size: 9px;
+	text-decoration:none;
+}
+
+#pOnstar{
+	margin:0;
+	padding:0;
+	height:30px;
+}
+
+#pOnstar a {
+	float: right;
+	text-decoration: none;
+	clear: after;
+	width: 300px;
+}
+
+#gMdsNavWrapper {
+	top: 0;
+	left: 0;
+	height: 73px;
+}
+
+#gMdsNav {
+	display: block;
+	position: relative;
+	height: 115px;
+	margin: 0 auto;
+	margin-top: 4px;
+}
+
+#gMdsNavLogo, #mdsNavLogo {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 175px;
+	height: 73px;
+	border: 1px dashed green;
+}
+
+#gMdsNav #mdsNavGlobal {
+	position: absolute;
+	top: 0;
+	left: 175px;
+	width: 825px;
+	height: 45px;
+}
+
+
+#gMdsNav #mdsVehicleNav {
+	top: 73px;
+}
+
+#gMdsNav ul {
+	list-style:none;
+}
+
+#gMdsNav ul li {
+	float: left;
+}
+
+#gMdsSubNav {
+position: absolute;
+margin-top: 74px;
+height: 25px;
+}
+
+
+body.Explorer6 #vlDialog.countyDialog #btnZipGo{
+	position: relative !important;
+	top:-7px !important;
+	left:-40px important;
+}
+
+
+/* footer - about */
+#gAbout h6 {
+	margin: 0;
+	padding: 0;
+	padding-left: 1px;
+	font-family: Verdana,Arial,Sans Serif;
+	font-size: 10px;
+	font-weight: normal;
+	color: #646B70;
+	text-decoration: underline;
+	cursor: pointer;
+	cursor: hand;
+	width: 860px;
+}
+
+#gAbout p {
+	display: none;
+}
+
+
+#byoDialog{
+	background: White none repeat scroll 0 0;
+	border:1px solid #646B70!important;
+	display: block;
+	font-family: Verdana;
+	font-size: 10px;
+	left: 0;
+	padding: 0;
+	position: absolute;
+	top: 0;
+	width: 250px;
+	z-index: 500;
+}
+
+#fsbyoDialog{
+	background: White none repeat scroll 0 0;
+	border:1px solid #646B70!important;
+	display: block;
+	font-family: Verdana;
+	font-size: 10px;
+	left: 0;
+	padding: 0;
+	position: absolute;
+	top: 0;
+	width: 250px;
+	z-index: 500;
+}
+
+#byoDialog div#header{
+	margin:30px 0 15px 11px;
+	width:230px;
+	color:#646B76;
+}
+ #fsbyoDialog div#header{
+	margin:30px 0 15px 11px;
+	width:230px;
+	color:#646B76;
+	padding-top: 28px!important;
+}
+
+.Explorer7 #byoDialog div#header, .Explorer6 #byoDialog div#header{
+	padding-top: 28px!important;
+}
+
+
+#byoDialog a{
+    color: #363636;
+	display:block;
+}
+#fsbyoDialog a{
+    color: #363636;
+	display:block;
+}
+#byoDialog #btnClose{
+	color: #999999;
+	font-size: 9px;
+	height: 14px;
+    margin:0 0 0 193px;
+	text-indent:-9999px;
+	position: absolute;
+	text-align: left;
+	text-decoration: none;
+	top: 4px;
+	width: 50px;
+	background-image:url(/web/20090709061441im_/http://www.chevrolet.com/assets/en/images/tools/dealerlocator/btn_close.gif);
+	background-repeat:no-repeat;
+}
+#fsbyoDialog #btnClose{
+	color: #999999;
+	font-size: 9px;
+	height: 14px;
+    margin:0 0 0 193px;
+	text-indent:-9999px;
+	position: absolute;
+	text-align: left;
+	text-decoration: none;
+	top: 4px;
+	width: 50px;
+	background-image:url(/web/20090709061441im_/http://www.chevrolet.com/assets/en/images/tools/dealerlocator/btn_close.gif);
+	background-repeat:no-repeat;
+}
+
+.Explorer7 #byoDialog #btnClose,.Explorer6 #byoDialog #btnClose{
+	margin-left:182px;
+
+}
+
+.Explorer7 #fsbyoDialog #btnClose,.Explorer6 #fsbyoDialog #btnClose{
+	margin-left:182px;
+}
+
+#byoDialog #btnClose span{
+	display: none;
+	color: #0000FF;
+	margin:0!important;
+}
+#fsbyoDialog #btnClose span{
+	display: none;
+	color: #0000FF;
+	margin:0!important;
+}
+
+#byoDialog span{
+	display: block;
+	margin: 4px 0 0 10px;
+	padding-left:43px;
+}
+
+#fsbyoDialog span{
+	display: block;
+	margin: 4px 0 0 10px;
+	padding-left:43px;
+}
+#byoDialog p{
+	margin: 8px 20px 5px 10px;
+}
+
+#fsbyoDialog p{
+	margin: 8px 20px 5px 10px;
+}
+#byoDialog input{
+	border:1px solid #646B70!important;
+	float: left;
+	font-size: 9px;
+	height: 16px;
+	margin: 0 9px 0 4px;
+	padding: 0px 2px 0 4px;
+	width: 78px;
+}
+
+#fsbyoDialog input#txtZipcode{
+	border:1px solid #646B70 !important;
+	float: left;
+	font-size: 9px;
+	height: 16px;
+	margin: 0 9px 0 4px;
+	padding: 0px 2px 0 4px;
+	width: 78px;
+}
+
+#fsbyoDialog div.infoDialog #btnZipGo {
+	color:#FFFFFF;
+	font-size:1px;
+	text-decoration:none;
+	text-indent:-99999px;
+}
+#fsbyoDialog #btnZipGo{
+	display: block;
+	float: left;
+	height: 16px;
+	width: 36px!important;
+	color: #0000FF;
+	text-indent:-9999px;
+	background-image:url(/web/20090709061441im_/http://www.chevrolet.com/assets/en/images/tools/dealerlocator/btn_go.gif);
+	background-position: 0px 0px;
+	background-repeat:no-repeat;
+    border:0 none !important;
+	margin:1px 0 0 !important;
+	cursor:pointer;
+}
+
+
+#btnZipGo{
+	display: block;
+	float: left;
+	height: 16px;
+	width: 36px!important;
+	color: #0000FF;
+	text-indent:-9999px;
+	background-image:url(/web/20090709061441im_/http://www.chevrolet.com/assets/en/images/tools/dealerlocator/btn_go.gif);
+	background-position: 0px 0px;
+	background-repeat:no-repeat;
+    border:0 none !important;
+	margin:1px 0 0 !important;
+	cursor:pointer;
+}
+
+#btnZipGo:hover{
+	display: block;
+	float: left;
+	height: 16px;
+	width: 36px!important;
+	color: #0000FF;
+	text-indent:-9999px;
+	background-image:url(/web/20090709061441im_/http://www.chevrolet.com/assets/en/images/tools/dealerlocator/btn_go.gif);
+	background-position: 0px -15px;
+	background-repeat:no-repeat;
+    border:0 none !important;
+	margin:1px 0 0 !important;
+	cursor:pointer;
+}
+
+#btnZipGo:active{
+	display: block;
+	float: left;
+	height: 16px;
+	width: 36px!important;
+	color: #0000FF;
+	text-indent:-9999px;
+	background-image:url(/web/20090709061441im_/http://www.chevrolet.com/assets/en/images/tools/dealerlocator/btn_go.gif);
+	background-position: 0px -30px;
+	background-repeat:no-repeat;
+    border:0 none !important;
+	margin:1px 0 0 !important;
+	cursor:pointer;
+}
+
+.infoDialog input#btnZipGo{
+	display: block;
+	height: 16px;
+	width: 36px!important;
+	text-indent:-9999px;
+	background-image:url(/web/20090709061441im_/http://www.chevrolet.com/assets/en/images/tools/dealerlocator/btn_go.gif);
+	background-position: 0px 0px;
+	background-repeat:no-repeat;
+    border:0 none !important;
+	cursor:pointer;
+	position:absolute!important;
+	font-size: 1px;
+	top:29px!important;
+	left:150px!important;
+	color: #D6D7D9!important;
+}
+
+body.Explorer6 div#vlDialog.infoDialog form#vlDialogform div#buttonsInfo input#btnZipGo{
+	left: 80px !important; margin-top: 6px !important; line-height: 100px; text-indent: -9999px;
+
+}
+
+.Explorer7 .infoDialog input#btnZipGo{
+	 top:10px !important;
+
+}
+
+.infoDialog input#btnZipGo:hover{
+	display: block;
+	height: 16px;
+	width: 36px!important;
+	text-indent:-9999px;
+	background-image:url(/web/20090709061441im_/http://www.chevrolet.com/assets/en/images/tools/dealerlocator/btn_go.gif);
+	background-position: 0px -15px;
+	background-repeat:no-repeat;
+    border:0 none !important;
+	cursor:pointer;
+	position:absolute!important;
+	font-size: 1px;
+	top:29px!important;
+	left:150px!important;
+	color: #D6D7D9!important;
+}
+
+.infoDialog input#btnZipGo:active{
+	display: block;
+	height: 16px;
+	width: 36px!important;
+	text-indent:-9999px;
+	background-image:url(/web/20090709061441im_/http://www.chevrolet.com/assets/en/images/tools/dealerlocator/btn_go.gif);
+	background-position: 0px -30px;
+	background-repeat:no-repeat;
+    border:0 none !important;
+	cursor:pointer;
+	position:absolute!important;
+	font-size: 1px;
+	top:29px!important;
+	left:150px!important;
+	color: #D6D7D9!important;
+}
+
+
+.zipCodeDialog #btnZipGo{
+	display: block;
+	float: left;
+	height: 16px;
+	width: 36px!important;
+	color: #0000FF;
+	text-indent:-9999px;
+	background-image:url(/web/20090709061441im_/http://www.chevrolet.com/assets/en/images/tools/dealerlocator/btn_go.gif);
+	background-position: 0px 0px;
+	background-repeat:no-repeat;
+    border:0 none !important;
+	margin:3px 0 0 !important;
+	position: absolute;
+	top:33px;
+	left:150px;
+	cursor:pointer;
+}
+
+.zipCodeDialog #btnZipGo:hover{
+	display: block;
+	float: left;
+	height: 16px;
+	width: 36px!important;
+	color: #0000FF;
+	text-indent:-9999px;
+	background-image:url(/web/20090709061441im_/http://www.chevrolet.com/assets/en/images/tools/dealerlocator/btn_go.gif);
+	background-position: 0px -15px;
+	background-repeat:no-repeat;
+    border:0 none !important;
+	margin:3px 0 0 !important;
+	position: absolute;
+	top:33px;
+	left:150px;
+	cursor:pointer;
+}
+
+.zipCodeDialog #btnZipGo:active{
+	display: block;
+	float: left;
+	height: 16px;
+	width: 36px!important;
+	color: #0000FF;
+	text-indent:-9999px;
+	background-image:url(/web/20090709061441im_/http://www.chevrolet.com/assets/en/images/tools/dealerlocator/btn_go.gif);
+	background-position: 0px -30px;
+	background-repeat:no-repeat;
+    border:0 none !important;
+	margin:3px 0 0 !important;
+	position: absolute;
+	top:33px;
+	left:150px;
+	cursor:pointer;
+}
+
+.Explorer7 .zipCodeDialog #btnZipGo{
+	display: block;
+	float: left;
+	height: 16px;
+	width: 36px!important;
+	color: #0000FF;
+	text-indent:-9999px;
+	background-image:url(/web/20090709061441im_/http://www.chevrolet.com/assets/en/images/tools/dealerlocator/btn_go.gif);
+	background-position: 0px 0px;
+	background-repeat:no-repeat;
+    border:0 none !important;
+	margin:3px 0 0 !important;
+	position: absolute;
+	top:33px;
+	left:150px;
+	cursor:pointer;
+}
+
+.Explorer7 .zipCodeDialog #btnZipGo:hover{
+	display: block;
+	float: left;
+	height: 16px;
+	width: 36px!important;
+	color: #0000FF;
+	text-indent:-9999px;
+	background-image:url(/web/20090709061441im_/http://www.chevrolet.com/assets/en/images/tools/dealerlocator/btn_go.gif);
+	background-position: 0px -15px;
+	background-repeat:no-repeat;
+    border:0 none !important;
+	margin:3px 0 0 !important;
+	position: absolute;
+	top:33px;
+	left:150px;
+	cursor:pointer;
+}
+
+.Explorer7 .zipCodeDialog #btnZipGo:active{
+	display: block;
+	float: left;
+	height: 16px;
+	width: 36px!important;
+	color: #0000FF;
+	text-indent:-9999px;
+	background-image:url(/web/20090709061441im_/http://www.chevrolet.com/assets/en/images/tools/dealerlocator/btn_go.gif);
+	background-position: 0px -30px;
+	background-repeat:no-repeat;
+    border:0 none !important;
+	margin:3px 0 0 !important;
+	position: absolute;
+	top:33px;
+	left:150px;
+	cursor:pointer;
+}
+
+body.Explorer6 .zipCodeDialog #btnZipGo{
+	display: block;
+	float: left;
+	height: 16px;
+	width: 36px!important;
+	color: #0000FF;
+	text-indent:-9999px;
+	background-image:url(/web/20090709061441im_/http://www.chevrolet.com/assets/en/images/tools/dealerlocator/btn_go.gif);
+	background-position: 0px 0px;
+	background-repeat:no-repeat;
+    border:0 none !important;
+	margin:3px 0 0 !important;
+	position: absolute;
+	top:33px;
+	left:150px;
+	cursor:pointer;
+}
+
+body.Explorer6 .zipCodeDialog #btnZipGo:hover{
+	display: block;
+	float: left;
+	height: 16px;
+	width: 36px!important;
+	color: #0000FF;
+	text-indent:-9999px;
+	background-image:url(/web/20090709061441im_/http://www.chevrolet.com/assets/en/images/tools/dealerlocator/btn_go.gif);
+	background-position: 0px -15px;
+	background-repeat:no-repeat;
+    border:0 none !important;
+	margin:3px 0 0 !important;
+	position: absolute;
+	top:33px;
+	left:150px;
+	cursor:pointer;
+}
+
+body.Explorer6 .zipCodeDialog #btnZipGo:active{
+	display: block;
+	float: left;
+	height: 16px;
+	width: 36px!important;
+	color: #0000FF;
+	text-indent:-9999px;
+	background-image:url(/web/20090709061441im_/http://www.chevrolet.com/assets/en/images/tools/dealerlocator/btn_go.gif);
+	background-position: 0px -30px;
+	background-repeat:no-repeat;
+    border:0 none !important;
+	margin:3px 0 0 !important;
+	position: absolute;
+	top:33px;
+	left:150px;
+	cursor:pointer;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0){
+	.zipCodeDialog #btnZipGo{
+	top:32px;
+	left:150px;
+	background-position: 0px 0px;
+}
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0){
+	.zipCodeDialog #btnZipGo:hover{
+	top:32px;
+	left:150px;
+	background-position: 0px -15px;
+}
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0){
+	.zipCodeDialog #btnZipGo:active{
+	top:32px;
+	left:150px;
+	background-position: 0px -30px;
+}
+}
+
+
+
+
+.Explorer7 .infoDialog #btnZipGo{
+	padding-bottom: 15px;
+}
+.Explorer6 .infoDialog #btnZipGo{
+	padding-bottom: 15px;
+	position: absolute;
+	}
+
+div#fsbyoDialog .plocation {
+	height:15px;
+	padding-left:20px !important;
+	padding-top:34px !important;_padding-top:17px !important;_padding-bottom:17px !important;
+	width:180px;
+}
+
+#fsbyoDialog #btnZipGo:hover{
+	background-image:url(/web/20090709061441im_/http://www.chevrolet.com/assets/en/images/tools/dealerlocator/btn_go.gif);
+	background-position: 0 -15px;
+	border:0 none !important;
+}
+
+#vlDialog {
+	background: White none repeat scroll 0 0;
+	display: block;
+	font-family: Verdana;
+	font-size: 9px;
+	min-height: 85px;
+	*height: 85px;
+	padding: 0;
+	position: absolute;
+	width: 220px;
+	z-index: 100;
+	border:1px solid #646B70!important;
+	padding-bottom: 4px;
+}
+
+#vlDialog.countyDialog #btnZipGo{
+	left:141px !important;
+	position:relative !important;
+	top:-3px !important;
+}
+
+
+.Explorer7 #vlDialog {
+    background: White none repeat scroll 0 0;
+	display: block;
+	font-family: Verdana;
+	font-size: 9px;
+	min-height: 85px;
+	*height: 85px;
+	padding: 0;
+	position: absolute;
+	width: 220px;
+	z-index: 100;
+	border:1px solid #646B70!important;
+}
+
+.Explorer6 #vlDialog {
+    background: White none repeat scroll 0 0;
+	display: block;
+	font-family: Verdana;
+	font-size: 9px;
+	min-height: 85px;
+	*height: 85px;
+	padding: 0;
+	position: absolute;
+	width: 220px;
+	z-index: 100;
+	border:1px solid #646B70!important;
+}
+
+.Explorer6 #dlDialog {
+    background: White none repeat scroll 0 0;
+	display: block;
+	font-family: Verdana;
+	font-size: 9px;
+	min-height: 85px;
+	*height: 85px;
+	padding: 0;
+	position: absolute;
+	width: 220px;
+	z-index: 100;
+	border:1px solid #646B70!important;
+}
+
+#vlDialog a {
+	color: #363636;
+	margin-top:30px;
+	display:block;
+	margin:46px 0 0 0px;
+	text-align:center;
+}
+
+
+body.Explorer6 #vlDialog a {
+	color: #363636;
+	margin-top:60px !important;
+	display:block;
+	margin:46px 0 0 0px;
+	text-align:center;
+	margin-left: 0px !important;
+	width: 171px;
+
+}
+
+
+#vlDialog.countyDialog p {
+	left:3px;
+	position:relative;
+	top:19px;
+}
+
+#vlDialog.regionDialog p{
+	left:3px;
+	position:relative;
+	top:19px;
+}
+
+#vlDialog.regionDialog p+p{
+	left:3px;
+	position:relative;
+	top:-21px;
+	width:210px;
+}
+
+
+.Explorer7 #vlDialog.regionDialog p+p{
+	left:3px;
+	position:relative;
+	top:10px;
+	width:210px;
+}
+
+
+.Explorer6 #vlDialog.zipCodeDialog #txtZipcode{
+	margin-left: 30px !important;
+	margin-top: 10px !important;
+}
+
+.Explorer6 #dlDialog.zipCodeDialog #txtZipcode{
+	margin-left: 30px !important;
+	margin-top: 10px !important;
+}
+.Explorer6 #dlDialog.zipCodeDialog #advanceSearch{
+	margin-left: 40px !important;
+	margin-top: 55px !important;
+}
+
+.Explorer6 #vlDialog.regionDialog p{
+	margin-top: -10px !important;
+	width: 215px !important;
+}
+
+.Explorer6 #dlDialog.regionDialog p{
+	margin-top: -5px !important;
+	width: 195px !important;
+}
+
+.Explorer6 #vlDialog.regionDialog #advanceSearch{
+	margin-top: 20px !important;
+	width: 171px !important;
+}
+
+
+.Explorer6 #dlDialog.regionDialog #advanceSearch{
+	margin-top: 20px !important;
+}
+
+.Explorer6 #vlDialog.regionDialog #cmbRegion {
+	position:relative !important;
+    left:-5px !important;
+	top: 15px !important;
+	width: 160px !important;
+}
+
+
+.Explorer7 #vlDialog.regionDialog #cmbRegion {
+	position:relative !important;
+    left:5px !important;
+	top: -9px !important;
+	width: 125px !important;
+	margin-top: 20px;
+}
+
+.Explorer6 #dlDialog.regionDialog #cmbRegion {
+	position:relative !important;
+    left:-5px !important;
+	top: 15px !important;
+	width: 160px !important;
+}
+
+#vlDialog.regionDialog #editZipcode{
+	position: relative !important;
+	top: -61px !important;
+	width: 30px !important;
+    left:116px !important;
+}
+
+.Explorer7 #vlDialog.regionDialog #editZipcode{
+	position: relative !important;
+	top: -60px !important;
+	width: 30px !important;
+    left:116px !important;
+}
+
+.Explorer7 #vlDialog.regionDialog form#vlDialogform a#editCounty{
+	top: -60px !important;
+}
+.Explorer6 #dlDialog.regionDialog #btnZipGo{
+	position: relative !important;
+	top: -2px !important;
+	left: 165px !important;
+}
+
+
+#vlDialog.regionDialog #editCounty{
+	position: relative;
+	top: -60px!important;
+	width: 30px;
+    left:162px !important;
+}
+
+.Explorer7 #vlDialog.regionDialog #editCounty{
+	position: relative;
+	top: -60px !important;
+	width: 30px;
+    left:160px;
+    color: red;
+}
+
+
+.Explorer6 #vlDialog.countyDialog #cmbCounty{
+	margin-left:40px !important;
+}
+
+.Explorer6 #dlDialog.countyDialog #cmbCounty{
+	margin-left:40px !important;
+}
+
+
+.Explorer6 #dlDialog.countyDialog #btnZipGo{
+	position: relative !important;
+	top:-7px !important;
+}
+
+.Explorer6 #vlDialog.countyDialog #advanceSearch{
+	margin-top: 20px !important;
+}
+
+.Explorer6 #dlDialog.countyDialog #advanceSearch{
+	margin-top: 20px !important;
+}
+
+#vlDialog.regionDialog #cmbRegion{
+	left:0 !important;
+	position:relative;
+	top:-1px !important;
+}
+
+#vlDialog.regionDialog #btnZipGo {
+	left:145px !important;
+	position:relative;
+	top:-18px !important;
+}
+
+.Explorer7 #vlDialog.regionDialog #btnZipGo {
+	left:145px !important;
+	position:relative;
+	top:-26px !important;
+}
+
+#dlDialog.countyDialog form#dlDialogform{
+	margin-top: 27px !important;
+}
+
+body.Explorer6 #vlDialog.regionDialog #btnZipGo {
+	left:164px !important;
+	position:relative;
+	top:-2px !important;
+}
+
+
+#vlDialog.infoDialog #editCounty {
+	left:151px;
+	position:relative;
+	top:-61px;
+	width:30px;
+}
+
+body.Explorer6 #vlDialog.infoDialog #editCounty {
+	left:151px;
+	position:relative;
+	top:-61px;
+	width:30px;
+}
+
+
+#vlDialog #btnClose {
+	background-image:url(/web/20090709061441im_/http://www.chevrolet.com/assets/en/images/tools/dealerlocator/btn_close.gif);
+	background-repeat:no-repeat;
+	color:#999999;
+	font-size:9px;
+	height:14px;
+	left:166px;
+	margin:0;
+	position:absolute;
+	text-decoration:none;
+	text-indent:-99999px;
+	top:4px;
+	width:50px;
+}
+
+#vlDialog #cmbCounty{
+     position: relative;
+	 left: 3px;
+	 top: 14px;
+}
+
+.Explorer6 #vlDialog #btnClose {
+	color: #999999;
+	font-size: 9px;
+	height: 14px;
+	left: 166px !important;
+	margin: 0 0 0 0;
+	position: absolute;
+	text-decoration: none;
+	top: 4px;
+	width:50px !important;
+	background-image:url(/web/20090709061441im_/http://www.chevrolet.com/assets/en/images/tools/dealerlocator/btn_close.gif);
+	background-repeat:no-repeat;
+	text-indent:-99999px;
+}
+
+
+.Explorer7 #vlDialog #btnClose {
+	color: #999999;
+	font-size: 9px;
+	height: 14px;
+	left: 154px !important;
+	margin: 0 0 0 0;
+	position: absolute;
+	text-decoration: none;
+	top: 0px;
+	width:50px !important;
+	background-image:url(/web/20090709061441im_/http://www.chevrolet.com/assets/en/images/tools/dealerlocator/btn_close.gif);
+	background-repeat:no-repeat;
+	text-indent:-99999px;
+}
+
+.Explorer6 #dlDialog #btnClose {
+	color: #999999;
+	font-size: 9px;
+	height: 14px;
+	left: 166px !important;
+	margin: 0 0 0 0;
+	position: absolute;
+	text-decoration: none;
+	top: 4px;
+	width:50px;
+	background-image:url(/web/20090709061441im_/http://www.chevrolet.com/assets/en/images/tools/dealerlocator/btn_close.gif);
+	background-repeat:no-repeat;
+	text-indent:-99999px;
+}
+
+body.Explorer6 #dlDialog.countyDialog form#dlDialogform a#btnClose{
+	top: -24px !important;
+
+}
+
+body.Explorer6 #dlDialog.regionDialog form#dlDialogform a#btnClose{
+	top: -24px !important;
+
+}
+
+
+#vlDialog #btnClose span {
+	display: none;
+	color: #0000FF;
+}
+
+#vlDialog span {
+
+		display: block;
+	margin: 10px 0 0 10px;
+}
+
+#vlDialog.infoDialog span {
+	display: block;
+	margin:-11px 0 0 40px;
+}
+#vlDialog div.infoDialog p {
+	margin: 29px 24px -37px 10px !important;
+}
+
+#vlDialog div.countyDialog p {
+	margin: 29px 24px -37px 10px !important;
+}
+
+#vlDialog input {
+	border: medium none;
+	float: left;
+	font-size: 9px;
+	height:12px;
+	margin:25px 3px 0 30px;
+	padding:3px 2px 0 4px;
+	width: 78px;
+	border:1px solid #646B70!important;
+}
+
+/* vehicle locator highspeed dialog position */
+#dlDialog {
+	background:White none repeat scroll 0 0;
+	border:1px solid #646B70 !important;
+	display:block;
+	font-family:Verdana;
+	font-size:9px;
+	min-height:85px;
+	padding:0;
+	position:absolute;
+	width:220px;
+	z-index:100;
+}
+
+.Explorer7 #vlDialog {
+	height:auto;
+}
+
+#dlDialog.zipCodeDialog #advanceSearch {
+	font-size:9px !important;
+	margin:55px 0 10px 0px !important;
+}
+
+.Explorer7 #dlDialog.zipCodeDialog #advanceSearch {
+	font-size:9px !important;
+	margin:69px 0 10px -20px !important;
+}
+
+
+body.Explorer6 #dlDialog.zipCodeDialog #advanceSearch {
+	font-size:9px !important;
+	margin:55px 0 10px 0px !important;
+	width: 171px !important;
+}
+
+body.Explorer6 #dlDialog.countyDialog #advanceSearch {
+	font-size:9px !important;
+	margin:55px 0 10px 0px !important;
+	width: 171px !important;
+}
+
+
+#dlDialog a {
+	color:#363636;
+	display:block;
+	margin:28px 0 0 0;
+	text-align:center;
+}
+#dlDialog a:hover {
+	color:#e1a504;
+}
+#dlDialog a:active {
+	color: #b49d3f;
+}
+#dlDialog a:visited {
+	color: #646b70;
+}
+
+#dlDialog #btnClose {
+	background-image:url(/web/20090709061441im_/http://www.chevrolet.com/assets/en/images/tools/dealerlocator/btn_close.gif);
+	background-repeat:no-repeat;
+	color:#999999;
+	font-size:9px;
+	height:14px;
+	left:166px;
+	margin:0;
+	position:absolute;
+	text-decoration:none;
+	text-indent:-99999px;
+	top:4px;
+	width:50px;
+	}
+
+#dlDialog #btnClose span {
+	display: none;
+	color: #0000FF;
+}
+
+#dlDialog span {
+	display: block;
+	margin: 10px 0 0 10px;
+}
+
+#dlDialog p {
+	margin:8px 20px 5px 7px;
+}
+
+.Explorer7 #dlDialog p {
+	margin:8px 20px 5px 7px;
+}
+
+.vlDialog p{
+	margin: 8px 20px 5px 0px;
+}
+
+#dlDialog input {
+	float: left;
+	font-size: 9px;
+	height:12px;
+	margin:25px 3px 0 30px;
+	padding:3px 2px 0 4px;
+	width: 78px!important;
+	border:1px solid #646B70!important;
+}
+
+#dlDialog input#btnZipGo {
+	display: block;
+	height: 16px;
+	width: 36px!important;
+	text-indent:-9999px;
+	background-image:url(/web/20090709061441im_/http://www.chevrolet.com/assets/en/images/tools/dealerlocator/btn_go.gif);
+	background-position: 0px 0px;
+	background-repeat:no-repeat;
+    border:0 none !important;
+	cursor:pointer;
+	font-size: 1px;
+	left:155px!important;
+	color: #D6D7D9!important;
+}
+
+.Explorer7 #dlDialog input#btnZipGo {
+	top:-22px !important; width:36px !important;
+}
+
+
+#dlDialog input#btnZipGo:hover {
+	display: block;
+	height: 16px;
+	width: 36px!important;
+	text-indent:-9999px;
+	background-image:url(/web/20090709061441im_/http://www.chevrolet.com/assets/en/images/tools/dealerlocator/btn_go.gif);
+	background-position: 0px -15px;
+	background-repeat:no-repeat;
+    border:0 none !important;
+	cursor:pointer;
+	font-size: 1px;
+	left:155px!important;
+	color: #D6D7D9!important;
+}
+
+#dlDialog input#btnZipGo:active {
+	display: block;
+	height: 16px;
+	width: 36px!important;
+	text-indent:-9999px;
+	background-image:url(/web/20090709061441im_/http://www.chevrolet.com/assets/en/images/tools/dealerlocator/btn_go.gif);
+	background-position: 0px -30px;
+	background-repeat:no-repeat;
+    border:0 none !important;
+	cursor:pointer;
+	font-size: 1px;
+	left:155px!important;
+	color: #D6D7D9!important;
+}
+
+
+@media screen and (-webkit-min-device-pixel-ratio:0){
+	#dlDialog input#btnZipGo {
+
+	top:-146px!important;
+	left:135px!important;
+	background-position: 0px 0px;
+
+}
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0){
+	#dlDialog input#btnZipGo:hover {
+
+	top:-25px!important;
+	left:135px!important;
+	background-position: 0px -15px;
+
+}
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0){
+	#dlDialog input#btnZipGo:active {
+
+	top:-25px!important;
+	left:135px!important;
+	background-position: 0px -30px;
+
+}
+}
+
+.Explorer7 div#vlDialog form#vlDialogform div#buttonsInfo input#btnZipGo{
+	left:70px !important;
+}
+
+.Explorer7 div#vlDialog.infoDialog form#vlDialogform  div#buttonsInfo input#btnZipGo{
+	left:71px !important; text-indent: -9999px; line-height: 100px; top: 26px !important;
+
+}
+
+.Explorer7 div#vlDialog.infoDialog form#vlDialogform  div#buttonsInfo input#btnZipGo:hover{
+	left:71px !important;text-indent: -9999px; line-height: 100px; top: 26px !important;
+
+}
+
+.Explorer7 div#vlDialog.infoDialog form#vlDialogform  div#buttonsInfo input#btnZipGo:active{
+	left:71px !important;text-indent: -9999px; line-height: 100px; top: 26px !important;
+
+}
+
+
+
+.Explorer7 #vlDialog.infoDialog form#vlDialogform a#advanceSearch{
+	margin-top: 0px !important; margin-left: 0px !important;
+	width: 220px !important;
+}
+
+
+
+div#vlDialog.infoDialog form#vlDialogform div#buttonsInfo input#btnZipGo{
+	left:61px !important;
+	margin: 1px 0 0 88px !important;
+	width:36px !important
+}
+
+
+div#vlDialog.infoDialog form#vlDialogform div#buttonsInfo input#btnZipGo:hover{
+	left:61px !important;
+	margin: 1px 0 0 88px !important;
+	width:36px !important
+}
+
+div#vlDialog.infoDialog form#vlDialogform  div#buttonsInfo input#btnZipGo:active{
+	left:61px !important;
+	margin: 1px 0 0 88px !important;
+	width:36px !important
+}
+
+
+.Explorer7 div#vlDialog.infoDialog form#vlDialogform div#buttonsInfo input#btnZipGo:hover{
+
+	margin:1px 0 0 88px !important;
+	width:36px !important;
+	top: 26px !important;
+}
+
+
+
+
+
+#vlDialog.infoDialog #form#vlDialogform div#buttonsInfo
+@media screen and (-webkit-min-device-pixel-ratio:0){
+	#vlDialog input#btnZipGo {
+
+	top:-191px!important;
+	left:135px!important;
+	right: 30px;
+	position:relative !important;
+
+}
+}
+
+
+
+
+#dlDialog.countyDialog #btnZipGo{
+	left:143px !important;
+	margin:-16px 0 3px;
+	position:relative;
+	top:-14px !important;
+	width:36px;
+}
+
+#dlDialog.regionDialog #editZipcode{width:30px; position:relative; top:-42px; left:102px;}
+
+#dlDialog.regionDialog #editCounty{width:30px; position:relative; top:-41px; left:152px;}
+
+#dlDialog.regionDialog p+p {margin:-36px 20px 5px 10px;}
+
+#dlDialog.regionDialog #btnZipGo{
+	left:146px !important;
+	position:relative !important;
+	top:-8px !important;
+	width:36px;
+
+}
+
+
+#dlDialog.regionDialog form#dlDialogform{
+	margin-top: 27px !important;
+}
+#advanceSearch{
+
+	font-size: 9px !important;
+}
+
+div.countyDialog #advanceSearch{
+
+	font-size:9px !important;
+	left:14px !important;
+	padding-bottom:6px;
+	position:relative;
+	text-align:center;
+	top:0px !important;
+	width:171px;
+}
+
+
+@media screen and (-webkit-min-device-pixel-ratio:0){
+	div.countyDialog #advanceSearch{
+
+	font-size:9px !important;
+	left:0px !important;
+	padding-bottom:6px;
+	position:relative;
+	text-align:center;
+	top:0px !important;
+	width:220px !important;
+}
+}
+
+.Explorer7 div.countyDialog #advanceSearch{
+	left:0px !important;
+	width:221px;
+	margin-left: -20px !important;
+	margin-top: 69px;
+}
+
+div.regionDialog #advanceSearch{
+
+	font-size:9px !important;
+	left:14px !important;
+	padding-bottom:6px;
+	position:relative;
+	text-align:center;
+	top:0px !important;
+	width:171px;
+}
+
+#dlDialog.regionDialog #advanceSearch {
+	font-size:9px !important;
+	padding-bottom:7px;
+
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0){
+	#dlDialog.regionDialog #advanceSearch {
+	font-size:9px !important;
+	padding-bottom:7px;
+	width: 220px !important;
+	left: 0px;
+
+}
+}
+
+div#byoDialog.infoDialog form#byoDialogform p.plocation{
+
+	margin:44px 0 0 37px !important;
+}
+
+.plocation {
+	height:15px;
+	padding-left:21px !important;
+	padding-top:34px !important;
+	width:180px;
+}
+
+#vlDialog.regionDialog #advanceSearch {
+	font-size:9px !important;
+	left:0px !important;
+	margin-bottom:5px;
+	margin-right:0 !important;
+	width:220px;
+
+
+}
+
+.Explorer6 .plocation{
+	height:15px;
+	width:140px;
+	padding-top:24px !important;
+	margin-left: 6px !important;
+	margin-right: 0px !important;
+
+}
+
+.Explorer7 .plocation{
+	height:15px !important;
+	width:140px !important;
+	padding-top:24px !important;
+	margin-left: 6px !important;
+	margin-right: 0px !important;
+
+}
+
+.Explorer7 #dlDialog.infoDialog #btnZipGo{
+	position:relative !important;
+	top:-22px !important;
+	left: 165px !important;
+	width:36px !important;
+}
+
+
+.Explorer6 #btnClose{
+	position:relative !important;
+	left: 165px !important;
+}
+
+
+
+@media screen and (-webkit-min-device-pixel-ratio:0){
+	#dlDialog.countyDialog #btnZipGo {
+		left:155px !important;
+		position:relative !important;
+		top:0px !important;
+		width:40px;
+	}
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0){
+	#dlDialog.regionDialog #cmbRegion{
+		left:-30px;
+		position:relative;
+		top:-5px;
+	}
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0){
+	#dlDialog.regionDialog #btnZipGo {
+		left:147px !important;
+		position:relative !important;
+		top:5px !important;
+		width:40px;
+	}
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0){
+	#vlDialog #cmbCounty{
+		position: relative !important;
+		left: -20px !important;
+		top: 15px !important;
+	}
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0){
+	#vlDialog.countyDialog #btnZipGo {
+		position: relative !important;
+		top:12px !important;
+		left: 140px !important;
+	}
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0){
+	#vlDialog.regionDialog #cmbRegion {
+		left:-30px !important;
+		position:relative;
+		top:-20px;
+}
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0){
+	#vlDialog.regionDialog #btnZipGo {
+		left:147px !important;
+		position:relative !important;
+		top:-3px !important;
+		width:40px;
+	}
+}
+
+.plocation em{
+	float:left;
+}
+.plocation span{
+	margin:0 0 0 0!important;
+	padding:0 0 0 0!important;
+	width:42px!important;
+	float:left;
+}
+
+div.infoDialog #editZipcode{
+	margin:-1px 0px 0px 88px !important;
+	width:30px!important;
+}
+
+#dlDialog.infoDialog form#dlDialogform div#buttonsInfo input#btnZipGo{
+	left:67px !important;
+	margin:9px 0 0 88px !important;
+	width:36px !important
+}
+
+body.Explorer6 #dlDialog.infoDialog form#dlDialogform div#buttonsInfo input#btnZipGo{
+	left:80px !important !important;
+	margin:43px 0 0 88px !important;
+	width:36px !important;
+	top: 0px !important;
+	position: absolute !important;
+	text-indent: -9999px; line-height: 100px;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0){
+#dlDialog.infoDialog form#dlDialogform div#buttonsInfo input#btnZipGo{
+	left:67px !important;
+	margin:9px 0 0 88px !important;
+  position:relative !absolute;
+	top: 30px !important;
+	width:36px !important
+}
+
+}
+
+.Explorer7 #dlDialog.infoDialog form#dlDialogform div#buttonsInfo input#btnZipGo{
+	top: 19px !important; position: absolute !important; margin:9px 0 0 88px !important;
+	left:77px !important;
+}
+
+
+body.Explorer6 div.infoDialog form#dlDialogform div#buttonsInfo input#btnZipGo{
+	left:-15px !important;
+	margin:-1px 0 0 88px !important;
+	position:relative !important;
+	top:-145px !important;
+	width:36px !important
+}
+
+
+
+div.countyDialog #editZipcode{
+	margin:-14px 0 0 101px !important;
+	width:30px!important;
+}
+
+
+.Explorer7 div.countyDialog #editZipcode{
+	top: -12px  !important;
+	width:30px!important;
+	margin-left: 120px !important;
+}
+
+body.Explorer6 div.countyDialog #editZipcode{
+	margin:-14px 0 0 101px !important;
+	width:30px!important;
+}
+
+
+#buttonsInfo {
+
+	min-height:20px;
+	text-align:center;
+
+}
+
+.Explorer6 #buttonsInfo {
+	width:100%;
+	height:20px;
+	text-align: center;
+	margin: 0px;
+	padding-top: 0px !important;
+	padding-bottom: 5px;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0){
+	#buttonsInfo {
+	width:100%;
+	height:20px;
+	text-align: center;
+	margin: 0px;
+	padding-top: 0px !important;
+	padding-bottom: 5px;
+
+}
+}
+
+
+#dlDialog.infoDialog #editCounty {
+	left:144px;
+	position:relative;
+	top:-42px;
+	width:30px;
+}
+
+#dlDialog.infoDialog span {
+	display:block;
+	margin:-12px 0 0 40px;
+}
+
+.Firefox2 #advanceSearch{margin:38px 0 0 28px!important;}
+
+
+
+#buttonsInfo a#advanceSearch{
+
+	left:29px;
+	margin:0 auto 0 0;
+	padding:0;
+	position:relative;
+	width:171px !important;
+}
+
+
+body.Explorer6 #buttonsInfo a#advanceSearch{
+
+	display:inline !important;
+	margin-left: 0px !important;
+	position: absolute !important;
+	width: 220px;
+
+}
+
+
+@media screen and (-webkit-min-device-pixel-ratio:0){
+	#buttonsInfo a#advanceSearch{
+
+	width: 220px !important; margin-left: -20px !important; float: left;
+
+}
+}
+
+#byoDialogform .plocation{
+	padding:0 0 0 0 !important;
+	margin: 44px 0 0 63px !important;
+	height:15px;
+	width:140px;
+}
+#byoDialogform #buttonsInfo {
+	width:150px;
+	margin:0 0 0 105px;
+	padding:15px 0 0 0 !important;
+}
+
+.Explorer7 #byoDialogform #buttonsInfo, .Explorer6 #byoDialogform #buttonsInfo {
+
+	margin:0 0 0 50px;
+
+}
+#byoDialogform #btnZipGo{
+	margin:0 auto!important;
+	float:left!important;
+
+}
+
+#wsDialog{
+	display:none;
+	background:url(/web/20090709061441im_/http://www.chevrolet.com/assets/en/images/global/worldwide/box_background.gif) no-repeat;
+	background-position:left 27px;
+	width:255px!important;
+	height:160px;
+	border:none;
+	display: none;
+	font-family: Verdana;
+	font-size: 10px;
+	padding:0;
+	margin:0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 500;
+}
+
+#wsDialog.active{
+	display:block;
+}
+
+#wsDialog div{
+	float:left;
+	margin:0 10px 10px 0;
+}
+#wsDialog ul{
+	clear:both;
+	display:block;
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+
+#wsDialog ul#continentList{
+	margin:14px 0 0 23px;
+	padding:0;
+}
+
+#wsDialog ul#continentList li ul li{
+	margin:0;
+	padding:0 0 3px 5px;
+}
+
+#wsDialog ul#continentList li span:hover{
+	cursor:pointer;
+}
+
+#wsDialog ul li{
+	margin:0;
+	padding:0 0 11px 0;
+	width:120px;
+	font-family:Verdana, Arial, Helvetica, sans-serif!important;
+	font-size:10px!important;
+	font-weight:bold!important;
+	color:#646B70!important;
+	list-style:none!important;
+}
+
+#wsDialog ul#continentList li ul li a, #wsDialog ul#continentList li ul li a:hover, #wsDialog ul#continentList li ul li a:active, #wsDialog ul#continentList li ul li a:visited, #wsDialog ul#continentList li ul li a span, #wsDialog ul#continentList li ul li a:hover span, #wsDialog ul#continentList li ul li a:active span, #wsDialog ul#continentList li ul li a:visited span{
+	margin:0;
+	padding:5px 0 0 0;
+	font-family:Verdana, Arial, Helvetica, sans-serif!important;
+	font-size:10px!important;
+	font-weight:normal!important;
+	color:#363636!important;
+	text-decoration:none!important;
+}
+
+#wsDialog h4{
+	background:url(/web/20090709061441im_/http://www.chevrolet.com/assets/en/images/global/worldwide/box_title_chevrolet.gif) top left no-repeat;
+	text-indent:-9999px;
+	width:255px;
+	height:27px;
+}
+a#wsCloseButton{
+   position:relative;
+   background: url(/web/20090709061441im_/http://www.chevrolet.com/assets/en/images/global/worldwide/btn_close.jpg) no-repeat;
+   top:4px;
+   width:52px;
+   height:16px;
+   left:-7px;
+   *top:20px;
+   *left:-2px;
+   float: right;
+   text-indent:-9999px;
+}
+/*
+navigation - vehicles dropdown
+*/
+#gMdsNav #mdsVehicleNav.active {
+	display: block;
+	position: absolute;
+	top: 72px;
+	left: 200px;
+	z-index: 10000;
+}
+
+#mdsVehicleNav ul {
+	display: block;
+}
+
+#gMdsNav #mdsVehicleNav ul#vehicles,#gMdsNav #mdsVehicleNav ul#vehicles ul,#gMdsNav #mdsVehicleNav ul#vehicles li {
+	margin: 0;
+	padding: 0;
+	float: none;
+}
+
+#gMdsNav #mdsVehicleNav ul#vehicles {
+	background: #eee;
+	z-index: 3000;
+}
+
+#gMdsNav #mdsVehicleNav ul#vehicles li {
+	list-style-type: none;
+	font-size: 12px;
+	xpadding: 2px 10px;
+	width: 150px;
+	height: 20px;
+}
+
+ul#vehicles li .flyout {
+	display: none;
+}
+
+ul#vehicles li.active {
+	background-color: #ccc;
+}
+
+ul#vehicles li.active .flyout,
+ul#vehicles li.active .subnav {
+	position: absolute;
+	display: block;
+	background-color: #eeeeee;
+	border: red 1px solid;
+	left: 150px;
+	width: 400px;
+	height: 150px;
+}
+
+.infoFlyout, .thumbFlyout{
+	float: left;
+	padding: 5px;
+	width: 190px;
+	text-align: center;
+}
+
+.flash-txt{
+	visibility: hidden;
+	overflow: auto;
+	height: 0px;
+}
+
+/*------------------------lowspeed vs highspeed------------------------*/
+#gMdsNav, #gMdsContent{
+	display: none;
+}
+
+#pMasthead, #gMdsContent, #pContent{
+    display:none;
+}
+
+#gMdsContentNavFlashHook{
+	display: block;
+}
+
+.highspeed #gMdsContentNavFlashHook, .lowspeed #gMdsContentNavFlashHook{
+	display: block;
+	position: absolute;
+}
+
+#gMdsContent{
+	margin-top: 115px;
+}
+
+/*This style is for improve user's experience in the site; it will allow to see the footer at bottom
+ of the page while it is being loaded*/
+#gMdsContentNav{
+	min-height:700px;
+}
+
+/*------------------------lowspeed vs highspeed END------------------------*/
+
+.highspeed #gMdsContentFlashHook{
+	margin-top: 86px;
+	*margin-top: 97px;
+}
+
+#gMdsFooter {
+	padding:40px 0px 0px 86px;
+	width:900px;
+}
+
+/* footer style */
+#gMdsFooter #gmLogo{
+	display:inline;
+	float:left;
+	position:relative;
+	height:25px;
+	width:24px;
+	left:2px;
+}
+
+#gMdsFooter #gMdsCopyNav {
+	clear: both;
+	font-size:10px;
+	margin:0px 0px 3px 31px;
+	width:875px;
+}
+
+#gMdsFooter #gMdsCopyNav li{
+	display: inline;
+	list-style-type: none;
+	border-right: 1px solid #dddddd;
+	padding:0px 8px;
+}
+
+#gMdsFooter #gMdsCopyLegal li{
+	display: inline;
+	list-style-type: none;
+	border-right: 1px solid #dddddd;
+	padding:0px 8px;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0){
+
+#gMdsFooter #gMdsCopyLegal li.first{
+	padding-right: 0px!important;
+}
+
+}
+
+#gMdsFooter #gMdsCopyLegal li.first{
+	width:162px;
+	font-size:10px!important;
+	color:	#363636;
+	padding-right: 4px;
+}
+
+#gMdsFooter #gMdsCopyLegal{
+	clear: both;
+	font-size:10px;
+	margin:0px 0px 0px 29px;
+	width:800px;
+}
+
+#gMdsFooter ul li.last {
+	border: none;
+}
+
+#gMdsFooter ul li.first a {
+	padding-left: 0;
+}
+
+/*
+	footer - disclaimer
+*/
+#gMdsDisclaimer {
+	color:#363636;
+	font-size:9px;
+	padding:0px 0px 30px 0px;
+}
+
+#gMdsDisclaimer dt {
+	text-align: right;
+	display: block;
+	margin: 0px;
+	padding: 0px;
+	float: left;
+	width: 7px;
+	font-size: 9px;
+}
+
+#gMdsDisclaimer dt span {
+	width: 7px;
+	color:#666666;
+	line-height: 15px !important;
+}
+
+
+#gMdsDisclaimer dd span{
+	margin: 0px 0px 10px 1px;
+	*margin-left:0px!important;
+	_margin-left:-3px!important;
+	padding: 0px;
+	color: #646b70;
+	font-size: 9px;
+	line-height: 15px !important;
+}
+
+#gMdsDisclaimer a span, #gMdsDisclaimer a:active span, #gMdsDisclaimer a:hover span, #gMdsDisclaimer a:visited span, #gMdsDisclaimer a, #gMdsDisclaimer a:active, #gMdsDisclaimer a:hover, #gMdsDisclaimer a:visited, #gMdsDisclaimer .clickable {
+	color:#363636;
+	font-size:10px;
+	font-family:verdana;
+	text-decoration:underline;
+}
+
+#disclaimerContainer dl{
+	color:#666666;
+	position:relative;
+	margin: 0px;
+	width:800px;
+	padding-top:17px;
+
+}
+
+#gMdsDisclaimer #disclaimerContainer{
+	float:left;
+left:0px;
+position:relative;
+width:800px;
+
+}
+
+#disclaimerContainer dl dt{
+	margin: 0px;
+}
+
+#disclaimerContainer dl dd{
+	margin-left:1em;
+	height:auto;
+	padding:0px 0px 8px 0px;
+	margin:0pt 0pt 10px 30px;
+}
+
+/*New Footer*/
+
+#gMdsFooter {
+	clear:both;
+	display:block;
+	margin:0pt;
+	margin-left:0px;
+
+	padding:34px 0pt 0pt;
+	width:910px;
+}
+
+#gMdsDisclaimer dl, #gMdsDisclaimer dl dt, #gMdsDisclaimer dl dd, #gMdsFooter #gMdsCopyright, #gMdsFooter #gAbout, #gMdsFooter #gMdsDisclaimer, #gMdsFooter ul, ul#gMdsCopyNav {
+	margin:0pt;
+	padding:0pt;
+}
+#gMdsFooter #gMdsCopyright, #gMdsFooter #gAbout, #gMdsFooter #gMdsDisclaimer {
+	clear:both;
+	float:left;
+	width:866px;
+}
+
+#gMdsFooter #gMdsDisclaimer {
+	float:left;
+	margin:18px 0pt 0pt;
+}
+#gMdsFooter #gMdsCopyright {
+	float:left;
+	background:url(/web/20090709061441im_/http://www.chevrolet.com/assets/en/images/global/chevy_global_footer_logo.jpg) no-repeat;
+	width: 980px;
+	height:60px;
+	background-position: right 19px;
+}
+#gMdsFooter #gMdsCopyright li span, #gMdsFooter #gMdsCopyright li{
+	font-size: 10px;
+	font-family: Verdana!important;
+}
+#gMdsFooter #gmLogo {
+	display:inline;
+	float:left;
+	height:25px;
+	position:relative;
+	top:27px;
+	width:24px;
+	margin-left:5px;
+}
+#gMdsFooter #gMdsCopyright #gMdsCopyLegal {
+	display:inline;
+	float:left;
+	margin:5px 0pt 0pt 31px !important;
+}
+#gMdsFooter ul li {
+	display:inline;
+	float:left;
+	list-style-image:none;
+	list-style-position:outside;
+	list-style-type:none;
+	padding-left:14px;
+	padding-right:14px;
+}
+#gMdsFooter ul li.last {
+	border:medium none !important;
+}
+#gMdsFooter ul li.first a {
+	padding-left:0pt;
+}
+#gMdsFooter ul li a:link span, #gMdsFooter ul li span.clickable {
+
+	text-decoration:underline;
+}
+#gMdsFooter ul li a {
+	text-decoration:none;
+}
+
+
+#gMdsFooter ul li.first {
+
+	padding-left:0pt;
+	width:160px;
+}
+
+#gMdsDisclaimer {
+
+	padding-top:15px;
+	width:550px;
+}
+#gMdsDisclaimer dt {
+	float:left;
+	text-align:right;
+	width:20px;
+}
+#gMdsDisclaimer dl dd {
+	margin:0pt 0pt 4px 30px;
+}
+
+
+/*------Activate and deactivate the visibility continents or countries------*/
+ul#continentList {
+	position:relative;
+	width:130px:
+}
+#continentList li ul.wsEnableCountry {
+	display: block;
+    width: 141px;
+	height: 99px!important;
+	overflow-x:hidden;
+	overflow-y:auto;
+	top:2px;
+	position:absolute;
+	left: 130px!important;
+}
+
+#wsDialog.activeCountries {
+	width: 300px;
+	background:url(/web/20090709061441im_/http://www.chevrolet.com/assets/en/images/global/worldwide/popup_box_background.gif) no-repeat;
+	background-position:left 27px;
+	width:309px!important;
+	height:160px;
+}
+
+.wsEnableCountry {
+	display: block !important;
+}
+
+.wsDisableCountry {
+	display: none !important;
+}
+
+ul.wsEnableCountry{
+	display: none;
+    width: 150px;
+	height: 100px!important;
+	overflow-x: hidden;
+	overflow-y: auto;
+	top:-11px;
+	position:absolute;
+	left: 100px!important;
+}
+.scroll{
+	display: none;
+    width: 150px;
+	height: 100px!important;
+	overflow-x: hidden;
+	overflow-y: auto;
+	top:-11px;
+	position:absolute;
+	margin-left: 120px!important;
+	background-color: #F2D2F2;
+
+}
+
+#wsDialog.activeCountries h4{
+	background:url(/web/20090709061441im_/http://www.chevrolet.com/assets/en/images/global/worldwide/popup_title_chevrolet.gif) top left no-repeat;
+	width:309px;
+	height:27px;
+}
+/*------Activate and deactivate the visibility continents or countries END------*/
+
+
+a, a span  {
+	 color : #363636 !important ;
+	 font-family : verdana !important ;
+	 text-decoration : underline ;
+	 line-height: normal;
+}
+
+a:hover span, a:hover {
+
+    color :#E1A504 !important;
+	font-family : verdana !important ;
+	text-decoration : underline ;
+	line-height: normal;
+
+}
+
+a:active span,a:active {
+
+	color : #B49D3F !important ;
+    font-family : verdana ;
+    text-decoration : underline ;
+    line-height: normal;
+}
+
+
+a:visited span,a:visited {
+	 color : #646b70 !important;
+	 font-family : verdana ;
+	 text-decoration : underline ;
+	 line-height: normal;
+
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0){
+	.infoDialog #btnZipGo{
+		left:180px !important;
+		width:45px !important;
+	}
+}
+
+
+
+p, fieldset, table, pre {
+	margin-bottom:1em;
+	padding-left:2px;
+}
+
+form#vlDialogform select#cmbCounty{
+	left:2px !important;
+	top:14px;
+}
+
+body.Explorer6 form#vlDialogform select#cmbCounty{
+	left:-30px !important;
+	top:14px;
+}
+
+
+@media screen and (-webkit-min-device-pixel-ratio:0){
+
+form#vlDialogform select#cmbCounty{
+	left:-30px !important;
+	top:14px;
+}
+}
+
+.Explorer7 form#vlDialogform{
+ 	margin-top: 6px;
+ }
+form#dlDialogform  select#cmbCounty{
+	left:6px !important;
+	top:10px;
+}
+form#dlDialogform select#cmbRegion{
+	left:6px !important;
+	position:relative !important;
+	top:9px !important;
+	}
+
+body.Explorer6 form#dlDialogform select#cmbCounty{
+	left:-25px !important;
+	top:-25px;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0){
+	form#dlDialogform select#cmbRegion {
+	left:-25px !important;
+	top: 5px !important;
+	position: relative !important;
+}
+}
+
+
+
+
+form#dlDialogform div#buttonsInfo a#advanceSearch{
+	left: 27px;
+	position: relative;
+}
+
+.Explorer7 form#dlDialogform div#buttonsInfo a#advanceSearch{
+	margin-left: 0px !important; width: 220px!important;
+	position: relative;
+	margin-top: 0px !important;
+
+}
+
+
+
+div.countyDialog form#dlDialogform select#cmbCounty{
+	position:relative !important;
+	top:3px !important
+}
+
+body.Explorer6 div.countyDialog form#dlDialogform select#cmbCounty{
+	position: relative !important;
+	top: 11px !important;
+}
+
+
+@media screen and (-webkit-min-device-pixel-ratio:0){
+	form#dlDialogform select#cmbCounty{
+	position: relative !important;
+	left: -30px !important;
+	top: 10px !important;
+}
+
+}
+
+
+#gMdsFooter #gMdsCopyright #PrivacyStatement span {
+	color:#FF0000 !important;  
+
+}
+
+#gMdsFooter #gMdsCopyright #PrivacyStatement span:hover {
+	color:#FF0000 !important;
+
+} 
+
+
+
+
+
+
+/*
+     FILE ARCHIVED ON 06:14:41 Jul 09, 2009 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:23:32 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 93.48
+  exclusion.robots: 0.068
+  exclusion.robots.policy: 0.059
+  cdx.remote: 0.052
+  esindex: 0.008
+  LoadShardBlock: 66.265 (3)
+  PetaboxLoader3.datanode: 80.601 (4)
+  load_resource: 46.712
+  PetaboxLoader3.resolve: 23.495
+*/

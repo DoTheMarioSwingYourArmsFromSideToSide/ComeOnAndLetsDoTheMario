@@ -1,0 +1,175 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+// JavaScript Document
+
+var $_ = jQuery;
+$_(document).ready(function(){
+	//$_("#mdsNavDivisionNav").superfish();
+
+$_("#mdsNavDivisionNav li").addClass("subnav");
+/*
+$_("subHeader").css({
+          top:54,
+          opacity:0,
+          display:'none'
+        }).animate({
+          opacity: 1,
+          display:'block'
+        }, 100);
+*/
+
+			$_('.familylink').hover(
+				function () {
+					$_("div.flyout", this).animate({"left": "90px", "opacity":1}, "fast");
+					$_("div.flyout", this).addClass("active");
+					},
+				function () {
+					$_("div.flyout", this).animate({"left": "0", "opacity":0}, "fast");
+					$_("div.flyout", this).removeClass("active");
+					}
+				);
+			
+			$_('.brand').hover(
+				function () {
+					$_("div.flyout", this).animate({"left": "90px", "opacity":1}, "fast");
+					$_("div.flyout", this).addClass("active");
+					},
+				function () {
+					$_("div.flyout", this).animate({"left": "0", "opacity":0}, "fast");
+					$_("div.flyout", this).removeClass("active");
+					}
+				);
+			 $_('.segment').hover(
+					function(){
+						$_('> .flyout', this).addClass("active");
+					},
+					function(){
+						$_('> .flyout', this).removeClass("active");
+					}
+				);
+			 $_('.series').hover(
+				function () {
+					$_("div.flyout", this).animate({"left": "150px", "opacity":1}, "fast");
+					$_("div.flyout", this).addClass("active");
+					},
+				function () {
+					$_("div.flyout", this).animate({"left": "0", "opacity":0}, "fast");
+					$_("div.flyout", this).removeClass("active");
+					}
+				);
+			 
+       
+$_('#mdsNavDivisionNav li').each(function () {
+    // options
+    var distance =0; /* how far to place the div from the target. for slide animation */
+    var time = 100;
+    var hideDelay = 1;
+
+    var hideDelayTimer = null;
+
+    // tracker
+    var beingShown = false;
+    var shown = false;
+    
+    var trigger = $_(this);
+    
+    switch(trigger.attr("id")){
+      case "mdsNavDivisionVehicles":
+        var popup = $_("#mdsNavVehicles").css('opacity', 0);
+        break;
+      case "mdsNavDivisionPricing":
+        var popup = $_("#mdsNavPricing").css('opacity', 0);
+        break;
+      case "mdsNavDivisionExperience":
+        var popup = $_("#mdsNavExperience").css('opacity', 0);
+        break;
+      case "mdsNavDivisionOwners":
+        var popup = $_("#mdsNavOwners").css('opacity', 0);
+        break;
+    }
+      
+    // set the mouseover and mouseout on both element
+    $_([trigger.get(0), popup.get(0)]).mouseover(function () {
+      // stops the hide event if we move from the trigger to the popup element
+      if (hideDelayTimer) clearTimeout(hideDelayTimer);
+
+      // don't trigger the animation again if we're being shown, or already visible
+      if (beingShown || shown) {
+        return;
+      } else {
+        beingShown = true;
+
+        // reset position of popup box
+        popup.css({
+          top:54,
+          display: 'inline-block', // brings the popup back in to view
+					height:'auto'
+        })
+
+        // (we're using chaining on the popup) now animate it's opacity and position
+        .animate({
+          top: '-=' + distance + 'px',
+          opacity: 1
+        }, time, function() {
+          // once the animation is complete, set the tracker variables
+          beingShown = false;
+          shown = true;
+        });
+      }
+    }).mouseout(function () {
+      // reset the timer if we get fired again - avoids double animations
+      if (hideDelayTimer) clearTimeout(hideDelayTimer);
+      
+      // store the timer so that it can be cleared in the mouseover if required
+      hideDelayTimer = setTimeout(function () {
+        hideDelayTimer = null;
+        popup.animate({
+          top: '-=' + distance + 'px',
+          opacity: 0
+        }, time, 'linear', function () {
+          // once the animate is complete, set the tracker variables
+          shown = false;
+          // hide the popup entirely after the effect (opacity alone doesn't do the job)
+          popup.css('display', 'none');
+        });
+      }, hideDelay);
+    });
+  });
+ 
+			
+			
+			
+		});
+
+
+}
+/*
+     FILE ARCHIVED ON 02:50:48 Oct 29, 2010 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:47:37 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 892.298
+  exclusion.robots: 0.407
+  exclusion.robots.policy: 0.371
+  cdx.remote: 0.087
+  esindex: 0.012
+  LoadShardBlock: 864.582 (3)
+  PetaboxLoader3.datanode: 898.359 (5)
+  load_resource: 194.16 (2)
+  PetaboxLoader3.resolve: 51.084 (2)
+*/

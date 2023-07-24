@@ -1,0 +1,140 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+// masthead price as shown
+var priceasshown_silverado2008="$40,984*";
+
+
+// Legacy
+var startingatprice_silverado="$23,605*";
+
+// flyout starting at price
+var startingatprice_silverado_flyout="$18,100*";
+var priceasshown_silverado_flyout="$40,120*";
+
+// landing page prices
+var startingatprice_silverado2008_landing="$18,100*";
+var priceasshown_silverado2008_landing="$40,320*";
+
+// thumbnail price as shown
+var priceasshown_silverado2008_halfton="$40,320*";
+
+
+// thumbnail starting at price
+var startingatprice_silverado2008_halfton="$18,100*";
+
+
+// trim levels starting at price
+var startingatprice_silverado2008_halfton_wt_2wd="$18,100*";
+var startingatprice_silverado2008_halfton_wt_4x4="$21,290*";
+
+var startingatprice_silverado2008_halfton_1ls_2wd="$28,595*";
+var startingatprice_silverado2008_halfton_1ls_4x4="$31,695*";
+
+var startingatprice_silverado2008_halfton_2ls_2wd="";
+var startingatprice_silverado2008_halfton_2ls_4x4="";
+
+var startingatprice_silverado2008_halfton_1lt_2wd="$25,060*";
+var startingatprice_silverado2008_halfton_1lt_4x4="$27,985*";
+
+var startingatprice_silverado2008_halfton_2lt_2wd="$29,095*";
+var startingatprice_silverado2008_halfton_2lt_4x4="$32,195*";
+
+var startingatprice_silverado2008_halfton_ltz_2wd="$32,240*";
+var startingatprice_silverado2008_halfton_ltz_4x4="$35,340*";
+
+var startingatprice_silverado2008_halfton_3lt_2wd="";
+var startingatprice_silverado2008_halfton_3lt_4x4="";
+
+
+// thumbnail price as shown
+var priceasshown_silverado2008_2500hd="$36,115";
+
+
+// thumbnail starting at price
+var startingatprice_silverado2008_2500hd="$24,860*";
+
+
+// trim levels starting at price
+var startingatprice_silverado2008_2500hd_wt_2wd="$24,860*";
+var startingatprice_silverado2008_2500hd_wt_4x4="$27,960*";
+
+var startingatprice_silverado2008_2500hd_1ls_2wd="$xx,xxx*";
+var startingatprice_silverado2008_2500hd_1ls_4x4="$xx,xxx*";
+
+var startingatprice_silverado2008_2500hd_2ls_2wd="$xx,xxx*";
+var startingatprice_silverado2008_2500hd_2ls_4x4="$xx,xxx*";
+
+var startingatprice_silverado2008_2500hd_1lt_2wd="$28,505*";
+var startingatprice_silverado2008_2500hd_1lt_4x4="$31,605*";
+
+var startingatprice_silverado2008_2500hd_2lt_2wd="$32,653*";
+var startingatprice_silverado2008_2500hd_2lt_4x4="$35,735*";
+
+var startingatprice_silverado2008_2500hd_ltz_2wd="$35,530*";
+var startingatprice_silverado2008_2500hd_ltz_4x4="$38,630*";
+
+var startingatprice_silverado2008_2500hd_3lt_2wd="$xx,xxx*";
+var startingatprice_silverado2008_2500hd_3lt_4x4="$xx,xxx*";
+
+
+// thumbnail price as shown
+var priceasshown_silverado2008_3500hd="$45,195*";
+
+
+// thumbnail starting at price
+var startingatprice_silverado2008_3500hd="$29,170*";
+
+
+// trim levels starting at price
+var startingatprice_silverado2008_3500hd_wt_2wd="$29,065*";
+var startingatprice_silverado2008_3500hd_wt_4x4="$28,740*";
+
+var startingatprice_silverado2008_3500hd_1ls_2wd="$xx,xxx*";
+var startingatprice_silverado2008_3500hd_1ls_4x4="$xx,xxx*";
+
+var startingatprice_silverado2008_3500hd_2ls_2wd="$xx,xxx*";
+var startingatprice_silverado2008_3500hd_2ls_4x4="$xx,xxx*";
+
+var startingatprice_silverado2008_3500hd_1lt_2wd="$31,610*";
+var startingatprice_silverado2008_3500hd_1lt_4x4="$32,105*";
+
+var startingatprice_silverado2008_3500hd_2lt_2wd="$33,440*";
+var startingatprice_silverado2008_3500hd_2lt_4x4="$36,540*";
+
+var startingatprice_silverado2008_3500hd_ltz_2wd="$36,075*";
+var startingatprice_silverado2008_3500hd_ltz_4x4="$39,175*";
+
+var startingatprice_silverado2008_3500hd_3lt_2wd="$xx,xxx*";
+var startingatprice_silverado2008_3500hd_3lt_4x4="$xx,xxx*";
+
+}
+/*
+     FILE ARCHIVED ON 04:11:00 Nov 15, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:00:24 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 83.421
+  exclusion.robots: 0.099
+  exclusion.robots.policy: 0.088
+  RedisCDXSource: 0.576
+  esindex: 0.007
+  LoadShardBlock: 66.096 (3)
+  PetaboxLoader3.datanode: 69.049 (4)
+  load_resource: 205.601
+  PetaboxLoader3.resolve: 163.666
+*/

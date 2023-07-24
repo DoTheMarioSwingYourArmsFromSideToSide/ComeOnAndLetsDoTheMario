@@ -1,0 +1,60 @@
+/* HOMEPAGE RULES */
+
+div#logo { margin-top:-1px; height:42px; }
+
+h1 { display:inline; float:right; width:610px; font-family:Helvetica, Tahoma, Arial, "Trebuchet MS", "Bitstream Vera Sans", sans-serif; font-weight:bold; font-size:2.5em; line-height:1em; vertical-align:middle; }
+
+div#baseballcard { display:none; position:absolute; top:1px; left:270px; z-index:900; width:320px; height:220px; }
+
+dl#masthead { width:620px;/* height:320px;*/ padding:0; border-top:1px solid rgb(87,136,173); }
+dl#masthead dt#masthead-photo { border-top:1px solid rgb(28,59,93); height: 322px; }
+
+ul#vehiclenav { height:70px; margin-top:0.8em; }
+html>body ul#vehiclenav { margin-left:3px; }
+ul#vehiclenav li { float:left; display:block; width:120px; height:70px; margin-left:2px; }
+
+ul#vehiclenav li a { display:block; width:120px; height:70px; background-repeat:no-repeat; cursor:pointer; }
+
+body.scholarships-landing h3 { margin-left: 1em; }
+body.scholarships-landing ul { margin-left: 1.25em; margin-bottom: 1em; padding-left : 1em; }
+
+/*HOMEPAGE ROLLOVERS*/
+li#vn-cars, li#vn-cars a, li#vn-cars a:visited, li#vn-cars a:active { background:url(/web/20070901004918im_/http://www.chevrolet.com/i/06/gui/nav/home_thumb_cars_en.png) 0 -70px; }
+li#vn-cars a:hover { background:url(/web/20070901004918im_/http://www.chevrolet.com/i/06/gui/nav/home_thumb_cars_en.png) 0 0; }
+
+li#vn-trucks a, li#vn-trucks a:visited, li#vn-trucks a:active { background:url(/web/20070901004918im_/http://www.chevrolet.com/i/06/gui/nav/home_thumb_trucks_en.png) 0 -70px; }
+li#vn-trucks a:hover { background:url(/web/20070901004918im_/http://www.chevrolet.com/i/06/gui/nav/home_thumb_trucks_en.png) 0 0; }
+
+li#vn-suvs a, li#vn-suvs a:visited, li#vn-suvs a:active { background:url(/web/20070901004918im_/http://www.chevrolet.com/i/06/gui/nav/home_thumb_suvs_en.png) 0 -70px; }
+li#vn-suvs a:hover { background:url(/web/20070901004918im_/http://www.chevrolet.com/i/06/gui/nav/home_thumb_suvs_en.png) 0 0; }
+
+li#vn-vans a, li#vn-vans a:visited, li#vn-vans a:active { background:url(/web/20070901004918im_/http://www.chevrolet.com/i/06/gui/nav/home_thumb_vans_en.png) 0 -70px; }
+li#vn-vans a:hover { background:url(/web/20070901004918im_/http://www.chevrolet.com/i/06/gui/nav/home_thumb_vans_en.png) 0 0; }
+
+li#vn-commercial a, li#vn-commercial a:visited, li#vn-commercial a:active { background:url(/web/20070901004918im_/http://www.chevrolet.com/i/06/gui/nav/home_thumb_commercial_en.png) 0 -70px; }
+li#vn-commercial a:hover { background:url(/web/20070901004918im_/http://www.chevrolet.com/i/06/gui/nav/home_thumb_commercial_en.png) 0 0; }
+
+ul#vehiclenav li a strong { overflow:hidden; display:block; height: 0px !important; height /**/:70px; padding-top:70px; }
+
+div#homepage-promo { width:618px; text-align:center; margin:10px 0 0 0; padding:0; }
+div#homepage-promo object#home-promo-object {margin-left:5px; text-align:center; }
+/*
+     FILE ARCHIVED ON 00:49:18 Sep 01, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 21:52:32 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 125.135
+  exclusion.robots: 0.096
+  exclusion.robots.policy: 0.085
+  cdx.remote: 0.072
+  esindex: 0.029
+  LoadShardBlock: 102.042 (3)
+  PetaboxLoader3.datanode: 147.385 (4)
+  load_resource: 109.091
+  PetaboxLoader3.resolve: 49.905
+*/

@@ -1,0 +1,75 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+// masthead price as shown
+//var priceasshown_equinox2008="$XX,XXX*";
+
+//Legacy
+//var startingatprice_equinox2008="$XX,XXX*";
+
+//flyout starting at price
+var startingatprice_equinox_flyout="$22,995*";
+var priceasshown_equinox_flyout="$24,705*";
+
+//landing
+var startingatprice_equinox2008_landing="$22,995*";
+var priceasshown_equinox2008_landing="$25,180*";
+
+// thumbnail price as shown
+var priceasshown_equinox2008_ls="$22,995*";
+var priceasshown_equinox2008_lt="$25,180*";
+var priceasshown_equinox2008_ltz="$27,695*";
+var priceasshown_equinox2008_sport="$27,995*";
+
+// thumbnails starting at price
+var startingatprice_equinox2008_ls="$22,995*";
+var startingatprice_equinox2008_lt="$23,855*";
+var startingatprice_equinox2008_ltz="$27,695*";
+var startingatprice_equinox2008_sport="$27,995*";
+
+// trim levels starting at price
+var startingatprice_equinox2008_1ls_fwd="$22,295*";
+var startingatprice_equinox2008_1ls_awd="$24,495*";
+
+var startingatprice_equinox2008_1lt_fwd="$23,855*";
+var startingatprice_equinox2008_1lt_awd="$25,455*";
+
+var startingatprice_equinox2008_2lt_fwd="$25,180*";
+var startingatprice_equinox2008_2lt_awd="$26,780*";
+
+var startingatprice_equinox2008_ltz_fwd="$27,695*";
+var startingatprice_equinox2008_ltz_awd="$29,295*";
+
+var startingatprice_equinox2008_sport_fwd="$27,995*";
+var startingatprice_equinox2008_sport_awd="$29,595*";
+
+}
+/*
+     FILE ARCHIVED ON 04:09:05 Nov 15, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 21:56:21 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 133.996
+  exclusion.robots: 0.076
+  exclusion.robots.policy: 0.068
+  cdx.remote: 0.051
+  esindex: 0.007
+  LoadShardBlock: 108.097 (3)
+  PetaboxLoader3.datanode: 73.324 (4)
+  load_resource: 95.959
+  PetaboxLoader3.resolve: 65.326
+*/

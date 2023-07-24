@@ -1,0 +1,44 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+_satellite.pushAsyncScript(function(event, target, $variables){
+  	(function(d,e,c,i,b,el,it) {
+		d._da_=d._da_||[];_da_.oldErr=d.onerror;_da_.err=[];
+		d.onerror=function(){_da_.err.push(arguments);_da_.oldErr&&_da_.oldErr.apply(d,Array.prototype.slice.call(arguments));};
+		d.DecibelInsight=b;d[b]=d[b]||function(){(d[b].q=d[b].q||[]).push(arguments);};
+		el=e.createElement(c),it=e.getElementsByTagName(c)[0];el.async=1;el.src=i;it.parentNode.insertBefore(el,it);
+	})(window,document,'script','https://web.archive.org/web/20181002032135/https://cdn.decibelinsight.net/i/12251/88536/di.js','decibelInsight');
+
+});
+
+
+}
+/*
+     FILE ARCHIVED ON 03:21:35 Oct 02, 2018 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 07:15:36 May 01, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 75.018
+  exclusion.robots: 0.098
+  exclusion.robots.policy: 0.087
+  cdx.remote: 0.082
+  esindex: 0.011
+  LoadShardBlock: 28.663 (3)
+  PetaboxLoader3.datanode: 30.206 (4)
+  load_resource: 96.416
+  PetaboxLoader3.resolve: 71.45
+*/

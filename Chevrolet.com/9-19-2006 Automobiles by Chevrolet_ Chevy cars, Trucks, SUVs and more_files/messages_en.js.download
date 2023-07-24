@@ -1,0 +1,48 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+/** /l10n/messages_en.js 
+ * CONTAINS LOCALIZED STRING VARIABLES FOR ENGLISH LANGUAGE CONTENT
+ *
+ * Author: Campbell-Ewald Advertising, <campbell-ewald.com>
+ * Encoding: UTF-8
+ * For translators: please use UTF-8.  We strongly believe that
+ * Unicode is the answer to a real internationalized world.
+*/
+
+var l10n = new Object();
+
+/* messages used for dynamic title attribute values */
+l10n._TITLE = {};
+l10n._TITLE["OPENS_IN_NEW_WINDOW"] =  " [Opens in a new window]";
+
+}
+/*
+     FILE ARCHIVED ON 22:01:59 Sep 19, 2006 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 21:41:04 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 146.684
+  exclusion.robots: 0.137
+  exclusion.robots.policy: 0.123
+  cdx.remote: 0.089
+  esindex: 0.012
+  LoadShardBlock: 111.058 (3)
+  PetaboxLoader3.datanode: 116.322 (4)
+  load_resource: 70.166
+  PetaboxLoader3.resolve: 39.205
+*/

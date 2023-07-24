@@ -1,0 +1,1262 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+var vZipDialog;
+var zipDialogLocation;
+var mouseEvent = null;
+var xPosition;
+var yPosition;
+
+var position = new Class( {
+	initialize : function(x, y) {
+		this.x = x;
+		this.y = y;
+	}
+});
+
+var zipcodeUtil = new Class(
+		{
+			initialize : function(zipcode) {
+				this.zipcode = zipcode;
+				this.county = null;
+				this.region = null;
+				this.counties = new Array();
+				this.regions = new Array();
+				this.isMultiCounty = false;
+				this.isMultiRegion = false;
+				this.isValid = false;
+
+				/* Loads the data of the especified zipcode */
+				var requestURL = BASE_CONTEXT
+						+ '/tools/geoservice/ziptoregion.do?zip=' + zipcode
+						+ '&forward=popup';
+				var sendOptions = '';
+				var zipRequest = new Request( {
+					method :'get',
+					url :requestURL,
+					async :false
+				}).send(sendOptions);
+
+				/* Load the data into the class */
+				var xmlDoc = zipRequest.response.xml;
+
+				this.isMultiCounty = xmlDoc.getElementsByTagName("multiCounty")[0].firstChild.nodeValue == 'true' ? true
+						: false;
+				this.isMultiRegion = xmlDoc.getElementsByTagName("multiRegion")[0].firstChild.nodeValue == 'true' ? true
+						: false;
+				this.isValid = xmlDoc.getElementsByTagName("valid")[0].firstChild.nodeValue == 'true' ? true
+						: false;
+
+				var xmlDocCounties = xmlDoc
+						.getElementsByTagName("geoCountyRegion");
+				var xmlDocRegions = xmlDoc.getElementsByTagName("regions")[0]
+						.getElementsByTagName("region");
+
+				/* Load the county information */
+				for ( var i = 0; i < xmlDocCounties.length; i++) {
+					var county = xmlDocCounties[i];
+					if (county.nodeType == 1) {
+						countyCode = county.getElementsByTagName('code')[0].firstChild.nodeValue
+								.toInt();
+						countyDescription = county
+								.getElementsByTagName('description')[0].firstChild.nodeValue;
+						regionCode = county.getElementsByTagName('code')[1].firstChild.nodeValue
+								.toInt();
+						regionDescription = county
+								.getElementsByTagName('description')[1].firstChild.nodeValue;
+						this.counties.extend( [ {
+							code :countyCode,
+							description :countyDescription,
+							region : {
+								code :regionCode,
+								description :regionDescription
+							}
+						} ]);
+					}
+				}
+
+				/* Load the region information */
+				for (i = 0; i < xmlDocRegions.length; i++) {
+					var region = xmlDocRegions[i];
+					if (region.nodeType == 1) {
+						var code = region.getElementsByTagName('code')[0].firstChild.nodeValue;
+						var description = region.getElementsByTagName('description')[0].firstChild.nodeValue;
+						dmaCode = '';
+						dmaDescription = '';
+						regionDMAs = new Array();
+						for ( var int = 0; int < region
+								.getElementsByTagName('dmaList')[0].childNodes.length; int++) {
+							var dma = region.getElementsByTagName('dmaList')[0].childNodes[int];
+							if (dma.nodeType == 1) {
+								dmaCode = dma.getAttribute('code');
+								dmaDescription = dma
+										.getAttribute('description');
+								dmaDescription = dmaDescription.replaceAll(",", ""); // Safari Fix
+
+								regionDMAs.extend( [ {
+									code :dmaCode,
+									description :dmaDescription
+								} ]);
+							}
+
+						}
+						this.regions.extend( [ {
+							code :code,
+							description :description,
+							dmas :regionDMAs
+						} ]);
+					}
+				}
+			},
+			getCounties : function() {
+				var countyCodes = new Array();
+				var tmpCounties = new Array();
+				var tmpCounty;
+				for ( var i = 0; i < this.counties.length; i++) {
+					tmpCounty = this.counties[i];
+					if (!countyCodes.contains(tmpCounty.code)) {
+						countyCodes.extend( [ tmpCounty.code ]);
+						tmpCounties.extend( [ tmpCounty ]);
+					}
+
+				}
+				return tmpCounties;
+
+			},
+			getRegions : function(countyCode) {
+				var tmpRegions = new Array();
+				var tmpRegion = new Array();
+				for ( var i = 0; i < this.counties.length; i++) {
+					tmpCounty = this.counties[i];
+					if ((tmpCounty.code == countyCode)
+							|| (countyCode == undefined)) {
+						tmpRegion = this.getRegionByCode(tmpCounty.region.code);
+						if (!tmpRegions.contains(tmpRegion)) {
+							tmpRegions.extend( [ tmpRegion ]);
+						}
+					}
+
+				}
+				return tmpRegions;
+
+			},
+			getRegionByCode : function(regionCode) {
+				for ( var i = 0; i < this.regions.length; i++) {
+					if (this.regions[i].code == regionCode) {
+						return this.regions[i];
+					}
+				}
+				return null;
+			},
+			getDmaByRegion : function(regionCode) {
+				return this.getRegionByCode(regionCode).dmas;
+			}
+		});
+
+var zipDialog = new Class(
+		{
+			initialize : function(response, isURL, src, divID) {
+				this.response = response;
+				this.isURL = isURL;
+				this.src = src;
+				this.divID = divID;
+				this.pos = null;
+			},
+			getPos : function() {
+				if (this.pos == null) {
+					this.pos = new position(DL_GetElementLeft(this.src),
+							DL_GetElementTop(this.src));
+					if (typeof(mouseEvent.clientX) != "undefined" && (mouseEvent.clientX != 0 || mouseEvent.pageX != 0)) {
+						var arrayMousePos = getMousePosition(mouseEvent);
+						this.pos = new position(arrayMousePos[0], arrayMousePos[1]);
+					} else if ((this.pos.x == null) || (this.pos.y == null)) {
+						if ( xPosition != null || yPosition != null ) {
+							this.pos = new position(xPosition, yPosition);
+						}else {
+							this.pos = getCenterPosition(this.divID);
+						}
+
+					}
+				}
+				return this.pos;
+			},
+			getInfoHTML : function(isMultiCounty, isMultiRegion) {
+				var submintText = 'Go';
+				var postalCode = zipDialogLocation.zipcode;
+				var html = '';
+				html += '<form onsubmit="getNextDialog(\''+ this.divID + '\',\'zipcode\'); return false;" id="' + this.divID + 'form">';
+				html += '	<a id="btnClose" href="javascript:void(0);" onclick="closeZipDialog(\'' + this.divID + '\');">';
+				html += '			<span>Close</span>';
+				html += '	</a>';
+				/*if (this.divID == "byoDialog" || this.divID == "compvlDialog") {
+					submintText = 'Submit';
+					html += '<div id=\'header\'>In order to provide you with the most relevant information, please enter your ZIP Code.</div>';
+				}*/
+								
+				html += '	<span>';
+				if (postalCode != null)
+					html += '		<input value="'+postalCode+'" onclick="this.value=\'\'" onkeypress="return inputZip(this, event);" type="text" id="txtZipcode" name="txtZipcode"/>';
+				else	
+					html += '		<input value="Enter Zip" onclick="this.value=\'\'" onkeypress="return inputZip(this, event);" type="text" id="txtZipcode" name="txtZipcode"/>';
+					
+				html += '		<a href="#" id="btnZipGo" onclick="getNextDialog(\''
+						+ this.divID + '\',\'zipcode\'); return false;">'
+						+ submintText +  '</a>';
+				html += '	</span>';
+				html += '</form>';
+				if (this.divID == "dlDialog") {
+					html += '<p id="advanceSearch"><a href="' + BASE_CONTEXT + '/tools/dealerlocator/search.do">Advanced Search</a></p>';
+				}
+
+				return html;
+			},
+			getZipcodeHTML : function() {
+				
+				var submintText = 'Go';
+				var html = '';
+				html += '<form onsubmit="getNextDialog(\''+ this.divID + '\',\'zipcode\'); return false;" id="' + this.divID + 'form">';
+				html += '	<a id="btnClose" href="javascript:void(0);" onclick="closeZipDialog(\'' + this.divID + '\');">';
+				html += '			<span>Close</span>';
+				html += '	</a>';
+				/*if (this.divID == "byoDialog" || this.divID == "compvlDialog") {
+					submintText = 'Submit';
+					html += '<div id=\'header\'>In order to provide you with the most relevant information, please enter your ZIP Code.</div>';
+				}*/
+								
+				html += '	<span>';
+				html += '		<input value="Enter Zip" onclick="this.value=\'\'" onkeypress="return inputZip(this, event);" type="text" id="txtZipcode" name="txtZipcode"/>';
+				html += '		<a href="#" id="btnZipGo" onclick="getNextDialog(\''
+						+ this.divID + '\',\'zipcode\'); return false;">'
+						+ submintText + '</a>';
+				html += '	</span>';
+				html += '</form>';			
+				if (this.divID == "dlDialog") {
+					html += '<p id="advanceSearch"><a href="' + BASE_CONTEXT + '/tools/dealerlocator/search.do">Advanced Search</a></p>';
+				}
+				return html;	
+			},
+			getCountyHTML : function() {
+				var submintText = 'Go';
+				var html = '';
+				var counties = vZipInfo.getCounties();
+				if (this.divID == "byoDialog" || this.divID == "compvlDialog") {
+					submintText = 'Submit';
+					html = '<div id=\'header\'>Select your location</div>';
+				}
+
+				html += '<p id="configureDealerTitle">';
+				html += '	Please enter your zip code';				
+				html += '<p/>';
+				html += '	<p>';
+				
+				html += '		<div id="divEditZipCode" >Zip Code: ' + zipDialogLocation.zipcode + '</div><a href="#" id="editZipcode" onclick="getModifyZipDialog()">Change</a>';
+				
+				html += '	</p>';
+				html += '	<p>There are multiple counties in the entered ZIP Code, please select one:</p>';
+				html += '	<span>';
+				html += '		<select id=\'cmbCounty\'>';
+				for ( var i = 0; i < counties.length; i++) {
+					county = counties[i];
+					html += '			<option value ="' + county.code + '">'
+							+ county.description + '</option>';
+				}
+				html += '		</select>';
+				html += '		<a href="#" id="btnZipGo" onclick="getNextDialog(\''
+						+ this.divID + '\',\'county\'); return false;">'
+						+ submintText + '</a>';
+				html += '	</span>';
+				html += '</form>';
+
+				if (this.divID == "dlDialog") {
+					html += '<a href="' + BASE_CONTEXT + '/tools/dealerlocator/search.do" id="advanceSearch">Advanced Search</a>';
+				}
+				return html;
+			},
+			getRegionHTML : function() {
+				var submintText = 'Go';
+				var html = '';
+				var regions = vZipInfo
+						.getRegions(zipDialogLocation.county != null ? zipDialogLocation.county.code
+								: undefined);
+				if (this.divID == "byoDialog" || this.divID == "compvlDialog") {
+					submintText = 'Submit';
+					html = '<div id=\'header\'>Select your location</div>';
+				}
+
+				html += '<p id="configureDealerTitle">';
+				html += '	Please enter your zip code';				
+				html += '<p/>';
+				html += '	<p>';
+				html += '		<div id="divEditZipCode" >Zip Code: ' + zipDialogLocation.zipcode + '</div><a href="#" id="editZipcode" onclick="getModifyZipDialog()">Change</a>';
+				
+				if (zipDialogLocation.county != null) {
+					html += '<br/><div id="divEditCounty">County: ' + zipDialogLocation.county.descr + '</div><a href="#" id="editCounty" onclick="getConfigureDialog('+zipDialogLocation.zipcode+')">Change</a>';
+				}
+				html += '	</p>';
+				html += '	<br/><br/><p>You are able to receive offers from one of the two regions below, please select a region:</p>';
+				html += '	<span>';
+				html += '		<select id=\'cmbRegion\'>';
+				for ( var i = 0; i < regions.length; i++) {
+					region = regions[i];
+					html += '			<option value ="' + region.code + '">'
+							+ region.description + '</option>';
+				}
+				html += '		</select>';
+				html += '		<a href="#" id="btnZipGo" onclick="getNextDialog(\''
+						+ this.divID + '\',\'region\'); return false;">'
+						+ submintText + '</a>';
+				html += '	</span>';
+				html += '</form>';
+
+				if (this.divID == "dlDialog") {
+					html += '<a href="' + BASE_CONTEXT + '/tools/dealerlocator/search.do" id="advanceSearch">Advanced Search</a>';
+				}
+				return html;
+			},
+			getConfigureRegionHTML : function(zip) {
+				var submintText = 'Go';
+				var html = '';
+				var counties = vZipInfo.getCounties();
+				html += '<form onsubmit="getNextDialog(\''+ this.divID + '\',\'zipcode\'); return false;" id="' + this.divID + 'form">';
+				
+				
+				html += '<p id="configureDealerTitle">';
+				html += '	Please enter your zip code';				
+				html += '<p/>';
+				
+				html += '<p id="zipCodeP">';
+				html += '	Your zip code: '+zip+'<a href="#" id="zipCodeP" onclick="changeZipCode();">Change</a>';				
+				html += '<p/>';
+				
+				html += '<p id="countyP">';
+				html += '	There were multiple counties in the zip code you entered, help us to narrow it down. Please select your county:';				
+				html += '<p/>';
+				
+				html += '		<select id=\'cmbCounty\'>';
+				for ( var i = 0; i < counties.length; i++) {
+					county = counties[i];
+					html += '			<option value ="' + county.code + '">'
+							+ county.description + '</option>';
+				}
+				html += '		</select>';
+				html += '		<a href="#" id="btnZipGo" onclick="getNextDialog(\''
+						+ this.divID + '\',\'county\'); return false;">'
+						+ submintText + '</a>';
+				
+				html += '</form>';			
+
+				return html;	
+			},
+			getModifyZipHTML : function() {
+				var submintText = 'Go';
+				var html = '';
+				
+				html += '<form onsubmit="getNextDialog(\''+ this.divID + '\',\'zipcode\'); return false;" id="' + this.divID + 'form">';				
+				// html += '	<a id="btnClose" href="javascript:void(0);" onclick="closeZipDialog(\'' + this.divID + '\');">';
+				// html += '			<span>Close</span>';
+				// html += '	</a>';
+				html += '<p id="configureDealerTitle">';
+				html += '	Please enter your zip code';				
+				html += '</p>';
+				
+				html += '<p id="newZipText">';
+				html += '	In order to provide you with the best vehicle price and relevent results we will need to know your location,';				
+				html += '</p>';
+				
+				html += '	<p id="newZipInput">';
+				html += '		<input value="Enter Zip" onclick="this.value=\'\'" onkeypress="return inputZip(this, event);" type="text" id="txtZipcode" name="txtZipcode"/>';
+				html += '		<a href="#" id="btnZipGo" onclick="getNextDialog(\''
+						+ this.divID + '\',\'zipcode\'); return false;">'
+						+ submintText + '</a>';
+				html += '	</p>';
+				
+				html += '</form>';			
+
+				return html;	
+			}
+		});
+
+/*
+ * Get info from COOKIE_CUSTOMER_LOCATION  
+ */
+function getCookieZipCode(locstr){	
+	return locstr["zipcode"];
+}
+
+function getCookieRegion(locstr){	
+	return locstr["region"];
+}
+
+function getCookieCounty(locstr){	
+	return locstr["county"];
+}
+
+function getCookieIsMultiRegion(locstr){	
+	return locstr["isMultiRegion"];
+}
+
+function getCookieIsMultiCounty(locstr){	
+	return locstr["isMultiCounty"];
+}
+
+function getCookieRegionCode(locstr){	
+	return locstr["region"]["code"];
+}
+
+function getCookieCountyCode(locstr){	
+	return locstr["county"]["code"];
+}
+
+function changeZipCode(){
+	document.getElementById('zipCodeP').style.display = "none";
+	document.getElementById('countyP').style.display = "none";
+	document.getElementById('cmbCounty').style.display = "none";		
+	document.getElementById('btnZipGo').style.display = "none";	
+	getModifyZipDialog();
+}
+
+function executeResponse(response, isURL) {
+	if (isURL) {
+		if(vZipDialog.divID=='compvlDialog'){
+				window.location.href=response+"&postalCode="+zipDialogLocation.zipcode;
+			return false;
+		} else {
+			document.location.href = response;
+		}
+	} else {
+		try{
+			closeZipDialog(vZipDialog.divID);
+			eval(response);			
+		}catch(e){
+			try{
+			eval(response);
+			}catch(e){}
+		}
+	}
+}
+
+function validateCookie(src, response, type, isURL) {
+	
+	
+	
+	// If isURL is not present the defualt will be true
+	isURL = isURL == null ? true : isURL;
+
+	// Used when needed positioning window based on mouse position.
+	mouseEvent = src;
+		
+	var divID;
+	switch (type) {
+	case 'byo':
+		divID = 'configureRegion';
+		break;
+	case 'vl':
+		divID = 'vlDialog';
+		break;
+	case 'dl':
+		divID = 'dlDialog';
+		break;
+	case 'compvl':
+		divID = 'compvlDialog';
+		break;
+	case 'fsbyo':
+		divID = 'fsbyoDialog';
+		break;
+	case 'cr':
+		divID = 'configureRegion';
+		break;	
+	default:
+		divID = 'byoDialog';
+		break;
+	}
+	
+	if ($_('#byoDialog').length > 0 || $_('#compvlDialog').length > 0) {
+		$_("#"+vZipDialog.divID).remove();		
+	}
+	
+	if ($_('#vlDialog').length > 0) {
+		$_("#"+vZipDialog.divID).remove();
+		if(divID=='vlDialog')return false;
+	}
+	
+	if ($_('#dlDialog').length > 0) {
+		$_("#"+vZipDialog.divID).remove();
+		if(divID=='dlDialog')return false;
+	}	
+	
+	zipDialogLocation = null;
+	zipDialogLocation = getDefaultLocation();
+	
+	vZipDialog = new zipDialog(response, isURL, src, divID);
+	if (null != zipDialogLocation) {
+		vZipInfo = new zipcodeUtil(zipDialogLocation.zipcode);
+		if(type=='compvl'){
+			window.location.href=response+"&postalCode="+zipDialogLocation.zipcode;
+			return false;
+		} else {
+			if (type=="cr")
+			 getConfigureDialog(zip);
+			else			
+			 getInfoDialog(vZipInfo.isMultiCounty, vZipInfo.isMultiRegion);
+			
+			return true;
+		}
+	} else {
+		if (type=="cr")
+			 getConfigureDialog(zip);
+		else		
+		 if (type=="byo")
+			 	getModifyZipDialog();
+			 else
+				getZipDialog();
+		return false;
+	}
+}
+
+function getConfigureDialog(zip) {
+	var html = '';
+	if ($_("#"+vZipDialog.divID).length > 0) {
+		$_("#"+vZipDialog.divID).remove();
+	}
+	var toolTipElm = document.createElement('div');
+	toolTipElm.setAttribute('id', vZipDialog.divID);
+	toolTipElm.innerHTML = vZipDialog.getConfigureRegionHTML(zip);
+	$_(toolTipElm).css('left',(pos['x']-100) + "px");
+	$_(toolTipElm).css('top',pos['y'] + "px");
+	$_(toolTipElm).css('position','fixed');
+	document.body.appendChild(toolTipElm);		
+}
+
+function getModifyZipDialog() {
+	var html = '';
+	if ($_("#"+vZipDialog.divID).length > 0) {
+		$_("#"+vZipDialog.divID).remove();
+	}	
+	var toolTipElm = document.createElement('div');
+	toolTipElm.setAttribute('id', vZipDialog.divID);
+	toolTipElm.innerHTML = vZipDialog.getModifyZipHTML();
+	this.pos = getCenterPosition(toolTipElm);
+	$_(toolTipElm).css('left',(pos['x']-100) + "px");
+	$_(toolTipElm).css('top',pos['y'] + "px");
+	$_(toolTipElm).css('position','fixed');
+	document.body.appendChild(toolTipElm);		
+}
+
+function isRealZipCode(zipCode, showAlertMessage) {
+	var isZipCodeValid = false;
+
+	if (zipCode != '' || zipCode != null ) {
+		var zipInfo = new zipcodeUtil(zipCode);
+		if (zipInfo.isValid) {
+			isZipCodeValid = true;
+		}else {
+			if(!isZipCodeValid && showAlertMessage) {
+				alert('Please enter a valid Zip Code');
+			}
+		}
+	}
+	return isZipCodeValid;
+}
+
+function getNextDialog(divID, section) {
+	var winMaskDiv = $_("#winMask");
+	var locstr = getDefaultLocation();
+	var currentUrl = document.location.href;
+	switch (section) {
+	case 'zipcode':
+		vZipInfo = null;
+		zipDialogLocation = null;
+		//alert ('Zip code is ' + $_('#txtZipcode').value);
+		var zipValue = $_('#txtZipcode').val();
+		if ((zipValue == '') || (zipValue == 'Enter ZIP')) {
+			alert('Please enter a valid Zip Code');
+			$_('#txtZipcode').attr('value','');
+			$_('#txtZipcode').focus();
+			return false;
+		}
+
+		if (zipValue.length != 5) {
+			alert('The Zip Code must have 5 digits');
+			$_('#txtZipcode').focus();
+			return false;
+		}
+		vZipInfo = new zipcodeUtil(zipValue);
+		if (vZipInfo.isValid) {				
+			if (locstr != null) {		
+					if (getCookieZipCode(locstr) != $_('#txtZipcode').val()){		
+						zipDialogLocation = new Location();
+						var counties = vZipInfo.getCounties();
+						var regions = vZipInfo.getRegions(counties[0].code);
+						zipDialogLocation.zipcode = zipValue;
+						zipDialogLocation.county = new County(counties[0].code,counties[0].description);
+						zipDialogLocation.region = new Region(regions[0].code,regions[0].description, vZipInfo.getDmaByRegion(regions[0].code));
+						zipDialogLocation.isMultiCounty = vZipInfo.isMultiCounty;
+						zipDialogLocation.isMultiRegion = vZipInfo.isMultiRegion;
+		
+							if (vZipInfo.isMultiCounty && winMaskDiv != null) {
+								winMaskDiv.style.display = "none";
+								winMaskDiv.style.height = "2000px" ;
+	    						winMaskDiv.style.width = "100%";
+	    						winMaskDiv.style.visibility = "hidden";	
+	    						document.getElementById("isMultiCounty").value="true";	
+			    				saveDefaultLocation(zipDialogLocation.zipcode,
+								'', '', zipDialogLocation.isMultiCounty, zipDialogLocation.isMultiRegion);
+							}else{
+								if (vZipInfo.isMultiCounty && currentUrl.indexOf("features.do") >= 0) {
+									saveDefaultLocation(zipDialogLocation.zipcode,
+								'', '', zipDialogLocation.isMultiCounty, zipDialogLocation.isMultiRegion);
+								}else
+								saveDefaultLocation(zipDialogLocation.zipcode,
+									zipDialogLocation.region, zipDialogLocation.county, zipDialogLocation.isMultiCounty, zipDialogLocation.isMultiRegion);
+							}	
+					}else{
+						zipDialogLocation = new Location();
+						zipDialogLocation.zipcode = getCookieZipCode(locstr);
+						zipDialogLocation.county = getCookieCounty(locstr);
+						zipDialogLocation.region = getCookieRegion(locstr);
+						zipDialogLocation.isMultiCounty = getCookieIsMultiCounty(locstr);
+						zipDialogLocation.isMultiRegion = getCookieIsMultiRegion(locstr);
+						saveDefaultLocation(zipDialogLocation.zipcode,
+						zipDialogLocation.region, zipDialogLocation.county, zipDialogLocation.isMultiCounty, zipDialogLocation.isMultiRegion);				
+					}		
+			}else{			
+				zipDialogLocation = new Location();
+				var counties = vZipInfo.getCounties();
+				var regions = vZipInfo.getRegions(counties[0].code);
+				zipDialogLocation.zipcode = zipValue;
+				zipDialogLocation.county = new County(counties[0].code,counties[0].description);
+				zipDialogLocation.region = new Region(regions[0].code,regions[0].description, vZipInfo.getDmaByRegion(regions[0].code));
+				zipDialogLocation.isMultiCounty = vZipInfo.isMultiCounty;
+				zipDialogLocation.isMultiRegion = vZipInfo.isMultiRegion;
+			
+					if (vZipInfo.isMultiCounty ) {
+					   if(winMaskDiv != null){
+							winMaskDiv.style.display = "none";
+							winMaskDiv.style.height = "2000px" ;
+	    					winMaskDiv.style.width = "100%";
+	    					winMaskDiv.style.visibility = "hidden";
+	    				}
+	    				saveDefaultLocation(zipDialogLocation.zipcode,
+						'', '', zipDialogLocation.isMultiCounty, zipDialogLocation.isMultiRegion);	
+					}else{	
+								
+						saveDefaultLocation(zipDialogLocation.zipcode,
+						zipDialogLocation.region, zipDialogLocation.county, zipDialogLocation.isMultiCounty, zipDialogLocation.isMultiRegion);
+					}		
+			
+				if (currentUrl.indexOf("affordability.do") >= 0 && document.getElementById('configureRegion') != null){				
+				
+				vZipDialog.response = BASE_CONTEXT+'/pages/mds/pricing/affordability.do?zipCode='+zipValue+'&regionCode='+zipDialogLocation.region.code+'&countyCode='+zipDialogLocation.county.code;
+				vZipDialog.isURL = true;
+				}else
+				if (currentUrl.indexOf("byoCustomizeVehicle.do") >= 0 && document.getElementById('configureRegion') != null){			
+					var pvc= $_('#pvc').val();
+					var brand= $_('#brand').val();					
+					year= $_('#year').val();		
+					vZipDialog.response = BASE_CONTEXT+'/tools/byo/byoCustomizeVehicle.do?region&zipCode='+zipDialogLocation.zipcode+'&region='+zipDialogLocation.region.code+'&pvc='+pvc+'&brand='+brand+'&year='+year;
+					vZipDialog.isURL = true;
+							
+					executeResponse(vZipDialog.response, vZipDialog.isURL);
+				}else
+				if (currentUrl.indexOf("vehiclelocator/results.do") >= 0 && vZipDialog.response != "loadIncentives()" /*&& document.getElementById('configureRegion') != null*/){						
+				 	year= $_('#year').val();
+				 	var gmModelId = $_('#gmModelId').val();
+				 	var make = $_('#make').val();
+				 	var WEBSITEID = $_('#WEBSITEID').val();
+				 	var searchType = $_('#searchType').val();				 	
+				 	var proximity = $_('#proximity').val();
+				 	var mmcs = $_('#mmcs').val();
+				 	var styleid = $_('#styleid').val();
+				 	var modelId = $_('#modelId').val();				 	
+				 	
+				 	//vZipDialog.response = BASE_CONTEXT+'/tools/vehiclelocator/results.do?year='+year+'&gmModelId='+gmModelId+'&make='+make+'&WEBSITEID='+WEBSITEID+'&searchType='+searchType+'&postalCode='+zipValue+'&proximity='+proximity+'&mmcs='+mmcs+'&styleid='+styleid+'&modelId='+modelId+'&region='+zipDialogLocation.region.code;
+					vZipDialog.response = BASE_CONTEXT+'/select-vehicle/?searchType='+searchType+'&postalCode='+zipValue+'&proximity='+proximity+'&maximumCount=50';
+				 	vZipDialog.isURL = true;
+							
+					executeResponse(vZipDialog.response, vZipDialog.isURL);
+				 }
+				 else
+				if (currentUrl.indexOf("/build-your-own/") >= 0 || currentUrl.indexOf("build.do") >= 0 && document.getElementById('configureRegion') != null){						
+					vZipDialog.response = window.location + "?isMultiCounty=" +vZipInfo.isMultiCounty;				
+					vZipDialog.isURL = true;									
+					executeResponse(vZipDialog.response, vZipDialog.isURL);					
+				}								
+			}			
+			currentUrl = vZipDialog.response;
+			if (currentUrl.indexOf("byoCustomizeVehicle.do") >= 0){					
+				locstr = getDefaultLocation();			
+				currentUrl = currentUrl+"&zipCode="+getCookieZipCode(locstr)+"&isMultiCounty="+vZipInfo.isMultiCounty+"&region="+getCookieRegionCode(locstr);					 						
+				executeResponse(currentUrl, vZipDialog.isURL);	
+			}	
+			else{
+				url = location.href;
+				if (url.indexOf("vehiclelocator/results.do") >= 0 && currentUrl != "locateDealer()"){				 	
+				 							
+				 	year= $_('#year').get('value');
+				 	var gmModelId = $_('#gmModelId').val();
+				 	var make = $_('#make').val();
+				 	var WEBSITEID = $_('#WEBSITEID').val();
+				 	var searchType = $_('#searchType').val();				 	
+				 	var proximity = $_('#proximity').val();
+				 	var mmcs = $_('#mmcs').val();
+				 	var styleid = $_('#styleid').val();
+				 	var modelId = $_('#modelId').val();				 	
+				 	
+				 	//vZipDialog.response = BASE_CONTEXT+'/tools/vehiclelocator/results.do?year='+year+'&gmModelId='+gmModelId+'&make='+make+'&WEBSITEID='+WEBSITEID+'&searchType='+searchType+'&postalCode='+zipDialogLocation.zipcode+'&proximity='+proximity+'&mmcs='+mmcs+'&styleid='+styleid+'&modelId='+modelId+'&region='+zipDialogLocation.region.code;
+				 	vZipDialog.response = BASE_CONTEXT+'/select-vehicle/?searchType='+searchType+'&postalCode='+zipValue+'&proximity='+proximity+'&maximumCount=50';
+					vZipDialog.isURL = true;							
+					executeResponse(vZipDialog.response, vZipDialog.isURL);				
+				}else						
+				executeResponse(vZipDialog.response, vZipDialog.isURL);
+			}								
+			return false;			
+		} else {
+			alert('Please enter a valid Zip Code');
+			$_('#txtZipcode').attr('value','');
+			$_('#txtZipcode').focus();
+			return false;
+		}
+		break;
+	case 'county':
+		var countyCode = $_('#cmbCounty').val();
+		var countyDescription = $_('#cmbCounty').options[$_('#cmbCounty').selectedIndex].text;
+		zipDialogLocation.county = new County(countyCode, countyDescription);
+
+		var regions = vZipInfo.getRegions(countyCode);
+		zipDialogLocation.region = new Region(regions[0].code,regions[0].description, vZipInfo.getDmaByRegion(regions[0].code));
+
+		if (vZipInfo.isMultiRegion) {
+			saveDefaultLocation(zipDialogLocation.zipcode,
+					zipDialogLocation.region, zipDialogLocation.county, zipDialogLocation.isMultiCounty, zipDialogLocation.isMultiRegion);				
+			getRegionDialog();
+		} else {
+			saveDefaultLocation(zipDialogLocation.zipcode,
+					zipDialogLocation.region, zipDialogLocation.county, zipDialogLocation.isMultiCounty, zipDialogLocation.isMultiRegion);
+			executeResponse(vZipDialog.response, vZipDialog.isURL);
+			
+			return false;
+		}
+		break;
+	case 'region':
+		// get region code	
+		var regionValue = $_('#cmbRegion').val();
+		var regionDescription = $_('#cmbRegion').options[$_('#cmbRegion').selectedIndex].text;		
+		
+		var counties = vZipInfo.getCounties();
+		zipDialogLocation.county = new County(counties[0].code,
+				counties[0].description);		
+				
+		zipDialogLocation.region = new Region(regionValue, regionDescription,
+				vZipInfo.getDmaByRegion(regionValue));
+		// get region objetc
+		saveDefaultLocation(zipDialogLocation.zipcode,
+				zipDialogLocation.region, getCookieCounty(locstr), zipDialogLocation.isMultiCounty, zipDialogLocation.isMultiRegion);
+		
+		
+		winMaskDiv.style.display = "none";
+		winMaskDiv.style.height = "2000px" ;
+	    winMaskDiv.style.width = "100%";
+	    winMaskDiv.style.visibility = "hidden";
+	    
+	    var currentUrl = document.location.href;		
+		if (currentUrl.indexOf("affordability.do") >= 0){
+			var response = vZipDialog.response;
+			executeResponse(vZipDialog.response+"?zipCode="+zipDialogLocation.zipcode+"&regionCode="+zipDialogLocation.region.code+"&countyCode="+getCookieCountyCode(locstr), vZipDialog.isURL);	
+		}
+		else{	    
+			if (vZipDialog.response == "locateDealer()")		
+				executeResponse("locateDealer()", vZipDialog.isURL);
+			else
+			if (vZipDialog.response == "locateVehicleLanding()")		
+				executeResponse("locateVehicleLanding()", vZipDialog.isURL);
+			else
+			if (vZipDialog.response == "byo()")
+				executeResponse("byo('no','region')", vZipDialog.isURL);
+			else{				
+				if (currentUrl.indexOf("byoCustomizeVehicle.do") >= 0 && document.getElementById('configureRegion') != null){			
+					var pvc= $_('#pvc').get('value');
+					var brand= $_('#brand').get('value');
+					year= $_('#year').get('value');		
+					vZipDialog.response = BASE_CONTEXT+'/tools/byo/byoCustomizeVehicle.do?zipCode='+zipDialogLocation.zipcode+'&region='+zipDialogLocation.region.code+'&pvc='+pvc+'&brand='+brand+'&year='+year;
+					vZipDialog.isURL = true;							
+					executeResponse(vZipDialog.response, vZipDialog.isURL);
+				}
+				else
+				 if (currentUrl.indexOf("vehiclelocator/results.do") >= 0 && document.getElementById('configureRegion') != null){				 	
+				 							
+				 	year= $_('#year').get('value');
+				 	var gmModelId = $_('#gmModelId').val();
+				 	var make = $_('#make').val();
+				 	var WEBSITEID = $_('#WEBSITEID').val();
+				 	var searchType = $_('#searchType').val();				 	
+				 	var proximity = $_('#proximity').val();
+				 	var mmcs = $_('#mmcs').val();
+				 	var styleid = $_('#styleid').val();
+				 	var modelId = $_('#modelId').val();				 	
+				 	
+				 	vZipDialog.response = BASE_CONTEXT+'/tools/vehiclelocator/results.do?year='+year+'&gmModelId='+gmModelId+'&make='+make+'&WEBSITEID='+WEBSITEID+'&searchType='+searchType+'&postalCode='+zipDialogLocation.zipcode+'&proximity='+proximity+'&mmcs='+mmcs+'&styleid='+styleid+'&modelId='+modelId+'&region='+zipDialogLocation.region.code;
+					vZipDialog.isURL = true;							
+					executeResponse(vZipDialog.response, vZipDialog.isURL);
+				 	
+				 }
+				else	
+					executeResponse(vZipDialog.response, vZipDialog.isURL);	
+			}		
+		}		
+		return false;
+		break;
+	case 'info':
+		saveDefaultLocation(zipDialogLocation.zipcode,
+				zipDialogLocation.region, zipDialogLocation.county, zipDialogLocation.isMultiCounty, zipDialogLocation.isMultiRegion);
+		executeResponse(vZipDialog.response, vZipDialog.isURL);
+		return false;
+		break;
+	}
+}
+
+
+function validateRegion(zip,origin){	
+	
+	vZipInfo = new zipcodeUtil(zip);
+	var url;
+	var locstr = getDefaultLocation();
+		if (vZipInfo.isValid) {
+			zipDialogLocation = new Location();
+			var counties = vZipInfo.getCounties();
+			var regions = vZipInfo.getRegions(counties[0].code);
+			zipDialogLocation.county = new County(counties[0].code,counties[0].description);
+			zipDialogLocation.region = new Region(regions[0].code,regions[0].description, vZipInfo.getDmaByRegion(regions[0].code));			
+			zipDialogLocation.isMultiCounty = vZipInfo.isMultiCounty;
+			zipDialogLocation.isMultiRegion = vZipInfo.isMultiRegion;
+			if (vZipInfo.isMultiCounty) {
+				var winMaskDiv = document.getElementById("winMask");
+				winMaskDiv.style.display = "";
+				winMaskDiv.style.height = "2000px" ;
+    			winMaskDiv.style.width = "100%";
+    			winMaskDiv.style.visibility = "visible";
+    						
+				var year;									
+										
+					if(origin=="dl")
+						validateCookie(this,'locateDealer()','cr',false,zip);
+					else
+					if(origin=="vl"){						
+						try{
+							var gmModelId= $_('#gmModelId').val();
+							var make= $_('#make').val();
+							var WEBSITEID= $_('#WEBSITEID').val();
+							var searchType= $_('#searchType').val();
+							var proximity= $_('#proximity').val();
+							var modelId= $_('#modelId').val();
+							year= $_('#year').val();	
+							url = BASE_CONTEXT+'/tools/vehiclelocator/results.do?year='+year+'&gmModelId='+gmModelId+'&make='+make+'&WEBSITEID='+WEBSITEID+'&searchType='+searchType+'&postalCode='+zip+'&proximity='+proximity+'&modelId='+modelId+'&region='+getCookieRegionCode(locstr);
+							validateCookie(this,url,'cr',true,zip);
+						}catch(e){validateCookie(
+							this,'locateVehicleLanding()','cr',false,zip);
+							}						
+					}	
+						else
+							if(origin=="byo"){			
+								validateCookie(this,'byo()','cr',false,zip);
+							}									
+							else
+							 	if(origin=="pricing"){
+							 		validateCookie(this,'pricing()','cr',false,zip);
+							 	}
+							 	else
+								if(origin=="aff"){					
+								 	url = BASE_CONTEXT+'/pages/mds/pricing/affordability.do';									
+									validateCookie(this,url,'cr',true,zip);
+								}
+								else	
+								if(origin=="current"){										
+									year = $_('#year').val();
+									var brand = $_('#brand').val();
+															
+								 	url = BASE_CONTEXT+'/tools/currentoffers/results.do?zipCode='+zip+'&region='+getCookieRegion(locstr)+'&county='+getCookieCounty(locstr)+'&year='+year+'&brand='+brand;									
+									validateCookie(this,url,'cr',true,zip);
+								}
+			} 
+		}	
+			
+}
+
+function getFSBYOZipY(This){
+	var el = This;
+	var pT = 0;
+	while(el){
+		pT+=el.offsetTop;
+		el=el.offsetParent;
+	}
+	pT+=(This.offsetHeight-60);
+	return pT;
+}
+
+function getInfoDialog(isMultiCounty, isMultiRegion) {
+	//var html = '';
+	if ($_('#'+vZipDialog.divID).length > 0) {
+		$_("#"+vZipDialog.divID).remove();
+	}
+	var toolTipElm = document.createElement('div');
+	toolTipElm.setAttribute('id', vZipDialog.divID);
+	toolTipElm.innerHTML = vZipDialog.getInfoHTML(isMultiCounty, isMultiRegion);
+	document.body.appendChild(toolTipElm);
+	$_(toolTipElm).addClass('infoDialog');
+	$_(toolTipElm).css('left',vZipDialog.getPos().x + "px");
+	if(vZipDialog.divID=="fsbyoDialog"){
+		var fSBYOZipY = getFSBYOZipY(document.getElementById("pSpecGroupData"));
+		if(fSBYOZipY>vZipDialog.getPos().y) fSBYOZipY = vZipDialog.getPos().y;
+		$_(toolTipElm).css('top',fSBYOZipY + "px");
+	} else {
+		$_(toolTipElm).css('top',vZipDialog.getPos().y + "px");
+	}
+}
+
+function getZipDialog() {
+	var html = '';
+	if ($_("#"+vZipDialog.divID).length > 0) {
+		$_("#"+vZipDialog.divID).remove();
+	}
+	var toolTipElm = document.createElement('div');
+	toolTipElm.setAttribute('id', vZipDialog.divID);
+	toolTipElm.innerHTML = vZipDialog.getZipcodeHTML();
+	document.body.appendChild(toolTipElm);
+	$_("#"+vZipDialog.divID).addClass('zipCodeDialog');
+	$_("#"+vZipDialog.divID).css('left',vZipDialog.getPos().x + "px");
+	if(vZipDialog.divID=="fsbyoDialog"){
+		var fSBYOZipY = getFSBYOZipY(document.getElementById("pSpecGroupData"));
+		if(fSBYOZipY>vZipDialog.getPos().y) fSBYOZipY = vZipDialog.getPos().y;
+		$_(toolTipElm).css('top',fSBYOZipY + "px");
+	} else {
+		$_(toolTipElm).css('top',vZipDialog.getPos().y + "px");
+	}
+}
+
+function getCountyDialog() {
+	var html = '';
+	if ($_("#"+vZipDialog.divID).length > 0) {
+		$_("#"+vZipDialog.divID).remove();
+	}
+	var toolTipElm = document.createElement('div');
+	toolTipElm.setAttribute('id', vZipDialog.divID);
+	toolTipElm.innerHTML = vZipDialog.getCountyHTML();
+	document.body.appendChild(toolTipElm);
+	$_(toolTipElm).addClass('countyDialog');
+	$_(toolTipElm).css('left',vZipDialog.getPos().x + "px");
+	if(vZipDialog.divID=="fsbyoDialog"){
+		var fSBYOZipY = getFSBYOZipY(document.getElementById("pSpecGroupData"));
+		if(fSBYOZipY>vZipDialog.getPos().y) fSBYOZipY = vZipDialog.getPos().y;
+		$_(toolTipElm).css('top',fSBYOZipY + "px");
+	} else {
+		$_(toolTipElm).css('top',vZipDialog.getPos().y + "px");
+	}
+}
+
+function getRegionDialog() {
+	var html = '';
+	if ($_("#"+vZipDialog.divID).length > 0) {
+		$_("#"+vZipDialog.divID).remove();
+	}
+	var toolTipElm = document.createElement('div');
+	toolTipElm.setAttribute('id', vZipDialog.divID);
+	toolTipElm.innerHTML = vZipDialog.getRegionHTML();
+	document.body.appendChild(toolTipElm);
+	$_(toolTipElm).addClass('regionDialog');
+	$_(toolTipElm).css('left',vZipDialog.getPos().x + "px");
+	if(vZipDialog.divID=="fsbyoDialog"){
+		var fSBYOZipY = getFSBYOZipY(document.getElementById("pSpecGroupData"));
+		if(fSBYOZipY>vZipDialog.getPos().y) fSBYOZipY = vZipDialog.getPos().y;
+		$_(toolTipElm).css('top',fSBYOZipY + "px");
+	} else {
+		$_(toolTipElm).css('top',vZipDialog.getPos().y + "px");
+	}
+}
+
+function closeZipDialog(id) {
+//	document.body.removeChild($(id));
+	if ( $_('#winMask').css('height') == '100%' ) removeWinMask();
+	$_("#"+id).remove();
+	return false;
+}
+
+/**
+ * Allow only numbers to be used.
+ *
+ * @param src
+ * @param evt
+ * @return
+ */
+function inputZip(src, evt) {
+	var charCode = (evt.which) ? evt.which : evt.keyCode
+	//alert("char code: "+charCode+" / KeyCode: "+evt.keyCode+" Value: "+src.value+" gecko"+Browser.Engine.gecko);
+	if((charCode >= 48 && charCode <= 57) && (src.value.length < 5) || (charCode==13)){//IF the pressed key is a number/If the current code have less than 5 letters
+			return true;
+	}else{
+			if((Browser.Engine.gecko) && (src.value.length <= 5)){//This validation occurs when is using firefox
+				if((charCode==13)//Enter key in FIREFOX
+			   ||  ((charCode == 37)&&(evt.keyCode==37))//left arrow in FIREFOX
+			   || ((charCode == 39)&&(evt.keyCode==39))//Right arrow in FIREFOX
+			   || ((charCode == 9)&&(evt.keyCode==9))//TAB key in in FIREFOX
+			   || ((charCode == 46)&&(evt.keyCode==46))//Delete key in FIREFOX
+			   || ((charCode == 8)&&(evt.keyCode==8))//BackSpace key in FIREFOX
+				 ){
+				return true;
+				}
+			}
+	}
+return false;
+}
+
+function getPostalCode() {
+	var myLoc = getDefaultLocation();
+	var postalCode = "";
+	if (null != myLoc) {
+		postalCode = myLoc.zipcode;
+	}
+	return postalCode;
+}
+
+function getNextCOStep(zipCode, section) {
+	switch (section) {
+	case 'zipcode':
+		var zipValue = $_("#"+zipCode).val();
+		vZipInfo = new zipcodeUtil(zipValue);
+		if (vZipInfo.isValid) {
+			zipDialogLocation = new Location();
+			zipDialogLocation.zipcode = zipValue;
+			if (vZipInfo.isMultiCounty) {
+				changeDisplay('lblCounty', 'block');
+				changeDisplay('lblRegion', 'none');
+				getCountyCombo("county");
+			} else if (vZipInfo.isMultiRegion) {
+				changeDisplay('lblCounty', 'none');
+				changeDisplay('lblRegion', 'block');
+				var regions = vZipInfo.getRegions();
+				getRegionsCombo("regionData", regions);
+				document.getElementById("region").value = changeRegionOffer(regions[0].description);
+				changeDisplay('submitCO', 'block');
+			} else {
+				changeDisplay('lblCounty', 'none');
+				changeDisplay('lblRegion', 'none');
+				var regions = vZipInfo.getRegions();
+				document.getElementById("region").value = changeRegionOffer(regions[0].description);
+				insertOffer();
+			}
+		} else {
+			alert('Please enter a valid Zip Code');
+			$_('#offersInput').attr('value','');
+			$_('#offersInput').focus();
+			return false;
+		}
+		break;
+	case 'county':
+		var countyCode = $_('#county').val();
+		var countyDescription = $_('#county').options[$_('#county').selectedIndex].text;
+		zipDialogLocation.county = new County(countyCode, countyDescription);
+		if (vZipInfo.isMultiRegion) {
+			var regions = vZipInfo
+					.getRegions(zipDialogLocation.county != null ? zipDialogLocation.county.code
+							: undefined);
+			changeDisplay('lblRegion', 'block');
+			getRegionsCombo("regionData", regions);
+			document.getElementById("region").value = changeRegionOffer(regions[0].description);
+		} else {
+			document.getElementById("region").value = changeRegionOffer(regions[0].description);
+			return false;
+		}
+		changeDisplay('submitCO', 'block');
+		break;
+	}
+}
+
+function getCountyCombo(countyCb) {
+	removeAllOptions(document.getElementById(countyCb));
+	var counties = vZipInfo.getCounties();
+	for ( var i = 0; i < counties.length; i++) {
+		county = counties[i];
+		addOpt(countyCb, county.code, county.description);
+	}
+}
+
+function getRegionsCombo(regionCB, regions) {
+	removeAllOptions(document.getElementById(regionCB));
+	for ( var i = 0; i < regions.length; i++) {
+		region = regions[i];
+		addOpt(regionCB, region.code, region.description);
+	}
+}
+
+function addOpt(id, code, value) {
+	var newOpt = document.createElement("option");
+	newOpt.text = value;
+	newOpt.value = code;
+	try {
+		document.getElementById(id).add(newOpt, null);
+	} catch (ex) {
+		document.getElementById(id).add(newOpt);
+	}
+}
+
+function removeAllOptions(selectbox) {
+	for ( var i = selectbox.options.length - 1; i >= 0; i--) {
+		selectbox.remove(i);
+	}
+}
+
+/*sets a fixed position for the popup in case that it is called from a flash section*/
+function setPosition (x, y){
+	xPosition = x;
+	yPosition = y;
+}
+
+function poCheckZip(src,form,type){
+	mouseEvent = src;
+	vZipInfo = null;
+	zipDialogLocation = null;
+	var locstr = getDefaultLocation();
+	var winMaskDiv = document.getElementById("winMask");
+	var zipCodeTxt = null;
+	if (type == 'vl'){
+		zipCodeTxt = form.postalCode;
+	}else{
+		zipCodeTxt = form.zipCode;
+	}
+	
+	zipValue = zipCodeTxt.value;
+	vZipInfo = new zipcodeUtil(zipValue);
+	if ((zipValue == '') || (zipValue == 'Enter ZIP') || !vZipInfo.isValid) {
+		alert('Please enter a valid Zip Code');
+		zipCodeTxt.value = '';
+		zipCodeTxt.focus();
+		return false;
+	}
+
+	if (zipValue.length != 5) {
+		alert('The Zip Code must have 5 digits');
+		zipCodeTxt.focus();
+		return false;
+	}
+	
+	
+	if (type == 'byo'){
+		vZipDialog = new zipDialog('byo()', false, src, 'configureRegion');
+	} else
+	 if(type == 'ld')	
+		vZipDialog = new zipDialog('locateDealer()', false, src, 'configureRegion');
+		else	
+		 if(type == 'vl')
+			vZipDialog = new zipDialog('locateVehicleLanding()', false, src, 'configureRegion');
+			else
+				vZipDialog = new zipDialog('pricingOffer()', false, src, 'configureRegion');
+			
+	if (vZipInfo.isValid) {		
+		
+		document.getElementById("isMultiCounty").value="false";		
+		if (getCookieZipCode(locstr) != document.getElementById("poZipCode").value){		
+		
+		zipDialogLocation = new Location();
+		var counties = vZipInfo.getCounties();
+		var regions = vZipInfo.getRegions(counties[0].code);
+
+		zipDialogLocation.zipcode = zipValue;
+		zipDialogLocation.county = new County(counties[0].code,counties[0].description);
+		zipDialogLocation.region = new Region(regions[0].code,regions[0].description, vZipInfo.getDmaByRegion(regions[0].code));
+		zipDialogLocation.isMultiCounty = vZipInfo.isMultiCounty;
+		zipDialogLocation.isMultiRegion = vZipInfo.isMultiRegion;
+		
+			if (vZipInfo.isMultiCounty && winMaskDiv != null) {
+				winMaskDiv.style.display = "none";
+				winMaskDiv.style.height = "2000px";
+	    		winMaskDiv.style.width = "100%";
+	    		winMaskDiv.style.visibility = "hidden";	
+	    		document.getElementById("isMultiCounty").value="true";	
+	    		
+	    		saveDefaultLocation(zipDialogLocation.zipcode,"", "", zipDialogLocation.isMultiCounty, zipDialogLocation.isMultiRegion);
+	    		
+			}else{
+				saveDefaultLocation(zipDialogLocation.zipcode, zipDialogLocation.region, zipDialogLocation.county, zipDialogLocation.isMultiCounty, zipDialogLocation.isMultiRegion);
+			}	
+			
+				
+		}else{
+		zipDialogLocation = new Location();
+
+		zipDialogLocation.zipcode = getCookieZipCode(locstr);
+		zipDialogLocation.county = getCookieCounty(locstr);
+		zipDialogLocation.region = getCookieRegion(locstr);
+		zipDialogLocation.isMultiCounty = getCookieIsMultiCounty(locstr);
+		zipDialogLocation.isMultiRegion = getCookieIsMultiRegion(locstr);
+		
+		saveDefaultLocation(zipDialogLocation.zipcode,
+						zipDialogLocation.region, zipDialogLocation.county, zipDialogLocation.isMultiCounty, zipDialogLocation.isMultiRegion);
+		}
+			
+			switch (type){
+				case'dl':
+						var cmbProximity = document.getElementById("cmbProximity").selectedIndex;
+						var newProximityValue = document.getElementById("cmbProximity")[cmbProximity].value;
+						document.getElementById("PostalCodeProximity").value = newProximityValue;
+						var newZipCode = document.getElementById("poZipCode").value;
+						document.getElementById("ipZip").value=newZipCode;					
+						document.getElementById("sortForm").submit();
+				break;
+				case'vl':
+					var cmbProximity = document.getElementById("cmbProximity").selectedIndex;
+					var newProximityValue = document.getElementById("cmbProximity")[cmbProximity].value;
+					document.getElementById("proximity").value = newProximityValue;					
+					document.getElementById("inventoryResultsForm").submit();
+				break;
+				case'byo':					
+					getInfoByZipCode($_('#year').val(),$_('#pvc').val(),$_('#brandId').val(),$_('#poZipCode').val());
+					document.getElementById("pricingForm").submit();			
+					//document.getElementById("pricingForm").submit();
+				break;
+				case'aff':					
+					document.getElementById("zipCodeForm").submit();
+				break;
+			}
+			
+			
+			return false;
+		
+	} else {
+		$_('#submissionAlert').css('display','none');
+		alert('Please enter a valid Zip Code');
+		zipCodeTxt.value = '';
+		zipCodeTxt.focus();
+		return false;
+	}
+
+}
+
+
+}
+/*
+     FILE ARCHIVED ON 01:37:40 Jul 13, 2010 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:42:37 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 178.213
+  exclusion.robots: 0.087
+  exclusion.robots.policy: 0.077
+  RedisCDXSource: 16.126
+  esindex: 0.008
+  LoadShardBlock: 143.637 (3)
+  PetaboxLoader3.datanode: 199.492 (4)
+  load_resource: 162.122
+  PetaboxLoader3.resolve: 47.219
+*/

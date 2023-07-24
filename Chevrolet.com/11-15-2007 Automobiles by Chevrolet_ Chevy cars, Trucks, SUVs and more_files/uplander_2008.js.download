@@ -1,0 +1,67 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+// masthead price as shown
+//var priceasshown_uplander2008="$xx,xxx*";
+
+//legacy
+//var startingatprice_uplander2008="$xx,xxx*";
+
+//flyout
+var priceasshown_uplander_flyout="$29,595*";
+var startingatprice_uplander_flyout="$21,925*";
+
+// landing page
+var priceasshown_uplander2008_landing="$29,595*";
+var startingatprice_uplander2008_landing="$21,925*";
+
+// thumbnail price as shown
+var priceasshown_uplander2008_ls="$22,250*";
+var priceasshown_uplander2008_lt="$29,595*";
+var priceasshown_uplander2008_entertainer="$33,815*";
+
+// thumbnail starting at price
+var startingatprice_uplander2008_ls="$21,925*";
+var startingatprice_uplander2008_lt="$29,595*";
+var startingatprice_uplander2008_entertainer="$33,815*";
+
+// trim levels starting at price
+var startingatprice_uplander2008_ls_regular_wheelbase="$21,925*";
+var startingatprice_uplander2008_ls_extended_wheelbase="$24,595*";
+
+var startingatprice_uplander2008_1lt="$28,170*";
+var startingatprice_uplander2008_2lt="$29,595*";
+
+
+var startingatprice_uplander2008_3lt_entertainer="$33,815*";
+
+}
+/*
+     FILE ARCHIVED ON 04:10:41 Nov 15, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 21:56:21 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 126.226
+  exclusion.robots: 0.069
+  exclusion.robots.policy: 0.058
+  cdx.remote: 0.06
+  esindex: 0.009
+  LoadShardBlock: 89.96 (3)
+  PetaboxLoader3.datanode: 175.307 (4)
+  load_resource: 139.548
+  PetaboxLoader3.resolve: 41.452
+*/

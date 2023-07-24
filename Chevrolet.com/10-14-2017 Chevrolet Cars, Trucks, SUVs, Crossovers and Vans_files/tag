@@ -1,0 +1,72 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+BrightTag.site('3xLRJdY',function(s){
+s.script('//web.archive.org/web/20180413170736/http://s.btstatic.com/lib/20082c8f5a498e72020be44646aed00b68ae5025.js?v\x3d2').script('//web.archive.org/web/20180413170736/http://s.btstatic.com/lib/0b7655015ccda4fd7692c20c362003cac5b50217.js?v\x3d2').wait(function(){
+s.dbe('tag subgroup: apply for credit', '\x22AFC\x22',{pageId:2101469});
+s.dbe('screen size', 'try{if(digitalData.pageInfo !\x3d undefined) {digitalData.pageInfo.renderedExperience.toLowerCase();} else {digitalData.renderedExperience.toLowerCase();}}catch(e){\x22unable to extract data\x22}\r\n',{pageId:2101469});
+s.dbe('tag group: non-reporting function', '\x22NRF\x22',{pageId:2101469});
+s.dbe('tag subgroup: non-retail landing page', '\x22NRP\x22',{pageId:2101469});
+s.dbe('session id', 'sessionStorage.getItem(\x27csid\x27);',{pageId:2101469});
+s.dbe('flag for 404', 'if(jQuery.trim(jQuery(\x27h1,h2,h3,p\x27).text().match(/page.*not.*(available|found)/i))){true} else{false}',{pageId:2101469});
+s.dbe('persistent browser id', 'localStorage.getItem(\x27pbid\x27);',{pageId:2101469});
+s.dbe('signal universal id', '\x27LkKscRlzSLX5eEBhDbSoE9/fx624EZOWJ7VXmniltzc\\x3d\x27');
+s.dbe('language (of page)', 'try {if (location.hostname.indexOf(\x27www.\x27) \x3e -1 || location.hostname.indexOf(\x22chat.chevrolet\x22) \x3e -1) {\r\n  \x27en\x27;\r\n} else if (location.hostname.indexOf(\x27es\x27) \x3e -1 || location.hostname.indexOf(\x22chat.gm\x22) \x3e -1) {\r\n  \x27es\x27;\r\n} else if (digitalData !\x3d\x3d undefined \x26\x26 digitalData.pageInfo.languageSelected.length \x3e 1) {\r\n  digitalData.pageInfo.languageSelected.toLowerCase().slice(0,2);\r\n}\r\n} catch(e) {\x22unable to extract data\x22}',{pageId:2101469});
+s.dbe('current url', 'location.href;',{pageId:2101469});
+s.dbe('pii filter', '(function(){\r\nvar array \x3d [\x27passport\x27, \x27birth\x27, \x27email\x27, \x27name\x27, \x27phone\x27, \x27address\x27, \x27number\x27];\r\n\r\nvar searchFunction \x3d function(string){\r\n\r\nvar url \x3d location.href.toLowerCase();\r\n\r\nreturn url.indexOf(string) \x3e -1;\r\n\r\n\r\n};\r\nreturn array.some(searchFunction);\r\n\r\n})();\r\n',{pageId:2101469});
+s.dbe('referring url', 'if(document.referrer.length \x3c\x3d 0){\x27no referring URL\x27}else{document.referrer.split(/\\?/)[0];}',{pageId:2101469});
+s.dbe('tag group: key buying activity', '\x22KBA\x22',{pageId:2101469});
+s.events.bind('time complete',window,'timeComplete',{pageId:2101469}).dbe('page info','(function(){\r\nvar abbr \x3d location.href;\r\nvar info;\r\nif(abbr.indexOf(\x27current-offers\x27) \x3e -1 || abbr.indexOf(\x27current-deals\x27) \x3e -1){info \x3d \x27current offers\x27;}\r\nelse if(abbr.indexOf(\x27chevrolet.com\x27) \x3e -1 \x26\x26 location.pathname \x3d\x3d\x3d \x22/\x22){info \x3d \x27homepage\x27;} \r\nelse if(abbr.indexOf(\x27specs\x27) \x3e -1 || abbr.indexOf(\x27trims\x27) \x3e -1){info \x3d \x27specifications\x27;}\r\nelse{info \x3d \x27model overview\x27;}\r\n\r\nreturn info;\r\n})();');
+s.events.bind('apply for credit','a[href*\x3d\x22apply.gmfinancial.com\x22]','click mouseup',{pageId:2954973});
+s.events.on('apply for credit').fire(5017322);
+s.when('bt_data(\x27flag for 404\x27) \x3d\x3d false',function(){
+s.events.on('time complete').fire(5040636);
+});
+s.events.on('apply for credit').fire(5881505);
+s.domready(function(){
+s.tag('\x3cscript type\x3d\x22text/javascript\x22\x3e\n        (function(f) {\n          var n \x3d function() {\n            n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);\n          };\n          f.fbq \x3d f.fbq ? f.fbq : n;\n          f._fbq \x3d f._fbq ? f._fbq : n;\n          n.push \x3d n;\n          n.loaded \x3d !0;\n          n.version \x3d \x272.5\x27;\n          n.agent \x3d \x27sig\x27;\n          n.queue \x3d [];\n          f.fbq(\x27init\x27, "238087986565937");\n          if(true){\n            f.fbq(\x27track\x27, \x27PageView\x27);\n          }\n        })(window);\n      \x3c/script\x3e\n      \x3cscript async type\x3d\x22text/javascript\x22 src\x3d\x22https://connect.facebook.net/en_US/fbevents.js\x22\x3e\x3c/script\x3e',{tagId:3858686});
+s.tag('\x3cimg src\x3d\x22//bat.bing.com/action/0?ti\x3d4048704\x26Ver\x3d2\x22 height\x3d\x220\x22 width\x3d\x220\x22 alt\x3d\x22\x22 style\x3d\x22display:none; visibility: hidden;\x22 /\x3e',{tagId:4254641});
+s.tag('\x3cscript type\x3d\x22text/javascript\x22\x3e!function(){var t\x3dwindow.SambaTV\x3dwindow.SambaTV||[];if(!t.track){if(t.invoked)return void(window.console\x26\x26window.console.error\x26\x26window.console.error(\x22Samba Metrics snippet included twice.\x22));t.invoked\x3d!0,t.methods\x3d[\x22track\x22,\x22Impression\x22,\x22Purchase\x22,\x22Register\x22,\x22Click\x22,\x22Login\x22,\x22Register\x22],t.factory\x3dfunction(e){return function(){var r\x3dArray.prototype.slice.call(arguments);return r.unshift(e),t.push(r),t}};for(var e\x3d0;e\x3ct.methods.length;e++){var r\x3dt.methods[e];t[r]\x3dt.factory(r)}t.load\x3dfunction(t){var e\x3ddocument.createElement(\x22script\x22);e.type\x3d\x22text/javascript\x22,e.async\x3d!0,e.src\x3d(\x22https:\x22\x3d\x3d\x3ddocument.location.protocol?\x22https://\x22:\x22http://\x22)+\x22tag.mtrcs.samba.tv/v3/tag/\x22+t+\x22/sambaTag.js\x22;var r\x3ddocument.getElementsByTagName(\x22script\x22)[0];r.parentNode.insertBefore(e,r)},t.attrs||(t.attrs\x3d{}),t.SNIPPET_VERSION\x3d\x221.0.1\x22,t.load(\x22chevy/homepage\x22)}}();\x3c/script\x3e',{tagId:4337666});
+s.tag('\x3cscript\x3e\n        (function() {\n          var url \x3d \x27https://3924042.fls.doubleclick.net/activityi;src\x3d3924042;type\x3dchevr0;cat\x3dusche0;\x27;\n\n          BrightTag.each(([{key:"u1",value:'+s.dataref("signal universal id")+'},{key:"u2",value:'+s.dataref("language (of page)")+'},{key:"u15",value:'+s.dataref("referring url")+'},{key:"u18",value:'+s.dataref("session id")+'},{key:"u19",value:'+s.dataref("tag group: non-reporting function")+'},{key:"u20",value:'+s.dataref("tag subgroup: non-retail landing page")+'},{key:"u25",value:'+s.dataref("persistent browser id")+'},{key:"u26",value:'+s.dataref("screen size")+'}]).concat([]), function(prop) {\n            url +\x3d encodeURIComponent(prop.key) + \x22\x3d\x22 + encodeURIComponent(prop.value) + \x22;\x22;\n          });\n\n          url +\x3d \x27ord\x3d01226867046;~oref\x3dhttp%3A%2F%2Fwww.chevrolet.com%2F?\x27\n          BrightTag.Content.iframe(url, {display: \x27none\x27});\n        })();\n      \x3c/script\x3e',{tagId:5017305});
+s.tag('\x3c!-- Start Quantcast Tag --\x3e\n\x3cscript type\x3d\x22text/javascript\x22\x3e\nvar _qevents \x3d _qevents || [];\n\n (function() {\n   var elem \x3d document.createElement(\x27script\x27);\n   elem.src \x3d (document.location.protocol \x3d\x3d \x22https:\x22 ? \x22https://secure\x22 : \x22http://edge\x22) + \x22.quantserve.com/quant.js\x22;\n   elem.async \x3d true;\n   elem.type \x3d \x22text/javascript\x22;\n   var scpt \x3d document.getElementsByTagName(\x27script\x27)[0];\n   scpt.parentNode.insertBefore(elem, scpt);\n  })();\n\n_qevents.push({qacct: \x22p-MPeaCmPr94dQZ\x22});\n\n\x3c/script\x3e\n\n\x3c!-- End Quantcast tag --\x3e\n',{tagId:5888912});
+s.secondary(function(c){
+c.when('bt_data(\x27current url\x27).indexOf(\x22certified-service\x22) \x3c 0').fire(1017219);
+c.when('bt_data(\x27pii filter\x27) \x3d\x3d false').fire(1017786);
+c.when('bt_data(\x27current url\x27).indexOf(\x22certified-service\x22) \x3e -1').fire(5110336);
+c.when('bt_data(\x27flag for 404\x27) \x3d\x3d true').fire(5343215);
+});
+});
+});
+});
+
+
+}
+/*
+     FILE ARCHIVED ON 17:07:36 Apr 13, 2018 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:41:30 May 01, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 188.555
+  exclusion.robots: 0.073
+  exclusion.robots.policy: 0.063
+  RedisCDXSource: 0.919
+  esindex: 0.008
+  LoadShardBlock: 163.312 (3)
+  PetaboxLoader3.datanode: 84.023 (4)
+  load_resource: 148.665
+  PetaboxLoader3.resolve: 119.498
+*/

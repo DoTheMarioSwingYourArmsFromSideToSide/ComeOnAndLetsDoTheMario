@@ -1,0 +1,104 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+// masthead price as shown
+var priceasshown_colorado="$xx,xxx*";
+
+//flyout pricing
+var priceasshown_colorado_flyout="$20,930*";
+var startingatprice_colorado_flyout="$15,570*";
+
+//Landing pricing
+var startingatprice_colorado2008_landing="$15,540*";
+var priceasshown_colorado2008_landing="$27,350*"; 
+
+
+// thumbnail price as shown
+var priceasshown_colorado2008_regular_cab="$20,930*";
+var priceasshown_colorado2008_extended_cab="$17,860*";
+var priceasshown_colorado2008_crew_cab="$27,350*";
+
+//Legacy starting at price
+//var startingatprice_colorado="$xx,xxx*";
+
+// thumbnails starting at price
+var startingatprice_colorado2008_regular_cab="$15,570*";
+var startingatprice_colorado2008_extended_cab="$17,860*";
+var startingatprice_colorado2008_crew_cab="$21,700*";
+
+// trim levels starting at price
+var startingatprice_colorado2008_regular_cab_1ls_2wd="$15,570*";
+var startingatprice_colorado2008_regular_cab_1ls_4x4="$19,070*";
+
+var startingatprice_colorado2008_regular_cab_1lt_2wd="$17,530*";
+var startingatprice_colorado2008_regular_cab_1lt_4x4="$20,930*";
+
+var startingatprice_colorado2008_regular_cab_2lt_2wd="$18,905*";
+var startingatprice_colorado2008_regular_cab_2lt_4x4="$24,085*";
+
+var startingatprice_colorado2008_regular_cab_3lt_2wd="$20,040*";
+var startingatprice_colorado2008_regular_cab_3lt_4x4="$23,490*";
+
+var startingatprice_colorado2008_regular_cab_work_truck_2wd="$15,295*";
+var startingatprice_colorado2008_regular_cab_work_truck_4x4="$18,695*";
+
+//var startingatprice_colorado2008_regular_cab_chassis_cab_2wd="$xx,xxx*";
+//var startingatprice_colorado2008_regular_cab_chassis_cab_4x4="$XX,XXX*";
+
+var startingatprice_colorado2008_extended_cab_1ls_2wd="$17,860*";
+var startingatprice_colorado2008_extended_cab_1ls_4x4="$21,160*";
+
+var startingatprice_colorado2008_extended_cab_1lt_2wd="$19,995*";
+var startingatprice_colorado2008_extended_cab_1lt_4x4="$22,995*";
+
+var startingatprice_colorado2008_extended_cab_2lt_2wd="$23,150*";
+var startingatprice_colorado2008_extended_cab_2lt_4x4="$26,150*";
+
+var startingatprice_colorado2008_extended_cab_3lt_2wd="$22,550*";
+var startingatprice_colorado2008_extended_cab_3lt_4x4="$25,600*";
+
+var startingatprice_colorado2008_extended_cab_work_truck_2wd="$17,370*";
+var startingatprice_colorado2008_extended_cab_work_truck_4x4="$20,570*";
+
+var startingatprice_colorado2008_crew_cab_1lt_2wd="$21,700*";
+var startingatprice_colorado2008_crew_cab_1lt_4x4="$25,200*";
+
+var startingatprice_colorado2008_crew_cab_2lt_2wd="$24,355*";
+var startingatprice_colorado2008_crew_cab_2lt_4x4="$26,855*";
+
+var startingatprice_colorado2008_crew_cab_3lt_2wd="$23,755*";
+var startingatprice_colorado2008_crew_cab_3lt_4x4="$26,305*";
+
+//var startingatprice_colorado2008_crew_cab_work_truck_2wd="$XX,XXX*";
+//var startingatprice_colorado2008_crew_cab_work_truck_4x4="$XX,XXX*";
+
+}
+/*
+     FILE ARCHIVED ON 04:08:53 Nov 15, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 21:56:21 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 200.31
+  exclusion.robots: 0.072
+  exclusion.robots.policy: 0.063
+  cdx.remote: 0.064
+  esindex: 0.01
+  LoadShardBlock: 173.04 (3)
+  PetaboxLoader3.resolve: 215.164 (3)
+  PetaboxLoader3.datanode: 85.713 (4)
+  load_resource: 145.314
+*/

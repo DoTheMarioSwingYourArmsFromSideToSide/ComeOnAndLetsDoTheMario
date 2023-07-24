@@ -1,0 +1,35 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+function sendMessage(url,obj,callback){var nm_script=document.createElement("SCRIPT");if(url.indexOf("?")==-1){url+="?"}else{url+="&"}url+="rand="+Math.random();url+="&nm_input_data="+encodeURIComponent(json_encode(obj));if(typeof(callback)=="function"){if(nm_script.addEventListener){nm_script.addEventListener("load",callback,false)}else{nm_script.onreadystatechange=function(e){if(this.readyState=="loaded"){callback();nm_script=null}}}}nm_script.setAttribute('src',url);document.getElementsByTagName("head")[0].appendChild(nm_script)}function nm_createCookie(name,value,days,domain){if(days){var date=new Date();date.setTime(date.getTime()+(days*24*60*60*1000));var expires="; expires="+date.toGMTString()}else var expires="";if(domain){var sDomainName="; domain="+domain}else var sDomainName="";document.cookie=name+"="+value+sDomainName+expires+"; path=/"}function nm_readCookie(name){var nameEQ=name+"=";var ca=document.cookie.split(';');for(var i=0;i<ca.length;i++){var c=ca[i];while(c.charAt(0)==' ')c=c.substring(1,c.length);if(c.indexOf(nameEQ)==0)return c.substring(nameEQ.length,c.length)}return null}function nm_eraseCookie(name){nm_createCookie(name,"",-1)}(function(){var fn=function(){window.nmDocReady=1};if(window.addEventListener){window.addEventListener('load',fn,false)}else if(window.attachEvent){window.attachEvent('onload',fn)}})();function json_encode(expr){var str='';switch(typeof(expr)){case"object":if(expr==null){str="null"}else if(expr.constructor==Date){str="\""+expr.getFullYear()+"-"+String(exp.getMonth()+100).substr(1)+"-"+String(exp.getDate()+100).substr(1)+"T"+exp.toTimeString().substr(0,8)+"\""}else if(expr.constructor==Array){var tmp=[];for(var i=0;i<expr.length;i++){if(s=json_encode(expr[i]))tmp.push(s)}str="["+tmp.join(",")+"]"}else{var item,tmp=[];for(item in expr){if(expr.hasOwnProperty(item))tmp.push(json_encode(item)+":"+json_encode(expr[item]))}str="{"+tmp.join(",")+"}"}break;case"function":break;case"boolean":str=String(expr);break;case"number":str=isFinite(expr)?String(expr):"null";break;case"string":str="\""+expr.replace(/[\x00-\x1f\\"]/g,function($0,$1){return"\\u"+String(10000+String($1).charCodeAt().toString(16)).substr(1)})+"\"";break;default:}return str}function json_decode(str){return JSON.parse(str)}if(typeof window.nm_browserCheckCalls!='number')window.nm_browserCheckCalls=0;window.nm_browserCheck={expiry:183,tagUrl:'',reduceHost:true,doFirstPartyRecovery:true,fire:function(fingerprint_vid,exit){if(window.nm_browserCheckCalls>0)return;var vid,domain;if((vid=this.getId())===false)vid=fingerprint_vid;if(this.doFirstPartyRecovery==true)document.cookie="nmfirstparty="+vid+"; expires="+this.getExpiry()+"; path=/"+((domain=this.getCookieDomain())!==false?("; domain=."+domain):'');dPixelRatio=(window.devicePixelRatio==undefined)?1:window.devicePixelRatio;sendMessage(this.tagUrl+'?function=browser_check&vid='+vid+(exit==true?'&action=exit':'')+'&referer='+escape(document.referrer)+'&browserPixelRatio='+((window.devicePixelRatio==undefined)?1:window.devicePixelRatio)+'&browserWidth='+screen.width+'&browserHeight='+screen.height);window.nm_browserCheckCalls++},getCookieDomain:function(){if(typeof document.location.hostname!='string')return false;if(this.reduceHost==true)return document.location.hostname.match(/[a-z0-9-]+(?:\.co)?\.\w+$/i)[0];return document.location},getExpiry:function(){var now=new Date();now.setTime(now.getTime()+(this.expiry*24*60*60*1000));return now.toGMTString()},getId:function(){if(this.doFirstPartyRecovery!=true)return false;var vid=document.cookie.match(/nmfirstparty\=([a-z0-9]{13})/);return(vid!==null&&typeof vid[1]!='undefined')?vid[1]:false}};window.nm_browserCheck.tagUrl='https://web.archive.org/web/20150803160330/http://com-gmtagging.netmng.com/gmds_chevrolet/com/';window.nm_browserCheck.expiry=183;window.nm_browserCheck.fire('sctisowqxuhbr',false);
+
+}
+/*
+     FILE ARCHIVED ON 16:03:30 Aug 03, 2015 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 04:22:40 May 01, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 132.455
+  exclusion.robots: 0.084
+  exclusion.robots.policy: 0.073
+  cdx.remote: 0.063
+  esindex: 0.01
+  LoadShardBlock: 58.924 (3)
+  PetaboxLoader3.datanode: 83.247 (4)
+  load_resource: 114.772
+  PetaboxLoader3.resolve: 83.228
+*/

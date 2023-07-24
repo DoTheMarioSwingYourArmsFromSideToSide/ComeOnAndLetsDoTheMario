@@ -1,0 +1,91 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+var gmIndexCodeTable = [
+  {
+    "url": "/request-quote",
+    "subGroup": "RAQ",
+    "group": "KBA"
+  }, {
+    "url": "/request-test-drive",
+    "subGroup": "RTD",
+    "group": "KBA"
+  }, {
+    "url": "/help/contact-us/form",
+    "subGroup": "GEU",
+    "group": "KBA"
+  }, {
+    "url": "/request-info",
+    "subGroup": "GEU",
+    "group": "KBA"
+  }
+];
+
+function gmPageIndex() {
+  var passValue = "";
+  var gmURL = location.href.toLowerCase();
+
+  for (var i = 0; i < gmIndexCodeTable.length; i++) {
+    if (gmURL.indexOf(gmIndexCodeTable[i].url) >= 0) {
+      passValue = gmIndexCodeTable[i].subGroup;
+      break;
+    }
+  }
+
+  return passValue;
+}
+
+jQuery(document).ajaxComplete(function(event, request, options) {
+  var subGroupValue;
+
+	console.log(event);
+	console.log(request);
+	console.log(options);
+	console.log(options.url);
+
+  var eventUrl = options.url;
+
+  if (eventUrl.indexOf("/bypass/gmna/saleslead/services/submitlead") > -1) {
+    //Check URL for subGroupValue, all these activities will be KBA
+    subGroupValue = gmPageIndex();
+    console.log(subGroupValue);
+    //Trigger Data Feed Event
+    jQuery(window).trigger("eventDataFeed", [subGroupValue]);
+  } else if (eventUrl.indexOf("/navigation/navigation-flyouts/dealers.html") > -1) {
+    subGroupValue = "LAD";
+    console.log(subGroupValue);
+    //Trigger Data Feed Event
+    jQuery(window).trigger("eventDataFeed", [subGroupValue]);
+  }
+});
+
+}
+/*
+     FILE ARCHIVED ON 23:10:32 Sep 18, 2019 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 18:47:25 May 01, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 95.677
+  exclusion.robots: 0.067
+  exclusion.robots.policy: 0.058
+  cdx.remote: 0.056
+  esindex: 0.008
+  LoadShardBlock: 55.736 (3)
+  PetaboxLoader3.datanode: 60.843 (4)
+  load_resource: 105.015
+  PetaboxLoader3.resolve: 59.449
+*/

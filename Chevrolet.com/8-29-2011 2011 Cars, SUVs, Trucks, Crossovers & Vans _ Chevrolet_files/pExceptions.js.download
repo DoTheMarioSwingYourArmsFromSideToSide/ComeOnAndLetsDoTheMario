@@ -1,0 +1,107 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+// begin global variables
+
+	var currentLocation = window.location.pathname;
+
+// end global variables
+
+/** Generic name/value pair function
+* @param 
+* @return hash (of sorts) of name value pairs from the querystring
+*/
+function getQsParamsGlobal() {	
+	var qs = location.search;
+	qs = qs.substring(1);
+	// create an 'array' called newArray with the name value pairs from the querystring
+	var qsArray = new Array;
+	qsArray = qs.split('&'); //creating an array in which the values are separated by ampersands in the code//
+	var keyValueArray = new Array; //this one loads the names and values into a hash (of sorts)//
+	for(i = 0; i < qsArray.length; i++) {
+		var nameValue = qsArray[i].split('='); //splitting what we find between each ampersand into key value pairs //
+		keyValueArray[nameValue[0]] = unescape(nameValue[1]); //we are then turning all the escaped characters back into the 'real thing' ie. %3F turns into a '?' //
+	}
+	return keyValueArray;		
+}
+
+
+/** Prevents the gAbout div element to be displayed if it is empty
+ * @param 
+ * @return
+ */
+function checkAboutCopy(){
+	var obj = $("gAboutCopy");
+	if (obj != null){
+		var parentObj = $("gAbout");
+		if (parentObj != null){
+			if (obj.innerHTML == "")
+				parentObj.style.display = "none";
+		}
+	}	
+}
+
+/** Add the current user's zipcode to one specific URL
+ * @param 
+ * @return
+ */
+function addZip(){
+	var qsParams = getQsParamsGlobal();
+	var obj = $("dealerFaq");
+	var objChildren = Array();
+	if (currentLocation.test("/dealerlocator/result.do")){	
+		if (obj != null){
+			objChildren = obj.childNodes;
+			for(var i = 0; i < objChildren.length; i++){
+				if(objChildren[i].nodeName == "A"){
+					if((qsParams['searchByPostalCodePostalCode'] != "") && (qsParams['searchByPostalCodePostalCode'] != undefined )){
+						if($_("objChildren[i]:contains(/faq)")){ //do not append zip param if faq link
+							objChildren[i].href = objChildren[i].href;
+						} else {
+							objChildren[i].href = objChildren[i].href + "&zip=" + qsParams['searchByPostalCodePostalCode'];
+						}
+					//}else{
+					//	if(zipLoc != null)
+						//	objChildren[i].href = objChildren[i].href + "&zip=" + zipLoc.zipcode;		
+					}
+				}
+			}			
+		}
+	}
+}
+
+AttachEvent(window, "load", checkAboutCopy);
+AttachEvent(window, "load", addZip);
+
+
+
+}
+/*
+     FILE ARCHIVED ON 04:15:45 Jul 09, 2011 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:57:11 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 71.324
+  exclusion.robots: 0.073
+  exclusion.robots.policy: 0.064
+  cdx.remote: 0.065
+  esindex: 0.008
+  LoadShardBlock: 44.121 (3)
+  PetaboxLoader3.datanode: 58.008 (4)
+  load_resource: 122.076
+  PetaboxLoader3.resolve: 81.554
+*/

@@ -1,0 +1,304 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+var MAX_NAV_HEIGHT = "400";
+var MIN_NAV_HEIGHT = "115";
+var FLASH_NAV_ID = "flashObj_nav";
+
+function show(id, root, ignoreList) {
+	//console.log("show: "+ id);
+	var rootNode = document.getElementById(root);
+	if (ignoreList == null) ignoreList = "";
+	if (rootNode == null) rootNode = document.body;
+
+	//console.log("hide id: "  +id);
+
+	// hide all other flyouts
+	var nodeArr = util.getElementsByClassName('flyout', rootNode);
+	for (var i = 0; i < nodeArr.length; i++) {
+		var thisId = nodeArr[i].id;
+		if ((thisId != null) && (thisId.length > 0)) {
+			if ((ignoreList.indexOf(thisId)) == -1 ) {
+				//console.log("show - hide: " + nodeArr[i].id);
+				css.removeClassName(nodeArr[i], "active");
+			}
+		} else {
+			//console.log("show - hide: " + nodeArr[i].id);
+			css.removeClassName(nodeArr[i], "active");
+		}
+
+	}
+
+	// show this flyout
+	css.addClassName(document.getElementById(id), "active");
+
+}
+
+function hide(id, root, ignoreList) {
+	var rootNode = document.getElementById(root);
+
+	if (ignoreList == null) ignoreList = "";
+	if (rootNode == null) rootNode = document.body;
+
+	//console.log("hide id: "  +id);
+
+	var nodeArr = util.getElementsByClassName('flyout', rootNode);
+	for (var i = 0; i < nodeArr.length; i++) {
+		var thisId = nodeArr[i].id;
+		if ((thisId != null) && (thisId.length > 0)) {
+			if ((ignoreList.indexOf(thisId)) == -1 ) {
+				//console.log("hide: " + nodeArr[i].id);
+				css.removeClassName(nodeArr[i], "active");
+			}
+		} else {
+			//console.log("hide: " + nodeArr[i].id);
+			css.removeClassName(nodeArr[i], "active");
+		}
+
+	}
+}
+
+//alert("global.siteSpeed="+global.siteSpeed);
+if(global.siteSpeed!="high"){
+	var req = new Request.HTML({method: 'get', url: BASE_CONTEXT + '/tools/util/navigation.do?success=/en/pages/global/includes/navigation_html.jsp',
+		onSuccess: function(html) {
+			if ($('mdsNavDropDown') != null) {
+
+				//Clear the text currently inside the results div.
+				$('mdsNavDropDown').set('text', '');
+				//Inject the new DOM elements into the results div.
+				$('mdsNavDropDown').adopt(html);
+				//console.log('w00t');
+
+				$$('ul#vehicles li').each(function(li) {
+					//console.log(li.id);
+					
+					if(li.className!="separator"){
+						li.addEvent('mouseleave', function() {
+							css.removeClassName(li, 'active');
+						});
+	
+						li.addEvent('mouseenter', function() {
+							css.addClassName(li, 'active');
+						});
+					}
+					
+				});
+
+			}
+		},
+		//Our request will most likely succeed, but just in case, we'll add an
+		//onFailure method which will let the user know what happened.
+		onFailure: function() {
+			if ($('mdsNavDropDown') != null) {
+				$('mdsNavDropDown').set('text', '');
+			}
+		}
+	});
+	req.send();
+
+	$(document).addEvent('domready', function() {
+		
+		if ($('mdsNavDivisionExperience') != null) {
+			$('mdsNavDivisionExperience').addEvent('mouseover', function() {
+				css.addClassName($('mdsNavExperience'), 'active');
+			});
+		}
+
+		if ($('mdsNavExperience') != null) {
+			$('mdsNavExperience').addEvent('mouseleave', function() {
+				css.removeClassName($('mdsNavExperience'), 'active');
+			});
+		}
+		
+		if ($('mdsNavDivisionOwners') != null) {
+			$('mdsNavDivisionOwners').addEvent('mouseover', function() {
+				css.addClassName($('mdsNavOwners'), 'active');
+			});
+		}
+
+		if ($('mdsNavOwners') != null) {
+			$('mdsNavOwners').addEvent('mouseleave', function() {
+				css.removeClassName($('mdsNavOwners'), 'active');
+			});
+		}
+		
+		if ($('mdsNavDivisionPricing') != null) {
+			$('mdsNavDivisionPricing').addEvent('mouseover', function() {
+				css.addClassName($('mdsNavPricing'), 'active');
+			});
+		}
+
+		if ($('mdsNavPricing') != null) {
+			$('mdsNavPricing').addEvent('mouseleave', function() {
+				css.removeClassName($('mdsNavPricing'), 'active');
+			});
+		}
+
+		if ($('mdsNavDivisionVehicles') != null) {
+			$('mdsNavDivisionVehicles').addEvent('mouseover', function() {
+				css.addClassName($('mdsNavVehicles'), 'active');
+			});
+		}
+
+		if ($('mdsNavVehicles') != null) {
+			$('mdsNavVehicles').addEvent('mouseleave', function() {
+				css.removeClassName($('mdsNavVehicles'), 'active');
+			});
+		}		
+	});
+}
+	//Following functions are used by buying guides page.
+	function showPaymentEstimator(){
+		var postalCode = getPostalCode();
+		window.open(BASE_CONTEXT+'/pages/mds/pricing/estimatepayment.do');
+	}
+
+	function showTradeInAppraisal(url){//URL is passed from jsp, it is set on brand.properties
+		console.log(url);
+		//window.open(BASE_CONTEXT+'/pages/misc/instersticial/popupToExteriorLink.do?newURL='+url);
+		fireInterstitial('/pages/misc/instersticial/popupToExteriorLink.do?newURL='+url+'');
+	}
+
+	function showApplyForCredit(){
+		window.open('https://web.archive.org/web/20130227145622/https://www.gmacfinancialtools.com/toolmanager?toolname=XCA&websiteid=USBP&cntrycd=US&langcd=EN&request_type=credapp');
+	}
+
+	function showGMACLearnMore(){
+		window.open('https://web.archive.org/web/20130227145622/http://www.gmacfs.com/us/en/personal/automotive/');
+	}
+
+/*--------------------MODEL MENU-------------------------*/
+function displayHideYears(objId){
+	obj =  document.getElementById(objId);
+	if(obj.className == "hiddenArea") obj.className = "displayedArea";
+	else obj.className = "hiddenArea";
+}
+/*--------------------END MODEL MENU-------------------------*/
+
+/*
+ * showWorldwideSitesDialog(src)
+ * Function to show the "Worldwide Sites" pop-up in the navigation bar
+ */
+function showWorldwideSitesDialog(src){
+	var html = '';
+	var url = BASE_CONTEXT+"/en/pages/global/nav/worldWideSites/pageData.xml";
+	var xml;
+	var data;
+	if ($('wsDialog') != null) {
+		document.body.removeChild($('wsDialog'));
+	}
+	var toolTipElm = document.createElement('div');
+	toolTipElm.setAttribute('id', 'wsDialog');
+	toolTipElm.innerHTML += "<div>"+DIVISION+" Worldwide</div>";
+	toolTipElm.innerHTML += "<div><a href='#' onclick='closeWorldWideSitesDialog(this);'>Close</a></div>";
+	toolTipElm.innerHTML += "<ul>";
+	try{
+	    xml = new JKL.ParseXML(url);
+	    data = xml.parse();
+	    for(var link in data.links.link){
+	    	if(data.links.link.hasOwnProperty(link)){
+	    		toolTipElm.innerHTML += "<li><a href='"+data.links.link[link].href+"' title='"+data.links.link[link].title+"' target='"+data.links.link[link].target+"' class='"+data.links.link[link].css+"' onclick='"+data.links.link[link].onclick+"'>"+data.links.link[link].text+"</a></li>";
+	    	}
+	    }
+	}catch(err){}
+	toolTipElm.innerHTML += "</ul>";
+	document.body.appendChild(toolTipElm);
+	$('wsDialog').style.left = DL_GetElementLeft(src) + "px";
+	$('wsDialog').style.top = DL_GetElementTop(src) + "px";
+	return false;
+}
+
+/*
+ * closeWorldWideSitesDialog()
+ * Function to hide the "Worldwide Sites" pop-up in the navigation bar
+ */
+function closeWorldWideSitesDialog() {
+	document.body.removeChild($('wsDialog'));
+	return false;
+}
+
+function doVL(){
+	validateCookie(this,'locateVehicleLanding()','vl',false);
+	return false;
+}
+
+function doDL(){
+	validateCookie(this,'locateDealer()','dl',false);
+	return false;
+}
+function doBYO(){
+	validateCookie(this,'byo()','byo',false);
+	return false;
+}
+
+function doAffordability(){
+	validateCookie(this,'byo()','byo',false);
+	return false;
+}
+
+function setFlashNavHeight(newHeight){
+	var e1 = document.getElementById(FLASH_NAV_ID);
+	e1.height=newHeight;
+}
+
+function setFlahsNavHeight(){
+  var e1 = document.getElementById(FLASH_NAV_ID);
+  if (e1.height===MAX_NAV_HEIGHT){
+  	e1.height=MIN_NAV_HEIGHT;
+  }
+  else{
+  	e1.height=MAX_NAV_HEIGHT;
+  }
+}
+
+function pricingOffer(){
+	var zipLoc = getDefaultLocation();
+	if(null!=zipLoc){		
+		window.location.href=BASE_CONTEXT+"/pages/mds/pricing/affordability.do?zipCode="+zipLoc.zipcode+"&regionCode="+zipLoc.region.code+"&countyCode="+zipLoc.county.code;	
+	}else{		
+		window.location.href=BASE_CONTEXT+"/pages/mds/pricing/affordability.do";
+	}
+}
+
+function changeYear(year,url) {
+	if ($type(window.changeYearOverride) == 'function') {
+		// used if a page needs to change the normal behavior of the cahnge year function
+		changeYearOverride(year);
+	}else{
+		window.location = url.split('?')[0];
+	}
+}
+
+
+
+}
+/*
+     FILE ARCHIVED ON 14:56:22 Feb 27, 2013 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:27:53 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 63.989
+  exclusion.robots: 0.201
+  exclusion.robots.policy: 0.181
+  RedisCDXSource: 1.139
+  esindex: 0.017
+  LoadShardBlock: 39.774 (3)
+  PetaboxLoader3.datanode: 73.404 (4)
+  load_resource: 85.772
+  PetaboxLoader3.resolve: 24.826
+*/

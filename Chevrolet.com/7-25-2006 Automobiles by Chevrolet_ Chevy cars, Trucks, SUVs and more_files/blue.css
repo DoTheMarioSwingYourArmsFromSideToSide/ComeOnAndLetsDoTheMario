@@ -1,0 +1,29 @@
+div#header { background:transparent url(/web/20060725220629im_/http://www.chevrolet.com/i/06/bg/header-blue.png) top center repeat-y; }
+div#container { background:transparent url(/web/20060725220629im_/http://www.chevrolet.com/i/06/bg/curvetop-blue.png) top center no-repeat; }
+
+/* Mac IE Hack \*/
+* html div#container { background-image:none; filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/i/06/bg/curvetop-blue.png',sizingMethod='crop'); }
+* html div#header { background-image:none; filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/i/06/bg/header-blue.png',sizingMethod='scale'); }
+/* end hack */
+
+div#logo a { position:relative; z-index:1; } /* workaround for IE link bug NM */
+/*
+     FILE ARCHIVED ON 22:06:29 Jul 25, 2006 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 21:39:25 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 99.684
+  exclusion.robots: 0.07
+  exclusion.robots.policy: 0.061
+  cdx.remote: 0.055
+  esindex: 0.008
+  LoadShardBlock: 71.929 (3)
+  PetaboxLoader3.datanode: 76.231 (4)
+  load_resource: 58.646
+  PetaboxLoader3.resolve: 26.271
+*/

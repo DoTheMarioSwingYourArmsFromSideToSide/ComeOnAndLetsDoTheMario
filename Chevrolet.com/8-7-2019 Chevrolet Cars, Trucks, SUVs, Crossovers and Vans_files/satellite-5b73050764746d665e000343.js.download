@@ -1,0 +1,38 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+_satellite.pushAsyncScript(function(event, target, $variables){
+  /*Copyright 2011-2015 iPerceptions, Inc. All rights reserved. Do not distribute.iPerceptions provides this code 'as is' without warranty of any kind, either express or implied. */ window.iperceptionskey = 'af185a2d-67f3-475b-86c7-fb0b0148fac4';(function () { var a = document.createElement('script'),b = document.getElementsByTagName('body')[0]; a.type = 'text/javascript'; a.async = true;a.src = '//web.archive.org/web/20190907124315/https://universal.iperceptions.com/wrapper.js';b.appendChild(a);})();
+});
+
+
+}
+/*
+     FILE ARCHIVED ON 12:43:15 Sep 07, 2019 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 08:25:52 May 01, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 154.58
+  exclusion.robots: 0.066
+  exclusion.robots.policy: 0.058
+  RedisCDXSource: 4.894
+  esindex: 0.008
+  LoadShardBlock: 122.296 (3)
+  PetaboxLoader3.datanode: 128.664 (4)
+  load_resource: 886.849
+  PetaboxLoader3.resolve: 876.534
+*/

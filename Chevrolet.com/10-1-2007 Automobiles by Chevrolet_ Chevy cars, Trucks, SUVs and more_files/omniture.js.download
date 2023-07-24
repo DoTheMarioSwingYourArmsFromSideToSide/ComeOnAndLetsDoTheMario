@@ -1,0 +1,224 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+var obj_l;
+var staticTracking;
+  s_wds(s_account); s_ca(s_account);  
+  function sendAnalyticsEvent(str){
+  ns=s_account; if(str!=null)ns+=","+str;void(s_gs(ns));}  
+  function sendLinkEvent(str,lnkname){
+  ns=s_account; if(str!=""&&str!=null)ns+=","+str; s_linkType="o"; s_lnk=true; s_linkName=lnkname; void(s_gs(ns));}
+  function clickTrack(linkName, zip) { 
+		s_prop5=linkName;
+		s_prop8="CURRENT OFFERS | " + zip;
+		sendLinkEvent('',linkName);   
+		s_prop5 = "";
+		s_prop8 = "";
+  }
+
+var links = document.getElementsByTagName("a");
+for (var i=0; i < links.length; i++) {
+	if ((links[i].rel) && (links[i].rel.match("popupdinamic-"))) {
+		var name = links[i].name;
+		var id = links[i].rel.substring("popupdinamic-".length);
+		tracking[id]["s_linkName"] = tracking[id]["s_linkName"].replace("<<MODEL>>", name);
+		links[i].onclick = function (){
+			onClickTracking(this, "popupdinamic-");
+			if (this.href.match("regionLocation.jsp"))
+				superPopup({url:this.href, type:"regionDetails"}); 
+			else	
+				superPopup({url:this.href, type:"RegionLocation"}); 
+			return false;
+		}
+	}
+	if ((links[i].rel) && (links[i].rel.match("omni-"))) {
+		links[i].onclick = function (){
+			onClickTracking(this, "omni-");
+		}
+	}
+}
+
+function onClickTracking(obj, type){
+	obj_l = obj
+	var id = obj.rel.substring(obj.rel.indexOf(type) + type.length);  
+	staticTracking = true;
+	onClickTrackingById(id);
+	if (type.match("popupdinamic-"))
+		return false;
+	return true;	
+}
+
+function onClickTrackingById(id) { 
+	var account = s_account;
+	var p = "";
+	if (tracking[id]["s_pageName"]){
+		s_pageName = tracking[id]["s_pageName"];
+		s_prop1 = tracking[id]["s_prop1"];
+		s_prop2 = tracking[id]["s_prop2"];
+		s_prop3 = tracking[id]["s_prop3"];
+		s_prop5 = tracking[id]["s_prop5"];
+		s_prop11 = tracking[id]["s_prop11"];
+		s_prop12 = tracking[id]["s_prop12"];
+		s_prop13 = tracking[id]["s_prop13"];
+
+		if ((tracking[id]["s_prop14"]) && (id == "FAQCategory")){
+			staticTracking = false;
+			s_prop14 = tracking[id]["s_prop14"].replace("<<FAQ Category>>", obj_l.innerHTML.toUpperCase()).replace("&AMP;", "&");
+			s_prop15 = tracking[id]["s_prop15"].replace("<<FAQ Category>>", obj_l.innerHTML.toUpperCase()).replace("&AMP;", "&");
+			s_prop16 = tracking[id]["s_prop16"].replace("<<FAQ Category>>", obj_l.innerHTML.toUpperCase()).replace("&AMP;", "&");
+			s_prop17 = tracking[id]["s_prop17"].replace("<<FAQ Category>>", obj_l.innerHTML.toUpperCase()).replace("&AMP;", "&");
+		}		
+		if ((tracking[id]["s_prop14"]) && (id == "FAQQuestion")){
+			staticTracking = false;
+			section = document.getElementById(obj_l.className).innerHTML.toUpperCase().replace("&AMP;", "&");
+			question = "Q" + obj_l.id;
+			s_prop14 = tracking[id]["s_prop14"].replace("<<FAQ Category>>", section).replace("<<Question>>", question);
+			s_prop15 = tracking[id]["s_prop15"].replace("<<FAQ Category>>", section).replace("<<Question>>", question);
+			s_prop16 = tracking[id]["s_prop16"].replace("<<FAQ Category>>", section).replace("<<Question>>", question);
+			s_prop17 = tracking[id]["s_prop17"].replace("<<FAQ Category>>", section).replace("<<Question>>", question);
+		}		
+		if (staticTracking){
+			s_prop14 = tracking[id]["s_prop14"];
+			s_prop15 = tracking[id]["s_prop15"];
+			s_prop16 = tracking[id]["s_prop16"];
+			s_prop17 = tracking[id]["s_prop17"];
+		}
+		s_prop19 = tracking[id]["s_prop19"];
+		s_prop25 = tracking[id]["s_prop25"];
+		s_lnk=false;
+		s_linkType=""; 
+	}else{
+		
+		s_prop1 = "";
+		s_prop2 = "";
+		s_prop3 = "";
+		s_prop8 = "";
+		s_prop11 = "";
+		s_prop12 = "";
+		s_prop13 = "";
+		s_prop14 = "";
+		s_prop15 = "";
+		s_prop16 = "";
+		s_prop17 = "";
+		s_prop19 = "";
+		s_prop25 = "";
+		s_prop28 = "";
+		s_prop30 = "";
+
+		if ((tracking[id]["s_prop14"]) && (tracking[id]["s_prop14"] == "ONSTAR")){
+			hackOnstarLink(id)
+		}
+		else if((tracking[id]["s_prop2"]) && (tracking[id]["s_prop2"] == "HELP CENTER")){
+			hackLinkHelpCenter(id)
+		}
+		else{
+			hackDefault(id)
+		}
+	}
+   void(s_gs(account));
+   return false;
+	
+}
+
+function hackDefault(id){
+		s_linkName = tracking[id]["s_linkName"];
+		s_prop5 = s_linkName;
+		s_lnk=true;
+		s_linkType="o"; 
+		s_pageName = "";		
+}
+function hackLinkHelpCenter(id){
+		if (id == "PrintFriendly")
+			p = s_pageName;
+		s_linkName = tracking[id]["s_linkName"];
+		if (p != "")
+			s_linkName = s_linkName.replace("<<PAGE NAME>>", p);
+		s_prop5 = s_linkName;
+		s_lnk=true;
+		s_linkType="o"; 
+		s_pageName = "";
+}
+/*HACKING ONSTAR OMNITURE*/
+function hackOnstarLink(id){
+		s_linkName = tracking[id]["s_linkName"];
+		if(s_linkName.indexOf("<<SITE SECTION>>") != -1){
+			s_linkName = s_linkName.replace("<<SITE SECTION>>", GetSection())
+		}
+		if(s_linkName.indexOf("<<ONSTAR FEATURE NAME >>") != -1){
+			s_linkName = s_linkName.replace("<<ONSTAR FEATURE NAME >>", obj_l.id.toUpperCase())
+		}
+		s_prop14 = tracking[id]["s_prop14"];
+		s_prop28 = tracking[id]["s_prop28"];
+		s_prop5 = s_linkName;
+		s_lnk=true;
+		s_linkType="o"; 
+		s_pageName = "";
+}
+
+function GetSection(){
+	var selSection = ""
+	var sectionsID = new Array("messaging","byo","comparator","vehiclelocator","requestinfo","lineup","cars","trucks","suvs","vans","commercial","photogallery","colors","features","specifications","warranty","accesories","fuelsolutions","onstar","safety","trailering","warranty","byo","specialoffers","email","locatedealer","faq","newsandevents","worldwide","copyright");
+
+	var models = new Array("aveo","cobalt","corvette","hhr","impala","malibu","montecarlo","avalanche","colorado","silverado","avalanche","equinox","hhr","suburban","tahoe","trailblazer","express","uplander","ssturbocharged");
+
+	var sections = new Array();
+	sections["lineup"]={name:"LINEUP"}; sections["cars"]={name:"LINEUP"}; sections["trucks"]={name:"LINEUP"}; sections["suvs"]={name:"LINEUP"}; sections["vans"]={name:"LINEUP"}; sections["commercial"]={name:"LINEUP"}; sections["photogallery"]={name:"GALLERY"}; sections["colors"]={name:"360 VIEWS"}; sections["features"]={name:"FEATURES"}; sections["specifications"]={name:"SPECS"}; sections["warranty"]={name:"WARRANTY"}; sections["accessories"]={name:"ACCESSORIES"}; sections["fuelsolutions"]={name:"FUEL SOLUTIONS"}; sections["safety"]={name:"SAFETY"}; sections["trailering"]={name:"TRAILERING"}; sections["warranty"]={name:"WARRANTY"}; sections["byo"]={name:"BYO"}; sections["specialoffers"]={name:"OFFERS"}; sections["messaging"]={name:"RAQ"}; sections["comparator"]={name:"COMPARISON"}; sections["vehiclelocator"]={name:"VEHLOC"}; sections["requestinfo"]={name:"REQUEST INFO"}; sections["email"]={name:"EMAIL"}; sections["locatedealer"]={name:"DEALOC"}; sections["faq"]={name:"FAQ"}; sections["newsandevents"]={name:"NEWS"}; sections["worldwide"]={name:"WORLDWIDE"}; sections["copyright"]={name:"COPYRIGHT"};sections["onstar"]={name:"ONSTAR"};
+
+	var url = window.location.toString();
+	var urlSection = url.substring(0,url.length-1)
+	urlSection = urlSection.substring(urlSection.lastIndexOf('/')+1,urlSection.length)
+	
+	if(url.substring(url.length-5,url.length-1) == ".com"){
+		selSection = "HOMEPAGE"
+	}
+	if(selSection == ""){
+		for(i=0;i<models.length;i++){
+			if(urlSection == models[i]){
+				selSection = "MODEL HOMEPAGE";
+				break;
+			}
+		}		
+	}
+	if(selSection == ""){
+		for(i=0;i<sectionsID.length;i++){
+			if(url.match(sectionsID[i])){
+				selSection = sectionsID[i];
+				selSection = sections[selSection]["name"];
+				break;
+			}
+		}
+	}
+	return selSection;
+}
+/* ************ HACKING ONSTAR OMNITURE ************ */
+
+}
+/*
+     FILE ARCHIVED ON 21:07:51 Sep 11, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 21:59:18 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 93.949
+  exclusion.robots: 0.147
+  exclusion.robots.policy: 0.132
+  cdx.remote: 0.094
+  esindex: 0.013
+  LoadShardBlock: 58.164 (3)
+  PetaboxLoader3.datanode: 68.414 (4)
+  load_resource: 206.567
+  PetaboxLoader3.resolve: 189.963
+*/

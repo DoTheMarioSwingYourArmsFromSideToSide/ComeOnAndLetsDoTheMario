@@ -1,0 +1,150 @@
+div#gMdsSubNav {
+  background:url(/web/20090806041113im_/http://www.chevrolet.com/assets/en/images/global/navigation/Vehicles_SubNav.jpg) no-repeat;
+}
+
+ul#subMenu {
+  margin-left:152px;
+}
+.Explorer6 ul#subMenu.lacrosse_2010 {
+  margin-left:158px!important;
+}
+
+div.modelHead ul#headYear {
+  margin-right:10px!important;
+  width:40px;
+}
+
+.modelHead ul li {
+  float:none!important;
+}
+
+ul#headBrand {
+  width:130px;
+}
+
+.headBrandYear li a span {
+  font-size:10px;
+  display: block;
+  width:140px;
+  margin:0px 0 0 25px;
+  padding-top:2px;
+}
+
+ul#headYear li a#changeYearLink {
+  position:absolute;
+  top:25px;
+  margin-left:-150px;
+  display:none;
+}
+
+#currentModelYears ul {
+  margin: 0;
+  padding: 0;
+}
+
+#currentModelYears {
+  position: absolute;
+  background: silver;
+  border: 1px solid #000;
+}
+
+#currentModelYears ul li {
+  float:left !important;
+  font-size:9px;
+  font-weight:bold;
+  margin:3px 6px;
+}
+
+.upperHead {
+  text-indent:-999999px;
+  width:100px;
+}
+
+#headYear li.upperHead {
+  height:15px;
+  position:absolute;;
+  top:7px;
+  margin-left:-14px;
+  z-index:1;
+  width:140px;
+}
+#i17 #headYear li.upperHead {
+ /* margin-left:0px;*/
+}
+* html #headYear li.upperHead {
+  top:3px;
+}
+
+div#subHeader div#enclave_2009 ul#headYear li.upperHead {
+  background:url(/web/20090806041113im_/http://www.chevrolet.com/assets/en/images/global/navigation/buick_Buick_SubNav_title_2009EN.jpg) no-repeat;
+}
+
+div#subHeader div#lacrosse_2009 ul#headYear li.upperHead {
+  width:143px;
+  background:url(/web/20090806041113im_/http://www.chevrolet.com/assets/en/images/global/navigation/buick_Buick_SubNav_title_2009LA.jpg) no-repeat;
+  margin-top:-1px;
+}
+.Explorer7 div#subHeader div#lacrosse_2009 ul#headYear li.upperHead {
+  margin-top:-3px;
+}
+div#subHeader div#lacrosse_2010 ul#headYear li.upperHead{
+  width:143px;
+  background:url(/web/20090806041113im_/http://www.chevrolet.com/assets/en/images/global/navigation/buick_Buick_SubNav_title_2010LA.jpg) no-repeat;
+  margin-top:-1px;
+}
+
+.Explorer7 div#subHeader div#lacrosse_2010 ul#headYear li.upperHead {
+  margin-top:-3px;
+}
+
+div#subHeader div#lucerne_2009 ul#headYear li.upperHead {
+  background:url(/web/20090806041113im_/http://www.chevrolet.com/assets/en/images/global/navigation/buick_Buick_SubNav_title_2009LU.jpg) no-repeat;
+  margin-top:-1px;
+}
+.Explorer7 div#subHeader div#lucerne_2009 ul#headYear li.upperHead {
+  margin-top:-3px;
+  margin-left:-14px;
+}
+
+.hiddenArea{
+  display: none;
+}
+
+.displayedArea{
+  display: block;
+}
+
+ul#subMenu.lacrosse_2009, ul#subMenu.lacrosse_2010 {
+  margin-left:158px!important;
+}
+
+ul#subMenu li.tab05 a {
+  border:none;
+}
+
+ul#subMenu li + li + li + li + li a {
+  border:none;
+}
+#i17 .msiImage {
+ /*margin-left:0px;*/
+}
+/*
+     FILE ARCHIVED ON 04:11:13 Aug 06, 2009 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:25:49 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 134.814
+  exclusion.robots: 0.078
+  exclusion.robots.policy: 0.068
+  cdx.remote: 0.061
+  esindex: 0.01
+  LoadShardBlock: 92.096 (3)
+  PetaboxLoader3.datanode: 118.598 (4)
+  load_resource: 172.355
+  PetaboxLoader3.resolve: 118.234
+*/

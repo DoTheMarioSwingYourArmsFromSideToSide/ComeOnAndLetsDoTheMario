@@ -1,0 +1,242 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+// ***************************************
+// ******* XY Positioned popup window ****
+// ***************************************
+
+function spawnWindow_positioned(mypage, myname, w, h, scroll, resize, menu,toolbar) {
+
+// ***** window position will be 200 pixels from the left of the parent window
+var winl = 200;
+
+// ***** window position will be 50 pixels from the top of the parent window
+var wint = 50;
+
+// ***** window properties
+winprops = 'height='+h+',width='+w+',top='+wint+',left='+winl+',scrollbars='+scroll+',resizable='+resize+',menubar='+menu+',resizable=yes,toolbar=no,status=no,toolbar='+toolbar+''
+
+// ***** open popup window
+win = window.open(mypage, myname, winprops)
+
+// ***** if browser >= 4 then focus window
+if (parseInt(navigator.appVersion) >= 4) { win.window.focus(); }
+	
+}
+// ******* END XY Positioned popup window *********
+
+
+
+// ***************************************
+// ******* Centered popup window *********
+// ***************************************
+
+function spawnWindow_centered(mypage, myname, w, h, scroll, resize, menu,toolbar) {
+
+// ***** window width minus popup window width divided by 2
+var winl = (screen.width - w) / 2;
+
+// ***** window height minus popup window height divided by 2
+var wint = (screen.height - h) / 2;
+
+// ***** window properties
+winprops = 'height='+h+',width='+w+',top='+wint+',left='+winl+',scrollbars='+scroll+',resizable='+resize+',menubar='+menu+',toolbar=no,status=no,toolbar='+toolbar+''
+
+// ***** open popup window
+win = window.open(mypage, myname, winprops)
+
+// ***** if browser >= 4 then focus window
+if (parseInt(navigator.appVersion) >= 4) { win.window.focus(); }
+	
+}
+// ******* END Centered popup window *********
+
+
+function spawnWindow_noscroll (theUrl,theName,theHeight,theWidth)
+		{
+
+		//all non-webtv
+		if(browser != "WEBTV")	{
+		var localName=theName
+		theName=window.open(theUrl, localName, "toolbar=no,resizable=no,location=no,scrollbars=no,status=no,menubar=no,width="+theWidth+",height="+theHeight);
+		}
+				
+		//added func for non-AOL native browser
+		if(browser != "AOL"){theName.focus();}
+		
+		//webtv
+		if(browser == "WEBTV"){window.location.href=theUrl;}
+			
+		}
+
+
+
+function spawnWindow (theUrl,theName,theHeight,theWidth)
+		{
+
+		//all non-webtv
+		if(browser != "WEBTV")	{
+		var localName=theName
+		theName=window.open(theUrl, localName, "scrollbars=yes,status=no,menubar=yes,width="+theWidth+",height="+theHeight);
+		}
+				
+		//added func for non-AOL native browser
+		if(browser != "AOL"){theName.focus();}
+		
+		//webtv
+		if(browser == "WEBTV"){window.location.href=theUrl;}
+			
+		}
+
+function spawnWindow_resize (theUrl,theName,theHeight,theWidth)
+		{
+
+		//all non-webtv
+		if(browser != "WEBTV")	{
+		var localName=theName
+		theName=window.open(theUrl, localName, "scrollbars=yes,resizable=yes,status=no,menubar=yes,width="+theWidth+",height="+theHeight);
+		}
+				
+		//added func for non-AOL native browser
+		if(browser != "AOL"){theName.focus();}
+		
+		//webtv
+		if(browser == "WEBTV"){window.location.href=theUrl;}
+			
+		}
+
+
+function randomImage(pathString,theLoc,howMany,extension)	{
+		if(document.images)
+		{
+			var theGen=new Date();
+			var theNumber=((theGen.getSeconds()) % howMany)+1;
+			var theFullPath=pathString+theNumber+"."+extension;
+
+			eval("document.images."+theLoc+".src='"+theFullPath+"';")
+		}
+	}
+
+
+
+
+// standard image swap
+	
+function swap (theNewImage, theLoc)		{
+		if(document.images){eval("document.images."+theLoc+".src="+theNewImage+".src");}
+		}
+
+
+
+// drop down list link function
+
+function linkMenu(fullMenuPath,ndx)	{
+	var locString = eval("document."+fullMenuPath+".options["+ndx+"].value");
+	window.location.href = locString;
+}
+
+//windoid with scrollbars
+
+
+//windoid with toolbar
+function spawnWindowtool (theUrl,theName,theHeight,theWidth)
+		{
+
+		//all non-webtv
+		if(browser != "WEBTV")	{
+		var localName=theName
+		theName=window.open(theUrl, localName, "scrollbars=yes,status=no,menubar=yes,toolbar=yes,resizable=yes,location=yes,width="+theWidth+",height="+theHeight);
+		}
+				
+		//added func for non-AOL native browser
+		if(browser != "AOL"){theName.focus();}
+		
+		//webtv
+		if(browser == "WEBTV"){window.location.href=theUrl;}
+			
+		}
+		
+
+
+
+// new pulldown list script, this script allows you to target the top of framesets (i.e. target="_top"), so you don't get double navs
+// usage:
+// <option value="target|url">blablabla
+//
+// use the pipe (|) character to seperate target from URL
+// use "_top" if you want the url to occupy the entire window
+
+        function linkToTarget(form,ndx)
+        {
+                var locString = form.site.options[ndx].value;
+                var locArray = new Array();
+                var theLength = locString.length;
+                var theTarget;
+                var theUrl
+                
+                var counter;
+                var isPipe=0;
+                
+                if (locString != "")
+                {
+                        
+                        for(counter=0; counter<theLength; counter++)
+                        {
+                                if (locString.charAt(counter) == "|")
+                                {
+                                        isPipe=1;
+                                }
+                                
+                        }
+                        if(isPipe > 0)
+                        {
+                                
+                                locArray = locString.split("|");
+                                if(locArray[0] == "_top")
+                                {
+                                        parent.location = locArray[1];
+                                }
+                                else
+                                {
+                                        
+                                        parent.frames[locArray[0]].location.href = locArray[1];
+                                }                               
+                        }
+                        else
+                        {
+                                window.location.href = locString;
+                        }
+                }
+        }
+
+
+}
+/*
+     FILE ARCHIVED ON 16:45:24 Aug 01, 2001 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 20:22:04 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 105.562
+  exclusion.robots: 0.092
+  exclusion.robots.policy: 0.083
+  cdx.remote: 0.064
+  esindex: 0.01
+  LoadShardBlock: 70.077 (3)
+  PetaboxLoader3.datanode: 87.145 (4)
+  load_resource: 163.766
+  PetaboxLoader3.resolve: 112.482
+*/

@@ -1,0 +1,102 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+function msiRequestExec(urlRequest,func,param,method,funcFail,debug,parameters){
+	try{
+		var ev;
+		if(method.toLowerCase()!="get" && method.toLowerCase()!="post"){
+			if(debug=="on")
+				alert("Invalid argument on Method(" +  method + ")");
+			return;
+		}
+		if(param.toLowerCase()=="text")
+			ev = func + "(responseText,"+parameters+")";
+		else
+			if(param.toLowerCase()=="xml")
+				ev = func + "(responseXML,"+parameters+")";
+			else{
+				if(debug=="on")
+					alert("Invalid argument on Param(" +  param + ")");
+				return;
+			}
+			var req = new Request({
+				method: method,
+				url: urlRequest,
+				onFailure: function(instance){
+					if(debug=="on"){
+						alert("Invalid Request: " + urlRequest);
+						return;
+					}
+					try{
+						if(funcFail!="null")
+							eval(funcFail + "("+parameters+")");
+					}catch(err){
+						if(debug=="on"){
+						  txt="There was an error on this Request.\n";
+						  txt+=err.name + ": " + err.description + "\n";
+						  txt+="Click OK to continue.\n\n";
+						  alert(txt);
+						}
+					}
+				},
+				onException: function(headerName, value){
+					if(funcFail!="null")
+						eval(funcFail + "("+parameters+")");
+				},
+				onComplete: function(responseText, responseXML){
+					try{
+						if(responseXML!=undefined || responseText!=undefined)
+							eval(ev);
+					}catch(err){
+						if(debug=="on"){
+						  txt="There was an error on this Request.\n";
+						  txt+=err.name + ": " + err.description + "\n";
+						  txt+="Click OK to continue.\n\n";
+						  alert(txt);
+						}
+					}
+				}
+			});
+			req.send();
+	}catch(err){
+		if(funcFail!="null")
+			eval(funcFail + "("+parameters+")");
+		if(debug=="on"){
+			txt="There was an error on this Request.\n";
+			txt+=err.name + ": " + err.description + "\n";
+			txt+="Click OK to continue.\n\n";
+			alert(txt);
+		}
+	}
+}
+
+}
+/*
+     FILE ARCHIVED ON 01:37:51 Jul 13, 2010 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:42:38 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 73.969
+  exclusion.robots: 0.08
+  exclusion.robots.policy: 0.071
+  cdx.remote: 0.053
+  esindex: 0.01
+  LoadShardBlock: 45.452 (3)
+  PetaboxLoader3.datanode: 48.898 (4)
+  load_resource: 108.004
+  PetaboxLoader3.resolve: 72.274
+*/

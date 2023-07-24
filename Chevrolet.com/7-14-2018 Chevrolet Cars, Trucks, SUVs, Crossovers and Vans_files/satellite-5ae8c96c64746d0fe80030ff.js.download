@@ -1,0 +1,63 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+_satellite.pushBlockingScript(function(event, target, $variables){
+  if(digitalData.vehicleInfo.bodyStyle==="") {
+  var bdystyl = _satellite.getVar('BodyStyle from URL');
+  bdystyl = bdystyl.split(/[:]/).pop();
+  var bdystl = bdystyl.replace('-', ' ');
+  if(bdystl==="" || bdystl==="undefined") {
+    bdystl = _satellite.getVar('BodyStyle from LNV URL');
+  }
+  digitalData.vehicleInfo.bodyStyle= bdystl;
+}
+if(digitalData.vehicleInfo.modelName==="") {
+  var mdlnme = _satellite.getVar('Model Name from URL');
+  digitalData.vehicleInfo.modelName= mdlnme;
+}
+if(digitalData.vehicleInfo.modelYear==="") {
+  var mdlyr = _satellite.getVar('Model Year from URL');
+  digitalData.vehicleInfo.modelYear= mdlyr;
+}
+if (digitalData.vehicleInfo.bodyStyle != "") {
+var d = new Date();
+    d.setTime(d.getTime() + 3888000000);
+    var expires = "expires="+ d.toUTCString();
+	
+	document.cookie = "modelYear=" + digitalData.vehicleInfo.modelYear+";"+ expires +";path=/" ;
+  document.cookie = "modelName=" + digitalData.vehicleInfo.modelName+";"+ expires +";path=/" ;
+  document.cookie = "bodystyle=" + digitalData.vehicleInfo.bodyStyle+";"+ expires +";path=/" ;
+}
+});
+
+
+}
+/*
+     FILE ARCHIVED ON 13:58:51 Jul 11, 2018 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 07:02:31 May 01, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 817.28
+  exclusion.robots: 0.08
+  exclusion.robots.policy: 0.071
+  RedisCDXSource: 1.273
+  esindex: 0.008
+  LoadShardBlock: 788.938 (3)
+  PetaboxLoader3.resolve: 1134.932 (2)
+  PetaboxLoader3.datanode: 298.424 (4)
+  load_resource: 677.304
+*/

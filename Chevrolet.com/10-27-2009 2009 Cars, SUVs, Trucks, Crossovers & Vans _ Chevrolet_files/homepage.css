@@ -1,0 +1,64 @@
+#Masthead {
+	height: 310px;
+}
+
+body.lowspeed #gMdsContentFlashHook,
+body.noflash #gMdsContentFlashHook {
+	display: none;
+}
+
+body.highspeed.flash #gMdsContent {
+	display: none;
+}
+
+#pContent {
+	height:150px;
+	width: 980px;
+	padding-top: 150px;
+	text-align: center;
+}
+
+#Well .borderYellow{
+	width: 980px;
+	height: 70px;
+	text-align: center;
+	padding-top: 70px;
+}
+
+#fash_info_tiles{
+	text-align: center;
+}	
+
+.home_Tile{
+	visibility: hidden;
+	overflow: auto;
+	height: 0px;
+}
+
+/*----- SPEED TOGGLING -----*/
+#gMdsContent, #gMdsContentFlashHook, #gMdsNav, #gMdsContentNavFlashHook{display:none;}
+.lowspeed #gMdsContent, .lowspeed #gMdsNav {display:block;}
+.highspeed #gMdsContentFlashHook, .highspeed #gMdsContentNavFlashHook{display:block;}
+.highspeed #gMdsContentNavFlashHook{position: absolute;}
+.highspeed #gMdsContentFlashHook {margin:115px 0 0 0;width:964px;}
+/*----- SPEED TOGGLING -----*/
+/*
+     FILE ARCHIVED ON 14:56:21 Feb 27, 2013 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:27:52 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 65.885
+  exclusion.robots: 0.109
+  exclusion.robots.policy: 0.093
+  RedisCDXSource: 0.739
+  esindex: 0.012
+  LoadShardBlock: 40.456 (3)
+  PetaboxLoader3.datanode: 52.348 (4)
+  load_resource: 52.98
+  PetaboxLoader3.resolve: 24.006
+*/

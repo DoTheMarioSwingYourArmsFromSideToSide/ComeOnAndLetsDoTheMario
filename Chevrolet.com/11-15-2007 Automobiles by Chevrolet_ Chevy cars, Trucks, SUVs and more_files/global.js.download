@@ -1,0 +1,54 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+/*LEFT NAV BAR*/
+tracking["OnStarLeftNavBar"]={s_prop5:"CHEVROLET | <<SITE SECTION>> | LEFT NAV | ONSTAR", s_prop14:"ONSTAR", s_prop28:"ONSTAR INTERNAL", s_linkName:"CHEVROLET | <<SITE SECTION>> | LEFT NAV | ONSTAR"}; 
+tracking["Finance_pay_calc_en"]={s_linkName:"FINANCE_PAY_CALC_EN", s_prop5:"FINANCE_PAY_CALC_EN"}; 
+tracking["Finance_credit_app"]={s_linkName:"FINANCE_CREDIT_APP", s_prop5:"FINANCE_CREDIT_APP"};
+tracking["Finance_afford_calc"]={s_linkName:"FINANCE_AFFORD_CALC", s_prop5:"FINANCE_AFFORD_CALC"};
+tracking["Trade_In_Appraisal"]={s_linkName:"TRADE_IN_APPRAISAL", s_prop5:"TRADE_IN_APPRAISAL"}; 
+
+/*FOOTER*/
+tracking["ExperienceOnstarFooter"]={s_prop5:"CHEVROLET | <<SITE SECTION>> | GLOBAL FOOTER | ONSTAR", s_prop14:"ONSTAR", s_prop28:"ONSTAR EXTERNAL", s_linkName:"CHEVROLET | <<SITE SECTION>> | GLOBAL FOOTER | ONSTAR"}; 
+tracking["HelpCenterFooter"]={s_linkName:"CHEVROLET | <<SITE SECTION>> | GLOBAL FOOTER | HELP CENTER"}; 
+tracking["SiteMapFooter"]={s_linkName:"CHEVROLET | <<SITE SECTION>> | GLOBAL FOOTER | SITE MAP"}; 
+tracking["GMSitesFooter"]={s_linkName:"CHEVROLET | <<SITE SECTION>> | GLOBAL FOOTER | GM SITES POPUP"}; 
+tracking["WordwideSiteFooter"]={s_linkName:"CHEVROLET | <<SITE SECTION>> | GLOBAL FOOTER | WORLDWIDE SITES"}; 
+tracking["WarrantyFooter"]={s_linkName:"CHEVROLET | <<SITE SECTION>> | GLOBAL FOOTER | WARRANTY"}; 
+tracking["GMFooter"]={s_linkName:"CHEVROLET | <<SITE SECTION>> | GLOBAL FOOTER | GM"}; 
+tracking["GMCopyrightFooter"]={s_linkName:"CHEVROLET | <<SITE SECTION>> | GLOBAL FOOTER | GM COPYRIGHT"}; 
+tracking["PrivacyFooter"]={s_linkName:"CHEVROLET | <<SITE SECTION>> | GLOBAL FOOTER | PRIVACY"}; 
+
+/*GENERAL LINK*/
+tracking["OnstarGeneralLink"]={s_prop5:"CHEVROLET | <<SITE SECTION>> | ONSTAR | <<ONSTAR FEATURE NAME >>", s_prop14:"ONSTAR", s_prop28:"ONSTAR INTERNAL", s_linkName:"CHEVROLET | <<SITE SECTION>> | ONSTAR | <<ONSTAR FEATURE NAME >>"}; 
+
+}
+/*
+     FILE ARCHIVED ON 04:07:31 Nov 15, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:00:24 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 89.096
+  exclusion.robots: 0.099
+  exclusion.robots.policy: 0.087
+  RedisCDXSource: 0.592
+  esindex: 0.009
+  LoadShardBlock: 71.91 (3)
+  PetaboxLoader3.datanode: 76.931 (4)
+  load_resource: 61.909
+  PetaboxLoader3.resolve: 31.652
+*/

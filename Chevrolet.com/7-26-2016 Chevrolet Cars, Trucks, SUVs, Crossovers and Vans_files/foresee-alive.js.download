@@ -1,0 +1,208 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+var $$FSR = {
+    'timestamp': 'April 27, 2016 @ 11:45 AM',
+    'version': '16.3.0.8',
+    'build': '48',
+    'enabled': true,
+    'frames': false,
+    'sessionreplay': true,
+    'auto': true,
+    'encode': true,
+    'files': '/foresee/',
+    // needs to be set when foresee-transport.swf is not located at 'files'
+    //'swf_files': '__swf_files_'
+    'id': 'BdFsJRxdZk18otEgE99EcA==',
+    'definition': 'foresee-surveydef.js',
+    'swf': {
+        fileName: 'foresee-transport.swf',
+        scriptAccess: 'always'
+    },
+    'worker': 'foresee-worker.js',
+    'embedded': false,
+    'replay_id': 'gm.com',
+    'attach': false,
+    'renderer': 'W3C', // or "ASRECORDED"
+    'layout': 'CENTERFIXED', // or "LEFTFIXED" or "LEFTSTRETCH" or "CENTERSTRETCH"
+    'triggerDelay': undefined,
+    'heartbeat': true,
+    'enableAMD': false, // set true if client wants to use AMD module loading
+    'pools': [{
+        path: 'chevrolet.com.br',
+        sp: 0
+    },{
+        path: 'chevy.com',
+        sp: 40
+    }, {
+        path: 'chevrolet.com',
+        sp: 40
+    }, {
+        path: 'cadillac.com',
+        sp: 40
+    }, {
+        path: 'buick.com',
+        sp: 60
+    }, {
+        path: 'gmc.com',
+        sp: 60
+    }, {
+        path: 'xxx_gm.com_xxx',
+        sp: 0
+    }, {
+        path: 'mycertifiedservice.com',
+        sp: 0
+    }, {
+        path: 'chevrolet.ca',
+        sp: 50
+    },{
+        path: 'chevrolet-master.ca',
+        sp: 50
+    }, {
+        path: 'buick.ca',
+        sp: 0
+    },{
+        path: 'buick-master.ca',
+        sp: 0
+    }, {
+        path: 'gmccanada.ca',
+        sp: 0
+    },{
+        path: 'gmccanada-master.ca',
+        sp: 0
+    },{
+        path: 'gmc.ca',
+        sp: 0
+    }, {
+        path: 'cadillaccanada.ca',
+        sp: 0
+    }, {
+        path: 'cadillaccanada-master.ca',
+        sp: 0
+    }, {
+        path: 'cadillac.ca',
+        sp: 0
+    }, {
+        path: 'gmfleet.com',
+        sp: 0
+    }],
+    'sites': [{
+        name: 'chevrolet.com.br',
+        path: 'chevrolet.com.br',
+        domain: 'default'
+    },{
+        name: 'chevy.com',
+        path: 'chevy.com',
+        domain: 'default'
+    }, {
+        name: 'chevy.com',
+        path: 'chevrolet.com',
+        domain: 'default'
+    }, {
+        name: 'cadillac.com',
+        path: 'cadillac.com',
+        domain: 'default'
+    }, {
+        name: 'buick.com',
+        path: 'buick.com',
+        domain: 'default'
+    }, {
+        name: 'GMC.com',
+        path: 'gmc.com',
+        domain: 'default'
+    }, {
+        name: 'GM.com',
+        path: 'xxx_gm.com_xxx',
+        domain: 'default'
+    },{
+        name: 'mycertifiedservice.com',
+        path: 'mycertifiedservice.com',
+        domain: 'default'
+    },{
+        name: 'chevrolet.ca',
+        path: 'chevrolet.ca',
+        domain: 'default'
+    },{
+        name: 'chevrolet.ca',
+        path: 'chevrolet-master.ca',
+        domain: 'default'
+    },{
+        name: 'buick.ca',
+        path: 'buick.ca',
+        domain: 'default'
+    },{
+        name: 'buick.ca',
+        path: 'buick-master.ca',
+        domain: 'default'
+    },{
+        name: 'gmccanada.ca',
+        path: 'gmccanada.ca',
+        domain: 'default'
+    },{
+        name: 'gmccanada.ca',
+        path: 'gmccanada-master.ca',
+        domain: 'default'
+    },{
+        name: 'gmccanada.ca',
+        path: 'gmc.ca',
+        domain: 'default'
+    },{
+        name: 'cadillaccanada.ca',
+        path: 'cadillaccanada.ca',
+        domain: 'default'
+    },{
+        name: 'cadillaccanada.ca',
+        path: 'cadillaccanada-master.ca',
+        domain: 'default'
+    },{
+        name: 'cadillaccanada.ca',
+        path: 'cadillac.ca',
+        domain: 'default'
+    },{
+        name: 'gmfleet.com',
+        path: 'gmfleet.com',
+        domain: 'default'
+    }, {
+        path: '.',
+        domain: 'default'
+    }],
+    storageOption: 'cookie',
+    nameBackup: window.name
+};
+
+var FSRCONFIG = {};
+
+// -------------------------------- DO NOT MODIFY ANYTHING BETWEEN THE DASHED LINES --------------------------------
+(function(a,c,f){for(var c=a.sites,b=0,g=c.length;b<g;b++){var d;"[object Array]"!==Object.prototype.toString.call(c[b].path)&&(c[b].path=[c[b].path]);for(var e=0,h=c[b].path.length;e<h;e++)if(d=f.location.href.toLowerCase().match(c[b].path[e])){a.siteid=b;a.site=a.sites[b];a.site.domain?"default"==a.site.domain&&(a.site.domain=null):a.site.domain=d[0];a.site.secure||(a.site.secure=null);a.site.name||(a.site.name=d[0]);break}if(d)break}f.cookie="fsr.a"+(a.site.cookie?"."+a.site.cookie:"")+"=suspended;path=/"+
+(a.site.domain?";domain="+a.site.domain+";":";")+(a.site.secure?"secure":"")})($$FSR,window,window.document);
+
+}
+/*
+     FILE ARCHIVED ON 00:30:36 Jul 29, 2016 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 05:37:05 May 01, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 147.306
+  exclusion.robots: 0.154
+  exclusion.robots.policy: 0.139
+  cdx.remote: 0.099
+  esindex: 0.013
+  LoadShardBlock: 104.594 (3)
+  PetaboxLoader3.datanode: 57.117 (5)
+  PetaboxLoader3.resolve: 178.38 (3)
+  load_resource: 165.498 (2)
+*/

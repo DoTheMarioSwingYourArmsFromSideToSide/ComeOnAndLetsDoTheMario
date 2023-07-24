@@ -1,0 +1,501 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+// Get querystring values
+function getQS(aP){var query = new String(location.search.substring(1,location.search.length));var p = query.split("&");var val = "";if(aP){for(i=0;i<p.length;i++){if(p[i].split( "=" )[0] == aP){val = p[i].split( "=" )[1];}}return val;}}
+
+var loadPromos = function(){
+	_promos.init();
+}
+
+$_(document).ready(function(){
+	$_("#gMdsContent").attr('style','display:block !important');
+	
+	if($_.flash == false){
+		
+		jQuery.getScript(BASE_CONTEXT+"/mds/js/plugins/jquery.swfobj.js", function(){
+			if($_.browser.msie == true && $_.browser.version == "6.0"){
+				loadPromos(); // Load promos
+			} else {
+				loadPromos.delay(800); // Load promos after page is loaded and .8 sec delay
+			}
+			_promos.initHandlers();	// INIT event handlers
+		});
+	} else {
+		if($_.browser.msie == true || $_.browser.version == "6.0"){
+			loadPromos(); // Load promos	
+			
+		} else {
+			loadPromos.delay(800); // Load promos after page is loaded and .8 sec delay
+		}
+		
+		_promos.initHandlers();	// INIT event handlers
+		
+	}
+});
+			
+var _promos = {
+	autoscroll : { 
+		play: false, // autoscroll promos
+		interval: 3000 // delay between autoscroll
+	}, 
+	initExpands: true, // Enable expandable promos
+	scroller: {}, // Scrollable object
+	datasrc : {}, // json data source for promo tiles	
+	embed : {}, // Object to hold interval count of swf embed
+	image: {}, // Object to hold interval count of image embed	
+	promosDisplayed : 0, // Promo group currently displayed
+	embedDisclaimers : true, // Embed disclaimers appended to promo tiles
+	grouping: 0, // Contains the amount of promos displayed in the current grouping
+	arrowsLoaded: false, // Detect if promo arrows have been loaded
+	browser: $_.browser,
+	
+	init: function(){
+		_promos.getPromoData();
+	},
+	
+	tracking: function(pos, id, url, target){		
+		
+		s.pev2 = "";
+		s.prop20 = "";
+		
+		if(target != "_blank"){
+			s.pe = 'lnk_o';	
+		} else {
+			s.pe = 'lnk_e'; // set pe variable
+		}
+		s.pev2 = s.pageName +" | PROMOTILE | " + id.toUpperCase();
+		s.prop20 = s.prop25 + " | "+ s.prop1 +" | " + s.prop2 + " | " + s.prop4 + " | PROMOTILE | " + id.toUpperCase();
+		s.prop24 = "EN";
+		s.prop25 = s.prop25;
+		
+		s.t(); // do page track
+		
+		if(target != "static"){
+		
+			var data = function(){
+				if(target != "_blank"){
+					window.location = url;
+				} else {					
+					var w = window.open();
+				    w.opener = null;
+				    w.document.location = url;
+				}
+			}
+		
+			data.delay(500);
+			
+		}
+	},
+	
+	initHandlers: function(){
+	
+		var elems = ['.next', '.prev', '.navi a'];
+	
+		for(i=0; i < elems.length; i++){
+			$_(elems[i]).live("click", function(event){
+				event.preventDefault();
+
+				$_("#content-expandable .close").addClass('displayNone');
+				$_(".content-items").addClass('displayNone');
+				$_(".items").addClass('displayBlock');
+				$_(".close").fadeOut();
+				$_(".cta").fadeIn();
+				$_(".sub-arrow").fadeIn();
+				var navId = $_(".navi a.active").attr('href').toString().split("#")[1];
+				_promos.promosDisplayed = parseInt(navId); // Which promogroup is being displayed
+				_promos.grouping = $_("#promo_"+(_promos.promosDisplayed)).children().length; // How many promos in the grouping are there
+				
+				if($_(this).attr('class') == "active"){					
+					$_("#promo_"+(_promos.promosDisplayed)+" .swf").flash(function(){this.Play();});								
+				}
+				
+				if($_(this).attr('class') == 'next'){					
+					$_("#promo_"+(_promos.promosDisplayed)+" .swf").flash(function(){this.Play();});
+					var dataright = function(){
+						s.pev2 = "";
+						s.prop20 = "";
+						_promos.tracking("promotile", "RIGHT", "", "static");
+					}
+					dataright.delay(1000);	
+				} 
+				
+				if($_(this).attr('class') == 'prev' && $_(this).attr('class') != 'next'){							
+					_promos.promosDisplayed = parseInt(navId) - 1;
+					$_("#promo_"+(_promos.promosDisplayed - 1)+" .swf").flash(function(){this.Play();});						
+					var dataleft = function(){
+						s.pev2 = "";
+						s.prop20 = "";
+						_promos.tracking("promotile", "LEFT", "", "static");
+					}
+					dataleft.delay(1000);
+				}
+				return false;
+			});
+		}
+		
+		// Future functionality for expandable promos, set _promos.initExpands to true to enable
+		$_("div[rel='expand']").live('click', function(){			
+			if(_promos.initExpands == true){			
+				var i = $_(this).attr('class').toString().split("_")[1];
+				var j = $_(this).attr('class').toString().split("_")[3][0];
+				$_(".content-items").addClass('displayNone');
+				var content = $_(this).data('expand');
+				$_("."+content).fadeIn();
+				$_(".close").fadeIn();
+				$_(".items").fadeOut();
+				return false;			
+			} else {
+				var named = $_("a.cta", this).attr('name');
+				named = named.toString().split("&");
+				var lidPart = named[1];
+				var lposPart = named[2];
+				var lid = lidPart.toString().split("=")[1];
+				var lpos = lposPart.toString().split("=")[1];
+				var url = $_(".cta", this).attr('href');
+				var target = $_(".cta", this).attr('target');
+				_promos.tracking(lpos, lid, url, target);
+			}
+		});
+		
+		$_("div[rel='static']").live('click', function(){ // handle static promo links
+			var named = $_("a.cta", this).attr('name');
+			named = named.toString().split("&");
+			var lidPart = named[1];
+			var lposPart = named[2];
+			var lid = lidPart.toString().split("=")[1];
+			var lpos = lposPart.toString().split("=")[1];
+			var url = $_("a.cta", this).attr('href');
+			var target = $_("a.cta", this).attr('target');				
+			_promos.tracking(lpos, lid, url, target);
+			return false;
+		});
+		
+		$_("#content-expandable .close").live('click', function(){ // close expanded promo content
+			$_(".content-items").fadeOut();
+			$_(".close").fadeOut();
+			$_(".items").fadeIn();
+			$_(".cta").fadeIn();
+			$_(".sub-arrow").fadeIn();
+		});
+		
+		
+		$_(".left-promo").mouseover(function(){
+	      $_(this).stop().animate({"background-position": "-50px 0"}, 200)
+	    }).mouseout(function(){
+	      $_(this).animate({"background-position": "-25px 0"}, 200)
+	    }).mousedown(function(){
+	      $_(this).stop().animate({"background-position": "0px 0"}, 200)
+	    });
+		
+		$_(".right-promo").mouseover(function(){
+	      $_(this).stop().animate({"background-position": "0px 0"}, 200)
+	    }).mouseout(function(){
+	      $_(this).stop().animate({"background-position": "-32px 0"}, 200)
+	    }).mousedown(function(){
+	      $_(this).stop().animate({"background-position": "-50px 0"}, 200)
+	    });
+		
+		
+	},	
+	
+	getPromoData: function(){
+		// Create a random number for us to use for our Ajax request to do some cache busting
+		var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
+		var string_length = 30;
+		var random = '';
+		for (var i=0; i<string_length; i++) {
+			var rnum = Math.floor(Math.random() * chars.length);
+			random += chars.substring(rnum,rnum+1);
+		}
+		
+		$_.ajax({
+			
+			type: "GET",
+			url: BASE_CONTEXT + ""+PROMO_XML+"?cache="+random,						
+			success: function(data){				
+				var json = jQuery.xml2json(data, true);
+				_promos.datasrc = json;
+				
+				for(i=0; i < _promos.datasrc.promogroup.length; i++){
+					var divContent = "<div class='promo_group' id='promo_"+i+"'/>";
+					$_("#scrollable .items").append(divContent);								
+						
+					for(j=0; j < _promos.datasrc.promogroup[i].promo.length; j++){
+						
+						var promoData = _promos.datasrc.promogroup[i].promo;
+						var assetType = promoData[j].type.text;
+						var assetWidth = promoData[j].width[0].text;
+						var path = promoData[j].path[0].text;
+						var action = promoData[j].type.action;		
+						var content = promoData[j].content[0].text;								
+						var cta = promoData[j].cta[0].text;		
+						var link = promoData[j].link.text;
+						var target = promoData[j].link.target;
+						
+						
+						if(action == "static"){
+							var sub_arrow = "<span class='sub-arrow'></span>";
+						} else {
+							var sub_arrow = "<span class='sub-expand'><img src='"+BASE_CONTEXT+"/mds/css/promos/expand.jpg' /></span>";
+						}
+						
+						
+						var disclaimer = promoData[j].disclaimer.text;
+						var disclaimerMark = promoData[j].disclaimer.mark;
+						var promoId = promoData[j].id;
+						var promoLength = _promos.datasrc.promogroup[i].promo.length;
+						
+						
+						/* Future Implementation with promo_config.js
+						
+						// Config comes from /mds/js/promo_config.js
+						var assetType = promoConfig[0].promos[promoId].type.type.toLowerCase();
+						var action = promoConfig[0].promos[promoId].type.action.toLowerCase();
+						var assetWidth = promoConfig[0].promos[promoId].type.width.toLowerCase();
+						var path = promoConfig[0].promos[promoId].path;
+						var cta = promoConfig[0].promos[promoId].cta;
+						var link = promoConfig[0].promos[promoId].link;
+						var target = promoConfig[0].promos[promoId].target.toLowerCase();
+						var content = promoConfig[0].promos[promoId].content;
+						var disclaimer = promoConfig[0].promos[promoId].disclaimer.text;
+						var disclaimerMark = promoConfig[0].promos[promoId].disclaimer.mark;
+						
+						 */
+						
+						
+						if(cta == undefined){
+							cta = "";		
+							sub_arrow = "";								
+						}
+						
+						if(target != "_blank"){
+							link = BASE_CONTEXT + link;
+							target = "_self";
+						} 
+							
+						var promoContent = "<div rel='"+action+"' class='promo_"+i+"_item_"+j+" "+assetType+" promo '><span class='promo_asset "+assetWidth+"'><img class='loader' src='"+BASE_CONTEXT+"/mds/css/promos/loader.gif' /></span><span class='cta_group'><a name='&lid="+i+"_"+j+"_"+promoLength+"_"+promoId+"&lpos=promotile' class='cta' href='"+link+"' target='"+target+"'>"+cta+"</a>"+sub_arrow+"</span></div>"
+						var expandContent = "<div class='content_"+i+"_"+j+" content-items' style='display:none'>"+content+"</div>"
+						
+						$_("#promo_"+i).attr('desc', promoId).append(promoContent); // add promo content
+						$_("#content-expandable").append(expandContent); // add expandable content			
+						
+						$_(".promo_"+i+"_item_"+j).data("expand", "content_"+i+"_"+j); // set the expandable content data to a div object
+						
+						_promos.assetSwitcher(assetType, path, '.promo_'+i+'_item_'+j, i); // Try to embed the promo asset
+						
+						if(disclaimer != undefined && _promos.embedDisclaimers == true){
+							
+							if(disclaimerMark == ""){
+								disclaimerMark = $_("#disclaimerContent dl dt:last span").html().toInt() + 1;
+							}
+							
+							var disclaimerContent = "<dt><span>"+disclaimerMark+"</span></dt><dd><span>"+disclaimer+"</span></dd>";
+														
+							$_("#disclaimerContent dl").append(disclaimerContent);
+							
+						}
+						
+					}
+					
+				}
+										
+			},
+			complete: function(){
+				_promos.detectEnd();				
+				
+				// Create event handlers for hovers after they are created
+					$_('div[rel="static"] a.cta, #scrollable .promo_asset .promo_asset').mouseover(function(){
+					  $_('.promo_asset').css('opacity','1');
+				      $_(".sub-arrow", $_(this).parent()).stop().animate({"margin-left": "8px"}, "fast");
+					  $_(".promo_asset", $_(this).parent().parent()).stop().animate({'background-color':'#484848'}, 300);
+				    }).mouseout(function(){
+				      $_(".sub-arrow", $_(this).parent()).stop().animate({"margin-left": "5px"}, "fast");
+					  $_(".promo_asset", $_(this).parent().parent()).stop().animate({'background-color':'#FFFFFF'}, 300);
+					  
+				    });
+					
+					$_("#scrollable .promo_asset").mouseover(function(){
+					  $_(this).css('opacity','1');
+				      $_(this).stop().animate({'background-color':'#484848'}, 300);
+					  $_(".sub-arrow", $_(this).parent()).stop().animate({"margin-left": "8px"}, "fast");
+				    }).mouseout(function(){
+				      $_(this).stop().animate({'background-color':'#FFFFFF'}, 300);
+					  $_(".sub-arrow", $_(this).parent()).stop().animate({"margin-left": "5px"}, "fast");
+				    });
+				
+				
+				if(getQS('deep')){ // Deep linking to promo tiles ?deep=[promoId]
+					var promoId = getQS('deep');
+					var assetType = promoConfig[0].promos[promoId].type.type.toLowerCase();
+					var action = promoConfig[0].promos[promoId].type.action.toLowerCase();
+					var assetWidth = promoConfig[0].promos[promoId].type.width.toLowerCase();
+					var path = promoConfig[0].promos[promoId].path;
+					var cta = promoConfig[0].promos[promoId].cta;
+					var link = promoConfig[0].promos[promoId].link;
+					var target = promoConfig[0].promos[promoId].target.toLowerCase();
+					var content = promoConfig[0].promos[promoId].content;
+					var disclaimer = promoConfig[0].promos[promoId].disclaimer.text;
+					var disclaimerMark = promoConfig[0].promos[promoId].disclaimer.mark;
+					$_(".close").fadeIn();	
+					$_(".cta").fadeOut();
+					$_(".sub-arrow").fadeOut();			
+					if(target != "_blank"){
+						var expandContent = "<div class='content-items'><div class='expander'><a href='"+BASE_CONTEXT+""+link+"' target='"+target+"'>"+content+"</a></div></div>";						
+					} else {
+						var expandContent = "<div class='content-items'><div class='expander'><a href='"+link+"' target='"+target+"'>"+content+"</a></div></div>";						
+					}
+					$_("#content-expandable").append(expandContent).fadeIn(800);
+				}
+							
+			}
+		});
+	},
+	
+	detectEnd: function(){
+		
+			try { // Init scrollable area			
+				_promos.scroller = jQuery("#scrollable").scrollable({circular: true, speed: 400}).navigator().autoscroll({ autoplay: _promos.autoscroll.play, interval: _promos.autoscroll.interval });
+				var api = jQuery("#scrollable").scrollable();
+			} catch(err){
+				_promos.scroller = jQuery("#scrollable").scrollable({circular: true, speed: 400}).navigator().autoscroll({ autoplay: _promos.autoscroll.play, interval: _promos.autoscroll.interval });
+			}
+		
+		
+		$_(".items").addClass('scrollBase'); // Move scrollable area to first promo group IE doesnt do this by default
+		
+		if(($_.browser.msie == true && $_.browser.webkit != true && $_.browser.version != "6.0")){			
+			//$_("#page-wrapper").dropShadow({left: 2, top: 2, blur: 8}); // Add dropshadow to container			
+		} 
+		
+		var navId = $_(".navi a.active").attr('href').toString().split("#")[1];
+		_promos.promosDisplayed = parseInt(navId);
+		_promos.grouping = $_("#promo_"+(_promos.promosDisplayed)).children().length;
+	},
+	
+	assetSwitcher: function(type, path, id, index){	
+		
+		var objId = id.toString().split('.')[1];
+		var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
+		var string_length = 17;
+		var random = '';
+		for (var i=0; i<string_length; i++) {
+			var rnum = Math.floor(Math.random() * chars.length);
+			random += chars.substring(rnum,rnum+1);
+		}	
+		
+		switch(type){
+			case 'image':
+				objId = objId+random; 
+				_promos.image[objId] = (function() { _promos.lazyLoad(''+type+'', ''+path+'', ''+id+'', index, objId) }).periodical(1000);																						
+			break;
+			
+			case 'swf':		
+				objId = objId+random;					
+				_promos.embed[objId] = (function() { _promos.lazyLoad(''+type+'', ''+path+'', ''+id+'', index, objId) }).periodical(1000);				
+			break; 
+			
+			default: 
+				alert("Asset type of "+type+" is unknown");
+			break;
+		}
+	},
+	
+	lazyLoad: function(type, path, id, index, objId){		
+		try {
+				
+			var navId = $_(".navi a.active").attr('href');
+			navId = navId.toString().split("#")[1];
+			
+			/*
+			 * Only try to embed content into page if promogroup is being displayed
+			 * We detect this based on if the navi ID == the passed in index variable
+			 * 
+			 * Once asset has loaded on the page, the asset is cached and is no longer 
+			 * called from the server to be embedded into the DOM.			 * 
+			 * 
+			 */
+			
+			if($_(".navi a").hasClass('active') == true && navId.toString() == index.toString()){
+				if(type == 'swf'){ // Embed SWF
+					$_(".loader").addClass('displayNone');
+					$_(id + " .promo_asset").flash({ id: "flash_"+index, swf: BASE_CONTEXT +""+ path });
+					$_(id + " .promo_asset").stop().fadeIn(1300);		
+					$clear(_promos.embed[id]);
+					_promos.embed[id] = {};
+				} else { // Embed Asset	
+					$_(".loader").addClass('displayNone');
+					var asset = "<img src='"+ BASE_CONTEXT + "" + path +"' />";					
+					$_("#scrollable " + id + " span.promo_asset").html(asset).fadeOut(0);	
+					$_("#scrollable " + id + " span.promo_asset").stop().fadeIn(500);
+					$clear(_promos.image[objId]);
+					_promos.image[objId] = {};
+				}						
+				
+				if($_(".navi a").length > 1 && _promos.arrowsLoaded != true){
+					$_(".navi").delay(1000).fadeIn("slow");
+					
+					$_(".right-promo").css("right","20px").delay(1000).fadeIn("fast").animate({"right": "-28px"}, 400);
+					$_(".left-promo").css("left","20px").delay(1000).fadeIn("fast").animate({"left": "-28px"}, 400);
+										
+					_promos.arrowsLoaded = true;
+															
+				}
+				
+				var initArrows = function(){
+					$_(".right-promo").mouseover(function(){
+				      $_(this).stop().animate({"background-position": "0px 0"}, 200)
+				    }).mouseout(function(){
+				      $_(this).stop().animate({"background-position": "-32px 0"}, 200)
+				    }).mousedown(function(){
+				      $_(this).stop().animate({"background-position": "-50px 0"}, 200)
+				    });
+					
+					$_(".left-promo").mouseover(function(){
+				      $_(this).stop().animate({"background-position": "-50px 0"}, 200)
+				    }).mouseout(function(){
+				      $_(this).animate({"background-position": "-25px 0"}, 200)
+				    }).mousedown(function(){
+				      $_(this).stop().animate({"background-position": "0px 0"}, 200)
+				    });
+				}
+				
+				initArrows.delay(2200);
+				 
+			}
+			
+		} catch(err){}
+	}
+};
+
+
+}
+/*
+     FILE ARCHIVED ON 04:55:35 Oct 01, 2010 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:46:14 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 80.184
+  exclusion.robots: 0.067
+  exclusion.robots.policy: 0.056
+  cdx.remote: 0.053
+  esindex: 0.007
+  LoadShardBlock: 58.634 (3)
+  PetaboxLoader3.datanode: 107.717 (5)
+  load_resource: 220.529 (2)
+  PetaboxLoader3.resolve: 102.544 (2)
+*/

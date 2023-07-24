@@ -1,0 +1,270 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+function setOnClick() {
+if (!document.getElementsByTagName) return;
+	var anchors = document.getElementsByTagName("a");
+	for (var i = anchors.length; i != 0; i--) {
+		var a = anchors[i-1];
+		if (!a.href || !a.rel) continue;
+		a.title += " [ Opens in a new window ]";
+		if (a.rel == "external") {
+			a.onclick = function(){newWin(this.href,'700','460','yes','yes','yes','yes','yes');return false;};
+		} else if (a.rel == "gallery photo") {
+			a.onclick = function(){newWin(this.href,'750','460','no','no','no','yes','yes');return false;};
+		} else if (a.rel == "current offers") {
+			a.onclick = function(){newWin(this.href,'750','450','no','no','no','yes','yes');return false;};
+		} else if (a.rel == "feature large") {
+			a.onclick = function(){newWin(this.href,'435','400','no','no','no','yes','yes');return false;};
+		} else if (a.rel == "feature small") {
+			a.onclick = function(){newWin(this.href,'435','200','no','no','no','yes','yes');return false;};
+		} else if (a.rel == "feature qtime") {
+			a.onclick = function(){newWin(this.href,'435','530','no','no','no','yes','yes');return false;};
+		} else if (a.rel == "feature smqtime") {
+			a.onclick = function(){newWin(this.href,'350','400','no','no','no','yes','yes');return false;};
+		} else if (a.rel == "feature hybrid") {
+			a.onclick = function(){newWin(this.href,'635','275','no','no','no','no','no');return false;};
+		} else if (a.rel == "special offers") {
+			a.onclick = function(){newWin(this.href,'350','500','no','no','no','yes','yes');return false;};
+		} else if (a.rel == "feature ad") {
+			a.onclick = function(){newWin(this.href,'550','390','no','no','no','no','no');return false;};
+		}
+	}
+}
+
+function newWin(url, w, h, menubar, toolbar, location, scrollbar, resizable) {  
+	var appWindow = window.open(url, "appWin", "menubar=" + menubar + ", toolbar=" + toolbar + ",location=" + location + ",resizable=" + resizable + ",scrollbars=" + scrollbar + ",left=0,top=0,width=" + w + ",height=" + h);
+}
+
+function setCookie(name,value,days) {
+  if (days) {
+    var date = new Date();
+    date.setTime(date.getTime()+(days*24*60*60*1000));
+    var expires = "; expires="+date.toGMTString();
+  }
+  else expires = "";
+  document.cookie = name+"="+value+expires+"; path=/";
+}
+function getCookie(name) {
+  var nameEQ = name + "=";
+  var ca = document.cookie.split(';');
+  for(var i=0;i < ca.length;i++) {
+    var c = ca[i];
+    while (c.charAt(0)==' ') c = c.substring(1,c.length);
+    if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+  }
+  return null;
+}
+
+function mn(itemNum) {
+	var modelnav = document.getElementById('modelnav');
+	var selected = modelnav.getElementsByTagName('li').item(itemNum);
+	selected.className = "sel";
+}
+
+/* Pricing methods */
+function replaceChars(strValue,strMatchPattern) {
+	var objRegExp =  new RegExp(strMatchPattern,'gi');
+	/* replace passed pattern matches with underscores */
+	return strValue.replace(objRegExp,'_');
+}
+
+function setPricing() {
+	var priceErrorDescription = "";
+	var hasPrice = false;
+	if (document.getElementById && document.createElement) {
+		var dd = document.getElementsByTagName('dd');
+		var reStartingPrice = /\sstarting\sat\sprice$/;
+		var reAsShownPrice = /\sas\sshown\sprice$/;
+		for (var i = dd.length; i != 0; i--) {
+			var thisDesc = dd[i-1];
+			if (!thisDesc.title) continue;
+			if (reStartingPrice.test(thisDesc.title)) {
+				var trimString = thisDesc.title.replace(reStartingPrice,'');
+				var modTitle = replaceChars(trimString,' ').toLowerCase();
+				try { 
+        			eval("s$_" + modTitle);
+        			var price = "Starting at " + eval("s$_" + modTitle);
+        			if (price.indexOf("$") == -1) {
+        				hasPrice = false;
+        			} else {
+						hasPrice = true;
+					}
+        		} catch (e) {
+        			priceErrorDescription = e;
+        			hasPrice = false;
+        		}
+			} else if (reAsShownPrice.test(thisDesc.title)) {
+				var trimString = thisDesc.title.replace(reAsShownPrice,'');
+				var modTitle = replaceChars(trimString,' ').toLowerCase();
+				try { 
+        			eval("a$_" + modTitle);
+        			var price = "Price as shown " + eval("a$_" + modTitle);
+        			if (price.indexOf("$") == -1) {
+        				hasPrice = false;
+        			} else {
+						hasPrice = true;
+					}
+        		} catch (e) {
+        			priceErrorDescription = e;
+        			hasPrice = false;
+        		}
+			}
+			if (hasPrice) {
+				if (thisDesc.firstChild.nodeType == 3) {
+					thisDesc.firstChild.nodeValue = price;
+				} else if (thisDesc.firstChild.firstChild.nodeType == 3) {
+					thisDesc.firstChild.firstChild.nodeValue = price;
+				}
+			}
+			/* DEVELOPERS: PLEASE REMOVE THIS CODE BEFORE LAUNCH */
+			//if (document.location.href.indexOf("devchevy2005") != -1 && hasPrice == false) {
+			//	setCustomErrorMessage('Missing Price Information',document.location.href,priceErrorDescription);
+			//}
+			/* END OF CODE BLOCK TO BE REMOVED BEFORE LAUNCH */
+		}
+	}
+}
+/* end pricing methods */
+
+function t(l) {
+	var menu=l.parentNode.parentNode;
+	var title = menu.getElementsByTagName('a').item(0).firstChild.nodeValue;
+	var viewMsg = "View " + title + " menu options";
+	var hideMsg = "Hide " + title + " menu options";
+	if (menu.className == "db") {
+		l.firstChild.nodeValue="+";
+		l.title=viewMsg;
+		menu.className='dn';
+	} else {
+		l.firstChild.nodeValue="-";
+		l.title=hideMsg;
+		menu.className='db';
+	}
+}
+
+function init(subCategory, category) {
+	window.defaultStatus='Chevrolet. An American Revolution.'
+	setOnClick();
+	setPricing();
+	if (document.getElementById && document.createTextNode) {
+		var cat = document.getElementById(category);
+		var cookie = getCookie('catid');
+		var nav=document.getElementById('nav');
+		var links=nav.getElementsByTagName('a');
+		var strong = document.createElement('strong');
+    	
+    	for (var i = links.length; i != 0; i--) {
+			var a = links[i-1];
+			a.title = a.firstChild.nodeValue;
+			a.onmouseover=function(){window.status=this.title;return true;}
+			a.onmouseout=function(){window.status=window.defaultStatus;return true;}
+			if (a.href.indexOf("#") == -1) continue;
+			a.firstChild.nodeValue="+";
+			title = a.parentNode.firstChild.firstChild.firstChild.nodeValue;
+			a.title = "View " + title + " menu options";
+			a.onclick=function(){t(this);this.blur();return false;}
+		}
+
+		for (var i = links.length; i != 0; i--) {
+			var a = links[i-1];
+			if (a.rev) { a.onclick=function(){setCookie('catid',this.rev);} }
+			var aDL = a.parentNode.parentNode;
+			var aListItem = a.parentNode;
+			if (a.parentNode.nodeName == "EM") {
+				aDL = a.parentNode.parentNode.parentNode;
+				aListItem = a.parentNode.parentNode;
+			}
+			if (a.firstChild.nodeValue != subCategory) continue;
+			if (a.rev) { cat = document.getElementById(cookie ? cookie : category); }
+			if (cat && aDL.id == cat.id) {
+				aListItem.className = 'sel';
+				a.title = "You Are Here: " + a.firstChild.nodeValue;
+			} else if (!cat) {
+				aListItem.className = 'sel';
+				a.title = "You Are Here: " + a.firstChild.nodeValue;
+			}
+			
+			if (cat && aDL.id == cat.id) {
+				cat.className = "db";
+				var term=cat.getElementsByTagName('dt').item(0);
+				var em = term.getElementsByTagName("em").item(0);
+				var button = term.getElementsByTagName('a').item(1);
+				var termLink = em.firstChild;
+				termLink.title = "You Are Here: " + termLink.firstChild.nodeValue;
+				button.firstChild.nodeValue = "-";
+				button.title = "Hide " + title + " menu options";;
+			}
+		}
+	}
+}
+
+
+function spawnWindow_centered(mypage, myname, w, h, scroll, resize, menu,toolbar) {
+
+// ***** browser name sniff
+
+var browser=navigator.userAgent;
+if (browser.indexOf("AOL") > -1) browser = "AOL";
+if (browser.indexOf("A") > -1) browser = "AOL";
+if (browser.indexOf("IWENG/1.2.003") > -1) browser = "AOL";
+if (browser.indexOf("WebTV") > -1) browser = "WEBTV";
+
+// ***** do if non-webtv
+if(browser != "WEBTV")	{
+
+// ***** window width minus popup window width divided by 2
+var winl = (screen.width - w) / 2;
+
+// ***** window height minus popup window height divided by 2
+var wint = (screen.height - h) / 2;
+
+// ***** window properties
+winprops = 'height='+h+',width='+w+',top='+wint+',left='+winl+',scrollbars='+scroll+',resizable='+resize+',menubar='+menu+',toolbar=no,status=no,toolbar='+toolbar;
+
+// ***** open popup window
+win = window.open(mypage, myname, winprops)
+
+// ***** if browser >= 4 then focus window
+if (parseInt(navigator.appVersion) >= 4) { win.window.focus(); }
+
+// ***** added func for non-AOL native browser
+if(browser != "AOL"){myname.focus;}
+		
+// ***** if webtv then load new window
+if(browser == "WEBTV"){window.location.href=theUrl;}
+
+}
+		
+}
+
+}
+/*
+     FILE ARCHIVED ON 19:22:51 Aug 23, 2004 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 20:54:08 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 123.584
+  exclusion.robots: 0.119
+  exclusion.robots.policy: 0.106
+  cdx.remote: 0.092
+  esindex: 0.012
+  LoadShardBlock: 89.455 (3)
+  PetaboxLoader3.datanode: 100.461 (4)
+  load_resource: 112.204
+  PetaboxLoader3.resolve: 51.27
+*/

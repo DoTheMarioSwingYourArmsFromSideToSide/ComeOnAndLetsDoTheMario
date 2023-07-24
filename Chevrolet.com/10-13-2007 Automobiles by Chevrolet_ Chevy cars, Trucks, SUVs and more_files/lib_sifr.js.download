@@ -1,0 +1,591 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+/*
+	2005-09-14
+	this library has been modified for specific uses on our site.  these changes include:
+		- parseSelector() has been removed.  we are leveraging other external code to
+		  perform the same task, so it's unnecessary here.
+		- fetchContent() has been removed and replaced with myInnerHTML().
+
+
+	original copyright notice:
+	----------------------------------------------------------------------------
+	sIFR v2.0.1 SOURCE
+	Copyright 2004 - 2005 Mike Davidson, Shaun Inman, Tomas Jogin and Mark Wubben
+
+	This software is licensed under the CC-GNU LGPL <http://creativecommons.org/licenses/LGPL/2.1/>
+*/
+
+var hasFlash = function(){
+	var nRequiredVersion = 8;
+
+	if(navigator.appVersion.indexOf("MSIE") != -1 && navigator.appVersion.indexOf("Windows") > -1){
+		document.write('<script language="VBScript"\> \non error resume next \nhasFlash = (IsObject(CreateObject("ShockwaveFlash.ShockwaveFlash." & ' + nRequiredVersion + '))) \n</script\> \n');
+		/*	If executed, the VBScript above checks for Flash and sets the hasFlash variable.
+			If VBScript is not supported it's value will still be undefined, so we'll run it though another test
+			This will make sure even Opera identified as IE will be tested */
+		if(window.hasFlash != null){
+			return window.hasFlash;
+		};
+	};
+
+	if(navigator.mimeTypes && navigator.mimeTypes["application/x-shockwave-flash"] && navigator.mimeTypes["application/x-shockwave-flash"].enabledPlugin){
+		var flashDescription = (navigator.plugins["Shockwave Flash 2.0"] || navigator.plugins["Shockwave Flash"]).description;
+		return parseInt(flashDescription.charAt(flashDescription.indexOf(".") - 1)) >= nRequiredVersion;
+	};
+
+	return false;
+}();
+
+String.prototype.normalize = function(){
+	return this.replace(/\s+/g, " ");
+};
+
+/* IE 5.0 does not support the push method, so here goes */
+if(Array.prototype.push == null){
+	Array.prototype.push = function(){
+		var i = 0, index = this.length, limit = arguments.length;
+		while(i < limit){
+			this[index++] = arguments[i++];
+		};
+		return this.length;
+	};
+};
+
+/*	Implement function.apply for browsers which don't support it natively
+	Courtesy of Aaron Boodman - http://youngpup.net */
+if (!Function.prototype.apply){
+	Function.prototype.apply = function(oScope, args) {
+		var sarg = [];
+		var rtrn, call;
+
+		if (!oScope) oScope = window;
+		if (!args) args = [];
+
+		for (var i = 0; i < args.length; i++) {
+			sarg[i] = "args["+i+"]";
+		};
+
+		call = "oScope.__applyTemp__(" + sarg.join(",") + ");";
+
+		oScope.__applyTemp__ = this;
+		rtrn = eval(call);
+		oScope.__applyTemp__ = null;
+		return rtrn;
+	};
+};
+
+
+
+/*	Adds named arguments support to JavaScript. */
+function named(oArgs){
+	return new named.Arguments(oArgs);
+};
+
+named.Arguments = function(oArgs){
+	this.oArgs = oArgs;
+};
+
+named.Arguments.prototype.constructor = named.Arguments;
+
+named.extract = function(listPassedArgs, oMapping){
+	var oNamedArgs, passedArg;
+
+	var i = listPassedArgs.length;
+	while(i--){
+		passedArg = listPassedArgs[i];
+		if(passedArg != null && passedArg.constructor != null && passedArg.constructor == named.Arguments){
+			oNamedArgs = listPassedArgs[i].oArgs; /* oNamedArgs isn't the named.Arguments class! */
+			break;
+		};
+	};
+
+	if(oNamedArgs == null){ return };
+
+	for(sName in oNamedArgs){
+		if(oMapping[sName] != null){
+			oMapping[sName](oNamedArgs[sName]);
+		};
+	};
+
+	return;
+};
+
+/*	Executes an anonymous function which returns the function sIFR (defined inside the function).
+	You can replace elements using sIFR.replaceElement()
+	All other variables and methods you see are private. If you want to understand how this works you should
+	learn more about the variable-scope in JavaScript. */
+var sIFR = function(){
+	/* Opera and Mozilla require a namespace when creating elements in an XML page */
+	var sNameSpaceURI = "http://www.w3.org/1999/xhtml";
+	var bIsInitialized = false;
+	var bIsSetUp = false;
+	var bInnerHTMLTested = false;
+	var sDocumentTitle;
+	var stackReplaceElementArguments = [];
+	var UA = function(){
+		var sUA = navigator.userAgent.toLowerCase();
+		var oReturn =  {
+			bIsWebKit : sUA.indexOf("applewebkit") > -1,
+			bIsSafari : sUA.indexOf("safari") > -1,
+			bIsKonq: navigator.product != null && navigator.product.toLowerCase().indexOf("konqueror") > -1,
+			bIsOpera : sUA.indexOf("opera") > -1,
+			bIsXML : document.contentType != null && document.contentType.indexOf("xml") > -1,
+			bHasTransparencySupport : true,
+			bUseDOM : true,
+			nFlashVersion : null,
+			nOperaVersion : null,
+			nGeckoBuildDate : null,
+			nWebKitVersion : null
+		};
+
+		oReturn.bIsKHTML = oReturn.bIsWebKit || oReturn.bIsKonq;
+		oReturn.bIsGecko = !oReturn.bIsWebKit && navigator.product != null && navigator.product.toLowerCase() == "gecko";
+		if(oReturn.bIsGecko){ oReturn.nGeckoBuildDate = new Number(sUA.match(/.*gecko\/(\d{8}).*/)[1]) };
+		oReturn.bIsIE = sUA.indexOf("msie") > -1 && !oReturn.bIsOpera && !oReturn.bIsKHTML && !oReturn.bIsGecko;
+		oReturn.bIsIEMac = oReturn.bIsIE && sUA.match(/.*mac.*/) != null;
+		if(oReturn.bIsOpera){ oReturn.nOperaVersion = new Number(sUA.match(/.*opera(\s|\/)(\d+\.\d+)/)[2]) };
+		if(oReturn.bIsIE || (oReturn.bIsOpera && oReturn.nOperaVersion < 7.6)){ oReturn.bUseDOM = false };
+		if(oReturn.bIsWebKit){ oReturn.nWebKitVersion = new Number(sUA.match(/.*applewebkit\/(\d+).*/)[1]) };
+		if(window.hasFlash && (!oReturn.bIsIE || oReturn.bIsIEMac)){
+			var flashDescription = (navigator.plugins["Shockwave Flash 2.0"] || navigator.plugins["Shockwave Flash"]).description;
+			oReturn.nFlashVersion = parseInt(flashDescription.charAt(flashDescription.indexOf(".") - 1));
+		};
+		if(sUA.match(/.*(windows|mac).*/) == null ||
+		oReturn.bIsIEMac || oReturn.bIsKonq ||
+		(oReturn.bIsOpera && oReturn.nOperaVersion < 7.6) ||
+		(oReturn.bIsSafari && oReturn.nFlashVersion < 7) ||
+		(!oReturn.bIsSafari && oReturn.bIsWebKit && oReturn.nWebKitVersion < 124) ||
+		(oReturn.bIsGecko && oReturn.nGeckoBuildDate < 20020523)){
+			oReturn.bHasTransparencySupport = false;
+		};
+
+		if(!oReturn.bIsIEMac && !oReturn.bIsGecko && document.createElementNS){
+			try {
+				document.createElementNS(sNameSpaceURI, "i").innerHTML = "";
+			} catch(e){
+				oReturn.bIsXML = true;
+			};
+		};
+
+		oReturn.bUseInnerHTMLHack = oReturn.bIsKonq || (oReturn.bIsWebKit && oReturn.nWebKitVersion < 312) || oReturn.bIsIE;
+
+		return oReturn;
+	}();
+
+	/*	Disable sIFR for non-Flash or old browsers
+		Also disable it for IE and KHTML browsers in XML mode, since we are using innerHTML for those browsers */
+	if(window.hasFlash == false || !document.createElement || !document.getElementById || (UA.bIsXML && UA.bUseInnerHTMLHack)){
+		return {UA:UA};
+	};
+
+	function sIFR(e){
+		if((!self.bAutoInit && (window.event || e) != null) || !mayReplace(e)){
+			return;
+		};
+		bIsInitialized = true;
+
+		for(var i = 0, limit = stackReplaceElementArguments.length; i < limit; i++){
+			replaceElement.apply(null, stackReplaceElementArguments[i]);
+		};
+		stackReplaceElementArguments = [];
+	};
+
+	var self = sIFR;
+
+	function mayReplace(e){
+		if(bIsSetUp == false || self.bIsDisabled == true || ((UA.bIsXML && UA.bIsGecko || UA.bIsKHTML) && e == null && bIsInitialized == false) || (document.body == null || document.getElementsByTagName("body").length == 0)){
+			return false;
+		};
+		return true;
+	};
+
+	function escapeHex(sHex){
+		if(UA.bIsIE){ /* The RegExp for IE breaks old Gecko's, the RegExp for non-IE breaks IE 5.01 */
+			return sHex.replace(new RegExp("%\d{0}", "g"), "%25");
+		}
+		return sHex.replace(new RegExp("%(?!\d)", "g"), "%25");
+	};
+
+	function matchNodeNames(node, sMatch){
+		if(sMatch == "*"){
+			return true;
+		};
+		return node.nodeName.toLowerCase().replace("html:", "") == sMatch.toLowerCase();
+	};
+
+
+	function createElement(sTagName){
+		if(document.createElementNS && UA.bUseDOM){
+			return document.createElementNS(sNameSpaceURI, sTagName);
+		} else {
+			return document.createElement(sTagName);
+		};
+	};
+
+	function createObjectParameter(nodeObject, sName, sValue){
+		var node = createElement("param");
+		node.setAttribute("name", sName);
+		node.setAttribute("value", sValue);
+		nodeObject.appendChild(node);
+	};
+
+	/*	Konqueror does not treat empty classNames as strings, so we need a workaround */
+	function appendToClassName(node, sAppend){
+		var sClassName = node.className;
+		if(sClassName == null){
+			sClassName = sAppend;
+		} else {
+			sClassName = sClassName.normalize() + (sClassName == "" ? "" : " ") + sAppend;
+		};
+		node.className = sClassName;
+	};
+
+	function prepare(bNow){
+		var node = document.documentElement;
+		if(self.bHideBrowserText == false){
+			node = document.getElementsByTagName("body")[0];
+		};
+		if((self.bHideBrowserText == false || bNow) && node){
+			if(node.className == null || node.className.match(/\bsIFR\-hasFlash\b/) == null){
+				appendToClassName(node, "sIFR-hasFlash");
+			};
+		};
+	};
+
+	// contrary to popular belief, innerHTML is not standardized, so IE/Moz give different results.  sweet.
+	function myInnerHTML(node) {
+		var nodeNamesWeIgnore = "accessKey|coords|noWrap|dataFormatAs|disabled|dataSrc|object|dataFld|language|compact|contentEditable|inherit|tabIndex|align|clear|shape|charset|urn|rel|rev|dir|css";
+		// that string doesn't let us ignore "hreflang" (href) of "hideFocus" (id)
+		// it might be easier to search for the attributes we DO want instead of those we DON'T want.
+		var result = "";
+
+		switch (node.nodeType) {
+		// http://www.zvon.org/xxl/DOM2reference/DOM2/Output/data/_glossary.html#NodeTypes
+			case 3:	// text node
+				var textValue = node.nodeValue;
+				textValue = textValue.replace(/\t/g, "");
+				textValue = textValue.replace(/\n/g, "");
+				textValue = textValue.replace(/\r/g, "");
+
+				result += textValue;
+				break;
+
+			case 1:
+				result += "<" + node.nodeName.toLowerCase();
+				if (node.attributes != null) {
+					if (node.attributes.length > 0) {
+						for (var i = 0;  i < node.attributes.length; i++) {
+							var nodeName = node.attributes.item(i).nodeName;
+							//if ((node.attributes.item(i).value != "null") && (node.attributes.item(i).value != "") && (nodeNamesWeIgnore.indexOf(nodeName) == -1)) {
+							if ((node.attributes.item(i).value != "null") && (nodeNamesWeIgnore.indexOf(nodeName) == -1)) {
+
+								result += " " + node.attributes.item(i).nodeName;
+								result += "=\"";
+								if(node.attributes.item(i).nodeName == "alt" || node.attributes.item(i).nodeName == "title"){
+									node.attributes.item(i).value = node.attributes.item(i).value.replace("\"", "&#34;");
+								}
+								result += node.attributes.item(i).value +"\"";
+							}
+						}
+					}
+				}
+
+				if (node.childNodes != null) {
+					if (node.childNodes.length > 0) {
+						result += ">";
+						for (var j = 0;  j < node.childNodes.length; j++) {
+							//alert(node.childNodes[j]);
+							result += myInnerHTML(node.childNodes[j]);
+						}
+						result += "</"+ node.nodeName.toLowerCase() +">";
+					} else {
+						result += "/>";
+					}
+				}
+
+				break;
+		}
+
+
+		return result;
+	}
+
+
+	function replaceElement(sSelector, sFlashSrc, sColor, sLinkColor, sHoverColor, sBgColor, nPaddingTop, nPaddingRight, nPaddingBottom, nPaddingLeft, sFlashVars, sCase, sWmode){
+		if(!mayReplace()){
+			return stackReplaceElementArguments.push(arguments);
+		};
+		
+		var	sWidth, sHeight;
+
+		prepare();
+
+		/*	Extract any named arguments.	*/
+		named.extract(arguments, {
+			sSelector : function(value){ sSelector = value },
+			oNodeRef : function(value){ oNodeRef = value },
+			sFlashSrc : function(value){ sFlashSrc = value },
+			sColor : function(value){ sColor = value },
+			sLinkColor : function(value){ sLinkColor = value },
+			sHoverColor : function(value){ sHoverColor = value },
+			sBgColor : function(value){ sBgColor = value },
+			nPaddingTop : function(value){ nPaddingTop = value },
+			nPaddingRight : function(value){ nPaddingRight = value },
+			nPaddingBottom : function(value){ nPaddingBottom = value },
+			nPaddingLeft : function(value){ nPaddingLeft = value },
+			sFlashVars : function(value){ sFlashVars = value },
+			sCase : function(value){ sCase = value },
+			sWmode : function(value){ sWmode = value },
+			nHeight : function(value){ sHeight = value },
+			nWidth : function(value){ sWidth = value }
+		});
+
+		if (oNodeRef == null) { return false };
+
+		/*	Set default values. */
+		if(sFlashVars != null){
+			sFlashVars = "&" + sFlashVars.normalize();
+		} else {
+			sFlashVars = "";
+		};
+
+		if(sColor != null){sFlashVars += "&textcolor=" + sColor};
+		if(sHoverColor != null){sFlashVars += "&hovercolor=" + sHoverColor};
+		if(sHoverColor != null || sLinkColor != null){sFlashVars += "&linkcolor=" + (sLinkColor || sColor)};
+
+		if(nPaddingTop == null){ nPaddingTop = 0 };
+		if(nPaddingRight == null){ nPaddingRight = 0 };
+		if(nPaddingBottom == null){ nPaddingBottom = 0 };
+		if(nPaddingLeft == null){ nPaddingLeft = 0 };
+
+		if(sBgColor == null){ sBgColor = "#FFFFFF" };
+
+		if(sWmode == "transparent"){
+			if(!UA.bHasTransparencySupport){
+				sWmode = "opaque";
+			} else {
+				sBgColor = "transparent";
+			};
+		};
+
+		if(sWmode == null){ sWmode = "" };
+
+		/*	Do the actual replacement. */
+		var node, sMargin, sPadding, sVars, nodeAlternate, nodeFlash, oContent;
+		var nodeFlashTemplate = null;
+
+		if (1 == 1) {
+//		for(var i = 0, limit = listNodes.length; i < limit; i++){
+			//node = listNodes[i];
+			node = oNodeRef;
+
+
+			/* Prevents elements from being replaced multiple times. */
+			//if(node.className != null && node.className.match(/\bsIFR\-replaced\b/) != null){ continue };
+			
+			if (node.offsetWidth > 0) sWidth = node.offsetWidth - nPaddingLeft - nPaddingRight;
+			if (node.offsetHeight > 0) sHeight = node.offsetHeight - nPaddingTop - nPaddingBottom;
+			
+			if(isNaN(sWidth) || isNaN(sHeight)){
+				self.bIsDisabled = true;
+				document.documentElement.className = document.documentElement.className.replace(/\bsIFR\-hasFlash\b/, "");
+				return;
+			};
+
+			nodeAlternate = createElement("span");
+			nodeAlternate.className = "sIFR-alternate";
+
+			var nodeContent;
+			nodeContent = myInnerHTML(node);
+			//nodeContent = nodeContent.replace(/<p((.|\n)*?)>/ig, "<p$1><![CDATA[");
+			//nodeContent = nodeContent.replace(/<\/p>/ig, "]]></p>");
+			//nodeContent = nodeContent.replace(/<h3((.|\n)*?)>/ig, "<h3$1><![CDATA[");
+			//nodeContent = nodeContent.replace(/<\/h3>/ig, "]]></h3>");
+			//nodeContent = nodeContent.replace(/<h4((.|\n)*?)>/ig, "<h4$1><![CDATA[");
+			//nodeContent = nodeContent.replace(/<\/h4>/ig, "]]></h4>");
+
+			sVars = "txtCount=1&txt0=" + escapeHex((nodeContent)).replace(/\+/g, "%2B").replace(/&/g, "%26").replace(/\"/g, "%22").normalize() + sFlashVars + "&w=" + sWidth + "&h=" + sHeight;
+
+			appendToClassName(node, "sIFR-replaced");
+
+			//
+			var oRemove = null; //node.firstChild;
+			var oTemp = node.firstChild;
+			var oRemoved = null;
+			while (oTemp) {
+				oRemove = oTemp;
+				oTemp = oTemp.nextSibling;
+
+				if(nodeAlternate != null){
+					oRemoved = oRemove.parentNode.removeChild(oRemove);
+					nodeAlternate.appendChild(oRemoved);
+				}
+			}
+			//
+
+			/*	Opera only supports the object element, other browsers are given the embed element,
+				for backwards compatibility reasons between different browser versions.
+				Opera versions below 7.60 use innerHTML, from 7.60 and up we use the DOM */
+
+			if(nodeFlashTemplate == null || !UA.bUseDOM){
+				if(!UA.bUseDOM){
+					node.innerHTML = ['<embed class="sIFR-flash" type="application/x-shockwave-flash" src="', sFlashSrc, '" quality="best" wmode="', sWmode, '" bgcolor="', sBgColor, '" flashvars="', sVars, '" width="', sWidth, '" height="', sHeight, '" sifr="true"></embed>'].join("");
+				} else {
+					if(UA.bIsOpera){
+						nodeFlash = createElement("object");
+						nodeFlash.setAttribute("data", sFlashSrc);
+						createObjectParameter(nodeFlash, "quality", "best");
+						createObjectParameter(nodeFlash, "wmode", sWmode);
+						createObjectParameter(nodeFlash, "bgcolor", sBgColor);
+					} else {
+						nodeFlash = createElement("embed");
+						nodeFlash.setAttribute("src", sFlashSrc);
+						nodeFlash.setAttribute("quality", "best");
+						nodeFlash.setAttribute("flashvars", sVars);
+						nodeFlash.setAttribute("wmode", sWmode);
+						nodeFlash.setAttribute("bgcolor", sBgColor);
+						nodeFlash.setAttribute("pluginspace", "https://web.archive.org/web/20071115041044/http://www.macromedia.com/go/getflashplayer");
+						nodeFlash.setAttribute("scale", "noscale");
+					};
+					nodeFlash.setAttribute("sifr", "true");
+					nodeFlash.setAttribute("type", "application/x-shockwave-flash");
+					nodeFlash.className = "sIFR-flash";
+					if(!UA.bIsKHTML || !UA.bIsXML){
+						nodeFlashTemplate = nodeFlash.cloneNode(true);
+					};
+				};
+			} else {
+				nodeFlash = nodeFlashTemplate.cloneNode(true);
+			};
+			if(UA.bUseDOM){
+				/* General settings */
+				if(UA.bIsOpera){
+					createObjectParameter(nodeFlash, "flashvars", sVars);
+				} else {
+					nodeFlash.setAttribute("flashvars", sVars);
+				};
+				nodeFlash.setAttribute("width", sWidth);
+				nodeFlash.setAttribute("height", sHeight);
+				nodeFlash.style.width = sWidth + "px";
+				nodeFlash.style.height = sHeight + "px";
+				node.appendChild(nodeFlash);
+			};
+
+			node.appendChild(nodeAlternate);
+
+			/*	Workaround to force KHTML-browsers to repaint the document.
+				Additionally, IE for both Mac and PC need this.
+				See: http://neo.dzygn.com/archive/2004/09/forcing-safari-to-repaint */
+
+			if(UA.bUseInnerHTMLHack){
+				//node.innerHTML += "";
+			};
+		};
+
+		if(UA.bIsIE && self.bFixFragIdBug){
+			setTimeout(function(){document.title = sDocumentTitle}, 0);
+		};
+	 };
+
+	function updateDocumentTitle(){
+		sDocumentTitle = document.title;
+	};
+
+	function setup(){
+		if(self.bIsDisabled == true){ return };
+
+		bIsSetUp = true;
+		/*	Providing a hook for you to hide certain elements if Flash has been detected. */
+		if(self.bHideBrowserText){
+			prepare(true);
+		};
+
+		if(window.attachEvent){
+			window.attachEvent("onload", sIFR);
+		} else if(!UA.bIsKonq && (document.addEventListener || window.addEventListener)){
+			if(document.addEventListener){
+				document.addEventListener("load", sIFR, false);
+			};
+			if(window.addEventListener){
+				window.addEventListener("load", sIFR, false);
+			};
+		} else {
+			if(typeof window.onload == "function"){
+				var fOld = window.onload;
+				window.onload = function(){ fOld(); sIFR(); };
+			} else {
+				window.onload = sIFR;
+			};
+		};
+
+		if(!UA.bIsIE || window.location.hash == ""){
+			self.bFixFragIdBug = false;
+		} else {
+			updateDocumentTitle();
+		};
+	};
+
+	function debug(){
+		prepare(true);
+	};
+
+	debug.replaceNow = function(){
+		setup();
+		sIFR();
+	};
+
+	/* Public Fields */
+	self.UA = UA;
+	self.bAutoInit = true;
+	self.bFixFragIdBug = true;
+	self.replaceElement = replaceElement;
+	self.updateDocumentTitle = updateDocumentTitle;
+	self.appendToClassName = appendToClassName;
+	self.setup = setup;
+	self.debug = debug;
+	self.bIsDisabled = false;
+	self.bHideBrowserText = true;
+   self.myInnerHTML = myInnerHTML;
+
+	return self;
+}();
+
+/*	sIFR setup. You can add browser detection here.
+	sIFR's browser detection is exposed through sIFR.UA.
+
+if(typeof sIFR == "function" && !sIFR.UA.bIsIEMac){
+	if (useFlash) sIFR.setup();
+}; */
+
+}
+/*
+     FILE ARCHIVED ON 04:10:44 Nov 15, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 21:56:20 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 155.936
+  exclusion.robots: 0.065
+  exclusion.robots.policy: 0.055
+  cdx.remote: 0.052
+  esindex: 0.008
+  LoadShardBlock: 132.268 (3)
+  PetaboxLoader3.datanode: 104.933 (4)
+  load_resource: 100.857
+  PetaboxLoader3.resolve: 56.211
+*/

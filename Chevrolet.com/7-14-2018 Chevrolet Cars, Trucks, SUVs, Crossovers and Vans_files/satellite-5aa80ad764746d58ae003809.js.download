@@ -1,0 +1,159 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+_satellite.pushAsyncScript(function(event, target, $variables){
+  setTimeout(function(){
+  var mYear;
+  var pLevel;
+  var rdNum = window.utc;
+  var pName = _satellite.getVar("Page Name");
+  var pType = _satellite.getVar("Page Type");
+  var rExp = _satellite.getVar("Rendered Experience");
+  var sSect1 = _satellite.getVar("Site Section Level 1");
+  var sSect2 = _satellite.getVar("Site Section Level 2");
+  var sSect3 = _satellite.getVar("Site Section Level 3");
+  var sSect4 = _satellite.getVar("Site Section Level 4");
+  var sSect5 = _satellite.getVar("Site Section Level 5");
+
+  //model pages
+  if (pType === "family page" && sSect1 != "vehicle-groups") {
+    mYear = sSect2;
+    pLevel = sSect4;
+    pType = 'model_overview_details';
+  } else if (pType === "family page" && sSect1 == "vehicle-groups") {
+    mYear = "";
+    pLevel = "divisional";
+    pType = sSect5.split(':').join('_');
+  } else if (pType === "model overview") {
+    mYear = sSect2;
+    pLevel = sSect4;
+  } else {
+    mYear = "";
+    pLevel = "divisional";
+  }
+
+  // shopping tools (BYO landing, CO, LAV, RAQ, retail, and more)
+  if (sSect1 === "shopping-tools") {
+    if (sSect3 === "undefined") {
+      if (sSect2 === "request-a-quote") {
+        pType = "request_quote_start";
+      } else if (sSect2 === "request-a-test-drive") {
+        pType = "request-test-drive-start";
+      } else {
+        pType = sSect2;
+      }
+    } else if (location.pathname.indexOf("search-inventory") != -1) {
+        pType = "locate_a_vehicle_tool";
+    }else {
+      pType = sSect3;
+    }
+  }
+    
+  if (sSect3 === "search-inventory") {
+    mYear = document.URL.split('modelyear=')[1];
+    pLevel = document.URL.split('bodystyle=')[1].split('&')[0];
+  }
+  
+  if (sSect2 == "payment-estimator") {
+    pLevel = digitalData.vehicleInfo.modelName;
+    mYear = digitalData.vehicleInfo.modelYear;
+    pType = sSect2;
+  }  
+  
+  if (sSect3 === "discounts") {
+    pType = "retail_" + sSect4;
+  }
+
+  // trailering-and-towing page
+  if (sSect3 === "trailering-and-towing-guide") {
+    pType = sSect3;
+  }
+
+  // commercial page
+  if (sSect4 === "commercial-homepage") {
+    pType = sSect4;
+  }
+
+  // fleet page
+  if (pType === "commercial-homepage") {
+    pType = "commercial_" + sSect2;
+  }
+
+  // pages w/o pTypes
+  if (sSect2 === "certified-service" || sSect2 === "awards-accolades" || sSect2 === "new-roads" ||  sSect1 === "owners") {
+    pType = sSect2;
+  }
+
+  // performance pages
+  if (sSect1 === "performance") {
+    pType = sSect5.split(":").join("_");
+  }
+
+  // site search
+  if (sSect1 === "site-search") {
+    pType = sSect1;
+  }
+  
+  if (location.pathname.indexOf('contact/request-info') != -1) {
+    if (document.URL.indexOf('get-updates') != -1) {
+      mYear = document.URL.split('modelyear=')[1];
+      pLevel = document.URL.split('bodystyle=')[1].split('&')[0];
+      pType = "get_updates";
+    } else {
+    	pType = "sign_up_for_updates";
+    }
+  }
+  
+  function getCookie(name) {
+    var cookieList = decodeURIComponent(document.cookie).split(';');
+
+    for (i = 0; i < cookieList.length; i++) {
+      if (cookieList[i].indexOf(name) != -1) {
+        var cookieType = cookieList[i].split(name + '=')[1];
+      }
+    }
+
+    if (cookieType == undefined) {
+      var cookieType = "";
+    }
+
+    return cookieType;
+  }
+
+  if (pType != undefined || pType != "" || pLevel != undefined || pLevel != "") {
+  	jQuery('<img src="https://web.archive.org/web/20180711135851/https://a01.korrelate.net/a/e/d2a.ads?s=1&et=a&r='+rdNum+'&ago=156&ao=319&px=231&pt=i&lvl='+ pLevel.split('-').join('_').split(' ').join('_') +'&av1='+ pType.split('-').join('_').split(' ').join('_') +'&av2='+mYear+'&av3='+rExp+'&av7='+ getCookie('TnTJDP') +'" alt="" style="display:none; visibility: hidden;" width="0" height="0">').appendTo('body');
+  }
+},2000);
+});
+
+
+}
+/*
+     FILE ARCHIVED ON 13:58:51 Jul 11, 2018 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 07:02:46 May 01, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 1830.205
+  exclusion.robots: 0.172
+  exclusion.robots.policy: 0.157
+  cdx.remote: 0.096
+  esindex: 0.012
+  LoadShardBlock: 870.803 (3)
+  PetaboxLoader3.resolve: 860.065 (4)
+  PetaboxLoader3.datanode: 81.772 (4)
+  load_resource: 110.096
+*/

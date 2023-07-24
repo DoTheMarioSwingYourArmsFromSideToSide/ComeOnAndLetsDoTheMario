@@ -1,0 +1,150 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+var obj_l;
+var staticTracking;
+  s_wds(s_account); s_ca(s_account);  
+  function sendAnalyticsEvent(str){
+  ns=s_account; if(str!=null)ns+=","+str;void(s_gs(ns));}  
+  function sendLinkEvent(str,lnkname){
+  ns=s_account; if(str!=""&&str!=null)ns+=","+str; s_linkType="o"; s_lnk=true; s_linkName=lnkname; void(s_gs(ns));}
+  function clickTrack(linkName, zip) { 
+		s_prop5=linkName;
+		s_prop8="CURRENT OFFERS | " + zip;
+		sendLinkEvent('',linkName);   
+		s_prop5 = "";
+		s_prop8 = "";
+  }
+
+var links = document.getElementsByTagName("a");
+for (var i=0; i < links.length; i++) {
+	if ((links[i].rel) && (links[i].rel.match("popupdinamic-"))) {
+		var name = links[i].name;
+		var id = links[i].rel.substring("popupdinamic-".length);
+		tracking[id]["s_linkName"] = tracking[id]["s_linkName"].replace("<<MODEL>>", name);
+		links[i].onclick = function (){
+			onClickTracking(this, "popupdinamic-");
+			if (this.href.match("regionLocation.jsp"))
+				superPopup({url:this.href, type:"regionDetails"}); 
+			else	
+				superPopup({url:this.href, type:"RegionLocation"}); 
+			return false;
+		}
+	}
+	if ((links[i].rel) && (links[i].rel.match("omni-"))) {
+		links[i].onclick = function (){
+			onClickTracking(this, "omni-");
+		}
+	}
+}
+
+function onClickTracking(obj, type){
+	obj_l = obj
+	var id = obj.rel.substring(type.length);
+	staticTracking = true;
+	onClickTrackingById(id);
+	if (type.match("popupdinamic-"))
+		return false;
+	return true;	
+}
+
+function onClickTrackingById(id) { 
+	var account = s_account;
+	var p = "";
+	if (tracking[id]["s_pageName"]){
+		s_pageName = tracking[id]["s_pageName"];
+		s_prop1 = tracking[id]["s_prop1"];
+		s_prop2 = tracking[id]["s_prop2"];
+		s_prop3 = tracking[id]["s_prop3"];
+		s_prop5 = tracking[id]["s_prop5"];
+		s_prop11 = tracking[id]["s_prop11"];
+		s_prop12 = tracking[id]["s_prop12"];
+		s_prop13 = tracking[id]["s_prop13"];
+
+		if ((tracking[id]["s_prop14"]) && (id == "FAQCategory")){
+			staticTracking = false;
+			s_prop14 = tracking[id]["s_prop14"].replace("<<FAQ Category>>", obj_l.innerHTML.toUpperCase()).replace("&AMP;", "&");
+			s_prop15 = tracking[id]["s_prop15"].replace("<<FAQ Category>>", obj_l.innerHTML.toUpperCase()).replace("&AMP;", "&");
+			s_prop16 = tracking[id]["s_prop16"].replace("<<FAQ Category>>", obj_l.innerHTML.toUpperCase()).replace("&AMP;", "&");
+			s_prop17 = tracking[id]["s_prop17"].replace("<<FAQ Category>>", obj_l.innerHTML.toUpperCase()).replace("&AMP;", "&");
+		}		
+		if ((tracking[id]["s_prop14"]) && (id == "FAQQuestion")){
+			staticTracking = false;
+			section = document.getElementById(obj_l.className).innerHTML.toUpperCase().replace("&AMP;", "&");
+			question = "Q" + obj_l.id;
+			s_prop14 = tracking[id]["s_prop14"].replace("<<FAQ Category>>", section).replace("<<Question>>", question);
+			s_prop15 = tracking[id]["s_prop15"].replace("<<FAQ Category>>", section).replace("<<Question>>", question);
+			s_prop16 = tracking[id]["s_prop16"].replace("<<FAQ Category>>", section).replace("<<Question>>", question);
+			s_prop17 = tracking[id]["s_prop17"].replace("<<FAQ Category>>", section).replace("<<Question>>", question);
+		}		
+		if (staticTracking){
+			s_prop14 = tracking[id]["s_prop14"];
+			s_prop15 = tracking[id]["s_prop15"];
+			s_prop16 = tracking[id]["s_prop16"];
+			s_prop17 = tracking[id]["s_prop17"];
+		}
+		s_prop19 = tracking[id]["s_prop19"];
+		s_prop25 = tracking[id]["s_prop25"];
+		s_lnk=false;
+		s_linkType=""; 
+	}else{
+		
+		if (id == "PrintFriendly")
+			p = s_pageName;
+		s_prop1 = "";
+		s_prop2 = "";
+		s_prop3 = "";
+		s_prop8 = "";
+		s_prop11 = "";
+		s_prop12 = "";
+		s_prop13 = "";
+		s_prop14 = "";
+		s_prop15 = "";
+		s_prop16 = "";
+		s_prop17 = "";
+		s_prop19 = "";
+		s_prop25 = "";
+
+		s_linkName = tracking[id]["s_linkName"];
+		if (p != "")
+			s_linkName = s_linkName.replace("<<PAGE NAME>>", p);
+		s_prop5 = s_linkName;
+		s_lnk=true;
+		s_linkType="o"; 
+		s_pageName = "";	
+	}
+   void(s_gs(account));
+   return false;
+	
+}
+
+}
+/*
+     FILE ARCHIVED ON 00:50:56 Sep 01, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 21:52:34 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 98.196
+  exclusion.robots: 0.096
+  exclusion.robots.policy: 0.084
+  RedisCDXSource: 0.701
+  esindex: 0.009
+  LoadShardBlock: 72.155 (3)
+  PetaboxLoader3.datanode: 78.016 (4)
+  load_resource: 60.191
+  PetaboxLoader3.resolve: 36.032
+*/

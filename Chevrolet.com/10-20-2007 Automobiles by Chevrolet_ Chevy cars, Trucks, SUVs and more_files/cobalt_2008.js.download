@@ -1,0 +1,67 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+// masthead price as shown
+var priceasshown_cobalt="$xx,xxx*";
+
+
+//flyout pricing
+var startingatprice_cobalt_flyout="$14,330*";
+var priceasshown_cobalt_flyout="$19,530*";
+
+//Landing pricing
+var startingatprice_cobalt2008_landing="$14,330*";
+var priceasshown_cobalt2008_landing="$19,530*";
+
+// thumbnail price as shown
+var priceasshown_cobalt2008_coupe="$19,530*";
+var priceasshown_cobalt2008_sedan="$19,530*";
+
+//Legacy
+var startingatprice_cobalt="$xx,xxx*";
+
+// thumbnails starting at price
+var startingatprice_cobalt2008_coupe="$14,330*";
+var startingatprice_cobalt2008_sedan="$14,330*";
+
+// trim levels starting at price
+var startingatprice_cobalt2008_coupe_ls="$14,330*";
+var startingatprice_cobalt2008_coupe_1lt="$15,030*";
+var startingatprice_cobalt2008_coupe_2lt="$16,325*";
+var startingatprice_cobalt2008_coupe_sport="$19,530*";
+
+var startingatprice_cobalt2008_sedan_ls="$14,330*";
+var startingatprice_cobalt2008_sedan_1lt="$15,030*";
+var startingatprice_cobalt2008_sedan_2lt="$16,325*";
+var startingatprice_cobalt2008_sedan_sport="$19,530*"// JavaScript Document
+
+}
+/*
+     FILE ARCHIVED ON 04:10:19 Nov 15, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 21:56:20 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 126.567
+  exclusion.robots: 0.084
+  exclusion.robots.policy: 0.075
+  cdx.remote: 0.059
+  esindex: 0.008
+  LoadShardBlock: 88.126 (3)
+  PetaboxLoader3.datanode: 78.803 (4)
+  load_resource: 58.737
+  PetaboxLoader3.resolve: 21.44
+*/

@@ -1,0 +1,108 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+_satellite.pushAsyncScript(function(event, target, $variables){
+  //NEW INSTANCE 11_20_2017
+function getInternetExplorerVersion()
+{
+  var rv = -1;
+  if (navigator.appName == 'Microsoft Internet Explorer')
+  {
+    var ua = navigator.userAgent;
+    var re = new RegExp("MSIE ([0-9]{1,}[\\.0-9]{0,})");
+    if (re.exec(ua) != null)
+      rv = parseFloat( RegExp.$1 );
+  }
+  else if (navigator.appName == 'Netscape')
+  {
+    var ua = navigator.userAgent;
+    var re  = new RegExp("Trident/.*rv:([0-9]{1,}[\\.0-9]{0,})");
+    if (re.exec(ua) != null)
+      rv = parseFloat( RegExp.$1 );
+  }
+  return rv;
+}
+var ieCheck = getInternetExplorerVersion();
+if (!onYouTubeIframeAPIReady) {
+  var tag = document.createElement('script');
+  tag.setAttribute("src", "https://web.archive.org/web/20190907124315/https://www.youtube.com/iframe_api");
+  tag.setAttribute("type", "text/javascript");
+  if(ieCheck === 11){
+    console.log('first youtube condition');
+    document.getElementsByTagName("head")[0].insertBefore(tag);
+  } else{
+    console.log('second youtube condition');
+    document.getElementsByTagName("head")[0].prepend(tag);
+  }
+}
+
+    var sendMedia = function(event) {
+      	var	instance = event.target;
+      		if (typeof instance.getVideoData === 'function') {
+                            config.title = instance.getVideoData().title;
+               							var videoTitle = config.title;
+          };
+      
+        var s = _satellite.getToolsByType('sc')[0].getS(),
+            videoPlayer = "YouTube",
+            videoId = event.player.getVideoData().video_id,
+            mediaName = videoPlayer + '|' + videoTitle + '|' + videoId,
+            mediaDuration = Math.floor(event.player.getDuration()),
+            mediaOffset = Math.floor(event.player.getCurrentTime());
+      
+      	
+        if (event.playerState === YT.PlayerState.PLAYING) {
+            if (mediaOffset === 0) {
+                            s.Media.open(mediaName, mediaDuration, videoPlayer);
+            }
+          	console.log("Video Playing");
+            s.Media.play(mediaName, mediaOffset);
+
+        } else if (event.playerState === YT.PlayerState.PAUSED || event.playerState === YT.PlayerState.BUFFERING) {
+           console.log("Video Paused or Buffering"); 
+           s.Media.stop(mediaName, mediaOffset);
+        } else if (event.playerState === YT.PlayerState.ENDED) {
+          	console.log("Video Ended");
+            mediaOffset = 0;
+            s.Media.stop(mediaName, mediaOffset);
+            s.Media.close(mediaName);
+        }
+    };
+
+    jQuery(document).on('gmwpYTPlayerStateChange', function(event) {
+      	console.log("YT Player Event Fired");
+        sendMedia(event);
+    });
+});
+
+
+}
+/*
+     FILE ARCHIVED ON 12:43:15 Sep 07, 2019 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 08:25:52 May 01, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 151.199
+  exclusion.robots: 0.061
+  exclusion.robots.policy: 0.053
+  cdx.remote: 0.053
+  esindex: 0.007
+  LoadShardBlock: 40.025 (3)
+  PetaboxLoader3.datanode: 65.554 (4)
+  load_resource: 871.138
+  PetaboxLoader3.resolve: 825.502
+*/

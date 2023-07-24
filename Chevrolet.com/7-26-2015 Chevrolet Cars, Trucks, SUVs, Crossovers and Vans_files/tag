@@ -1,0 +1,41 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+BrightTag.site('3xLRJdY',function(s){
+s.domready(function(){
+s.tag('\x3cscript type\x3d\x27text/javascript\x27\x3e\n(function() {\n    var dt \x3d document.createElement(\x27script\x27);\n    dt.type \x3d \x27text/javascript\x27;\n    dt.async \x3d true;\n    dt.src \x3d document.location.protocol + \x27//dt.cobaltgroup.com/dt/1.0/dt.js?sitetype\x3doem\x26format\x3djs\x26cblttags\x3d1\x26referrer\x3d\x27+ encodeURIComponent(document.location.href.substr(0,2000));\n    var s \x3d document.getElementsByTagName(\x27script\x27)[0];\n    s.parentNode.insertBefore(dt,s);\n})();\n\x3c/script\x3e\n',{tagId:1017219});
+s.tag('\x3cscript\x3e\n        (function() {\n          var customVars \x3d [],\n          url \x3d new BrightTag.HTTP.URL(\x27https://googleads.g.doubleclick.net/pagead/viewthroughconversion/\x27 +\n            "997318475"+\x27/\x27).appendParams({\n              \x27value\x27: \x270\x27,\n              \x27label\x27: "MtddCM3zzggQy77H2wM",\n              \x27guid\x27: \x27ON\x27,\n              \x27script\x27: \x270\x27\n            });\n\n          BrightTag.each([], function(prop) {\n            if (BrightTag.Types.isArray(prop.value)) {\n              prop.value \x3d prop.value.join(\x27,\x27);\n            }\n\n            BrightTag.pushIfDefined(customVars, prop.key + \x22\x3d\x22 + prop.value);\n          });\n\n          url.appendParam(\x22data\x22, customVars.join(\x22;\x22));\n\n          new Image().src \x3d url.toString();\n        }());\n      \x3c/script\x3e',{tagId:1017786,group:'yjss'});
+});
+});
+
+
+}
+/*
+     FILE ARCHIVED ON 17:07:51 Apr 13, 2018 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 05:14:24 May 01, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 149.283
+  exclusion.robots: 0.068
+  exclusion.robots.policy: 0.059
+  RedisCDXSource: 0.638
+  esindex: 0.007
+  LoadShardBlock: 102.151 (3)
+  PetaboxLoader3.datanode: 120.48 (4)
+  load_resource: 102.908
+  PetaboxLoader3.resolve: 76.023
+*/

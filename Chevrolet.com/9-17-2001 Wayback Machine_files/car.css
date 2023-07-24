@@ -1,0 +1,116 @@
+/* this style sheet will be used for all pages except the features and specs pages */
+
+
+
+BODY { font-family: arial, helvetica, verdana, sans-serif; 
+	font-size: 12px;
+	color: #ffffff }	
+	
+TD { font-family: arial, helvetica, verdana, sans-serif; 
+	font-size: 12px;
+	color: #ffffff }
+
+TD.rdb { font-family: arial, helvetica, verdana, sans-serif; 
+	font-size: 12px;
+	color: #ffffff }
+	
+H1 { font-family: arial, helvetica, verdana, sans-serif; 
+	font-weight: bold;
+	font-size: 16px;
+	color: #ffffff }
+	
+H2 { font-family: arial, helvetica, verdana, sans-serif; 
+	font-weight: bold;
+	font-size: 14px;
+	color: #ffffff }
+	
+B { font-family: arial, helvetica, verdana, sans-serif;
+	font-weight: bold;
+	color: #ffffff }
+	
+I { font-family: arial, helvetica, verdana, sans-serif;
+	font-style: italic;
+	color: #ffffff }
+
+P { font-family: arial, helvetica, verdana, sans-serif;
+	font-size: 12px;
+	color: #ffffff }
+	
+P.footnote { font-family: arial, helvetica, verdana, sans-serif;
+	font-size: 10px }
+	
+SPAN { font-family: arial, helvetica, verdana, sans-serif;
+	font-size: 12px;
+	color: #ffffff }
+	
+SPAN.footnote { font-family: arial, helvetica, verdana, sans-serif;
+	font-size: 10px;
+	color: #ffffff }
+	
+SPAN.header { font-family: arial, helvetica, verdana, sans-serif;
+    font-weight: bold;
+	font-size: 14px;
+	color: #ffffff }
+	
+SPAN.brandstatement { font-family: arial, helvetica, verdana, sans-serif;
+	font-size: 11px;
+	color: #ffffff }	
+	
+SPAN.captions { font-family: arial, helvetica, verdana, sans-serif;
+	font-size: 11px;
+	color: #ffffff }
+	
+SPAN.nav { font-family: arial, helvetica, verdana, sans-serif;
+	color: #ffffff;
+	font-size: 11px }
+	
+SPAN.rdb { font-family: arial, helvetica, verdana, sans-serif;
+	color: #ffffff;
+	font-size: 11px }
+	
+	
+BLOCKQUOTE { font-family: arial, helvetica, verdana, sans-serif;
+	font-size: 12px;
+	color: #000000 }
+	
+LI { font-family: arial, helvetica, verdana, sans-serif;
+	font-size: 12px;
+	color: #ffffff }
+	
+A:link { font-family: arial, helvetica, verdana, sans-serif;
+	color: #ffffff;
+	text-decoration: underline }
+
+A:visited { font-family: arial, helvetica, verdana, sans-serif;
+	color: #ffffff;
+	text-decoration: underline }
+
+A:active { font-family: arial, helvetica, verdana, sans-serif;
+	color: #CCCCCC;
+	text-decoration: underline }
+
+A:hover { font-family: arial, helvetica, verdana, sans-serif;
+	color: #CCCCCC;
+	text-decoration: underline }
+
+
+/*
+     FILE ARCHIVED ON 23:10:15 Sep 02, 2001 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 20:24:15 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 174.925
+  exclusion.robots: 0.178
+  exclusion.robots.policy: 0.166
+  cdx.remote: 0.092
+  esindex: 0.012
+  LoadShardBlock: 147.566 (3)
+  PetaboxLoader3.datanode: 120.867 (4)
+  load_resource: 493.977
+  PetaboxLoader3.resolve: 448.374
+*/

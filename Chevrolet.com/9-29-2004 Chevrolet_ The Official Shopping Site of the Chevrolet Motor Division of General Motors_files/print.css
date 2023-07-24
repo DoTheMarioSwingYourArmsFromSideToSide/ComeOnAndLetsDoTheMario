@@ -1,0 +1,50 @@
+body { font-size:10pt; }
+
+div#container { width:7in; }
+
+div#body { float:none; width:7in; margin-left:0; background:#fff; }
+
+div#body table { width:7in; }
+
+.pagebreak { page-break-before:always; }
+
+/* Be very specific for Safari */
+form#print, form#search, div#skipnav, div#nav dl dd a, form#lad, div#nav dl dd dl dt a, div#nav dl dd dl dt em a, html > body div#nav dl dd dl dt em a, div#modelnav, div#stylesnav, ul#fn, dd#enlarge, div#multimedia, div#footer { display:none; }
+
+div#nav dt#cvheading img, div#nav dt#stheading img, div#nav dt#crheading img { display:none; }
+
+div#close { display:none; }
+
+div#sidebar p#bowtie { display:block; margin-left:0; margin-bottom:10px; background:transparent; top:0; }
+
+h1#maincontent { display:block; margin-bottom:10px; margin-left:150px; clear:right; }
+
+div#bodycontent, div#landing { margin-right:0; }
+
+/* This rule prints the URI next to the link */
+#bodycontent a:link:after, #bodycontent a:visited:after { 
+   	content: " (" attr(href) ")";
+font-size: 10pt; }
+
+div#photo { margin-top:10px; }
+
+/*
+     FILE ARCHIVED ON 19:26:37 Aug 23, 2004 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 20:54:10 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 268.409
+  exclusion.robots: 0.072
+  exclusion.robots.policy: 0.062
+  cdx.remote: 0.06
+  esindex: 0.008
+  LoadShardBlock: 242.377 (3)
+  PetaboxLoader3.datanode: 327.455 (4)
+  load_resource: 230.435
+  PetaboxLoader3.resolve: 40.758
+*/

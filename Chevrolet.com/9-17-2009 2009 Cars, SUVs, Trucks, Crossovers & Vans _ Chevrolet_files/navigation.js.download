@@ -1,0 +1,319 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+var MAX_NAV_HEIGHT = "400";
+var MIN_NAV_HEIGHT = "115";
+var FLASH_NAV_ID = "flashObj_nav";
+
+function show(id, root, ignoreList) {
+  //console.log("show: "+ id);
+  var rootNode = document.getElementById(root);
+  if (ignoreList == null) ignoreList = "";
+  if (rootNode == null) rootNode = document.body;
+
+  //console.log("hide id: "  +id);
+
+  // hide all other flyouts
+  var nodeArr = util.getElementsByClassName('flyout', rootNode);
+  for (var i = 0; i < nodeArr.length; i++) {
+    var thisId = nodeArr[i].id;
+    if ((thisId != null) && (thisId.length > 0)) {
+      if ((ignoreList.indexOf(thisId)) == -1 ) {
+        //console.log("show - hide: " + nodeArr[i].id);
+        css.removeClassName(nodeArr[i], "active");
+      }
+    } else {
+      //console.log("show - hide: " + nodeArr[i].id);
+      css.removeClassName(nodeArr[i], "active");
+    }
+
+  }
+
+  // show this flyout
+  css.addClassName(document.getElementById(id), "active");
+
+}
+
+function hide(id, root, ignoreList) {
+  var rootNode = document.getElementById(root);
+
+  if (ignoreList == null) ignoreList = "";
+  if (rootNode == null) rootNode = document.body;
+
+  //console.log("hide id: "  +id);
+
+  var nodeArr = util.getElementsByClassName('flyout', rootNode);
+  for (var i = 0; i < nodeArr.length; i++) {
+    var thisId = nodeArr[i].id;
+    if ((thisId != null) && (thisId.length > 0)) {
+      if ((ignoreList.indexOf(thisId)) == -1 ) {
+        //console.log("hide: " + nodeArr[i].id);
+        css.removeClassName(nodeArr[i], "active");
+      }
+    } else {
+      //console.log("hide: " + nodeArr[i].id);
+      css.removeClassName(nodeArr[i], "active");
+    }
+
+  }
+}
+
+
+/*
+NOTE NOTE NOTE NOTE
+THE FOLLOWING CODE IS NEEDED IF THE BRAND IS GOING TO USE LOWPEED VERSION IN THE SITE
+IT SETS SOME WEIRD CHARACTERS FOR IE6 AND IE7 SO THE FLASH GETS SOME ERRORS WHEN PARSING THE NODE
+NOTE NOTE NOTE NOTE
+*/
+/*
+  var req = new Request.HTML({method: 'get', url: BASE_CONTEXT + '/tools/util/navigation.do?success=/en/pages/global/includes/navigation_html.jsp',
+    onSuccess: function(html) {
+      if ($('mdsVehicleNav') != null) {
+
+        //Clear the text currently inside the results div.
+        $('mdsVehicleNav').set('text', '');
+        //Inject the new DOM elements into the results div.
+        $('mdsVehicleNav').adopt(html);
+        //console.log('w00t');
+
+        $$('ul#vehicles li').each(function(li) {
+          //console.log(li.id);
+          li.addEvent('mouseleave', function() {
+            css.removeClassName(li, 'active');
+          });
+
+          li.addEvent('mouseenter', function() {
+            css.addClassName(li, 'active');
+          });
+        });
+
+      }
+    },
+    //Our request will most likely succeed, but just in case, we'll add an
+    //onFailure method which will let the user know what happened.
+    onFailure: function() {
+      if ($('mdsVehicleNav') != null) {
+        $('mdsVehicleNav').set('text', '');
+      }
+    }
+  });
+
+  $(document).addEvent('domready', function() {
+
+    if ($('mdsNavDivisionVehicles') != null) {
+      $('mdsNavDivisionVehicles').addEvent('mouseover', function() {
+        css.addClassName($('mdsVehicleNav'), 'active');
+      });
+    }
+
+    if ($('mdsVehicleNav') != null) {
+      $('mdsVehicleNav').addEvent('mouseleave', function() {
+        css.removeClassName($('mdsVehicleNav'), 'active');
+      });
+
+      req.send();
+    }
+  });
+
+*/
+
+//Following functions are used by buying guides page.
+function showPaymentEstimator(){
+	var postalCode = getPostalCode();
+	window.open(BASE_CONTEXT+'/pages/mds/pricing/estimatepayment.do');
+}
+
+function openInterstitial(url, name){
+	url = url.split("\"").join(escape("\""));
+	url = url.split("&").join(escape("&"));
+	window.open(BASE_CONTEXT + '/pages/misc/instersticial/popupToExteriorLink.do?newURL=' + url,name,'width=720,height=355');
+}
+
+
+  function showTradeInAppraisal(){
+		var tradInUrl = "https://web.archive.org/web/20090806041213/http://web1.intellipriceauto.com/ETRADEINMATRIX/IDENTIFY.ASPX?LCDEALER=3045202";
+		openInterstitial(tradInUrl,'Intelliprice');
+  }
+
+  function showApplyForCredit(){
+    window.open('https://web.archive.org/web/20090806041213/https://www.gmacfinancialtools.com/toolmanager?toolname=XCA&websiteid=USBP&cntrycd=US&langcd=EN&request_type=credapp');
+
+
+
+  }
+
+  function showGMACLearnMore(){
+    window.open('https://web.archive.org/web/20090806041213/http://www.gmacfs.com/us/en/personal/automotive/');
+  }
+
+/*--------------------MODEL MENU-------------------------*/
+function displayHideYears(objId){
+  obj =  document.getElementById(objId);
+  if(obj.className == "hiddenArea") obj.className = "displayedArea";
+  else obj.className = "hiddenArea";
+}
+/*--------------------END MODEL MENU-------------------------*/
+
+/*
+ * showWorldwideSitesDialog(src)
+ * Function to show the "Worldwide Sites" pop-up in the navigation bar
+ */
+function showWorldwideSitesDialog(src){
+  var html = '';
+  var url = BASE_CONTEXT+"/en/pages/global/nav/worldWideSites/pageData.xml";
+  var xml;
+  var data;
+  if ($('wsDialog') != null) {
+    document.body.removeChild($('wsDialog'));
+  }
+  var toolTipElm = document.createElement('div');
+  toolTipElm.setAttribute('id', 'wsDialog');
+  toolTipElm.innerHTML += "<div>"+DIVISION+" Worldwide</div>";
+  toolTipElm.innerHTML += "<div><a href='#' onclick='closeWorldWideSitesDialog(this);'>Close</a></div>";
+  toolTipElm.innerHTML += "<ul>";
+  try{
+      xml = new JKL.ParseXML(url);
+      data = xml.parse();
+      for(var link in data.links.link){
+        if(data.links.link.hasOwnProperty(link)){
+          toolTipElm.innerHTML += "<li><a href='"+data.links.link[link].href+"' title='"+data.links.link[link].title+"' target='"+data.links.link[link].target+"' class='"+data.links.link[link].css+"' onclick='"+data.links.link[link].onclick+"'>"+data.links.link[link].text+"</a></li>";
+        }
+      }
+  }catch(err){}
+  toolTipElm.innerHTML += "</ul>";
+  document.body.appendChild(toolTipElm);
+  $('wsDialog').style.left = DL_GetElementLeft(src) + "px";
+  $('wsDialog').style.top = DL_GetElementTop(src) + "px";
+  return false;
+}
+
+/*
+ * closeWorldWideSitesDialog()
+ * Function to hide the "Worldwide Sites" pop-up in the navigation bar
+ */
+function closeWorldWideSitesDialog() {
+  document.body.removeChild($('wsDialog'));
+  return false;
+}
+
+function doVL(){
+  if(xPosition == "undefined" || xPosition == null)
+    setPosition (420, 30);
+  validateCookie(this,'locateVehicleLanding()','vl',false);
+
+  setPosition (null, null);
+  return false;
+}
+
+function doDL(){
+ if(xPosition == "undefined" || xPosition == null)
+    setPosition (530, 30);
+  validateCookie(this,'locateDealer()','dl',false);
+setPosition (null, null);
+  return false;
+}
+
+function doBYO(){
+  validateCookie(this,'byo()','byo',false);
+  return false;
+}
+
+function setFlashNavHeight(newHeight){
+  var e1 = document.getElementById(FLASH_NAV_ID);
+  e1.height=newHeight;
+  (newHeight>200)?$('flashObj_overview').disableMH():$('flashObj_overview').enableMH();
+}
+
+function setFlahsNavHeight(){
+  var e1 = document.getElementById(FLASH_NAV_ID);
+  if (e1.height===MAX_NAV_HEIGHT){
+    e1.height=MIN_NAV_HEIGHT;
+    $('flashObj_overview').enableMH();
+ }
+  else{
+    e1.height=MAX_NAV_HEIGHT;
+    $('flashObj_overview').disableMH()
+  }
+}
+
+function fireInterstitial(url){
+  var newURL="";
+  var context = url.split("/")[1]; // search the context of the url
+  var context2 = BASE_CONTEXT.split("/")[1]; // context of the Chevy site
+  if(context!=context2){ // if both context are diferents, append the Chevy's context to the url
+    newURL = BASE_CONTEXT+url;
+  }else{
+    newURL = url;
+  }
+  newURL = newURL.split("\"").join(escape("\""));
+  newURL = newURL.split("&").join(escape("&"));
+  if(Browser.Engine.name == 'trident'){ // fix to IE
+    centeredWin(newURL, "interstitialWin", "630", "323", true, true, false, false, false, false, false);//located in common.js
+  }else{
+    centeredWin(newURL, "interstitialWin", "620", "323", true, true, false, false, false, false, false);//located in common.js
+  }
+}
+
+function browserId()
+{
+  return BrowserDetect.browser + "_" + BrowserDetect.version;
+}
+
+function getParameter(queryString, parameterName) {
+	// Add "=" to the parameter name (i.e. parameterName=value)
+	var parameterName = parameterName + "=";
+	if (queryString.length > 0 ) {
+		// Find the beginning of the string
+		begin = queryString.indexOf ( parameterName );
+		// If the parameter name is not found, skip it, otherwise return the value
+		if ( begin != -1 ) {
+			// Add the length (integer) to the beginning
+			begin += parameterName.length;
+			// Multiple parameters are separated by the "&" sign
+			end = queryString.indexOf ( "&" , begin );
+			if ( end == -1 ) {
+				end = queryString.length
+			}
+			// Return the string
+			return unescape ( queryString.substring ( begin, end ) );
+		}
+		// Return "null" if no parameter has been found
+		return "null";
+	}
+}
+
+ function showDownloadFlash(){
+		var downloadFlash = "https://web.archive.org/web/20090806041213/http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash&promoid=BIOW";
+		openInterstitial(downloadFlash,'Intelliprice');
+  }
+
+}
+/*
+     FILE ARCHIVED ON 04:12:13 Aug 06, 2009 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:25:51 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 137.183
+  exclusion.robots: 0.104
+  exclusion.robots.policy: 0.091
+  RedisCDXSource: 0.858
+  esindex: 0.008
+  LoadShardBlock: 113.139 (3)
+  PetaboxLoader3.datanode: 194.955 (5)
+  PetaboxLoader3.resolve: 149.088 (3)
+  load_resource: 259.124 (2)
+*/

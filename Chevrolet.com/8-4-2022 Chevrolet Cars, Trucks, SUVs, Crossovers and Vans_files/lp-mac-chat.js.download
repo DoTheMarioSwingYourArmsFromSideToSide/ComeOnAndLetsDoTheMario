@@ -1,0 +1,241 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+/***********************************
+    LP Web Messaging on Macs
+************************************/
+
+/*jshint scripturl:true*/
+/*jshint esversion: 6*/
+
+var minMacOSVersion = [10, 13, 4];
+var minIOSVersion = [11, 3];
+var supportedSystemRegEx = /\((Macintosh|iPhone|iPad|(?:iPod(?:\x20touch)?));.*\x20((?:\d[_.]{0,1})+)[^)]*\)\x20/i;
+var urlFlag = false;
+var clickEventSet = false;
+
+if (lpTag.section == "") { lpTag.section = []; }
+
+// Check for device compatibility
+
+function CheckChannelSupport() {
+  var userAgent = (window.navigator && window.navigator.userAgent) || '';
+  var sysInfo = extractSystemInfo(userAgent);
+  // check platform version
+  if (!!sysInfo) {
+    if ('MACINTOSH' === sysInfo.type.toUpperCase()) {
+      // MacOS
+      console.log('Detected MacOS version: ', sysInfo.version);
+      //Edited below to Always offer the Web Version on MacOS
+      //if (checkVersion(sysInfo.version, minMacOSVersion)) {
+      //  return "abc";
+      //} else {
+        return "web";
+      //}
+    } else if (['IPHONE', 'IPAD', 'IPOD', 'IPOD TOUCH'].includes(sysInfo.type.toUpperCase())) {
+      // iOS
+      console.log('Detected iOS version: ', sysInfo.version);
+      if (checkVersion(sysInfo.version, minMacOSVersion)) {
+        return "abc";
+      } else {
+        return "web";
+      }
+    }
+  } else if (userAgent.indexOf('Android')>=0){
+      return "gbm";
+  } else {
+    // Unknown platform
+    console.log('Unknown platform!');
+    return "web";
+  }
+}
+
+function extractSystemInfo(e) {
+  var t = supportedSystemRegEx.exec(e);
+  console.log('System info extracted from UA: ', t);
+  return t ?
+    {
+      type: t[1],
+      version: (function (e) {
+        var t = [],
+          n = /(\d+)/g,
+          r = null;
+        do {
+          if ((r = n.exec(e))) {
+            var i = parseInt(r[0], 10);
+            if ('number' != typeof i) return null;
+            t.push(i);
+          }
+        } while (r);
+        return t;
+      })(t[2])
+    } :
+    null;
+}
+
+function checkVersion(targetVersion, minVersion) {
+  if (void 0 === targetVersion) return !1;
+  for (var n = 0, r = minVersion.length; n < r; n++) {
+    var i = minVersion[n],
+      o = parseInt(targetVersion[n], 10);
+    if ((isNaN(o) && (o = 0), o > i)) return !0;
+    if (o < i) return !1;
+  }
+  return !0;
+}
+
+// Parse through script url params and associated actions
+function setCampaignId(channel) {
+
+  // If SDE and Section values were not passed, use default
+  var campaignId = "";
+  var mrktInfo = lpTag.sdes.get("mrktInfo");
+  if (mrktInfo && mrktInfo[0].info.campaignId) {campaignId="set";}
+
+  if (campaignId==""){
+    if (channel=="abc") {
+      sde = '{"type": "mrktInfo", "info": { "campaignId": "abc"}}';
+    } else if (channel=="gbm") {
+      sde = '{"type": "mrktInfo", "info": { "campaignId": "gbm"}}';
+    } else {
+      sde = '{"type": "mrktInfo", "info": { "campaignId": "web"}}';
+    }
+    lpTag.sdes.push(JSON.parse(sde));
+    console.log(sde);
+  }
+
+}
+
+// Add Apple script to load engagement
+function addChannelScript(src) {
+  var s = document.createElement("script");
+  s.type = "text/javascript";
+  s.src = src;
+  document.getElementsByTagName("head")[0].append(s);
+}
+
+// Append url to customer status SDE 
+function addUrl(abcLink) {
+  var anchorParts = abcLink.href.split("?");
+  if (!anchorParts) throw "Unable to break apart anchor tag";
+  // console.log(anchorParts[0]);
+  // console.log(anchorParts[1]);	  
+  var anchorParams = anchorParts[1].split("&");
+  if (!anchorParams) throw "Unable to get anchor parameters";
+  // console.log(anchorParams[0]);
+  // console.log(anchorParams[1]);
+  var currentUrl = window.location.href;
+  for (idx = 0; idx < anchorParams.length; ++idx) {
+    if (anchorParams[idx].includes('biz-group-id')) {
+      anchorParams[idx] += "%20|%20" + encodeURIComponent(currentUrl);
+    }
+  }
+  var newABCHref = anchorParts[0];
+  for (idx = 0; idx < anchorParams.length; ++idx) {
+    newABCHref += ((idx == 0) ? "?" : "&") + anchorParams[idx];
+  }
+  // console.log(newABCHref);
+  abcLink.href = newABCHref;
+}
+
+// Loop until script and div loaded
+var loopCount = 0;
+var abcLink = "";
+function setUpEngagements() {
+  setTimeout(function () {
+    abcLoaded = typeof (AppleBusinessChat) !== "undefined";
+    if (abcLoaded) {
+      subLoaded = typeof (AppleBusinessChat.setUpBanners) !== "undefined";
+    } else {
+      subLoaded = false;
+    }
+    engLoaded = document.querySelector('[class^=apple-business-chat] iframe') !== null;
+    if (loopCount < 15) {
+      if (!abcLoaded || !subLoaded) {
+        console.log("abc function/method not defined");
+        loopCount++;
+        setUpEngagements();
+      } else if (abcLoaded && subLoaded && !engLoaded) {
+        console.log('abc function/method defined');
+        AppleBusinessChat.setUpBanners(); // IS THIS THE RIGHT THING TO CALL?
+        loopCount++;
+        setUpEngagements();
+      } else if (abcLoaded && subLoaded && engLoaded) {
+        console.log('abc engagement loaded');
+        setTimeout(function () {
+          if (!clickEventSet) {
+            abcIframe = document.querySelector('[id^="LPMcontainer"] iframe');
+            abcLink = abcIframe.contentDocument.querySelector('a');
+            if (urlFlag) { addUrl(abcLink); }
+            btn = abcLink.href;
+            console.log(abcLink);
+            abcLink.removeAttribute('href');
+            lpBtn = abcIframe.contentDocument.querySelector('div[class^=businesschat-button__container]');
+            lpBtn.setAttribute('data-LP-event', 'click');
+            lpBtn.setAttribute('target', '_blank');
+            lpBtn.setAttribute('onclick', "window.open('" + btn + "','_blank')");
+            console.log('click event set');
+            clickEventSet = true;
+          }
+          document.querySelector('[id^="LPMcontainer"]').style.display = "block";
+        }, 500);
+      }
+    } else {
+      console.log('Timed out');
+    }
+  }, 500);
+}
+
+var channel = CheckChannelSupport();
+var runNewPage = false;
+console.log("Channel select: " + channel);
+setCampaignId(channel);
+if (channel=="abc") {
+  addChannelScript("https://web.archive.org/web/20220805072709/https://static.cdn-apple.com/businesschat/start-chat-button/2.0.0/index.js");
+} else if (channel=="gbm") {
+  addChannelScript("https://web.archive.org/web/20220805072709/https://businessmessages.google.com/widget/v2/js");
+}
+
+// Call newPage if URL param exists
+if (runNewPage) {
+  setTimeout(function(){
+    var sdes = lpTag.sdes.get();
+    lpTag.newPage(document.URL, {
+      section: lpTag.section,
+      sdes: sdes
+    });
+    console.log('newpage complete');
+  },500);
+}
+
+
+}
+/*
+     FILE ARCHIVED ON 07:27:09 Aug 05, 2022 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:47:03 May 01, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 96.713
+  exclusion.robots: 0.07
+  exclusion.robots.policy: 0.06
+  RedisCDXSource: 0.675
+  esindex: 0.007
+  LoadShardBlock: 69.676 (3)
+  PetaboxLoader3.datanode: 91.567 (5)
+  load_resource: 126.565 (2)
+  PetaboxLoader3.resolve: 66.602 (2)
+*/

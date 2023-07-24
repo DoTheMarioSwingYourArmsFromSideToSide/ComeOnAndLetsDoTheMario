@@ -1,0 +1,626 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+/******************************************  CONSTANTS  **********************************************/
+
+var SAVED_INFO_DIV = 'savedInfo';
+var IMG_EXTENSION  =  ".gif";
+var BASE_CONTEXT_LOCAL = BASE_CONTEXT;
+var IMAGES_PATH = BASE_CONTEXT_LOCAL+"/assets/mds/common/images/";
+var MSI_IMAGES_PATH = IMAGES_PATH+"msi/";
+var MSI_INVENTORY_IMAGES_PATH = MSI_IMAGES_PATH+"inventory/";
+var MSI_VEHICLES_IMAGES_PATH = MSI_IMAGES_PATH+"models/";
+var PRINT_VERSION_LINK = BASE_CONTEXT+"/misc/msi/printVersion.do";
+
+var VEHICLE = 0;
+var INVENTORY = 1;
+var DEALER = 2;
+var clickOnSavedInfo = -1;
+var COMP_BUTTON_TEXT = "Compare these vehicles";
+var TOOLTIP_MO = "Go to Model Overview";
+var TOOLTIP_WS = "Go to Window Sticker";
+var MSRP_ID_SUFFIX = "msiMsrp";
+var INVENTORY_IMAGE_SUFFIX = "P81_";
+var DEFAULT_CAR_IMAGE = IMAGES_PATH+"car.gif";
+
+//HTML TEMPLATES
+var NODEALERS_MESSAGE = "<li class='noDealer'>No dealers have been saved.</li>";
+var VEH_IMAGE_HTML = '<img class="msiItemImage" src="'+DEFAULT_CAR_IMAGE+'"/>';
+
+var VEHICLE_HTML =  '<div class="vehBox" ><a href="javascript:void(0)" onclick="javascript:removeVehicle(\'$remVEH\');return false;" class="removeItem" title="Remove this item">X</a> <div class="msiCarImageContainer"> <img src="$image" title="'+TOOLTIP_MO+'" alt="" class="msiItemImage" onError="setDefaultImage(this);" onclick="showLink(\'$moLink\');"/> </div> <ul> <li class="msiModelLabel">$year $brand</li> <li class="msiModelLabel">$model</li> <li class="msiMsrpLabel">MSRP<sup>1</sup> Starting at: </li> <li id="msiMsrp$remVEH" class="msrp">Loading...</li><li class="byoLink"><a href="$byoLink">Build Your Own</a></li></ul> </div> </li>';
+var INVENTORY_HTML = '<div class="invBox" ><a href="javascript:void(0)" onclick="removeInventory(\'$remINV\');return false;" class="removeItem" title="Remove this item">X</a> <div class="msiCarImageContainer"> <img src="$image" alt="inventory image" class="msiItemImage"  onerror="setDefaultImage(this);" title="'+TOOLTIP_WS+'" onclick="showLink(\'$wsLink\');"/> </div> <ul> <li class="msiModelLabel">$year $brand</li> <li class="msiModelLabel">$model</li> <li class="msrpBig"><span class="grayText">MSRP : </span><span id="msiMsrp$vin">Loading...</span><sup class="supIndex">1</sup></li><li class="vinid">VIN : $vin</li> <li><a href="$raqLink" class="raqbtn">Request a Quote</a> </li></ul> </div></li>';
+var DEALER_HTML = '<div class="dlDiv"> <a href="javascript:void(0)" onclick="javascript:removeDealer(\'$remD\');return false;" class="removeItem" title="Remove this item">X</a><a title="$name" href="#" onclick="javascript:showMap(\'$bac\',\'$lat\',\'$long\');return false;" class="dealerTitle">$shortname</a>  <ul> <li id="adressL">$address</li><li id="cityL">$city, $state, $zip</li> <li id="phoneL">$phone</li> <li  id="mapL"><br /><a href="javascript:void(0)" onclick="javascript:showMap(\'$bac\',\'$lat\',\'$long\');return false;">Map &amp; Directions</a></li> </ul> <ul> <li id="certifiedL"><strong>Certified Internet</strong></li> <li id="managerL"><strong>Manager:</strong></li> <li>$manager</li> <li> <a href="$searchInvLink" class="inventory">Search Inventory</a></li> <li><a href="$contactDlLink" class="searchDealer">Request a Quote</a></li></ul></div></li>';
+
+var VEHICLE_LI =  '<li>';
+var INVENTORY_LI = '<li>';
+var DEALER_LI = '<li>';
+
+var VEHICLE_LI_FIRST =  '<li id="vehicleInfor">';
+var INVENTORY_LI_FIRST = '<li id="inventInfor">';
+var DEALER_LI_FIRST = '<li id="dealerInfor">';
+
+
+
+var UNAVAILABLE_INV_HTML = "<li><div><img src='"+IMAGES_PATH+"car.jpg"+"' alt='' class='msiItemImage' onError='javascript:setDefaultImage(this);'/>"+
+"<ul><a href=\"javascript:removeInventory('$remINV');\" class='removeItem'></a><li style='color:red;'>No longer available</li><li>$year $brand</li><li class='model'>$model</li><li class='vin'>VIN: $vin</li>"+
+"</ul></div></li>";
+
+var VEHICLE_BUTTON_COMP = '<li id="compareButton"><input value="'+COMP_BUTTON_TEXT+'" id="btnCompare" type="button" onclick="showComparator();" /></li>';
+var HMC_BUTTON = '<p class="header hmcHeader">To start adding vehicles visit our Help Me Choose Tool: <input value="Help Me Choose" id="btnHMC" type="button" onclick="javascript:window.location.href=BASE_CONTEXT_LOCAL+\'/pages/mds/vehicles/helpMeChooseResult.do\'" /></p>';
+var VL_BUTTON = '<p><a id="msiVehicleAdSearch" href="'+BASE_CONTEXT_LOCAL+'/tools/vehiclelocator/advancedsearch.do">Vehicle Advanced Search</a>: To start adding inventory vehicles. </p>';
+var DL_BUTTON = '<p><a id="msiDealerAdSearch" href="'+BASE_CONTEXT_LOCAL+'/tools/dealerlocator/search.do">Dealers Advanced Search</a>: To start adding favorite dealers. </p>';
+var MY_VEHICLE_HEADER = '';//Info comes from XML
+var DEALER_HEADER = '';//Info comes from XML
+
+//LINKS FOR VEHICLES
+var MO_LINK  = "/vehicles/$year/$model/overview.do";
+var BYO_LINK  = "/vehicles/$year/$model/build.do";
+var COMPARE_LINK  = "/tools/comparator/compareVehicle.do?year=$year&pvc=$pvc&comparisonVehicles=$otherIds";
+//LINKS FOR INVENTORY
+var WIN_ST_LINK = "/tools/windowsticker/result.do?VIN=$vin&pvc=$pvc&year=$year";
+var RAQ_LINK = "/tools/messaging/raq.do?PVC=$pvc&year=$year&vin=$vin";
+//LINKS FOR DEALER
+var MAP_LINK = "/tools/dealerlocator/dealerdetail.do?latitude=$lat&longitude=$long&BAC_NUMBER=$bac&searchType='SearchByVendorId'";
+var CONTACT_DL_LINK = "/tools/messaging/raq.do?bac=$bac&evar20=mysavedinfo_raq";
+var SEARCHINV_DL_LINK = "/tools/vehiclelocator/select.do?searchType=4&vendorId=$bac&maximumCount=15&evar20=mysavedinfo_vehloc";
+
+
+
+/****************************************** GLOBAL VARIABLES  **********************************************/
+
+var msrps = []; //Vehicles MSRP Cache
+var pvcMsrps = [];  //Inventory MSRP Cache
+var debug = false;
+var WIDGET = undefined; //Accordion
+
+/****************************************** UTILITY FUNCTIONS **********************************************/
+
+String.prototype.replaceAll = function(findstring, newstring)  {
+    var newval = this;
+    while(newval.indexOf(findstring) >= 0){
+        newval = newval.replace(findstring, newstring);
+    }
+    return newval;
+};
+
+
+function getImageName(year,model,brand){
+    var fn = model.toLowerCase();
+    fn  =  fn.replace(/ /g,"_");
+    var res = year+"_"+brand.toLowerCase()+"_"+fn+IMG_EXTENSION;
+    return MSI_VEHICLES_IMAGES_PATH+res;
+}
+
+//Example P81_2008_pontiac_g5_base_34U.gif
+function getImageNameInv(modelId,year,model,color,brand){
+    var fn = model.toLowerCase();
+    fn  =  fn.replace(/ /g,"_");
+    var res = INVENTORY_IMAGE_SUFFIX+year+"_"+brand.toLowerCase()+"_"+fn+"_"+color+IMG_EXTENSION;
+    return MSI_INVENTORY_IMAGES_PATH+year+"/81/"+res;
+}
+
+function setDefaultImage(element){
+	element.src  = DEFAULT_CAR_IMAGE;
+}
+
+/****************************************  LINK BUILDERS **********************************************/
+
+
+// Vehicles
+
+function getMOLink(model,year){
+    var html  = MO_LINK;
+    model = model.replaceAll(" ","");
+    html = 	html.replaceAll("$year",year);
+    html = 	html.replaceAll("$model",model);
+    return BASE_CONTEXT_LOCAL+html;
+}
+
+function getBYOLink(model,year){
+    var html  = BYO_LINK;
+    model = model.replaceAll(" ","");
+    html = 	html.replaceAll("$year",year);
+    html = 	html.replaceAll("$model",model);
+    
+    try{
+    	var isMultiCounty = document.getElementById(isMultiCounty);
+        return BASE_CONTEXT_LOCAL+html+"?isMultiCounty="+isMultiCounty;
+    }catch(e){
+    	return BASE_CONTEXT_LOCAL+html+"?isMultiCounty=false";
+    }	
+}
+
+function getCompareLink(allVehicles){
+    var html  = COMPARE_LINK;
+    if(allVehicles.length>1)
+    {
+        var firstV = allVehicles[0];
+        html = 	html.replaceAll("$year",firstV.year);
+        html = 	html.replaceAll("$pvc",firstV.pvc);
+        var ids = "";
+        for(var i=1;i<allVehicles.length;i++)
+        {
+                var ve = allVehicles[i];
+                var modelId = ve.modelId;
+                if(ids==="")
+                {        ids = modelId;}
+                else
+                {        ids = ids +"~"+modelId;}
+        }
+        html = 	html.replaceAll("$otherIds",ids);
+    }
+    return BASE_CONTEXT_LOCAL+html;
+}
+
+// Inventory
+
+function getWinStLink(vin,pvc,year){
+    var html  = WIN_ST_LINK;
+    html = 	html.replaceAll("$year",year);
+    html = 	html.replaceAll("$vin",vin);
+    html = 	html.replaceAll("$pvc",pvc);
+    return BASE_CONTEXT_LOCAL+html;
+}
+
+function getRAQLink(vin,pvc,year){
+    var html  = RAQ_LINK;
+    html = html.replaceAll("$vin",vin);
+    html = 	html.replaceAll("$pvc",pvc);
+    html = 	html.replaceAll("$year",year);
+    return BASE_CONTEXT_LOCAL+html;
+}
+
+// Dealers
+
+function getMAPLink(coordinates,bac){
+	var html  = "";
+    if(coordinates.length===2)
+    {
+    	html = MAP_LINK;
+        html = html.replaceAll("$lat",coordinates[0]);
+        html = 	html.replaceAll("$long",coordinates[1]);
+        html = 	html.replaceAll("$bac",bac);
+        result = BASE_CONTEXT_LOCAL+html;
+    }
+    return result;
+}
+
+function getContactDealerLink(bac){
+    var html  = CONTACT_DL_LINK;
+    html = html.replaceAll("$bac",bac);
+    result = BASE_CONTEXT_LOCAL+html;
+    return result;
+}
+
+function getSearchInvLink(bac){
+    var html  = SEARCHINV_DL_LINK;
+    html = html.replaceAll("$bac",bac);
+    return BASE_CONTEXT_LOCAL+html;
+}
+
+/****************************************** HTML BUILDERS **********************************************/
+
+function getVehicleHtml(modelId,image,year,brand,model,number)
+{
+    if(number == "0")
+		var html  = VEHICLE_LI_FIRST + VEHICLE_HTML;
+	else
+		var html  = VEHICLE_LI + VEHICLE_HTML;
+    html = html.replaceAll("$image",image);
+    html = 	html.replaceAll("$moLink",getMOLink(model,year));
+    html = 	html.replaceAll("$remVEH",modelId+year);
+    html = 	html.replaceAll("$year",year);
+    html = 	html.replaceAll("$brand",brand);
+    html = 	html.replaceAll("$model",model);    
+    html = 	html.replaceAll("$byoLink",getBYOLink(model,year));
+    return html;
+}
+
+function getInventoryHtml(vin,pvc,modelId,image,year,brand,model,number)
+{
+    var html = "";
+    var vL = isVehicleAvailable(vin);
+    if(vL===true)
+    {
+        if(number == "0")
+			var html  = INVENTORY_LI_FIRST + INVENTORY_HTML;
+		else
+			var html  = INVENTORY_LI + INVENTORY_HTML;
+        html = html.replaceAll("$image",image);
+
+        var wslink = getWinStLink(vin,pvc,year);
+        html = 	html.replace("$wsLink",wslink);
+
+        html = 	html.replace("$remINV",vin);
+
+        html = 	html.replaceAll("$year",year);
+        html = 	html.replaceAll("$brand",brand);
+        html = 	html.replaceAll("$model",model);
+        html = 	html.replaceAll("$vin",vin);
+        var raqLink = getRAQLink(vin,pvc,year);
+        html = 	html.replace("$raqLink",raqLink);
+    }
+    else
+    {
+        html=UNAVAILABLE_INV_HTML.replaceAll("$vin",vin);
+        html=html.replaceAll("$remINV",vin);
+        html = 	html.replaceAll("$year",year);
+        html = 	html.replaceAll("$brand",brand);
+        html = 	html.replaceAll("$model",model);
+    }
+    return html;
+}
+
+function getDealersHtml(bac,name,address,manager,url,lat,long,number)
+{
+	if(number == "0")
+			var html  = DEALER_LI_FIRST + DEALER_HTML;
+		else
+			var html  = DEALER_LI + DEALER_HTML;
+    var shortname = name;
+    if(name.length > 30)
+    {       shortname = name.substr(0,28) + "..";}
+    html = html.replaceAll("$shortname",shortname);
+    html = html.replaceAll("$name",name);
+    html = 	html.replaceAll("$manager",manager);
+    html = 	html.replaceAll("$address",address.address);
+    html = 	html.replaceAll("$city",address.city);
+    html = 	html.replaceAll("$state",address.state);
+    html = 	html.replaceAll("$zip",address.zip);
+    html = 	html.replaceAll("$phone",address.phone);
+    html = 	html.replace("$remD",bac);
+    html = 	html.replaceAll("$bac",bac);
+    html = 	html.replaceAll("$url",url);
+    html = 	html.replaceAll("$lat",lat);
+    html = 	html.replaceAll("$long",long);
+    html = 	html.replace("$searchInvLink",getSearchInvLink(bac));
+    html = 	html.replace("$contactDlLink",getContactDealerLink(bac));
+    return html;
+}
+
+/******************************************USER INTERFACE**********************************************/
+
+function hideElement(id){
+    var elem = $(id);
+    elem.style.display = 'none';
+}
+
+function showElement(id){
+    var elem = $(id);
+    elem.style.display = 'block';
+}
+
+function showSaveInfo(){
+    showElement(SAVED_INFO_DIV);
+}
+
+function thisMovie(movieName) {
+    if (navigator.appName.indexOf("Microsoft") != -1) { return window[movieName]; }
+    else { return document[movieName]; }
+}
+
+function hideSaveInfo(){
+
+
+/* Previous version of the function, the div "savedInfo" is always an HTML element so hidden it by css will work fine
+var msiFlash = thisMovie("flashObj_nav");
+
+	if (typeof(msiFlash.closeMySavedInfoPopUp) != "undefined") {
+		msiFlash.closeMySavedInfoPopUp();
+    	hideElement(SAVED_INFO_DIV);
+	}*/
+
+	$('savedInfo').style.display="none";
+}
+
+function isOpened(){
+    showInfo = $(SAVED_INFO_DIV);
+    return !(showInfo.style.display === 'none' || showInfo.style.display === '' );
+}
+
+function showSaveInfoWin(){
+	$("vehAccTab").removeClass("selected");
+	$("invAccTab").removeClass("selected");
+    lastSaved = getLastSaved();
+    initWidget();
+    showSaveInfo();
+    if(lastSaved!=DEALER){
+        showSITabInfo($("msiTabOption1"));
+        WIDGET = new Accordion($('msiAccordion'), 'div.toggler', 'div.element', {
+    		display : lastSaved
+    	});
+    }
+    else{
+       showSITabInfo($("msiTabOption2"));
+    }
+}
+
+function toggleSaveInfo(){
+
+    showInfo = $(SAVED_INFO_DIV);
+    var isOpen = isOpened();
+    if(isOpen===false){
+        showSaveInfoWin();
+    }
+    else{
+    	hideSaveInfo();
+    }
+}
+
+
+function loadAccordion(){
+	WIDGET = new Accordion($('msiAccordion'), 'div.toggler', 'div.element', {
+		opacity: true,
+		onActive: function(toggler, element){},
+		onBackground: function(toggler, element){},
+		onActive: function(toggler, element){
+			toggler.addClass('selected');
+		},
+		onBackground: function(toggler, element){
+			toggler.removeClass('selected');
+		},
+		show: getLastSaved()
+	});
+}
+
+
+/******************************************WIDGET LOGIC**********************************************/
+
+
+function initWidget()
+{
+    var items  = new SaveMyInfoUtils();
+    var vehC = items.countMyVehicles();
+    var invC = items.countMyInventory();
+    var dealersC = items.countDealers();
+    if((vehC+invC)>0)
+    {
+        hideElement('msiText');
+        if(vehC>0)
+        {
+            loadVehiclesData();
+            if(vehC>1)
+             {       showElement('btnCompare');}
+            else
+             {       hideElement('btnCompare');}
+        }
+        else
+        {
+        	$("myVehicleHeader").innerHTML = MY_VEHICLE_HEADER;
+        	$("vehiclesList").innerHTML = HMC_BUTTON;
+        }
+
+        if(invC>0)
+        {
+            loadInventoriesData();
+        }
+        else
+        {
+            $("inventoryList").innerHTML = VL_BUTTON;
+        }
+
+    }
+    else
+    {
+        showElement('msiText');
+        $("myVehicleHeader").innerHTML = MY_VEHICLE_HEADER;
+        $("vehiclesList").innerHTML = HMC_BUTTON;
+        $("inventoryList").innerHTML = VL_BUTTON;
+    }
+
+    if(dealersC>0)
+    {
+        loadDealersData();
+    }
+    else
+    {
+    	$("dealerHeader").innerHTML = DEALER_HEADER;
+        $("dealersList").innerHTML = DL_BUTTON;
+    }
+    loadAccordion();
+}
+
+function loadVehiclesData(){
+    var html = "";
+    var utils  = new SaveMyInfoUtils();
+    var list =	utils.getMyVehicles();
+    $("vehiclesList").innerHTML = "";
+    $("myVehicleHeader").innerHTML = "";
+    for(i=0;i<list.length;i++)
+    {
+
+            var veh = list[i];
+            var img = getImageName(veh.year,veh.model,veh.brand);
+            if(veh!= null && veh != "")
+            {
+				html = getVehicleHtml(veh.modelId,img,veh.year,veh.brand,veh.model,i);
+            	$("vehiclesList").innerHTML += html;
+            	getMsrpRangeAjax(veh.year,veh.modelId,MSRP_ID_SUFFIX+veh.modelId+veh.year);
+            }
+    }
+    $("vehiclesList").innerHTML += VEHICLE_BUTTON_COMP;
+}
+
+function loadInventoriesData(){
+    var htmlInv = "";
+    var utils  = new SaveMyInfoUtils();
+    list =	utils.getMyInventory();
+    $("inventoryList").innerHTML = "";
+    for(i=0;i<list.length;i++)
+    {
+            var inv = list[i];
+            if(inv!= null && inv != "")
+            {
+                    var img = getImageNameInv(inv.modelId,inv.year,inv.model,inv.color,inv.brand);
+                    htmlInv = getInventoryHtml(inv.vin,inv.pvc,inv.modelId,img,inv.year,inv.brand,inv.model,i);
+                    $("inventoryList").innerHTML += htmlInv;
+                    getMsrpByVin(inv.vin,"msiMsrp"+inv.vin);
+            }
+
+    }
+}
+
+function loadDealersData(){
+    var htmlD = "";
+    var utils  = new SaveMyInfoUtils();
+    list =	utils.getMyDealers();
+    for(i=0;i<list.length;i++)
+    {
+            var dealer = list[i];
+            if(dealer!= null && dealer != "")
+            {htmlD = htmlD + getDealersHtml(dealer.bac,dealer.name,dealer.address,dealer.manager,dealer.url,dealer.lat,dealer.long,i);}
+
+    }
+    $("dealerHeader").innerHTML = "";
+    $("dealersList").innerHTML = htmlD;
+}
+
+/******************************************WIDGET BUTTONS CALLS***************************************/
+
+function showLink(myLink){
+    window.location.href=myLink;
+}
+
+function showComparator(){	
+    var link = "";
+    var util = new SaveMyInfoUtils();
+    var allVehicles = util.getMyVehicles();
+    
+    var compareLink = getCompareLink(allVehicles);
+    if(""!=compareLink)
+    {
+    	window.location.href=compareLink;
+    }
+}
+
+function showDealerPage(bac){
+    var html = getDealerPage(bac);
+    if(""!=html && "null" != html)
+    {window.open(html,'dealerPage','widht=800,height=600,resizable=1');}
+}
+
+function showMap(bac,lat,long){
+  var url = getMAPLink([lat,long],bac);
+  if(url!= "" && url!=null)
+  {    window.location.replace(url);
+
+  }
+}
+
+function printVersion(){
+	window.open(PRINT_VERSION_LINK,"printversion_msi","toolbar=yes, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, copyhistory=no, width=810, height=800");
+}
+
+/******************************************DATA RETRIEVAL**********************************************/
+
+function getIdFromMsrp(msrpId){
+	var id = msrpId.replace(MSRP_ID_SUFFIX,'');
+	return id;
+}
+
+function getMsrpRangeAjax(year,modelId,id) {
+	var urlRequest = BASE_CONTEXT_LOCAL + "/getMsrpRange.do?modelId="+modelId+"&year="+year;
+	msiRequestExec(urlRequest,"updateMsrpRange","text","Get","errorMsrp","off","'"+id+"'");
+}
+
+function getMsrpByVin(vin,id) {
+	var urlRequest = BASE_CONTEXT_LOCAL + "/getMsrpByVIN.do?vin="+vin+"&websiteId="+WEBSITE_ID;
+	msiRequestExec(urlRequest,"updateMsrp","text","Get","errorMsrp","off","'"+id+"'");
+}
+
+function updateMsrpRange(){
+	var responseText = arguments[0];
+	var MSRP_ID = arguments[1];
+	if(isNoE(responseText) || responseText === "N/A" || responseText === "null"){
+		errorMsrp(arguments[1]);
+	}
+	else{
+		var list  = responseText.split("::");
+	    var msrp1 = list[0];
+    	var msrp2 = list[1];
+		//$(MSRP_ID).innerHTML = msrp1+"-"+msrp2;
+		$(MSRP_ID).innerHTML = msrp1
+		var id = getIdFromMsrp(MSRP_ID);
+		msrps[id] = responseText;
+	}
+}
+
+function updateMsrp(){
+	var responseText = arguments[0];
+	var MSRP_ID = arguments[1];
+	if(isNoE(responseText) || responseText === "N/A" || responseText === "null"){
+		errorMsrp(arguments[1]);
+	}
+	else{
+	    var msrp1 = responseText;
+		$(MSRP_ID).innerHTML = msrp1;
+		var id = getIdFromMsrp(MSRP_ID);
+		pvcMsrps[id] = reponseText;
+	}
+}
+
+function errorMsrp(){
+	var MSRP_ID = arguments[0];
+	$(MSRP_ID).innerHTML = "N/A";
+}
+
+function isVehicleAvailable(vin) {
+    return true;
+}
+
+/****************************************** TESTS **********************************************/
+
+function testAll()
+{
+
+
+saveDealer("164506.0",null);
+saveDealer("119136.0",null);
+saveDealer("204502.0",null);
+saveDealer("117801.0",null);
+
+saveVehicle("108","2008","Buick",null);
+saveVehicle("113","2008","Pontiac",null);
+saveVehicle("112","2008","Pontiac",null);
+saveVehicle("81","2008","Pontiac",null);
+
+
+saveInventory("1G2AL18F387189325",null);
+saveInventory("1G2AL18F487196770",null);
+saveInventory("1G2AL18F987199132",null);
+saveInventory("1G2AL18F487115492",null);
+
+}
+/****************************************** MAIN **********************************************/
+
+
+}
+/*
+     FILE ARCHIVED ON 14:56:23 Feb 27, 2013 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:27:53 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 108.816
+  exclusion.robots: 0.104
+  exclusion.robots.policy: 0.092
+  cdx.remote: 0.075
+  esindex: 0.012
+  LoadShardBlock: 79.336 (3)
+  PetaboxLoader3.datanode: 60.041 (4)
+  load_resource: 240.815
+  PetaboxLoader3.resolve: 177.722
+*/

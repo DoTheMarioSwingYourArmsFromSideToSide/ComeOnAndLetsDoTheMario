@@ -1,0 +1,828 @@
+.msiClearFix {min-height:1px; _height:1%;}
+
+.msiClearFix:after {display:block; visibility:hidden; clear:both; line-height:0px; font-size:0px; content:".";}
+
+#savedInfo {
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:10px;
+	width:773px;
+	margin:0;
+	padding:3px 5px 2px 5px;
+	position: absolute;
+	top:72px;
+	right:24px;
+	display:none;
+	z-index:999999;
+	background-color:#FFFFFF;
+	border: 1px solid #CBCBCB!important;
+	color:#ffffff;
+}
+
+#savedInfo ul li{
+	list-style: none;
+}
+
+#msiTabTitles {
+	padding:0;
+	margin:5px 0 0 5px;
+	height:25px;
+}
+
+#msiTabTitles span {
+	cursor:pointer;
+	float:left;
+	text-indent:-999999px;
+}
+
+.msiTabOption1On {
+    display:block;
+    background: url(/web/20100823164843im_/http://www.chevrolet.com/assets/en/images/misc/msi/tab_my_vehicles_on.gif) top left no-repeat;
+    width:145px;
+    height:25px;
+}
+
+.msiTabOption1Off{
+    display:block;
+    background: url(/web/20100823164843im_/http://www.chevrolet.com/assets/en/images/misc/msi/tab_my_vehicles_off.gif) top left no-repeat;
+    width:145px;
+    height:25px;
+}
+.msiTabOption2On{
+    display:block;
+    background: url(/web/20100823164843im_/http://www.chevrolet.com/assets/en/images/misc/msi/tab_my_dealers_on.gif) top left no-repeat;
+    width:163px;
+    height:25px;
+}
+.msiTabOption2Off{
+    display:block;
+    background: url(/web/20100823164843im_/http://www.chevrolet.com/assets/en/images/misc/msi/tab_my_dealers_off.gif) top left no-repeat;
+    width:163px;
+    height:25px;
+}
+
+div#elementVeh{
+	margin:0!important;
+}
+
+
+.btnImgClose{
+	position:relative;
+	float:right;
+	top:10px;
+	right:10px;
+	display:block;
+	background:url(/web/20100823164843im_/http://www.chevrolet.com/assets/en/images/misc/msi/btn_close.gif) top left no-repeat;
+	width:33px;
+	height:10px;
+	cursor:pointer;
+	text-indent:-999999px;
+}
+
+#msiTab1 {
+	clear:both;
+	margin:0 0 0 6px;
+	background-color:#FFFFFF;
+	display:block;
+	width:760px;
+	padding:10px 0 10px 0;
+	color:#000000;
+	border:1px solid #CBCBCB!important;
+	/*height:213px;*/
+}
+
+#msiTab1 div {
+	display:block;
+	margin:0 0 4px 0;
+}
+
+#msiTab2 {
+	clear:both;
+	margin:0 0 0 6px;
+	background-color:#FFFFFF;
+	display:none;
+	width:760px;
+	padding:10px 0 10px 0;
+	*padding:10px 0 15px 0;
+	_padding:10px 0 10px 0;
+	color:#000000;
+	border:1px solid #CBCBCB!important;
+	/*height:200px;*/
+}
+
+#msiTab2 ul li p {
+	clear:both;
+	color:#fff;
+	position:relative;
+	margin-left:5px;
+	text-indent:0px!important;
+}
+
+#msiText {
+	display:block;
+	color:#000000;
+	margin:0 0 10px 0!important;
+}
+
+#msiText p {
+	display:block;
+	clear:both;
+	color:#000000;
+	margin:0 0 0 30px;
+	text-indent:0px!important;
+}
+
+#msiText ul li {
+	display:block;
+	clear:both;
+	color:#000000;
+	margin:0 0 0 45px;
+	list-style-image:none;
+	list-style-type:none;
+}
+
+#msiText ul {
+	margin:5px 0 5px 0;
+}
+
+#msiBottomIcons {
+	display:inline;
+	float:right;
+	margin:5px 30px 5px 0;
+	padding:0;
+}
+
+#msiBottomIcons a label{
+	margin:0 10px 0 10px;
+	padding:0;
+	visibility:hidden;
+}
+
+
+#msiBottomIcons a {
+	background: url(/web/20100823164843im_/http://www.chevrolet.com/assets/en/images/misc/msi/icon_print.gif) top left no-repeat;
+	width:45px;
+	height:14px;
+	cursor:pointer;
+	text-decoration:none;
+	font-size:12px !important;
+}
+
+#msiBottomIcons a:first-child {
+	background: url(/web/20100823164843im_/http://www.chevrolet.com/assets/en/images/misc/msi/icon_email.gif) top left no-repeat;
+	width:45px;
+	height:14px;
+	cursor:pointer;
+}
+
+
+
+
+#msiAccordion {
+	margin:20px 0px;
+	padding:0;
+}
+
+#msiAccordion div {
+	display:block;
+	clear:both;
+	margin:0;
+	padding: 3px 0 3px 0x;
+}
+
+
+
+#msiAccordion div#vehAccTab.toggler {
+	background: url(/web/20100823164843im_/http://www.chevrolet.com/assets/en/images/misc/msi/bar_saved_vehicles_plus.gif) top left no-repeat;
+	text-indent:-999999px;
+	height:19px;
+	width:750px;
+	margin:15px 0 0 5px;
+}
+
+#msiAccordion div#vehAccTab.selected{
+	background: url(/web/20100823164843im_/http://www.chevrolet.com/assets/en/images/misc/msi/bar_saved_vehicles_minus.gif) top left no-repeat;
+	text-indent:-999999px;
+	height:19px;
+	width:750px;
+	margin:15px 0 0 5px;
+}
+
+
+#msiAccordion div.toggler{
+	background: url(/web/20100823164843im_/http://www.chevrolet.com/assets/en/images/misc/msi/bar_saved_inventory_plus.gif) top left no-repeat;
+	text-indent:-999999px;
+	height:19px;
+	width:750px;
+	margin:15px 0 0 5px;
+}
+
+#msiAccordion div.selected {
+	background: url(/web/20100823164843im_/http://www.chevrolet.com/assets/en/images/misc/msi/bar_saved_inventory_minus.gif) top left no-repeat;
+	text-indent:-999999px;
+	height:19px;
+	width:750px;
+	margin:15px 0 0 5px;
+}
+
+
+
+
+div.element h4, div.element p {
+	margin:5px 0 0 30px;
+	padding:0;
+	clear:both;
+	color:#000000;
+	text-indent:0px!important;
+}
+
+blockquote {
+	padding:5px 20px;
+}
+
+.noDealer {
+	clear:both;
+	color:#ffffff;
+	margin-left:-22px;
+}
+
+div.vehBox div.msiCarImageContainer img.msiItemImage {
+	clear:both;
+	width:147px;
+	height:88;
+	z-index:-1;
+	margin-left:32px!important;
+	cursor:pointer;
+}
+
+div.invBox div.msiCarImageContainer img.msiItemImage{
+	clear:both;
+	height:88px;
+	z-index:-1;
+	margin-left:32px!important;
+	cursor:pointer;
+	width:147px;
+}
+
+/*********************************************************************/
+
+/*ul#vehiclesList:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+ul#vehiclesList{display: inline-table;}*/
+
+ul#vehiclesList {
+	margin:0;
+	padding:0;
+}
+
+ul#vehiclesList p {
+	margin:10px 0 0 30px;
+	text-indent:0px!important;
+	}
+
+
+ul#vehiclesList li {
+	margin:0 0 3px 0!important;
+	width:160px;
+	float:left;
+	padding: 0 30px 0 0;
+	_padding: 0 10px 0 0;
+	display:inline;
+}
+
+
+ul#vehiclesList li#compareButton{
+	clear:both;
+}
+
+ul#vehiclesList li#compareButton input#btnCompare {
+	background: transparent url(/web/20100823164843im_/http://www.chevrolet.com/assets/en/images/misc/msi/btn_compare_these_vehicles.gif) no-repeat scroll left top;
+	text-decoration:none;
+	height:24px;
+	width:183px;
+	border:none!important;
+	cursor:pointer;
+	margin:10px 0 0 293px!important;
+	padding:24px 0 0 183px;
+
+}
+
+ul#vehiclesList li#compareButton input#btnCompare:hover {
+	background-position: 0 -24px;
+}
+
+ul#vehiclesList li#compareButton input#btnCompare:active {
+	background-position: 0 -48px;
+}
+
+
+ul#vehiclesList li ul:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+ul#vehiclesList li ul {
+	display: inline-table;
+	clear:both!important;
+	margin:0;
+	padding: 0 0 5px 0;
+}
+
+ul#vehiclesList li ul li {
+	color:#000000;
+	clear:both;
+	border:none;
+	margin:0px;
+	padding: 0 0 5px 28px;
+	width:150px;
+	list-style:none;
+}
+
+ul#vehiclesList li ul li sup {
+	font-size:7px;
+}
+
+ul#vehiclesList li ul li.msrp {
+	background:none!important;
+	line-height:12px!important;
+}
+
+ul#vehiclesList li ul li.msiModelLabel {
+	padding: 0 0 0 28px;
+}
+
+ul#inventoryList li ul li.msiModelLabel {
+	padding: 0 0 0 28px;
+}
+
+ul#vehiclesList li ul li.msiMsrpLabel {
+	padding: 0 0 0 28px;
+}
+
+ul#vehiclesList li ul li.byoLink a {
+	background: url(/web/20100823164843im_/http://www.chevrolet.com/assets/en/images/misc/msi/btn_byo.gif) no-repeat;
+	text-indent:-9999px;
+	display:block;
+	width:133px;
+	height:24px;
+}
+
+ul#vehiclesList li ul li.byoLink a:hover {
+	background: url(/web/20100823164843im_/http://www.chevrolet.com/assets/en/images/misc/msi/btn_byo.gif) no-repeat;
+	background-position: 0 -24px;
+}
+
+ul#vehiclesList li ul li.byoLink a:active {
+	background: url(/web/20100823164843im_/http://www.chevrolet.com/assets/en/images/misc/msi/btn_byo.gif) no-repeat;
+	background-position: 0 -48px;
+}
+
+
+
+/*-------------------------------------*/
+
+/*ul#inventoryList:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+ul#inventoryList{display: inline-table;}*/
+
+ul#inventoryList
+{
+	margin:0px;
+	padding:0px;
+}
+
+ul#inventoryList li
+{
+	margin:0 0 3px 0!important;
+	width:160px;
+	float:left;
+	padding: 0 30px 3px 0;
+	_padding: 0 7px 3px 0;
+	display:inline;
+}
+
+ul#inventoryList p
+{
+	margin:10px 0 0 30px;
+	text-indent:0px!important;
+}
+
+
+ul#inventoryList li ul:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+ul#inventoryList li ul {
+	display: inline-table;
+	margin:0;
+	padding: 0 0 5px 0;
+}
+
+
+ul#inventoryList li ul li
+{
+	color:#000000;
+	clear:both;
+	border:none;
+	margin:0px;
+	padding: 0 0 5px 28px;
+	width:155px;
+	list-style:none;
+}
+
+
+ul#inventoryList li ul li a.raqbtn {
+	background: url(/web/20100823164843im_/http://www.chevrolet.com/assets/en/images/misc/msi/btn_request_quote.gif) no-repeat;
+	text-indent:-9999px;
+	display:block;
+	width:140px;
+	height:24px;
+}
+
+ul#inventoryList li ul li a.raqbtn:hover {
+	background: url(/web/20100823164843im_/http://www.chevrolet.com/assets/en/images/misc/msi/btn_request_quote.gif) no-repeat;
+	background-position: 0 -24px;
+}
+
+ul#inventoryList li ul li a.raqbtn:active {
+	background: url(/web/20100823164843im_/http://www.chevrolet.com/assets/en/images/misc/msi/btn_request_quote.gif) no-repeat;
+	background-position: 0 -48px;
+}
+
+
+/*****************************/
+
+#dealersList
+{
+	padding:0!important;
+	margin:0;
+}
+
+#dealersList li
+{
+	color:black;
+	margin:0 0 3px 0!important;
+	padding:0 40px 0 0;
+	_padding:0 10px 0 0;
+	width:150px;
+	list-style:none;
+	float:left;
+	display:inline;
+}
+
+
+#dealersList p{
+	margin:0 0 0 30px;
+	padding:0;
+	position:relative;
+	top:-15px;
+	text-indent:0px!important;
+}
+
+#dealersList li ul li#certifiedL {
+	text-transform:uppercase;
+}
+
+#dealersList li ul li#managerL {
+	text-transform:uppercase;
+}
+
+#dealersList li div.dlDiv ul li {
+	margin:5px 0 5px 0!important;
+}
+
+#dealersList li div.dlDiv ul li#adressL{
+	margin:0!important;
+}
+
+#dealersList li div.dlDiv ul li#cityL{
+	margin:0!important;
+}
+
+#dealersList li div.dlDiv ul li#phoneL{
+	margin:0!important;
+}
+
+#dealersList li div.dlDiv ul li#certifiedL{
+	margin:0!important;
+}
+
+#dealersList li div.dlDiv ul li#managerL{
+	margin:0!important;
+}
+
+#dealersDiv{
+	padding:20px 0 0 0;
+}
+
+div#dealersDiv ul#dealersList li#mapL{
+	margin:0 0 10px 0!important;
+}
+
+div.invBox ul li.msiModelLabel {
+	font-size:12px;
+	text-transform:uppercase;
+}
+
+.msiMsrpLabel {
+	font-family: 'Verdana';
+	font-size: 8px;
+	color: #C6C6C6;
+}
+
+.removeItem {
+	float:right;
+}
+
+.byoLink {
+	background:c9c9c9;
+}
+
+.msiErrorOkButton {
+}
+
+.msiErrorCancelButton {
+}
+
+.supIndex {
+	clear:both;
+	font-size:7px;
+	vertical-align:super;
+}
+
+.msiImage {
+	height:17px;
+	width:131px !important;
+	background:url(/web/20100823164843im_/http://www.chevrolet.com/assets/en/images/msi/saveInfo_plus.gif) no-repeat;
+	display: block;
+	cursor:pointer;
+	padding-bottom: 5px;
+}
+#changeYearLink span,
+.msiImage span{
+	display: none;
+}
+
+.msiImage{
+	float: none !important;
+}
+
+#changeYearLink{
+background:url("/web/20100823164843im_/http://www.chevrolet.com/assets/en/images/msi/change-year.gif") no-repeat 0 0 transparent;
+cursor:pointer;
+display:block;
+height:17px;
+width:92px !important;
+}
+
+.msiImageChecked
+{
+	height:17px;
+	width:131px !important;
+	background:url(/web/20100823164843im_/http://www.chevrolet.com/assets/en/images/msi/saveInfo_check.gif) no-repeat;
+	display: block;
+	padding-bottom: 5px;
+}
+
+.msiImageChecked{
+	float: none !important;
+}
+
+.msiImageChecked span{
+	display: none;
+}
+
+.element
+{
+}
+
+div#dealersDiv  ul#dealersList li div.dlDiv
+{
+	height:215px;
+	width:160px;
+	padding-left:2px;
+	background: url(/web/20100823164843im_/http://www.chevrolet.com/assets/en/images/misc/msi/separate_line.gif);
+	background-repeat:no-repeat;
+}
+
+div#dealersDiv  ul#dealersList li div.dlDiv ul
+{
+	margin: 0 0 0 15px!important;
+}
+
+div#dealersDiv  ul#dealersList li div.dlDiv a{
+	width:160px;
+}
+
+div#dealersDiv  ul#dealersList li#dealerInfor div.dlDiv
+{
+	background:none;
+
+}
+
+div#dealersDiv  ul#dealersList li div.dlDiv a.dealerTitle
+{
+	font-size:10px;
+	font-weight:bold;
+	float:left;
+	color:#363636;
+	margin:10px 0 10px 15px;
+	background:none;
+	text-indent:0;
+
+}
+.msiPlaceHolder
+{
+	/*height:168px;*/
+}
+
+.msiCarImageContainer
+{
+	width:127px;
+	height:106px;
+}
+
+
+ul#vehiclesList li div.vehBox{
+	background: url(/web/20100823164843im_/http://www.chevrolet.com/assets/en/images/misc/msi/separate_line.gif);
+	background-repeat:no-repeat;
+}
+
+ul#vehiclesList li#vehicleInfor div.vehBox{
+	background:none;
+}
+
+ul#inventoryList li div.invBox{
+	background: url(/web/20100823164843im_/http://www.chevrolet.com/assets/en/images/misc/msi/separate_line.gif);
+	background-repeat:no-repeat;
+}
+
+ul#inventoryList li#inventInfor div.invBox{
+	background:none;
+}
+
+div.vehBox{
+	height:215px;
+	margin:30px 0 0 0!important;
+}
+
+div.vehBox ul li{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-weight:normal;
+	font-size:10px;
+}
+
+div.vehBox ul li.msiModelLabel{
+	font-size:12px;
+	text-transform:uppercase;
+}
+
+div.vehBox a.removeItem{
+	background:url(/web/20100823164843im_/http://www.chevrolet.com/assets/en/images/misc/msi/btn_remove.gif) no-repeat;
+	width:44px;
+	height:8px;
+	text-indent:-999999px;
+}
+
+div.invBox a.removeItem{
+	background:url(/web/20100823164843im_/http://www.chevrolet.com/assets/en/images/misc/msi/btn_remove.gif) no-repeat;
+	width:44px;
+	height:8px;
+	text-indent:-999999px;
+}
+
+div#dealersDiv ul#dealersList li div.dlDiv a{
+	font-size:10px!important;
+}
+
+div#dealersDiv ul#dealersList li div.dlDiv a.removeItem{
+	background:url(/web/20100823164843im_/http://www.chevrolet.com/assets/en/images/misc/msi/btn_remove.gif) no-repeat;
+	width:44px;
+	height:8px;
+	text-indent:-999999px;
+}
+
+div#dealersDiv ul#dealersList li div.dlDiv a.inventory{
+	background: url(/web/20100823164843im_/http://www.chevrolet.com/assets/en/images/misc/msi/btn_search_inventory.gif) no-repeat;
+	display:block;
+	height:24px;
+	text-indent:-9999px;
+	width:153px;
+}
+
+div#dealersDiv ul#dealersList li div.dlDiv a.inventory:hover{
+	background-position:0 -24px;
+}
+
+div#dealersDiv ul#dealersList li div.dlDiv a.inventory:active{
+	background-position:0 -48px;
+}
+
+
+div.invBox{
+	height:215px;
+	margin:30px 0 0 0!important;
+}
+
+
+/*#gMdsContent > .hook {margin-left: 50px}*/
+.hook .hook #disclaimerContainer{margin: 0; padding: 0}
+
+
+#gMdsDisclaimer a span .clickable {
+	font-family:verdana;
+	font-size:9px !important;
+	text-decoration:underline;
+}
+
+hr{
+	 display: none;
+}
+input, textarea, select {
+	font-size:inherit;
+	font-weight:inherit;
+	margin-left: 5px;
+}
+
+#msiAccordion div#vehAccTab{
+	background:#666666 url(/web/20100823164843im_/http://www.chevrolet.com/assets/mds/common/images/msi/plus.jpg) no-repeat right;
+}
+
+div#savedInfo div#msiTab1 div#msiAccordion p.hmcHeader input{
+	background: url(/web/20100823164843im_/http://www.chevrolet.com/assets/en/images/misc/msi/btn_help_me_choose.gif) no-repeat;
+	border:medium none;
+	height:24px;
+	text-indent:-9999px;
+	width:129px;
+	font-size: 1px;
+	color:#FFFFFF;
+	cursor:pointer;
+	vertical-align:middle;
+}
+
+
+
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    p.hmcHeader input {
+     	position:relative;
+		top:-3px; }
+}
+
+
+div#savedInfo div#msiTab1 div#msiAccordion p.hmcHeader input:hover{
+	background: url(/web/20100823164843im_/http://www.chevrolet.com/assets/en/images/misc/msi/btn_help_me_choose.gif) no-repeat;
+	border:medium none;
+	height:24px;
+	text-indent:-9999px;
+	width:129px;
+	font-size: 1px;
+	color:#FFFFFF;
+	cursor:pointer;
+	background-position: 0 -24px!important;
+}
+
+.Explorer7 div#savedInfo p.hmcHeader input, .Explorer6 div#savedInfo p.hmcHeader input{
+	padding-bottom: 14px;
+	position: static;
+}
+
+
+/*
+     FILE ARCHIVED ON 16:48:43 Aug 23, 2010 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:44:25 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 321.184
+  exclusion.robots: 0.064
+  exclusion.robots.policy: 0.055
+  RedisCDXSource: 0.586
+  esindex: 0.008
+  LoadShardBlock: 304.63 (3)
+  PetaboxLoader3.resolve: 188.465 (4)
+  PetaboxLoader3.datanode: 213.365 (4)
+  load_resource: 128.988
+*/

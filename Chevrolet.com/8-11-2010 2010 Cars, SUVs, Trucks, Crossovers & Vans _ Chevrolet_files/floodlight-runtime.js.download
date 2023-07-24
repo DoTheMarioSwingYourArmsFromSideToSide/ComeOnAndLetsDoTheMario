@@ -1,0 +1,255 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+var floodlight = function() {
+	var tags = new Array();
+	tags["/idoc/4"] = "src=1139856;type=rgenw770;cat=divis971";
+	tags["/idoc/7"] = "src=1139856;type=rview653;cat=viewa534";
+	tags["/idoc/11"] = "src=1139856;type=rcomm084;cat=comme387";
+	tags["/idoc/12"] = "src=1139856;type=rcomm084;cat=comme387";
+	tags["/idoc/13"] = "src=1139856;type=rfamt667;cat=famil686";
+	tags["/idoc/14"] = "src=1139856;type=rhome719;cat=aveob087";
+	tags["/idoc/14"] = "src=1139856;type=rhome719;cat=aveob087";
+	tags["/idoc/14"] = "src=1139856;type=rhome719;cat=avala804";
+	tags["/idoc/14"] = "src=1139856;type=rhome719;cat=avala804";
+	tags["/idoc/14"] = "src=1139856;type=rhome719;cat=camer078";
+	tags["/idoc/14"] = "src=1139856;type=rhome719;cat=cobal532";
+	tags["/idoc/14"] = "src=1139856;type=rhome719;cat=cobal532";
+	tags["/idoc/14"] = "src=1139856;type=rhome719;cat=color328";
+	tags["/idoc/14"] = "src=1139856;type=rhome719;cat=corve607";
+	tags["/idoc/14"] = "src=1139856;type=rhome719;cat=corve607";
+	tags["/idoc/14"] = "src=1139856;type=rhome719;cat=corve607";
+	tags["/idoc/14"] = "src=1139856;type=rhome719;cat=corve607";
+	tags["/idoc/14"] = "src=1139856;type=rhome719;cat=corve274";
+	tags["/idoc/14"] = "src=1139856;type=rhome719;cat=corve520";
+	tags["/idoc/14"] = "src=1139856;type=rhome719;cat=corve350";
+	tags["/idoc/14"] = "src=1139856;type=rhome719;cat=corve507";
+	tags["/idoc/14"] = "src=1139856;type=rhome719;cat=equin869";
+	tags["/idoc/14"] = "src=1139856;type=rhome719;cat=expre012";
+	tags["/idoc/14"] = "src=1139856;type=rhome719;cat=hhrbr343";
+	tags["/idoc/14"] = "src=1139856;type=rhome719;cat=hhrbr343";
+	tags["/idoc/14"] = "src=1139856;type=rhome719;cat=impa620";
+	tags["/idoc/14"] = "src=1139856;type=rhome719;cat=impal644";
+	tags["/idoc/14"] = "src=1139856;type=rhome719;cat=malib336";
+	tags["/idoc/14"] = "src=1139856;type=rhome719;cat=silve501";
+	tags["/idoc/14"] = "src=1139856;type=rhome719;cat=silve501";
+	tags["/idoc/14"] = "src=1139856;type=rhome719;cat=silve501";
+	tags["/idoc/14"] = "src=1139856;type=rhome719;cat=subur964";
+	tags["/idoc/14"] = "src=1139856;type=rhome719;cat=subur964";
+	tags["/idoc/14"] = "src=1139856;type=rhome719;cat=tahoe880";
+	tags["/idoc/14"] = "src=1139856;type=rhome719;cat=tahoe880";
+	tags["/idoc/14"] = "src=1139856;type=rhome719;cat=corve274";
+	tags["/idoc/14"] = "src=1139856;type=rhome719;cat=corve520";
+	tags["/idoc/14"] = "src=1139856;type=rhome719;cat=corve350";
+	tags["/idoc/14"] = "src=1139856;type=rhome719;cat=corve507";
+	tags["/idoc/14"] = "src=1139856;type=rhome719;cat=trave089";	
+	tags["/idoc/14"] = "src=1139856;type=rhome719;cat=corve596";	
+	tags["/idoc/14"] = "src=1139856;type=rhome719;cat=corve157";
+	tags["/idoc/14"] = "src=1139856;type=rhome719;cat=silve976";	
+	tags["/idoc/15"] = "src=1139856;type=rphot323;cat=aveop063";
+	tags["/idoc/15"] = "src=1139856;type=rphot323;cat=aveop063";
+	tags["/idoc/15"] = "src=1139856;type=rphot323;cat=avala643";
+	tags["/idoc/15"] = "src=1139856;type=rphot323;cat=avala643";
+	tags["/idoc/16"] = "src=1139856;type=rphot323;cat=avala643";
+	tags["/idoc/15"] = "src=1139856;type=rphot323;cat=camar460";
+	tags["/idoc/15"] = "src=1139856;type=rphot323;cat=cobal869";
+	tags["/idoc/15"] = "src=1139856;type=rphot323;cat=cobal869";
+	tags["/idoc/15"] = "src=1139856;type=rphot323;cat=color232";
+	tags["/idoc/15"] = "src=1139856;type=rphot323;cat=corve069";
+	tags["/idoc/15"] = "src=1139856;type=rphot323;cat=corve069";
+	tags["/idoc/15"] = "src=1139856;type=rphot323;cat=corve069";
+	tags["/idoc/15"] = "src=1139856;type=rphot323;cat=corve069";
+	tags["/idoc/15"] = "src=1139856;type=rphot323;cat=corve447";
+	tags["/idoc/15"] = "src=1139856;type=rphot323;cat=corve025";
+	tags["/idoc/15"] = "src=1139856;type=rphot323;cat=corve861";
+	tags["/idoc/15"] = "src=1139856;type=rphot323;cat=corve649";
+	tags["/idoc/15"] = "src=1139856;type=rphot323;cat=equin857";
+	tags["/idoc/15"] = "src=1139856;type=rphot323;cat=expre946";
+	tags["/idoc/15"] = "src=1139856;type=rphot323;cat=hhrph161";
+	tags["/idoc/15"] = "src=1139856;type=rphot323;cat=hhrph161";
+	tags["/idoc/15"] = "src=1139856;type=rphot323;cat=impal734";
+	tags["/idoc/15"] = "src=1139856;type=rphot323;cat=malib979";
+	tags["/idoc/15"] = "src=1139856;type=rphot323;cat=silve276";
+	tags["/idoc/15"] = "src=1139856;type=rphot323;cat=silve276";
+	tags["/idoc/15"] = "src=1139856;type=rphot323;cat=silve276";
+	tags["/idoc/15"] = "src=1139856;type=rphot323;cat=subur195";
+	tags["/idoc/15"] = "src=1139856;type=rphot323;cat=subur195";
+	tags["/idoc/15"] = "src=1139856;type=rphot323;cat=tahoe127";
+	tags["/idoc/15"] = "src=1139856;type=rphot323;cat=tahoe127";
+	tags["/idoc/15"] = "src=1139856;type=rphot323;cat=trave546";
+	tags["/idoc/15"] = "src=1139856;type=rphot323;cat=corve447";
+	tags["/idoc/15"] = "src=1139856;type=rphot323;cat=corve025";
+	tags["/idoc/15"] = "src=1139856;type=rphot323;cat=corve861";
+	tags["/idoc/15"] = "src=1139856;type=rphot323;cat=corve649";
+	tags["/idoc/15"] = "src=1139856;type=rphot323;cat=corve061";	
+	tags["/idoc/15"] = "src=1139856;type=rphot323;cat=silve451";	
+	tags["/idoc/17"] = "src=1139856;type=rspec004;cat=aveof351";
+	tags["/idoc/17"] = "src=1139856;type=rspec004;cat=aveof351";
+	tags["/idoc/17"] = "src=1139856;type=rspec004;cat=avala343";
+	tags["/idoc/17"] = "src=1139856;type=rspec004;cat=avala343";
+	tags["/idoc/17"] = "src=1139856;type=rspec004;cat=camar788";
+	tags["/idoc/17"] = "src=1139856;type=rspec004;cat=cobal470";
+	tags["/idoc/17"] = "src=1139856;type=rspec004;cat=cobal470";
+	tags["/idoc/17"] = "src=1139856;type=rspec004;cat=color158";
+	tags["/idoc/17"] = "src=1139856;type=rspec004;cat=corve458";
+	tags["/idoc/17"] = "src=1139856;type=rspec004;cat=corve458";
+	tags["/idoc/17"] = "src=1139856;type=rspec004;cat=corve458";
+	tags["/idoc/17"] = "src=1139856;type=rspec004;cat=corve458";
+	tags["/idoc/17"] = "src=1139856;type=rspec004;cat=corve004";
+	tags["/idoc/17"] = "src=1139856;type=rspec004;cat=corve737";
+	tags["/idoc/17"] = "src=1139856;type=rspec004;cat=corve330";
+	tags["/idoc/17"] = "src=1139856;type=rspec004;cat=corve136";
+	tags["/idoc/17"] = "src=1139856;type=rspec004;cat=equin950";
+	tags["/idoc/17"] = "src=1139856;type=rspec004;cat=expre000";
+	tags["/idoc/17"] = "src=1139856;type=rspec004;cat=hhrfe045";
+	tags["/idoc/17"] = "src=1139856;type=rspec004;cat=hhrfe045";
+	tags["/idoc/17"] = "src=1139856;type=rspec004;cat=impal343";
+	tags["/idoc/17"] = "src=1139856;type=rspec004;cat=malib655";
+	tags["/idoc/17"] = "src=1139856;type=rspec004;cat=silve557";
+	tags["/idoc/17"] = "src=1139856;type=rspec004;cat=silve557";
+	tags["/idoc/17"] = "src=1139856;type=rspec004;cat=silve557";
+	tags["/idoc/17"] = "src=1139856;type=rspec004;cat=subur448";
+	tags["/idoc/17"] = "src=1139856;type=rspec004;cat=subur448";
+	tags["/idoc/17"] = "src=1139856;type=rspec004;cat=tahoe178";
+	tags["/idoc/17"] = "src=1139856;type=rspec004;cat=tahoe178";
+	tags["/idoc/17"] = "src=1139856;type=rspec004;cat=trave246";
+	tags["/idoc/17"] = "src=1139856;type=rspec004;cat=corve004";
+	tags["/idoc/17"] = "src=1139856;type=rspec004;cat=corve737";
+	tags["/idoc/17"] = "src=1139856;type=rfeat130;cat=corve173";
+	tags["/idoc/17"] = "src=1139856;type=rfeat130;cat=corve742";	
+	tags["/idoc/17"] = "src=1139856;type=rspec004;cat=corve635";	
+	tags["/idoc/17"] = "src=1139856;type=rspec004;cat=corve522";
+	tags["/idoc/17"] = "src=1139856;type=rspec004;cat=silve378";	
+	tags["/idoc/19"] = "src=1139856;type=rview653;cat=viewa534";
+	tags["/idoc/86"] = "src=1139856;type=rview653;cat=viewa534";
+	tags["/idoc/94"] = "src=1139856;type=sctzp626;cat=compe380";
+	tags["/idoc/27"] = "src=1139856;type=rpric935;cat=price464";
+	tags["/idoc/36"] = "src=1139856;type=rbran210;cat=exper117";
+	tags["/idoc/44"] = "src=1139856;type=osite255;cat=exper059";
+	tags["/idoc/46"] = "src=1139856;type=ohome303;cat=exper134";
+	tags["/idoc/47"] = "src=1139856;type=owarp453;cat=exper236";
+	tags["/idoc/52"] = "src=1139856;type=sladz220;cat=locat629";
+	tags["/idoc/53"] = "src=1139856;type=eladq550;cat=locat124";
+	tags["/idoc/55"] = "src=1139856;type=slavh228;cat=locat110";
+	tags["/idoc/56"] = "src=1139856;type=elavt384;cat=locat815";
+	tags["/idoc/58"] = "src=1139856;type=sstic384;cat=locat353";
+	tags["/idoc/59"] = "src=1139856;type=sraqb582;cat=conta851";
+	tags["/idoc/60"] = "src=1139856;type=etatu344;cat=sched809";
+	tags["/idoc/68"] = "src=1139856;type=ectwd230;cat=compe459";
+	tags["/idoc/89"] = "src=1139856;type=rfutb451;cat=futur309";
+	tags["/idoc/78"] = "src=1139856;type=ebyoq029;cat=build296";
+	tags["/idoc/87"] = "src=1139856;type=rhelp347;cat=helpm205";
+	tags["/idoc/93"] = "src=1139856;type=rbcen320;cat=comme494";
+	tags["/idoc/94"] = "src=1139856;type=sctzp626;cat=compe380";
+	tags["/idoc/98"] = "src=1139856;type=ectwd230;cat=compe459";
+	tags["/idoc/102"] = "src=1139856;type=soffe096;cat=curre076";
+	tags["/idoc/37"] = "src=1139856;type=rrssk981;cat=reque497";
+	tags["/idoc/61"] = "src=1139856;type=rxmhl250;cat=xmrad153";
+	tags["/idoc/1001"] = "src=1139856;type=sfint556;cat=estim322";
+	tags["/idoc/35"] = "src=1139856;type=sfint556;cat=estim322";
+	tags["/idoc/26"] = "src=1139856;type=sctzp626;cat=compe380";
+	tags["/idoc/57"] = "src=1139856;type=elavt384;cat=locat815";
+	tags["/idoc/75"] = "src=1139856;type=sbyob841;cat=build686";
+	tags["/idoc/80"] = "src=1139856;type=statt154;cat=trade140";
+	tags["/idoc/91"] = "src=1139856;type=secuy341;cat=reque400";
+	tags["/idoc/106"] = "src=1139856;type=eecxb790;cat=reque450";
+	tags["silverado1500"] = "src=1139856;type=rspec004;cat=silve557"; /*features.do*/
+	tags["silverado2500hd"] = "src=1139856;type=rspec004;cat=silve557"; /*features.do*/
+	tags["silverado3500hd"] = "src=1139856;type=rspec004;cat=silve557"; /*features.do*/
+	tags["colorado"] = "src=1139856;type=rspec004;cat=color158"; /*features.do*/
+	/* Aveo 2010 */
+	tags["/idoc/14"] = "src=1139856;type=rhome719;cat=aveob087";
+	tags["/idoc/15"] = "src=1139856;type=rphot323;cat=aveop063";
+	tags["/idoc/17"] = "src=1139856;type=rspec004;cat=aveof351";
+	/* Aveo Sedan 2010 */
+	tags["/idoc/14"] = "src=1139856;type=rhome719;cat=aveob087";
+	tags["/idoc/15"] = "src=1139856;type=rphot323;cat=aveop063";
+	tags["/idoc/17"] = "src=1139856;type=rspec004;cat=aveof351";
+	/* Tahoe Hybrid 2010 */
+	tags["/idoc/13"] = "src=1139856;type=rfamt667;cat=tahoe753";
+	tags["/idoc/14"] = "src=1139856;type=rhome719;cat=tahoe186";
+	tags["/idoc/15"] = "src=1139856;type=rphot323;cat=tahoe822";
+	tags["/idoc/17"] = "src=1139856;type=rspec004;cat=tahoe744";
+	return {
+		writeTag : function(uri) {
+
+			if (tags[uri] != null) {
+				var axel = Math.random()+"";
+				var a = axel * 10000000000000;
+				var url = "https://web.archive.org/web/20100823164937/http://fls.doubleclick.net/activityi;"+ tags[uri] +";ord="+ a ;
+
+				var iframe = document.createElement('iframe');
+				iframe.setAttribute('src', url);
+				iframe.setAttribute('width', "1");
+				iframe.setAttribute('height', "1");
+				iframe.setAttribute('frameborder', "0");
+
+				document.body.appendChild(iframe);
+			}
+		}
+	};
+}();
+
+function theUrl(){
+		var URL = location.href;
+		var len = URL.length;
+		var params = URL.substring((URL.lastIndexOf("?"))).length;
+		var myURL = "";
+		if (URL.lastIndexOf("?") != "-1"){
+			myURL =(URL.substring(URL.lastIndexOf("vehicles"), len-params));
+			}
+		else{
+			myURL =(URL.substring(URL.lastIndexOf("vehicles")));
+			}
+		return(myURL);
+}
+
+window.addEvent('domready', function() {
+		var URL = theUrl();
+		if (URL == "vehicles/2009/colorado/features.do" ){
+			floodlight.writeTag('colorado');
+		}
+		if (URL == "vehicles/2009/silverado1500/features.do" ){
+			floodlight.writeTag('silverado1500');
+		}
+		if (URL == "vehicles/2009/silverado2500hd/features.do" ){
+			floodlight.writeTag('silverado2500hd');
+		}
+		if (URL == "vehicles/2009/silverado3500hd/features.do" ){
+			floodlight.writeTag('silverado3500hd');
+		}
+		if (URL == "vehicles/2010/express/features.do" ){
+			floodlight.writeTag('express');
+		}		
+});
+
+}
+/*
+     FILE ARCHIVED ON 16:49:37 Aug 23, 2010 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:44:27 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 103.148
+  exclusion.robots: 0.063
+  exclusion.robots.policy: 0.056
+  cdx.remote: 0.05
+  esindex: 0.008
+  LoadShardBlock: 63.883 (3)
+  PetaboxLoader3.datanode: 177.812 (4)
+  load_resource: 757.76
+  PetaboxLoader3.resolve: 38.516
+*/

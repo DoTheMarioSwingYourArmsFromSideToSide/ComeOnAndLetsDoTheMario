@@ -1,0 +1,456 @@
+.msiClearFix {min-height:1px; _height:1%;}
+
+.msiClearFix:after {display:block; visibility:hidden; clear:both; line-height:0px; font-size:0px; content:".";}
+
+
+#savedInfo {
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+	width:640px;
+	margin:0;
+	padding:3px 5px 2px 5px;
+	position: absolute;
+	top:61px;
+	right:24px;
+	display:none;
+	z-index:25000;
+	background-color:#666666;
+	border: 1px solid #666666;
+	color:#ffffff;
+}
+
+#savedInfo ul li{
+	list-style: none;
+}
+
+#msiTabTitles {
+	padding:0;
+	margin:5pt 0 0 5px;
+	width:500px;
+}
+
+#msiTabTitles span {
+	display:inline;
+	clear:both;
+	font-size:12px;
+	cursor:pointer;
+	padding:3px 15px 3px 15px;
+	color:#000000;
+}
+
+.msiTabOption1On {
+    display:block;
+    background:#c0c0c0 no-repeat 0 0 !important;
+    width:163px !important;
+    height:28px !important;
+}
+
+.msiTabOption1Off{
+    display:block;
+    background:#888888 no-repeat 0 0 !important;
+    width:163px !important;
+    height:28px !important;
+}
+.msiTabOption2On{
+    display:block;
+    background:#c0c0c0 no-repeat 0 0 !important;
+    width:163px !important;
+    height:28px !important;
+}
+.msiTabOption2Off{
+    display:block;
+    background:#888888 no-repeat 0 0 !important;
+    width:163px !important;
+    height:28px !important;
+}
+
+.btnImgClose{
+	position:absolute;
+	top:6px;
+	right:11px;
+	display:block;
+	background:#C0C0C0 no-repeat;
+	width:54px;
+	height:18px;
+	cursor:pointer;
+	padding:3px 0 0 15px;
+	color:#000000;
+}
+
+#msiTab1 {
+	clear:both;
+	margin:3px 0 0 5px;
+	background-color:#c0c0c0;
+	display:block;
+	width:629px;
+	padding:10px 0 10px 0;
+	color:#ffffff;
+	/*height:213px;*/
+}
+
+#msiTab1 div {
+	display:block;
+	margin:0 0 4px 5px;
+}
+
+#msiTab2 {
+	clear:both;
+	margin:0 0 0 5px;
+	background-color:#c0c0c0;
+	display:none;
+	width:624px;
+	padding:15px 0 10px 5px;
+	color:#ffffff;
+	/*height:200px;*/
+}
+
+#msiTab2 ul li p {
+	clear:both;
+	color:#fff;
+	position:relative;
+	margin-left:5px;
+}
+
+#msiText {
+	display:block;
+	color:#FFFFFF;
+}
+
+#msiText p {
+	display:block;
+	clear:both;
+	color:#FFFFFF;
+}
+
+#msiText ul li {
+	display:block;
+	clear:both;
+	color:#FFFFFF;
+}
+
+#msiBottomIcons {
+	display:inline;
+	float:right;
+}
+
+#msiAccordion {
+	margin:20px 0px;
+}
+
+#msiAccordion div {
+	display:block;
+	clear:both;
+}
+
+div.toggler {
+	cursor: pointer;
+	font-family: 'Andale Mono', sans-serif;
+	font-size: 12px;
+	background: #666666;
+	color: #FFFFFF;
+	margin: 0 0 4px 0;
+	padding: 3px 5px 3px 10px;
+	height:15px !important;
+	width:595px;
+}
+
+div.element h4, div.element p {
+	margin:0px;
+	padding:4px;
+	clear:both;
+	color:#fffFFF;
+}
+
+blockquote {
+	padding:5px 20px;
+}
+
+.noDealer {
+	clear:both;
+	color:#ffffff;
+	margin-left:-22px;
+}
+
+.msiItemImage {
+	clear:both;
+	width:"127px";
+	height:"90px";
+	z-index:"-1";
+	margin-left:0;
+	cursor:pointer;
+}
+
+/*********************************************************************/
+
+/*ul#vehiclesList:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+ul#vehiclesList{display: inline-table;}*/
+
+ul#vehiclesList {
+	margin:2px;
+	padding:0;
+}
+
+ul#vehiclesList li {
+	border:1px solid #000000;
+	color:black;
+	background:white;
+	margin:0 0 3px 3px;
+	width:131px;
+	float:left;
+	padding: 0 3px 3px 0;
+}
+
+ul#vehiclesList li ul:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+ul#vehiclesList li ul {
+	display: inline-table;
+	clear:both!important;
+	margin:0;
+	padding:0;
+	background:#FFFFFF;
+	padding: 0 0 5px 0;
+	border: #FFFFFF 0px solid;
+}
+
+ul#vehiclesList li ul li {
+	clear:both;
+	border:none;
+	margin:0px;
+	padding: 0 0 0 12px;
+	width:116px;
+}
+
+#compareButton {
+	height:30px;
+	margin-top:3px;
+	background:none!important;
+	margin-left:222px!important;
+	_margin-left:65px!important;
+	_width:280px!important;
+	border:0!important;
+}
+
+/*-------------------------------------*/
+
+/*ul#inventoryList:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+ul#inventoryList{display: inline-table;}*/
+
+ul#inventoryList
+{
+	margin:2px;
+	padding:0;
+	/*height:165px!important;*/
+	/*height:165px!important;*/
+}
+
+ul#inventoryList li {
+	border:1px solid black;
+	color:black;
+	background:white;
+	margin-left:3px;
+	width:143px;
+	float: left;
+}
+
+
+ul#inventoryList li ul:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+ul#inventoryList li ul {display: inline-table;}
+
+
+ul#inventoryList li ul li
+{
+	clear:both;
+	border:none;
+	margin-left:0px;
+	width:100%;
+	margin-left:0px;
+}
+
+
+/*****************************/
+
+#dealersList
+{
+	margin-left:0px;
+}
+
+#dealersList li
+{
+	border:1px solid black;
+	color:black;
+	background:white;
+	margin-left:3px;
+	width:143px;
+	float: left;
+}
+
+#dealersList li ul li {
+	clear:both;
+	border:none;
+	margin-left:0px;
+	width:100%;
+	margin-left:0px;
+}
+.msiModelLabel {
+	font-weight:bold;
+}
+
+.msiMsrpLabel {
+	font-family: 'Verdana';
+	font-size: 8px;
+	color: #C6C6C6;
+}
+
+.removeItem {
+	float:right;
+}
+
+.byoLink {
+	background:c9c9c9;
+}
+
+.msiErrorOkButton {
+}
+
+.msiErrorCancelButton {
+}
+
+.supIndex {
+	clear:both;
+	font-size:7px;
+	vertical-align:super;
+}
+
+.msiImage {
+	height:18px;
+	width:120px !important;
+	background:url(/web/20130227145620im_/http://www.chevrolet.com/assets/en/images/msi/saveInfo_plus.gif) no-repeat;
+	display: block;
+	cursor:pointer;
+	text-indent: -9999px;
+}
+
+.msiImage span{
+	display: none;
+}
+
+.msiImage{
+	float: none !important;
+}
+
+.msiImageChecked
+{
+	height:18px;
+	width:120px !important;
+	background:url(/web/20130227145620im_/http://www.chevrolet.com/assets/en/images/msi/saveInfo_check.gif) no-repeat;
+	display: block;
+	text-indent: -99999px;
+}
+
+.msiImageChecked{
+	float: none !important;
+}
+
+.msiImageChecked span{
+	display: none;
+}
+
+.element
+{
+}
+
+.dlDiv
+{
+	height:191px;
+	width:140px;
+	padding-left:2px;
+}
+
+.dealerTitle
+{
+	font-size:10px;
+	font-weight:bold;
+}
+.msiPlaceHolder
+{
+	/*height:168px;*/
+}
+
+.msiCarImageContainer
+{
+	width:127px;
+	height:90px;
+}
+
+.invBox
+{
+	height:222px;
+}
+
+.vehBox
+{
+	height:180px;
+}
+
+#msiAccordion div#vehAccTab{
+	background:#666666 url(/web/20130227145620im_/http://www.chevrolet.com/assets/mds/common/images/msi/plus.jpg) no-repeat right;
+}
+
+#msiAccordion div#invAccTab{
+	background:#666666 url(/web/20130227145620im_/http://www.chevrolet.com/assets/mds/common/images/msi/plus.jpg) no-repeat right;
+}
+
+#msiAccordion div#vehAccTab.selected{
+	background:#666666;
+}
+
+#msiAccordion div#invAccTab.selected{
+	background:#666666;
+}
+/*
+     FILE ARCHIVED ON 14:56:20 Feb 27, 2013 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:27:52 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 169.707
+  exclusion.robots: 0.067
+  exclusion.robots.policy: 0.058
+  cdx.remote: 0.057
+  esindex: 0.01
+  LoadShardBlock: 140.828 (3)
+  PetaboxLoader3.datanode: 192.847 (4)
+  load_resource: 229.377
+  PetaboxLoader3.resolve: 31.325
+*/

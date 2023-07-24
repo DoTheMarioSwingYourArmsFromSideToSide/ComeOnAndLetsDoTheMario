@@ -1,0 +1,87 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+chevyhomepage_en = new Array("rgenw770;cat=chevy461;");
+chevyhomepage_es = new Array("rgenw770;cat=chevy461;");
+chevyhomepage_zhHant = new Array("rgenw770;cat=chevy461;");
+
+function Set_Cookie( name, value, expires, path) {
+	// set time, it's in milliseconds
+	var today = new Date();
+	today.setTime( today.getTime() );
+	
+	/*
+	if the expires variable is set, make the correct 
+	expires time, the current script below will set 
+	it for x number of days, to make it for hours, 
+	delete * 24, for minutes, delete * 60 * 24
+	*/
+	if ( expires )	{
+		expires = expires * 1000 * 60 * 60 * 24;
+	}
+	var expires_date = new Date( today.getTime() + (expires) );
+	
+	document.cookie = name + "=" +escape( value ) +
+	( ( expires ) ? ";expires=" + expires_date.toGMTString() : "" ) + 
+	( ( path ) ? ";path=" + path : "" );
+}
+
+// this function gets the cookie, if it exists
+function Get_Cookie( name ) {
+	
+	var start = document.cookie.indexOf( name + "=" );
+	var len = start + name.length + 1;
+	if ( ( !start ) && ( name != document.cookie.substring( 0, name.length ) ) ){
+		return null;
+	}
+	if ( start == -1 ) return null;
+	var end = document.cookie.indexOf( ";", len );
+	if ( end == -1 ) end = document.cookie.length;
+	return unescape( document.cookie.substring( len, end ) );
+}
+
+function setHTML (){
+	var content;
+	content = "<object id='home-promo-object' data='/m/06/home_news_en.swf' type='application/x-shockwave-flash' width='610' height='156'>"+
+		"	<PARAM NAME='FlashVars' VALUE='id=1'>"+
+		"	<param name='movie' value='/m/06/home_news_en.swf' />"+
+		"	<param name='loop' value='false' />"+
+		"	<param name='menu' value='false' />"+
+		"	<param name='quality' value='high' />"+
+		"	<a rel='external' href='https://web.archive.org/web/20070710225911/http://www.macromedia.com/downloads/'><img src='/i/06/pic/shared/promo_no-flash.jpg' width='610' height='156' alt='' /></a>"+
+		"</object>";	
+	/*several right nav, please see the revision 263 or the edition DTAS_chevy_2007-06-14*/
+	
+	document.getElementById("homepage-promo").innerHTML=content;
+}
+
+}
+/*
+     FILE ARCHIVED ON 22:59:11 Jul 10, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 21:51:36 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 348.135
+  exclusion.robots: 0.081
+  exclusion.robots.policy: 0.072
+  cdx.remote: 0.057
+  esindex: 0.009
+  LoadShardBlock: 314.774 (3)
+  PetaboxLoader3.datanode: 175.23 (4)
+  PetaboxLoader3.resolve: 113.669 (2)
+  load_resource: 103.693
+*/

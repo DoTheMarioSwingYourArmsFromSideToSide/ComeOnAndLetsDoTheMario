@@ -1,0 +1,128 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+_satellite.pushAsyncScript(function(event, target, $variables){
+  var href = document.location.href;
+var domain = document.domain;
+var pageName = _satellite.getVar("Page Name");
+var languageSelected = _satellite.getVar("Language Selected");
+var url = _satellite.getVar("URL");
+var referrerUrl =  document.referrer;
+var viewPort = _satellite.getVar("View Port");
+var visitorId = _satellite.getVar("Visitor Id");
+var sessionId = _satellite.getVar("Session Id");
+var LADviewed = _satellite.readCookie("LADviewed");
+var LAVviewed = _satellite.readCookie("LAVviewed");
+var SVviewed = _satellite.readCookie("SVviewed");
+var ISviewed = _satellite.readCookie("ISviewed");
+var BPclicked = _satellite.readCookie("BPclicked");
+var modelName = digitalData.vehicleInfo.modelName;
+var modelYear = digitalData.vehicleInfo.modelYear;
+var trimLevel = digitalData.vehicleInfo.trimLevel;
+var vehicleType = digitalData.vehicleInfo.vehicleType;
+var vehicleMake = digitalData.pageInfo.brand;
+var orderId = _satellite.getVar("orderId");
+var leadId = Math.floor(Math.random() * 1000000 + 1);
+if(LADviewed != visitorId && document.location.href.indexOf('chevrolet.com/dealer-locator') > -1){
+    _satellite.setCookie("LADviewed",visitorId,1);
+    var tag = document.createElement("img");
+    var tagSource =
+    "https://web.archive.org/web/20190907124313/https://ad.doubleclick.net/ddm/activity/src=9399534;type=lad;cat=ladwi0;u1="+domain+";u2="+pageName+";u3="+languageSelected+";u4="+url+";u5="+referrerUrl+";u6="+viewPort+";u7="+visitorId+";u8="+sessionId+";u9=[dealerName];u10=[dealerCode];u11=[dealerCity];u12=[dealerState];dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=;npa=;ord="+orderId+"?";
+    tag.src = tagSource;  
+    tag.width = "1";
+    tag.height = "1";
+    tag.border = "1";
+    tag.style = "display:none";
+    document.body.appendChild(tag);
+  _satellite.notify("Zone Tag #11 - this resides in the 'Media tags for Zone/Media' PL rule - Locate A Dealer: "+tagSource,1);
+} else if(LAVviewed != visitorId && document.location.href.indexOf('chevrolet.com/locate-inventory') > -1){
+    _satellite.setCookie("LAVviewed",visitorId,1);
+    var tag = document.createElement("img");
+    var tagSource = 
+    "https://web.archive.org/web/20190907124313/https://ad.doubleclick.net/ddm/activity/src=9399534;type=lav;cat=lavx80;u1="+domain+";u2="+pageName+";u3="+languageSelected+";u4="+url+";u5="+referrerUrl+";u6="+viewPort+";u7="+visitorId+";u8="+sessionId+";u13=;u14="+vehicleType+";u15="+vehicleMake+";u16="+modelName+";u17="+trimLevel+";u18="+modelYear+";dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=;npa=;ord="+orderId+"?";
+    tag.src = tagSource;  
+    tag.width = "1";
+    tag.height = "1";
+    tag.border = "1";
+    tag.style = "display:none";
+    document.body.appendChild(tag);
+  _satellite.notify("Zone Tag #12 - this resides in the 'Media tags for Zone/Media' PL rule - Locate a Vehicle: "+tagSource,1);
+} else if(SVviewed != visitorId && document.location.href.indexOf('chevrolet.com') > -1){
+    _satellite.setCookie("SVviewed",visitorId,1);
+    var tag = document.createElement("img");
+    var tagSource = 
+    "https://web.archive.org/web/20190907124313/https://ad.doubleclick.net/ddm/activity/src=9399534;type=sv;cat=sitev0;u1="+domain+";u2="+pageName+";u3="+languageSelected+";u4="+url+";u5="+referrerUrl+";u6="+viewPort+";u7="+visitorId+";u8="+sessionId+";dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=;npa=;ord="+orderId+"?";
+    tag.src = tagSource;  
+    tag.width = "1";
+    tag.height = "1";
+    tag.border = "1";
+    tag.style = "display:none";
+    document.body.appendChild(tag);
+  _satellite.notify("Zone Tag #18 - this resides in the 'Media tags for Zone/Media' PL rule - Site Visit: "+tagSource,1);
+} else if(document.location.href.indexOf('build-and-price') > -1 && visitorId != BPclicked && document.location.href.indexOf('trim') > -1 ){
+  _satellite.setCookie("BRclicked",visitorId,1);
+  var tag = document.createElement("img");
+  var tagSource = "https://web.archive.org/web/20190907124313/https://ad.doubleclick.net/ddm/activity/src=9399534;type=bnpce;cat=bnpce0;u1="+domain+";u2="+pageName+";u3="+languageSelected+";u4="+url+";u5="+referrerUrl+";u6="+viewPort+";u7="+visitorId+";u8="+sessionId+";u13=;u14="+vehicleType+";u15="+vehicleMake+";u16="+modelName+";u17="+trimLevel+";u18="+modelYear+";dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=;npa=;ord="+orderId+"?";
+  tag.src = tagSource;
+  tag.width = "1";
+  tag.height = "1";
+  tag.border = "1";
+  tag.style = "display:none";
+  document.body.appendChild(tag);
+  _satellite.notify("Zone Tag #2 - this resides in the 'Media tags for Zone/Media' PL rule - Build and Price Click Engagements: "+tagSource,1);
+} else if(href.indexOf('chevrolet.com/request-quote') > -1 && document.querySelector('#gmit-gf-thank-you-paragraph').textContent.indexOf('Thank you') > -1){
+  var tag = document.createElement("img");
+  var tagSource = "https://web.archive.org/web/20190907124313/https://ad.doubleclick.net/ddm/activity/src=9399534;type=elead;cat=email0;u1="+domain+";u2="+pageName+";u3="+languageSelected+";u4="+url+";u5="+referrerUrl+";u6="+viewPort+";u7="+visitorId+";u8="+sessionId+";u19="+leadId+";dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=;npa=;ord="+orderId+"?";
+  tag.src = tagSource;
+  tag.width = "1";
+  tag.height = "1";
+  tag.border = "1";
+  tag.style = "display:none";
+  document.body.appendChild(tag);
+  _satellite.notify("Zone Tag #7 - this resides in the 'Media tags for Zone/Media' PL rule - Email Lead: "+tagSource,1);
+}
+// else if (document.location.href.indexOf('auto-loan-calculator/calculate') > -1) {
+//  var tag = document.createElement("img");
+//    var tagSource =
+//    "https://web.archive.org/web/20190907124313/https://ad.doubleclick.net/ddm/activity/src=9399534;type=pe;cat=payme0;u1="+domain+";u2="+pageName+";u3="+languageSelected+";u4="+url+";u5="+referrerUrl+";u6="+viewPort+";u7="+visitorId+";u8="+sessionId+";u13=;u14="+vehicleType+";u15="+vehicleMake+";u16="+modelName+";u17="+trimLevel+";u18="+modelYear+";dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=;npa=;ord="+orderId+"?";
+//    tag.src = tagSource;  
+//    tag.width = "1";
+//    tag.height = "1";
+//    tag.border = "1";
+//    tag.style = "display:none";
+//    document.body.appendChild(tag);
+//  _satellite.notify("Zone Tag #15 - this resides in the 'Media tags for Zone/Media' PL rule - Payment Estimator: "+tagSource,1);
+//}
+});
+
+
+}
+/*
+     FILE ARCHIVED ON 12:43:13 Sep 07, 2019 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 08:25:29 May 01, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 105.886
+  exclusion.robots: 0.067
+  exclusion.robots.policy: 0.06
+  cdx.remote: 0.053
+  esindex: 0.008
+  LoadShardBlock: 80.542 (3)
+  PetaboxLoader3.datanode: 766.369 (4)
+  load_resource: 1630.886
+  PetaboxLoader3.resolve: 926.038
+*/

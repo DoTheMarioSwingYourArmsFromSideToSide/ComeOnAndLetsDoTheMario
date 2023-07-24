@@ -1,0 +1,369 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+/**
+ * ceAPI is a custom JavaScript API developed by Campbell-Ewald Digital 
+ * to handle common DOM operations.  This API extends W3C DOM methods and 
+ * properties by creating reusable convenience methods and properties. This API 
+ * supports IE and W3C DOMs.
+ *
+ * @author Jim Amos
+ * @author Matt Dertinger
+ * @author Jason Macemore
+ * @author Bea Manzella
+ * @author Yun Qian
+ *
+ * @version 1.0
+ *
+ * @param isCSS Specifies whether the browser supports CSS
+ * @param isW3C Specifies whether the browser supports the W3C DOM
+ * @param isIE6CSS Specifies wheher IE 6 is running in Standards Compliant Mode
+ * @param isXMLHttpRequest Specifies wheher browser supports native XMLHttpRequest object
+ * @param isActiveX Specifies wheher browser supports ActiveX objects
+ * @param isMoz Specifies whether the browser supports the Mozilla CSS properties
+ * @param xReq Stores global request and XML document objects
+ *
+ */ 
+
+// Global boolean variables
+var isCSS, isW3C, isIE6CSS, isXMLHttpRequest, isActiveX, isMoz, isMac, isWin;
+
+// global variable that stores request and XML document objects
+var xReq;
+isActiveX = (window.ActiveXObject) ? true : false;
+isIE6CSS = (document.compatMode && document.compatMode.indexOf("CSS1") >= 0) ? true : false;
+isXMLHttpRequest = (window.XMLHttpRequest) ? true : false;
+var uA = navigator.userAgent.toLowerCase();
+isMac = (uA.indexOf('mac') != -1);
+isWin = (uA.indexOf('win') != -1);
+// initialize upon load to let all supported browsers establish content objects
+function setCEAPI() {
+    if (document.getElementById) {
+        isCSS = (document.body && document.body.style) ? true : false;
+        isW3C = (isCSS && document.getElementById) ? true : false;
+        isMoz = (document.body.style.MozOpacity) ? true : false;
+    }
+}
+
+// Set a cookie with the given name to a given value with an optional given 
+// expiration date. 
+function setCookie(name,value,days) {
+  if (days) {
+    var date = new Date();
+    date.setTime(date.getTime()+(days*24*60*60*1000));
+    var expires = "; expires="+date.toGMTString();
+  }
+  else expires = "";
+  document.cookie = name+"="+value+expires+"; path=/";
+}
+
+// Retrieve the value of a cookie that matches a given name 
+function getCookie(name) {
+  var nameEQ = name + "=";
+  var ca = document.cookie.split(';');
+  for(var i=0;i < ca.length;i++) {
+    var c = ca[i];
+    while (c.charAt(0)==' ') c = c.substring(1,c.length);
+    if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+  }
+  return null;
+}
+
+// Retrieve a boolean value indicating whether any elements with a given 
+// className were found within the given element
+function checkElementByTagClass(ele, searchClass) {
+	var s =  document.getElementsByTagName(ele);
+    for (var i=0; i<s.length; i++) {
+    	if ( s[i].className.indexOf(searchClass) != -1 ||  s[i].parentNode.className.indexOf(searchClass) != -1)	
+     		return true;
+    }
+    return false;
+}
+
+// Retrieve a collection of all elements of a given tagName that match the given // a className.
+function getElementsByTagClass(tag, searchClass) {
+	var elCollection = document.getElementsByTagName(tag);
+    var s = new Array();
+    for (var i=0; i<elCollection.length; i++) {
+    	if ( elCollection[i].className.indexOf(searchClass) != -1)	
+     		s.push(elCollection[i]);
+    }
+    return s;   
+}
+
+
+// Retrieve the first ancestor of a given element that matches the given 
+// tag name.
+function getAncestorByTagName(ele, tag) {
+    var s = ele ? ele : null;
+    if (s == null) return s;
+    var tagName;
+    do {
+        s  = s.parentNode;
+        tagName = s.tagName.toLowerCase();
+        if (tagName=='body') return null;
+    }
+    while (tagName != tag);
+    return s;   
+}
+
+// Retrieve the first ancestor of a given element that matches the given 
+// tag name and has a className that matches a given class.
+function getAncestorByTagClass(ele, searchClass) {
+    var s = ele ? ele.parentNode : null;
+    var tagName;
+    do {
+        tagName = s.tagName.toLowerCase();
+        if (tagName=='body') return null;
+         s  = s.parentNode;
+    }
+    while (s.className != searchClass);
+    return s;   
+}
+
+function getDescendantsByTagClass(ele, searchClass) {
+    var s = ele ? ele.childNodes : null;
+    if (s!=null) 
+		for (var i=0; i<s.length; i++){
+			if (s[i].className && s[i].className.indexOf(searchClass) != -1){
+				return s[i];
+				}
+		}
+    return null;
+}
+
+ 
+// Convert object name string or object reference
+// into a valid element object reference
+function getRawObject(obj) {
+    var theObj;
+    if (typeof obj == "string") {
+        if (isW3C || document.getElementById(obj)) {
+            theObj = document.getElementById(obj);
+        }
+    } else {
+        // pass through object reference
+        theObj = obj;
+    }
+    return theObj;
+}
+  
+// Convert object name string or object reference
+// into a valid style reference
+function getObjectStyleRef(obj) {
+    var theObj = getRawObject(obj);
+    if (theObj && isCSS) {
+        theObj = theObj.style;
+    }
+    return theObj;
+}
+
+// Convert XML object name string or XML object reference
+// into a valid element object reference
+function getXMLObject(obj,tagName) {
+	var i;
+    var theObj;
+    if (typeof obj == "string") {
+        if (isW3C) {
+        	var tags = xReq.responseXML.getElementsByTagName(tagName);
+        	for (i = tags.length; i != 0; i--) {
+        		if (tags[i-1].getAttribute("id") == obj) {
+            		theObj = tags[i-1];
+            	}
+            }
+        }
+    } else {
+        // pass through object reference
+        theObj = obj;
+    }
+    return theObj;
+}
+
+// Removes all child nodes of a given object
+function removeObjectsChildren(obj) {
+	var elem = getRawObject(obj);
+	while (elem.childNodes.length > 0) {
+		elem.removeChild(elem.lastChild);
+	}
+}
+
+// Removes all child nodes of a given object who have a given className
+function removeChildrenByClass(obj,class_name) {
+	var elem = getRawObject(obj);
+	for (var i=elem.childNodes.length; i > 0; i--) {
+		if (elem.childNodes[i-1].className == class_name) {
+			elem.removeChild(elem.childNodes[i-1]);
+		}
+	}
+}
+
+// retrieve XML document (reusable generic function);
+// parameter is URL string (relative or complete) to
+// an XML file whose Content-Type is a valid XML
+// type, such as text/xml; XML source must be from
+// same domain as HTML file
+// processMethods parameter is a string containing  all methods 
+// to be run when xReq.status == 200. These methods are invoked within
+// the processReqChange function.
+function getXMLDoc(url, processMethods) {
+
+	var xmlURL = url;
+//	var xmlURL = encodeURI(url);
+	
+
+	this.processMethods = processMethods;
+	
+    // branch for native XMLHttpRequest object
+    if (isXMLHttpRequest) {
+        xReq = new XMLHttpRequest();
+        xReq.onreadystatechange = function() { processReqChange(this.processMethods); };
+        xReq.open("GET", xmlURL, true);
+        xReq.send(null);
+    // branch for IE/Windows ActiveX version
+    } else if (isActiveX) {
+        xReq = new ActiveXObject("Microsoft.XMLHTTP");
+        if (xReq) {
+        	xmlURL = url.replace("#","?");
+            xReq.onreadystatechange = function() { processReqChange(this.processMethods); };
+            xReq.open("GET", xmlURL, true);
+            xReq.send();
+        }
+    }
+}
+
+// handle onreadystatechange event of xReq object
+function processReqChange() {
+    // only if xReq shows "loaded"
+    if (xReq.readyState == 4) {
+        // only if "OK"
+        if (xReq.status == 200) {
+            eval(this.processMethods);
+         } else {
+            alert("There was a problem retrieving the XML data:\n" +
+                xReq.statusText);
+         }
+    }
+}
+
+// retrieve text of an XML document element, including
+// elements using namespaces
+function getElementTextNS(prefix, local, parentElem, index) {
+    var result = "";
+    if (prefix && isActiveX) {
+        // IE/Windows way of handling namespaces
+        result = parentElem.getElementsByTagName(prefix + ":" + local)[index];
+    } else {
+        // the namespace versions of this method 
+        // (getElementsByTagNameNS()) operate
+        // differently in Safari and Mozilla, but both
+        // return value with just local name, provided 
+        // there aren't conflicts with non-namespace element
+        // names
+        result = parentElem.getElementsByTagName(local)[index];
+    }
+    if (result) {
+        // get text, accounting for possible
+        // whitespace (carriage return) text nodes 
+        if (result.childNodes.length > 1) {
+            return result.childNodes[1].nodeValue;
+        } else {
+            return result.firstChild.nodeValue;    		
+        }
+    } else {
+        return "n/a";
+    }
+}
+
+var flashVersion;
+var flashVersion_DONTKNOW = 0;
+function getFlashVersion() {
+   var latestFlashVersion = 8;
+   var agent = navigator.userAgent.toLowerCase(); 
+   
+   // NS3 needs flashVersion to be a local variable
+   if (agent.indexOf("mozilla/3") != -1 && agent.indexOf("msie") == -1) {
+      flashVersion = 0;
+   }
+   
+   // NS3+, Opera3+, IE5+ Mac (support plugin array):  check for Flash plugin in plugin array
+   if (navigator.plugins != null && navigator.plugins.length > 0) {
+      var flashPlugin = navigator.plugins['Shockwave Flash'];
+      if (typeof flashPlugin == 'object') { 
+         for (var i = latestFlashVersion; i >= 3; i--) {
+            if (flashPlugin.description.indexOf(i + '.') != -1) {
+               flashVersion = i;
+               break;
+            }
+         }
+      }else {flashVersion = flashVersion_DONTKNOW; }
+     
+   }
+
+   // IE4+ Win32:  attempt to create an ActiveX object using VBScript
+   else if (agent.indexOf("msie") != -1 && parseInt(navigator.appVersion) >= 4 && agent.indexOf("win")!=-1 && agent.indexOf("16bit")==-1) {
+      var doc = '<scr' + 'ipt language="VBScript"\> \n';
+      doc += 'On Error Resume Next \n';
+      doc += 'Dim obFlash \n';
+      doc += 'For i = ' + latestFlashVersion + ' To 3 Step -1 \n';
+      doc += '   Set obFlash = CreateObject("ShockwaveFlash.ShockwaveFlash." & i) \n';
+      doc += '   If IsObject(obFlash) Then \n';
+      doc += '      flashVersion = i \n';
+      doc += '      Exit For \n';
+      doc += '   End If \n';
+      doc += 'Next \n';
+      doc += '</scr' + 'ipt\> \n';
+      document.write(doc);
+       
+   }
+      
+   // WebTV 2.5 supports flash 3
+   else if (agent.indexOf("webtv/2.5") != -1) {flashVersion = 3; }
+
+   // older WebTV supports flash 2
+   else if (agent.indexOf("webtv") != -1) {flashVersion = 2;}
+
+   // Can't detect in all other cases
+   else {
+      flashVersion = flashVersion_DONTKNOW; 
+   }
+
+}
+
+getFlashVersion();
+
+var initCEAPI = new domFunction(function()
+{
+	setCEAPI();
+	
+}, { 'body' : 'tag' });
+
+}
+/*
+     FILE ARCHIVED ON 22:04:13 Jul 25, 2006 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 21:39:26 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 78.003
+  exclusion.robots: 0.111
+  exclusion.robots.policy: 0.097
+  cdx.remote: 0.082
+  esindex: 0.013
+  LoadShardBlock: 42.117 (3)
+  PetaboxLoader3.datanode: 45.239 (4)
+  load_resource: 103.889
+  PetaboxLoader3.resolve: 73.021
+*/

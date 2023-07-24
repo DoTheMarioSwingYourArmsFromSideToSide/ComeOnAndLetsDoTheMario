@@ -1,0 +1,87 @@
+/*
+yui\build\reset\reset-min.css
+Copyright (c) 2008, Yahoo! Inc. All rights reserved.
+Code licensed under the BSD License:
+http://developer.yahoo.net/yui/license.txt
+version: 2.5.2
+*/
+html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym {border:0;font-variant:normal;}sub {vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+
+
+/*
+yui\build\base\base-min.css
+Copyright (c) 2008, Yahoo! Inc. All rights reserved.
+Code licensed under the BSD License:
+http://developer.yahoo.net/yui/license.txt
+version: 2.5.2
+*/
+h1{font-size:138.5%;}h2{font-size:123.1%;}h3{font-size:108%;}h1,h2,h3,h4,h5,h6,strong{font-weight:bold;}abbr,acronym{border-bottom:1px dotted #000;cursor:help;} em{font-style:italic;}blockquote,ul,ol,dl{margin:1em;}ol,ul,dl{margin-left:2em;}ol li{list-style:decimal outside;}ul li{list-style:disc outside;}dl dd{margin-left:1em;}th,td{border:1px solid #000;padding:.5em;}th{font-weight:bold;text-align:center;}caption{margin-bottom:.5em;text-align:center;}p,fieldset,table,pre{margin-bottom:1em;}input[type=text],input[type=password],textarea{width:12.25em;*width:11.9em;}
+
+
+/*
+yui\build\fonts\font-min.css
+Copyright (c) 2008, Yahoo! Inc. All rights reserved.
+Code licensed under the BSD License:
+http://developer.yahoo.net/yui/license.txt
+version: 2.5.2
+*/
+body {font:13px/1.231 arial,helvetica,clean,sans-serif;*font-size:small;*font:x-small;}table {font-size:inherit;font:100%;}pre,code,kbd,samp,tt{font-family:monospace;*font-size:108%;line-height:100%;}
+
+
+
+/*
+begin global MDS styles
+? include layout based on redlines ?
+*/
+
+.hidden {
+	display: none;
+}
+
+.clickable {
+	cursor: pointer;
+}
+
+#gMdsOmniture{
+	position:absolute;
+	top:0;
+	left:0;
+	height:20px;
+	width:20px;
+	background:none;
+}
+
+
+/*
+	Temporary styles for divisional purpuses
+
+*/
+
+.borderGreen {
+	border: 2px dashed rgb(0, 204, 0);
+}
+
+.borderYellow {
+	border: 2px dashed rgb(255, 204, 0);
+}
+
+/*
+     FILE ARCHIVED ON 04:13:41 Aug 06, 2009 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:25:49 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 492.855
+  exclusion.robots: 0.075
+  exclusion.robots.policy: 0.066
+  RedisCDXSource: 4.795
+  esindex: 0.007
+  LoadShardBlock: 470.865 (3)
+  PetaboxLoader3.datanode: 519.494 (5)
+  load_resource: 290.033 (2)
+  PetaboxLoader3.resolve: 201.686 (2)
+*/

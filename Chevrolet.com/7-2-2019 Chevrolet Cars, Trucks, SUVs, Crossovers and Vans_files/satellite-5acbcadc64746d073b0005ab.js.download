@@ -1,0 +1,43 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+_satellite.pushAsyncScript(function(event, target, $variables){
+  jQuery('.q-content-nav li:last-child a, .q-nav-collapsed-link[title="Find A Dealer"]').click(function(event){
+  adobe.target.trackEvent({'mbox':'mboxTrack','params': {
+        'lad': 'widget'
+  }})
+ mboxUpdate('GM_Global_Standard'); 
+});
+});
+
+
+}
+/*
+     FILE ARCHIVED ON 05:36:52 Jun 11, 2019 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 08:18:41 May 01, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 30610.595
+  exclusion.robots: 0.101
+  exclusion.robots.policy: 0.089
+  RedisCDXSource: 0.759
+  esindex: 0.01
+  LoadShardBlock: 30585.375 (3)
+  PetaboxLoader3.datanode: 30607.964 (5)
+  load_resource: 1276.597
+  PetaboxLoader3.resolve: 1247.065
+*/
