@@ -1,0 +1,1475 @@
+/*
+fonts / global style
+*/
+
+.sf-with-ul {
+	background: #ccc;
+}
+#dlDialog, #vlDialog {/*top: 100px !important; left:490px*/
+	z-index:11000 !important;
+}
+.globalSubNav {
+	background: transparent url(/web/20100528160446im_/http://www.chevrolet.com/assets/en/images/global/navigation/bg-vehicles.png) no-repeat left bottom;
+}
+body {
+	margin:0 auto;
+	position:relative; /*background-color:#F90;*/
+}
+#imagePreloader {
+	width:1px;
+	height:1px;
+	overflow:hidden;
+	background:url(/web/20100528160446im_/http://www.chevrolet.com/assets/en/images/global/buttons.gif) 0 0 no-repeat;
+}
+body, p, li {
+	color: #646B70;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+a span, a:active span, a:hover span, a:visited span, a, a:active, a:hover, a:visited, .clickable {
+	color: #363636;
+	text-decoration:none;
+	font-size: 11px;
+	font-family: Verdana, Arial, Helvetica, sans-serif
+}
+a {
+	outline: none !important;
+}
+div#optionsResults {
+	height: 20px;
+	padding-top: 10px;
+	padding-bottom: 5px;
+}
+div#descResult {
+	padding-left: 10px;
+}
+div#optionsResults a {
+	color: #363636;
+	text-decoration:underline;
+	background:url(/web/20100528160446im_/http://www.chevrolet.com/assets/en/images/global/icon_email.gif) no-repeat left;
+	width:50px;
+	height:16px;
+	text-align: right;
+	padding-left: 20px;
+	padding-right: 35px;
+	text-indent: -9999px;
+}
+div#optionsResults a + a {
+	color: #363636;
+	text-decoration:underline;
+	background:url(/web/20100528160446im_/http://www.chevrolet.com/assets/en/images/global/printer.gif) no-repeat left;
+	text-align: right;
+	padding-left: 22px;
+	padding-bottom: 7px;
+	padding-top: 7px;
+	text-indent: -9999px;
+	_padding-bottom: 0px;
+	_padding-top: 0px;
+	_padding-left: 0px;
+}
+div#dealerResultContent h1 {
+	background:url(/web/20100528160446im_/http://www.chevrolet.com/assets/en/images/tools/dealerlocator/locate-delaer-result.gif) no-repeat left;
+	width: 211px;
+	text-indent: -9999px;
+	padding-bottom: 15px;
+	margin: 10px;
+}
+/*
+body
+*/
+#gMdsPage {
+	margin: 0 auto;
+	width: 980px;
+}
+#gMdsPage>.hook {
+	margin: 0px auto;
+}
+#gMdsBody {
+	position: relative;
+}
+/*
+nav
+*/
+
+#gMdsNavLogo, #mdsNavLogo {
+	float:left;
+	height:64px;
+	position:relative;
+	width: 175px;
+}
+#mdsNavLogo a {
+	background:url(/web/20100528160446im_/http://www.chevrolet.com/assets/en/images/global/navigation/chevyBowtie.jpg) top left no-repeat;
+	height:35px;
+	display:block;
+	text-indent:-9999px;
+	position: relative;
+	left: 94px;
+	top: 34px;
+}
+#gMdsNav {
+	display:block;
+	height: 110px;
+	position: relative;
+	z-index:995;
+}
+.Explorer7 #gMdsNav {
+
+}
+#gMdsNav .hook {
+	height: 76px;
+}
+#gMdsNav #mdsNavGlobal {
+	/* border:1px dotted red; */
+float:left;
+	height:17px;
+	position:relative;
+	top:10px;
+	width:590px;
+}
+#gMdsSubNav {
+	background:transparent url(/web/20100528160446im_/http://www.chevrolet.com/assets/en/images/global/navigation/subnav-bottom.png) no-repeat scroll center bottom;
+	/* border:1px solid green; */
+clear:both;
+	height:28px;
+	width:100%;
+}
+#gMdsNav ul {
+	list-style:none;
+	margin: 0;
+}
+#gMdsNav ul li {
+	list-style: none;
+	float: left;
+	margin: 0;
+}
+#mdsNavDivisionNav li {
+	position: relative;
+	background: url(/web/20100528160446im_/http://www.chevrolet.com/assets/en/images/global/navigation/pipe.gif ) right top no-repeat;
+}
+
+#mdsNavDivisionNav #mdsNavDivisionOwners { 
+	border-right: none;
+	background: none; }
+#mdsNavDivision ul.globalSubNav li {
+	float: none;
+}
+#mdsNavDivision ul.globalSubNav li a span {
+	font-size: 10px;
+}
+#gMdsNav #mdsNavGlobal ul {
+	float:right;
+}
+#gMdsNav #mdsNavGlobal ul li {
+	padding-left:8px;
+padding-right:10px;
+	background:url(/web/20100528160446im_/http://www.chevrolet.com/assets/en/images/global/navigation/pipe_sm.gif) no-repeat right top transparent;
+}
+#gMdsNav #mdsNavGlobal ul li.last { background:none; }
+#gMdsNav #mdsNavDivision {
+	/* border:1px solid orange; */
+float:left;
+	height:22px;
+	position:relative;
+	top:18px;
+	width:602px;
+}
+.Explorer6 #gMdsNav #mdsNavDivision {
+	top:10px;
+}
+#gMdsNav #mdsNavDivision #mdsNavDivisionNav {
+	margin-left: 0;
+}
+#gMdsNav #mdsNavDivision ul li {
+	padding: 3px 15px;
+	font-size: 9px;
+	text-transform:uppercase;
+}
+#gMdsNav #mdsNavDivision ul li.last {
+	border-right:none;
+}
+#mdsSearchSite {
+	float:left;
+	position:relative;
+	top:8px;
+	width:134px;
+}
+#msiContent {
+	float:left;
+	position:relative;
+	top:22px;
+}
+.Explorer6 #msiContent {
+	padding:6px 0;
+	top:10px;
+}
+.Explorer7 #msiContent {
+	padding:6px 0;
+	top:18px;
+}
+/*.Explorer6 #mdsSavedInfo { height:20px; }
+.Explorer6 #mdsSavedInfo a {  }*/
+#mdsSavedInfo a {
+	background:transparent url(/web/20100528160446im_/http://www.chevrolet.com/assets/en/images/global/navigation/bg-saved-info-btn.jpg) no-repeat scroll left top;
+	/* border:1px solid purple; */
+font-size:9px;
+	font-weight:bold;
+	padding:6px 32px 6px 12px;
+	text-decoration:none;
+	text-indent:10px;
+	text-transform:uppercase;
+}
+#pOnstar {
+	margin:0;
+	padding:0;
+	height:30px;
+}
+#pOnstar a {
+	float: right;
+	text-decoration: none;
+	clear: after;
+	width: 300px;
+}
+#gMdsNavWrapper {
+	top: 0;
+	left: 0;
+	height: 73px;
+}
+/* footer - about */
+#gAbout h6 {
+	margin: 0;
+	padding: 0;
+	padding-left: 1px;
+	font-family: Verdana, Arial, Sans Serif;
+	font-size: 10px;
+	font-weight: normal;
+	color: #646B70;
+	text-decoration: underline;
+	cursor: pointer;
+	cursor: hand;
+	width: auto;
+}
+#gAbout p {
+	display: none;
+}
+/*World Wide pop up styles*/
+#wsDialog {
+	display:none;
+	background:url(/web/20100528160446im_/http://www.chevrolet.com/assets/en/images/global/worldwide/box_background.gif) no-repeat;
+	background-position:left 27px;
+	width:255px!important;
+	height:160px;
+	border:none;
+	display: none;
+	font-family: Verdana;
+	font-size: 10px;
+	padding:0;
+	margin:0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 500;
+}
+#wsDialog.active {
+	display:block;
+}
+#wsDialog div {
+	float:left;
+	margin:0 10px 10px 0;
+}
+#wsDialog ul {
+	clear:both;
+	display:block;
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+#wsDialog ul#continentList {
+	margin:14px 0 0 23px;
+	padding:0;
+}
+#wsDialog ul#continentList li ul li {
+	margin:0;
+	padding:0 0 3px 5px;
+}
+#wsDialog ul#continentList li span:hover {
+	cursor:pointer;
+}
+#wsDialog ul li {
+	margin:0;
+	padding:0 0 11px 0;
+	width:120px;
+	font-family:Verdana, Arial, Helvetica, sans-serif!important;
+	font-size:10px!important;
+	font-weight:bold!important;
+	color:#646B70!important;
+	list-style:none!important;
+}
+#wsDialog ul#continentList li ul li a, #wsDialog ul#continentList li ul li a:hover, #wsDialog ul#continentList li ul li a:active, #wsDialog ul#continentList li ul li a:visited, #wsDialog ul#continentList li ul li a span, #wsDialog ul#continentList li ul li a:hover span, #wsDialog ul#continentList li ul li a:active span, #wsDialog ul#continentList li ul li a:visited span {
+	margin:0;
+	padding:5px 0 0 0;
+	font-family:Verdana, Arial, Helvetica, sans-serif!important;
+	font-size:10px!important;
+	font-weight:normal!important;
+	color:#363636!important;
+	text-decoration:none!important;
+}
+#wsDialog h4 {
+	background:url(/web/20100528160446im_/http://www.chevrolet.com/assets/en/images/global/worldwide/box_title_chevrolet.gif) top left no-repeat;
+	text-indent:-9999px;
+	width:255px;
+	height:27px;
+}
+a#wsCloseButton {
+	position:relative;
+	background: url(/web/20100528160446im_/http://www.chevrolet.com/assets/en/images/global/worldwide/btn_close.jpg) no-repeat;
+	top:4px;
+	width:52px;
+	height:16px;
+	left:-7px;
+ *top:20px;
+ *left:-2px;
+	float: right;
+	text-indent:-9999px;
+}
+/*
+navigation - vehicles dropdown
+*/
+/**************************************/
+
+.globalSubNavi a, .globalSubNav a span {
+	font-size: 11px;
+}
+/**************************************/
+
+#mdsNavGlobal a, #mdsNavGlobal a span, #mdsNavGlobal a:visited span, #mdsNavGlobal a:hover span {
+	text-decoration : underline;
+}
+body.Explorer8 #gMdsSubNav, body.Explorer7 #gMdsSubNav, body.Explorer6 #gMdsSubNav {
+	top:74px !important;
+	margin:0;
+	position:absolute;
+	background:url(/web/20100528160446im_/http://www.chevrolet.com/assets/en/images/global/navigation/subnav-bottom-ie.png) top left no-repeat;
+}
+#mdsNavDivision ul li a {
+	text-decoration:none;
+}
+#mdsNavDivision ul li a span {
+	font-size:12px;
+	text-decoration:none;
+}
+#mdsNavDivision ul li.selectedOption a, #mdsNavDivision ul li.selectedOption a span {
+	color:#B49D3F;
+}
+#q1 {
+	width:10em;
+}
+#savedInfoFindLink {
+	background:url(/web/20100528160446im_/http://www.chevrolet.com/assets/en/images/global/navigation/search-btn.jpg) top left no-repeat;
+	position:relative;
+	left:-1px;
+	height:20px;
+	width:0px;
+	padding:2px 10px;
+}
+.Explorer6 #savedInfoFindLink, .Explorer7 #savedInfoFindLink {
+	display:inline-block;
+	width:4px;
+	top:10px;
+	left:-2px;
+}
+.Explorer6 #mdsSearchSite, .Explorer7 #mdsSearchSite {
+	width:150px;
+	height:19px;
+	position:relative;
+	top:0px;
+}
+#savedInfoFindLink span {
+	display:none;
+}
+#mdsNavDivisionExperience a, #mdsNavDivisionPricing a, #mdsNavDivisionOwners a, #mdsNavDivisionVehicles a {
+	background:url(/web/20100528160446im_/http://www.chevrolet.com/assets/en/images/global/navigation/arrow.jpg) top right no-repeat;
+	padding-right: 22px;
+}
+#mdsNavExperience, #mdsNavPricing, #mdsNavOwners, #mdsNavVehicles {
+	display:none;
+	position:absolute;
+	top:60px;
+	z-index:995;
+	margin:0;
+	padding:0;
+}
+#mdsNavVehicles {
+	left:190px;
+}
+#mdsNavPricing {
+	left:298px;
+}
+#mdsNavExperience {
+	left:469px;
+}
+#mdsNavOwners {
+	left:678px;
+}
+#mdsNavVehicles, #mdsNavPricing, #mdsNavExperience, #mdsNavOwners {
+	top: 120px;
+}
+#mdsNavExperience ul, #mdsNavPricing ul, #mdsNavOwners ul, #mdsNavVehicles ul {
+	list-style:none;
+	margin:0 0 0 0;
+	padding-left:10px;
+	width:159px;
+	background:url(/web/20100528160446im_/http://www.chevrolet.com/assets/en/images/global/navigation/bg-vehicles.png) left top no-repeat;
+	border-bottom: 1px solid #000;
+}
+#mdsNavVehicles ul {
+	background-image:url(/web/20100528160446im_/http://www.chevrolet.com/assets/en/images/global/navigation/submenu-vehicles.png);
+}
+#mdsNavVehicles ul#vehicles li#item7 {
+	padding-top:4px;
+}
+#mdsNavOwners ul {
+	width:200px;
+	background:url(/web/20100528160446im_/http://www.chevrolet.com/assets/en/images/global/navigation/bg-vehicles-lg.png) left top no-repeat;
+}
+#gMdsNav #mdsNavVehicles ul.segmentnav {
+	padding-top:7px;
+	padding-bottom:0px;
+	margin-bottom:0px;
+}
+.Explorer7 #mdsNavVehicles, .Explorer6 #mdsNavVehicles {
+	width:600px;
+}
+#mdsNavVehicles ul#vehicles {
+	height:217px;
+	border-bottom: none;
+}
+#mdsNavExperience ul#experience-nav {	
+	padding-top: 10px;
+	overflow:hidden;
+}
+#mdsNavPricing ul#pricing-nav {
+	height: 120px;
+	padding-top: 12px;
+}
+#mdsNavOwners ul#owners-nav {
+	height: 155px;
+	padding-top: 10px;
+}
+.Explorer8 #mdsNavVehicles ul#vehicles {
+	width:960px;
+	height:500px;
+}
+body.Explorer7 #mdsNavVehicles, body.Explorer6 #mdsNavVehicles {
+	height:500px !important;
+}
+.Explorer8 #mdsNavVehicles ul#vehicles li {
+	float:none;
+}
+#mdsNavVehicles ul li, #mdsNavExperience ul li, #mdsNavPricing ul li {
+	list-style: none;
+	padding: 0 0 10px;
+	margin:0;
+	height:14px;
+	width: 157px;
+	text-transform: uppercase;
+}
+#mdsNavOwners ul li {
+	width: 198px;
+	list-style: none;
+	padding: 0 0 10px;
+	margin:0;
+	height:14px;
+	text-transform: uppercase;
+}
+#mdsNavVehicles ul#vehicles li#item1 {
+	padding-top: 5px;
+}
+
+#mdsNavVehicles ul#vehicles li.series div {
+	display:none;
+}
+#msiContent a:hover, #msiContent a:hover span,
+#mdsNavVehicles ul li a:hover, #mdsNavVehicles ul li a:hover span,
+#mdsNavPricing ul li a:hover, #mdsNavPricing ul li a:hover span,
+#mdsNavExperience ul li a:hover, #mdsNavExperience ul li a:hover span,
+#mdsNavOwners ul li a:hover, #mdsNavOwners ul li a:hover span,
+#mdsNavGlobal ul li a:hover, #mdsNavGlobal ul li a:hover span,
+#mdsNavDivision ul li a:hover, #mdsNavDivision ul li a:hover span { color: #B49D3F; }
+
+#mdsNavExperience ul#experience-nav li:hover, #mdsNavPricing ul#pricing-nav li:hover, #mdsNavVehicles ul#vehicles li:hover, #mdsNavVehicles ul#vehicles li div ul li.link:hover, #mdsNavOwners ul#owners-nav li:hover {
+	background: #fff url(/web/20100528160446im_/http://www.chevrolet.com/assets/en/images/global/navigation/item-hover.jpg) top left no-repeat;
+}
+#mdsNavVehicles ul#vehicles li.link:hover {
+	background: none;
+}
+#mdsNavVehicles ul#vehicles li div.subnavfamily {
+	display:none;
+}
+body.Explorer6 #mdsNavVehicles ul#vehicles li div.active {
+	position:absolute;
+	top:0;
+}
+body.Explorer6 #mdsNavVehicles ul#vehicles li div#item2_subnav {
+	top:35px;
+}
+body.Explorer6 #mdsNavVehicles ul#vehicles li div#item3_subnav {
+	top:50px;
+}
+body.Explorer6 #mdsNavVehicles ul#vehicles li div#item4_subnav {
+	top:75px;
+}
+body.Explorer6 #mdsNavVehicles ul#vehicles li div#item5_subnav {
+	top:100px;
+}
+#mdsNavVehicles ul#vehicles li div.active {
+	display:block;
+	position:relative;
+	left:135px;
+	top:-20px;
+}
+#mdsNavVehicles ul#vehicles li div.active ul {
+	background: #ffffff url(/web/20100528160446im_/http://www.chevrolet.com/assets/en/images/global/navigation/submenuflyout.png) left top no-repeat;
+	width:106px;
+	height:auto;
+	padding-bottom:5px;
+	padding-left:5px;
+	display:inline-block;
+	position:relative;
+	left:-10px;
+	width:101px;
+	border-bottom: 1px solid #000;
+}
+#mdsNavVehicles ul#vehicles li#item5 div.active ul { height:12px; }
+
+#mdsNavVehicles ul#vehicles li#item5 div.active ul li.link:hover,{
+	background: none;
+}
+
+#mdsNavVehicles ul#vehicles li div.active ul li {
+	height:14px;
+	width:95px;
+}
+#mdsNavVehicles ul#vehicles li .flyout ul li {
+	padding-left: 0px;
+}
+#mdsNavVehicles ul#vehicles li ul li {
+	padding-left: 10px;
+}
+#mdsNavVehicles ul#vehicles li div.subnavfamily li div.flyout {
+	display:none;
+	background: #fff url(/web/20100528160446im_/http://www.chevrolet.com/assets/en/images/global/navigation/flyout.png) left bottom no-repeat;
+	border-top:1px solid #eee;
+	width:350px;
+	height:193px;
+	position:relative;
+	left:0;
+	z-index:999;
+}
+body.Explorer6 #mdsNavVehicles ul#vehicles li div.subnavfamily li div.flyout {
+	position:absolute;
+}
+body.Explorer6 #mdsNavVehicles ul#vehicles li.segment div.subnavfamily li.brand .info {
+	position:absolute;
+	margin:0;
+	width:100px;
+	top: 65px !important;
+	left:5px;
+	height:120px;
+	padding:0;
+}
+body.Explorer6 #mdsNavVehicles ul#vehicles li.segment div.subnavfamily li.brand .overview {
+	position:absolute;
+	padding: 0 30px 0 0;
+	height:15px;
+	top:85px;
+}
+body.Explorer6 #mdsNavVehicles ul#vehicles li.segment div.subnavfamily li.brand .overview a {
+	margin:0;
+	padding:6px 0 6px 10px;
+	font-weight:bold;
+	width:110px;
+}
+body.Explorer6 #mdsNavVehicles ul#vehicles li.segment div.subnavfamily li.brand .build {
+	left:3px;
+	top:40px;
+}
+body.Explorer6 #mdsNavVehicles ul#vehicles li.segment div.subnavfamily li.brand .quote {
+	left:3px;
+	top:40px;
+}
+body.Explorer6 #mdsNavVehicles ul#vehicles li.segment div.subnavfamily li.brand .as-shown {
+	position:absolute;
+	left:200px;
+	top:165px;
+}
+body.Explorer8 #mdsNavVehicles ul#vehicles li.segment div.subnavfamily li.familylink .info, body.Explorer6 #mdsNavVehicles ul#vehicles li.segment div.subnavfamily li.familylink .info {
+	width: 150px;
+	margin: 0;
+	top:0;
+	left:10px;
+	padding:0;
+}
+body.Explorer6 #mdsNavVehicles ul#vehicles li.segment div.subnavfamily li.familylink .learn {
+}
+body.Explorer6 #mdsNavVehicles ul#vehicles li.segment div.subnavfamily li.familylink .learn a {
+	margin:0;
+	padding:6px;
+	font-weight:bold;
+}
+body.Explorer8 #mdsNavVehicles ul#vehicles li.segment div.subnavfamily li.familylink .as-shown, body.Explorer7 #mdsNavVehicles ul#vehicles li.segment div.subnavfamily li.familylink .as-shown, body.Explorer6 #mdsNavVehicles ul#vehicles li.segment div.subnavfamily li.familylink .as-shown {
+	position:absolute;
+	top:55px;
+	top: 165px;
+}
+#mdsNavVehicles ul#vehicles li div.subnavfamily li div.active {
+	display:block;
+}
+#mdsNavVehicles ul#vehicles li div.subnavfamily li div.flyout ul {
+	background:none;
+	width:100%;
+	position:relative;
+	float:left;
+	height:26px;
+	left:10px;
+	top:0px;
+}
+#mdsNavVehicles ul#vehicles li.segment div.subnavfamily li.familylink .thumb {
+	position:relative;
+	float:left;
+	width:100%;
+	height:125px;
+	text-align:center;
+}
+#mdsNavVehicles ul#vehicles li.segment div.subnavfamily li.familylink .title {
+	position:relative;
+	float:left;
+	width:100%;
+	margin:0;
+	text-indent:15px;
+	font-size:18px;
+	font-weight:bold;
+	padding-top:5px;
+	text-transform:uppercase;
+	color:#000;
+}
+#mdsNavVehicles ul#vehicles li.segment div.subnavfamily li.brand .overview, #mdsNavVehicles ul#vehicles li.segment div.subnavfamily li.familylink ul li.learn {
+	background:url(/web/20100528160446im_/http://www.chevrolet.com/assets/en/images/global/navigation/button-right.png) top right no-repeat;
+	width:auto;
+	height:30px;
+	padding:0 20px 0 0;
+	margin: 0;
+	position:relative;
+	top:3px;
+	left:5px;
+	color:#000;
+	text-transform:uppercase;
+}
+#mdsNavVehicles ul#vehicles li.segment div.subnavfamily li.brand .overview {
+	top:35px;
+}
+#mdsNavVehicles ul#vehicles li.segment div.subnavfamily li.familylink ul li.learn {
+	top:-5px;
+}
+#mdsNavVehicles ul#vehicles li.segment div.subnavfamily li.brand .overview a, #mdsNavVehicles ul#vehicles li.segment div.subnavfamily li.familylink ul li.learn a {
+	display:block;
+	background:url(/web/20100528160446im_/http://www.chevrolet.com/assets/en/images/global/navigation/button-left.png) top left no-repeat;
+	font-weight:bold;
+	font-size:10px;
+	width:auto;
+	color:#000 !important;
+	text-decoration:none;
+	padding:6px 9px 7px 9px;
+	margin: 0 0 0 -9px;
+	height:15px;
+	text-transform:uppercase;
+}
+#mdsNavVehicles ul#vehicles li.learn a, #mdsNavVehicles ul#vehicles li.learn a span {
+	font-size: 10px;
+}
+#mdsNavVehicles ul#vehicles li.segment div.subnavfamily li.familylink .learn a:visited, #mdsNavVehicles ul#vehicles li.segment div.subnavfamily li.familylink .learn a:visited span, #mdsNavVehicles ul#vehicles li.segment div.subnavfamily li.familylink .learn a span {
+	text-decoration:none;
+	color:#000 !important;
+	font-size:10px;
+}
+#mdsNavVehicles ul#vehicles li.segment div.subnavfamily li.brand ul li.overview:hover, #mdsNavVehicles ul#vehicles li.segment div.subnavfamily li.familylink ul li.learn:hover {
+	background-image: url(/web/20100528160446im_/http://www.chevrolet.com/assets/en/images/global/navigation/button-right-over.png);
+}
+#mdsNavVehicles ul#vehicles li.segment div.subnavfamily li.brand ul li.overview a:hover, #mdsNavVehicles ul#vehicles li.segment div.subnavfamily li.familylink ul li.learn a:hover, #mdsNavVehicles ul#vehicles li.segment div.subnavfamily li.brand ul li.overview a:hover span, #mdsNavVehicles ul#vehicles li.segment div.subnavfamily li.familylink ul li.learn a:hover span {
+	color:#000 !important;
+}
+#mdsNavVehicles ul#vehicles li.segment div.subnavfamily li.brand .thumb {
+	float:right;
+	width:225px;
+	height:125px;
+	margin:0;
+	text-align:center;
+	position:relative;
+	right: 10px;
+	top:0;
+}
+#mdsNavVehicles ul#vehicles li.segment div.subnavfamily li.brand .build, #mdsNavVehicles ul#vehicles li.segment div.subnavfamily li.brand .quote {
+	position:relative;
+	top:-45px;
+	background:none;
+}
+#mdsNavVehicles ul#vehicles li.segment div.subnavfamily li.brand .build a, #mdsNavVehicles ul#vehicles li.segment div.subnavfamily li.brand .quote a {
+	color:#000;
+	font-size:9px;
+	text-transform: none;
+	text-decoration:underline;
+}
+#mdsNavVehicles ul#vehicles li.segment div.subnavfamily ul li.brand div.flyout span.title {
+	font-size: 18px;
+	font-weight: bold;
+	text-transform: uppercase;
+	float:left;
+	width:100%;
+	padding-top:5px;
+	text-indent:15px;
+	color:#000;
+}
+#mdsNavVehicles ul#vehicles li.segment div.subnavfamily ul li.brand div.flyout span.thumb {
+	float:right;
+	width:225px;
+}
+#mdsNavVehicles ul#vehicles li.segment div.subnavfamily ul li.brand div.flyout span.msrp {
+	width:125px;
+	font-weight: bolder;
+	text-transform:none;
+	line-height:1.25em;
+	position:absolute;
+	top: 28px;
+	left:15px;
+	height:35px;
+	font-size:10px;
+	color:#000;
+}
+#mdsNavVehicles ul#vehicles li.segment div.subnavfamily ul li.brand div.flyout ul.info {
+	width:157px;
+	top:-40px;
+	left:12px;
+}
+.Explorer8 #mdsNavVehicles ul#vehicles li.segment div.subnavfamily ul li.familylink div.flyout ul.info {
+	width:175px;
+}
+#mdsNavVehicles ul#vehicles li.segment div.subnavfamily ul li.familylink div.flyout ul.info, #mdsNavVehicles ul#vehicles li.segment div.subnavfamily ul li.brand div.flyout ul.info {
+	border: none;
+}
+.Explorer6 #mdsNavVehicles ul#vehicles li.segment div.subnavfamily ul li.brand div.flyout ul.info {
+	top:0;
+	float:left;
+}
+.as-shown {
+	position:relative;
+	top:-30px;
+	right:30px;
+	float:right;
+	font-size:8px;
+	color:#000;
+	font-weight:bold;
+	height:25px;
+	padding-bottom:5px;
+}
+.brand .as-shown {
+	top:10px;
+	right:30px;
+}
+body.Explorer6 #mdsNavVehicles ul#vehicles li.segment div.subnavfamily ul li#item2_flyout_series_item1 .info {
+	width:140px;
+}
+body.Explorer6 #mdsNavVehicles ul#vehicles li.segment div.subnavfamily ul li#item2_flyout_series_item4 .info {
+	width:160px;
+}
+body.Explorer6 #mdsNavVehicles ul#vehicles li.segment div.subnavfamily ul li#item2_flyout_series_item5 .info {
+	width:130px;
+}
+body.Explorer6 #mdsNavVehicles ul#vehicles li.segment div.subnavfamily ul li#item3_flyout_series_item3 .info {
+	width:170px;
+}
+body.Explorer6 #mdsNavVehicles ul#vehicles li.segment div.subnavfamily ul li#item4_flyout_series_item3 .info {
+	width:140px;
+}
+body.Explorer6 #mdsNavVehicles ul#vehicles li.segment div.subnavfamily ul li#item4_flyout_series_item4 .info {
+	width:170px;
+}
+/*CARS*/
+body.Explorer6 #mdsNavVehicles ul#vehicles li#item2_flyout_series_item1 div.active {
+	top:0px;
+}
+body.Explorer6 #mdsNavVehicles ul#vehicles li#item2_flyout_brand_item3 div.active {
+	top:23px;
+}
+body.Explorer6 #mdsNavVehicles ul#vehicles li#item2_flyout_series_item3 div.active {
+	top:47px;
+}
+body.Explorer6 #mdsNavVehicles ul#vehicles li#item2_flyout_series_item4 div.active {
+	top:70px;
+}
+body.Explorer6 #mdsNavVehicles ul#vehicles li#item2_flyout_series_item5 div.active {
+	top:94px;
+}
+body.Explorer6 #mdsNavVehicles ul#vehicles li#item2_flyout_brand_item14 div.active {
+	top:118px;
+}
+body.Explorer6 #mdsNavVehicles ul#vehicles li#item2_flyout_brand_item15 div.active {
+	top:141px;
+}
+/*TRUCKS*/
+body.Explorer6 #mdsNavVehicles ul#vehicles li#item3_flyout_brand_item16 div.active {
+	top:0px;
+}
+body.Explorer6 #mdsNavVehicles ul#vehicles li#item3_flyout_brand_item17 div.active {
+	top:23px;
+}
+body.Explorer6 #mdsNavVehicles ul#vehicles li#item3_flyout_series_item3 div.active {
+	top:47px;
+}
+/*SUVs*/
+body.Explorer6 #mdsNavVehicles ul#vehicles li#item4_flyout_brand_item22 div.active {
+	top:0px;
+}
+body.Explorer6 #mdsNavVehicles ul#vehicles li#item4_flyout_brand_item25 div.active {
+	top:23px;
+}
+body.Explorer6 #mdsNavVehicles ul#vehicles li#item4_flyout_series_item3 div.active {
+	top:47px;
+}
+body.Explorer6 #mdsNavVehicles ul#vehicles li#item4_flyout_series_item4 div.active {
+	top:70px;
+}
+/*VANS*/
+body.Explorer6 #mdsNavVehicles ul#vehicles li#item5_flyout_brand_item28 div.active {
+	top:0px;
+}
+/*FUTURE*/
+#mdsNavVehicles ul#vehicles #item6_flyout {
+	background: #fff url(/web/20100528160446im_/http://www.chevrolet.com/assets/en/images/global/navigation/flyout.png) left bottom no-repeat;
+	border-top:1px solid #eee;
+	width:350px;
+	height:197px !important;
+	position:absolute;
+	left:0;
+	top:123px;
+	z-index:999;
+}
+body.Explorer6 #mdsNavVehicles ul#vehicles #item6_flyout {
+	overflow:hidden;
+	border-bottom:1px solid #000;
+}
+#mdsNavVehicles ul#vehicles #item6_flyout .title {
+	position:relative;
+	top:5px;
+	left:5px;
+	margin:0;
+	text-indent:15px;
+	font-size:18px;
+	font-weight:bold;
+	padding-top:5px;
+	text-transform:uppercase;
+	color:#000;
+}
+#mdsNavVehicles ul#vehicles #item6_flyout .thumb {
+	position:relative;
+	width:319px;
+	height:128px;
+	top:5px;
+	left:15px;
+}
+#mdsNavVehicles ul#vehicles li div#item6_flyout ul {
+	background: none;
+	width:110px;
+	border: none;
+	left: 10px;
+	top:0px;
+}
+#mdsNavVehicles ul#vehicles li div#item6_flyout ul.info li.learn:hover {
+	background-image: url(/web/20100528160446im_/http://www.chevrolet.com/assets/en/images/global/navigation/button-right-over.png);
+}
+#mdsNavVehicles ul#vehicles li div#item6_flyout ul.info li.learn {
+	background:url(/web/20100528160446im_/http://www.chevrolet.com/assets/en/images/global/navigation/button-right.png) top right no-repeat;
+	width:auto;
+	height:30px;
+	padding:0 20px 0 0;
+	margin: 0;
+	position:relative;
+	top:3px;
+	color:#000;
+	text-transform:uppercase;
+	   
+}
+#mdsNavVehicles ul#vehicles #item6_flyout .info .learn a {
+	display:block;
+	background:url(/web/20100528160446im_/http://www.chevrolet.com/assets/en/images/global/navigation/button-left.png) top left no-repeat;
+	font-weight:bold;
+	font-size:10px;
+	width:auto;
+	color:#000 !important;
+	text-decoration:none;
+	padding:6px 9px 7px 9px;
+	margin: 0 0 0 -9px;
+	height:15px;
+	text-transform:uppercase;
+}
+body.Explorer6 #mdsNavVehicles ul#vehicles #item6_flyout .info .learn a {
+	margin:0;
+	padding:6px 0 9px 10px;
+	width:130px;
+}
+body.Explorer6 #mdsNavVehicles ul#vehicles #item6_flyout .as-shown {
+	position:relative;
+	top:-40px;
+}
+#mdsNavVehicles ul#vehicles #item6_flyout .as-shown {
+	position:relative;
+	top:15px;
+}
+/**************************************************************************/
+
+/*------------------------lowspeed vs highspeed------------------------*/
+
+
+#pMasthead, #pContent {
+	display:none;
+}
+#gMdsContentNavFlashHook {
+	display: block;
+	z-index:100;
+}
+body.Explorer6 #gMdsContentNavFlashHook {
+	display: block;
+	z-index:100;
+}
+ @media screen and (-webkit-min-device-pixel-ratio:0) {
+#gMdsContentNavFlashHook {
+ display: block;
+z-index:100;
+position: relative;
+}
+}
+.highspeed #gMdsContentNavFlashHook, .lowspeed #gMdsContentNavFlashHook {
+	display: block;
+	position: absolute;
+}
+/*This style is for improve user's experience in the site; it will allow to see the footer at bottom
+ of the page while it is being loaded*/
+#gMdsContentNav {
+	min-height:700px;
+}
+/*------------------------lowspeed vs highspeed END------------------------*/
+
+#gMdsFooter {
+	padding:40px 0px 0px 86px;
+	width:900px;
+}
+/* footer style */
+#gMdsFooter #gmLogo {
+	display:inline;
+	float:left;
+	position:relative;
+	height:25px;
+	width:24px;
+	left:2px;
+	visibility:hidden;
+}
+#gMdsFooter #gMdsCopyNav {
+	clear: both;
+	font-size:10px;
+	margin:0px 0px 3px 31px;
+	width:875px;
+}
+#gMdsFooter #gMdsCopyNav li {
+	display: inline;
+	list-style-type: none;
+	border-right: 1px solid #dddddd;
+	padding:0px 8px;
+}
+#gMdsFooter #gMdsCopyLegal li {
+	display: inline;
+	list-style-type: none;
+	border-right: 1px solid #dddddd;
+	padding:0px 8px;
+}
+ @media screen and (-webkit-min-device-pixel-ratio:0) {
+ #gMdsFooter #gMdsCopyLegal li.first {
+ padding-right: 0px!important;
+}
+}
+#gMdsFooter #gMdsCopyLegal li.first {
+	width:130px;
+	font-size:10px!important;
+	color:	#363636;
+	padding-right: 4px;
+}
+#gMdsFooter #gMdsCopyLegal {
+	clear: both;
+	font-size:10px;
+	margin:0px 0px 0px 29px;
+	width:800px;
+}
+#gMdsFooter ul li.last {
+	border: none;
+}
+#gMdsFooter ul li.first a {
+	padding-left: 0;
+}
+/*
+	footer - disclaimer
+*/
+#gMdsDisclaimer {
+	color:#363636;
+	font-size:9px;
+	padding:0px 0px 30px 0px;
+}
+#gMdsDisclaimer dt {
+	text-align: right;
+	display: block;
+	margin: 0px;
+	padding: 0px;
+	float: left;
+	width: 7px;
+	font-size: 9px;
+}
+#gMdsDisclaimer dt span {
+	width: 7px;
+	color:#666666;
+	line-height: 15px !important;
+}
+#gMdsDisclaimer dd span {
+	margin: 0px 0px 10px 1px;
+ *margin-left:0px!important;
+	_margin-left:-3px!important;
+	padding: 0px;
+	color: #646b70;
+	font-size: 9px;
+	line-height: 15px !important;
+}
+#gMdsDisclaimer a span, #gMdsDisclaimer a:active span, #gMdsDisclaimer a:hover span, #gMdsDisclaimer a:visited span, #gMdsDisclaimer a, #gMdsDisclaimer a:active, #gMdsDisclaimer a:hover, #gMdsDisclaimer a:visited, #gMdsDisclaimer .clickable {
+	color:#363636;
+	font-size:10px;
+	font-family:verdana;
+	text-decoration:underline;
+}
+#disclaimerContainer dl {
+	color:#666666;
+	position:relative;
+	margin: 0px;
+	width:800px;
+	padding-top:17px;
+}
+#gMdsDisclaimer #disclaimerContainer {
+	float:left;
+	left:0px;
+	position:relative;
+	width:800px;
+}
+#disclaimerContainer dl dt {
+	margin: 0px;
+}
+#disclaimerContainer dl dd {
+	margin-left:1em;
+	height:auto;
+	padding:0px 0px 8px 0px;
+	margin:0pt 0pt 10px 30px;
+}
+/*New Footer*/
+
+#gMdsFooter {
+	clear:both;
+	display:block;
+	margin:0pt;
+	margin-left:0px;
+	padding:34px 0pt 0pt;
+	width:910px;
+}
+#gMdsDisclaimer dl, #gMdsDisclaimer dl dt, #gMdsDisclaimer dl dd, #gMdsFooter #gMdsCopyright, #gMdsFooter #gAbout, #gMdsFooter #gMdsDisclaimer, #gMdsFooter ul, ul#gMdsCopyNav {
+	margin:0pt;
+	padding:0pt;
+}
+#gMdsFooter #gMdsCopyright, #gMdsFooter #gAbout, #gMdsFooter #gMdsDisclaimer {
+	clear:both;
+	float:left;
+	width:866px;
+}
+#gMdsFooter #gMdsDisclaimer {
+	float:left;
+	margin:18px 0pt 0pt;
+}
+#gMdsFooter #gMdsCopyright {
+	float:left;
+	background:url(/web/20100528160446im_/http://www.chevrolet.com/assets/en/images/global/chevy_global_footer_logo.jpg) no-repeat;
+	width: 980px;
+	height:60px;
+	background-position: right 19px;
+}
+
+#gMdsFooter #gMdsCopyright #gMdsCopyNav li a:hover, #gMdsFooter #gMdsCopyright #gMdsCopyNav li a:hover span,
+#gMdsFooter #gMdsCopyright #gMdsCopyLegal li a:hover, #gMdsFooter #gMdsCopyright #gMdsCopyLegal li a:hover span
+{color:#B49D3F; }
+
+#gMdsFooter #gMdsCopyright li span, #gMdsFooter #gMdsCopyright li {
+	font-size: 10px;
+	font-family: Verdana!important;
+}
+#gMdsFooter #gmLogo {
+	display:inline;
+	float:left;
+	height:25px;
+	position:relative;
+	top:27px;
+	width:24px;
+	margin-left:5px;
+}
+#gMdsFooter #gMdsCopyright #gMdsCopyLegal {
+	display:inline;
+	float:left;
+	margin:5px 0pt 0pt 31px !important;
+}
+#gMdsFooter ul li {
+	display:inline;
+	float:left;
+	list-style-image:none;
+	list-style-position:outside;
+	list-style-type:none;
+	padding-left:14px;
+	padding-right:14px;
+}
+#gMdsFooter ul li.last {
+	border:medium none !important;
+}
+#gMdsFooter ul li.first a {
+	padding-left:0pt;
+}
+#gMdsFooter ul li a:link span, #gMdsFooter ul li span.clickable, #gMdsFooter ul li a:visited span {
+	text-decoration:underline;
+}
+#gMdsFooter ul li a {
+	text-decoration:none;
+}
+#gMdsFooter ul li.first {
+	padding-left:0pt;
+	width:160px;
+}
+#gMdsDisclaimer {
+	padding-top:15px;
+	width:550px;
+}
+#gMdsDisclaimer dt {
+	float:left;
+	text-align:right;
+	width:20px;
+}
+#gMdsDisclaimer dl dd {
+	margin:0pt 0pt 4px 30px;
+}
+/*------Activate and deactivate the visibility continents or countries------*/
+ul#continentList {
+	position:relative;
+	width:130px;
+}
+#continentList li ul.wsEnableCountry {
+	display: block;
+	width: 141px;
+	height: 99px!important;
+	overflow-x:hidden;
+	overflow-y:auto;
+	top:2px;
+	position:absolute;
+	left: 130px!important;
+}
+#wsDialog.activeCountries {
+	width: 300px;
+	background:url(/web/20100528160446im_/http://www.chevrolet.com/assets/en/images/global/worldwide/popup_box_background.gif) no-repeat;
+	background-position:left 27px;
+	width:309px!important;
+	height:160px;
+}
+.wsEnableCountry {
+	display: block !important;
+}
+.wsDisableCountry {
+	display: none !important;
+}
+ul.wsEnableCountry {
+	display: none;
+	width: 150px;
+	height: 100px!important;
+	overflow-x: hidden;
+	overflow-y: auto;
+	top:-11px;
+	position:absolute;
+	left: 100px!important;
+}
+.scroll {
+	display: none;
+	width: 150px;
+	height: 100px!important;
+	overflow-x: hidden;
+	overflow-y: auto;
+	top:-11px;
+	position:absolute;
+	margin-left: 120px!important;
+	background-color: #F2D2F2;
+}
+#wsDialog.activeCountries h4 {
+	background:url(/web/20100528160446im_/http://www.chevrolet.com/assets/en/images/global/worldwide/popup_title_chevrolet.gif) top left no-repeat;
+	width:309px;
+	height:27px;
+}
+/*------Activate and deactivate the visibility continents or countries END------*/
+
+#gMdsContent {
+	position: relative;
+	display:none;
+}
+#gMdsContent a, #gMdsContent a span {
+	color : #363636;
+	font-family : verdana;
+	text-decoration : underline;
+	line-height: normal;
+}
+#gMdsContent a:hover span, #gMdsContent a:hover {
+	color :#E1A504;
+	font-family : verdana;
+	text-decoration : underline;
+	line-height: normal;
+}
+#gMdsContent a:active span, #gMdsContent a:active {
+	color : #B49D3F;
+	font-family : verdana;
+	text-decoration : underline;
+	line-height: normal;
+}
+#gMdsContent a:visited span, #gMdsContent a:visited {
+	color : #646b70;
+	font-family : verdana;
+	text-decoration : underline;
+	line-height: normal;
+}
+p, fieldset, table, pre {
+	margin-bottom:1em;
+	padding-left:2px;
+}
+#gMdsFooter #gMdsCopyright ul + ul li + li + li span {
+/*color:#FF0000 !important;*/
+}
+#gMdsFooter #gMdsCopyright ul + ul li + li + li span:hover {
+/*color:#FF0000 !important;*/
+}
+#gMdsFooter #gMdsCopyright ul + ul li + li + li + li span {
+	color:#363636 !important;
+}
+#gMdsFooter #gMdsCopyright ul + ul li + li + li+ li span:hover {
+	color:#E1A504 !important;
+}
+/*LAV, LAD, BYO pop ups appearing on: 
+	1. Top navigation
+	2. Vehicle pages: when clicking on "Build your Own" link in secondary navigation
+	3. Features & Specs:: when clicking on "Build your Own" button
+	4. Build your own: how to build
+	5. Series - Hybrids page: when clicking on "Locate this vehicle"
+	6. Help me choose page: when clicking on "Locate this vehicle" on each baseball card
+*/
+
+a#btnClose {
+	background:url(/web/20100528160446im_/http://www.chevrolet.com/assets/en/images/global/buttons.gif) -60px 0 no-repeat;
+	font-size:9px;
+	height:14px;
+	text-align:left;
+	text-decoration:none;
+	text-indent:-9999px;
+	width:50px;
+	display:block;
+	float:right;
+}
+a#btnZipGo {
+	background:url(/web/20100528160446im_/http://www.chevrolet.com/assets/en/images/global/buttons.gif) 0 0 no-repeat;
+	height:16px;
+	text-indent:-9999px;
+	width:36px;
+	display:block;
+	float:left;
+}
+a#btnZipGo:hover {
+	background-position:0 -15px;
+}
+a#btnZipGo:active {
+	background-position:0 -30px;
+}
+input#btnZipGo {
+	background:url(/web/20100528160446im_/http://www.chevrolet.com/assets/en/images/tools/dealerlocator/btn_go.gif) no-repeat;
+	background-position:0 0;
+	background-repeat:no-repeat;
+	height:16px;
+	text-indent:-9999px;
+	width:36px;
+	display:block;
+	float:right;
+	border:none !important;
+	line-height:100px;
+}
+input#btnZipGo:hover {
+	background-position:0 -15px;
+}
+input#btnZipGo:active {
+	background-position:0 -30px;
+}
+a#btnClose span {
+	display:none;
+}
+a#btnZipGo span {
+	display:none;
+}
+#editZipcode, #editCounty {
+	padding-left:5px;
+}
+input#txtZipcode {
+	float:left;
+	margin:0 10px 0 0;
+}
+#advanceSearch {
+	font-size:9px;
+	padding-bottom:10px;
+	text-align:center;
+}
+.countyDialog #advanceSearch, .regionDialog #advanceSearch {
+	padding-top:20px;
+	display:block;
+	overflow:hidden;
+	margin-right:25px;
+}
+.infoDialog #advanceSearch {
+	text-align:center;
+}
+.zipCodeDialog #advanceSearch {
+	padding-left:40px;
+}
+#cmbCounty {
+	float:left;
+	margin:0 10px 0 0;
+	overflow:hidden;
+	width:auto;
+}
+#cmbRegion {
+	float:left;
+	margin:0 4px 0 0;
+}
+div#vlDialog, div#dlDialog, div#byoDialog, div#fsbyoDialog, div#compvlDialog {
+	background:White none repeat scroll 0 0;
+	border:1px solid #646B70!important;
+	display:block;
+	font-family:Verdana;
+	font-size:9px;
+	min-height:85px;
+	padding:0 0 10px 0;
+	position:absolute;
+	width:220px;
+	z-index:100;
+	overflow:hidden;
+}
+.zipCodeDialog span {
+	display:block;
+	clear:both;
+	padding:20px 0 0 20px;
+}
+.countyDialog span, .regionDialog span {
+	display:block;
+	clear:both;
+	padding:0 0 0 20px;
+}
+.regionDialog span {
+	padding:0 0 0 14px;
+}
+.zipCodeDialog span span {
+	padding:0;
+}
+div#vlDialog p, div#dlDialog p, div#byoDialog p, div#fsbyoDialog p {
+	clear:both;
+	padding-left:4px;
+}
+#header {
+	clear:both;
+	font-size:10px;
+	padding:20px 0 0 4px;
+	width:218px;
+}
+#byoDialog.countyDialog a#btnClose {
+	margin-bottom:17px;
+	margin-top:-29px;
+}
+#byoDialog.regionDialog a#btnClose {
+	margin-bottom:17px;
+	margin-top:-29px;
+}
+#compvlDialog.countyDialog a#btnClose {
+	margin-bottom:17px;
+	margin-top:-29px;
+}
+#compvlDialog.regionDialog a#btnClose {
+	margin-bottom:17px;
+	margin-top:-29px;
+}
+div#byoDialog {
+	padding-bottom:10px;
+}
+#byoDialog.infoDialog form#byoDialogform p.plocation {
+	float:left;
+}
+#byoDialog.infoDialog form#byoDialogform h6 {
+	clear:both;
+	padding-bottom:43px;
+}
+#fsbyoDialog.infoDialog form#fsbyoDialogform p.plocation {
+	float:left;
+}
+#fsbyoDialog.infoDialog form#fsbyoDialogform h6 {
+	clear:both;
+	padding-bottom:43px;
+}
+#buttonsInfo {
+	padding-bottom:0;
+	padding-left:15px;
+	padding-right:15px;
+	padding-top:0;
+	display:block;
+}
+#fsbyoDialogform {
+	padding-bottom:10px;
+}
+#mdsNavDivisionVehicles li a:hover, #mdsNavDivisionPricing li a:hover, #mdsNavDivisionExperience li a:hover, #mdsNavDivisionOwners li a:hover {
+	color:#B49D3F !important;
+}
+#mdsNavDivisionVehicles li a, #mdsNavDivisionVehicles li a:visited, #mdsNavDivisionPricing li a, #mdsNavDivisionPricing li a:visited, #mdsNavDivisionExperience li a, #mdsNavDivisionExperience li a:visited, #mdsNavDivisionOwners li a, #mdsNavDivisionOwners li a:visited {
+	color:#646B70 !important;
+}
+.Explorer6 ul#subMenu li {
+ background-image: expression(this.nextSibling==null?'none':'');
+ border-right:expression(this.nextSibling==null?'none':'');
+}
+.Explorer6 ul#mdsNavDivisionNav li {
+ background-image: expression(this.nextSibling==null?'none':'');
+ border-right:expression(this.nextSibling==null?'none':'');
+}
+#mdsSearchSite form {
+	font-size:10px;
+}
+
+/*
+     FILE ARCHIVED ON 16:04:46 May 28, 2010 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:39:44 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 135.576
+  exclusion.robots: 0.102
+  exclusion.robots.policy: 0.089
+  cdx.remote: 0.079
+  esindex: 0.011
+  LoadShardBlock: 104.937 (3)
+  PetaboxLoader3.resolve: 89.899 (4)
+  PetaboxLoader3.datanode: 44.519 (4)
+  load_resource: 53.744
+*/

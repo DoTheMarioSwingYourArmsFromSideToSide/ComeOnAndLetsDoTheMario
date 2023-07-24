@@ -1,0 +1,176 @@
+BODY { font-family: arial, helvetica, verdana, sans-serif; 
+	font-size: 12px;
+	color: #ffffff }	
+	
+TD { font-family: arial, helvetica, verdana, sans-serif; 
+	font-size: 12px;
+	color: #ffffff }
+
+TD.rdb { font-family: arial, helvetica, verdana, sans-serif; 
+	font-size: 12px;
+	color: #ffffff }
+	
+H1 { font-family: arial, helvetica, verdana, sans-serif; 
+	font-weight: bold;
+	font-size: 16px;
+	color: #ffffff }
+	
+H2 { font-family: arial, helvetica, verdana, sans-serif; 
+	font-weight: bold;
+	font-size: 14px;
+	color: #ffffff }
+	
+H3 { font-family: arial, helvetica, verdana, sans-serif; 
+	font-weight: bold;
+	font-size: 14px;
+	
+B { font-family: arial, helvetica, verdana, sans-serif;
+	font-weight: bold;
+	color: #ffffff }
+	
+I { font-family: arial, helvetica, verdana, sans-serif;
+	font-style: italic;
+	color: #ffffff }
+
+P { font-family: arial, helvetica, verdana, sans-serif;
+	font-size: 12px;
+	color: #ffffff }
+	
+P.footnote { font-family: arial, helvetica, verdana, sans-serif;
+	font-size: 10px; }
+	
+SPAN { font-family: arial, helvetica, verdana, sans-serif;
+	font-size: 12px;
+	color: #ffffff }
+	
+SPAN.footnote { font-family: arial, helvetica, verdana, sans-serif;
+	font-size: 10px;
+	color: #ffffff }
+	
+SPAN.header { font-family: arial, helvetica, verdana, sans-serif;
+    font-weight: bold;
+	font-size: 14px;
+	color: #ffffff }
+	
+SPAN.brandstatement { font-family: arial, helvetica, verdana, sans-serif;
+	font-size: 11px;
+	color: #ffffff }	
+	
+SPAN.captions { font-family: arial, helvetica, verdana, sans-serif;
+	font-size: 11px;
+	color: #ffffff }
+
+SPAN.rdb { font-family: arial, helvetica, verdana, sans-serif;
+	color: #ffffff;
+	font-size: 11px }
+	
+span.Required { font-family: arial, helvetica, verdana, sans-serif;
+	font-weight: bold;
+	font-size: 12px;
+	color: #FFFFFF }
+	
+span.reallysmall { font-family: arial, helvetica, verdana, sans-serif;
+	font-weight: bold;
+	font-size: 8px;
+	color: #FFFFFF }
+	
+	
+BLOCKQUOTE { font-family: arial, helvetica, verdana, sans-serif;
+	font-size: 12px;
+	color: #000000 }
+	
+LI { font-family: arial, helvetica, verdana, sans-serif;
+	font-size: 12px;
+	color: #ffffff }
+	
+A:link { font-family: arial, helvetica, verdana, sans-serif;
+	color: #ffffff;
+	text-decoration: underline }
+
+A:visited { font-family: arial, helvetica, verdana, sans-serif;
+	color: #ffffff;
+	text-decoration: underline }
+
+A:active { font-family: arial, helvetica, verdana, sans-serif;
+	color: #cccccc;
+	text-decoration: underline }
+
+A:hover { font-family: arial, helvetica, verdana, sans-serif;
+	color: #ffcc00;
+	text-decoration: underline }
+	
+
+
+	
+SPAN.nav { font-family: arial, helvetica, verdana, sans-serif;
+	font-size: 11px }
+	
+A.nav:link { font-family: arial, helvetica, verdana, sans-serif;
+	color: #ffffff;
+	font-size: 11px;
+	text-decoration: none }
+
+A.nav:visited { font-family: arial, helvetica, verdana, sans-serif;
+	color: #ffffff;
+	font-size: 11px;
+	text-decoration: none }
+
+A.nav:active { font-family: arial, helvetica, verdana, sans-serif;
+	color: #ffffff;
+	font-size: 11px;
+	text-decoration: none }
+
+A.nav:hover { font-family: arial, helvetica, verdana, sans-serif;
+	color: #ffcc00;
+	font-size: 11px;
+	text-decoration: underline }
+	
+TD.bodyTxtSpecs { font-family: arial, helvetica, verdana, sans-serif; 
+	font-size: 12px;
+	color: #000000 }
+	
+SPAN.bodyTxtSpecsSmall { font-family: arial, helvetica, verdana, sans-serif; 
+	font-size: 10px;
+	color: #000000 }
+	
+	
+TD.bodyTxt { font-family: arial, helvetica, verdana, sans-serif; 
+	font-size: 12px;
+	color: #000000 }
+	
+A.bodyGVWR { font-family: arial, helvetica, verdana, sans-serif; 
+	font-size: 12px;
+	color: #000000 }
+	
+TD.bodyGVWR { font-family: arial, helvetica, verdana, sans-serif; 
+	font-size: 12px;
+	color: #000000 }
+	
+TD.hdrBlack { font-family: arial, helvetica, verdana, sans-serif; 
+	font-size: 12px;
+	color: #000000 }
+	
+TD.hdrblackSmall { font-family: arial, helvetica, verdana, sans-serif; 
+	font-size: 12px;
+	color: #000000 }
+
+/*
+     FILE ARCHIVED ON 02:24:53 Apr 14, 2003 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 20:41:27 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 166.178
+  exclusion.robots: 0.133
+  exclusion.robots.policy: 0.123
+  cdx.remote: 0.07
+  esindex: 0.008
+  LoadShardBlock: 134.815 (3)
+  PetaboxLoader3.datanode: 119.517 (4)
+  load_resource: 79.254
+  PetaboxLoader3.resolve: 41.612
+*/

@@ -1,0 +1,123 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+function setcolorbg(){
+   config. BgColor = '#FFFFFF';
+   config. BorderColor = '#CCCCCC';
+}
+AttachEvent(window, "load", setcolorbg);
+
+var hideNavigationLine=true;
+
+if (global.siteSpeed == "high") {
+	$(document).addEvent('domready', function() {
+		if (typeof SWFObject !="undefined") {
+			var flashVersion = new Object();
+			flashVersion.major = 8;
+			flashVersion.minor = 0;
+			var so = new SWFObject(BASE_CONTEXT +"/assets/en/flash/misc/homepage/homepage.swf", "flashObj_overviewFlash", "980", "630", flashVersion.major, "#FFFFFF");
+			so.addParam("wmode", "transparent");
+			so.addParam("allowScriptAccess", "always");
+			so.addVariable("lcid", lcid);
+			so.addVariable("pageSection", BASE_CONTEXT + "/pages/mds/misc/homepage.do");
+			so.addVariable("siteSpeed", global.siteSpeed);
+			so.addVariable("BASE", BASE_CONTEXT);
+			so.addVariable("cashForClunkersURL", "https://web.archive.org/web/20100614210831/http://www.gm.com/cash-for-clunkers/?brandId=ch%26src=hom%26evar24=chevy_hp_summersale");
+			so.addVariable("tilesPath", BASE_CONTEXT + "/assets/en/flash/misc/homepage/messaging.swf");
+			so.addVariable("summerSaleURL", "https://web.archive.org/web/20100614210831/http://www.gm.com/summersale/?brandId=ch%26src=hom%26evar24=chevy_hp_summersale");
+			so.addVariable("mastheadPath", BASE_CONTEXT + "/assets/en/flash/misc/homepage/masthead.swf?path="+BASE_CONTEXT+"&buttonsPath=" + BASE_CONTEXT + "/assets/en/flash/misc/homepage/masthead_still.swf");
+			so.addVariable("source", ""+ flashInnerHTML(document.getElementById("gMdsContent")) +"");
+			so.addParam("allowScriptAccess", "sameDomain");
+			so.addParam("wmode", "transparent");
+			so.addParam("quality", "high");
+			if (BrowserDetect) {
+				so.addVariable("BrowserDetect.browser", BrowserDetect.browser);
+				so.addVariable("BrowserDetect.version", BrowserDetect.version);
+				so.addVariable("BrowserDetect.OS", BrowserDetect.OS);
+			}
+
+			so.write("gMdsContentFlashHook");
+			if (so.installedVer.major >= flashVersion.major) {
+				css.addClassName(document.body, 'flash');
+			} else {
+				css.addClassName(document.body, 'noflash');
+			
+			}
+		} else { 
+
+			css.addClassName(document.body, 'noflash');
+		} 
+	});
+}
+else{
+	$(document).addEvent('domready', function() {
+		if (typeof SWFObject !="undefined") {
+			var flashVersion = new Object();
+			flashVersion.major = 8;
+			flashVersion.minor = 0;
+			var so = new SWFObject(BASE_CONTEXT + "/assets/en/flash/misc/homepage/homepage.swf", "flashObj_overviewNoFlash", "980", "630", flashVersion.major, "#FFFFFF");
+			so.addParam("wmode", "transparent");
+			so.addParam("allowScriptAccess", "always");
+			so.addVariable("lcid", lcid);
+			so.addVariable("pageSection", BASE_CONTEXT + "/pages/mds/misc/homepage.do");
+			so.addVariable("siteSpeed", global.siteSpeed);
+			so.addVariable("BASE", BASE_CONTEXT);
+			so.addVariable("cashForClunkersURL", "https://web.archive.org/web/20100614210831/http://www.gm.com/cash-for-clunkers/?brandId=ch%26src=hom%26evar24=chevy_hp_summersale");
+			so.addVariable("tilesPath", BASE_CONTEXT + "/assets/en/flash/misc/homepage/messaging.swf");
+			so.addVariable("summerSaleURL", "https://web.archive.org/web/20100614210831/http://www.gm.com/summersale/?brandId=ch%26src=hom%26evar24=chevy_hp_summersale");
+			so.addVariable("mastheadPath", BASE_CONTEXT + "/assets/en/flash/misc/homepage/masthead_still.swf?path="+BASE_CONTEXT);
+			so.addVariable("source", ""+ flashInnerHTML(document.getElementById("gMdsContent")) +"");
+			so.addParam("allowScriptAccess", "sameDomain");
+			so.addParam("wmode", "transparent");
+			so.addParam("quality", "high");
+			if (BrowserDetect) {
+				so.addVariable("BrowserDetect.browser", BrowserDetect.browser);
+				so.addVariable("BrowserDetect.version", BrowserDetect.version);
+				so.addVariable("BrowserDetect.OS", BrowserDetect.OS);
+			}
+
+			so.write("lowSpeedContent");
+			if (so.installedVer.major >= flashVersion.major) {
+				css.addClassName(document.body, 'flash');
+			} else {
+				css.addClassName(document.body, 'noflash');
+			
+			}
+		} else { 
+
+			css.addClassName(document.body, 'noflash');
+		} 
+	});
+}
+
+
+}
+/*
+     FILE ARCHIVED ON 21:08:31 Jun 14, 2010 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:38:12 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 111.473
+  exclusion.robots: 0.062
+  exclusion.robots.policy: 0.054
+  cdx.remote: 0.05
+  esindex: 0.008
+  LoadShardBlock: 69.118 (3)
+  PetaboxLoader3.datanode: 161.263 (4)
+  load_resource: 291.58
+  PetaboxLoader3.resolve: 154.727
+*/

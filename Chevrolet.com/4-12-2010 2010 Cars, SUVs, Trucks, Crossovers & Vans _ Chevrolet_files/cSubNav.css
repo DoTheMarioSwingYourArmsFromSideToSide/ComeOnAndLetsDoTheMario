@@ -1,0 +1,70 @@
+#subHeader {
+	clear:both;
+	margin:0px auto 0pt;
+	position:relative;
+	overflow:hidden;
+}
+ul#subMenu li{
+	float:left;
+	list-style: none;
+	background: url(/web/20100528160521im_/http://www.chevrolet.com/assets/en/images/global/navigation/pipe_sm.gif ) right top no-repeat;
+	width:auto;
+	padding: 0 6px 0 5px;
+}
+ul#subMenu li.list-title,
+ul#subMenu li.last{ background: none; }
+ul#subMenu li a,
+ul#subMenu li a span {
+	text-transform:uppercase;
+	text-decoration:none;
+}
+ul#subMenu li a:hover,
+ul#subMenu li a:hover span,
+ul#subMenu li.tabActive a,
+ul#subMenu li.tabActive a span { color :#B49D3F !important; font-weight: normal !important; }
+
+
+ul#subMenu li a span,
+ul#subMenu li a:active span,
+ul#subMenu li a:hover span,
+ul#subMenu li a:visited span,
+ul#subMenu li a,
+ul#subMenu li a:active,
+ul#subMenu li a:hover,
+ul#subMenu li a:visited,
+ul#subMenu li .clickable{
+	text-transform:uppercase;
+	text-decoration:none;
+	font-size:10px;
+}
+.Explorer6 ul#subMenu li {
+ background: expression(this.nextSibling==null?'none':'');
+}
+
+ul#subMenu li h3 {
+font-size:165%;
+font-weight:bold;
+margin-right:20px;
+margin-top:-4px;
+}
+
+/*
+     FILE ARCHIVED ON 16:05:21 May 28, 2010 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:39:44 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 128.76
+  exclusion.robots: 0.114
+  exclusion.robots.policy: 0.1
+  cdx.remote: 0.114
+  esindex: 0.011
+  LoadShardBlock: 91.454 (3)
+  PetaboxLoader3.datanode: 241.305 (4)
+  PetaboxLoader3.resolve: 49.518 (2)
+  load_resource: 210.994
+*/

@@ -1,0 +1,64 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+jQuery(".q-nav-list-item a[title*='Find a Dealer']").on("click", function() {
+	
+	setTimeout(function() {
+		jQuery(".q-dealer-info .q-phone a").on("click", function(e) {
+            
+            var dn = jQuery(event.currentTarget).parents('.q-dealer-info:eq(0)').find('.q-dealer-name').text().trim().toLowerCase();	
+            
+			jQuery(window).trigger("CTC", [dn]);
+		});
+
+		jQuery("span[ng-bind='label.drivingDirections']").on("click", function(e) {
+
+             var dn = jQuery(event.currentTarget).parents('.q-dealer-info:eq(0)').find('.q-dealer-name').text().trim().toLowerCase();	
+			jQuery(window).trigger("GD", [dn]);
+		});
+			
+		jQuery(".dealer-locator-widget .dealer-search-box").on("keypress", function(e){
+            if(e.which == 13){
+                jQuery(window).trigger("locatedealercomplete");
+            }
+        });		
+        
+        jQuery(".dealer-locator-widget .dealer-search-button").on("click", function(e){
+                jQuery(window).trigger("locatedealercomplete");
+        });
+        
+	}, 1000);
+
+
+});
+
+}
+/*
+     FILE ARCHIVED ON 09:00:26 May 12, 2019 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 08:06:57 May 01, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 124.612
+  exclusion.robots: 0.078
+  exclusion.robots.policy: 0.068
+  cdx.remote: 0.063
+  esindex: 0.014
+  LoadShardBlock: 81.491 (3)
+  PetaboxLoader3.datanode: 90.432 (4)
+  load_resource: 147.199
+  PetaboxLoader3.resolve: 115.615
+*/

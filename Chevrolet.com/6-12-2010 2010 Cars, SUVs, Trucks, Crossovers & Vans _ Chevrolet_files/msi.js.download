@@ -1,0 +1,745 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+/**
+* This file will provide a framework to use in the "Save My Info Widget"
+*@author Ashuin Sharma
+*/
+
+var debug = false; // flag for debugging
+var MAX_ENTRIES = 4; // maximum amount of entries permited
+var ENTRY_DELIMITER = "||"; // separator for each entry
+var ATTRIBUTE_DELIMITER = "~~"; //separator for attributes on each entry
+var ADDRESS_SEP = "$$";
+var SEP = "::";
+var EXPIRES = 10;  // cookie expiration parameter (in days)
+var VEHICLE_COOKIENAME  = "savedvehiclelist";
+var INVENTORY_COOKIENAME  = "savedinventorylist";
+var DEALER_COOKIENAME  = "saveddealerlist";
+var MSI_COOKIENAME  = "msicookie";
+var DUPLICATED_ERROR  = "DUPLICATEDERROR";
+var FULL_ERROR  = "MYINFOFULLERROR";
+var MESSAGE_OK  = "SAVEDOK";
+var ITEM = undefined;
+var urlError = BASE_CONTEXT+"/misc/msi/fullMsiMessage.do";
+var CORRUPTED_MESSAGE = "My Saved Info Data was corrupted. Cleanup done.";
+var VEHICLE = 0;
+var INVENTORY = 1;
+var DEALER = 2;
+var EN_IMAGE_PATH = BASE_CONTEXT + "/assets/en/images";
+var MSI_CHECKED_CLASS = "msiImageChecked";
+var MSI_UNCHECKED_CLASS = "msiImage";
+var lastSaved = 0;
+var lastPushed = 0;
+
+/********************************************Saved Item ********************************************/
+/*
+* SavedItem is the parent class for Save My Info Cookies.
+* @constructor
+* @param cookieName Is the Name of the cooke file
+* @param id Is the key that identifies uniquely a given entry,
+*/
+function SavedItem(cookieName,id){
+	this._id = id;
+	this._cookieName = cookieName;
+}
+
+/*
+* This methods saves an object into the cookie
+* @returns True if the item was saved, or false if the cookie list is full. So the system can prompt for overriding confirmation.
+*/
+
+function isNoE(content)
+{
+	return (content==null || content=="");
+}
+
+SavedItem.prototype.save = function (){
+		if(!this.isSaved())
+		{
+			var size  = this.size();
+			if(BrowserDetect.browser + " " + BrowserDetect.version == "Explorer 6"){
+				MAX_ENTRIES = 2;
+			}	
+			if(size < MAX_ENTRIES){				
+				var arrayItems = this.toObject();
+				arrayItems.push(this);
+                var value = escape(JSON.encode(arrayItems));
+				createCookie(this._cookieName,value,EXPIRES);
+				return MESSAGE_OK;
+			}else
+			{
+				return FULL_ERROR;
+			}
+		}
+		else
+			return DUPLICATED_ERROR;
+}
+
+/*
+* This method saves an item in the first position of the cookie list.
+*/
+SavedItem.prototype.push = function (){
+	var arrayItems = this.toObject();
+        arrayItems[0] = this;
+	var newvalue  = escape(JSON.encode(arrayItems));
+	createCookie(this._cookieName,newvalue,EXPIRES);
+}
+
+/*
+* This method saves an item in the first position of the cookie list.
+*/
+SavedItem.prototype.remove = function (id){
+	var arrayItems = this.toObject();
+        for(var index=0;index<arrayItems.length;++index)
+        {
+            if(arrayItems[index]._id===id)
+            {
+                arrayItems.splice(index,1);
+                var newvalue = escape(JSON.encode(arrayItems));
+                createCookie(this._cookieName,newvalue,EXPIRES);
+                break;
+            }
+        }
+}
+
+
+/*
+* This methods erases the contents of the cookie
+*/
+
+SavedItem.prototype.flush = function (){
+	eraseCookie(this._cookieName);
+}
+
+/*
+* This methods displays the content of the cookie
+*/
+
+SavedItem.prototype.show = function (){
+        var value = readCookie(this._cookieName);
+        alert(value);
+}
+
+SavedItem.prototype.getMaxEntries = function (){
+	return MAX_ENTRIES;
+}
+
+SavedItem.prototype.size = function (){
+	var size  = 0;
+	var arrayItems = this.toObject();
+        size =  arrayItems.length;
+	return size;
+}
+
+SavedItem.prototype.sizeOf = function(cookie){
+	var array = new Array();
+	var value = readCookie(cookie);
+        var size = 0;
+        try{
+            if (!isNoE(value))
+            {
+                array = JSON.decode(unescape(value));
+                size = array.length;
+            }
+        }
+        catch(e)
+        {
+            flushAll();
+            size =  0;
+            alert(CORRUPTED_MESSAGE);
+        }
+        return size;
+}
+
+SavedItem.prototype.isSaved = function (){
+    var arrayItems = this.toObject();
+    var result = false;
+    for(var i=0;i<arrayItems.length;i++)
+    {
+        if(arrayItems[i]._id===this._id)
+        {
+            result = true;
+            break;
+        }
+    }
+    return result;
+}
+
+/*
+* Overrides the toString method. This method will be called from the save function, to stream the data into the cookie.
+*/
+SavedItem.prototype.toString = function(){
+	return JSON.encode(this);
+}
+
+/*
+* This function reads  the entire cookie, and parses it into an array list.
+*/
+
+SavedItem.prototype.toObject = function(){
+	var array = new Array();
+	var value = readCookie(this._cookieName);
+        try{
+            if (!isNoE(value))
+            {
+                array = JSON.decode(unescape(value));
+            }
+        }catch(e)
+        {
+            flushAll();
+            alert(CORRUPTED_MESSAGE);
+        }
+        return array;
+}
+
+/*
+* @returns the Items list.
+*/
+
+SavedItem.prototype.retrieve = function(){
+	return this.toObject();
+}
+
+/********************************************Class Save My Info Utils********************************************/
+
+/*
+* SaveMyInfo is the Manager for Saved My INfo COokies. With utilitary methods.
+*/
+
+function SaveMyInfoUtils()
+{
+}
+
+SaveMyInfoUtils.prototype = new SavedItem();
+
+
+
+SaveMyInfoUtils.prototype.countMyVehicles = function (){
+	var vehC = 	this.sizeOf(VEHICLE_COOKIENAME);
+	return vehC;
+}
+
+SaveMyInfoUtils.prototype.getMyVehicles = function (){
+	var veh = new SavedVehicle(0,0,0,0,0,0);
+	return veh.toObject();
+}
+
+SaveMyInfoUtils.prototype.removeVehicle = function (modelId,year){
+	var veh = new SavedVehicle(modelId,year,0,0,0,0);
+	return veh.remove(modelId+year);
+}
+
+SaveMyInfoUtils.prototype.isVehicleSaved = function (modelId,year){
+	var veh = new SavedVehicle(modelId,year,0,0,0,0);
+	return veh.isSaved();
+}
+
+SaveMyInfoUtils.prototype.isVehicleSavedByPvc = function (pvc,year){
+	var veh = new SavedVehicle(0,year,0,0,pvc,0);
+	return veh.isSavedByPvc();
+}
+
+SaveMyInfoUtils.prototype.countMyInventory = function (){
+	var invC = 	this.sizeOf(INVENTORY_COOKIENAME);
+	return invC;
+}
+
+SaveMyInfoUtils.prototype.getMyInventory = function (){
+	var inv = new SavedInventory(0,0,0,0,0,0,0);
+	return inv.toObject();
+}
+
+SaveMyInfoUtils.prototype.removeInventory = function (vin){
+	var veh = new SavedInventory(0,0,0,0,0,0,0);
+	return veh.remove(vin);
+}
+
+SaveMyInfoUtils.prototype.isInventorySaved = function (vin){
+	var veh = new SavedInventory(vin,0,0,0,0,0,0);
+	return veh.isSaved();
+}
+
+SaveMyInfoUtils.prototype.countDealers = function (){
+	var dealersC = 	this.sizeOf(DEALER_COOKIENAME);
+	return dealersC;
+}
+
+SaveMyInfoUtils.prototype.getMyDealers = function (){
+	var dealers = new SavedDealer(0,0,new Address('','','','',''),0,0,0,0);
+	return dealers.toObject();
+}
+
+SaveMyInfoUtils.prototype.removeDealer = function (bac){
+	var dealers = new SavedDealer(0,0,new Address('','','','',''),0);
+	return dealers.remove(bac);
+}
+
+SaveMyInfoUtils.prototype.isDealerSaved = function (bac){
+	var dealers = new SavedDealer(bac,0,new Address('','','','',''),0);
+	return dealers.isSaved();
+}
+
+/********************************************Class Saved Vehicle ********************************************/
+
+/*
+* SavedVehicle is the Specific Class to Save Preferred Model/Vehicles
+* @constructor
+* @param styleId Is the PK of this item
+* @param year
+* @param divisionId Is the unique identifier for the brand
+* @param modelFriendlyName Is the description of the model like "Pontiac Vibe 2007",
+*/
+function SavedVehicle(modelId,year,brand,model,pvc,polkId){
+	this.modelId= modelId;
+	this.year= year;
+	this.brand= brand;
+	this.model = model;
+    this.pvc = pvc;
+    this.polkId = polkId;
+	this.parent = SavedItem;
+	this.parent(VEHICLE_COOKIENAME,modelId+year);
+	this.msrp1=undefined;
+	this.msrp2=undefined;
+	return "SavedVehicle";
+}
+
+//Implementing Inheritance
+SavedVehicle.prototype = new SavedItem();
+
+SavedVehicle.prototype.isSavedByPvc = function (){
+    var arrayItems = this.toObject();
+    var result = false;
+    for(var i=0;i<arrayItems.length;i++)
+    {
+        if(arrayItems[i].pvc===this.pvc && arrayItems[i].year === this.year )
+        {
+            result = true;
+            break;
+        }
+    }
+    return result;
+}
+
+/********************************************Class Saved Inventory ********************************************/
+/*
+* SavedInventory is the Specific Class to Save Preferred Inventory Vehicles
+* @constructor
+* @param vin Is the unique indetifier for an inventory vehicle
+*/
+
+function SavedInventory(vin,pvc,modelId,year,brand,model,color){
+	this.vin=vin;
+	this.pvc=pvc;
+	this.modelId= modelId;
+	this.year= year;
+	this.brand= brand;
+	this.model = model;
+	this.color=color;
+	this.msrp=undefined;
+	this.parent = SavedItem;
+	this.parent(INVENTORY_COOKIENAME,this.vin);
+	return "SavedInventory";
+}
+
+//Implementing Inheritance
+SavedInventory.prototype = new SavedItem();
+
+/********************************************Saved Dealer List ********************************************/
+/*
+* SavedDealer is the Specific Class to Save Preferred Dealer Agents.
+* @constructor
+* @param bac Is the unique identifier for a Dealer.
+*/
+
+function SavedDealer(bac,name,address,manager,url,lat,long){
+	this.bac = bac;
+	this.name=name;
+	this.address=address;
+	this.manager=manager;
+	this.url = url;
+	this.lat = lat;
+	this.long = long;
+	this.parent = SavedItem;
+	this.parent(DEALER_COOKIENAME,this.bac);
+	return "SavedDealer";
+
+}
+
+//Implementing Inheritance
+SavedDealer.prototype = new SavedItem();
+
+/********************************************Class Address********************************************/
+/*
+*/
+
+function Address(address,city,state,zip,phone){
+	this.address = address;
+	this.city = city;
+	this.state = state;
+	this.zip = zip;
+	this.phone = phone;
+	return "Address";
+}
+
+Address.prototype.toString = function(){
+	return this.address + ADDRESS_SEP + this.city + ADDRESS_SEP + this.state + ADDRESS_SEP + this.zip+ ADDRESS_SEP + this.phone ;
+}
+
+/********************************************Helper functions********************************************/
+/*
+*/
+
+function removeVehicle(modelId)
+{
+	var v1 = new SavedVehicle(modelId,0,0,0,0);
+	v1.remove(modelId);
+	saveLastSaved(VEHICLE);
+	initWidget();
+}
+
+function removeInventory(vin)
+{
+	var v1 = new SavedInventory(0,0,0,0,0,0,0);
+	v1.remove(vin);
+	saveLastSaved(INVENTORY);
+	initWidget();
+}
+
+function removeDealer(bac)
+{
+	var dealers = new SavedDealer(0,0,new Address('','','','',''),0);
+	dealers.remove(bac);
+	saveLastSaved(DEALER);
+	initWidget();
+	// if DL result page, then change msi button next to the dealer back to be active
+	if(bac.length==8){
+		bac = bac.substring(0,6);
+	}
+	if(bac.length==6 && document.getElementById("msid_"+bac)!=null){
+		var msid = document.getElementById("msid_"+bac);
+		msid.className = MSI_UNCHECKED_CLASS;
+		msid.msid.childNodes[0].className = MSI_UNCHECKED_CLASS;
+	}
+}
+
+function showError(imgId)
+{
+	var win = window.open(urlError,"errorSI","width=567px,height=147px,resizable=no");
+	/*if(imgId!="" || null!=imgId){
+    	win.setImage(imgId);
+    }*/
+}
+
+function push(img)
+{
+	lastSaved=lastPushed;
+	saveLastSaved(lastSaved);
+	ITEM.push();
+	showSaveInfoWin();
+    checkAsSaved(img);
+}
+
+function fixModelId(modelId)
+{
+    var newModelId = modelId;
+    if(modelId.length==1)
+        newModelId = "00"+newModelId;
+    else
+    if(modelId.length==2)
+        newModelId= "0"+newModelId;
+    return newModelId;
+}
+
+
+
+function saveVehicle(chromeModelId,year,brand,img)
+{
+	var result = executeRequest(BASE_CONTEXT+"/getVehicleInfo.do?&modelId="+chromeModelId+"&year="+year);
+    var pvc = result[0];
+    var polkId = result[1];
+	var model = result[2];
+	var msrp1 = result[3];
+	var msrp2 = result[4];
+	var modelId = result[5]; //It is brandId
+    ITEM = new SavedVehicle(chromeModelId,year,brand,model,pvc,polkId);
+    ITEM.msrp1 = msrp1;
+    ITEM.msrp2 = msrp2;
+	var saved = ITEM.save();
+	if	(saved==MESSAGE_OK)
+	{
+		lastSaved=VEHICLE;
+        saveLastSaved(lastSaved);
+		showSaveInfoWin();
+        checkAsSaved(img);
+        result = true;
+	}
+	else if (saved==DUPLICATED_ERROR)
+	{
+
+	}
+	else
+	{
+		lastPushed=VEHICLE;
+		showError(img);
+	}
+       // return result;
+}
+
+function saveInventory(vin,img)
+{
+    var  result  = false;
+    var resultText =  executeRequest(BASE_CONTEXT+"/getInventoryInfo.do?&vin="+vin+"&websiteId="+WEBSITE_ID);
+	var pvc = resultText[0];
+	var modelId = resultText[1];
+	var year = resultText[2];
+	var brand = resultText[3];
+	var model = resultText[4];
+	var color = resultText[5];
+	var msrp = resultText[6];
+	ITEM = new SavedInventory(vin,pvc,modelId,year,brand,model,color);
+	ITEM.msrp = msrp;
+	var saved = ITEM.save();
+	if	(saved==MESSAGE_OK)
+	{
+		lastSaved=INVENTORY;
+        saveLastSaved(lastSaved);
+		showSaveInfoWin();
+		checkAsSaved(img);
+		result = true;
+	}
+	else if (saved==DUPLICATED_ERROR)
+	{
+
+	}
+	else
+	{
+		lastPushed=INVENTORY;
+		showError(img);
+	}
+       // return result ;
+}
+
+function saveDealer(bac,img)
+{
+	var  result  = false;
+	var params = executeRequest(BASE_CONTEXT+"/getDealerInfo.do?bac="+bac+"&websiteId="+WEBSITE_ID);
+	var name = params[0];
+	var addr = params[1];
+	var addrArr = addr.split("!!");
+	var address = new Address(addrArr[0],addrArr[1],addrArr[2],addrArr[3],addrArr[4]);
+	var manager = params[2];
+	var url = params[3];
+	var lat = params[4];
+	var long = params[5];
+    ITEM = new SavedDealer(bac,name,address,manager,url,lat,long);
+	var saved = ITEM.save();
+	if	(saved==MESSAGE_OK)
+	{
+		lastSaved=DEALER;
+                saveLastSaved(lastSaved);
+		showSaveInfoWin();
+                checkAsSaved(img);
+                result = true;
+	}
+	else if (saved==DUPLICATED_ERROR)
+	{
+		result = false;
+	}
+	else
+	{
+		lastPushed=DEALER;
+		showError(img);
+	}
+        //return result;
+}
+
+function isVehicleSaved(modelId,year)
+{
+	var util = new SaveMyInfoUtils();
+	return util.isVehicleSaved(modelId,year);
+}
+
+function isVehicleSavedByPvc(pvc,year)
+{
+	var util = new SaveMyInfoUtils();
+	return util.isVehicleSavedByPvc(pvc,year);
+}
+
+function checkVehicleSaved(brandId,year,img){
+	var result = isVehicleSaved(brandId,year);
+	if(result===true){
+		checkAsSaved(img);
+	}
+}
+
+function checkInventorySaved(vin,img){
+	var result = isInventorySaved(vin);
+	if(result===true){
+		checkAsSaved(img);
+	}
+}
+
+function checkDealerSaved(bac,img){
+	var result = isDealerSaved(bac);
+	if(result===true){
+		checkAsSaved(img);
+	}
+}
+
+function isInventorySaved(vin)
+{
+	var util = new SaveMyInfoUtils();
+	return util.isInventorySaved(vin);
+}
+
+function isDealerSaved(bac)
+{
+	var util = new SaveMyInfoUtils();
+	return util.isDealerSaved(bac);
+}
+
+function getDealerCookie()
+{
+	return readCookie(DEALER_COOKIENAME);
+}
+
+function checkAsSaved(elem)
+{
+ 		if(null!=elem)
+ 		{
+ 			if(elem.className)
+ 			{
+ 				elem.className=MSI_CHECKED_CLASS;
+ 				elem.onclick = '';
+ 			}
+ 		}
+}
+
+function saveLastSaved(lastSaved)
+{
+
+    createCookie(MSI_COOKIENAME,parseInt(lastSaved),10);
+}
+
+function getLastSaved()
+{
+    var result =  readCookie(MSI_COOKIENAME);
+    if(null==result || ""==result)
+        result=VEHICLE;
+    return parseInt(result);
+}
+
+function flushAll()
+{
+    eraseCookie(VEHICLE_COOKIENAME);
+    eraseCookie(INVENTORY_COOKIENAME);
+    eraseCookie(DEALER_COOKIENAME);
+}
+
+//TODO remove this after Global Cookie Support is deployed on pontiac.
+
+function createCookie(name,value,expires)
+{
+	cookie.create(name,value,expires);
+}
+
+function readCookie(name)
+{
+	return cookie.read(name);
+}
+
+function eraseCookie(name)
+{
+	cookie.erase(name);
+}
+/*****************EXTERNAL SERVICES**************************/
+
+function executeRequest(urlReq)
+{
+    var request = getRequest();
+    var params = null;
+    request.open("get",  urlReq , false);
+    request.send(null);
+    var result =  request.responseText;
+
+    if(result!=null && result!="" && result!="N/A" && result!="null")
+	{
+		params = result.split(SEP);
+    	return params;
+	}
+	else
+	{
+		throw "ServiceException";
+	}
+	return params;//Unreachable
+}
+
+function executeRequest2(urlReq)
+{
+    var request = getRequest();
+    var params = null;
+    request.open("get",  urlReq , false);
+    request.send(null);
+    var result =  request.responseText;
+    return result;
+}
+
+//TODO uncomment this
+/*function createCookie(name,value,expires)
+{
+	var urlReq = "https://web.archive.org/web/20100614210741/http://www.pontiac.com/saveCookie.do?cookieName="+name+"&expires="+expires+"&value="+value;
+	var request = getRequest();
+	request.open("get",  urlReq , false);
+	request.send(null);
+	result = request.responseText;
+	return(result=="OK");
+}
+
+
+function readCookie(name)
+{
+	var urlReq = "https://web.archive.org/web/20100614210741/http://www.pontiac.com/readCookie.do?cookieName="+name;
+	var request = getRequest();
+	request.open("get",  urlReq , false);
+	request.send(null);
+	result = request.responseText;
+	return result;
+}
+
+function eraseCookie(name)
+{
+	createCookie(name,10,"")
+}*/
+
+
+}
+/*
+     FILE ARCHIVED ON 21:07:41 Jun 14, 2010 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:41:49 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 75.782
+  exclusion.robots: 0.064
+  exclusion.robots.policy: 0.055
+  RedisCDXSource: 0.575
+  esindex: 0.007
+  LoadShardBlock: 57.646 (3)
+  PetaboxLoader3.datanode: 80.687 (4)
+  load_resource: 101.683
+  PetaboxLoader3.resolve: 37.781
+*/

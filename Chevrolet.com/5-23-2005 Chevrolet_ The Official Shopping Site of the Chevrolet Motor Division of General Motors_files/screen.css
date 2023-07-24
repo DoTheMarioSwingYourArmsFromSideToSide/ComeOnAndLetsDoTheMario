@@ -1,0 +1,213 @@
+body { margin:0; padding:0; font-family:verdana,geneva,helvetica,arial,"Bitstream Vera Sans",tahoma,sans-serif; font-size:75%; background:#fff;}
+
+h1 { margin:0 0 2px 0; padding:0; width:625px; height:36px; font-family:helvetica,tahoma,arial,verdana,geneva,sans-serif; font-size:2em; background:#fff; color:#0F518C; }
+h1 img { width:625px; height:36px; }
+p { margin:0; padding:0.5em 0; }
+a { color:#11528D; text-decoration:underline; }
+img { display:block; border:0; }
+.u { border-bottom:1px solid #000; }
+input { font-size:1em; }
+
+p#skipnav, p#bowtie { margin:0; padding:0; width:150px; }
+p#skipnav a { display:block; padding-top:7px; width:150px; height:7px; overflow:hidden; background:#fff url(/web/20041018032059im_/http://www.chevrolet.com/i/nav/skipnav.gif) no-repeat; color:#22324B; }
+p#skipnav a:focus { background-color:#22324B; color:#fff; }
+p#bowtie a { display:block; width:150px; height:38px; background:transparent; color:#000; }
+html>body p#skipnav a { height:0; }
+
+form#search { position:absolute; top:7px; left:630px; z-index:50; margin:-1px 0 0 0; padding:0px 7px 3px 8px; width:145px; height:40px; background:#fff url(/web/20041018032059im_/http://www.chevrolet.com/i/bg/search-line-dk.gif) 0 50% no-repeat; color:#0F518C; }
+html>body form#search { height:35px; min-height:35px; width:130px; padding-bottom:4px; }
+form#search label { display:block; font-weight:bold; }
+form#search p { margin:0; padding:0; }
+input#keyword { display:block; float:left; width:70px; margin-right:5px; }
+
+div#sidebar { position:absolute; top:0; left:0; z-index:100; width:156px; font-family:helvetica,tahoma,arial,sans-serif; padding-bottom:3px; background:transparent url(/web/20041018032059im_/http://www.chevrolet.com/i/bg/nav_bottom.gif) bottom left no-repeat; }
+
+dl#cv, dl#cr { width:150px; background:#10518D url(/web/20041018032059im_/http://www.chevrolet.com/i/bg/cv_bg.jpg) no-repeat; color:#fff; }
+
+dl#st { width:150px; background:#8A0000; color:#fff; }
+
+dl#cv dt#cvheading, dl#st dt#stheading, dl#cr dt#crheading  { text-transform:uppercase; font-weight:bold; }
+
+div#nav dl, div#nav dl dd { margin:0; padding:0; }
+div#nav dl dd dl dt em { display:block; margin:0; padding:0; float:left; width:128px; font-style:normal; }
+
+div#nav dl dd a, form#lad { display:block; margin:0; padding:3px 5px; border-width:1px; border-style:solid; border-color:#3B7CB3 #0A2A54 #0A2A54 #3B7CB3; font-weight:bold; text-decoration:none; background:transparent; color:#fff; }
+div#nav dl#st dd a, form#lad { border-color:#A20000 #4F0000 #4F0000 #A20000; }
+div#nav dl dd a:hover, div#nav dl dd a:focus { border-color:#0A2A54 #3B7CB3 #3B7CB3 #0A2A54; }
+div#nav dl#st dd a:hover, div#nav dl#st dd a:focus { border-color:#4F0000 #A20000 #A20000 #4F0000; }
+
+div#nav dl dd.sel a, div#nav dl dd.sel a#lineup { background-color:#002458; border-color:#0A2A54 #3B7CB3 #3B7CB3 #0A2A54; }
+div#nav dl#st dd.sel a { background-color:#5A0000; border-color:#4F0000 #A20000 #A20000 #4F0000; }
+div#nav dl dd a#lineup { background:url(/web/20041018032059im_/http://www.chevrolet.com/i/bg/dd_bowtie.gif) center right no-repeat; padding-right:20px; }
+div#nav dl dd dl dt a { display:block; margin:0 0 0 128px; padding:3px 0; text-align:center; }
+div#nav dl dd dl dt em a { margin:0; padding:3px 5px; text-align:left; width:128px; }
+
+html>body div#nav dl dd dl dt em a { width:116px; }
+
+div#nav dl dd dl { float:left; }
+div#nav br { clear:left; }
+div#nav dl dl dd { background-color:#5F8EB9; color:#fff; }
+div#nav dl#st dl dd { background-color:#A20000; color:#fff; }
+div#nav dl dl dd a { padding:3px 5px 3px 18px; background-image:url(/web/20041018032059im_/http://www.chevrolet.com/i/bg/dd_bg.gif); background-repeat:repeat-y;  border-color:#76ACDE #0E2E57 #0E2E57 #76ACDE; }
+div#nav dl dl dd a:hover, div#nav dl dl dd a:focus { border-color:#0E2E57 #0E2E57 #76ACDE #0E2E57; }
+div#nav dl#st dl dd a { border-color:#cf0000 #4f0000 #4f0000 #cf0000; }
+div#nav dl#st dl dd a:hover, div#nav dl#st dl dd a:focus { border-color:#4f0000 #6A0000 #cf0000 #0A2A54; }
+div#nav dl dl dd a.l { background-image:url(/web/20041018032059im_/http://www.chevrolet.com/i/bg/dd_last.gif); background-repeat:no-repeat; }
+div#nav dl dl dd.sel a { background-color:#002458; color:#fff; border-color:#000 #1C5284 #1C5284 #000; }
+div#nav dl dd dl dd, div#nav dl dd dl.dn dd { display:none; }
+div#nav dl dd dl.db dd { display:block; }
+
+form#lad fieldset, form#lad legend { margin:0; padding:0; border:0px solid #A20000; }
+div#nav form#lad legend br { display:inline; }
+form#lad legend { text-indent:-7px; white-space:wrap; }
+form#lad p { margin:0; padding:5px 0; }
+form#lad p.ladfield { float:left; width:100px; margin:0; padding:0;  }
+form#lad label input { width:70px; }
+div#nav dl dd form#lad p.ladgo { float:left; width:25px; margin:0; padding:0; }
+div#nav dl dd form#lad input#ladsub { display:block; width:19px; height:19px; margin-left:5px; }
+
+div#nav dl dd form#lad p a { display:inline; padding:0; border:0; text-decoration:underline; font-weight:normal; }
+
+/* Mac IE 5 hack \*/
+div#nav dl dd dl { float:none; }
+div#nav br { display:none; }
+* html div#nav dt { height:1%; }
+html>body div#nav dl dl dt:after { content:"\A0 "; display:block; clear:both; height:0; overflow:hidden; visibility:hidden; }
+html>body div#nav dl dd form#lad dl dt:after { content:none; display:block; clear:none; }
+* html form#lad legend { margin-left:-6px; }
+form#lad legend { text-indent:0; }
+/* end hack */
+
+div#container { width:775px; }
+div#body, div#footer { margin-left:150px; margin-top:7px; }
+html>body div#nav { background:transparent url(/web/20041018032059im_/http://www.chevrolet.com/i/bg/nav_dropshadow.png) top right repeat-y; }
+
+div#modelnav { border-bottom:3px solid #002458; background:#fff url(/web/20041018032059im_/http://www.chevrolet.com/i/bg/modelnav.gif) bottom left repeat-x; width:625px; height:32px; }
+html>body div*#modelnav { height:auto; min-height:31px; }
+div#modelnav ul { margin:0; padding:0; list-style:none; }
+
+div#modelnav ul li { float:left; width:96px; border-left:1px solid #95ABBF; color:#10518D; white-space:nowrap; }
+
+html>body div#modelnav ul li { float:left; width:auto; }
+
+/* Mac ie hack \*/
+html>body div#modelnav ul li { height:auto; width:auto; min-width:95px; }
+/* end hack */
+
+div#modelnav ul li a { display:block; width:95px; padding:3px 10px 0 5px; border-bottom:1px solid #fff; background:#fff url(/web/20041018032059im_/http://www.chevrolet.com/i/bg/modelnav_off.gif) top right no-repeat; color:#10518D; font-family:helvetica,tahoma,arial,verdana,geneva,sans-serif; font-weight:bold; text-decoration:none; white-space:nowrap; }
+
+html>body div#modelnav ul li a { float:left; width:80px; min-height:28px; }
+
+/* Mac ie hack \*/
+html>body div#modelnav ul li a { float:none; width:auto; min-width:80px; }
+/* end hack */
+
+div#modelnav ul li.sel a { border-bottom-color:#002458; border-left-color:#95ABBF; background:#002458 url(/web/20041018032059im_/http://www.chevrolet.com/i/bg/modelnav_on.gif) top right no-repeat; color:#fff; }
+
+dl#photo, dl#photo dt, dl#photo dd { margin:0; padding:0; }
+
+dl#photo dd { margin:0 150px 0 10px; padding:0 0 0 12px; background:transparent url(/web/20041018032059im_/http://www.chevrolet.com/i/bg/caption_arrow.gif) 0 3px no-repeat; font-size:0.9em; }
+
+#email-list { margin:0; padding-left:1em; list-style:none; border-bottom:1px dashed #11528D; }
+#email-list ul { margin-left:0; padding-left:0; }
+#email-list li { margin-bottom:1.5em; }
+#email-list input { float:left; display:block; margin-right:6px; }
+
+#contact-buttons { float:right; margin-top:0.5em; padding-left:2em; }
+#contact-buttons a { color:#fff; text-decoration:none; font-weight:bold; font-family:helvetica,arial,tahoma,sans-serif; }
+#contact-buttons a.subbut { background:url(/web/20041018032059im_/http://www.chevrolet.com/contactus/sub.gif) 0 50% no-repeat; padding:0.5em 0.5em; width:53px; height:19px; }
+#contact-buttons a.clrbut { background:url(/web/20041018032059im_/http://www.chevrolet.com/contactus/clr.gif) 0 50% no-repeat; padding:0.5em 0.5em; width:41px; height:19px; }
+
+div#body dl#photo dd.priceasshown, dd.priceasshown { background-image:none; font-style:italic; }
+div#body dl.disclaimer { font-size:0.9em; }
+div#body dl.disclaimer dt { clear:left; float:left; margin:0; padding:0 5px 0 0; }
+div#body dl.disclaimer dd { margin:0 0 0 1.5em; padding:0; font-weight:normal; }
+div#body dl.trimlevel { margin-top:2em; margin-bottom:1em; padding:0; }
+
+div#package dl.trimlevel { margin-top:0; margin-bottom:1em; padding:0; }
+
+div#body dl.trimlevel dt { font-weight:bold; }
+div#body dl.trimlevel dt.trimphoto { float:left; width:195px; height:110px; margin-top:2px; margin-right:0.5em; margin-bottom:6px; }
+div#body dl.trimlevel dd { margin:0.5em 0 0 0; }
+div#body dd.pricing dl { margin:0; padding:0; }
+div#body dd.pricing dt, div#body dd.pricing dd { display:inline; margin:0; padding:0; }
+div#body dl.trimlevel dd.showncap { background:url(/web/20041018032059im_/http://www.chevrolet.com/i/bg/caption_left.gif) 203px 0.4em no-repeat; text-indent:12px;}
+div#body dl.trimlevel dd.shown { margin-top:0; padding:0; background:none; }
+
+div#body ul.bulletlinks { margin:0; padding:0.5em 0; list-style:none; }
+div#body ul.bulletlinks li { clear:left; float:left; margin-bottom:6px; }
+html>body div#body ul.bulletlinks li { display:block; }
+div#body ul.bulletlinks li a { display:block; padding:0px 0 0 20px; background:transparent url(/web/20041018032059im_/http://www.chevrolet.com/i/bg/link_bullet.gif) no-repeat; color:#263651; text-decoration:none; font-family:helvetica,tahoma,arial,verdana,geneva,sans-serif; font-weight:bold; list-style:none; }
+
+div#footer, .clr { clear:both; font-size:0.9em; }
+div#footer { margin-top:3em; }
+div#footer img {float:left; margin:4px 6px 15px 6px; }
+div#footer ul { margin:0.5em 5px; padding:0; list-style:none; font-size:0.9em; }
+div#footer li { display:inline; white-space:nowrap; }
+div#footer li a { line-height:1.2em; padding:0 5px 0 5px; text-decoration:underline; color:#11528D; white-space:nowrap; }
+div#footer li a.bump { line-height:2em; }
+div#footer cite { font-style:normal; }
+div#footer address { display:none; }
+
+
+#langnote { display:none; position:absolute; top:0; left:0; z-index:3000; width:775px; height:100%; background:transparent; color:#000; }
+
+#langnote.dn { display:none; height:0; width:0; overflow:hidden; }
+
+#lnbg { position:absolute; top:0; left:0; z-index:-3001; width:100%; height:100%; background:#fff; color:#000; opacity:.5; -moz-opacity:.5; }
+
+#langnote form { margin:100px 236px; padding:0.5em 10px; border:1px solid #f00; background:#fff; color:#000; }
+
+#langnote fieldset { padding:3px 10px 10px 10px; margin:10px 0; border:1px solid #11528D; }
+
+#langnote legend strong { padding:2px 4px; margin:2px; border:1px solid #11528D; background:transparent url(/web/20041018032059im_/http://www.chevrolet.com/i/bg/form_legend.gif) repeat-x; color:#A20000; font-weight:bold; }
+
+/* Mac IE Hack \*/
+#langnote legend { padding:2px 4px; margin:2px; border:1px solid #11528D; background:transparent url(/web/20041018032059im_/http://www.chevrolet.com/i/bg/form_legend.gif) repeat-x; color:#A20000; font-weight:bold; }
+#langnote legend strong { padding:0; margin:0; border:0; background:transparent; }
+* html #langnote dl dt { height:1%; }
+/* end hack */
+
+#langnote dl { margin:2px 0; padding:0.5em 5px; border:1px dashed #ccc; background-color:#f4f4f4; }
+
+#langnote dl dt { background:transparent; color:#11528D; font-weight:bold;  }
+
+#langnote dl dt kbd { font-size:1.1em; font-weight:normal; }
+
+#langnote dl dd { margin:0; padding:0; }
+
+#langnote dl dd.langdialogoption { width:48%; float:left; text-align:center; }
+
+#langnote dl dd.langdialogoption input { background:#10518D; color:#fff; font-weight:bold; border:3px double #fff; }
+
+#langnote ul { margin:0; padding:0; list-style:none; }
+
+#langnote ul li { clear:left; margin:0; padding:0.5em 0; }
+
+#langnote li input { float:left; display:block; width:auto; }
+
+#langnote ul li label { display:block; margin-left:25px; }
+
+/* Mac IE Hack \*/
+* html #langnote ul li label { float:left; margin-left:5px; }
+/* end hack */
+/*
+     FILE ARCHIVED ON 03:20:59 Oct 18, 2004 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 21:20:15 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 226.723
+  exclusion.robots: 0.09
+  exclusion.robots.policy: 0.081
+  RedisCDXSource: 2.307
+  esindex: 0.025
+  LoadShardBlock: 202.743 (3)
+  PetaboxLoader3.datanode: 219.943 (4)
+  load_resource: 64.63
+  PetaboxLoader3.resolve: 39.148
+*/

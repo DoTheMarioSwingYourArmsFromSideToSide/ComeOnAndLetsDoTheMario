@@ -1,0 +1,207 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+(function($)
+ {
+	var _defaultOptions = {
+		// Public Options
+		playerType      : "bcove",
+		playerID        : "90402351001",
+		publisherID     : "336103926",
+		playerKey		: "",
+		enableFullBCAPI : false,
+		vidID           : "",
+		vidURL          : "",
+		width           : 320,
+		height          : 240,
+		cssClass        : "",
+		cssObj          : {},
+		style           : "",
+		defaultBGColor  : "#FFFFFF",
+		allowFullScreen : true,
+		autoLoad        : true,
+		autoHide        : true,
+		autoStart       : true,
+		useLightBox     : false,
+		modestBranding  : false,
+		wmode           : 'transparent'
+		};
+
+	/*-----------------------------------
+	* -- Function: Constructor
+	* -----------------------------------*/
+	$.mrmplayer = function (target, options) 
+	{
+		/* if this contructor wasn't newed, then new it... */
+		if (this == window) 
+			{  return new $.mrmplayer(target, (options || {}) ); } 
+		else 
+			{ this.init(target,options); }
+	};
+
+
+	/*-----------------------------------
+	* -- Function: Prototype function
+	* -----------------------------------*/
+	$.mrmplayer.prototype = {
+		
+	/*-----------------------------------
+	* -- Sub Function: Initialize Plugin
+	* -----------------------------------*/
+	init: function(target, options) 
+	{
+		var self	= this;
+		var newClass = (options.cssClass != null) ? ' ' + newClass : '';
+		// store the basics
+		self.target 	= $(target);
+		self.options 	= new $.mrmplayer.options(options);
+
+		$(target).addClass("mrmplayer");
+		$(target).css = options.cssObj;
+
+		/* don't rerun the plugin if it is already present */
+		if (self.target.data('mrmplayer')) { return; }
+
+		/* register this controlset with the element */
+		self.target.data('mrmplayer', this);
+	   
+	   if (self.options.autoLoad) self.buildVideoPlayer();
+	},
+  
+	  /*-----------------------------------
+		* Sub Function: buildVideoPlayer()
+		* This is the main function that will build the video player and decide whether it's Brighcove, YouTube or anything else
+		* -----------------------------------*/
+	  buildVideoPlayer: function() {
+	    var self = this; 
+	    switch (self.options.playerType) {
+	        case 'bcove':
+	            self.buildBrightCovePlayer();
+	            break;
+	        case 'youtube':
+	            self.buildYouTubePlayer();
+	            break;
+	        default:     
+	            break;
+	    };
+	  },
+	  /*-----------------------------------
+	  * Sub Function: buildBrightCovePlayer()
+	  * Builds the player if it's a brightcove player
+	  * -----------------------------------*/
+	  buildBrightCovePlayer: function() {
+	    // Brightcove video handles both flash and HTML5 Video dynamically
+	    var self = this;    
+	    $.ajax({
+	            type:'GET',
+	            url: (self.enableFullBCAPI) ? 
+	            		'https://web.archive.org/web/20120507105516/http://admin.brightcove.com/js/BrightcoveExperiences.js' : 
+	            		'https://web.archive.org/web/20120507105516/http://admin.brightcove.com/js/BrightcoveExperiences_all.js',
+	            dataType:'script',
+	            cache: true,
+	            success:function() {	            	
+	               self.buildBrightCoveString();
+	            }
+	    });
+	  },
+	  buildBrightCoveString: function() {
+		  var self = this;  
+		  var objectHTML = "<object id='myExperience" + self.options.vidID + "' class='BrightcoveExperience'>" + 
+          "<param name='bgcolor' value='" + self.options.defaultBGColor + "' />" + 
+          "<param name='width' value='" + self.options.width + "' />" + 
+          "<param name='height' value='" + self.options.height + "' />" + 
+          "<param name='playerID' value='" + self.options.playerID + "' />" + 
+          "<param name='playerKey' value='" + self.options.playerKey + "' />" + 
+          "<param name='isVid' value='true' /><param name='isUI' value='true' /><param name='dynamicStreaming' value='true' /><param name='wmode' value='transparent' />" +
+          "<param name='@videoPlayer' value='" + self.options.vidID + "' />" +
+          "<param name='autoStart' value='" + self.options.autoStart + "' />" +
+          "</object><script>brightcove.createExperiences();</script>";
+          $(self.target).append(objectHTML);
+	  },
+	  /*-----------------------------------
+	  * Sub Function: buildYouTubePlayer()
+	  * Removes the video player for the element and out of memory
+	  * -----------------------------------*/
+	  buildYouTubePlayer: function(){
+		var self = this,
+			allowFullScreen = ( self.options.allowFullScreen ) ? "allowfullscreen='1'"         : "",
+			params          = {},
+			paramsConCat    = "";
+		params.autoHide       = self.options.autoHide       ? "autohide=1"                  : "";
+		params.autoStart      = self.options.autoStart      ? "autoplay=1"                  : "";
+		params.modestBranding = self.options.modestBranding ? "modestbranding=1"            : "";
+		params.wmode          = self.options.wmode          ? "wmode=" + self.options.wmode : "";
+		for( n in params ){
+			paramsConCat = paramsConCat.length == 0 && params[n].length > 0 ? "?" : paramsConCat; 
+			paramsConCat = paramsConCat.length > 1  && params[n].length > 0 ? paramsConCat + "&" : paramsConCat; 
+			paramsConCat = params[n].length > 0 ? paramsConCat + params[n] : paramsConCat; 
+		}
+		var objectHTML = "" +
+			"<iframe width='" + self.options.width +
+			"' height='" + self.options.height +
+			"' src='https://web.archive.org/web/20120507105516/http://www.youtube.com/embed/" + self.options.vidID +
+			paramsConCat +
+			"' frameborder='0' " +
+			allowFullScreen + "></iframe>";
+		$(self.target).append(objectHTML);
+	  },
+	  /*-----------------------------------
+	  * Sub Function: destroy()
+	  * Removes the video player for the element and out of memory
+	  * -----------------------------------*/
+	  destroy: function() {
+	    var self = this;    
+	    self.target.removeData('mrmplayer');
+	    self.target.removeClass("mrmplayer");
+	    self.target.empty();     
+	    delete this;
+	  }
+	}; // End MRMPlayer Object
+
+	/*-----------------------------------
+	* Player - Options
+	* -----------------------------------*/
+	$.mrmplayer.options = function (options) 
+		{ $.extend( this, $.mrmplayer.options, options ); };
+
+	$.mrmplayer.options.prototype = _defaultOptions;
+
+	// expose as a selector plugin
+	$.fn.mrmplayer = function (options) 
+	{
+		return this.each(function() 
+			{ new $.mrmplayer(this, options); });
+	};
+})(jQuery);
+
+
+}
+/*
+     FILE ARCHIVED ON 10:55:16 May 07, 2012 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 23:06:11 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 88.942
+  exclusion.robots: 0.091
+  exclusion.robots.policy: 0.081
+  RedisCDXSource: 10.709
+  esindex: 0.007
+  LoadShardBlock: 55.255 (3)
+  PetaboxLoader3.datanode: 155.129 (4)
+  load_resource: 137.664
+  PetaboxLoader3.resolve: 34.806
+*/

@@ -1,0 +1,1037 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+var DONWLOAD_URL = BASE_CONTEXT + "/pages/mds/util/downloadFile.do";
+
+// begin common libraries
+
+	// FlashDetect
+	// http://www.featureblend.com/license.txt
+	var FlashDetect=new function(){var self=this;self.installed=false;self.raw="";self.major=-1;self.minor=-1;self.revision=-1;self.revisionStr="";var activeXDetectRules=[{"name":"ShockwaveFlash.ShockwaveFlash.7","version":function(obj){return getActiveXVersion(obj);}},{"name":"ShockwaveFlash.ShockwaveFlash.6","version":function(obj){var version="6,0,21";try{obj.AllowScriptAccess="always";version=getActiveXVersion(obj);}catch(err){}
+	return version;}},{"name":"ShockwaveFlash.ShockwaveFlash","version":function(obj){return getActiveXVersion(obj);}}];var getActiveXVersion=function(activeXObj){var version=-1;try{version=activeXObj.GetVariable("$version");}catch(err){}
+	return version;};var getActiveXObject=function(name){var obj=-1;try{obj=new ActiveXObject(name);}catch(err){}
+	return obj;};var parseActiveXVersion=function(str){var versionArray=str.split(",");return{"raw":str,"major":parseInt(versionArray[0].split(" ")[1],10),"minor":parseInt(versionArray[1],10),"revision":parseInt(versionArray[2],10),"revisionStr":versionArray[2]};};var parseStandardVersion=function(str){var descParts=str.split(/ +/);var majorMinor=descParts[2].split(/\./);var revisionStr=descParts[3];return{"raw":str,"major":parseInt(majorMinor[0],10),"minor":parseInt(majorMinor[1],10),"revisionStr":revisionStr,"revision":parseRevisionStrToInt(revisionStr)};};var parseRevisionStrToInt=function(str){return parseInt(str.replace(/[a-zA-Z]/g,""),10)||self.revision;};self.majorAtLeast=function(version){return self.major>=version;};self.FlashDetect=function(){if(navigator.plugins&&navigator.plugins.length>0){var type='application/x-shockwave-flash';var mimeTypes=navigator.mimeTypes;if(mimeTypes&&mimeTypes[type]&&mimeTypes[type].enabledPlugin&&mimeTypes[type].enabledPlugin.description){var version=mimeTypes[type].enabledPlugin.description;var versionObj=parseStandardVersion(version);self.raw=versionObj.raw;self.major=versionObj.major;self.minor=versionObj.minor;self.revisionStr=versionObj.revisionStr;self.revision=versionObj.revision;self.installed=true;}}else if(navigator.appVersion.indexOf("Mac")==-1&&window.execScript){var version=-1;for(var i=0;i<activeXDetectRules.length&&version==-1;i++){var obj=getActiveXObject(activeXDetectRules[i].name);if(typeof obj=="object"){self.installed=true;version=activeXDetectRules[i].version(obj);if(version!=-1){var versionObj=parseActiveXVersion(version);self.raw=versionObj.raw;self.major=versionObj.major;self.minor=versionObj.minor;self.revision=versionObj.revision;self.revisionStr=versionObj.revisionStr;}}}}}();};FlashDetect.release="1.0.3";
+
+	// BrowserDetect
+	// http://www.quirksmode.org/js/detect.html
+	var BrowserDetect={init:function(){this.browser=this.searchString(this.dataBrowser)||"An unknown browser";this.version=this.searchVersion(navigator.userAgent)||this.searchVersion(navigator.appVersion)||"an unknown version";this.OS=this.searchString(this.dataOS)||"an unknown OS";},searchString:function(data){for(var i=0;i<data.length;i++){var dataString=data[i].string;var dataProp=data[i].prop;this.versionSearchString=data[i].versionSearch||data[i].identity;if(dataString){if(dataString.indexOf(data[i].subString)!=-1)
+	return data[i].identity;}
+	else if(dataProp)
+	return data[i].identity;}},searchVersion:function(dataString){var index=dataString.indexOf(this.versionSearchString);if(index==-1)return;return parseFloat(dataString.substring(index+this.versionSearchString.length+1));},dataBrowser:[{string:navigator.userAgent,subString:"OmniWeb",versionSearch:"OmniWeb/",identity:"OmniWeb"},{string:navigator.vendor,subString:"Apple",identity:"Safari"},{prop:window.opera,identity:"Opera"},{string:navigator.vendor,subString:"iCab",identity:"iCab"},{string:navigator.vendor,subString:"KDE",identity:"Konqueror"},{string:navigator.userAgent,subString:"Firefox",identity:"Firefox"},{string:navigator.vendor,subString:"Camino",identity:"Camino"},{string:navigator.userAgent,subString:"Netscape",identity:"Netscape"},{string:navigator.userAgent,subString:"MSIE",identity:"Explorer",versionSearch:"MSIE"},{string:navigator.userAgent,subString:"Gecko",identity:"Mozilla",versionSearch:"rv"},{string:navigator.userAgent,subString:"Mozilla",identity:"Netscape",versionSearch:"Mozilla"}],dataOS:[{string:navigator.platform,subString:"Win",identity:"Windows"},{string:navigator.platform,subString:"Mac",identity:"Mac"},{string:navigator.platform,subString:"Linux",identity:"Linux"}]};BrowserDetect.init();
+
+	/**
+	 * SWFObject v1.5: Flash Player detection and embed - http://blog.deconcept.com/swfobject/
+	 *
+	 * SWFObject is (c) 2007 Geoff Stearns and is released under the MIT License:
+	 * http://www.opensource.org/licenses/mit-license.php
+	 *
+	 */
+	if(typeof deconcept=="undefined"){var deconcept=new Object();}if(typeof deconcept.util=="undefined"){deconcept.util=new Object();}if(typeof deconcept.SWFObjectUtil=="undefined"){deconcept.SWFObjectUtil=new Object();}deconcept.SWFObject=function(_1,id,w,h,_5,c,_7,_8,_9,_a){if(!document.getElementById){return;}this.DETECT_KEY=_a?_a:"detectflash";this.skipDetect=deconcept.util.getRequestParameter(this.DETECT_KEY);this.params=new Object();this.variables=new Object();this.attributes=new Array();if(_1){this.setAttribute("swf",_1);}if(id){this.setAttribute("id",id);}if(w){this.setAttribute("width",w);}if(h){this.setAttribute("height",h);}if(_5){this.setAttribute("version",new deconcept.PlayerVersion(_5.toString().split(".")));}this.installedVer=deconcept.SWFObjectUtil.getPlayerVersion();if(!window.opera&&document.all&&this.installedVer.major>7){deconcept.SWFObject.doPrepUnload=true;}if(c){this.addParam("bgcolor",c);}var q=_7?_7:"high";this.addParam("quality",q);this.setAttribute("useExpressInstall",false);this.setAttribute("doExpressInstall",false);var _c=(_8)?_8:window.location;this.setAttribute("xiRedirectUrl",_c);this.setAttribute("redirectUrl","");if(_9){this.setAttribute("redirectUrl",_9);}};deconcept.SWFObject.prototype={useExpressInstall:function(_d){this.xiSWFPath=!_d?"expressinstall.swf":_d;this.setAttribute("useExpressInstall",true);},setAttribute:function(_e,_f){this.attributes[_e]=_f;},getAttribute:function(_10){return this.attributes[_10];},addParam:function(_11,_12){this.params[_11]=_12;},getParams:function(){return this.params;},addVariable:function(_13,_14){this.variables[_13]=_14;},getVariable:function(_15){return this.variables[_15];},getVariables:function(){return this.variables;},getVariablePairs:function(){var _16=new Array();var key;var _18=this.getVariables();for(key in _18){_16[_16.length]=key+"="+_18[key];}return _16;},getSWFHTML:function(){var _19="";if(navigator.plugins&&navigator.mimeTypes&&navigator.mimeTypes.length){if(this.getAttribute("doExpressInstall")){this.addVariable("MMplayerType","PlugIn");this.setAttribute("swf",this.xiSWFPath);}_19="<embed type=\"application/x-shockwave-flash\" src=\""+this.getAttribute("swf")+"\" width=\""+this.getAttribute("width")+"\" height=\""+this.getAttribute("height")+"\" style=\""+this.getAttribute("style")+"\"";_19+=" id=\""+this.getAttribute("id")+"\" name=\""+this.getAttribute("id")+"\" ";var _1a=this.getParams();for(var key in _1a){_19+=[key]+"=\""+_1a[key]+"\" ";}var _1c=this.getVariablePairs().join("&");if(_1c.length>0){_19+="flashvars=\""+_1c+"\"";}_19+="/>";}else{if(this.getAttribute("doExpressInstall")){this.addVariable("MMplayerType","ActiveX");this.setAttribute("swf",this.xiSWFPath);}_19="<object id=\""+this.getAttribute("id")+"\" classid=\"clsid:D27CDB6E-AE6D-11cf-96B8-444553540000\" width=\""+this.getAttribute("width")+"\" height=\""+this.getAttribute("height")+"\" style=\""+this.getAttribute("style")+"\">";_19+="<param name=\"movie\" value=\""+this.getAttribute("swf")+"\" />";var _1d=this.getParams();for(var key in _1d){_19+="<param name=\""+key+"\" value=\""+_1d[key]+"\" />";}var _1f=this.getVariablePairs().join("&");if(_1f.length>0){_19+="<param name=\"flashvars\" value=\""+_1f+"\" />";}_19+="</object>";}return _19;},write:function(_20){if(this.getAttribute("useExpressInstall")){var _21=new deconcept.PlayerVersion([6,0,65]);if(this.installedVer.versionIsValid(_21)&&!this.installedVer.versionIsValid(this.getAttribute("version"))){this.setAttribute("doExpressInstall",true);this.addVariable("MMredirectURL",escape(this.getAttribute("xiRedirectUrl")));document.title=document.title.slice(0,47)+" - Flash Player Installation";this.addVariable("MMdoctitle",document.title);}}if(this.skipDetect||this.getAttribute("doExpressInstall")||this.installedVer.versionIsValid(this.getAttribute("version"))){var n=(typeof _20=="string")?document.getElementById(_20):_20;n.innerHTML=this.getSWFHTML();return true;}else{if(this.getAttribute("redirectUrl")!=""){document.location.replace(this.getAttribute("redirectUrl"));}}return false;}};deconcept.SWFObjectUtil.getPlayerVersion=function(){var _23=new deconcept.PlayerVersion([0,0,0]);if(navigator.plugins&&navigator.mimeTypes.length){var x=navigator.plugins["Shockwave Flash"];if(x&&x.description){_23=new deconcept.PlayerVersion(x.description.replace(/([a-zA-Z]|\s)+/,"").replace(/(\s+r|\s+b[0-9]+)/,".").split("."));}}else{if(navigator.userAgent&&navigator.userAgent.indexOf("Windows CE")>=0){var axo=1;var _26=3;while(axo){try{_26++;axo=new ActiveXObject("ShockwaveFlash.ShockwaveFlash."+_26);_23=new deconcept.PlayerVersion([_26,0,0]);}catch(e){axo=null;}}}else{try{var axo=new ActiveXObject("ShockwaveFlash.ShockwaveFlash.7");}catch(e){try{var axo=new ActiveXObject("ShockwaveFlash.ShockwaveFlash.6");_23=new deconcept.PlayerVersion([6,0,21]);axo.AllowScriptAccess="always";}catch(e){if(_23.major==6){return _23;}}try{axo=new ActiveXObject("ShockwaveFlash.ShockwaveFlash");}catch(e){}}if(axo!=null){_23=new deconcept.PlayerVersion(axo.GetVariable("$version").split(" ")[1].split(","));}}}return _23;};deconcept.PlayerVersion=function(_29){this.major=_29[0]!=null?parseInt(_29[0]):0;this.minor=_29[1]!=null?parseInt(_29[1]):0;this.rev=_29[2]!=null?parseInt(_29[2]):0;};deconcept.PlayerVersion.prototype.versionIsValid=function(fv){if(this.major<fv.major){return false;}if(this.major>fv.major){return true;}if(this.minor<fv.minor){return false;}if(this.minor>fv.minor){return true;}if(this.rev<fv.rev){return false;}return true;};deconcept.util={getRequestParameter:function(_2b){var q=document.location.search||document.location.hash;if(_2b==null){return q;}if(q){var _2d=q.substring(1).split("&");for(var i=0;i<_2d.length;i++){if(_2d[i].substring(0,_2d[i].indexOf("="))==_2b){return _2d[i].substring((_2d[i].indexOf("=")+1));}}}return "";}};deconcept.SWFObjectUtil.cleanupSWFs=function(){var _2f=document.getElementsByTagName("OBJECT");for(var i=_2f.length-1;i>=0;i--){_2f[i].style.display="none";for(var x in _2f[i]){if(typeof _2f[i][x]=="function"){_2f[i][x]=function(){};}}}};if(deconcept.SWFObject.doPrepUnload){if(!deconcept.unloadSet){deconcept.SWFObjectUtil.prepUnload=function(){__flash_unloadHandler=function(){};__flash_savedUnloadHandler=function(){};window.attachEvent("onunload",deconcept.SWFObjectUtil.cleanupSWFs);};window.attachEvent("onbeforeunload",deconcept.SWFObjectUtil.prepUnload);deconcept.unloadSet=true;}}if(!document.getElementById&&document.all){document.getElementById=function(id){return document.all[id];};}var getQueryParamValue=deconcept.util.getRequestParameter;var FlashObject=deconcept.SWFObject;var SWFObject=deconcept.SWFObject;
+
+// end common libraries
+
+// begin global variables
+
+	var global = new Object();
+	global.siteSpeed = "high";
+	
+	/*********************Cookie**********************/
+	var COOKIE_EXPIRES = 1;
+	var COOKIE_CUSTOMER_LOCATION = "cookie_customer_location";
+	/*************************************Coookies for Raqs***********************************/
+	var COOKIE_RAQ_DATA = "cookie_raq_data";
+
+// end global variables
+
+
+/*
+ * for users that don't have firefox/firebug, override console object
+ */
+try { console.log('init console... done'); } catch(e) { console = { log: function(text) {}, trace: function(text){} }; }
+
+
+//http://www.biasecurities.com/blogs/jim/archive/2005/04/28/1794.aspx
+function AttachEvent(elementObj, eventName, eventHandlerFunctionName) {
+	if (elementObj.addEventListener) { // Non-IE browsers
+		elementObj.addEventListener(eventName, eventHandlerFunctionName, false);
+	} else if (elementObj.attachEvent) { // IE 6+
+		elementObj.attachEvent('on' + eventName, eventHandlerFunctionName);
+	} else { // Older browsers
+		var currentEventHandler = elementObj['on' + eventName];
+		if (currentEventHandler == null) {
+			elementObj['on' + eventName] = eventHandlerFunctionName;
+		} else {
+			elementObj['on' + eventName] = function(e) {
+				currentEventHandler(e);
+				eventHandlerFunctionName(e);
+			}
+		}
+	}
+}
+
+String.prototype.trim = function() {
+	return this.replace(/^\s+|\s+$/, "");
+}
+var css = function() {
+	var private_var;
+	function private_method() {
+		// do stuff here
+	}
+	return {
+		hasClassName : function(elem, className) {
+			return (elem.className.indexOf(className) != -1);
+		},
+		addClassName : function(elem, className) {
+			this.removeClassName(elem, className);
+			elem.className = (elem.className + " " + className).trim();
+		},
+		removeClassName : function(elem, className) {
+			elem.className = elem.className.replace(className, "").trim();
+		}
+	};
+}();
+
+var cookie = function() {
+	var private_var;
+	function private_method() {
+		// do stuff here
+	}
+	return {
+		create : function(name, value, days) {
+			var obj = document.getElementById("mdsGfooterAboutWrapper");
+
+			if (days) {
+				var date = new Date();
+				date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+				var expires = "; expires=" + date.toGMTString();
+			} else {
+				var expires = "";
+			}
+			document.cookie = name + "=" + value + expires + "; path=/";
+		},
+		read : function(name) {
+
+			var nameEQ = name + "=";
+			var ca = document.cookie.split(';');
+			for ( var i = 0; i < ca.length; i++) {
+				var c = ca[i];
+				while (c.charAt(0) == ' ')
+					c = c.substring(1, c.length);
+				if (c.indexOf(nameEQ) == 0)
+					return c.substring(nameEQ.length, c.length);
+			}
+			return null;
+		},
+		erase : function(name) {
+			this.create(name, "", -1);
+		}
+	};
+}();
+
+
+// based on superPopup from classic sites
+var popup = function() {
+
+	var private_var;
+	function private_method() {
+		// do stuff here
+	}
+
+	return {
+		pop : function(pOptions) {
+
+			var url = null;
+			var type = null;
+			var directories = null;
+			var location = null;
+			var menubar = null;
+			var resizable = null;
+			var scrollbars = null;
+			var status = null;
+			var toolbar = null;
+			var top = null;
+			var left = null;
+			var width = null;
+			var height = null;
+			var winName = null;
+			var clickTrackValue = null;
+			// URL is the only required field.
+			if (pOptions.url != null) {	url = pOptions.url;};
+			if (pOptions.type != null) { type = pOptions.type;};
+			// type will set some basic options to make the function cleaner -- otherwise all values can be set
+			if(type == "interstitial"){winName="interstitial";width="600";height="450";scrollbars="no";resizable="no";}
+			if(type == "tradein"){winName="tradein";width="600";height="650";scrollbars="no";resizable="yes";}
+			if(type == "onstar"){winName="popOnstar";width="675";height="461";scrollbars="no";resizable="no";}
+			if(type == "100k"){winName="pop100k";width="740";height="850";scrollbars="no";resizable="no";scrollbars="yes";}
+
+			// test to see if we have set a window option on the function or in a profile above, if not then set the value to be a default.
+			if (pOptions.directories != null) { directories = pOptions.directories;} else if (directories == null) { directories = "no" ;}
+			if (pOptions.location != null) { location = pOptions.location;} else if (location == null) { location = "no" ;}
+			if (pOptions.menubar != null) { menubar = pOptions.menubar;} else if (menubar == null) { menubar = "no" ;}
+			if (pOptions.resizable != null) { resizable = pOptions.resizable;} else if (resizable == null) { resizable = "no" ;}
+			if (pOptions.scrollbars != null) { scrollbars = pOptions.scrollbars;} else if (scrollbars == null) { scrollbars = "yes" ;}
+			if (pOptions.status != null) { status = pOptions.status; } else if (status == null) { status = "yes" ;}
+			if (pOptions.toolbar != null) { toolbar = pOptions.toolbar; } else if (toolbar == null) { toolbar = "no" ;}
+			if (pOptions.top != null) { top = pOptions.top} else if (top == null) { top = "50";}
+			if (pOptions.left != null) { left = pOptions.left;} else if (left == null) { left = "50" ;}
+			if (pOptions.width != null) { width = pOptions.width;} else if (width == null) { width = "250" ;}
+			if (pOptions.height != null) { height = pOptions.height;} else if (height == null) { height = "250" ;}
+			if (pOptions.winName != null) { winName = pOptions.winName;} else if (winName == null) { winName = "popUp" ;}
+			if (pOptions.clickTrack != null) { clickTrackValue = pOptions.clickTrack;}
+			windowOptions = "width=" + width + ", height=" + height + ", directories=" + directories + ", location=" + location + ", menubar=" + menubar + ", resizable=" + resizable + ", scrollbars=" + scrollbars + ", toolbar=" + toolbar + ", status=" + status + ", top=" + top + ", left=" + left;
+
+			window.open(url,winName,windowOptions);
+		}
+	};
+}();
+
+
+var util = function() {
+	var private_var;
+	function private_method() {
+		// do stuff here
+	}
+	return {
+		getBrowserForCss : function() {
+			var obj = document.getElementById("mdsGfooterAboutWrapper");
+
+			if (days) {
+				var date = new Date();
+				date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+				var expires = "; expires=" + date.toGMTString();
+			} else {
+				var expires = "";
+			}
+			document.cookie = name + "=" + value + expires + "; path=/";
+		},
+		getElementsByClassName : function(classname, node) {
+			if (!node)
+				node = document.getElementsByTagName("body")[0];
+			var a = [];
+			var re = new RegExp('\\b' + classname + '\\b');
+			var els = node.getElementsByTagName("*");
+
+			for ( var i = 0, j = els.length; i < j; i++)
+				if (re.test(els[i].className))
+					a.push(els[i]);
+
+			return a;
+		}
+	};
+}();
+
+var ui = function() {
+	var private_var;
+	function private_method() {
+		// do stuff here
+	}
+	return {
+		toggleAboutThisPage : function() {
+			var obj = document.getElementById("mdsGfooterAboutWrapper");
+
+			if (obj != null) {
+				if (hasClassName(obj, "closed")) {
+					css.removeClassName(obj, "closed");
+				} else {
+					css.addClassName(obj, "closed");
+				}
+			}
+		},
+		toggleSpeed : function() {
+
+			if (global.siteSpeed == "high") {
+				cookie.create("global.siteSpeed", "low", 14);
+			} else {
+				cookie.create("global.siteSpeed", "high", 14);
+			}
+
+			window.location.replace(unescape(window.location.pathname));
+
+		},
+		externalLink : function(anchor) {
+			var interstitialUrl = BASE_CONTEXT + "/pages/misc/instersticial/popupToExteriorLink.do?newURL=" + escape(anchor.href);
+			// call omniture tracking manually
+			exitLink(anchor);
+			popup.pop({url:interstitialUrl, type:'interstitial'});
+			return false;
+		},
+		showWorldwideSites : function() {
+
+			css.addClassName($('wsDialog'), "active");
+			$('wsDialog').style.left = DL_GetElementLeft($('gMdsFooter'))+(getWidth($('gMdsFooter'))/2) + "px";
+			$('wsDialog').style.top = DL_GetElementTop($('gMdsFooter'))-(getHeight($('wsDialog'))/2) + "px";
+		},
+		hideWorldwideSites : function() {
+
+		},
+		hideWorldwideSiteDiv : function() {
+			css.removeClassName($('wsDialog'), "active");
+			css.removeClassName($('wsDialog'), "activeCountries");
+			$each( $('continentList').getElements('li ul'), function(value){
+				value.removeClass('wsEnableCountry');
+				value.addClass('wsDisableCountry');
+			})
+		},
+		showCountries : function(continent) {
+
+			$each( $('continentList').getElements('li ul'), function(value){
+				value.removeClass('wsEnableCountry');
+				value.addClass('wsDisableCountry');
+			});
+
+			$(continent).getElements('ul').removeClass('wsDisableCountry');
+			$(continent).getElements('ul').addClass('wsEnableCountry');
+
+			css.addClassName($('wsDialog'), "activeCountries");
+			$('wsDialog').style.left = DL_GetElementLeft($('gMdsFooter'))+(getWidth($('gMdsFooter'))/2) + "px";
+			$('wsDialog').style.top = DL_GetElementTop($('gMdsFooter'))-(getHeight($('wsDialog'))/2) + "px";
+		},
+		hideCountries :  function() {
+			css.removeClassName($('wsDialog'), "activeCountries");
+			$each( $('continentList').getElements('li ul'), function(value){
+				value.removeClass('wsEnableCountry');
+				value.addClass('wsDisableCountry');
+			});
+		}
+
+	};
+}();
+
+function getRequest() {
+	try {
+		return (new ActiveXObject("Msxml2.XMLHTTP2"));
+	} catch (e) {}
+	try {
+		return (new ActiveXObject("Microsoft.XMLHTTP"));
+	} catch (e) {}
+	try {
+		return (new XMLHttpRequest());
+	} catch (e) {}
+
+	return (null);
+}
+
+
+function Global_Load_EventHandler() {
+
+	if (global.siteSpeed == "low") {
+		css.addClassName(window.document.body, "lowspeed");
+		if ($('gSpeedToggle') != null) {
+			$('gSpeedToggle').innerHTML = "<a title='High Speed Version' href=\"javascript:chooseSpeed('Y')\" ><span class='clickable'>High Speed Version</span></a>";
+		}
+	}
+
+	if (global.siteSpeed == "high") {
+		css.addClassName(window.document.body, "highspeed");
+		if ($('gSpeedToggle') != null) {
+			$('gSpeedToggle').innerHTML = "<a rel='nofollow,noindex' title='Low Speed Version' href=\"javascript:chooseSpeed('N')\" ><span class='clickable'>Low Speed Version</span></a>";
+		}
+	}
+
+	if (BrowserDetect) {
+		// Explorer6 FireFox2
+		css.addClassName(window.document.body, BrowserDetect.browser + ""
+				+ BrowserDetect.version);
+
+		console.log("BrowserDetect.browser: " + BrowserDetect.browser);
+		console.log("BrowserDetect.version: " + BrowserDetect.version);
+		console.log("BrowserDetect.OS: " + BrowserDetect.OS);
+	}
+
+	console.log("global.siteSpeed: " + global.siteSpeed);
+
+	// update footer link
+	if ($('gSpeedToggle') != null) {
+		$('gSpeedToggle').addEvent('click', function() {
+				ui.toggleSpeed();
+			});
+	}
+
+	// worldwide sites
+	/*if ($('wsDialog') != null) {
+		$('wsDialog').addEvent('click', function() {
+				ui.hideWorldwideSites();
+				ui.hideCountries();
+			});
+	}*/
+
+}
+
+	// inline initialization -- can happen before any load events fire
+	{
+		var speed = cookie.read("global.siteSpeed");
+		if (speed != null) {
+			console.log("speed: " + speed); 
+			global.siteSpeed = speed;
+		}
+	}
+	//
+
+	// domready initialization
+	$(document).addEvent('domready', Global_Load_EventHandler);
+	//
+
+function isDecimalNumberKey(evt) {
+	var charCode = (evt.which) ? evt.which : evt.keyCode
+	if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+		if (navigator.appName != 'Microsoft Internet Explorer') {
+			if (charCode == 46 && evt.target.value.search(/\./) == -1) {
+				return true;
+			} else {
+				return false;
+			}
+		} else if (charCode == 46 && evt.srcElement.value.search(/\./) == -1) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	return true;
+}
+
+
+/************************************GLOBAL SEARCH***************************************/
+function showhideSearch(obj){
+	var search = 'Search'
+	if (obj.value == search) obj.value="";
+	else{
+		if (obj.value.trim() == "") obj.value=search;
+	}
+}
+/************************************GLOBAL SEARCH END***************************************/
+
+/************************************Utility Functions***************************************/
+
+function isNoE(content)
+{
+	return (content==null || content=="");
+}
+
+/************************************Default Zipcode***************************************/
+
+function Location(zipcode,region,county,isMultiCounty,isMultiRegion){
+	this.zipcode = zipcode;
+	this.region = region;
+	this.county= county;
+	this.isMultiCounty = isMultiCounty;
+	this.isMultiRegion = isMultiRegion;
+}
+
+function Region(code,descr,dmas)
+{
+	this.code=code;
+	this.descr=descr;
+	this.dmas = dmas;
+}
+
+function County(code,descr)
+{
+	this.code=code;
+	this.descr=descr;
+}
+
+function saveDefaultLocation(zipcode,region,county,isMultiCounty,isMultiRegion)
+{
+	var loc = new Location(zipcode,region,county,isMultiCounty,isMultiRegion);
+	Cookie.write(COOKIE_CUSTOMER_LOCATION,JSON.encode(loc),{duration: COOKIE_EXPIRES, path:'/'});
+}
+
+function getDefaultLocation()
+{
+	var locstr = Cookie.read(COOKIE_CUSTOMER_LOCATION);
+	var cookieDecoded;
+	if(locstr!=null & locstr!=''){
+		cookieDecoded = JSON.decode(locstr);
+	}else{
+		return null;
+	}
+	return cookieDecoded;
+}
+
+function getRelativePath(){
+	var Str = document.location.href;
+	var newStr = "";
+	var index=0;
+	for(i=0;i<Str.length;i++){
+		if(!(Str.charAt(i)=="/" && i > 6)){
+			newStr = newStr + Str.charAt(i);
+		}else{
+			i=Str.length;
+		}
+	}
+	return newStr;
+}
+
+function linkTo(url){
+	var newUrl = BASE_CONTEXT+url;
+	window.location.href=newUrl;
+}
+function submitForm(id){
+	var formObj = document.getElementById(id);
+	formObj.submit();
+}
+
+
+
+/***************BEGIN::Position functions***********************/
+
+/** Return the Left position of a given element.
+ * @param eElement
+ * @return
+ */
+function DL_GetElementLeft(eElement) {
+	var nLeftPos = eElement.offsetLeft;
+	var eParElement = eElement.offsetParent;
+	while (eParElement != null) {
+		nLeftPos += eParElement.offsetLeft;
+		eParElement = eParElement.offsetParent;
+	}
+	return nLeftPos;
+}
+
+/** Return the Top position of a given element.
+ * @param eElement
+ * @return
+ */
+function DL_GetElementTop(eElement) {
+	var nTopPos = eElement.offsetTop;
+	var eParElement = eElement.offsetParent;
+	while (eParElement != null) {
+		nTopPos += eParElement.offsetTop;
+		eParElement = eParElement.offsetParent;
+	}
+	return nTopPos;
+}
+
+
+/** Calculates the coordinates to center an element taking in
+ *  consideration the size of the element itself, size of the
+ *  window and the scroll of the page.
+ *
+ * @param elemID
+ * @return  postion class object
+ */
+function getCenterPosition(elemID) {
+	// Locate the element
+	var obj = $(elemID);
+	// Make sure that the element exists
+	if (!obj)
+		return null;
+	// Find its current height and width
+	var w = obj.getWidth();
+	var h = obj.getHeight();
+	// Position the box, vertically, in the middle of the window
+	var t = scrollY() + (windowHeight() / 2) - (h / 2);
+	// But no heigher than the top of the page
+	if (t < 0)
+		t = 0;
+	// Position the box, horizontally, in the middle of the window
+	var l = scrollX() + (windowWidth() / 2) - (w / 2);
+	// But no less than the left of the page
+	if (l < 0)
+		l = 0;
+	// Set the adjusted position of the element
+	var pos = new position(l, t);
+	return pos;
+};
+
+/** A function for determining how far horizontally the browser is scrolled
+ * @return
+ */
+function scrollX() {
+	// A shortcut, in case we're using Internet Explorer 6 in Strict Mode
+	var de = document.documentElement;
+	// If the pageXOffset of the browser is available, use that
+	return self.pageXOffset ||
+
+	// Otherwise, try to get the scroll left off of the root node
+			(de && de.scrollLeft) ||
+			// Finally, try to get the scroll left off of the body element
+			document.body.scrollLeft;
+}
+
+/** A function for determining how far vertically the browser is scrolled
+ * @return
+ */
+function scrollY() {
+	// A shortcut, in case we're using Internet Explorer 6 in Strict Mode
+	var de = document.documentElement;
+	// If the pageYOffset of the browser is available, use that
+	return self.pageYOffset ||
+	// Otherwise, try to get the scroll top off of the root node
+			(de && de.scrollTop) ||
+			// Finally, try to get the scroll top off of the body element
+			document.body.scrollTop;
+}
+
+/** Get the actual height (using the computed CSS) of an element
+ * @param elem
+ * @return
+ */
+function getHeight(elem) {
+	// Gets the computed CSS value and parses out a usable number
+	return parseInt(elem.getSize().y);
+}
+
+/** Get the actual width (using the computed CSS) of an element
+ * @param elem
+ * @return
+ */
+function getWidth(elem) {
+	// Gets the computed CSS value and parses out a usable number
+	return parseInt(elem.getSize().x);
+}
+
+/** Find the height of the viewport
+ * @return
+ */
+function windowHeight() {
+	// A shortcut, in case we're using Internet Explorer 6 in Strict Mode
+	var de = document.documentElement;
+	// If the innerHeight of the browser is available, use that
+	return self.innerHeight ||
+	// Otherwise, try to get the height off of the root node
+			(de && de.clientHeight) ||
+			// Finally, try to get the height off of the body element
+			document.body.clientHeight;
+}
+
+/** Find the width of the viewport
+ * @return
+ */
+function windowWidth() {
+	// A shortcut, in case we're using Internet Explorer 6 in Strict Mode
+	var de = document.documentElement;
+	// If the innerWidth of the browser is available, use that
+	return self.innerWidth ||
+	// Otherwise, try to get the width off of the root node
+			(de && de.clientWidth) ||
+			// Finally, try to get the width off of the body element
+			document.body.clientWidth;
+}
+
+/** Find the horizontal position of the cursor
+ * @param e
+ * @return
+ */
+function getX(e) {
+	// Normalize the event object
+	e = e || window.event;
+	// Check for the non-IE position, then the IE position
+	return e.pageX || e.clientX + document.body.scrollLeft;
+}
+
+/** Find the vertical position of the cursor
+ * @param e
+ * @return
+ */
+function getY(e) {
+	// Normalize the event object
+	e = e || window.event;
+	// Check for the non-IE position, then the IE position
+	return e.pageY || e.clientY + document.body.scrollTop;
+}
+
+/** Find the mouse position.
+ * @param e: Mouse Evennt
+ * @return: Return the position x and y of the mouse.
+ */
+function getMousePosition(e) {
+	var x = 0;
+	var y = 0;
+	var arrayMousePos = new Array();
+	if (document.all) {
+		x = e.clientX + document.body.scrollLeft;
+		y = e.clientY + document.body.scrollTop;
+	} else if (document.getElementById) {
+		x = e.pageX;
+		y = e.pageY;
+	}
+	arrayMousePos[0] = x
+	arrayMousePos[1] = y;
+	return arrayMousePos;
+}
+function getScreenCenter(){
+	var left = windowWidth() / 2 + scrollX();
+	var top = windowHeight() / 2 + scrollY();
+	return new position(left, top);
+}
+/***************END::Position functions***********************/
+
+
+function chooseSpeed(mode){
+ 	 if (mode=="N"){
+              mode= "N&evar6=globalfoot_lowspeed";
+        }
+		var index = document.location.href.indexOf("?");
+	var pathMode = ""
+	if (index > -1){
+		pathMode = document.location.href.replace("useFlash=N&evar6=globalfoot_lowspeed", "");
+		pathMode = pathMode.replace("useFlash=N", "");
+		pathMode = pathMode.replace("useFlash=Y", "");
+
+		pathMode = pathMode + "&useFlash=" + mode;
+
+		pathMode = pathMode.replace("?&", "?");
+
+	}
+	else
+
+	pathMode = document.location.href + "?useFlash=" + mode;
+	document.location.href = pathMode;
+}
+
+/** Returns the html to be used as a flashvar
+ * @param id: String, Tag Id
+ * @return: The result with escaped characters so it doesn't break the xhtml
+ */
+function getInnerHtml(id) {
+		var result = $(id).get('html');
+	    result = result.split("\"").join(escape("\""));
+	    result = result.split("&").join(escape("&"));
+		return result;
+}
+/***************END::Position functions***********************/
+
+function formatCurrency(num) {
+	num = num.toString().replace(/\$|\,/g,'');
+	if(isNaN(num))
+	num = "0";
+	sign = (num == (num = Math.abs(num)));
+	num = Math.floor(num*100+0.50000000001);
+	cents = num%100;
+	num = Math.floor(num/100).toString();
+	if(cents<10)
+	cents = "0" + cents;
+	for (var i = 0; i < Math.floor((num.length-(1+i))/3); i++)
+	num = num.substring(0,num.length-(4*i+3))+','+
+	num.substring(num.length-(4*i+3));
+	return (((sign)?'':'-') + num);
+}
+
+/** Opens the interstitial popup and escapes the URL
+ * @param url
+ * @param name
+ * @return
+ */
+function openInterstitial(url, name){
+	url = url.split("\"").join(escape("\""));
+	url = url.split("&").join(escape("&"));
+	window.open(BASE_CONTEXT + '/pages/misc/instersticial/popupToExteriorLink.do?newURL=' + url,name,'width=529,height=234');
+}
+function openWin(url,winName,width,height){
+		window.open(BASE_CONTEXT+url,winName,'width='+width+',height='+height+',left=300,top=200,toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,copyhistory=no,resizable=no');
+
+}
+
+function openWinParam(url,winName,param){
+	if(url.indexOf("http://") != 0){
+		window.open(BASE_CONTEXT+url,winName,param);
+	}else{
+		window.open(url,winName,param);
+	}
+}
+
+
+function flashInnerHTML(node) {
+	var nodeNamesWeIgnore = "accessKey|coords|noWrap|dataFormatAs|disabled|dataSrc|object|dataFld|language|compact|contentEditable|inherit|tabIndex|align|clear|shape|charset|urn|dir|css";
+    // that string doesn't let us ignore "hreflang" (href) of "hideFocus" (id)
+    // it might be easier to search for the attributes we DO want instead of those we DON'T want.
+    var result = "";
+	switch (node.nodeType) {
+	// http://www.zvon.org/xxl/DOM2reference/DOM2/Output/data/_glossary.html#NodeTypes
+		case 3: // text node
+			var textValue = node.nodeValue;
+			textValue = textValue.replaceAll(/\t/g, "");
+			textValue = textValue.replaceAll(/\n/g, "");
+			textValue = textValue.replaceAll(/\r/g, "");
+			result += textValue;
+		break;
+		case 1:
+			result += "<" + node.nodeName.toLowerCase();
+			if (node.attributes != null) {
+				if (node.attributes.length > 0) {
+					for (var i = 0;  i < node.attributes.length; i++) {
+						var nodeName = node.attributes.item(i).nodeName;
+						//if ((node.attributes.item(i).value != "null") && (node.attributes.item(i).value != "") && (nodeNamesWeIgnore.indexOf(nodeName) == -1)) {
+						if ((node.attributes.item(i).value != "null") && (nodeNamesWeIgnore.indexOf(nodeName) == -1)) {
+							result += " " + node.attributes.item(i).nodeName;
+							result += "=\"";
+							if(node.attributes.item(i).nodeName == "alt" || node.attributes.item(i).nodeName == "title"){
+								node.attributes.item(i).value = node.attributes.item(i).value.replace("\"", "&#34;");
+							}
+							result += node.attributes.item(i).value +"\"";
+						}
+					}
+				}
+			}
+			if (node.childNodes != null) {
+				if (node.childNodes.length > 0) {
+					result += ">";
+					for (var j = 0;  j < node.childNodes.length; j++) {
+						result += flashInnerHTML(node.childNodes[j]);
+					}
+					result += "</"+ node.nodeName.toLowerCase() +">";
+				}
+				else {
+					result += "/>";
+				}
+			}
+		break;
+	}
+	result = result.replaceAll("% ","%25 ");
+	result = result.replaceAll("\"","%22");
+	result = result.replaceAll("&amp;","%26");
+	result = result.replaceAll("&","%26");
+    return result;
+}
+
+function centeredWin(a_str_windowURL, a_str_windowName, a_int_windowWidth,
+		a_int_windowHeight, a_bool_scrollbars, a_bool_resizable, a_bool_menubar,
+		a_bool_toolbar, a_bool_addressbar, a_bool_statusbar, a_bool_fullscreen) {
+
+  var int_windowLeft = (screen.width - a_int_windowWidth) / 2;
+  var int_windowTop = (screen.height - a_int_windowHeight) / 2;
+  var str_windowProperties = 'height=' + a_int_windowHeight + ',width=' + a_int_windowWidth + ',top=' + int_windowTop + ',left=' + int_windowLeft + ',scrollbars=' + a_bool_scrollbars + ',resizable=' + a_bool_resizable + ',menubar=' + a_bool_menubar + ',toolbar=' + a_bool_toolbar + ',location=' + a_bool_addressbar + ',statusbar=' + a_bool_statusbar + ',fullscreen=' + a_bool_fullscreen + '';
+  var obj_window = window.open(a_str_windowURL, a_str_windowName, str_windowProperties)
+
+	if (parseInt(navigator.appVersion) >= 4) {
+      obj_window.window.focus();
+    }
+}
+
+function downloadFile(filePath){
+	location.href = DONWLOAD_URL + "?filename=" + filePath;
+}
+
+function openPrivacyStatement(a_str_windowURL) {
+	var a_str_windowName = 'privacyStatement';
+	var a_int_windowWidth = 689;
+	var a_int_windowHeight = 554;
+	var int_windowLeft = (screen.width - a_int_windowWidth) / 2;
+	var int_windowTop = (screen.height - a_int_windowHeight) / 2;
+	var str_windowProperties = 'height=' + a_int_windowHeight + ',width=' + a_int_windowWidth + ',top=' + int_windowTop + ',left=' + int_windowLeft;
+	var obj_window = window.open(a_str_windowURL, a_str_windowName, str_windowProperties)
+    if (parseInt(navigator.appVersion) >= 4) {
+      obj_window.window.focus();
+    }
+}
+
+// Functions for Zip Input validation.
+function validateZip(s)
+{
+     var res = (reqField(s,"Zip Code") && testZip(s)) ;
+     return res;
+}
+
+function testZip(s)
+{
+     reZip = new RegExp(/(^\d{5}$)|(^\d{5}-\d{4}$)/);
+     if (!reZip.test(s)||(s=="00000")) {
+          alert("Zip Code Is Not Valid");
+          return false;
+     }
+	return true;
+}
+
+function reqField(s,fieldname)
+{
+     if(s=="")
+     {
+     	alert(fieldname+" Is Required");
+         return false;
+     }
+     else{
+	return true;
+	}
+}
+
+function inputZip(src, evt){
+	var charCode = (evt.which) ? evt.which : evt.keyCode
+	if (   ((charCode >= 48 && charCode <= 57) && src.value.length<5) ||
+	 (charCode<31) || (evt.keyCode=='37') || (evt.keyCode=='39') || (evt.keyCode=='46') )
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
+
+
+function fireInterstitial(url){
+  var newURL="";
+  var context = url.split("/")[1]; // search the context of the url
+  var context2 = BASE_CONTEXT.split("/")[1]; // context of the Chevy site
+  if(context!=context2){ // if both context are diferents, append the Chevy's context to the url
+    newURL = BASE_CONTEXT+url;
+  }else{
+    newURL = url;
+  }
+  newURL = newURL.split("\"").join(escape("\""));
+ 
+  newURL = newURL.split("&").join(escape("&"));
+  
+  //new code for bypassing the exit window and add tracking
+   noInterURL = newURL.split("newURL=")[1];
+  	var newURLencoded = encodeURI(noInterURL);
+	/*s.pe = 'lnk_e';
+	s.pev1 = newURLencoded;
+	s.pev2= s.pageName +" | "+ newURLencoded;
+    s.t(); // do page track
+	var divisionObj=BRAND.toUpperCase();
+	var nameObj = name.toUpperCase();
+
+		clickTrack({
+		pe: 'lnk_e',pev1: newURLencoded, pev2: s.pageName +" | "+ newURLencoded,
+		pageName: ' ', prop1: ' ', prop2:' ', prop3: ' ', prop4:' ', prop5:' ', prop6: ' ', prop7:' ', prop8: ' ', prop9: ' ', prop10:' ', prop11:nameObj,prop12:' ',prop13:' ',prop14:' ',prop15:' ',prop17:' ', prop18:' ', prop20: s.pageName +" | "+ newURLencoded, prop24:'EN', prop25:'CHEVROLET', prop26:(new Date()).getHours(), prop27: weekday[(new Date()).getDay()]});*/
+		
+	window.open(newURLencoded, 'newWindow', '');
+  
+  //commented out for bypassing the exit window
+  //if(Browser.Engine.name == 'trident'){ // fix to IE
+   // centeredWin(newURL, "interstitialWin", "630", "375", true, true, false, false, false, false, false);//located in common.js
+  //}else{
+   // centeredWin(newURL, "interstitialWin", "620", "375", true, true, false, false, false, false, false);//located in common.js
+  //}
+}
+
+function currentOffer(year, brand, evar){
+	var zipLoc = getDefaultLocation();
+	var tempLink = "";
+	
+	try{
+		if(year!=null&&year!="") tempLink += "&year="+year;
+		if(brand!=null&&brand!="") tempLink += "&brand="+brand;
+		if(evar!=null&&evar!="") tempLink += "&evar2="+evar;
+		
+		try{
+			var dropdownIndex = document.getElementById('yearDropDown').selectedIndex;
+			var dropdownValue = document.getElementById('yearDropDown')[dropdownIndex].value;
+			
+			
+			if(null!=zipLoc){		 
+				window.location.href=BASE_CONTEXT+"/tools/currentoffers/results.do?zipCode="+zipLoc.zipcode+"&region="+zipLoc.region.code+"&county="+zipLoc.county.code+tempLink+"&brand="+vehicleArray[2009][i][0]+"&year="+dropdownValue;		 	
+			}else{
+			if(tempLink!=""){
+				window.location.href=BASE_CONTEXT+"/tools/currentoffers/results.do?"+tempLink+"&zipCode=";
+			}else{
+				window.location.href=BASE_CONTEXT+"/tools/currentoffers/results.do?zipCode=";
+			}		
+			}
+		}catch(e){
+			if(null!=zipLoc){		 
+				window.location.href=BASE_CONTEXT+"/tools/currentoffers/results.do?zipCode="+zipLoc.zipcode+"&region="+zipLoc.region.code+"&county="+zipLoc.county.code+tempLink;		 	
+			}else{
+			if(tempLink!=""){
+				window.location.href=BASE_CONTEXT+"/tools/currentoffers/results.do?"+tempLink+"&zipCode=";
+			}else{
+				window.location.href=BASE_CONTEXT+"/tools/currentoffers/results.do?zipCode=";
+			}
+			}
+		}		
+		  
+	
+	}catch(e){
+		if(tempLink!=""){
+			window.location.href=BASE_CONTEXT+"/tools/currentoffers/results.do?"+tempLink+"&zipCode=";
+		}else{
+			window.location.href=BASE_CONTEXT+"/tools/currentoffers/results.do?zipCode=";
+		}		
+	}
+	
+}
+
+function setCopyAreaWidth() {
+	//set width of copy area for imageLeft and imageRight modules, based on image dimensions
+	//iterate main module divs
+	//$_("#mainModulesContainer .mainModuleContainer").each(function() {
+	$_("#mainModulesContainer .moduleContainer").each(function() {
+		//$_(this).css( {border: ('solid red 2px')} );
+		
+		var mainModuleContainerWidth = $_(this).width();
+		var arrCurImages = [];
+		var imageAreaImage;
+		var imageAreaImageWidth;
+		var copyArea;
+		
+		//iterate images in imageArea
+		imageAreaImage = $_(".imageArea img", this).each(
+			function() {
+				arrCurImages.push($_(this).width());
+		;});
+		//sort array values descending
+		arrCurImages.sort(function(a, b){
+			return b - a;
+		});
+		//console.log(arrCurImages);
+		$_.each(arrCurImages, function(index, value) { //loop image sizes
+			if(index == 0){
+				//console.log("widest: " + value);
+				imageAreaImageWidth = value;
+			}
+		});
+		//console.log("\n");
+		
+		var padding="10";
+		var copyAreaWidth = (mainModuleContainerWidth - imageAreaImageWidth) - padding;
+		
+		//set copyArea width
+		copyArea = $_(".copyArea", this);
+		copyArea.css( {width: (copyAreaWidth)} );
+    });
+}
+
+function swapAreas(){
+	//test to swap copyArea with imageArea in 'intro' module
+	var curClasses;
+	var imageArea;
+	$_(".mainModuleContainer").each(function() {
+		//imageArea = $_(".imageArea", this);
+		//var arrClasses = $_(".imageArea.className.split(' ')", this);
+		//var arrClasses = imageArea.attr('class').split(' ');
+		if($_(".imageArea", this).attr('class')) {
+			curClasses = $_(".imageArea", this).attr('class');
+			console.log("curClasses: " + curClasses); //NEED TO FURTHER SPLIT THIS IN AN ARRAY?
+			//curClasses = curClasses.toString();
+			if(curClasses.indexOf("imageRight") <= -1) { //THIS LINE DOESN'T SEEM TO BE PROCESSING RIGHT
+				$_(".imageArea", this).css( {border: ("solid 1px red")} );
+			}	
+		}		
+    });
+}
+
+
+
+}
+/*
+     FILE ARCHIVED ON 21:07:21 Jun 14, 2010 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:41:49 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 103.405
+  exclusion.robots: 0.073
+  exclusion.robots.policy: 0.064
+  cdx.remote: 0.058
+  esindex: 0.008
+  LoadShardBlock: 71.288 (3)
+  PetaboxLoader3.datanode: 121.117 (4)
+  load_resource: 271.269
+  PetaboxLoader3.resolve: 202.465
+*/

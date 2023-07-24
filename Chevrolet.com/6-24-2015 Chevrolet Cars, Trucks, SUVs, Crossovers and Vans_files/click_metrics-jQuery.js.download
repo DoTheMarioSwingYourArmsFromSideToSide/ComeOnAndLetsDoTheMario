@@ -1,0 +1,189 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+/*
+*/
+var weekday = new Array("SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY");
+
+function fireMetrics(id, options) 
+{
+    //alert('fireMetrics: ' + id);
+    if (id == '') return;
+    var pageEvent = (id == 'page');
+	if ((typeof options != 'undefined') && (typeof options == 'string')) {
+        var optionArray = {};
+        var tmp = options.split(";;");
+        for (var i = 0; i < tmp.length; i++) {
+            var t = tmp[i].split("::", 2);
+            // add support for multiple items
+            optionArray[t[0]] = t[1];
+        }
+		options = optionArray;
+    }
+    if (typeof pageTrackJSON != 'undefined') {
+        var sdata = {};
+        var fail = true;
+        for (var i = 0; i < pageTrackJSON.length; i++) {
+            var tmp = pageTrackJSON[i]
+                if (tmp.id.toLowerCase() == id.toLowerCase()) {
+                /// clone the object so the original is not changed
+				sdata = mrm.$.extend(true, {}, tmp);
+                fail = false;
+                break;
+			}
+        }
+        sdata.vars = parseOptions(sdata.vars, options);
+        if (isNotEmpty(sdata) && !fail) {
+            clickTrack(sdata.vars, pageEvent);
+        }
+    }
+    if (typeof dartTrackJSON != 'undefined') {
+        var sdata = {};
+        for (var i = 0; i < dartTrackJSON.length; i++) {
+            var trackTmp = dartTrackJSON[i];
+            for (var key in trackTmp) {
+                if (key === "undefined") {
+                    continue;
+                }
+                var dartTrkArr = trackTmp[key];
+                for (var x = 0; x < dartTrkArr.length; x++) {
+                    if (typeof dartTrkArr[x] !== 'undefined' && dartTrkArr[x].id !== 'undefined' && dartTrkArr[x].id.toLowerCase() === id.toLowerCase()) {
+                        /// clone the object so the original is not changed
+                        mrm.$.extend(true, sdata, dartTrkArr[x]);
+                        if (isNotEmpty(sdata)) {
+                            trackDart(sdata.vars, key);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+function parseOptions(sdata, optionArray) {
+    if (typeof optionArray != 'undefined') {
+        // add hour and day info
+        optionArray['HOUR'] = new Date().getHours()
+        optionArray['DAY'] = weekday[(new Date()).getDay()]
+        var reg = /<<(\w*)>>/;
+        // loop through prop value to replace tokens.
+        for (var i in sdata) {
+            if (reg.test(sdata[i])) {
+                for (var x in optionArray) {
+                    sdata[i] = sdata[i].replace(new RegExp('<<' + x + '>>', 'gi'), optionArray[x])
+                    }
+            }
+        }
+    }
+    return sdata;
+}
+function clickTrack(obj, pageEvent) {
+    var _linkTrackVars = new Array();
+    var _pev2 = 'gmds';
+    mrm.$.each(obj, function(key, value) {
+        if (key.indexOf("prop") != -1 || key.indexOf("eVar") != -1 || key.indexOf("event") != -1) {
+            _linkTrackVars.push(key);
+        } else if (key.indexOf("pev2") != -1) {
+            _pev2 = value;
+        }
+    });
+    if (typeof Omniture_s != 'undefined') {
+        Omniture_s.linkTrackVars = _linkTrackVars.toString();
+        mrm.$.extend(Omniture_s, obj);
+        if (pageEvent) {
+            Omniture_s.t();
+        } else {
+            Omniture_s.tl(true, 'o', _pev2);
+        }
+        // Clear out tracking vars
+        for (i = 1; i <= 100; i++) {
+            eval('Omniture_s.prop' + i + '="";');
+            eval('Omniture_s.eVar' + i + '="";');
+        }
+        for (i = 1; i <= 75; i++) {
+            eval('Omniture_s.events' + i + '="";');
+        }
+        eval('Omniture_s.events="";');
+        } else if (typeof s != 'undefined') {
+        s.linkTrackVars = _linkTrackVars.toString();
+        mrm.$.extend(s, obj);
+        if (pageEvent) {
+            s.t();
+        } else {
+            s.tl(true, 'o', _pev2);
+        }
+        // Clear out tracking vars
+        for (i = 1; i <= 100; i++) {
+            eval('s.prop' + i + '="";');
+            eval('s.eVar' + i + '="";');
+        }
+        for (i = 1; i <= 75; i++) {
+            eval('s.events' + i + '="";');
+        }
+        eval('s.events="";');
+        //console.dir(s);
+        }
+}
+function trackDart(obj, type) {
+    var url = "undefined";
+    if (type === "flood") {
+        url = "//web.archive.org/web/20150623230208/http://fls.doubleclick.net/activityi";
+    } else if (type === "spot") {
+        url = "//web.archive.org/web/20150623230208/http://ad.doubleclick.net/activity";
+    } else {
+        return;
+        // Unknown tag returned.
+        }
+    var rand = Math.random() + "";
+    var a = rand * 10000000000000;
+    var iDart = document.createElement("IFRAME");
+    iDart.setAttribute("width", "1");
+    iDart.setAttribute("height", "1");
+    var mysrc = (typeof(obj.src) != "undefined") ? obj.src: '';
+    var mytype = (typeof(obj.typ) != "undefined") ? obj.typ: '';
+    var mycat = (typeof(obj.cat) != "undefined") ? obj.cat: '';
+    var myu1 = (typeof(obj.u1) != "undefined") ? obj.u1: '';
+    var myu2 = (typeof(obj.u2) != "undefined") ? obj.u2: '';
+    if (mysrc != '' && mytype != '' && mycat != '') {
+        var sDartSrc = url + ';src=' + mysrc + ';type=' + mytype + ';cat=' + mycat + ';u1=' + myu1 + ';u2=' + myu2 + ';ord=' + a + '?';
+        iDart.setAttribute("src", sDartSrc);
+        document.body.appendChild(iDart);
+    }
+}
+function isNotEmpty(obj) {
+    for (var prop in obj) {
+        if (obj.hasOwnProperty(prop))
+            return true;
+    }
+    return false;
+}
+
+}
+/*
+     FILE ARCHIVED ON 23:02:08 Jun 23, 2015 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 05:14:04 May 01, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 140.033
+  exclusion.robots: 0.1
+  exclusion.robots.policy: 0.089
+  cdx.remote: 0.052
+  esindex: 0.009
+  LoadShardBlock: 93.312 (3)
+  PetaboxLoader3.datanode: 48.72 (4)
+  PetaboxLoader3.resolve: 148.915 (2)
+  load_resource: 112.352
+*/

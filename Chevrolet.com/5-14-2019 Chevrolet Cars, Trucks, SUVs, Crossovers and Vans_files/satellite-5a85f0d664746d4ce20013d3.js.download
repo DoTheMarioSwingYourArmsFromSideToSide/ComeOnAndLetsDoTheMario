@@ -1,0 +1,46 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+_satellite.pushBlockingScript(function(event, target, $variables){
+  if (digitalData.vehicleInfo.modelYear != "") {
+var d = new Date();
+    d.setTime(d.getTime() + 3888000000);
+    var expires = "expires="+ d.toUTCString();
+	
+	document.cookie = "modelYear=" + digitalData.vehicleInfo.modelYear+";"+ expires +";path=/" ;
+  document.cookie = "modelName=" + digitalData.vehicleInfo.modelName+";"+ expires +";path=/" ;
+  document.cookie = "bodystyle=" + digitalData.vehicleInfo.bodyStyle+";"+ expires +";path=/" ;
+}
+});
+
+
+}
+/*
+     FILE ARCHIVED ON 09:00:12 May 12, 2019 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 08:06:38 May 01, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 72.25
+  exclusion.robots: 0.119
+  exclusion.robots.policy: 0.107
+  cdx.remote: 0.086
+  esindex: 0.012
+  LoadShardBlock: 43.996 (3)
+  PetaboxLoader3.datanode: 83.32 (4)
+  load_resource: 963.842
+  PetaboxLoader3.resolve: 917.023
+*/

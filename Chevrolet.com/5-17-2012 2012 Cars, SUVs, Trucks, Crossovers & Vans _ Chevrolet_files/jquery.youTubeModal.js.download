@@ -1,0 +1,69 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+(function($){
+	$.fn.extend({
+		youTubeModal: function( options ) {
+			var defaults = {
+				autohide       : 1,
+				autoplay       : 1,
+				height         : 385,
+				modestbranding : 1,
+				width          : 638,
+				wmode          : 'transparent'
+			}
+			var options =  $.extend(defaults, options);
+			return this.each( function(){
+				var $this = $( this ),
+					add = "";
+				$this.videoLocation = $this.attr( 'href' );
+				$this.videoId = /v=([A-Za-z0-9_-]*)\&?/.exec( $this.videoLocation )[1];
+				$( '<div class="youTubeModal"><div class="youTubeVid"></div><div class="close">[X] close</div>').prependTo( 'body' );
+				$( '.youTubeModal .youTubeVid' ).mrmplayer({
+					playerType:'youtube',
+					vidID          : $this.videoId,
+					width          : options.width,
+					height         : options.height,
+					autoHide       : options.autoHide,
+					autoStart      : options.autoplay,
+					modestBranding : options.modestbranding,
+					wmode          : options.wmode
+				});
+
+				$( '.youTubeModal .close' ).click( function() { $( '.youTubeModal' ).remove();});
+				$( '<div class="offClickYouTube"></div>' ).prependTo( '.hotspotWrap' ).click( function(){ $( '.youTubeModal .close' ).click(); $( this ).remove() });
+			});
+		}
+	});
+})(jQuery);
+
+}
+/*
+     FILE ARCHIVED ON 10:55:33 May 07, 2012 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 23:07:20 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 669.07
+  exclusion.robots: 0.135
+  exclusion.robots.policy: 0.125
+  RedisCDXSource: 6.359
+  esindex: 0.007
+  LoadShardBlock: 644.432 (3)
+  PetaboxLoader3.resolve: 552.897 (3)
+  PetaboxLoader3.datanode: 145.261 (4)
+  load_resource: 70.354
+*/

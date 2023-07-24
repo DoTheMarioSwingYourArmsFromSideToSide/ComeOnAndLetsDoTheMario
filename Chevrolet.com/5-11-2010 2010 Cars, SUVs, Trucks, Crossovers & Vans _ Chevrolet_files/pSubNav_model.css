@@ -1,0 +1,135 @@
+#subHeader {
+	width:980px;
+}
+#subHeader div {
+	float: left;
+	margin: 0px;
+}
+#subHeader div.subnavitems {
+	position:relative;
+	top:5px;
+}
+.modelHead ul li {
+	float: none !important;
+}
+.modelHead ul {
+	float: left !important;
+	margin-right: 10px;
+}
+.headBrandYear li a {
+	margin: 0px;
+}
+#currentModelYears ul {
+	margin: 0;
+	padding: 0;
+}
+#currentModelYears {
+	position: absolute;
+	height:50px;
+	font-size:9px;
+	color:#CCC;
+	background-color:#FFF;
+	border:none;
+	width:50px;
+}
+#currentModelYears ul li {
+	float:left !important;
+	font-size:8px;
+	font-weight:bold;
+	margin:3px 16px;
+}
+.upperHead {
+	text-transform: uppercase;
+	font-size: 14px;
+	font-weight: bold;
+	color:#000;
+}
+.hiddenArea {
+	display: none;
+}
+.displayedArea {
+	display: block;
+}
+#changeYearLink, #addToMySavedInfoLink {
+	font-size: 7px;
+	font-weight: bold;
+}
+.modelHead ul {
+	padding:0;
+	margin:0;
+}
+#addToMySavedInfoLink {
+	position:relative;
+	left:92px;
+}
+#headYear {
+	position:relative;
+	top:16px;
+	left:97px;
+}
+#camaro_2010 #headYear { display:none; }
+#camaro_2010 #headBrand {left:97px;
+position:relative; }
+#camaro_2010 #addToMySavedInfoLink { left:-10px; }
+
+#gMdsSubNav ul.camaro_2010 { left:100px; }
+.Explorer6 #gMdsSubNav ul.camaro_2010,
+.Explorer7 #gMdsSubNav ul.camaro_2010,
+.Explorer8 #gMdsSubNav ul.camaro_2010{ left:100px; }
+
+.Explorer7 #headYear, .Explorer6 #headYear {
+	position:relative;
+	top:0;
+	left:97px;
+}
+#currentModelYears {
+	position:relative;
+	z-index:11996;
+	width:58px;
+	left:12px;
+}
+#currentModelYears ul li a, #currentModelYears ul li a span { font-size:8px; color:#ccc; text-decoration:none; }
+#currentModelYears ul li a:hover, #currentModelYears ul li a:hover span { color: #B49D3F; }
+ul#subMenu {
+	float:left;
+	margin:0px 0px 0px 0px;
+	position:absolute;
+	width:700px;
+	left:30px;
+}
+.Explorer6 ul#subMenu,
+.Explorer7 ul#subMenu,
+.Explorer8 ul#subMenu { left:15px; }
+ul#subMenu h3 { display: none; }
+
+/*************************************************
+Specific model changes
+!this is a hack, you know it and i know it.!
+*************************************************/
+
+.subnavitems ul.silverado1500_2010,
+.subnavitems ul.silverado2500hd_2010,
+.subnavitems ul.silverado3500hd_2010 {
+width:650px !important;
+left:30px !important;
+}
+/*
+     FILE ARCHIVED ON 16:05:32 May 28, 2010 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:39:44 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 74.918
+  exclusion.robots: 0.065
+  exclusion.robots.policy: 0.056
+  RedisCDXSource: 1.226
+  esindex: 0.007
+  LoadShardBlock: 55.037 (3)
+  PetaboxLoader3.datanode: 90.941 (4)
+  load_resource: 101.072
+  PetaboxLoader3.resolve: 45.962
+*/

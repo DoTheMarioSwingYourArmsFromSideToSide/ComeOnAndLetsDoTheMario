@@ -1,0 +1,61 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+var langVersion = "";
+var tempSProp3 = "";
+if (htmlLang == "es") {
+	langVersion = "(Spanish)";
+	tempSProp3 = "Spanish Chevrolet";
+} else if (htmlLang == "zh-Hans") {
+	langVersion = "(Chinese)";
+	tempSProp3 = "Chinese Chevrolet";
+} else {
+	tempSProp3 = "English Chevrolet";
+}
+
+var docTitle = document.title.split(':').reverse().slice(1);
+var modDocTitle = (docTitle.toString().split(",")).join(": ") + " " + langVersion;
+
+if (document.location.href.indexOf("devchevy2005") != -1 || document.location.href.indexOf("https://web.archive.org/web/20041018032053/http://pprod.") != -1) {
+	if (typeof s_pageName == "undefined" && typeof s_pageType == "undefined") {
+		var s_pageName = modDocTitle;
+	}
+	if (typeof s_channel == "undefined") {
+		var s_channel = docTitle[0];
+	}
+}
+
+if (typeof s_prop3 == "undefined") {
+	var s_prop3 = tempSProp3;
+}
+
+}
+/*
+     FILE ARCHIVED ON 03:20:53 Oct 18, 2004 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 21:20:15 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 246.137
+  exclusion.robots: 0.069
+  exclusion.robots.policy: 0.06
+  cdx.remote: 0.058
+  esindex: 0.009
+  LoadShardBlock: 110.674 (3)
+  PetaboxLoader3.datanode: 188.547 (4)
+  load_resource: 204.138
+  PetaboxLoader3.resolve: 78.547
+*/

@@ -1,0 +1,147 @@
+/* eslint-disable */
+; ((MP) => {
+	// Abort if no config at all - Not all apps require Motion Point language translation
+	if (!MP)
+		return;
+
+	const
+		logNS = 'GBDS: MotionPoint Loader:',
+		matchNodeType = 'A',
+		matchAttrName = 'mporgnav',
+		mpScriptSrc = '//generalmotorschevroletcom.mpeasylink.com/mpel/mpel.js',
+		expectedProperties = ['SrcLang', 'UrlLang', 'SrcUrl', 'oSite', 'tSite'],
+		rejectIfFound = ['Version', 'init', 'switchLanguage', 'switchToLang'],
+		noop = () => { },
+		log = noop, //console.log,
+		warn = console.warn;
+
+	// Double load - or legacy load
+	if (rejectIfFound.every(key => MP.hasOwnProperty(key))) {
+		warn(logNS, 'Already configured - loaded twice?');
+		return;
+	}
+
+	// Missing configuration
+	if (expectedProperties.every(key => !MP.hasOwnProperty(key))) {
+		warn(logNS, 'Missing expected configuration properties on the window.MP object. ', confirmProperties);
+		return;
+	}
+
+	mergeLinkCode();                    // defines MP.switchLanguage
+
+	MP.init();                          // Updates the global MP properties with current URL & language
+
+	setupClickHandler();                // Adds listeners which call:  MP.switchLanguage
+
+	loadScript(mpScriptSrc, 'mpelid');  // Async; this may set "MpStorage" which is referenced in onclick callbacks
+
+	function setupClickHandler() {
+		log(logNS, 'registering click handler');
+
+		document.addEventListener('click', (e) => {
+			log(logNS, 'Click event detected on document:', e)
+			// const target = e.path.find(n => n.nodeName === matchNodeType && n.hasAttribute(matchAttrName))
+			const target = e.composedPath().find(n => n.nodeName === matchNodeType && n.hasAttribute(matchAttrName))
+			if (target) {
+				e.preventDefault()
+				langSelect(target)
+			}
+		}, false);
+
+
+		function cleanHost(dirtyHost = '') {
+			// This replaces: replace('http://', '').replace('https://', ''); syntax which did not catch leading "//" which is used when using a.href	
+			["//", "https://", "http://"].some((prefix) => {
+				if (dirtyHost.substring(0, prefix.length) === prefix) {
+					dirtyHost = dirtyHost.substring(prefix.length);
+					return true;
+				}
+				return false;
+			});
+			return dirtyHost;
+		}
+
+		function langSelect(anchor) {
+			const
+				lang = anchor.getAttribute('data-lang'),
+				url = cleanHost(anchor.getAttribute('data-href') || anchor.getAttribute('href')),
+				tSite = cleanHost(MP.tSite);
+			MP.switchLanguage(tSite.search(url) != -1 ? MP.oSite : url, lang, true);
+			return false;
+		}
+	}
+
+	// Load the main Motion Point JS File
+	async function loadScript(scriptSrc, id = null) {
+		const
+			currentScript = document.currentScript, // fyi, document.currentScript ref will be lost if async callback, move this outside fn to keep (create closure)
+			loadScript = document.createElement('script');
+		loadScript.async = true;
+		loadScript.src = scriptSrc;
+		if (id !== null)
+			loadScript.id = id;
+		currentScript.parentNode.insertBefore(loadScript, currentScript);
+	}
+
+	function mergeLinkCode() {
+		// Merge in the Motion Point File - mostly as is
+		Object.assign(MP, {
+			//  Adjusted contents of https://assets.gm.com/mp_linkcode.js // commented out vars expected in HTML source
+
+			// --- start: MP Code (more or less... @see ##GM: )
+			// <!--mp_trans_disable_start -->
+			Version: '3.1.1.0',
+
+			// ##GM: Following properties cut they are now defined in HTML source before this script is loaded 
+			// ##GM:   SrcLang, UrlLang, SrcUrl, oSite, tSite
+			//    SrcLang: 'en',
+			// <!--mp_trans_disable_end -->
+			//    UrlLang: 'mp_js_current_lang',
+			//    SrcUrl: decodeURIComponent('mp_js_orgin_url'),
+			//    oSite: decodeURIComponent('mp_js_origin_baseUrl'),
+			//    tSite: decodeURIComponent('mp_js_translated_baseUrl'),
+			// <!--mp_trans_disable_start -->
+
+			init: function () {
+				if (MP.oSite.indexOf('p_js_') == 1) {
+					MP.SrcUrl = window.top.document.location.href;
+					MP.oSite = MP.tSite = window.top.document.location.host;
+					MP.UrlLang = MP.SrcLang;
+				}
+			},
+			switchLanguage: function (url, pref, sync) {
+				const oSite = MP.oSite.replace("http://", "").replace("https://", "").replace(/\/?$/, "");
+				const tSite = MP.tSite.replace("http://", "").replace("https://", "").replace(/\/?$/, "");
+				url = url.replace('http://', '').replace('https://', '').replace(/\/?$/, '');
+				if (sync && (typeof MpStorage !== 'undefined') && (typeof MpStorage.updatePref !== 'undefined')) {
+					if (pref) {
+						const lang = pref.substring(0, 2);
+						pref = lang == MP.UrlLang ? MP.SrcLang + pref.substring(2) : pref;
+					}
+					MpStorage.updatePref(url, pref);
+				}
+				setTimeout(function () {
+					const script = document.createElement('SCRIPT');
+					if (url == oSite) {
+						script.src = location.protocol + '//' + tSite + '?1023749634;' + encodeURIComponent(location.href);
+					} else {
+						script.src = location.protocol + '//' + url + '?1023749632;' + encodeURIComponent(MP.SrcUrl);
+					}
+					const target = document.querySelector('script');
+					target.parentNode.insertBefore(script, target);
+				}, 500);
+				return false;
+			},
+			switchToLang: function (url) {
+				if (window.top.location.href == url) {
+					if ((typeof MpStorage !== 'undefined') && (typeof MpStorage.updatePref !== 'undefined'))
+						MpStorage.updatePref(MP.oSite, MP.SrcLang);
+				} else {
+					window.top.location.href = url;
+				}
+			}
+			//    <!-- mp_trans_disable_end -->   
+			// --- END: MP Code from https://assets.gm.com/mp_linkcode.js --
+		});
+	}
+})(window.MP);

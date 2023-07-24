@@ -1,0 +1,87 @@
+.Explorer7 #subHeader {
+	top:-1px;
+}
+#subHeader {
+	background-color:#fff;
+	height:22px;
+	top:-10px;
+	clear:both;
+	margin:0px auto 0pt;
+	position:relative;
+	overflow:hidden;
+}
+ul#subMenu li{
+	float:left;
+	list-style: none;
+	background: url(/web/20120628051925im_/http://www.chevrolet.com/assets/en/images/global/navigation/pipe_sm.gif) right top no-repeat;
+	width:auto;
+	padding:0 3px !important;
+	background-color:#fff;
+	min-width:90px;
+	text-align:center;
+}
+
+ul#subMenu li.list-title {
+	position: absolute;
+	left: 24px;
+	z-index: -1;
+	background: none; 
+}
+ul#subMenu li.last{ background: none; padding:0 5px !important; }
+
+
+ul#subMenu li a,
+ul#subMenu li a span {
+	text-decoration:none;
+	margin: 0 10px;
+	height:22px;
+	line-height:22px;
+	color:#afafaf;
+}
+
+ul#subMenu li:hover, 
+ul#subMenu li a:hover, 
+ul#subMenu li.tabActive { 
+	color:#6d9eb3; 
+	background-color:#e9eaea;
+	border-bottom:none !important; 
+	margin: 0; 
+	padding:0; 
+}
+
+.Explorer6 ul#subMenu li {
+ background: expression(this.nextSibling==null?'none':'');
+}
+
+ul#subMenu li h3 {
+
+	font: normal normal bold 11px/28px Verdana,Arial,Helvetica,sans-serif;
+	color:#a5a2a2;
+	text-transform:uppercase;
+	height:28px;
+	left:-211px;
+	margin:0;
+	position:relative;
+}
+
+
+/*
+     FILE ARCHIVED ON 05:19:25 Jun 28, 2012 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 23:08:07 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 92.012
+  exclusion.robots: 0.084
+  exclusion.robots.policy: 0.073
+  cdx.remote: 0.066
+  esindex: 0.011
+  LoadShardBlock: 62.284 (3)
+  PetaboxLoader3.datanode: 430.923 (4)
+  load_resource: 446.484
+  PetaboxLoader3.resolve: 71.74
+*/

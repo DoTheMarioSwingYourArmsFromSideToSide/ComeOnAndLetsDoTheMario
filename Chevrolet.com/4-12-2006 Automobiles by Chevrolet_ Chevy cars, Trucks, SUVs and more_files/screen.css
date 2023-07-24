@@ -1,0 +1,443 @@
+/* UNIVERSAL */
+* { margin:0; padding:0; text-align:left; }
+
+/* GENERIC CLASSES
+Use these where it makes sense to do so instead of creating new classes. */
+
+.db { display:block; }
+.di { display:inline; }
+.dn { display:none; }
+.vh {visibility:hidden;}
+fl { float:left; }
+.fr { float:right; }
+.clr { clear:both; }
+.mt { margin-top:1em; }
+.help { cursor:help; background:transparent; }
+
+/* For use with inline transparent images, like the AAR image on the homepage */
+/* Mac IE Hack \*/
+* html body#home h1.hide-ie { display:none; }
+/* end hack */
+
+/* Pricing information */
+.priceasshown { background-color:transparent; color:#666; font-size:0.9em; margin:0; padding:0;  }
+.startingatprice strong, .priceasshown strong, .price strong { display:none; }
+
+/* Legal disclaimers */
+.disclaimer { background-color:transparent; color:#666; font-size:0.9em; clear:left; }
+body ol.disclaimer {margin-bottom:6px;}
+body p.disclaimer {margin-top:0; margin-bottom:0; padding:3px 0;}
+
+/* Notes */
+.note { background-color:transparent; color:#666; font-size:0.8em; clear:left; }
+
+img, object { display:block; border:0; background:transparent; }
+
+br.clr { display:block; }
+
+/* LAYOUT */
+body { margin-bottom:0.5em; background:rgb(234,243,250) url(/web/20060412012410im_/http://www.chevrolet.com/i/06/bg/bodygradient.png) repeat-x; color:#000; font-family:Verdana, "Lucida Grande", "Lucida Sans Unicode", "Trebuchet MS", "Bitstream Vera Sans", Geneva, Helvetica, Tahoma, Arial, sans-serif; font-size:76%; text-align:center; }
+
+/* HEADINGS */
+
+h1, h2 { font-family:Helvetica, Tahoma, Arial, Verdana, "Lucida Grande", "Lucida Sans Unicode", "Trebuchet MS", "Bitstream Vera Sans", Geneva, "MHei-Xbold",PMingLiU,MingLiU, sans-serif; }
+h1 { font-size:3.1555em; }
+h2 { font-size:1.25em; line-height:1.25em; }
+h3, h4, h5, h6 { font-size:1em; }
+h3.errorheader { margin:10px 0px 0px 7px; }
+h3.errorheader strong {color:#933; font-size:1em; padding-left:20px; background:url(/web/20060412012410im_/http://www.chevrolet.com/i/06/bg/form/erroricon.png) no-repeat center left; }
+
+/* display:inline property used to fix 3 pixel jog bug in IE Win */
+div#header h1, div#header h1#pagetitle { overflow:hidden; float:right; display:inline; width:600px; height:48px; margin:0 10px; background-color:transparent; color:#052145; vertical-align:middle; }
+div#header h1 a { color:#052145; } /* required for flashblock and print */
+h2.sifr, h2.whitebgsifr { margin-top:1.2em; width:590px; margin-left:10px; background-color:transparent; color:#333; text-transform:uppercase; }
+h2.greybgsifr { width:550px; margin-left:10px; background-color:transparent; color:#333; text-transform:uppercase; }
+body.warranty h2.sifr { margin-top:2em; }
+h2.nonsifr { width:600px; margin-left:10px; background-color:transparent; color:#333; text-transform:uppercase; }/*temp bugfix for pagenotfound - RM*/
+div#content-sidebar h3 { text-transform:uppercase; }
+div#content-sidebar h3.whatyouget {display: block;  background-image: url(/web/20060412012410im_/http://www.chevrolet.com/i/06/bg/dotted_line.png); background-repeat: repeat-x; padding-top:0.4em; background-position: bottom left; padding-bottom: 8px; position: relative; height: 32px; line-height: 32px; }
+
+/*Chinese mixed font h1 sIFR rules RM*/
+html>body div#header h1 strong { display:block; padding-top:5px; }
+span.sifr { display:block; float:left; margin-right:0.25em; }
+
+h3#yourprivacy { padding:0.5em 0 0.5em 25px; background:url(/web/20060412012410im_/http://www.chevrolet.com/i/06/bg/form/lock_icon.gif) center left no-repeat; text-transform:uppercase; }
+
+/* rules for Mac IE only */
+* html>body  dl#masthead object img { display:none; }
+/* end Mac IE only */
+
+/* Paragraphs */
+p { padding:0.5em 0; }
+p.startingatprice { padding:0.2em 0 0 0; }
+/* display:inline property used to fix 3 pixel jog bug in IE Win */
+div#footer p.gmlogo { display:inline; float:left; width:22px; height:20px; margin-left:155px; }
+p.disclaimer { margin:1em 12px; }
+
+/* GENERAL STRUCTURE */
+div#utility { width:780px; margin:4px auto 0 auto; height:25px;}
+
+div#container { /* clear:both; */ width:780px; margin:0.25em auto 0 auto; padding-top:12px; 
+background:transparent url(/web/20060412012410im_/http://www.chevrolet.com/i/06/bg/curvetop.gif) top center no-repeat; color:#000; }
+
+div#header { overflow:hidden; height:49px; }
+div#header, div#pagebody { width:780px; background:transparent url(/web/20060412012410im_/http://www.chevrolet.com/i/06/bg/contentrepeat.gif) top center repeat-y; }
+html>body div#pagebody:after { content:"\A0 "; display:block; clear:both; height:1px; overflow:hidden; visibility:hidden; }
+
+div#logo { width:145px; height:48px; margin-left:10px; }
+
+/* display:inline property used to fix 3 pixel jog bug in IE Win */
+div#sidebar { float:left; display:inline; width:150px; margin-left:5px; }
+
+div#content { width:620px; margin-left:155px;padding-bottom:1.5em;text-align:center; }
+
+/*GENERAL SECTION RULES*/
+div.generalsection { width:614px; margin:0 auto; padding-top:0.5em;}
+div.generalsection div.section, div.generalsection div.tocsection { margin:0 1px; }
+div.generalsection p, div.section p { margin:2px 10px 3px 10px; }
+div.generalsection div.section dl { margin-left: 25px; margin-bottom:5px; }
+div.generalsection div.section dd { padding: 2px 0 0 5px; }
+div.generalsection div.section div.subsection { margin:0 10px; }
+div.generalsection ul.linkslist {margin:10px; list-style-type:none;}
+
+
+/* Two columns within div#content */
+div#content-body { float:left; width:315px; margin-top:5px; margin-left:5px; }
+div#content-sidebar { float:right; width:285px; margin-top:5px; margin-right:1px; background-image:url(/web/20060412012410im_/http://www.chevrolet.com/i/06/bg/bp_fade_285_tall.png); background-repeat:no-repeat;}
+div#content-sidebar * { margin:0.5em 10px; }
+div#content-sidebar * * { margin:0; }
+div#content-sidebar ul li { margin: 1em 0 0 0; }
+div#content-sidebar hr {  height:5px; border:0; background: url(/web/20060412012410im_/http://www.chevrolet.com/i/06/bg/dotted_line_pixel.png) repeat-x;  }
+
+/* error page is "special" */
+body#pagenotfound div#content-sidebar { padding-top: 0; }
+
+
+/* Mac IE Hack \*/
+* html div#sidebar, * html div#logo { margin-right:-3px} 
+* html div#content { margin-left:152px; } 
+* html div#content-body, * html div#content-sidebar { display:inline; }
+/* end hack */
+
+/* Three column layout (used in request info) */
+div#content-threecol { width:600px; margin:1.5em auto 0 auto; background:transparent url(/web/20060412012410im_/http://www.chevrolet.com/i/06/bg/content-threecol.png) top center repeat-y; text-align:center; }
+div#content-threecol div.column { float:left; display:inline; width:190px; margin:0 5px; }
+/*div#content-threecol dl.gmsites dt, div#content-threecol dl.sitemap dt { padding:0.5em 0; font-weight:bold;}*/
+
+div#footer { width:780px; height:7.5em; margin:0 auto; padding-top:15px; padding-bottom:10px; font-size:0.8em; } /*Footer Background Now Assigned in alpha.css R.Mears*/
+* html div#footer a {position:relative; z-index:1000;}/*patch to help IE see the footer links*/
+
+/* NAVIGATION */
+a:link, a:visited  { color:rgb(33,89,138); }
+a:link:hover, a:visited:hover, a:link:focus, a:visited:focus { color:#4083BD; }
+a:link:active, a:visited:active { color:#000; } 
+
+div.section a:visited { color:rgb(95,120,142); } 
+div.section a:visited:active, div.section a:link:active { color:#000; } 
+
+/* Links that contain the arrow background image */
+a.arrow { display:block; width:100%; }
+a.arrow strong { padding-right:10px; background:transparent url(/web/20060412012410im_/http://www.chevrolet.com/i/06/gui/nav/linkarrow.gif) 100% 0.3em no-repeat; }
+
+a.arrow-angle { display:block; width:100%; } /*Used for links to archive model content*/
+a.arrow-angle strong { padding-right:10px; background:transparent url(/web/20060412012410im_/http://www.chevrolet.com/i/06/gui/nav/arrow_current_model.gif) 100% 0.3em no-repeat; }
+
+/* Ensure that IE 5.0 Win doesn't collapse right padding on inline element.  
+ * IE 5.5 and 6.0 Win do not have this problem, so override height:1% rule using 
+ * the Property + Whitespace Comment hack
+ * see http://www.dithered.com/css_filters/css_only/property_ws_comment.html
+*/
+/* Mac IE Hack \*/
+* html a.arrow strong { height:1%; }
+* html a.arrow strong { height/* */: auto; }
+
+* html a.arrow-angle strong { height:1%; } 
+* html a.arrow-angle strong { height/* */: auto; }
+/* end hack */
+
+/* IE fix for commercial landing page, please don't remove */
+* html body.commercial a.arrow strong { float:left; }
+
+h1 a { text-decoration:none; }
+
+/* LISTS */
+
+/* UNORDERED LISTS */
+
+/* LOCALNAV (blue tabs) */
+ul.localnav { list-style-type:none; font-family:Helvetica, Tahoma, Arial, Verdana, "Lucida Grande", "Lucida Sans Unicode", "Trebuchet MS", "Bitstream Vera Sans", Geneva, sans-serif; text-transform:capitalize; 
+height:3.5em; padding-left:5px; border-bottom:0.1em solid rgb(28,59,93); width:620px; voice-family: "\"}\""; voice-family:inherit; width:615px; }
+
+html>body ul.localnav { width:615px; }
+ul.localnav li { float:left; width:98px; height:3.5em; margin-right:2px;  }
+
+/* rules for Mac IE only */
+* html>body ul.localnav li { overflow:hidden; height:3.5em; }
+/* end Mac IE only hack */
+
+ul.localnav li a { display:block; width:98px; height:3.5em; background:rgb(50,91,140) url(/web/20060412012410im_/http://www.chevrolet.com/i/06/gui/nav/tabs/modelnav.gif) left top no-repeat; color:#fff; text-decoration:none; text-shadow:#333 0.2em 0.2em 0.2em; }
+ul.localnav li a:link, ul.localnav li a:visited { background-color:rgb(50,91,140); color:#fff; }
+ul.localnav li a:hover, ul.localnav li a:focus, ul.localnav li a:active { background-color:#115DA8; color:#fff; }
+ul.localnav li a strong { display:block; height:2.5em; margin-left:10px; padding-top:0.5em; padding-bottom:0.5em; } /* enclosed <strong> element gives us control over the text without messing up the clickable area */
+
+ul.localnav li.current a:link, ul.localnav li.current a:visited, ul.localnav li.current a:hover, ul.localnav li.current a:focus, ul.localnav li.current a:active { background-color:#fff; background-image:url(/web/20060412012410im_/http://www.chevrolet.com/i/06/gui/nav/tabs/modelnav_current.png); background-repeat:no-repeat; color:#000; text-shadow:#ccc 0.2em 0.2em 0.2em; }
+ul.localnav li.current span { display:block; overflow:hidden; position:absolute; top:auto; left:auto; z-index:3000; width:98px; height:23px; text-indent:-9999px; background:transparent url(/web/20060412012410im_/http://www.chevrolet.com/i/06/gui/nav/tabs/modelnav_arrow.png) top left no-repeat; }
+
+div#footer ul.siteinfo { list-style-type:none; margin-left:180px; margin-bottom:5px; width:575px; height:2.2em; }
+div#footer ul.siteinfo li {float:left; height:2.2em; }
+div#footer ul.siteinfo li a { display:block; padding:2px 8px 2px 7px; border-right:1px solid #000; text-decoration:underline; white-space:nowrap; }
+div#footer ul.siteinfo li.last a { border-right:0; }
+
+/* rules for Mac IE only */
+* html>body ul.siteinfo { overflow:hidden; }
+* html>body ul.siteinfo li a, * html>body ul.siteinfo li cite { float:left; width:1%; height:1.2em; }
+/* end Mac IE only hack */
+ul.siteinfo li cite { display:block; padding:2px 10px 2px 9px; font-style:normal; white-space:nowrap; }
+
+/* general shoppingtools rules */
+ul.shoppingtools li.bn { border:0; }
+ul.shoppingtools li { clear:left; margin:0 10px; border-top:2px dotted #ccc; }
+ul.shoppingtools li a.arrow { padding:0.4em 0; }
+
+/* highlights list rules */
+ul.highlights { margin-left:12px; }
+ul.highlights li { list-style:none; margin-top:0.2em; margin-bottom:0.5em; padding-left:13px; background:transparent url(/web/20060412012410im_/http://www.chevrolet.com/i/06/bg/bullet_highlights.gif) 0 0.4em no-repeat; }
+html[xmlns] ul.highlights li { list-style:disc outside url(/web/20060412012410im_/http://www.chevrolet.com/i/06/bg/bullet_highlights.gif); margin-left:13px; padding-left:0; background:transparent; }
+
+/* generic bulleted list */
+ul.disc li { margin-left:25px; }
+
+body.warranty div#fspec ul li { margin-left:15px; list-style-type:disc; }
+ul#helplist li { list-style:none; margin-top:0.2em; margin-bottom:0.5em; padding-left:13px; background:transparent url(/web/20060412012410im_/http://www.chevrolet.com/i/06/bg/bullet_highlights.gif) 0 0.4em no-repeat; }
+
+
+/* ORDERED LISTS */
+
+/* Table of Contents: used for model navigation on model pages and vehicle category pages */
+/* see alpha.css for ie png hacks */
+ol.toc { list-style-type:none; width:100%; margin-top:4px; }
+ol.toc li { float:left; width:149px; margin:0 3px 4px 0; padding:6px 0 0 0; background:#fff url(/web/20060412012410im_/http://www.chevrolet.com/i/06/bg/toctop.gif) no-repeat; color:#000; }
+
+/* these rules added for landing page */
+div.tocsection ol.toc ul.highlight { font-size:0.8em; }
+div.tocsection ol.toc ul.highlight li { text-indent:2px; }
+div.tocsection ol.toc ul li.first { padding-top:0.8em; }
+div.tocsection ol.toc ul li.last { padding-bottom:0.8em; }
+
+div.tocsection ol.toc ul.shoppingtools li.first, dl.box ul.shoppingtools li.first { background-image: url(/web/20060412012410im_/http://www.chevrolet.com/i/06/bg/dotted_line.png); background-repeat: repeat-x; padding-top:0.4em; }
+
+ol#landinglist span.spacer { line-height:2.1; }/*Used to maintain highlight ol list height when tools are removed [Mears 03.06]*/
+
+/* hide on email signup confirmation page */
+body#emailsign-up div.tocsection ol.toc ul.highlight { display:none; }
+
+/* Mac IE Hack \*/
+html>body ol.toc:after { content:"\A0 "; display:block; /*clear:both;*/ height:0px; overflow:hidden; visibility:hidden; }
+* html ol.toc li { height:1%; }
+/* end hack */
+
+ol.toc li h3, ol.toc li ul { padding-left:4px; padding-right:4px; background:transparent url(/web/20060412012410im_/http://www.chevrolet.com/i/06/bg/tocmiddle.png) repeat-y; }
+ol.toc li span.tocbottom { overflow:hidden; display:block; height:6px; background:transparent url(/web/20060412012410im_/http://www.chevrolet.com/i/06/bg/tocbottom.gif) top left no-repeat; font-size:6px; line-height:6px; }
+ol.toc li ul { list-style-type:none; width:auto; margin:0; }
+
+ol.toc li ul li { float:none; width:auto; height:auto; margin:0; padding:0; background-image:none; }
+ol.toc li h3 a { text-decoration:none; }
+
+ol.toc li h3 a img { width:137px; height:73px; }
+ol.toc li ul li p { padding:0; }
+ol.toc li ul li p.startingatprice { font-size:0.9em; }
+ol.toc li ul li p.priceasshown { font-size:0.75em; }
+ol.toc li h3 a img, ol.toc li h3 a strong, ol.toc li ul li p { width:137px; margin:0 2px; }
+
+/* Default state rules */
+ol.toc li { background-color:rgb(255,255,255); }
+ol.toc li h3 a, ol.toc li ul li { background-color:rgb(232,231,228); }
+	
+	/* Hover state rules */
+	ol.toc li.hover { background-color:rgb(102,102,102); }
+	ol.toc li.hover h3 a { color:#4083BD; }
+	ol.toc li.hover h3 a, ol.toc li.hover ul li { background-color:rgb(240,240,240); }
+	/* Selected state rules */
+	ol.toc li.current { background-color:rgb(255,0,0); }
+	ol.toc li.current h3 a, ol.toc li.current ul li { background-color:rgb(255,255,255); }
+	
+/* SUB-TABNAV */
+ul#subtabs { list-style-type:none; position:relative; margin:1.2em auto 0 8px; width:606px; height:8.0em; font-family:Helvetica, Tahoma, Arial, Verdana, "Lucida Grande", "Lucida Sans Unicode", "Trebuchet MS", "Bitstream Vera Sans", Geneva, sans-serif; text-transform:capitalize; }
+body.accessories ul#subtabs, body.warranty ul#subtabs { height:4.5em; }
+
+ul#subtabs li { float:left; width:123px; }
+ul#subtabs li a { display:block; padding-bottom:0.25em; text-decoration:none; text-shadow:#f0f0f0 0.2em 0.2em 0.2em; cursor:pointer; height:3.65em; voice-family: "\"}\""; voice-family:inherit; height:3.4em; }
+html>body ul#subtabs li a { height:3.4em; }
+
+ul#subtabs li strong { display:block; padding:0.8em 0 0 10px; background:#fff url(/web/20060412012410im_/http://www.chevrolet.com/i/06/gui/nav/tab2.png) center top no-repeat; cursor:pointer; height:3.4em; voice-family: "\"}\""; voice-family:inherit; height:2.6em; }
+html>body ul#subtabs li strong { height:2.6em; }
+
+	/* current state */
+	body.standardoptional li#fn-features a,
+	body.specifications li#fn-specifications a,
+	body.accessories li#fn-accessories a,
+	body.warranty li#fn-warranty a.tab,
+	body#warranty-main li#fn-warranty-main a.tab,
+	body#warranty-important-info li#fn-info a.tab,
+	ul#subtabs li.current a { background:#fff url(/web/20060412012410im_/http://www.chevrolet.com/i/06/gui/nav/tab2bottom.png) center bottom repeat-y; color:#000; text-shadow:none; }
+
+	body.standardoptional li#fn-features strong,
+	body.specifications li#fn-specifications strong,
+	body.accessories li#fn-accessories strong,
+	body.warranty li#fn-warranty strong,
+	body#warranty-main li#fn-warranty-main strong,
+	body#warranty-important-info li#fn-info strong,
+	ul#subtabs li.current strong { background-image: url(/web/20060412012410im_/http://www.chevrolet.com/i/06/gui/nav/tab2-active.png); }
+	
+/* Ordered list used for a list of bookmark links within a page */
+ol.toclinks { margin:1em 25px; }
+ol.toclinks ol { list-style-type:lower-alpha; margin:0 25px 0.5em 25px; }
+
+/* Ordered list used for disclaimers */
+ol.disclaimer { list-style-type:decimal; margin:1.0em 35px 0 35px; }
+
+/* DEFINITION LISTS */
+
+/* Definition list used for language options inside div#utility */
+dl#language-options { float:right; width:12em; padding-top:0.3em;}
+dl#language-options dd { float:left; width:48%; }
+dl#language-options dt { display:none; }
+dl#language-options dd {border-right:1px solid #000;}
+dl#language-options dd.last { border-right:0; }
+dl#language-options dd a { display:block; padding:0 9px 0 10px; white-space:nowrap; }
+
+/* Definition List Used For Main Masthead Image and Caption Pairs */
+dl#masthead { font-family:Helvetica, Tahoma, Arial, Verdana, "Lucida Grande", "Lucida Sans Unicode", "Trebuchet MS", "Bitstream Vera Sans", Geneva, sans-serif; }
+
+dl#masthead dt.photo { padding-bottom:5px; background:transparent url(/web/20060412012410im_/http://www.chevrolet.com/i/06/bg/masthead.png) bottom left repeat-x; color:#000; }
+dl#masthead dt.caption a { display:block; margin-right:5px; }
+dl#masthead dt.caption a strong { display:block; padding:0 20px; background:transparent url(/web/20060412012410im_/http://www.chevrolet.com/i/06/gui/nav/captionicon.png) center right no-repeat; text-align:right; }
+dl#masthead dt.caption a strong em { font-size:0.9em; font-weight:normal; font-style:normal; }
+
+dl#masthead dd#masthead-description { padding:0.5em 5px; border-top:1px solid #ccc; border-bottom:1px solid #ccc; font-family:Verdana, "Lucida Grande", "Lucida Sans Unicode", "Trebuchet MS", "Bitstream Vera Sans", Geneva, Helvetica, Tahoma, Arial, sans-serif; }
+html.sIFR-hasFlash dd#masthead-description, /* html.sIFR-hasFlash*/ dt#masthead-caption { display:none; } 
+html.sIFR-hasFlash body.models dl.oldFlash dd#masthead-description /*, html.sIFR-hasFlash body.models dl.oldFlash dt#masthead-caption*/ { display:block; } 
+dl#masthead dd.priceasshown { padding-right:5px; text-align:right; }
+
+dl#masthead dt div#masthead-link{margin-top:-30px; margin-left:2em; font-weight:bold; }
+dl#masthead dt div#masthead-link a {text-decoration:none; color:#fff;}
+/* Definition list used for disclaimers */
+dl.disclaimer { margin:1em 12px; }
+dl.disclaimer dt, dl.disclaimer dd { float:left; padding:0.5em 0; }
+dl.disclaimer dt { width:13px; text-align:center; }
+dl.disclaimer dd { width:565px; }
+
+/* Mac IE Hack \*/
+* html dl.disclaimer { height:1%; }
+dl.disclaimer dt { clear:both; }
+/* end hack */
+
+/* Definition list used for address/phone number information */
+dl.address dt { padding-top:0.5em; font-weight:bold; }
+dl.address dd address { padding:2px 5px 2px 20px; background:transparent url(/web/20060412012410im_/http://www.chevrolet.com/i/06/bg/form/mailicon.png) top left no-repeat; color:#000; font-style:normal; }
+dl.address dd address.phone { background-image:url(/web/20060412012410im_/http://www.chevrolet.com/i/06/bg/form/phoneicon.png); }
+dl.address dd address.download { background-image:url(/web/20060412012410im_/http://www.chevrolet.com/i/06/bg/form/downloadicon.png); }
+dl.address dd address.website { background-image:none; }
+
+/* Definition lists used for request info */
+dl.summarylist { height:13em; }
+dl.summarylist dt.icon { float:right; display:inline; height:57px; margin:0 0 4px 0; }
+dl.summarylist dt { margin-bottom:1em; font-weight:bold; }
+dl.summarylist dd ul { margin-left:20px; }
+
+/* Definition lists for sitemap & gmsites*/
+dl.sitemap, dl.gmsites { padding-top:1.5em; }
+dl.sitemap dt, dl.gmsites dt { font-weight:bold; margin-left:10px; }
+dl.sitemap dd, dl.gmsites dd { margin-left:20px; }
+
+/*Definition lists for pagenotfound*/
+dl.whattodo { margin-left:5px; margin-bottom:5px; }
+
+/* FORMS */
+fieldset { border:0 solid; }
+
+/* Note: Class: input-button: Used for cases where you want a button to align next to an input.  Use on the element that contains the input button group. */
+input.input-button { font-family:Helvetica, Tahoma, Arial, Verdana, "Lucida Grande", "Lucida Sans Unicode", "Trebuchet MS", "Bitstream Vera Sans", Geneva, sans-serif; 
+font-size:1em; background:transparent; }
+.input-button select { border-width:0.1em; font-weight:normal; }
+.input-button input { float:left; }
+input.submit-button { margin-top:-2px; background:transparent; color:#000; font-weight:bold; text-align:center; 
+text-transform:uppercase; }
+
+/* BUTTONS, starring Tom Jones */
+input.search, div#sidenav input.find { float:left; }
+* html form#lad p.input-button { margin-top:0.2em; }
+label.findlabel { float:left; margin-top:0.2em; }
+body.latch select { width:155px; margin-top:1.0em; float:left; }
+
+
+/* Mac IE Hack \*/
+* html .input-button button.submit-button { padding:0; }
+/* end hack */
+
+/* Site Search Form */
+form#search-form { float:right; width:13.6em; }
+* html form#search-form { width:14em; }
+/* border type specified for Opera, if solid isn't specified then Opera will display a border */
+form#search-form fieldset { border:0 solid; }
+form#search-form dl dt { display:none; }
+
+/* Form buttons used in request info */
+div.column select { width:133px; float:left; }
+
+/* PRESENTATIONAL */
+hr { height:5px; border:0; background: url(/web/20060412012410im_/http://www.chevrolet.com/i/06/bg/dotted_line.png) repeat-x; }
+
+div#sidebar object#newsflash { margin-top:15px; }
+
+div.fade { background:transparent url(/web/20060412012410im_/http://www.chevrolet.com/i/06/bg/bg_fade.png) center top no-repeat; }
+* html div.fade { background-position:center 1px; }
+
+body#search-iframe { background-image:none; background-color:#F7F6F2; }
+
+/* GM Sites page */
+body#gmsites ul,ul.linklist { margin-left:25px; list-style-type:none;}
+body#gmsites ul li {margin-bottom:2px;}
+div.gmsitesheader { margin:1.5em 0; }
+div.gmsitesheader h2.right { float:right; width:185px; margin-left:15px; }
+div.gmsitesheader h2.left, div.gmsitesheader p { margin-left:25px; }
+
+/*Worldwide page*/
+body#worldwide div.fourcol {margin-left:13px;}
+body#worldwide div.fourcol dl {float:left; width:125px; height:545px; margin:0 7px; border-right:1px solid #D2CFC5;}
+body#worldwide div.fourcol dl.last {border:0;}
+body#worldwide div.fourcol dt {margin-bottom:5px; font-weight:bold;}
+body#worldwide div.fourcol dd {margin-bottom:2px;}
+
+/* META */
+address { color:#666; }
+
+/* ACCESSIBILITY */
+abbr, acronym, dfn { font-style:normal; }
+acronym { border:0; }
+acronym dfn { border-bottom:1px dotted #999; color:#000; font-variant:small-caps; font-weight:bold; }
+acronym em { color:#000; font-variant:small-caps; font-weight:bold; font-style:normal; text-decoration:underline; text-transform:uppercase; }
+ins { text-decoration:none; }
+sup { vertical-align:top; }
+.skiplink { position:absolute; left:-999px; width:990px; }
+hr.hide { display:none; }
+/*
+     FILE ARCHIVED ON 01:24:10 Apr 12, 2006 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 21:36:00 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 540.519
+  exclusion.robots: 0.069
+  exclusion.robots.policy: 0.06
+  RedisCDXSource: 0.526
+  esindex: 0.007
+  LoadShardBlock: 520.381 (3)
+  PetaboxLoader3.datanode: 437.99 (4)
+  load_resource: 50.956
+  PetaboxLoader3.resolve: 24.069
+*/

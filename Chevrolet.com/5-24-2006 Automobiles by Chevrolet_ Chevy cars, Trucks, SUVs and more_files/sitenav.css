@@ -1,0 +1,117 @@
+/* SITE NAVIGATION */
+
+/* SITE NAVIGATION DL, DT, DD RULES */
+div#sitenav { width:150px; font-family:helvetica,tahoma,arial,"MHei-Xbold",PMingLiU,MingLiU,sans-serif; font-size:1em; font-weight:bold; line-height:1.155em; }
+div#sitenav dd { line-height:1.155em; }
+
+div#sitenav dl dt, div#sitenav dl dd { background-color:#34638E; color:#fff; }
+div#sitenav dl dd dl dt { background-image:url(/web/20060524054552im_/http://www.chevrolet.com/i/06/gui/nav/unibrand_arrows.png); background-position:center left; background-repeat:no-repeat; }
+div#sitenav dl dd dl.expanded dt { background-position:center right; }
+
+div#sitenav dl dd dl dd { background-color:#6B93C0; color:#fff; }
+
+div#sitenav dl dd, div#sitenav dl dd dl, div#sitenav dl.expanded dd dl dd, div#sitenav dd.currentcategory dl dt { display:none; }
+body.chevymediumduty div#sitenav dl#chevyvehicleslist dd, body.chevymediumduty div#sitenav dl dd dl dd {display:block;}
+body.chevymediumduty div#sitenav dl#chevyvehicleslist dt { background-image:none; }
+
+div#sitenav dl.expanded dt, div#sitenav dl.expanded dd, 
+div#sitenav dl.expanded dd dl, div#sitenav dl.expanded dd.currentcategory dl dt, div#sitenav dl.expanded dd dl.expanded dd, div#sitenav dd.currentcategory, div#sitenav dd.currentcategory dl, div#sitenav dd.currentcategory dd.current { display:block; }
+
+/* SITE NAVIGATION LINK RULES */
+div#sitenav dl dd a { display:block; margin-right:1px;padding:3px 5px; border-top:1px solid #5788AD; border-bottom:1px solid #154368; background-color:transparent; color:#fff; text-decoration:none; }
+div#sitenav dl dd a:hover, div#sitenav dl dd a:focus { border-top-color:#1D5887; border-bottom-color:#426F93; }
+
+div#sitenav dl dd dl dd a { margin-right:1px; padding:3px 18px 3px 10px; border-top-color:#85A9D2; border-bottom-color:#4C74A1; background-image:url(/web/20060524054552im_/http://www.chevrolet.com/i/06/gui/nav/sitenavarrow.png); background-repeat:no-repeat; background-position:center right; }
+div#sitenav dl dd.hover a, div#sitenav dl dd dl dd a:hover, div#sitenav dl dd dl dd a:focus { border-top-color:#668DB9; border-bottom-color:#C1D9F3; background-color:#88AED8; color:#fff; }
+div#sitenav dl dd dl dd.current a, div#sitenav dl dd dl dd.current a:hover, div#sitenav dl dd dl dd.current a:focus { border-top-color:#668DB9; border-bottom-color:#163969; background-color:#1B4580; color:#fff; }
+body#Kodiak div#sitenav dl#chevyvehicleslist a#kodiaklink, body#Wseries div#sitenav dl#chevyvehicleslist a#wserieslink, body#Tseries div#sitenav dl#chevyvehicleslist a#tserieslink { background-color:#1B4580;} /*medium duty current section link color*/
+
+/* Chevy Vehicle Rules */
+div#sitenav dl#chevyvehicleslist dt.current a, div#sitenav dl#chevyvehicleslist dt.current a:hover, div#sitenav dl#chevyvehicleslist dt.current a:focus { border-top-color:#668DB9; border-bottom-color:#C1D9F3; background-color:#1B4580; color:#fff; }
+body.chevyvehicles div#sitenav dl dd.currentcategory dl, body.chevyvehicles div#sitenav dl dd.currentcategory dl dt, body.chevyvehicles div#sitenav dl dd.currentcategory dl dd { display:block; }
+
+/* Shopping Tools Rules */
+div#sitenav dl#shoppingtoolslist dt, div#sitenav dl#shoppingtoolslist dd { display:block; background-color:#949494; color:#fff; }
+div#sitenav dl#shoppingtoolslist dd dl dd { display:none; background-color:#A8A8A8; }
+div#sitenav dl#shoppingtoolslist dd dl, div#sitenav dl#shoppingtoolslist dd dl.expanded dd { display:block; }
+
+div#sitenav dl#shoppingtoolslist dd a { border-top-color:#C1C1C1; border-bottom:1px solid #4A4A4A; }
+div#sitenav dl#shoppingtoolslist dd a:hover, div#sitenav dl#shoppingtoolslist dd a:focus { border-top-color:#666; border-bottom-color:#858585; }
+div#sitenav dl#shoppingtoolslist dd dl dd a {border-top-color:#BDBDBD; border-bottom:1px solid#787878;}
+div#sitenav dl#shoppingtoolslist dd dl dd a:hover, div#sitenav dl#shoppingtoolslist dd dl dd a:focus { border-top-color:#919191; border-bottom-color:#E2E2E2; background-color:#BEBEBE; }
+div#sitenav dl#shoppingtoolslist dd.current a, div#sitenav dl#shoppingtoolslist dd.current a:hover, div#sitenav dl#shoppingtoolslist dd.current a:focus { border-top-color:#606060; border-bottom-color:#858585; background-color:#474B4F; color:#fff; }
+
+/* Chevy Information Rules */
+div#sitenav dl#chevyinformationlist dd {display:block;}
+div#sitenav dl#chevyinformationlist dd.current a, div#sitenav dl#chevyinformationlist dd.current a:hover, div#sitenav dl#chevyinformationlist dd.current a:focus { border-top-color:#668DB9; border-bottom-color:#7598C9; background-color:#1B4580; color:#fff; }
+
+/* Chevy Extras Rules */
+div#sitenav dl#chevyextraslist dd.current {display:block;}
+div#sitenav dl#chevyextraslist dd.current a, div#sitenav dl#chevyextraslist dd.current a:hover, div#sitenav dl#chevyextraslist dd.current a:focus {display:block; border-top-color:#668DB9; border-bottom-color:#163969; background-color:#1B4580; color:#fff; }
+div#sitenav dl#chevyextraslist dd dl#mychevylist dd {border-top-color:#668DB9; border-bottom-color:#C1D9F3; color:#fff;}
+div#sitenav dl#chevyextraslist dd dl#mychevylist dd.current a, div#sitenav dl#chevyextraslist dd dl#mychevylist dd.current a:hover, div#sitenav dl#chevyextraslist dd dl#mychevylist dd.current a:focus {display:block; background-color:#1B4580;}
+
+/* Presentational */
+div#sitenav abbr, div#sitenav acronym { border:0; }
+
+/* Locate a Dealer Form located in div#sitenav */
+form#lad { width:149px; padding:3px 0; border-top:1px solid #5788AD; border-bottom:1px solid #154368; }
+body.chevymediumduty form#lad {border-top-color:#C1C1C1; border-bottom:1px solid #4A4A4A;}/*lad form appears under shopping tools for medium duty: assign proper border colors*/
+form#lad fieldset { border:0 solid #34638E; padding:5px; } 
+/* Note: See Mac IE Hack block at end of forms section for overrides */
+form#lad legend { text-indent:-7px; white-space:nowrap; color:#fff; }
+form#lad legend em { overflow:hidden; display:block; width:130px; font-style:normal; }
+div#sitenav dd form#lad a { display:inline; width:auto; padding:0; border:0; font-size:0.9em; font-weight:normal; text-decoration:underline; }
+form#lad p { padding:0; }
+
+/* Override text-indent property for Mozilla Based Browsers, Safari, Konqueror 2.2 - 3.x, Opera 7.5+ */
+html[xmlns] form#lad legend { text-indent:0; }
+
+/* Mac IE Hack \*/
+* html form#lad legend { margin-left:-7px; text-indent:0; }
+/* end hack */
+
+/* IR headings */
+dl#chevyvehicleslist a#cv, dl#chevyextraslist a#ce, dl#shoppingtoolslist strong#st, dl#chevyinformationlist strong#ci, dl#chevyvehicleslist a#md {
+	overflow:hidden;
+	display:block;
+	padding:20px 5px 0 5px;
+	background-repeat:no-repeat;
+	background-position:top right; 
+	height:0px;
+}
+html>body dl#chevyvehicleslist a#cv, html>body dl#chevyextraslist a#ce, html>body dl#chevyvehicleslist a#md { height:0px; }
+dl#chevyvehicleslist.expanded a#cv, dl#chevyextraslist.expanded a#ce, dl#chevyvehicleslist a#md { background-position:top left; }
+
+dl#chevyvehicleslist a#cv { background-image:url(/web/20060524054552im_/http://www.chevrolet.com/i/06/ir/chevyvehicles_state_en.png); }
+dl#shoppingtoolslist strong#st { background-image:url(/web/20060524054552im_/http://www.chevrolet.com/i/06/ir/shoppingtools_en.png); }
+dl#chevyinformationlist strong#ci { background-image:url(/web/20060524054552im_/http://www.chevrolet.com/i/06/ir/chevyinfo_en.png); }
+dl#chevyextraslist a#ce { background-image:url(/web/20060524054552im_/http://www.chevrolet.com/i/06/ir/chevyextras_state_en.png); }
+dl#chevyvehicleslist a#md { background-image:url(/web/20060524054552im_/http://www.chevrolet.com/i/06/ir/mediumduty_home_en.png); }
+
+/* Homepage Rules */
+body.global div#sitenav dl dd, body.global div#sitenav dl dd dl, body.global div#sitenav dl dd dl dt, body.global div#sitenav dl dd dl.expanded dd { display:block; }
+body.global div#sitenav dl dd dl dd { display:none; }
+body.global dl#chevyvehicleslist a#cv { background-image:url(/web/20060524054552im_/http://www.chevrolet.com/i/06/ir/chevyvehicles_en.png); }
+body.global dl#chevyextraslist a#ce { background-image:url(/web/20060524054552im_/http://www.chevrolet.com/i/06/ir/chevyextras_en.png); }
+body.global a#cv, body.global a#ce { cursor:default; }
+/*
+     FILE ARCHIVED ON 05:45:52 May 24, 2006 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 21:37:23 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 119.559
+  exclusion.robots: 0.095
+  exclusion.robots.policy: 0.081
+  cdx.remote: 0.077
+  esindex: 0.009
+  LoadShardBlock: 66.864 (3)
+  PetaboxLoader3.datanode: 73.851 (4)
+  load_resource: 60.012
+  PetaboxLoader3.resolve: 37.105
+*/

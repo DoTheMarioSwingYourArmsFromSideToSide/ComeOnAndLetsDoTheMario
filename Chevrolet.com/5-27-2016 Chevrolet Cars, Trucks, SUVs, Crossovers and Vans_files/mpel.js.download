@@ -1,0 +1,42 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+MpElDs={"es.chevrolet.com":"es","www.chevrolet.com":"en","chevrolet.com":"en"};
+if(!new RegExp('MP_LANG='+MpElDs[location.host]).test(document.cookie)){
+MpElD='//web.archive.org/web/20160530034605/http://es.chevrolet.com';
+	MpL=navigator.browserLanguage;
+	if(!MpL)MpL=navigator.language;
+    document.write(decodeURIComponent("%3Cscript src='")+MpElD+"/mpel.js?href="+encodeURIComponent(location.href)+"&ref="+encodeURIComponent(document.referrer)+"&lang="+MpL+"' type='text/javascript'"+decodeURIComponent("%3E%3C/script%3E"));
+}
+
+
+}
+/*
+     FILE ARCHIVED ON 03:46:05 May 30, 2016 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 05:33:54 May 01, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 107.146
+  exclusion.robots: 0.099
+  exclusion.robots.policy: 0.087
+  RedisCDXSource: 0.937
+  esindex: 0.009
+  LoadShardBlock: 70.454 (3)
+  PetaboxLoader3.datanode: 92.548 (5)
+  load_resource: 157.292 (2)
+  PetaboxLoader3.resolve: 91.643 (2)
+*/
