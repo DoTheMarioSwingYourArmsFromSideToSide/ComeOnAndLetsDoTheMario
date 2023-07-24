@@ -1,0 +1,22 @@
+@media (max-width: 720px){gus.tempgus{display:none}}@media (min-width: 721px){body:not(.nav-follow) nav.main{top:47px}body:not(.nav-follow) .container>.section:first-child,body:not(.nav-follow) .container>.section.bounce_section{padding-top:157px}.nav-follow gus.tempgus{height:0}body .container>.section:first-child,.container>.section.bounce_section{-webkit-transition:padding-top 0.2s ease-out;-moz-transition:padding-top 0.2s ease-out;-ms-transition:padding-top 0.2s ease-out;-o-transition:padding-top 0.2s ease-out;transition:padding-top 0.2s ease-out}nav.main{-webkit-transition:top 0.2s ease-out;-moz-transition:top 0.2s ease-out;-ms-transition:top 0.2s ease-out;-o-transition:top 0.2s ease-out;transition:top 0.2s ease-out}gus.tempgus{display:block;width:100%;z-index:1;background-image:url("/web/20150629183451im_/http://assets6.pokemon.com/static2/_ui/img/gus/bg-strip.jpg");height:47px;-webkit-transition:height 0.2s ease-out;-moz-transition:height 0.2s ease-out;-ms-transition:height 0.2s ease-out;-o-transition:height 0.2s ease-out;transition:height 0.2s ease-out}gus.tempgus>.gus_outer{position:relative;margin:0px auto;width:100%;max-width:1024px;height:100%}gus.tempgus>.gus_outer>.button_hold{position:absolute;width:70.5%;height:47px;margin-right:-100%;margin-left:21.7625%;padding-left:2px;bottom:0;box-shadow:-1px 0 1px 0 white}gus.tempgus>.gus_outer>.button_hold .gusbutton{background-color:#EEEEEE;height:100%;float:right;margin:0 -1px 0 0;border-left:1px solid #D4D4D4;border-right:1px solid #D4D4D4;box-shadow:1px 0 0 0 #ffffff inset;width:33%;overflow:hidden}gus.tempgus>.gus_outer>.button_hold .gusbutton .outerbutton{box-shadow:-1px 0 0 0 #ffffff inset;padding:0 1px}gus.tempgus>.gus_outer>.button_hold .gusbutton .outerbutton .innerbutton{border-radius:0 0 8px 8px;margin:auto;width:100%;display:block;height:98%;text-align:center}gus.tempgus>.gus_outer>.button_hold .gusbutton .outerbutton .innerbutton .icon{height:45px;margin:0 auto}gus.tempgus>.gus_outer>.button_hold .gusbutton.pgl{margin:0 -1px 0 -2px}gus.tempgus>.gus_outer>.button_hold .gusbutton.pgl .outerbutton .icon{width:80px;background-image:url("/web/20150629183451im_/http://assets6.pokemon.com/static2/_ui/img/gus/logo-pgl.png")}gus.tempgus>.gus_outer>.button_hold .gusbutton.tcgo .icon{width:38px;background-image:url("/web/20150629183451im_/http://assets6.pokemon.com/static2/_ui/img/gus/logo-tcgo.png")}gus.tempgus>.gus_outer>.button_hold .gusbutton.pokemon-center{width:34%;margin:0 -2px 0 0}gus.tempgus>.gus_outer>.button_hold .gusbutton.pokemon-center .icon{width:118px;background-image:url("/web/20150629183451im_/http://assets6.pokemon.com/static2/_ui/img/gus/logo-pokemoncenter.png")}gus.tempgus>.gus_outer>.button_hold .gusbutton:hover .outerbutton .innerbutton{box-shadow:0px 1px 1px #ffffff;background-color:#C1C1C1;cursor:pointer}gus.tempgus>.gus_outer>.button_hold .gusbutton:active .outerbutton{padding:0 2px 1px 3px}gus.tempgus>.gus_outer>.button_hold .gusbutton:active .outerbutton .innerbutton{box-shadow:1px 2px 1px #ffffff}}gus.tempgus{position:fixed}
+
+/*
+     FILE ARCHIVED ON 18:34:51 Jun 29, 2015 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 08:02:40 Apr 29, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 57.937
+  exclusion.robots: 0.067
+  exclusion.robots.policy: 0.057
+  RedisCDXSource: 0.619
+  esindex: 0.007
+  LoadShardBlock: 36.512 (3)
+  PetaboxLoader3.datanode: 57.968 (5)
+  load_resource: 113.888 (2)
+  PetaboxLoader3.resolve: 71.943
+*/

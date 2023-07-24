@@ -1,0 +1,3022 @@
+
+@font-face {
+    font-family:"icons";
+    src:url("/web/20170607141948im_/https://assets.pokemon.com/static2/_ui/fonts/icons.eot");
+    src:url("/web/20170607141948im_/https://assets.pokemon.com/static2/_ui/fonts/icons.eot#iefix") format("embedded-opentype"),
+    url("/web/20170607141948im_/https://assets.pokemon.com/static2/_ui/fonts/icons.woff") format("woff"),
+    url("/web/20170607141948im_/https://assets.pokemon.com/static2/_ui/fonts/icons.ttf") format("truetype"),
+    url("/web/20170607141948im_/https://assets.pokemon.com/static2/_ui/fonts/icons.svg#icons") format("svg");
+    font-weight:normal;
+    font-style:normal;
+}
+
+
+/*Standard icons*/
+.icon,.btn:after,.arrow-left.btn:before,html.touch .styled-select i,.custom-select-wrapper .custom-select-menu label:before,.custom-select-wrapper .custom-select-menu label:after,#back-to-top:before,.aside-leaderboard-table table tfoot a:after {
+    font-family: "icons";
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1;
+    font-weight: normal;
+    font-style: normal;
+    speak: none;
+    text-decoration: inherit;
+    text-transform: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon, .wrapper-subzero .btn span.mid:after { font-family: "icons"; display: inline-block; vertical-align: middle; line-height: 1; font-weight: normal; font-style: normal; speak: none; text-decoration: inherit; text-transform: none; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+
+.icon_add:before {
+	content:"\f101";
+}
+
+
+.icon_alert:before {
+	content:"\f102";
+}
+
+
+.icon_arrow_sm_down:before {
+	content:"\f103";
+}
+
+
+.icon_arrow_sm_left:before {
+	content:"\f104";
+}
+
+
+.icon_arrow_sm_right:before {
+	content:"\f105";
+}
+
+
+.icon_arrow_sm_up:before {
+	content:"\f106";
+}
+
+
+.icon_badges:before {
+	content:"\f107";
+}
+
+
+.icon_body:before {
+	content:"\f108";
+}
+
+
+.icon_cards:before {
+	content:"\f109";
+}
+
+
+.icon_cautionsymbol:before {
+	content:"\f10a";
+}
+
+
+.icon_check:before {
+	content:"\f10b";
+}
+
+
+.icon_checkmark:before {
+	content:"\f10c";
+}
+
+
+.icon_clothing:before {
+	content:"\f10d";
+}
+
+
+.icon_collection:before {
+	content:"\f10e";
+}
+
+
+.icon_create_avatar:before {
+	content:"\f10f";
+}
+
+
+.icon_double:before {
+	content:"\f110";
+}
+
+
+.icon_download:before {
+	content:"\f111";
+}
+
+
+.icon_event:before {
+	content:"\f112";
+}
+
+
+.icon_eye_closed:before {
+	content:"\f113";
+}
+
+
+.icon_eye_open:before {
+	content:"\f114";
+}
+
+
+.icon_female_symbol:before {
+	content:"\f115";
+}
+
+
+.icon_filter_height_large:before {
+	content:"\f116";
+}
+
+
+.icon_filter_height_medium:before {
+	content:"\f117";
+}
+
+
+.icon_filter_height_small:before {
+	content:"\f118";
+}
+
+
+.icon_filter_weight_large:before {
+	content:"\f119";
+}
+
+
+.icon_filter_weight_medium:before {
+	content:"\f11a";
+}
+
+
+.icon_filter_weight_small:before {
+	content:"\f11b";
+}
+
+
+.icon_friends:before {
+	content:"\f11c";
+}
+
+
+.icon_gender:before {
+	content:"\f11d";
+}
+
+
+.icon_hamburger:before {
+	content:"\f11e";
+}
+
+
+.icon_home:before {
+	content:"\f11f";
+}
+
+
+.icon_journal:before {
+	content:"\f120";
+}
+
+
+.icon_joystick:before {
+	content:"\f121";
+}
+
+
+.icon_male_symbol:before {
+	content:"\f122";
+}
+
+
+.icon_messages:before {
+	content:"\f123";
+}
+
+
+.icon_minus:before {
+	content:"\f124";
+}
+
+
+.icon_multiply:before {
+	content:"\f125";
+}
+
+
+.icon_notepage:before {
+	content:"\f126";
+}
+
+
+.icon_plus:before {
+	content:"\f127";
+}
+
+
+.icon_points_champ:before {
+	content:"\f128";
+}
+
+
+.icon_points_game:before {
+	content:"\f129";
+}
+
+
+.icon_pokeball:before {
+	content:"\f12a";
+}
+
+
+.icon_pokedex_added:before {
+	content:"\f12b";
+}
+
+
+.icon_pokemontv:before {
+	content:"\f12c";
+}
+
+
+.icon_prize_bronze:before {
+	content:"\f12d";
+}
+
+
+.icon_prize_gold:before {
+	content:"\f12e";
+}
+
+
+.icon_prize_silver:before {
+	content:"\f12f";
+}
+
+
+.icon_refresh:before {
+	content:"\f130";
+}
+
+
+.icon_remove:before {
+	content:"\f131";
+}
+
+
+.icon_search:before {
+	content:"\f132";
+}
+
+
+.icon_settings:before {
+	content:"\f133";
+}
+
+
+.icon_trade:before {
+	content:"\f134";
+}
+
+
+.icon_videogame:before {
+	content:"\f135";
+}
+
+
+.icon_wishlist:before {
+	content:"\f136";
+}
+
+
+.icon_wrench:before {
+	content:"\f137";
+}
+
+/*CSS3 transitions*/
+@-webkit-keyframes bounce{0%,100%{-webkit-transform:translateY(0);-webkit-animation-timing-function:cubic-bezier(0.445, 0.05, 0.55, 0.95)}75%{-webkit-transform:translateY(-4px)}}
+@-moz-keyframes bounce{0%,100%{-moz-transform:translateY(0);-moz-animation-timing-function:cubic-bezier(0.445, 0.05, 0.55, 0.95)}75%{-moz-transform:translateY(-4px)}}
+@-o-keyframes bounce{0%,100%{-o-transform:translateY(0);-o-animation-timing-function:cubic-bezier(0.445, 0.05, 0.55, 0.95)}75%{-o-animation-timing-function:cubic-bezier(0.445, 0.05, 0.55, 0.95)}}
+@keyframes bounce{0%,100%{transform:translateY(0);animation-timing-function:cubic-bezier(0.445, 0.05, 0.55, 0.95)}75%{transform:translateY(-4px)}}
+@-webkit-keyframes loader{0%{-webkit-transform:rotate(0deg)}25%{-webkit-transform:rotate(90deg)}50%{-webkit-transform:rotate(180deg)}75%{-webkit-transform:rotate(270deg)}100%{-webkit-transform:rotate(360deg)}}
+@-moz-keyframes loader{0%{-moz-transform:rotate(0deg)}25%{-moz-transform:rotate(90deg)}50%{-moz-transform:rotate(180deg)}75%{-moz-transform:rotate(270deg)}100%{-moz-transform:rotate(360deg)}}
+@-o-keyframes loader{0%{-o-transform:rotate(0deg)}25%{-o-transform:rotate(90deg)}50%{-o-transform:rotate(180deg)}75%{-o-transform:rotate(270deg)}100%{-o-transform:rotate(360deg)}}
+@keyframes loader{0%{transform:rotate(0deg)}25%{transform:rotate(90deg)}50%{transform:rotate(180deg)}75%{transform:rotate(270deg)}100%{transform:rotate(360deg)}}
+
+/*Background for container*/
+
+.wrapper-subzero {
+	-webkit-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
+	background: #fff url("/web/20170607141948im_/https://assets.pokemon.com/static2/_ui/img/chrome/container_bg.png");
+	clear: both;
+	display: block;
+	margin: 0 auto;
+	max-width: 1280px;
+	overflow: hidden;
+	position: relative;
+}
+
+body.lite.oneColumn div.wrapper-2 { background-image: none; }
+
+/*Navigation*/
+
+nav.main .content-wrapper { overflow: visible; }
+
+.content-wrapper {
+	display: block;
+	margin: 0 auto;
+	overflow: hidden;
+	max-width: 1024px;
+	width: 100%;
+	min-width: 980px;
+}
+
+nav.main {
+	background: #fff;
+	border-bottom: 2px solid #f0f0f0;
+	height: 87px;
+	width: 100%;
+	z-index: 10;
+}
+
+nav.main a.logo {
+	float: left;
+	margin-right: -100%;
+	width: 20.2%;
+}
+
+nav.main a.logo img {
+	display: block;
+	margin: 1em auto 0;
+	width: 150px;
+}
+
+nav.main a.nav-toggle, nav.main .dashboard-open a { display: none; }
+
+nav.main .dashboard-open.signed-in .visible-signed-in a { display: inline; }
+
+nav.main .dashboard-open.not-signed-in .visible-not-signed-in a { display: inline; }
+
+body.static nav.main .nav-bar .nav-toggle, body.static nav.main .nav-bar>ul { display: none; }
+nav.main .content-wrapper {
+    max-width: 895px;
+    min-width: 895px;
+}
+nav.main .content-wrapper>ul, nav.main .content-wrapper>ul ul {
+	width: 100%;
+}
+
+nav.main .content-wrapper>ul.subnav, nav.main .content-wrapper>ul ul.subnav { display: none; }
+
+nav.main .content-wrapper>ul .search, nav.main .content-wrapper>ul ul .search { display: none; }
+
+nav.main .content-wrapper>ul li, nav.main .content-wrapper>ul ul li {
+	cursor: pointer;
+	float: left;
+	height: 87px;
+	margin: 0;
+	overflow: visible;
+	position: relative;
+	text-transform: none;
+    /* 100/7 */
+	width: 14.285714286%;
+}
+
+nav.main .content-wrapper>ul li:before, nav.main .content-wrapper>ul ul li:before {
+	content: ' ';
+	border-right: 2px solid #222;
+	height: 93px;
+	left: 0;
+	position: absolute;
+	top: 0;
+	z-index: 2;
+}
+
+nav.main .content-wrapper>ul li:after, nav.main .content-wrapper>ul ul li:after {
+	content: ' ';
+	height: 6px;
+	left: 0;
+	position: absolute;
+	bottom: -6px;
+	width: 100%;
+	z-index: 1;
+}
+
+nav.main .content-wrapper>ul li a, nav.main .content-wrapper>ul ul li a {
+	background: #313131;
+	float: left;
+	height: 87px;
+	width: 100%;
+}
+
+nav.main .content-wrapper>ul li a.subnav-toggle, nav.main .content-wrapper>ul ul li a.subnav-toggle { display: none; }
+
+nav.main .content-wrapper>ul li:first-child:before, nav.main .content-wrapper>ul ul li:first-child:before { border: none; }
+
+nav.main span.fill {
+	bottom: 0;
+	display: block;
+	height: 0px;
+	left: 0;
+	position: absolute;
+	width: 100%;
+}
+
+nav.main span.icon, nav.main span.btn:after, nav.main span.arrow-left.btn:before, nav.main span#back-to-top:before {
+	display: block;
+	font-size: 175%;
+	line-height: 100%;
+	margin: 15px 0 8px;
+	padding: 0;
+	position: relative;
+	text-align: center;
+}
+
+nav.main span.title {
+	font-family: "Roboto", arial, sans-serif;
+	color: #fff;
+	display: block;
+	font-size: 14px;
+	line-height: 14px;
+	font-weight: normal;
+	margin: 0 auto;
+	opacity: 1;
+	position: relative;
+	text-align: center;
+	width: 90%;
+	word-break: break-word;
+	word-wrap: break-word;
+}
+
+body.ru nav.main span.title {
+	font-family: "Roboto", arial, sans-serif;
+	font-weight: bold;
+}
+
+nav.main li.explore:before { border-right: 0; }
+
+nav.main li.explore:after {
+	background-color: #e3350d;
+	transition: background-color 0.25s, height 0.25s;
+	border-radius: 0 0 0 8px;
+}
+
+nav.main li.explore .secondary li, nav.main li.explore .secondary li .icon, nav.main li.explore .secondary li .btn:after, nav.main li.explore .secondary li .arrow-left.btn:before, nav.main li.explore .secondary li html.touch .styled-select i, html.touch .styled-select nav.main li.explore .secondary li i, nav.main li.explore .secondary li .custom-select-wrapper .custom-select-menu label:before, .custom-select-wrapper .custom-select-menu nav.main li.explore .secondary li label:before, nav.main li.explore .secondary li .custom-select-wrapper .custom-select-menu label:after, .custom-select-wrapper .custom-select-menu nav.main li.explore .secondary li label:after, nav.main li.explore .secondary li #back-to-top:before, nav.main li.explore .secondary li .aside-leaderboard-table table tfoot a:after, .aside-leaderboard-table table tfoot nav.main li.explore .secondary li a:after, nav.main li.explore .fill { background-color: #e3350d; }
+
+nav.main li.explore .secondary li { border-bottom: 1px solid #831e07; }
+
+nav.main li.explore .tertiary li:first-child { border-top: 1px solid #831e07; }
+
+nav.main li.explore .icon, nav.main li.explore .btn:after, nav.main li.explore .arrow-left.btn:before, nav.main li.explore html.touch .styled-select i, html.touch .styled-select nav.main li.explore i, nav.main li.explore .custom-select-wrapper .custom-select-menu label:before, .custom-select-wrapper .custom-select-menu nav.main li.explore label:before, nav.main li.explore .custom-select-wrapper .custom-select-menu label:after, .custom-select-wrapper .custom-select-menu nav.main li.explore label:after, nav.main li.explore #back-to-top:before, nav.main li.explore .aside-leaderboard-table table tfoot a:after, .aside-leaderboard-table table tfoot nav.main li.explore a:after { color: #e3350d; }
+
+html.no-touch nav.main li.explore:hover { background-color: #e3350d; }
+
+html.no-touch nav.main li.explore:hover .fill {
+	height: 87px;
+	opacity: 1;
+}
+
+html.no-touch nav.main li.explore:hover .icon, html.no-touch nav.main li.explore:hover .btn:after, html.no-touch nav.main li.explore:hover .arrow-left.btn:before, html.no-touch nav.main li.explore:hover html.touch .styled-select i, html.touch .styled-select html.no-touch nav.main li.explore:hover i, html.no-touch nav.main li.explore:hover .custom-select-wrapper .custom-select-menu label:before, .custom-select-wrapper .custom-select-menu html.no-touch nav.main li.explore:hover label:before, html.no-touch nav.main li.explore:hover .custom-select-wrapper .custom-select-menu label:after, .custom-select-wrapper .custom-select-menu html.no-touch nav.main li.explore:hover label:after, html.no-touch nav.main li.explore:hover #back-to-top:before, html.no-touch nav.main li.explore:hover .aside-leaderboard-table table tfoot a:after, .aside-leaderboard-table table tfoot html.no-touch nav.main li.explore:hover a:after { color: #fff; }
+
+html.no-touch nav.main li.explore:hover:after { background-color: #e3350d; }
+
+nav.main li.explore a.hover { background-color: #e3350d; }
+
+nav.main li.explore a.hover:after { background-color: #e3350d; }
+
+nav.main li.explore a.hover .fill {
+	height: 87px;
+	opacity: 1;
+}
+
+nav.main li.explore a.hover .icon, nav.main li.explore a.hover .btn:after, nav.main li.explore a.hover .arrow-left.btn:before, nav.main li.explore a.hover html.touch .styled-select i, html.touch .styled-select nav.main li.explore a.hover i, nav.main li.explore a.hover .custom-select-wrapper .custom-select-menu label:before, .custom-select-wrapper .custom-select-menu nav.main li.explore a.hover label:before, nav.main li.explore a.hover .custom-select-wrapper .custom-select-menu label:after, .custom-select-wrapper .custom-select-menu nav.main li.explore a.hover label:after, nav.main li.explore a.hover #back-to-top:before, nav.main li.explore a.hover .aside-leaderboard-table table tfoot a:after, .aside-leaderboard-table table tfoot nav.main li.explore a.hover a:after { color: #fff; }
+
+body.ru nav.main span.title {
+	font-family: "Roboto", arial, sans-serif;
+	font-weight: bold;
+}
+
+body.static nav.main .nav-bar .nav-toggle, body.static nav.main .nav-bar > ul { display: none; }
+
+html.no-touch nav.main li.attend:hover .fill {
+	height: 87px;
+	opacity: 1;
+}
+
+html.no-touch nav.main li.attend:hover .icon, html.no-touch nav.main li.attend:hover .button:after, html.no-touch nav.main li.attend:hover .arrow-left.button:before, html.no-touch nav.main li.attend:hover html.touch .styled-select i, html.touch .styled-select html.no-touch nav.main li.attend:hover i, html.no-touch nav.main li.attend:hover .custom-select-wrapper .custom-select-menu label:before, .custom-select-wrapper .custom-select-menu html.no-touch nav.main li.attend:hover label:before, html.no-touch nav.main li.attend:hover .custom-select-wrapper .custom-select-menu label:after, .custom-select-wrapper .custom-select-menu html.no-touch nav.main li.attend:hover label:after, html.no-touch nav.main li.attend:hover #back-to-top:before, html.no-touch nav.main li.attend:hover .aside-leaderboard-table table tfoot a:after, .aside-leaderboard-table table tfoot html.no-touch nav.main li.attend:hover a:after { color: white; }
+
+html.no-touch nav.main li.attend:hover { background-color: #4dad5b; }
+
+html.no-touch nav.main li.attend:hover:after { background-color: #4dad5b; }
+
+html.no-touch nav.main li.explore:hover .fill {
+	height: 87px;
+	opacity: 1;
+}
+
+html.no-touch nav.main li.explore:hover .icon, html.no-touch nav.main li.explore:hover .button:after, html.no-touch nav.main li.explore:hover .arrow-left.button:before, html.no-touch nav.main li.explore:hover html.touch .styled-select i, html.touch .styled-select html.no-touch nav.main li.explore:hover i, html.no-touch nav.main li.explore:hover .custom-select-wrapper .custom-select-menu label:before, .custom-select-wrapper .custom-select-menu html.no-touch nav.main li.explore:hover label:before, html.no-touch nav.main li.explore:hover .custom-select-wrapper .custom-select-menu label:after, .custom-select-wrapper .custom-select-menu html.no-touch nav.main li.explore:hover label:after, html.no-touch nav.main li.explore:hover #back-to-top:before, html.no-touch nav.main li.explore:hover .aside-leaderboard-table table tfoot a:after, .aside-leaderboard-table table tfoot html.no-touch nav.main li.explore:hover a:after { color: white; }
+
+html.no-touch nav.main li.explore:hover { background-color: #e3350d; }
+
+html.no-touch nav.main li.explore:hover:after { background-color: #e3350d; }
+
+html.no-touch nav.main li.game:hover .fill {
+	height: 87px;
+	opacity: 1;
+}
+
+html.no-touch nav.main li.game:hover .icon, html.no-touch nav.main li.game:hover .button:after, html.no-touch nav.main li.game:hover .arrow-left.button:before, html.no-touch nav.main li.game:hover html.touch .styled-select i, html.touch .styled-select html.no-touch nav.main li.game:hover i, html.no-touch nav.main li.game:hover .custom-select-wrapper .custom-select-menu label:before, .custom-select-wrapper .custom-select-menu html.no-touch nav.main li.game:hover label:before, html.no-touch nav.main li.game:hover .custom-select-wrapper .custom-select-menu label:after, .custom-select-wrapper .custom-select-menu html.no-touch nav.main li.game:hover label:after, html.no-touch nav.main li.game:hover #back-to-top:before, html.no-touch nav.main li.game:hover .aside-leaderboard-table table tfoot a:after, .aside-leaderboard-table table tfoot html.no-touch nav.main li.game:hover a:after { color: white; }
+
+html.no-touch nav.main li.game:hover { background-color: #1b53ba; }
+
+html.no-touch nav.main li.game:hover:after { background-color: #1b53ba; }
+
+html.no-touch nav.main li.play:hover .fill {
+	height: 87px;
+	opacity: 1;
+}
+
+html.no-touch nav.main li.play:hover .icon, html.no-touch nav.main li.play:hover .button:after, html.no-touch nav.main li.play:hover .arrow-left.button:before, html.no-touch nav.main li.play:hover html.touch .styled-select i, html.touch .styled-select html.no-touch nav.main li.play:hover i, html.no-touch nav.main li.play:hover .custom-select-wrapper .custom-select-menu label:before, .custom-select-wrapper .custom-select-menu html.no-touch nav.main li.play:hover label:before, html.no-touch nav.main li.play:hover .custom-select-wrapper .custom-select-menu label:after, .custom-select-wrapper .custom-select-menu html.no-touch nav.main li.play:hover label:after, html.no-touch nav.main li.play:hover #back-to-top:before, html.no-touch nav.main li.play:hover .aside-leaderboard-table table tfoot a:after, .aside-leaderboard-table table tfoot html.no-touch nav.main li.play:hover a:after { color: white; }
+
+html.no-touch nav.main li.play:hover { background-color: #e6bc2f; }
+
+html.no-touch nav.main li.play:hover:after { background-color: #e6bc2f; }
+
+html.no-touch nav.main li.trade:hover .fill {
+	height: 87px;
+	opacity: 1;
+}
+
+html.no-touch nav.main li.trade:hover .icon, html.no-touch nav.main li.trade:hover .button:after, html.no-touch nav.main li.trade:hover .arrow-left.button:before, html.no-touch nav.main li.trade:hover html.touch .styled-select i, html.touch .styled-select html.no-touch nav.main li.trade:hover i, html.no-touch nav.main li.trade:hover .custom-select-wrapper .custom-select-menu label:before, .custom-select-wrapper .custom-select-menu html.no-touch nav.main li.trade:hover label:before, html.no-touch nav.main li.trade:hover .custom-select-wrapper .custom-select-menu label:after, .custom-select-wrapper .custom-select-menu html.no-touch nav.main li.trade:hover label:after, html.no-touch nav.main li.trade:hover #back-to-top:before, html.no-touch nav.main li.trade:hover .aside-leaderboard-table table tfoot a:after, .aside-leaderboard-table table tfoot html.no-touch nav.main li.trade:hover a:after { color: white; }
+
+html.no-touch nav.main li.trade:hover { background-color: #30a7d7; }
+
+html.no-touch nav.main li.trade:hover:after { background-color: #30a7d7; }
+
+html.no-touch nav.main li.watch:hover .fill {
+	height: 87px;
+	opacity: 1;
+}
+
+html.no-touch nav.main li.watch:hover .icon, html.no-touch nav.main li.watch:hover .button:after, html.no-touch nav.main li.watch:hover .arrow-left.button:before, html.no-touch nav.main li.watch:hover html.touch .styled-select i, html.touch .styled-select html.no-touch nav.main li.watch:hover i, html.no-touch nav.main li.watch:hover .custom-select-wrapper .custom-select-menu label:before, .custom-select-wrapper .custom-select-menu html.no-touch nav.main li.watch:hover label:before, html.no-touch nav.main li.watch:hover .custom-select-wrapper .custom-select-menu label:after, .custom-select-wrapper .custom-select-menu html.no-touch nav.main li.watch:hover label:after, html.no-touch nav.main li.watch:hover #back-to-top:before, html.no-touch nav.main li.watch:hover .aside-leaderboard-table table tfoot a:after, .aside-leaderboard-table table tfoot html.no-touch nav.main li.watch:hover a:after { color: white; }
+
+html.no-touch nav.main li.watch:hover { background-color: #ee6b2f; }
+
+html.no-touch nav.main li.watch:hover:after { background-color: #ee6b2f; }
+
+html.no-touch.csstransitions nav.main li.attend .fill {
+	-webkit-transition: height 0.2s 0 ease;
+	-ms-transition: height 0.2s 0 ease;
+	-moz-transition: height 0.2s 0 ease;
+	-o-transition: height 0.2s 0 ease;
+	transition: height 0.2s 0 ease;
+}
+
+html.no-touch.csstransitions nav.main li.attend .icon, html.no-touch.csstransitions nav.main li.attend .button:after, html.no-touch.csstransitions nav.main li.attend .arrow-left.button:before, html.no-touch.csstransitions nav.main li.attend html.touch .styled-select i, html.touch .styled-select html.no-touch.csstransitions nav.main li.attend i, html.no-touch.csstransitions nav.main li.attend .custom-select-wrapper .custom-select-menu label:before, .custom-select-wrapper .custom-select-menu html.no-touch.csstransitions nav.main li.attend label:before, html.no-touch.csstransitions nav.main li.attend .custom-select-wrapper .custom-select-menu label:after, .custom-select-wrapper .custom-select-menu html.no-touch.csstransitions nav.main li.attend label:after, html.no-touch.csstransitions nav.main li.attend #back-to-top:before, html.no-touch.csstransitions nav.main li.attend .aside-leaderboard-table table tfoot a:after, .aside-leaderboard-table table tfoot html.no-touch.csstransitions nav.main li.attend a:after {
+	-webkit-transition: color 0.1s 0 ease;
+	-ms-transition: color 0.1s 0 ease;
+	-moz-transition: color 0.1s 0 ease;
+	-o-transition: color 0.1s 0 ease;
+	transition: color 0.1s 0 ease;
+}
+
+html.no-touch.csstransitions nav.main li.attend .title {
+	-webkit-transition: opacity 0 0;
+	-ms-transition: opacity 0 0;
+	-moz-transition: opacity 0 0;
+	-o-transition: opacity 0 0;
+	transition: opacity 0 0;
+}
+
+html.no-touch.csstransitions nav.main li.attend:after {
+	-webkit-transition: background-color 0 0.1s;
+	-ms-transition: background-color 0 0.1s;
+	-moz-transition: background-color 0 0.1s;
+	-o-transition: background-color 0 0.1s;
+	transition: background-color 0 0.1s;
+}
+
+html.no-touch.csstransitions nav.main li.attend:hover .title {
+	-webkit-transition: opacity 0.2s 0.1s ease;
+	-ms-transition: opacity 0.2s 0.1s ease;
+	-moz-transition: opacity 0.2s 0.1s ease;
+	-o-transition: opacity 0.2s 0.1s ease;
+	transition: opacity 0.2s 0.1s ease;
+}
+
+html.no-touch.csstransitions nav.main li.attend:hover:after {
+	-webkit-transition: background-color 0 0;
+	-ms-transition: background-color 0 0;
+	-moz-transition: background-color 0 0;
+	-o-transition: background-color 0 0;
+	transition: background-color 0 0;
+}
+
+html.no-touch.csstransitions nav.main li.explore .fill {
+	-webkit-transition: height 0.2s 0 ease;
+	-ms-transition: height 0.2s 0 ease;
+	-moz-transition: height 0.2s 0 ease;
+	-o-transition: height 0.2s 0 ease;
+	transition: height 0.2s 0 ease;
+}
+
+html.no-touch.csstransitions nav.main li.explore .icon, html.no-touch.csstransitions nav.main li.explore .button:after, html.no-touch.csstransitions nav.main li.explore .arrow-left.button:before, html.no-touch.csstransitions nav.main li.explore html.touch .styled-select i, html.touch .styled-select html.no-touch.csstransitions nav.main li.explore i, html.no-touch.csstransitions nav.main li.explore .custom-select-wrapper .custom-select-menu label:before, .custom-select-wrapper .custom-select-menu html.no-touch.csstransitions nav.main li.explore label:before, html.no-touch.csstransitions nav.main li.explore .custom-select-wrapper .custom-select-menu label:after, .custom-select-wrapper .custom-select-menu html.no-touch.csstransitions nav.main li.explore label:after, html.no-touch.csstransitions nav.main li.explore #back-to-top:before, html.no-touch.csstransitions nav.main li.explore .aside-leaderboard-table table tfoot a:after, .aside-leaderboard-table table tfoot html.no-touch.csstransitions nav.main li.explore a:after {
+	-webkit-transition: color 0.1s 0 ease;
+	-ms-transition: color 0.1s 0 ease;
+	-moz-transition: color 0.1s 0 ease;
+	-o-transition: color 0.1s 0 ease;
+	transition: color 0.1s 0 ease;
+}
+
+html.no-touch.csstransitions nav.main li.explore .title {
+	-webkit-transition: opacity 0 0;
+	-ms-transition: opacity 0 0;
+	-moz-transition: opacity 0 0;
+	-o-transition: opacity 0 0;
+	transition: opacity 0 0;
+}
+
+html.no-touch.csstransitions nav.main li.explore:after {
+	-webkit-transition: background-color 0 0.1s;
+	-ms-transition: background-color 0 0.1s;
+	-moz-transition: background-color 0 0.1s;
+	-o-transition: background-color 0 0.1s;
+	transition: background-color 0 0.1s;
+}
+
+html.no-touch.csstransitions nav.main li.explore:hover .title {
+	-webkit-transition: opacity 0.2s 0.1s ease;
+	-ms-transition: opacity 0.2s 0.1s ease;
+	-moz-transition: opacity 0.2s 0.1s ease;
+	-o-transition: opacity 0.2s 0.1s ease;
+	transition: opacity 0.2s 0.1s ease;
+}
+
+html.no-touch.csstransitions nav.main li.explore:hover:after {
+	-webkit-transition: background-color 0 0;
+	-ms-transition: background-color 0 0;
+	-moz-transition: background-color 0 0;
+	-o-transition: background-color 0 0;
+	transition: background-color 0 0;
+}
+
+html.no-touch.csstransitions nav.main li.game .fill {
+	-webkit-transition: height 0.2s 0 ease;
+	-ms-transition: height 0.2s 0 ease;
+	-moz-transition: height 0.2s 0 ease;
+	-o-transition: height 0.2s 0 ease;
+	transition: height 0.2s 0 ease;
+}
+
+html.no-touch.csstransitions nav.main li.game .icon, html.no-touch.csstransitions nav.main li.game .button:after, html.no-touch.csstransitions nav.main li.game .arrow-left.button:before, html.no-touch.csstransitions nav.main li.game html.touch .styled-select i, html.touch .styled-select html.no-touch.csstransitions nav.main li.game i, html.no-touch.csstransitions nav.main li.game .custom-select-wrapper .custom-select-menu label:before, .custom-select-wrapper .custom-select-menu html.no-touch.csstransitions nav.main li.game label:before, html.no-touch.csstransitions nav.main li.game .custom-select-wrapper .custom-select-menu label:after, .custom-select-wrapper .custom-select-menu html.no-touch.csstransitions nav.main li.game label:after, html.no-touch.csstransitions nav.main li.game #back-to-top:before, html.no-touch.csstransitions nav.main li.game .aside-leaderboard-table table tfoot a:after, .aside-leaderboard-table table tfoot html.no-touch.csstransitions nav.main li.game a:after {
+	-webkit-transition: color 0.1s 0 ease;
+	-ms-transition: color 0.1s 0 ease;
+	-moz-transition: color 0.1s 0 ease;
+	-o-transition: color 0.1s 0 ease;
+	transition: color 0.1s 0 ease;
+}
+
+html.no-touch.csstransitions nav.main li.game .title {
+	-webkit-transition: opacity 0 0;
+	-ms-transition: opacity 0 0;
+	-moz-transition: opacity 0 0;
+	-o-transition: opacity 0 0;
+	transition: opacity 0 0;
+}
+
+html.no-touch.csstransitions nav.main li.game:after {
+	-webkit-transition: background-color 0 0.1s;
+	-ms-transition: background-color 0 0.1s;
+	-moz-transition: background-color 0 0.1s;
+	-o-transition: background-color 0 0.1s;
+	transition: background-color 0 0.1s;
+}
+
+html.no-touch.csstransitions nav.main li.game:hover .title {
+	-webkit-transition: opacity 0.2s 0.1s ease;
+	-ms-transition: opacity 0.2s 0.1s ease;
+	-moz-transition: opacity 0.2s 0.1s ease;
+	-o-transition: opacity 0.2s 0.1s ease;
+	transition: opacity 0.2s 0.1s ease;
+}
+
+html.no-touch.csstransitions nav.main li.game:hover:after {
+	-webkit-transition: background-color 0 0;
+	-ms-transition: background-color 0 0;
+	-moz-transition: background-color 0 0;
+	-o-transition: background-color 0 0;
+	transition: background-color 0 0;
+}
+
+html.no-touch.csstransitions nav.main li.play .fill {
+	-webkit-transition: height 0.2s 0 ease;
+	-ms-transition: height 0.2s 0 ease;
+	-moz-transition: height 0.2s 0 ease;
+	-o-transition: height 0.2s 0 ease;
+	transition: height 0.2s 0 ease;
+}
+
+html.no-touch.csstransitions nav.main li.play .icon, html.no-touch.csstransitions nav.main li.play .button:after, html.no-touch.csstransitions nav.main li.play .arrow-left.button:before, html.no-touch.csstransitions nav.main li.play html.touch .styled-select i, html.touch .styled-select html.no-touch.csstransitions nav.main li.play i, html.no-touch.csstransitions nav.main li.play .custom-select-wrapper .custom-select-menu label:before, .custom-select-wrapper .custom-select-menu html.no-touch.csstransitions nav.main li.play label:before, html.no-touch.csstransitions nav.main li.play .custom-select-wrapper .custom-select-menu label:after, .custom-select-wrapper .custom-select-menu html.no-touch.csstransitions nav.main li.play label:after, html.no-touch.csstransitions nav.main li.play #back-to-top:before, html.no-touch.csstransitions nav.main li.play .aside-leaderboard-table table tfoot a:after, .aside-leaderboard-table table tfoot html.no-touch.csstransitions nav.main li.play a:after {
+	-webkit-transition: color 0.1s 0 ease;
+	-ms-transition: color 0.1s 0 ease;
+	-moz-transition: color 0.1s 0 ease;
+	-o-transition: color 0.1s 0 ease;
+	transition: color 0.1s 0 ease;
+}
+
+html.no-touch.csstransitions nav.main li.play .title {
+	-webkit-transition: opacity 0 0;
+	-ms-transition: opacity 0 0;
+	-moz-transition: opacity 0 0;
+	-o-transition: opacity 0 0;
+	transition: opacity 0 0;
+}
+
+html.no-touch.csstransitions nav.main li.play:after {
+	-webkit-transition: background-color 0 0.1s;
+	-ms-transition: background-color 0 0.1s;
+	-moz-transition: background-color 0 0.1s;
+	-o-transition: background-color 0 0.1s;
+	transition: background-color 0 0.1s;
+}
+
+html.no-touch.csstransitions nav.main li.play:hover .title {
+	-webkit-transition: opacity 0.2s 0.1s ease;
+	-ms-transition: opacity 0.2s 0.1s ease;
+	-moz-transition: opacity 0.2s 0.1s ease;
+	-o-transition: opacity 0.2s 0.1s ease;
+	transition: opacity 0.2s 0.1s ease;
+}
+
+html.no-touch.csstransitions nav.main li.play:hover:after {
+	-webkit-transition: background-color 0 0;
+	-ms-transition: background-color 0 0;
+	-moz-transition: background-color 0 0;
+	-o-transition: background-color 0 0;
+	transition: background-color 0 0;
+}
+
+html.no-touch.csstransitions nav.main li.trade .fill {
+	-webkit-transition: height 0.2s 0 ease;
+	-ms-transition: height 0.2s 0 ease;
+	-moz-transition: height 0.2s 0 ease;
+	-o-transition: height 0.2s 0 ease;
+	transition: height 0.2s 0 ease;
+}
+
+html.no-touch.csstransitions nav.main li.trade .icon, html.no-touch.csstransitions nav.main li.trade .button:after, html.no-touch.csstransitions nav.main li.trade .arrow-left.button:before, html.no-touch.csstransitions nav.main li.trade html.touch .styled-select i, html.touch .styled-select html.no-touch.csstransitions nav.main li.trade i, html.no-touch.csstransitions nav.main li.trade .custom-select-wrapper .custom-select-menu label:before, .custom-select-wrapper .custom-select-menu html.no-touch.csstransitions nav.main li.trade label:before, html.no-touch.csstransitions nav.main li.trade .custom-select-wrapper .custom-select-menu label:after, .custom-select-wrapper .custom-select-menu html.no-touch.csstransitions nav.main li.trade label:after, html.no-touch.csstransitions nav.main li.trade #back-to-top:before, html.no-touch.csstransitions nav.main li.trade .aside-leaderboard-table table tfoot a:after, .aside-leaderboard-table table tfoot html.no-touch.csstransitions nav.main li.trade a:after {
+	-webkit-transition: color 0.1s 0 ease;
+	-ms-transition: color 0.1s 0 ease;
+	-moz-transition: color 0.1s 0 ease;
+	-o-transition: color 0.1s 0 ease;
+	transition: color 0.1s 0 ease;
+}
+
+html.no-touch.csstransitions nav.main li.trade .title {
+	-webkit-transition: opacity 0 0;
+	-ms-transition: opacity 0 0;
+	-moz-transition: opacity 0 0;
+	-o-transition: opacity 0 0;
+	transition: opacity 0 0;
+}
+
+html.no-touch.csstransitions nav.main li.trade:after {
+	-webkit-transition: background-color 0 0.1s;
+	-ms-transition: background-color 0 0.1s;
+	-moz-transition: background-color 0 0.1s;
+	-o-transition: background-color 0 0.1s;
+	transition: background-color 0 0.1s;
+}
+
+html.no-touch.csstransitions nav.main li.trade:hover .title {
+	-webkit-transition: opacity 0.2s 0.1s ease;
+	-ms-transition: opacity 0.2s 0.1s ease;
+	-moz-transition: opacity 0.2s 0.1s ease;
+	-o-transition: opacity 0.2s 0.1s ease;
+	transition: opacity 0.2s 0.1s ease;
+}
+
+html.no-touch.csstransitions nav.main li.trade:hover:after {
+	-webkit-transition: background-color 0 0;
+	-ms-transition: background-color 0 0;
+	-moz-transition: background-color 0 0;
+	-o-transition: background-color 0 0;
+	transition: background-color 0 0;
+}
+
+html.no-touch.csstransitions nav.main li.watch .fill {
+	-webkit-transition: height 0.2s 0 ease;
+	-ms-transition: height 0.2s 0 ease;
+	-moz-transition: height 0.2s 0 ease;
+	-o-transition: height 0.2s 0 ease;
+	transition: height 0.2s 0 ease;
+}
+
+html.no-touch.csstransitions nav.main li.watch .icon, html.no-touch.csstransitions nav.main li.watch .button:after, html.no-touch.csstransitions nav.main li.watch .arrow-left.button:before, html.no-touch.csstransitions nav.main li.watch html.touch .styled-select i, html.touch .styled-select html.no-touch.csstransitions nav.main li.watch i, html.no-touch.csstransitions nav.main li.watch .custom-select-wrapper .custom-select-menu label:before, .custom-select-wrapper .custom-select-menu html.no-touch.csstransitions nav.main li.watch label:before, html.no-touch.csstransitions nav.main li.watch .custom-select-wrapper .custom-select-menu label:after, .custom-select-wrapper .custom-select-menu html.no-touch.csstransitions nav.main li.watch label:after, html.no-touch.csstransitions nav.main li.watch #back-to-top:before, html.no-touch.csstransitions nav.main li.watch .aside-leaderboard-table table tfoot a:after, .aside-leaderboard-table table tfoot html.no-touch.csstransitions nav.main li.watch a:after {
+	-webkit-transition: color 0.1s 0 ease;
+	-ms-transition: color 0.1s 0 ease;
+	-moz-transition: color 0.1s 0 ease;
+	-o-transition: color 0.1s 0 ease;
+	transition: color 0.1s 0 ease;
+}
+
+html.no-touch.csstransitions nav.main li.watch .title {
+	-webkit-transition: opacity 0 0;
+	-ms-transition: opacity 0 0;
+	-moz-transition: opacity 0 0;
+	-o-transition: opacity 0 0;
+	transition: opacity 0 0;
+}
+
+html.no-touch.csstransitions nav.main li.watch:after {
+	-webkit-transition: background-color 0 0.1s;
+	-ms-transition: background-color 0 0.1s;
+	-moz-transition: background-color 0 0.1s;
+	-o-transition: background-color 0 0.1s;
+	transition: background-color 0 0.1s;
+}
+
+html.no-touch.csstransitions nav.main li.watch:hover .title {
+	-webkit-transition: opacity 0.2s 0.1s ease;
+	-ms-transition: opacity 0.2s 0.1s ease;
+	-moz-transition: opacity 0.2s 0.1s ease;
+	-o-transition: opacity 0.2s 0.1s ease;
+	transition: opacity 0.2s 0.1s ease;
+}
+
+html.no-touch.csstransitions nav.main li.watch:hover:after {
+	-webkit-transition: background-color 0 0;
+	-ms-transition: background-color 0 0;
+	-moz-transition: background-color 0 0;
+	-o-transition: background-color 0 0;
+	transition: background-color 0 0;
+}
+
+nav.main .content-wrapper > ul .search, nav.main .content-wrapper > ul ul .search { display: none; }
+
+nav.main .content-wrapper > ul li a, nav.main .content-wrapper > ul ul li a {
+	background: #313131;
+	float: left;
+	height: 87px;
+	width: 100%;
+}
+
+nav.main .content-wrapper > ul li a.subnav-toggle, nav.main .content-wrapper > ul ul li a.subnav-toggle { display: none; }
+
+
+nav.main .content-wrapper > ul li:after, nav.main .content-wrapper > ul ul li:after {
+	content: ' ';
+	height: 6px;
+	left: 0;
+	position: absolute;
+	bottom: -6px;
+	width: 100%;
+	z-index: 1;
+}
+
+nav.main .content-wrapper > ul li:before, nav.main .content-wrapper > ul ul li:before {
+	content: ' ';
+	border-right: 2px solid #222222;
+	height: 93px;
+	left: 0;
+	position: absolute;
+	top: 0;
+	z-index: 2;
+}
+
+nav.main .content-wrapper > ul li:first-child:before, nav.main .content-wrapper > ul ul li:first-child:before { border: none; }
+
+nav.main .content-wrapper > ul, nav.main .content-wrapper > ul ul { width: 100%; }
+
+nav.main .content-wrapper > ul.subnav, nav.main .content-wrapper > ul ul.subnav { display: none; }
+
+nav.main .dashboard-open.not-signed-in .visible-not-signed-in a { display: inline; }
+
+nav.main .dashboard-open.signed-in .visible-signed-in a { display: inline; }
+
+nav.main a.logo {
+	float: left;
+	margin-right: -100%;
+	width: 20.2%;
+}
+
+nav.main a.logo img {
+	display: block;
+	margin: 1em auto 0;
+	width: 150px;
+}
+
+nav.main a.nav-toggle, nav.main .dashboard-open a { display: none; }
+
+nav.main li.attend .icon, nav.main li.attend .button:after, nav.main li.attend .arrow-left.button:before, nav.main li.attend html.touch .styled-select i, html.touch .styled-select nav.main li.attend i, nav.main li.attend .custom-select-wrapper .custom-select-menu label:before, .custom-select-wrapper .custom-select-menu nav.main li.attend label:before, nav.main li.attend .custom-select-wrapper .custom-select-menu label:after, .custom-select-wrapper .custom-select-menu nav.main li.attend label:after, nav.main li.attend #back-to-top:before, nav.main li.attend .aside-leaderboard-table table tfoot a:after, .aside-leaderboard-table table tfoot nav.main li.attend a:after { color: #4dad5b; }
+
+nav.main li.attend .secondary li { border-bottom: 1px solid #2e6636; }
+
+nav.main li.attend .secondary li, nav.main li.attend .secondary li .icon, nav.main li.attend .secondary li .button:after, nav.main li.attend .secondary li .arrow-left.button:before, nav.main li.attend .secondary li html.touch .styled-select i, html.touch .styled-select nav.main li.attend .secondary li i, nav.main li.attend .secondary li .custom-select-wrapper .custom-select-menu label:before, .custom-select-wrapper .custom-select-menu nav.main li.attend .secondary li label:before, nav.main li.attend .secondary li .custom-select-wrapper .custom-select-menu label:after, .custom-select-wrapper .custom-select-menu nav.main li.attend .secondary li label:after, nav.main li.attend .secondary li #back-to-top:before, nav.main li.attend .secondary li .aside-leaderboard-table table tfoot a:after, .aside-leaderboard-table table tfoot nav.main li.attend .secondary li a:after, nav.main li.attend .fill { background-color: #4dad5b; }
+
+nav.main li.attend .tertiary li:first-child { border-top: 1px solid #2e6636; }
+
+nav.main li.attend a.hover .fill {
+	height: 87px;
+	opacity: 1;
+}
+
+nav.main li.attend a.hover .icon, nav.main li.attend a.hover .button:after, nav.main li.attend a.hover .arrow-left.button:before, nav.main li.attend a.hover html.touch .styled-select i, html.touch .styled-select nav.main li.attend a.hover i, nav.main li.attend a.hover .custom-select-wrapper .custom-select-menu label:before, .custom-select-wrapper .custom-select-menu nav.main li.attend a.hover label:before, nav.main li.attend a.hover .custom-select-wrapper .custom-select-menu label:after, .custom-select-wrapper .custom-select-menu nav.main li.attend a.hover label:after, nav.main li.attend a.hover #back-to-top:before, nav.main li.attend a.hover .aside-leaderboard-table table tfoot a:after, .aside-leaderboard-table table tfoot nav.main li.attend a.hover a:after { color: white; }
+
+nav.main li.attend a.hover { background-color: #4dad5b; }
+
+nav.main li.attend a.hover:after { background-color: #4dad5b; }
+
+nav.main li.attend:after {
+	background-color: #4dad5b;
+	transition: background-color 0.25s, height 0.25s;
+	border-radius: 0 0 8px 0;
+}
+/* home */
+nav.main li.home:before { border-right: 0; }
+nav.main li.home:after { background-color: #919191; transition: background-color 0.25s, height 0.25s; border-radius: 0 0 0 8px; }
+html.nintendo nav.main li.home:after { border-radius: 0; }
+nav.main li.home .secondary li, nav.main li.home .secondary li .icon, nav.main li.home .secondary li .arrow-right.button:after, nav.main li.home .secondary li body.custom-form-elements label.radio-as-toggle-button input + span.arrow-right:after, body.custom-form-elements label.radio-as-toggle-button nav.main li.home .secondary li input + span.arrow-right:after, nav.main li.home .secondary li .arrow-left.button:before, nav.main li.home .secondary li body.custom-form-elements label.radio-as-toggle-button input + span.arrow-left:before, body.custom-form-elements label.radio-as-toggle-button nav.main li.home .secondary li input + span.arrow-left:before, nav.main li.home .secondary li body.custom-form-elements select + i, body.custom-form-elements nav.main li.home .secondary li select + i, nav.main li.home .secondary li .custom-select-wrapper .custom-select-menu label:before, .custom-select-wrapper .custom-select-menu nav.main li.home .secondary li label:before, nav.main li.home .secondary li .custom-select-wrapper .custom-select-menu label:after, .custom-select-wrapper .custom-select-menu nav.main li.home .secondary li label:after, nav.main li.home .secondary li #back-to-top:before, nav.main li.home .secondary li .trainer-card-stamps-all a.arrow-right:after, .trainer-card-stamps-all nav.main li.home .secondary li a.arrow-right:after, nav.main li.home .secondary li .aside-leaderboard-table .footer_link a:after, .aside-leaderboard-table .footer_link nav.main li.home .secondary li a:after, nav.main li.home .fill { background-color: #919191; }
+nav.main li.home .secondary li { border-bottom: 1px solid #5e5e5e; }
+nav.main li.home .tertiary li:first-child { border-top: 1px solid #5e5e5e; }
+nav.main li.home .icon, nav.main li.home .arrow-right.button:after, nav.main li.home body.custom-form-elements label.radio-as-toggle-button input + span.arrow-right:after, body.custom-form-elements label.radio-as-toggle-button nav.main li.home input + span.arrow-right:after, nav.main li.home .arrow-left.button:before, nav.main li.home body.custom-form-elements label.radio-as-toggle-button input + span.arrow-left:before, body.custom-form-elements label.radio-as-toggle-button nav.main li.home input + span.arrow-left:before, nav.main li.home body.custom-form-elements select + i, body.custom-form-elements nav.main li.home select + i, nav.main li.home .custom-select-wrapper .custom-select-menu label:before, .custom-select-wrapper .custom-select-menu nav.main li.home label:before, nav.main li.home .custom-select-wrapper .custom-select-menu label:after, .custom-select-wrapper .custom-select-menu nav.main li.home label:after, nav.main li.home #back-to-top:before, nav.main li.home .trainer-card-stamps-all a.arrow-right:after, .trainer-card-stamps-all nav.main li.home a.arrow-right:after, nav.main li.home .aside-leaderboard-table .footer_link a:after, .aside-leaderboard-table .footer_link nav.main li.home a:after { color: #919191; }
+html.no-touch nav.main li.home:hover { background-color: #919191; }
+html.no-touch nav.main li.home:hover .fill { height: 87px; opacity: 1; }
+html.no-touch nav.main li.home:hover .icon, html.no-touch nav.main li.home:hover .arrow-right.button:after, html.no-touch nav.main li.home:hover body.custom-form-elements label.radio-as-toggle-button input + span.arrow-right:after, body.custom-form-elements label.radio-as-toggle-button html.no-touch nav.main li.home:hover input + span.arrow-right:after, html.no-touch nav.main li.home:hover .arrow-left.button:before, html.no-touch nav.main li.home:hover body.custom-form-elements label.radio-as-toggle-button input + span.arrow-left:before, body.custom-form-elements label.radio-as-toggle-button html.no-touch nav.main li.home:hover input + span.arrow-left:before, html.no-touch nav.main li.home:hover body.custom-form-elements select + i, body.custom-form-elements html.no-touch nav.main li.home:hover select + i, html.no-touch nav.main li.home:hover .custom-select-wrapper .custom-select-menu label:before, .custom-select-wrapper .custom-select-menu html.no-touch nav.main li.home:hover label:before, html.no-touch nav.main li.home:hover .custom-select-wrapper .custom-select-menu label:after, .custom-select-wrapper .custom-select-menu html.no-touch nav.main li.home:hover label:after, html.no-touch nav.main li.home:hover #back-to-top:before, html.no-touch nav.main li.home:hover .trainer-card-stamps-all a.arrow-right:after, .trainer-card-stamps-all html.no-touch nav.main li.home:hover a.arrow-right:after, html.no-touch nav.main li.home:hover .aside-leaderboard-table .footer_link a:after, .aside-leaderboard-table .footer_link html.no-touch nav.main li.home:hover a:after { color: #FFFFFF; }
+html.no-touch nav.main li.home:hover:after { background-color: #919191; }
+nav.main li.home a.hover, nav.main li.home a.active { background-color: #919191; }
+nav.main li.home a.hover:after, nav.main li.home a.active:after { background-color: #919191; }
+nav.main li.home a.hover .fill, nav.main li.home a.active .fill { height: 87px; opacity: 1; }
+nav.main li.home a.hover .icon, nav.main li.home a.hover .arrow-right.button:after, nav.main li.home a.hover body.custom-form-elements label.radio-as-toggle-button input + span.arrow-right:after, body.custom-form-elements label.radio-as-toggle-button nav.main li.home a.hover input + span.arrow-right:after, nav.main li.home a.hover .arrow-left.button:before, nav.main li.home a.hover body.custom-form-elements label.radio-as-toggle-button input + span.arrow-left:before, body.custom-form-elements label.radio-as-toggle-button nav.main li.home a.hover input + span.arrow-left:before, nav.main li.home a.hover body.custom-form-elements select + i, body.custom-form-elements nav.main li.home a.hover select + i, nav.main li.home a.hover .custom-select-wrapper .custom-select-menu label:before, .custom-select-wrapper .custom-select-menu nav.main li.home a.hover label:before, nav.main li.home a.hover .custom-select-wrapper .custom-select-menu label:after, .custom-select-wrapper .custom-select-menu nav.main li.home a.hover label:after, nav.main li.home a.hover #back-to-top:before, nav.main li.home a.hover .trainer-card-stamps-all a.arrow-right:after, .trainer-card-stamps-all nav.main li.home a.hover a.arrow-right:after, nav.main li.home a.hover .aside-leaderboard-table .footer_link a:after, .aside-leaderboard-table .footer_link nav.main li.home a.hover a:after, nav.main li.home a.active .icon, nav.main li.home a.active .arrow-right.button:after, nav.main li.home a.active body.custom-form-elements label.radio-as-toggle-button input + span.arrow-right:after, body.custom-form-elements label.radio-as-toggle-button nav.main li.home a.active input + span.arrow-right:after, nav.main li.home a.active .arrow-left.button:before, nav.main li.home a.active body.custom-form-elements label.radio-as-toggle-button input + span.arrow-left:before, body.custom-form-elements label.radio-as-toggle-button nav.main li.home a.active input + span.arrow-left:before, nav.main li.home a.active body.custom-form-elements select + i, body.custom-form-elements nav.main li.home a.active select + i, nav.main li.home a.active .custom-select-wrapper .custom-select-menu label:before, .custom-select-wrapper .custom-select-menu nav.main li.home a.active label:before, nav.main li.home a.active .custom-select-wrapper .custom-select-menu label:after, .custom-select-wrapper .custom-select-menu nav.main li.home a.active label:after, nav.main li.home a.active #back-to-top:before, nav.main li.home a.active .trainer-card-stamps-all a.arrow-right:after, .trainer-card-stamps-all nav.main li.home a.active a.arrow-right:after, nav.main li.home a.active .aside-leaderboard-table .footer_link a:after, .aside-leaderboard-table .footer_link nav.main li.home a.active a:after { color: #FFFFFF; }
+html.no-touch.csstransitions nav.main li.home .fill { -webkit-transition: height 0.2s 0 ease; -ms-transition: height 0.2s 0 ease; -moz-transition: height 0.2s 0 ease; -o-transition: height 0.2s 0 ease; transition: height 0.2s 0 ease; }
+html.no-touch.csstransitions nav.main li.home .icon, html.no-touch.csstransitions nav.main li.home .arrow-right.button:after, html.no-touch.csstransitions nav.main li.home body.custom-form-elements label.radio-as-toggle-button input + span.arrow-right:after, body.custom-form-elements label.radio-as-toggle-button html.no-touch.csstransitions nav.main li.home input + span.arrow-right:after, html.no-touch.csstransitions nav.main li.home .arrow-left.button:before, html.no-touch.csstransitions nav.main li.home body.custom-form-elements label.radio-as-toggle-button input + span.arrow-left:before, body.custom-form-elements label.radio-as-toggle-button html.no-touch.csstransitions nav.main li.home input + span.arrow-left:before, html.no-touch.csstransitions nav.main li.home body.custom-form-elements select + i, body.custom-form-elements html.no-touch.csstransitions nav.main li.home select + i, html.no-touch.csstransitions nav.main li.home .custom-select-wrapper .custom-select-menu label:before, .custom-select-wrapper .custom-select-menu html.no-touch.csstransitions nav.main li.home label:before, html.no-touch.csstransitions nav.main li.home .custom-select-wrapper .custom-select-menu label:after, .custom-select-wrapper .custom-select-menu html.no-touch.csstransitions nav.main li.home label:after, html.no-touch.csstransitions nav.main li.home #back-to-top:before, html.no-touch.csstransitions nav.main li.home .trainer-card-stamps-all a.arrow-right:after, .trainer-card-stamps-all html.no-touch.csstransitions nav.main li.home a.arrow-right:after, html.no-touch.csstransitions nav.main li.home .aside-leaderboard-table .footer_link a:after, .aside-leaderboard-table .footer_link html.no-touch.csstransitions nav.main li.home a:after { -webkit-transition: color 0.1s 0 ease; -ms-transition: color 0.1s 0 ease; -moz-transition: color 0.1s 0 ease; -o-transition: color 0.1s 0 ease; transition: color 0.1s 0 ease; }
+html.no-touch.csstransitions nav.main li.home .title { -webkit-transition: opacity 0 0; -ms-transition: opacity 0 0; -moz-transition: opacity 0 0; -o-transition: opacity 0 0; transition: opacity 0 0; }
+html.no-touch.csstransitions nav.main li.home:after { -webkit-transition: background-color 0 0.1s; -ms-transition: background-color 0 0.1s; -moz-transition: background-color 0 0.1s; -o-transition: background-color 0 0.1s; transition: background-color 0 0.1s; }
+html.no-touch.csstransitions nav.main li.home:hover:after { -webkit-transition: background-color 0 0; -ms-transition: background-color 0 0; -moz-transition: background-color 0 0; -o-transition: background-color 0 0; transition: background-color 0 0; }
+html.no-touch.csstransitions nav.main li.home:hover .title { -webkit-transition: opacity 0.2s 0.1s ease; -ms-transition: opacity 0.2s 0.1s ease; -moz-transition: opacity 0.2s 0.1s ease; -o-transition: opacity 0.2s 0.1s ease; transition: opacity 0.2s 0.1s ease; }
+
+nav.main li.explore .icon, nav.main li.explore .button:after, nav.main li.explore .arrow-left.button:before, nav.main li.explore html.touch .styled-select i, html.touch .styled-select nav.main li.explore i, nav.main li.explore .custom-select-wrapper .custom-select-menu label:before, .custom-select-wrapper .custom-select-menu nav.main li.explore label:before, nav.main li.explore .custom-select-wrapper .custom-select-menu label:after, .custom-select-wrapper .custom-select-menu nav.main li.explore label:after, nav.main li.explore #back-to-top:before, nav.main li.explore .aside-leaderboard-table table tfoot a:after, .aside-leaderboard-table table tfoot nav.main li.explore a:after { color: #e3350d; }
+
+nav.main li.explore .secondary li { border-bottom: 1px solid #831e07; }
+
+nav.main li.explore .secondary li, nav.main li.explore .secondary li .icon, nav.main li.explore .secondary li .button:after, nav.main li.explore .secondary li .arrow-left.button:before, nav.main li.explore .secondary li html.touch .styled-select i, html.touch .styled-select nav.main li.explore .secondary li i, nav.main li.explore .secondary li .custom-select-wrapper .custom-select-menu label:before, .custom-select-wrapper .custom-select-menu nav.main li.explore .secondary li label:before, nav.main li.explore .secondary li .custom-select-wrapper .custom-select-menu label:after, .custom-select-wrapper .custom-select-menu nav.main li.explore .secondary li label:after, nav.main li.explore .secondary li #back-to-top:before, nav.main li.explore .secondary li .aside-leaderboard-table table tfoot a:after, .aside-leaderboard-table table tfoot nav.main li.explore .secondary li a:after, nav.main li.explore .fill { background-color: #e3350d; }
+
+nav.main li.explore .tertiary li:first-child { border-top: 1px solid #831e07; }
+
+nav.main li.explore a.hover .fill {
+	height: 87px;
+	opacity: 1;
+}
+
+nav.main li.explore a.hover .icon, nav.main li.explore a.hover .button:after, nav.main li.explore a.hover .arrow-left.button:before, nav.main li.explore a.hover html.touch .styled-select i, html.touch .styled-select nav.main li.explore a.hover i, nav.main li.explore a.hover .custom-select-wrapper .custom-select-menu label:before, .custom-select-wrapper .custom-select-menu nav.main li.explore a.hover label:before, nav.main li.explore a.hover .custom-select-wrapper .custom-select-menu label:after, .custom-select-wrapper .custom-select-menu nav.main li.explore a.hover label:after, nav.main li.explore a.hover #back-to-top:before, nav.main li.explore a.hover .aside-leaderboard-table table tfoot a:after, .aside-leaderboard-table table tfoot nav.main li.explore a.hover a:after { color: white; }
+
+nav.main li.explore a.hover { background-color: #e3350d; }
+
+nav.main li.explore a.hover:after { background-color: #e3350d; }
+
+nav.main li.explore:after {
+	background-color: #e3350d;
+	transition: background-color 0.25s, height 0.25s;
+	border-radius: 0 0 0 8px;
+}
+
+nav.main li.explore:before { border-right: 0; }
+
+nav.main li.game .icon, nav.main li.game .button:after, nav.main li.game .arrow-left.button:before, nav.main li.game html.touch .styled-select i, html.touch .styled-select nav.main li.game i, nav.main li.game .custom-select-wrapper .custom-select-menu label:before, .custom-select-wrapper .custom-select-menu nav.main li.game label:before, nav.main li.game .custom-select-wrapper .custom-select-menu label:after, .custom-select-wrapper .custom-select-menu nav.main li.game label:after, nav.main li.game #back-to-top:before, nav.main li.game .aside-leaderboard-table table tfoot a:after, .aside-leaderboard-table table tfoot nav.main li.game a:after { color: #1b53ba; }
+
+nav.main li.game .secondary li { border-bottom: 1px solid #0e2b61; }
+
+nav.main li.game .secondary li, nav.main li.game .secondary li .icon, nav.main li.game .secondary li .button:after, nav.main li.game .secondary li .arrow-left.button:before, nav.main li.game .secondary li html.touch .styled-select i, html.touch .styled-select nav.main li.game .secondary li i, nav.main li.game .secondary li .custom-select-wrapper .custom-select-menu label:before, .custom-select-wrapper .custom-select-menu nav.main li.game .secondary li label:before, nav.main li.game .secondary li .custom-select-wrapper .custom-select-menu label:after, .custom-select-wrapper .custom-select-menu nav.main li.game .secondary li label:after, nav.main li.game .secondary li #back-to-top:before, nav.main li.game .secondary li .aside-leaderboard-table table tfoot a:after, .aside-leaderboard-table table tfoot nav.main li.game .secondary li a:after, nav.main li.game .fill { background-color: #1b53ba; }
+
+nav.main li.game .tertiary li:first-child { border-top: 1px solid #0e2b61; }
+
+nav.main li.game a.hover .fill {
+	height: 87px;
+	opacity: 1;
+}
+
+nav.main li.game a.hover .icon, nav.main li.game a.hover .button:after, nav.main li.game a.hover .arrow-left.button:before, nav.main li.game a.hover html.touch .styled-select i, html.touch .styled-select nav.main li.game a.hover i, nav.main li.game a.hover .custom-select-wrapper .custom-select-menu label:before, .custom-select-wrapper .custom-select-menu nav.main li.game a.hover label:before, nav.main li.game a.hover .custom-select-wrapper .custom-select-menu label:after, .custom-select-wrapper .custom-select-menu nav.main li.game a.hover label:after, nav.main li.game a.hover #back-to-top:before, nav.main li.game a.hover .aside-leaderboard-table table tfoot a:after, .aside-leaderboard-table table tfoot nav.main li.game a.hover a:after { color: white; }
+
+nav.main li.game a.hover { background-color: #1b53ba; }
+
+nav.main li.game a.hover:after { background-color: #1b53ba; }
+
+nav.main li.game:after {
+	background-color: #1b53ba;
+	transition: background-color 0.25s, height 0.25s;
+}
+
+nav.main li.play .icon, nav.main li.play .button:after, nav.main li.play .arrow-left.button:before, nav.main li.play html.touch .styled-select i, html.touch .styled-select nav.main li.play i, nav.main li.play .custom-select-wrapper .custom-select-menu label:before, .custom-select-wrapper .custom-select-menu nav.main li.play label:before, nav.main li.play .custom-select-wrapper .custom-select-menu label:after, .custom-select-wrapper .custom-select-menu nav.main li.play label:after, nav.main li.play #back-to-top:before, nav.main li.play .aside-leaderboard-table table tfoot a:after, .aside-leaderboard-table table tfoot nav.main li.play a:after { color: #e6bc2f; }
+
+nav.main li.play .secondary li { border-bottom: 1px solid #9c7d13; }
+
+nav.main li.play .secondary li, nav.main li.play .secondary li .icon, nav.main li.play .secondary li .button:after, nav.main li.play .secondary li .arrow-left.button:before, nav.main li.play .secondary li html.touch .styled-select i, html.touch .styled-select nav.main li.play .secondary li i, nav.main li.play .secondary li .custom-select-wrapper .custom-select-menu label:before, .custom-select-wrapper .custom-select-menu nav.main li.play .secondary li label:before, nav.main li.play .secondary li .custom-select-wrapper .custom-select-menu label:after, .custom-select-wrapper .custom-select-menu nav.main li.play .secondary li label:after, nav.main li.play .secondary li #back-to-top:before, nav.main li.play .secondary li .aside-leaderboard-table table tfoot a:after, .aside-leaderboard-table table tfoot nav.main li.play .secondary li a:after, nav.main li.play .fill { background-color: #e6bc2f; }
+
+nav.main li.play .tertiary li:first-child { border-top: 1px solid #9c7d13; }
+
+nav.main li.play a.hover .fill {
+	height: 87px;
+	opacity: 1;
+}
+
+nav.main li.play a.hover .icon, nav.main li.play a.hover .button:after, nav.main li.play a.hover .arrow-left.button:before, nav.main li.play a.hover html.touch .styled-select i, html.touch .styled-select nav.main li.play a.hover i, nav.main li.play a.hover .custom-select-wrapper .custom-select-menu label:before, .custom-select-wrapper .custom-select-menu nav.main li.play a.hover label:before, nav.main li.play a.hover .custom-select-wrapper .custom-select-menu label:after, .custom-select-wrapper .custom-select-menu nav.main li.play a.hover label:after, nav.main li.play a.hover #back-to-top:before, nav.main li.play a.hover .aside-leaderboard-table table tfoot a:after, .aside-leaderboard-table table tfoot nav.main li.play a.hover a:after { color: white; }
+
+nav.main li.play a.hover { background-color: #e6bc2f; }
+
+nav.main li.play a.hover:after { background-color: #e6bc2f; }
+
+nav.main li.play:after {
+	background-color: #e6bc2f;
+	transition: background-color 0.25s, height 0.25s;
+}
+
+nav.main li.trade .icon, nav.main li.trade .button:after, nav.main li.trade .arrow-left.button:before, nav.main li.trade html.touch .styled-select i, html.touch .styled-select nav.main li.trade i, nav.main li.trade .custom-select-wrapper .custom-select-menu label:before, .custom-select-wrapper .custom-select-menu nav.main li.trade label:before, nav.main li.trade .custom-select-wrapper .custom-select-menu label:after, .custom-select-wrapper .custom-select-menu nav.main li.trade label:after, nav.main li.trade #back-to-top:before, nav.main li.trade .aside-leaderboard-table table tfoot a:after, .aside-leaderboard-table table tfoot nav.main li.trade a:after { color: #30a7d7; }
+
+nav.main li.trade .secondary li { border-bottom: 1px solid #1a6887; }
+
+nav.main li.trade .secondary li, nav.main li.trade .secondary li .icon, nav.main li.trade .secondary li .button:after, nav.main li.trade .secondary li .arrow-left.button:before, nav.main li.trade .secondary li html.touch .styled-select i, html.touch .styled-select nav.main li.trade .secondary li i, nav.main li.trade .secondary li .custom-select-wrapper .custom-select-menu label:before, .custom-select-wrapper .custom-select-menu nav.main li.trade .secondary li label:before, nav.main li.trade .secondary li .custom-select-wrapper .custom-select-menu label:after, .custom-select-wrapper .custom-select-menu nav.main li.trade .secondary li label:after, nav.main li.trade .secondary li #back-to-top:before, nav.main li.trade .secondary li .aside-leaderboard-table table tfoot a:after, .aside-leaderboard-table table tfoot nav.main li.trade .secondary li a:after, nav.main li.trade .fill { background-color: #30a7d7; }
+
+nav.main li.trade .tertiary li:first-child { border-top: 1px solid #1a6887; }
+
+nav.main li.trade a.hover .fill {
+	height: 87px;
+	opacity: 1;
+}
+
+nav.main li.trade a.hover .icon, nav.main li.trade a.hover .button:after, nav.main li.trade a.hover .arrow-left.button:before, nav.main li.trade a.hover html.touch .styled-select i, html.touch .styled-select nav.main li.trade a.hover i, nav.main li.trade a.hover .custom-select-wrapper .custom-select-menu label:before, .custom-select-wrapper .custom-select-menu nav.main li.trade a.hover label:before, nav.main li.trade a.hover .custom-select-wrapper .custom-select-menu label:after, .custom-select-wrapper .custom-select-menu nav.main li.trade a.hover label:after, nav.main li.trade a.hover #back-to-top:before, nav.main li.trade a.hover .aside-leaderboard-table table tfoot a:after, .aside-leaderboard-table table tfoot nav.main li.trade a.hover a:after { color: white; }
+
+nav.main li.trade a.hover { background-color: #30a7d7; }
+
+nav.main li.trade a.hover:after { background-color: #30a7d7; }
+
+nav.main li.trade:after {
+	background-color: #30a7d7;
+	transition: background-color 0.25s, height 0.25s;
+}
+
+nav.main li.watch .icon, nav.main li.watch .button:after, nav.main li.watch .arrow-left.button:before, nav.main li.watch html.touch .styled-select i, html.touch .styled-select nav.main li.watch i, nav.main li.watch .custom-select-wrapper .custom-select-menu label:before, .custom-select-wrapper .custom-select-menu nav.main li.watch label:before, nav.main li.watch .custom-select-wrapper .custom-select-menu label:after, .custom-select-wrapper .custom-select-menu nav.main li.watch label:after, nav.main li.watch #back-to-top:before, nav.main li.watch .aside-leaderboard-table table tfoot a:after, .aside-leaderboard-table table tfoot nav.main li.watch a:after { color: #ee6b2f; }
+
+nav.main li.watch .secondary li { border-bottom: 1px solid #a93f0e; }
+
+nav.main li.watch .secondary li, nav.main li.watch .secondary li .icon, nav.main li.watch .secondary li .button:after, nav.main li.watch .secondary li .arrow-left.button:before, nav.main li.watch .secondary li html.touch .styled-select i, html.touch .styled-select nav.main li.watch .secondary li i, nav.main li.watch .secondary li .custom-select-wrapper .custom-select-menu label:before, .custom-select-wrapper .custom-select-menu nav.main li.watch .secondary li label:before, nav.main li.watch .secondary li .custom-select-wrapper .custom-select-menu label:after, .custom-select-wrapper .custom-select-menu nav.main li.watch .secondary li label:after, nav.main li.watch .secondary li #back-to-top:before, nav.main li.watch .secondary li .aside-leaderboard-table table tfoot a:after, .aside-leaderboard-table table tfoot nav.main li.watch .secondary li a:after, nav.main li.watch .fill { background-color: #ee6b2f; }
+
+nav.main li.watch .tertiary li:first-child { border-top: 1px solid #a93f0e; }
+
+nav.main li.watch a.hover .fill {
+	height: 87px;
+	opacity: 1;
+}
+
+nav.main li.watch a.hover .icon, nav.main li.watch a.hover .button:after, nav.main li.watch a.hover .arrow-left.button:before, nav.main li.watch a.hover html.touch .styled-select i, html.touch .styled-select nav.main li.watch a.hover i, nav.main li.watch a.hover .custom-select-wrapper .custom-select-menu label:before, .custom-select-wrapper .custom-select-menu nav.main li.watch a.hover label:before, nav.main li.watch a.hover .custom-select-wrapper .custom-select-menu label:after, .custom-select-wrapper .custom-select-menu nav.main li.watch a.hover label:after, nav.main li.watch a.hover #back-to-top:before, nav.main li.watch a.hover .aside-leaderboard-table table tfoot a:after, .aside-leaderboard-table table tfoot nav.main li.watch a.hover a:after { color: white; }
+
+nav.main li.watch a.hover { background-color: #ee6b2f; }
+
+nav.main li.watch a.hover:after { background-color: #ee6b2f; }
+
+nav.main li.watch:after {
+	background-color: #ee6b2f;
+	transition: background-color 0.25s, height 0.25s;
+}
+
+nav.main span.fill {
+	bottom: 0;
+	display: block;
+	height: 0px;
+	left: 0;
+	position: absolute;
+	width: 100%;
+}
+
+nav.main span.icon, nav.main span.button:after, nav.main span.arrow-left.button:before, nav.main span#back-to-top:before {
+	display: block;
+	font-size: 175%;
+	line-height: 100%;
+	margin: 15px 0 8px;
+	padding: 0;
+	position: relative;
+	text-align: center;
+}
+
+nav.main span.icon_pgl, nav.main span.icon_tcgo { margin: -5px 10px; width: 80%; }
+nav.main span.icon_pgl img, nav.main span.icon_tcgo img { width: 100%; }
+nav.main span.title_tcgo, nav.main span.title_pgl { display: none; }
+
+/*Nav tweak for OP*/
+nav.main span.title {
+	text-transform: none;
+	}
+
+
+/*Footer divider*/
+
+body.oneColumn div#superFooter {
+	clear: both;
+	display: block;
+	height: 36px;
+	margin: 0 auto;
+	max-width: 1024px;
+	width: 100%;
+}
+
+body.oneColumn div#superFooter>div {
+	float: left;
+	margin-right: -100%;
+	width: 85.49%;
+	margin-left: 7.2525%;
+	background-color: #fff;
+	height: 6px;
+	position: relative;
+}
+
+body.oneColumn div#superFooter>div:before, #superFooter>div:after {
+	content: '';
+	height: 6px;
+	position: absolute;
+	bottom: 0;
+	width: 12px;
+	-webkit-transform: scaleY(-1);
+	-ms-transform: scaleY(-1);
+	-moz-transform: scaleY(-1);
+	-o-transform: scaleY(-1);
+	transform: scaleY(-1);
+	filter: FlipV;
+	-ms-filter: "FlipV";
+}
+
+body.oneColumn div#superFooter>div:before {
+	background: transparent url("/web/20170607141948im_/https://assets.pokemon.com/static2/_ui/img/chrome/notches/left-notch-bottom-right.png") no-repeat;
+	left: -11px;
+}
+
+body.oneColumn div#superFooter>div:after {
+	background: transparent url("/web/20170607141948im_/https://assets.pokemon.com/static2/_ui/img/chrome/notches/right-notch-bottom-right.png") no-repeat;
+	right: -11px;
+}
+
+
+
+/*Buttons (changed .button to .btn*/
+
+
+.btn {
+	background-color: #1b53ba;
+	border-radius: 5px;
+	border: none;
+	color: #fff;
+	cursor: pointer;
+	font-size: 14px;
+	line-height: 26px;
+	float: left;
+	margin: 0px 15px;
+	padding: 2px 12px;
+	vertical-align: middle;
+	text-align: center;
+	font-family: "Roboto", arial, sans-serif;
+	font-weight: normal;
+}
+
+.btn i, .btn:after, .btn:before {
+	line-height: 100%;
+	position: relative;
+	top: 8px;
+}
+
+.btn-short.btn { padding: 0.5em 0.75em; }
+
+.btn:after {
+	font-size: 60%;
+	font-weight: bold;
+	line-height: 100%;
+	margin-left: 1em;
+	vertical-align: middle;
+}
+
+.btn:hover {
+	background-color: #1847d7;
+	color: #fff;
+	-webkit-transition: background-color 0.2s;
+	-ms-transition: background-color 0.2s;
+	-moz-transition: background-color 0.2s;
+	-o-transition: background-color 0.2s;
+	transition: background-color 0.2s;
+	text-decoration: none;
+}
+
+.right.btn { margin-right: 0; }
+
+.no-margin.btn { margin: 0; }
+
+.no-arrow.btn:after { content: none; }
+
+.arrow-left.btn:before {
+	font-size: 60%;
+	line-height: 100%;
+	margin-right: 1em;
+	vertical-align: middle;
+}
+
+.arrow-left.btn:after { content: none; }
+
+.btn .title { font-size: 125%; }
+
+.btn .uppercase {
+	clear: both;
+	display: block;
+	float: left;
+	font-size: 75%;
+	line-height: 100%;
+	text-transform: uppercase;
+	width: 100%;
+}
+
+.disabled.btn {
+	background-color: #616161;
+	opacity: 0.2;
+	cursor: default;
+}
+
+.disabled.btn:hover {
+	background-color: #616161;
+	opacity: 0.2;
+	cursor: default;
+}
+
+.btn.right { float: right; }
+
+
+/*TCGO button overrides*/
+
+form fieldset div.bot .button_radio label
+{	background: #1c57bd none!important;
+	border-radius: 5px;
+	border: none;
+	color: #fff;
+	cursor: pointer;
+	font-size: 100%;
+	float: left;
+	margin: 0px 15px;
+	padding: 10px 20px;
+	vertical-align: middle;
+	text-align: center;
+	text-transform: none;
+	font-family: "Roboto", arial, sans-serif;
+	font-weight: normal;
+	line-height: 19px;
+	height: 19px;
+	}
+
+form fieldset div.bot .button_radio label:hover,
+form fieldset div.bot .button_radio label.on
+{
+	background: #ee6b2f none!important;
+	color: #fff;
+	-webkit-transition: background-color 0.2s;
+	-ms-transition: background-color 0.2s;
+	-moz-transition: background-color 0.2s;
+	-o-transition: background-color 0.2s;
+	transition: background-color 0.2s;
+	text-decoration: none;
+}
+
+form fieldset div.bot .button_radio label.disabled,
+form fieldset div.bot .button_radio label.disabled:hover {
+	background: #212121 none!important;
+	color: #666;
+	cursor:default;
+	}
+
+/*PGL button overrides*/
+
+form fieldset div.bot .pgl_radio ul > li > label {
+	height: inherit;
+	background:#1c57bd none;
+	border-radius: 5px;
+	padding: 7px 0;
+	font-size: 14px;
+}
+
+
+form fieldset div.bot .pgl_radio ul > li > label.on,
+form fieldset div.bot .pgl_radio:not(.readonly) ul > li > label:hover {
+	background: #ee6b2f none!important;
+	-webkit-transition: background-color 0.2s;
+	-ms-transition: background-color 0.2s;
+	-moz-transition: background-color 0.2s;
+	-o-transition: background-color 0.2s;
+	transition: background-color 0.2s;
+	text-decoration: none;
+}
+
+form fieldset div.bot .pgl_radio ul > li > label.disabled,
+form fieldset div.bot .pgl_radio ul > li > label.disabled:hover {
+	background: #212121 none!important;
+	color:#666;
+    cursor:default;
+}
+
+
+
+/*User Profile Navigation*/
+
+
+.user-profile-navigation {
+	display: block;
+	float: left;
+	width: 100%;
+}
+
+.user-profile-navigation > li {
+	clear: both;
+	display: block;
+	float: left;
+	margin-bottom: 0.5em;
+	position: relative;
+	width: 100%;
+}
+
+.user-profile-navigation > li > a {
+	font-family: "Roboto", arial, sans-serif;
+	font-weight: 400;
+	background-color: #f2f2f2;
+	border-radius: 10px;
+	color: #616161;
+	float: left;
+	width: 100%;
+}
+
+body.ru .user-profile-navigation > li > a {
+	font-family: "Roboto", arial, sans-serif;
+	font-weight: bold;
+}
+
+.user-profile-navigation > li .avatar {
+	float: left;
+	margin-right: -100%;
+	width: 20.2%;
+	margin-left: 7.2525%;
+}
+
+.user-profile-navigation > li .avatar img {
+	float: none;
+	display: block;
+	margin: 0.25em auto;
+	max-width: 32px;
+	width: 100%;
+}
+
+.user-profile-navigation > li .avatar .icon, .user-profile-navigation > li .avatar .button:after, .user-profile-navigation > li .avatar .arrow-left.button:before, .user-profile-navigation > li .avatar html.touch .styled-select i, html.touch .styled-select .user-profile-navigation > li .avatar i, .user-profile-navigation > li .avatar .custom-select-wrapper .custom-select-menu label:before, .custom-select-wrapper .custom-select-menu .user-profile-navigation > li .avatar label:before, .user-profile-navigation > li .avatar .custom-select-wrapper .custom-select-menu label:after, .custom-select-wrapper .custom-select-menu .user-profile-navigation > li .avatar label:after {
+	font-family: "Roboto", arial, sans-serif;
+	font-weight: 700;
+	background-color: #212121;
+	border-radius: 50%;
+	color: white;
+	float: none;
+	display: block;
+	margin: 0.75em auto;
+	font-size: 75%;
+	line-height: 24px;
+	text-align: center;
+	width: 24px;
+}
+
+body.ru .user-profile-navigation > li .avatar .icon, body.ru .user-profile-navigation > li .avatar .button:after, body.ru .user-profile-navigation > li .avatar .arrow-left.button:before, body.ru .user-profile-navigation > li .avatar html.touch .styled-select i, html.touch .styled-select body.ru .user-profile-navigation > li .avatar i, body.ru .user-profile-navigation > li .avatar .custom-select-wrapper .custom-select-menu label:before, .custom-select-wrapper .custom-select-menu body.ru .user-profile-navigation > li .avatar label:before, body.ru .user-profile-navigation > li .avatar .custom-select-wrapper .custom-select-menu label:after, .custom-select-wrapper .custom-select-menu body.ru .user-profile-navigation > li .avatar label:after {
+	font-family: "Roboto", arial, sans-serif;
+	font-weight: bold;
+}
+
+.user-profile-navigation > li .name {
+	float: left;
+	margin-right: -100%;
+	width: 63.73%;
+	margin-left: 29.0225%;
+	min-height: 32px;
+	line-height: 32px;
+	margin-top: 0.25em;
+	margin-bottom: 0.25em;
+}
+
+.user-profile-navigation > li.first { margin-bottom: 1.25em; }
+
+.user-profile-navigation > li.first .avatar img { max-width: 46px; }
+
+.user-profile-navigation > li.first .name {
+	float: left;
+	margin-right: -100%;
+	width: 60.1%;
+	margin-left: 32.6425%;
+	min-height: 46px;
+	line-height: 46px;
+}
+
+.user-profile-navigation > li.active > a, .user-profile-navigation > li:hover > a {
+	background: #616161;
+	color: white;
+}
+
+.user-profile-subnav {
+	clear: both;
+	display: block;
+	float: left;
+	position: relative;
+	max-height: 0;
+	overflow: hidden;
+	width: 100%;
+}
+
+.user-profile-subnav li {
+	border-bottom: 1px solid #f2f2f2;
+	width: 100%;
+}
+
+.user-profile-subnav li.last { border: none; }
+
+.user-profile-subnav a {
+	font-family: "Roboto", arial, sans-serif;
+	color: #212121;
+	font-size: 100%;
+	line-height: 125%;
+	display: block;
+	padding: 0.625em 1em;
+}
+
+body.ru .user-profile-subnav a {
+	font-family: "Roboto", arial, sans-serif;
+	font-weight: 500;
+}
+
+.user-profile-subnav a:hover { color: #4dad5b; }
+
+.collapsed .user-profile-subnav {
+	-webkit-transition: max-height 0.5s linear;
+	-ms-transition: max-height 0.5s linear;
+	-moz-transition: max-height 0.5s linear;
+	-o-transition: max-height 0.5s linear;
+	transition: max-height 0.5s linear;
+	height: 0px;
+	margin: 0;
+	max-height: 0px;
+}
+
+.expanded .user-profile-subnav {
+	-webkit-transition: max-height 0.5s linear;
+	-ms-transition: max-height 0.5s linear;
+	-moz-transition: max-height 0.5s linear;
+	-o-transition: max-height 0.5s linear;
+	transition: max-height 0.5s linear;
+	height: 100%;
+	margin: 1em 0 0 0;
+	max-height: 999px;
+}
+
+.user-profile-navigation > li .avatar .icon {font-family: "icons";}
+
+/*Footer*/
+
+
+.global-footer {
+	background: #1f1f1f;
+	clear: both;
+	display: block;
+	padding: 0 0 1em;
+	width: 100%;
+}
+
+.global-footer-links, .global-footer-social, .global-footer-legal {
+	float: left;
+	margin-right: -100%;
+	width: 27.46%;
+	border-right: 2px solid #000;
+	margin-top: 1.75em;
+}
+
+.global-footer-links:last-child, .global-footer-social:last-child, .global-footer-legal:last-child { border: 0; }
+
+.global-footer-links { margin-left: 7.2525%; }
+
+.global-footer-links h2 {
+	font-family: "Roboto", arial, sans-serif;
+	font-weight: 700;
+	font-size: 137.5%;
+	margin: 0.25em 0 1.25em 0.5em;
+	text-shadow: -1px 1px #212121, -1px -1px #212121, -1px 1px #212121, 1px -1px #212121, -2px 2px #212121, -2px -2px #212121, 2px -2px #212121, 2px 2px #212121, 2px 2px #212121, 2px 2px #212121, 2px 3px #212121;
+}
+
+body.ru .global-footer-links h2 {
+	font-family: "Roboto", arial, sans-serif;
+	font-weight: bold;
+}
+
+.global-footer-links li {
+	margin: 0 0 0.5em 0.5em;
+	padding-left: 1em;
+	position: relative;
+}
+
+.global-footer-links li:before {
+	color: #616161;
+	content: "\25B6";
+	font-size: 55%;
+	opacity: 0.2;
+	position: absolute;
+	left: 6px;
+	top: 6px;
+}
+
+.global-footer-links li a {
+	color: #616161;
+	font-family: "Roboto", arial, sans-serif;
+	font-size: 87.5%;
+	font-weight: bold;
+	letter-spacing: 1px;
+	line-height: 100%;
+	text-transform: none;
+	vertical-align: middle;
+}
+
+.global-footer-links li a:hover { color: #fff; }
+
+.global-footer-links li a:hover:before { border-color: transparent transparent transparent #fff; }
+
+.global-footer-social { margin-left: 36.2725%; }
+
+.global-footer-social .footer-social-wrapper {
+	float: left;
+	margin-right: -100%;
+	width: 85.49%;
+	margin-left: 7.2525%;
+}
+
+.global-footer-social h4 {
+	font-family: "Roboto", arial, sans-serif;
+	font-size: 75%;
+	margin: 0.75em 0 1em 0;
+	text-align: left;
+	text-transform: none;
+}
+
+body.ru .global-footer-social h4 {
+	font-family: "Roboto", arial, sans-serif;
+	font-weight: 500;
+}
+
+.global-footer-legal { margin-left: 65.2925%; }
+
+.global-footer-legal .footer-legal-wrapper {
+	float: left;
+	margin-right: -100%;
+	width: 85.49%;
+	margin-left: 7.2525%;
+	font-family: "Roboto", arial, sans-serif;
+	color: #525252;
+	font-family: "Roboto", arial, sans-serif;
+	font-size: 68.8%;
+	margin-top: 20%;
+}
+
+body.ru .global-footer-legal .footer-legal-wrapper {
+	font-family: "Roboto", arial, sans-serif;
+	font-weight: normal;
+}
+
+.global-footer-legal .footer-legal-wrapper #esrb2 {
+	background: url(/web/20170607141948im_/https://assets.pokemon.com/static2/_ui/img/footer/privacy_certified_globe_color.gif) no-repeat;
+	float: left;
+}
+
+.global-footer-legal .footer-legal-wrapper #esrb2 a {
+	display: block;
+	height: 102px;
+	width: 95px;
+}
+
+body.us .global-footer-legal .footer-legal-wrapper #esrb2,
+body.ca .global-footer-legal .footer-legal-wrapper #esrb2,
+body.au .global-footer-legal .footer-legal-wrapper #esrb2 { background: url(/web/20170607141948im_/https://assets.pokemon.com/static2/_ui/img/footer/privacy_certified_kids_color.gif) no-repeat; }
+
+body.us .global-footer-legal .footer-legal-wrapper #esrb2 a,
+body.ca .global-footer-legal .footer-legal-wrapper #esrb2 a,
+body.au .global-footer-legal .footer-legal-wrapper #esrb2 a { width: 78px; }
+
+.global-footer-legal .footer-legal-wrapper ul {
+	float: left;
+	margin: 3em 0 0 2em;
+}
+
+.global-footer-legal .footer-legal-wrapper ul li {
+	clear: both;
+	float: left;
+	padding: 0.5em 0;
+}
+
+.global-footer-legal .footer-legal-wrapper ul li a {
+	color: #525252;
+	text-decoration: underline;
+}
+
+body.it .global-footer-legal .footer-legal-wrapper ul, body.no .global-footer-legal .footer-legal-wrapper ul {
+  margin: 3em 0 0 1.5em;
+}
+body.fr .global-footer-legal .footer-legal-wrapper ul {
+  margin: 3em 0 0 1em;
+}
+body.dk .global-footer-legal .footer-legal-wrapper ul, body.ru .global-footer-legal .footer-legal-wrapper ul {
+  margin: 1em 0 0 1.5em;
+  width: 125px;
+}
+
+.global-footer-legal .footer-legal-wrapper span {
+	clear: both;
+	display: block;
+	padding-top: 15px;
+}
+
+.find-us a, .add-this a {
+	background: transparent url("/web/20170607141948im_/https://assets.pokemon.com/static2/_ui/img/footer/social-icons-big.png") no-repeat;
+	cursor: pointer;
+	display: inline-block;
+	height: 40px;
+	margin: 0 0.5em 0.5em 0;
+	width: 40px;
+}
+
+.find-us a:hover, .add-this a:hover { opacity: 0.8; }
+
+.find-us a.google, .find-us a.addthis_button_google, .add-this a.google, .add-this a.addthis_button_google { background-position: -41px 0px; }
+
+.find-us a.reddit, .find-us a.addthis_button_reddit, .add-this a.reddit, .add-this a.addthis_button_reddit { background-position: -123px 0px; }
+
+.find-us a.tumblr, .find-us a.addthis_button_tumblr, .add-this a.tumblr, .add-this a.addthis_button_tumblr { background-position: -164px 0px; }
+
+.find-us a.twitter, .find-us a.addthis_button_twitter, .add-this a.twitter, .add-this a.addthis_button_twitter { background-position: -82px 0px; }
+
+.global-footer .find-us a, .global-footer .add-this a {
+	background-image: url("/web/20170607141948im_/https://assets.pokemon.com/static2/_ui/img/footer/social-icons.png");
+	height: 34px;
+	width: 35px;
+}
+
+.global-footer .find-us a.google, .global-footer .find-us a.addthis_button_google, .global-footer .add-this a.google, .global-footer .add-this a.addthis_button_google { background-position: -35px 0px; }
+
+.global-footer .find-us a.reddit, .global-footer .find-us a.addthis_button_reddit, .global-footer .add-this a.reddit, .global-footer .add-this a.addthis_button_reddit { background-position: -105px 0px; }
+
+.global-footer .find-us a.tumblr, .global-footer .find-us a.addthis_button_tumblr, .global-footer .add-this a.tumblr, .global-footer .add-this a.addthis_button_tumblr { background-position: -140px 0px; }
+
+.global-footer .find-us a.twitter, .global-footer .find-us a.addthis_button_twitter, .global-footer .add-this a.twitter, .global-footer .add-this a.addthis_button_twitter { background-position: -70px 0px; }
+
+.global-footer .find-us a.youtube, .global-footer .find-us a.addthis_button_youtube, .global-footer .add-this a.youtube, .global-footer .add-this a.addthis_button_youtube { background-position: -175px 0px; }
+
+.global-footer-links li i { display: inline-block; }
+
+
+.icon-au { background-image: url(/web/20170607141948im_/https://assets.pokemon.com/static2/_ui/img/footer/flags.png); background-position: -40px -9px; width: 11px; height: 8px; }
+
+.icon-br { background-image: url(/web/20170607141948im_/https://assets.pokemon.com/static2/_ui/img/footer/flags.png); background-position: 0px 0px; width: 18px; height: 13px; }
+
+.icon-ca { background-image: url(/web/20170607141948im_/https://assets.pokemon.com/static2/_ui/img/footer/flags.png); background-position: -40px -17px; width: 11px; height: 7px; }
+
+.icon-de { background-image: url(/web/20170607141948im_/https://assets.pokemon.com/static2/_ui/img/footer/flags.png); background-position: -11px -13px; width: 11px; height: 9px; }
+
+.icon-dk { background-image: url(/web/20170607141948im_/https://assets.pokemon.com/static2/_ui/img/footer/flags.png); background-position: -29px 0px; width: 11px; height: 9px; }
+
+.icon-es { background-image: url(/web/20170607141948im_/https://assets.pokemon.com/static2/_ui/img/footer/flags.png); background-position: -29px -9px; width: 11px; height: 9px; }
+
+.icon-fi { background-image: url(/web/20170607141948im_/https://assets.pokemon.com/static2/_ui/img/footer/flags.png); background-position: 0px -22px; width: 11px; height: 9px; }
+
+.icon-fr { background-image: url(/web/20170607141948im_/https://assets.pokemon.com/static2/_ui/img/footer/flags.png); background-position: -18px 0px; width: 11px; height: 9px; }
+
+.icon-it { background-image: url(/web/20170607141948im_/https://assets.pokemon.com/static2/_ui/img/footer/flags.png); background-position: -22px -22px; width: 11px; height: 9px; }
+
+.icon-nl { background-image: url(/web/20170607141948im_/https://assets.pokemon.com/static2/_ui/img/footer/flags.png); background-position: 0px -31px; width: 11px; height: 9px; }
+
+.icon-no { background-image: url(/web/20170607141948im_/https://assets.pokemon.com/static2/_ui/img/footer/flags.png); background-position: -11px -31px; width: 11px; height: 9px; }
+
+.icon-ru { background-image: url(/web/20170607141948im_/https://assets.pokemon.com/static2/_ui/img/footer/flags.png); background-position: -22px -31px; width: 11px; height: 9px; }
+
+.icon-se { background-image: url(/web/20170607141948im_/https://assets.pokemon.com/static2/_ui/img/footer/flags.png); background-position: -40px 0px; width: 11px; height: 9px; }
+
+.icon-uk { background-image: url(/web/20170607141948im_/https://assets.pokemon.com/static2/_ui/img/footer/flags.png); background-position: 0px -13px; width: 11px; height: 9px; }
+
+.icon-us { background-image: url(/web/20170607141948im_/https://assets.pokemon.com/static2/_ui/img/footer/flags.png); background-position: -11px -22px; width: 11px; height: 9px; }
+
+
+/*------------- Overrides and new css from here on ------------- */
+
+body.oneColumn div.wrapper-1, body.oneColumn div.wrapper-2, body.oneColumn div#superFooter, body.oneColumn div.roundedBucket-top, body.oneColumn div.roundedBucket-mid, body.oneColumn div.roundedBucket-bot { background: none; }
+
+body.oneColumn div.roundedBucket-top, body.oneColumn div.roundedBucket-bot { display: none; }
+
+body.oneColumn div.roundedBucket-mid { padding: 10px; }
+
+#safeArea { padding-top: 20px; }
+
+/*Standard bg and fonts*/
+
+body {
+	background: #424242 url("/web/20170607141948im_/https://assets.pokemon.com/static2/_ui/img/chrome/body_bg.png");
+	font-family: arial, sans-serif;
+	font-size: 15px;
+	color: #616161;
+    zoom: none;
+}
+
+p { font-family: "Roboto", arial, sans-serif; color: #616161;}
+
+p.small { font-size: 13px; }
+
+.wrapper-0 {
+	background: transparent url("/web/20170607141948im_/https://assets.pokemon.com/static2/_ui/img/chrome/content_bg.png") left top;
+	background-size: 100% 1px;
+	display: block;
+	margin: 0 auto;
+	overflow: hidden;
+	min-width: 1060px;
+	max-width: 1124px;
+	padding-bottom: 60px;
+}
+
+body.oneColumn div#mainContent, body.lite.oneColumn.op div#mainContent { margin: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Roboto", arial, sans-serif;
+	font-weight: normal;
+	letter-spacing: normal;
+}
+
+#mainContent h1 {
+	color: #212121;
+	cursor: default;
+	padding: 0;
+	top: 0;
+	margin-left: 20px;
+	font-size: 38px;
+}
+
+h2, span.likeh2 {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+h3 {
+	color: #616161;
+}
+
+h3.sectionHeader {
+	border-bottom: none;
+	margin-top: 10px;
+}
+
+h4 {
+	color: #616161;
+}
+
+h5 {
+	margin-top: .5em;
+}
+
+h6 {
+	line-height: 20px;
+	color: inherit;
+}
+
+div.whiteBucket {
+	background: #f2f2f2;
+	border-radius: 5px;
+	display: block;
+	margin: 0px 0px 20px 0px;
+	border: none;
+	leladding: 19px;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+}
+
+.visibleLegend {
+	font-family: "Roboto", arial, sans-serif;
+	font-size: 20px;
+}
+
+.alert:first-child { margin-top: 0; }
+.alert {
+    line-height: 22px;
+    -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+            border-radius: 5px;
+}
+
+.pagination {
+	margin: 15px 0px;
+	font-size: 20px;
+}
+
+.pagination span { margin-right: 10px; }
+
+div.dlWrapper dl dt, dl.verysimpleDL2 dt {
+	font-weight: normal;
+	font-size: 16px;
+}
+
+ul.linkList-big li {
+	font-family: "Roboto", arial, sans-serif;
+	font-weight: 700;
+}
+
+a {
+    color: #1b53ba;
+    text-decoration: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    margin-bottom: 0;
+    word-wrap: break-word;
+}
+
+a:hover { color: #30a7d7; }
+
+a:hover, a:focus {
+	text-decoration: none;
+	border-bottom: none;
+}
+
+/*Buttons*/
+
+
+a.btn span.left, a.btn span.right, a.btn-lbwhiteback span.left, a.btn-lbwhiteback span.white { display: none; }
+
+a.btn span.mid, a.btn-lbwhiteback span.mid, a.btn-lbwhiteback:hover span.mid { background: none; }
+
+a.btn-lbwhiteback { height: auto; }
+
+a.btn-lb span.mid, a.btn-lbwhite span.mid, a.btn-bgb span.mid {
+	background: none;
+	height: auto;
+	font-size: inherit;
+	font-weight: normal;
+	padding: 0;
+	color: inherit;
+}
+
+a.btn-lbwhiteback span.mid {
+	height: auto;
+	font-size: inherit;
+	font-weight: normal;
+	padding: 0;
+	color: inherit;
+}
+
+a.btn-lbwhite, a.btn-lb { height: auto; }
+
+a.btn-bgb {background-color: #ee6b2f;
+color: #fff; height: inherit;}
+
+a.btn-bgb:hover {background-color: #da471b;}
+
+
+form fieldset, table#insert {
+	background: #ddd;
+	border-radius: 5px;
+	margin: 0px 0px 20px 0px;
+	border: none;
+}
+
+form fieldset div.top {
+	background: #616161;
+	-webkit-border-radius: 5px 5px 0 0;
+	border-radius: 5px 5px 0 0;
+}
+
+form fieldset div.top div.required {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 23px;
+}
+
+.btn-mini {
+	font-size: 13px;
+	margin: 0px 15px;
+	padding: 6px 10px;
+	line-height: 18px;
+}
+
+a.btn-mini span.mid {
+	height: auto;
+	font-size: inherit;
+	font-weight: normal;
+	padding: 0;
+	color: inherit;
+	line-height: inherit;
+}
+
+/*Styling submits*/
+
+
+form fieldset div.bot ol li.buttons div.submit, form div.fakesubmit, form div.submit, form fieldset div.bot ol li.buttons div.submit div.wrapper, form div.fakesubmit div.wrapper, form div.submit div.wrapper, form fieldset div.bot ol li.buttons input.submit, form fieldset div.bot ol li.buttons input.submit, form div.fakesubmit input.submit, form div.submit input.submit {
+	background: none;
+	height: auto;
+}
+
+form fieldset div.bot ol li.buttons input.submit, form div.submit input.submit {
+	background-color: #ee6b2f;
+	color: #fff;
+	border-radius: 5px;
+	border: none;
+	cursor: pointer;
+	float: left;
+	padding: 2px 12px;
+	vertical-align: middle;
+	font-size: 14px;
+	line-height: 26px;
+	text-align: center;
+	font-family: "Roboto", arial, sans-serif;
+	font-weight: normal;
+}
+
+form fieldset.fields-buttons div.bot ol li.buttons input.submit { margin: 0; }
+form fieldset.fields-buttons div.bot ol li.buttons {clear: inherit;}
+
+
+form fieldset div.bot ol li.buttons input.submit:hover, form div.submit input.submit:hover {
+	background-color: #da471b;
+	color: #fff;
+	-webkit-transition: background-color 0.2s;
+	-ms-transition: background-color 0.2s;
+	-moz-transition: background-color 0.2s;
+	-o-transition: background-color 0.2s;
+	transition: background-color 0.2s;
+	text-decoration: none;
+}
+
+.buttons .submit .wrapper input.submit {
+	margin-bottom: 15px;
+	margin-left: 15px;
+}
+
+form div.fakesubmit div.wrapper, form div.submit div.wrapper,
+form fieldset div.bot ol li.buttons div.submit div.wrapper{ padding-right: 0; }
+
+form fieldset div.top div.required span, form fieldset div.bot ol li label.required span, form fieldset div.bot ol label.op_required { background: transparent url(/web/20170607141948im_/https://assets.pokemon.com/static_op/img/icons/required.png) no-repeat scroll 0 -11px; margin-top: 5px; }
+
+/*interfering with the tcgo buttons, not sure if used elsewhere
+form fieldset div.bot .button_radio label {
+height: 26px;
+padding-top: 4px;
+}
+*/
+
+/*Accordion*/
+
+div.accordion-op {
+	font-family: "Flexo-Medium", arial, sans-serif;
+	color: #212121;
+	font-size: 16px;
+    background-image: none;
+}
+
+div.accordion-op .wrapper.op {
+    background-color: #F2F2F2;
+    border-radius: 10px;
+    margin-top: 1em;
+}
+
+div.accordion-op div.wrapper, div.accordion-op div.wrapper ul li, div.accordion-op div.wrapper ul li.alt { background: none; }
+
+div.accordion-op h3 {
+	background-image: none;
+	background-color: #f2f2f2;
+    font-size: 18px;
+    line-height: 112.5%;
+	border-radius: 10px;
+	color: #616161;
+	margin-bottom: 11px;
+	top: 0;
+}
+
+div.accordion-op div.wrapper ul li a {
+	background-color: #f2f2f2;
+	color: #616161;
+	margin-bottom: 10px;
+}
+
+div.accordion-op div.wrapper a.header,
+div.accordion-op div.wrapper a.header-non-accordion {
+	font-family: "Flexo-Medium", arial, sans-serif;
+	font-weight: normal;
+	color: #616161;
+	font-size: 18px;
+    line-height: 112.5%;
+	padding: 16px 30px;
+    border-bottom: 2px solid #e7e7e7;
+}
+
+div.accordion-op div.wrapper a.header span.icon.icon_arrow_sm_down {
+    position: absolute;
+    right: 10px;
+    top: 20px;
+}
+
+div.accordion-op div.wrapper a.header.current span.icon_arrow_sm_down:before {
+    content: "\f106";
+}
+
+div.accordion-op div.wrapper a.header.op-last {
+    border:none;
+}
+
+div.accordion-op div.wrapper a.header span.indicator {
+    left: 190px;
+}
+
+div.accordion-op div.wrapper a:hover, div.accordion-op div.wrapper a.current {
+	-webkit-transition: background-color .1s linear;
+	-ms-transition: background-color .1s linear;
+	-moz-transition: background-color .1s linear;
+	-o-transition: background-color .1s linear;
+	transition: background-color .1s linear;
+	background-color: #616161;
+	color: #fff;
+}
+
+div.accordion-op div.wrapper a.header-non-accordion {
+    display: block;
+    margin: 0;
+    position: relative;
+}
+
+div.accordion-op div.wrapper ul li ul {
+	font-size: 16px;
+	padding-left: 0;
+	text-transform: none;
+    background0-color: #e7e7e7;
+}
+
+div.accordion-op div.wrapper ul li ul li {
+    background-color: #d8d8d8;
+	border-bottom: 1px solid #f2f2f2;
+	padding: 0;
+}
+
+div.accordion-op div.wrapper ul li ul li:last-child {
+	border-bottom: none;
+	border-radius: none;
+}
+
+div.accordion-op div.wrapper ul li ul li a,
+div.accordion-op div.wrapper ul li ul li a:hover {
+	font-family: "Flexo-Medium", arial, sans-serif;
+	background: none;
+    color: #616161;
+	font-size: 16px;
+	margin: 0;
+    padding: 12px 20px;
+    display: block;
+}
+
+div.accordion-op div.wrapper ul li ul li a:hover, div.accordion-op div.wrapper ul li ul li a.current { background: none; }
+
+div.accordion-op div.wrapper ul li ul li:hover,
+div.accordion-op div.wrapper ul li ul li.current {
+	background-color: #1dafea;
+}
+
+div.accordion-op div.wrapper ul li ul li:hover a,
+div.accordion-op div.wrapper ul li ul li.current a {
+    color: #ffffff;
+}
+
+/*navSubVert*/
+
+
+div.navSubVert, div.navSubVert div.wrapper, div.navSubVert div.wrapper ul li, div.navSubVert div.wrapper ul li.alt { background: none; }
+
+div.navSubVert div.wrapper ul li {
+	font-family: "Roboto", arial, sans-serif;
+	color: #212121;
+	font-size: 16px;
+}
+
+div.navSubVert div.wrapper ul li a {
+	background-image: none;
+	background-color: #f2f2f2;
+	border-radius: 10px;
+	color: #616161;
+	padding: 12px;
+	margin: 0px 0px 10px 0px;
+}
+
+div.navSubVert div.wrapper ul li a:hover, div.navSubVert div.wrapper ul li a.current, div.navSubVert div.wrapper ul li.active > a {
+	-webkit-transition: background-color .1s linear;
+	-ms-transition: background-color .1s linear;
+	-moz-transition: background-color .1s linear;
+	-o-transition: background-color .1s linear;
+	transition: background-color .1s linear;
+	background-color: #616161;
+	color: #fff;
+}
+
+/*Nav Tabs*/
+
+div.tabInterface ul.tabNav li div.left, div.tabInterface ul.tabNav li div.right, div.tabInterface ul.tabNav li.active div.left, div.tabInterface ul.tabNav li.active div.right, div.tabswitcher ul.tabs li.active div.left, div.tabswitcher ul.tabs li.active div.right, div.tabswitcher ul.tabs li div.left, div.tabswitcher ul.tabs li div.right { display: none; }
+
+div.tabInterface ul.tabNav li div.mid, div.tabInterface ul.tabNav li.active div.mid, div.tabswitcher ul.tabs li div.mid, div.tabswitcher ul.tabs li.active div.mid { background: none; }
+
+div.tabswitcher ul.tabs {
+	border-bottom: 2px solid #616161;
+	margin: 0 0 20px 0;
+	height: 49px;
+	left: 0;
+}
+
+div.tabswitcher ul.tabs li div.mid {padding: 12px 5px 10px 0;}
+
+div.tabswitcher ul.tabs li div.mid a {
+	background: #ccc;
+	color: #212121;
+	padding: 10px 20px;
+	font-family: "Roboto", arial, sans-serif;
+	font-size: 12px;
+	line-height: 16px;
+	text-transform: none;
+	vertical-align: middle;
+	display: block;
+	height: 12px;
+	width: auto;
+	margin: 5px 20px 0 0;
+	-webkit-border-radius: 5px 5px 0px 0px;
+	border-radius: 5px 5px 0px 0px;
+}
+
+div.tabInterface ul.tabNav li.active div.mid a, div.tabInterface ul.tabNav li div.mid:hover a, div.tabswitcher ul.tabs li.active div.mid a, div.tabswitcher ul.tabs li div.mid:hover a {
+	-webkit-transition: background-color .1s linear;
+	-ms-transition: background-color .1s linear;
+	-moz-transition: background-color .1s linear;
+	-o-transition: background-color .1s linear;
+	transition: background-color .1s linear;
+	background: #616161;
+	color: #fff;
+	font-size: 12px;
+	margin: 5px 20px 0 0;
+}
+
+div.tabswitcher ul.tabs li.active div.mid a, div.tabswitcher ul.tabs li div.mid a:hover span.copy { color: #fff; }
+
+div.tabInterface ul.tabNav li div.mid a span.arrow, div.tabInterface ul.tabNav li.active div.mid a span.arrow, div.tabswitcher ul.tabs li.active div.mid a span.arrow, div.tabswitcher ul.tabs li div.mid a span.arrow {
+	background: none;
+	width: 0;
+}
+
+div.tabswitcher ul.tabs li { margin-right: -20px; }
+
+.tabswitcher .panes form { clear: both; }
+
+/** Forms **/
+input[type="text"] { padding: 5px; }
+
+/*
+
+input#id_pop_id, input[type="text"], input[type="password"], input[type="email"], input[type="date"], input[type="number"], select, textarea, form fieldset div.bot ol li textarea, form fieldset div.bot ol li textarea.full {
+	-webkit-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
+	font-family: "Roboto", arial, sans-serif;
+	background-color: #313131;
+	border: none;
+	border-radius: 5px;
+	color: white;
+	display: block;
+	font-size: 16px;
+	line-height: 125%;
+	padding: 8px;
+	width: 250px;
+	margin-bottom: 15px;
+	float: left;
+}
+
+form fieldset div.bot ol li textarea.full, textarea.full { width: 100%; }
+
+form fieldset div.bot ol li label, table#insert label {
+	display: block;
+	float: left;
+	width: 200px;
+	clear: left;
+	margin: 10px 10px 15px 10px;
+	font-size: 19px;
+	font-weight: normal;
+	color: #212121;
+	text-align: left;
+	padding: 2px 0 2px 20px;
+	line-height: 18px;
+}
+
+form fieldset div.bot ol li span {
+	font-size: 19px;
+	font-family: "Roboto", arial, sans-serif;
+	font-weight: 700;
+	padding: 4px 0 2px 0;
+	line-height: 30px;
+}
+
+form fieldset div.bot ol li span.mid { line-height: inherit; }
+
+form fieldset div.bot select, form fieldset div.bot ol li select, select#id_form-0-numeric_equalities {
+	border: none;
+	font-size: inherit;
+	width: 250px;
+	font-family: "Roboto", arial, sans-serif;
+	height: 40px;
+	background-color: #000;
+}
+
+form fieldset div.bot ol li label.required span { margin: 0px 0px 0px -20px; }
+
+form fieldset div.bot ol li label.required span { margin: 4px 0px 0px -20px; }
+
+div.bot ol > li {
+clear: both;
+min-height: 50px;
+line-height: 42px;
+}
+
+div.bot ol #add li {
+min-height: 0;
+}
+
+form fieldset div.bot ol li p {
+	display: inline;
+	margin-left: 0;
+}
+
+form fieldset input[type="radio"], form fieldset input[type="checkbox"] { margin-top: 15px; }
+form fieldset .inline_radio input[type="radio"] { margin-top: inherit; }
+
+div.bot ol li input[type="radio"], div.bot ol li input[type="checkbox"] { margin-top: 0; }
+
+
+form fieldset div.bot ol li.buttons { margin-left: 210px; min-height: inherit;}
+
+input[readonly][type=text] {
+	color: #212121;
+	background-color: #ccc;
+}
+
+form fieldset div.bot ol li div.inline-radio-widget label { font-size: 14px; }
+
+form fieldset div.bot ol li ul li label { margin: -15px 0 25px 10px; }
+
+.text-label label {
+	line-height: 40px;
+	padding-right: 10px;
+	font-size: 19px;
+	float: left;
+}
+
+form fieldset div.bot ol li textarea.widest {
+        height:200px;
+}
+form fieldset div.bot ol li textarea.widest {
+	width: 100%;
+	padding: 10px;
+}
+
+form.inline-cycle-form fieldset div.bot ol li ul li label { margin: 0; }
+
+form.inline-cycle-form fieldset input[type="radio"] { margin-top: 5px; }
+
+form.inline-cycle-form div.submit { margin-top: 0; }
+
+form.inline-cycle-form div.submit input.submit { padding: 8px 20px; }
+
+*/
+
+
+form#addchild fieldset div.bot ol li textarea,
+textarea.full {height: 200px}
+
+
+
+/*Datepicker widget*/
+
+img.ui-datepicker-trigger {
+	margin-left: 5px;
+	margin-bottom: -3px;
+}
+
+.ui-widget-header {
+	border: none;
+	background: none;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default {
+	border: none;
+	background: none;
+	font-weight: bold;
+	color: #313131;
+}
+
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-state-hover, .ui-widget-content .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus {
+	border: none;
+	background-image: none;
+	background-color: #30a7d7;
+	border-radius: 5px;
+	font-weight: bold;
+	color: #fff;
+}
+
+.ui-datepicker td span, .ui-datepicker td a { text-align: center; }
+
+.ui-widget-header .ui-icon { background-image: url(/web/20170607141948im_/https://assets.pokemon.com/static_op/css/ui-lightness/images/ui-icons_222222_256x240.png); }
+
+table.ui-datepicker-calendar tbody { background: #fff; }
+
+/*Tables*/
+
+table {
+	font-size: inherit;
+	border: solid 1px #ddd;
+	margin-bottom: 20px;
+	padding: 7px;
+	font-size: 14px;
+}
+
+table tr.headers, table.by_column tr.headers th.header { background: #ddd; color: #000; }
+
+div.dataTables_filter, div.dataTables_paginate {background: #ddd; color: #000;}
+
+table tbody {
+	color: #0e2b61;
+	background: #f9f9f9;
+}
+
+table tr.odd, table.by_column td.odd { background: #fcfcfc; }
+
+.verysimpletable tr:nth-of-type(even) { background: #fff; }
+
+table a, table a:visited {  }
+
+table a:hover {
+	border-bottom: none;
+}
+
+table tr th {
+	border-right: solid 1px #eee;
+	padding: 10px;
+}
+
+table tr td {
+	border-right: solid 1px #ddd;
+	padding: 10px;
+}
+
+#ineligible-list table tr th, #ineligible-list table tr td, table.compact tr th, table.compact tr td {
+
+}
+
+table#insert tbody {
+	color: inherit;
+	background: none;
+}
+
+table#insert label { width: auto; }
+
+table#insert a {
+	background-color: #e3350d;
+	border-radius: 5px;
+	border: none;
+	color: #fff;
+	cursor: pointer;
+	font-size: 12px;
+	line-height: 26px;
+	float: left;
+	margin: 0;
+	padding: 0 10px;
+	vertical-align: middle;
+	text-align: center;
+	font-family: "Roboto", arial, sans-serif;
+	font-weight: 700;
+}
+
+table#insert a:hover {
+	-webkit-transition: background-color .1s linear;
+	-ms-transition: background-color .1s linear;
+	-moz-transition: background-color .1s linear;
+	-o-transition: background-color .1s linear;
+	transition: background-color .1s linear;
+	background-color: #b32a0a;
+}
+
+select#id_form-0-numeric_equalities, input#id_form-0-league_organizer_id { width: auto; }
+
+table a.btn, table a.btn:hover {margin: 0;}
+
+/*Error Display*/
+
+div.error-inline {
+left: inherit;
+top: inherit;
+width: 200px;
+height:auto;
+}
+
+div.error-inline div.error-wrapper {position: relative;}
+
+div.error-inline div.arrow, div.error-inline div.right {display: none;}
+
+div.error-inline div.left {
+background: none;
+float: none;
+height: inherit;
+padding-left: inherit;
+margin-right: inherit;
+}
+
+div.error-inline div.left p {
+background: none;
+color: inherit;
+font-family: inherit;
+font-size: inherit;
+font-style: normal;
+font-weight: inherit;
+height: inherit;
+line-height: inherit;
+margin: inherit;
+padding-left: inherit;
+z-index: 1;
+white-space: normal;
+}
+
+form fieldset div.bot ol li div.inline-radio-widget label ul.errorlist {text-indent: 0;
+margin-top: 10px;}
+
+ol.inline li:first-child { margin-left: 0; }
+
+ul.errorlist, .error-inline  {
+	background-color: #616161;
+	border-radius: 5px;
+	color: #fff;
+	clear: both;
+	margin-left: 240px;
+	width: 200px;
+	padding: 10px 5px 10px 45px;
+	margin-bottom: 20px;
+	position: relative;
+	font-size: 14px;
+	line-height: 19px;
+}
+
+ul.errorlist:after, .error-inline:after {
+	border-left: 8px solid transparent;
+	border-right: 8px solid transparent;
+	border-bottom: 8px solid #616161;
+	content: '';
+	height: 0;
+	left: 16px;
+	margin: 0;
+	position: absolute;
+	top: -8px;
+	width: 0;
+	z-index: 2;
+}
+
+ul.errorlist:before, .error-inline:before {
+	content: '!';
+	color: white;
+	border-radius: 10px;
+	border: 1px solid #484848;
+	background-color: #e3350d;
+	float: left;
+	font-size: 16px;
+	height: 20px;
+	left: 0;
+	line-height: 20px;
+	margin: -10px 0.5em 0 0.85em;
+	position: absolute;
+	top: 50%;
+	text-align: center;
+	width: 20px;
+}
+
+/*help text*/
+
+form fieldset div.help-text{
+margin-top: -5px;
+margin-left: 180px;
+width: 250px;
+float: left;
+display: block;
+clear: both;
+}
+
+form fieldset div.bot ol li span.help-block {
+font-size: 14px;
+color: #616161;
+font-family: "Roboto", arial, sans-serif;
+line-height: 14px;
+}
+
+
+
+/* input.required { border: 2px solid #e3350d; } */
+
+ul.standard {
+margin-top: 20px;
+}
+
+ul.standard li {
+	font-size: inherit;
+	font-weight: normal;
+}
+
+form.list-text-only fieldset div.bot ol li label { margin: -2px 10px 20px 10px; }
+
+/*Main Profile Navigation*/
+
+.user-profile-navigation > li > a { margin-bottom: 0; }
+
+.user-profile-subnav a:hover { border-bottom: none; }
+
+/*Header Buckets*/
+
+div#parent-profile-bucket { margin: 0; }
+
+div#parent-profile-bucket .roundedBucket-mid { padding: 0 10px 10px 10px; }
+
+
+
+/*Grey Buckets - used for alerts*/
+
+
+/*Let's try blue alerts a bit - the red alerts can tend to be too severe when the alert is confirming.*/
+div.greyBucket {
+	margin: 0 auto 20px auto;
+	background: #fff;
+	border: 2px solid #3a87ad;
+	padding: 19px;
+	-moz-border-radius: 10px;
+	-moz-box-shadow: none;
+	-webkit-border-radius: 10px;
+	-webkit-box-shadow: none;
+}
+
+div.greyBucket p {
+	font-family: "Roboto", arial, sans-serif;
+	font-size: 16px;
+	color: #3a87ad;
+	margin-bottom: 0;
+	line-height: 24px;
+}
+
+
+/*Nested Panes*/
+
+div.tabswitcher div.panes div.pane {
+	border: none;
+	padding: 0;
+	background: none;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+}
+
+/* Event search results */
+
+span.search-premier { background-color: red; }
+
+span.search-league { background-color: blue; }
+
+span.search-tournament { background-color: green; }
+
+span.search-premier, span.search-league, span.search-tournament {
+	border-radius: 5px;
+	padding: 5px;
+	color: #fff;
+}
+
+span.product-code-tcg, span.product-code-vg {
+	border-radius: 5px;
+	padding: 5px;
+}
+
+form.tournament-search ol li ul, form.event-search ol li ul { float: left; }
+form.tournament-search ol li ul li label, form.event-search ol li ul li label { margin-left: 0; }
+
+/* Footer */
+
+
+.global-footer-links h2 {
+	color: #fff;
+	letter-spacing: normal;
+}
+
+.global-footer-links li { margin: 0 0 0.25em 0.5em; }
+
+
+/* Exit Link Bumper */
+
+div#exitWarning { width: 850px; margin-left: -425px; top: 120px;  }
+
+#socialWarning p.din, div#exitWarning p.din {
+font-family: "Roboto",arial,sans-serif;
+color: #fff;
+font-size: 36px;
+text-transform: none;
+margin-bottom: 32px;
+background: none;
+padding: 0;
+-webkit-border-radius: 0px;
+border-radius: 0px;
+margin-bottom: 20px;
+-moz-box-shadow: none;
+-webkit-box-shadow: none;
+ }
+
+ #socialWarning div.content, div#exitWarning div.content {
+-webkit-border-radius: 10px 10px 40px 10px;
+        border-radius: 10px 10px 40px 10px;
+-moz-box-shadow: none;
+-webkit-box-shadow: none;
+	 border: none;
+	 background: #fff url('/web/20170607141948im_/https://assets.pokemon.com/static2/_ui/img/chrome/external_link_bumper.png') no-repeat right center;
+height: 229px;
+ }
+
+ #socialWarning p.legal, div#exitWarning p.legal {
+	 font-family: "Roboto",arial,sans-serif;
+	 font-size: 14px;
+	 line-height: 28px;
+	 color: #616161;
+	 width: 560px;
+ }
+
+ #socialWarning div.content div.right, div#exitWarning div.content div.right {
+background: none;
+ }
+
+/**********Page-specific hacks**********/
+
+/* screen name check */
+div#check-screenname-availability {
+	margin-left: 180px;
+}
+div#check-screenname-availability h3 {
+	font-size: 90%;
+}
+div#check-screenname-availability ul {
+	list-style: initial;
+	margin-left: 15px;
+}
+
+/* /account/op */
+
+form.form50 { width: auto; }
+
+form.lookup-form label { width: 17em; }
+
+ol.inline li strong {
+	padding-top: 6px;
+	display: inline-block;
+	padding-right: 8px;
+	font-size: 19px;
+	font-weight: normal;
+}
+
+/*
+select#id_cycle {
+	width: 100px;
+	height: 36px;
+}
+*/
+
+select#id_period {
+	width: auto;
+	height: 36px;
+}
+
+ol.inline div.submit { padding-left: 0; }
+
+/*ol.inline div.submit input.submit { padding: 8px 20px; }*/
+
+
+table.league-players { margin-bottom: 15px; }
+
+
+dl.verysimpleDL dt {
+	width: 120px !important;
+	font-weight: normal;
+}
+
+dl.verysimpleDL.dtWidth300 dt { width: 295px !important; }
+
+#tom-player-search input[type="text"] { padding: 10px; }
+
+form fieldset div.bot select#id_countries, form fieldset div.bot select#id_states { height: 80px; }
+
+/*  /account/play-pokemon-leagues/application */
+
+
+form fieldset div.bot dl.radioList dt { font-size: inherit; }
+
+dl.radioList select { float: none; }
+
+form fieldset div.bot dl.radioList dd label {
+	font-size: inherit;
+	font-weight: normal;
+	color: inherit;
+}
+
+/* account/admin/reports/polls/ */
+
+
+.poll-list li { margin-bottom: 15px; }
+
+/* /account/op-setup/  */
+
+
+form fieldset.cb-rb-fields div.option { padding-left: 0; }
+
+form fieldset.cb-rb-fields div select {
+	float: none;
+	/* breaks in IE height: 30px; */
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+/* /account/tcgo-setup/ */
+
+
+form fieldset div.bot .tcgo_pref_subheader {
+	font-family: "Roboto", arial, sans-serif;
+	font-weight: 700;
+}
+
+/* /account/play-pokemon-leagues/ */
+
+
+div.dlWrapper dl dd { font-style: normal; }
+
+#play-pokemon-leagues div.submit input.submit { margin: 0; }
+
+#play-pokemon-leagues div.submit div.wrapper { padding-right: 0; }
+
+/* /account/admin/users/add */
+
+
+#add-new-user li { margin-left: 220px; }
+
+#add-new-user label { margin-left: -220px; }
+
+#add-new-user input[type="checkbox"] { margin-left: -10px; }
+
+#add-new-user li ul.errorlist {margin-left: 10px;}
+#add-new-user li ul.errorlist li {margin-left: 0;}
+
+/*  /account/play-pokemon-leagues/playtime  */
+
+
+#playtime-calendars li {
+	min-height: 380px;
+	margin-top: 10px;
+}
+
+#playtime-calendars td { padding: 8px; }
+
+#playtime-calendars td span.day { padding-bottom: 0; }
+
+#playtime-hours input {
+	float: none;
+	margin-bottom: 0;
+}
+
+#playtime-hours li { display: block; }
+
+/*  us/account/admin/playpoints/rules/  */
+
+
+table.eventsTable tr.headers th {
+	background-color: inherit;
+	border: none;
+	font-weight: inherit;
+}
+
+table.eventsTable tbody td { border: none; }
+
+.whiteBucket table.eventsTable { font-size: inherit; }
+
+#permissions {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+#permissions input, #permissions select { float: none; }
+
+div#championshipPointsStructure table {
+	font-size: inherit;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+div#championshipPointsStructure table th, div#championshipPointsStructure table td {
+	padding: 10px;
+	text-decoration: none;
+}
+
+.table-font-size-85 table { font-size: inherit; }
+
+.small-red { color: #eee; }
+
+.greyBucket .small-red { color: #FE5A2E; }
+
+/* /account/play-pokemon-tournaments/player/edit/ */
+
+
+.add-new-players input[type="text"] { width: 125px; }
+
+/* /account/admin/users/relationship/ */
+
+input#id_pop_id { margin-right: 10px; }
+
+input#id_check_for_change {
+	margin-left: 10px;
+	margin-bottom: 15px;
+}
+
+/* /play-pokemon-leagues/players/xxx/add */
+
+
+.reporting-players-add input {margin: 0; width: 150px;}
+.reporting-players-add .reporting-players-dob input  {width: 120px}
+.reporting-players-add .reporting-players-id input  {width: 100px}
+
+table.current-season tr {height: inherit;}
+
+/* us/pokemon-trainer-club/admin/urls */
+
+#table-1_wrapper select, #table-1_wrapper input {
+width: inherit;
+display: inline;
+float: none;
+margin-bottom: 0;
+}
+
+table.admin-fields td:nth-child(1) {
+    width: 25%;
+}
+table.admin-fields td:nth-child(2), table.admin-fields td:nth-child(3) {
+    white-space: nowrap;
+}
+table.admin-fields td:nth-child(4) {
+    width: 40%;
+}
+table.admin-fields td:nth-child(5) {
+    width: 15%;
+}
+table.admin-fields input.text_equalities:not(.text-date),
+table.admin-fields input.numeric_equalities:not(.text-date),
+table.admin-fields input.None_equalities:not(.text-date){
+    width: 90%;
+}
+
+/* /account/login/ */
+
+#account-login {margin-top: 30px;}
+
+/* forgot-password */
+
+body.oneColumn #mainContent div.roundedBucket h1.landingpage-h1 {position: relative; left: 0; margin-left:0; }
+
+/* /admin/reports/ */
+.report-table-wrapper div { overflow-x: auto; }
+
+/* /play-pokemon/setup/ */
+
+form fieldset.cb-rb-fields div.option input.check, form fieldset.cb-rb-fields div.option input.radio {margin: 5px 5px 0 0;}
+
+/* /pokemon-trainer-club/background/ */
+.table-overflow {overflow-x: auto; margin-bottom: 20px;}
+
+
+/* User Dashboard in OP */
+#user-dashboard { position: fixed; left: 0; top: 161px; width: 59px; max-width: 1280px; height: 100%; z-index: 17; overflow: hidden; }
+#user-dashboard .drawer { position: absolute; top: 0; left: 0; width: 100%; height: 100%; -webkit-transform: translate3d(0, 0, 0); -ms-transform: translate3d(0, 0, 0); -moz-transform: translate3d(0, 0, 0); -o-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); -webkit-backface-visibility: hidden; -ms-backface-visibility: hidden; -moz-backface-visibility: hidden; -o-backface-visibility: hidden; backface-visibility: hidden; -webkit-perspective: 1000; -ms-perspective: 1000; -moz-perspective: 1000; -o-perspective: 1000; perspective: 1000; -webkit-transform: translate(-100%, 0%); -ms-transform: translate(-100%, 0%); -moz-transform: translate(-100%, 0%); -o-transform: translate(-100%, 0%); transform: translate(-100%, 0%); }
+#user-dashboard .profile-nav { left: 100%; position: absolute; padding-top: 1em; width: 59px; }
+#user-dashboard .profile-nav ul { background-image: url("/web/20170607141948im_/https://assets.pokemon.com/static2/_ui/img/chrome/profile-navigation/profile-nav-repeat-bg.png"); background-repeat: repeat-y; float: left; min-height: 142px; /* Align with content and include :before image height */ margin-top: 15px; position: relative; width: 100%; cursor: pointer; }
+#user-dashboard .profile-nav ul:before { background: transparent url("/web/20170607141948im_/https://assets.pokemon.com/static2/_ui/img/chrome/profile-navigation/profile-nav-bg.png") left top; content: " "; display: block; height: 17px; left: 0; opacity: 1; position: absolute; top: -17px; width: 100%; }
+#user-dashboard .profile-nav ul.signed-in li { padding-bottom: 1em; }
+#user-dashboard .profile-nav ul.not-signed-in { min-height: 125px; }
+#user-dashboard .profile-nav ul.not-signed-in:before { background: transparent url("/web/20170607141948im_/https://assets.pokemon.com/static2/_ui/img/chrome/profile-navigation/profile-nav-bg.png") left -34px; }
+#user-dashboard .profile-nav li { cursor: pointer; display: none; float: left; margin: 0; position: relative; width: 57px; text-align: center; }
+#user-dashboard .profile-nav li.sign-up { font-family: "Flexo-Bold", arial, sans-serif; background-color: #54b564; font-size: 87.5%; line-height: 90%; }
+body.ru #user-dashboard .profile-nav li.sign-up { font-family: "Roboto", arial, sans-serif; font-weight: bold; }
+#user-dashboard .profile-nav li.sign-up span { padding-bottom: 1.3em; display: block; }
+#user-dashboard .profile-nav li.sign-up img { margin-bottom: 0.25em; }
+html.no-touch #user-dashboard .profile-nav li.sign-up:hover { background-color: #369143; }
+html.no-touch #user-dashboard .profile-nav li.sign-up:hover:after { opacity: 1; }
+#user-dashboard .profile-nav li.sign-up:after { background: transparent url("/web/20170607141948im_/https://assets.pokemon.com/static2/_ui/img/chrome/profile-navigation/profile-nav-bg.png") left -51px; content: " "; display: block; height: 17px; left: 0; opacity: 0; position: absolute; top: -17px; width: 100%; }
+#user-dashboard .profile-nav li.sign-in { line-height: 2em; font-size: 81.25%; font-family: "Flexo-Bold", arial, sans-serif; }
+body.ru #user-dashboard .profile-nav li.sign-in { font-family: "Roboto", arial, sans-serif; font-weight: bold; }
+#user-dashboard .profile-nav li.sign-in a { padding: 2em 0; }
+html.no-touch #user-dashboard .profile-nav li.sign-in:hover { background-image: url("/web/20170607141948im_/https://assets.pokemon.com/static2/_ui/img/chrome/profile-navigation/profile-nav-repeat-bg-hover.png"); }
+#user-dashboard .profile-nav li span.icon, #user-dashboard .profile-nav li span.button:after, #user-dashboard .profile-nav li span.arrow-left.button:before, #user-dashboard .profile-nav li span#back-to-top:before { color: #616161; font-size: 225%; }
+html.no-touch.csstransitions #user-dashboard .profile-nav li span.icon, html.no-touch.csstransitions #user-dashboard .profile-nav li span.button:after, html.no-touch.csstransitions #user-dashboard .profile-nav li span.arrow-left.button:before, html.no-touch.csstransitions #user-dashboard .profile-nav li span#back-to-top:before { -webkit-transition: color 0.2s; -ms-transition: color 0.2s; -moz-transition: color 0.2s; -o-transition: color 0.2s; transition: color 0.2s; }
+html.no-touch.csstransitions #user-dashboard .profile-nav li span.icon:hover, html.no-touch.csstransitions #user-dashboard .profile-nav li span.button:hover:after, html.no-touch.csstransitions #user-dashboard .profile-nav li span.arrow-left.button:hover:before, html.no-touch.csstransitions #user-dashboard .profile-nav li span#back-to-top:hover:before { -webkit-transition: color 0.2s; -ms-transition: color 0.2s; -moz-transition: color 0.2s; -o-transition: color 0.2s; transition: color 0.2s; }
+html.no-touch #user-dashboard .profile-nav li:hover span.icon, html.no-touch #user-dashboard .profile-nav li:hover span.button:after, html.no-touch #user-dashboard .profile-nav li:hover span.arrow-left.button:before, html.no-touch #user-dashboard .profile-nav li:hover span#back-to-top:before { color: #f2f2f2; }
+#user-dashboard .profile-nav li span.value { font-family: "Flexo-Bold", arial, sans-serif; background: white; border-radius: 3px; color: #616161; font-size: 62.5%; margin: 0; padding: 0.25em 0.5em; position: absolute; right: 0.5em; text-align: center; top: 0; }
+body.ru #user-dashboard .profile-nav li span.value { font-family: "Roboto", arial, sans-serif; font-weight: bold; }
+html.nintendo #user-dashboard .profile-nav li span.value { border-radius: 0; }
+#user-dashboard .profile-nav .signed-in .visible-signed-in { display: block; }
+html.no-touch.csstransitions #user-dashboard .profile-nav .signed-in .visible-signed-in:nth-child(3) a { -webkit-transition: -webkit-transform 0.2s; -ms-transition: -ms-transform 0.2s; -moz-transition: -moz-transform 0.2s; -o-transition: -o-transform 0.2s; transition: transform 0.2s; }
+html.no-touch.csstransitions #user-dashboard .profile-nav .signed-in .visible-signed-in:nth-child(3) a:hover { -webkit-transition: -webkit-transform 0.2s; -ms-transition: -ms-transform 0.2s; -moz-transition: -moz-transform 0.2s; -o-transition: -o-transform 0.2s; transition: transform 0.2s; }
+html.no-touch #user-dashboard .profile-nav .signed-in .visible-signed-in:nth-child(3) a:hover { -webkit-transform: scale(1.1); -ms-transform: scale(1.1); -moz-transform: scale(1.1); -o-transform: scale(1.1); transform: scale(1.1); }
+#user-dashboard .profile-nav .not-signed-in .visible-not-signed-in { display: block; }
+#user-dashboard .profile-nav a { color: white; display: block; float: left; font-size: 75%; font-weight: 500; text-align: center; text-transform: none; width: 100%; }
+#user-dashboard .profile-nav div.search { background-image: url("/web/20170607141948im_/https://assets.pokemon.com/static2/_ui/img/chrome/profile-navigation/profile-nav-search-bg.png"); float: left; height: 67px; margin-top: 0; width: 59px; }
+#user-dashboard .profile-nav div.search a { color: white; font-size: 175%; height: 67px; line-height: 67px; }
+html.no-touch #user-dashboard .profile-nav div.search:hover { background-image: url("/web/20170607141948im_/https://assets.pokemon.com/static2/_ui/img/chrome/profile-navigation/profile-nav-search-bg-hover.png"); }
+html.no-touch.csstransitions #user-dashboard .profile-nav div.search { -webkit-transition: background-image 0.2s; -ms-transition: background-image 0.2s; -moz-transition: background-image 0.2s; -o-transition: background-image 0.2s; transition: background-image 0.2s; }
+html.no-touch.csstransitions #user-dashboard .profile-nav div.search:hover { -webkit-transition: background-image 0.2s; -ms-transition: background-image 0.2s; -moz-transition: background-image 0.2s; -o-transition: background-image 0.2s; transition: background-image 0.2s; }
+#user-dashboard .avatar-icon-wrapper { background: #4dad5b; border: 3px solid white; width: 30px; height: 30px; margin: 2px auto; overflow: hidden; -webkit-border-radius: 17px 17px 17px 17px; -ms-border-radius: 17px 17px 17px 17px; -moz-border-radius: 17px 17px 17px 17px; -o-border-radius: 17px 17px 17px 17px; border-radius: 17px 17px 17px 17px; }
+#user-dashboard .avatar-icon-wrapper .avatar-icon { width: 35px; height: 35px; margin: -3px 0 0 -3px; }
+#user-dashboard .dashboard { display: none; width: 100%; height: 100%; background: #111; }
+#user-dashboard.open { /* js applied class */ width: 100%; height: 100%; top: 0; }
+#user-dashboard.open .profile-nav { top: 161px; }
+#user-dashboard.open .dashboard { display: block; }
+
+@media (min-width: 1281px) and (max-width: 9999px) { #user-dashboard { left: 50%; margin-left: -640px; } }
+@media (min-width: 1px) and (max-width: 460px) { #user-dashboard { top: 0; width: 100%; height: 0px; }}
+
+/* Nav Style Overrides */
+div.accordion-op div.wrapper.op {
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+div.accordion-op div.wrapper.op ul li > a:hover {
+	background-color: #1dafea;
+	color: #fff;
+}
+
+div.accordion-op div.wrapper.op > ul > li:first-child {
+	border-radius: 5px 5px 0 0;
+}
+
+div.accordion-op div.wrapper.op > ul > li:first-child a {
+	border-radius: 5px 5px 0 0;
+}
+
+div.accordion-op div.wrapper.op > ul li ul li:first-child a {
+	border-top: none;
+	border-radius: 0;
+}
+
+div.accordion-op div.wrapper.op > ul > li:last-child {
+	border-radius: 0 0 5px 5px;
+}
+
+div.accordion-op div.wrapper.op > ul li:last-child a {
+	border-radius: 0 0 5px 5px;
+}
+
+div.accordion-op div.wrapper.op > ul li ul li:last-child a {
+	border-bottom: none;
+	border-radius: 0;
+}
+
+div.accordion-op div.wrapper.op li a.current {
+	background-color: #2699c7;
+}
+
+div.accordion-op div.wrapper.op li div ul li.active a {
+	background-color: #2699c7;
+	color: #fff;
+}
+
+/*
+     FILE ARCHIVED ON 14:19:48 Jun 07, 2017 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 03:08:26 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 771.061
+  exclusion.robots: 0.092
+  exclusion.robots.policy: 0.082
+  cdx.remote: 0.063
+  esindex: 0.009
+  LoadShardBlock: 711.308 (3)
+  PetaboxLoader3.datanode: 712.674 (4)
+  load_resource: 142.346
+  PetaboxLoader3.resolve: 116.517
+*/

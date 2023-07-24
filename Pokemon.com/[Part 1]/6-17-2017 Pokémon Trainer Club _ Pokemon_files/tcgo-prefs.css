@@ -1,0 +1,167 @@
+form fieldset div.bot .tcgo_radio {
+	margin-bottom: 30px;
+	margin-top: 5px;
+	margin-left: 30px;
+}
+form fieldset div.bot .tcgo_radio ul li {
+    margin-top: 3px;
+}
+form fieldset div.bot .tcgo_radio ul li label {
+    width: 100%;
+    text-align: left;
+    margin-left: 0px;
+}
+form fieldset div.bot .tcgo_radio ul li label input {
+    width: 25px;
+    margin-left: -30px;
+    margin-right: 0px;
+    margin-top: 5px;
+}
+form fieldset.tcgo div.bot div.inline-error{
+    left: 0px;
+}
+form fieldset div.bot .tcgo_pref_subheader {
+	font-weight:bold;
+	margin-bottom: 0px;
+	clear:both;
+}
+
+/* Consent pages */
+form div.bot li {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+dl.verysimpleDL {
+    padding: 0.5em;
+    margin-bottom: 20px;
+}
+dl.verysimpleDL dt {
+    float: left;
+    clear: left;
+    width: 120px;
+    text-align: right;
+    font-weight: bold;
+}
+dl.verysimpleDL dd {
+    margin: 0 0 0 130px;
+    padding: 0 0 0.5em 0;
+    min-height: 15px;
+}
+
+dl.dtWidth300 dt {
+    width: 295px !important;
+}
+dl.dtWidth300 dd {
+    margin: 0 0 0 300px;
+}
+
+
+
+form fieldset div.bot .button_radio ul > li {
+    display:inline;
+}
+
+form fieldset div.bot .button_radio  label {
+    width:140px;
+    height:23px;
+    padding-top:7px;
+    color:white;
+    background:url(/web/20170607141948im_/https://assets.pokemon.com/static_op/img/button-choice.png);
+    cursor:pointer;
+    display:inline-block;
+    float:none;
+    margin:0;
+    text-align:center;
+}
+
+form fieldset div.bot .button_radio.readonly  label {
+    cursor:default;
+}
+
+form fieldset div.bot .button_radio label.on {
+    background:url(/web/20170607141948im_/https://assets.pokemon.com/static_op/img/button-choice-on.png) !important;
+}
+
+form fieldset div.bot .button_radio:not(.readonly) label:hover {
+    background:url(/web/20170607141948im_/https://assets.pokemon.com/static_op/img/button-choice-hover.png);
+}
+
+form fieldset div.bot .button_radio label.disabled {
+    background:url(/web/20170607141948im_/https://assets.pokemon.com/static_op/img/button-choice-disabled.png);
+    color:#666;
+    cursor:default;
+}
+
+form fieldset div.bot .button_radio label > input {
+    margin-left:-9999px;
+    position:absolute;
+}
+
+form div.tcgo {
+    padding: 10px 20px 20px;
+    min-height: 25px;
+}
+
+form .tcgo .label {
+    float: left;
+    width: 220px;
+}
+
+form .tcgo .row {
+    float: left;
+    width: 600px;
+    margin-bottom: 15px;
+    padding: 5px;
+}
+
+form .tcgo .value {
+    float: left;
+    width: 300px;
+    text-align: left;
+}
+
+form .tcgo label.required {
+    background: transparent url(/web/20170607141948im_/https://assets.pokemon.com/static_op/img/icons/required.png) no-repeat scroll 0 -11px; 
+    padding-left: 20px;
+}
+
+form .tcgo .field_error {
+    padding-bottom: 1em;
+}
+
+form .tcgo .field_error .error_message {
+    color: #E3350D;
+}
+
+form .tcgo .orange-btn {
+    background-color: #EE6B2F;
+}
+
+form .tcgo .red-btn {
+    background-color: #E3350D;
+}
+
+.tcgo tr.status-complete {
+    font-style: italic;
+}
+
+/*
+     FILE ARCHIVED ON 14:19:48 Jun 07, 2017 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 03:08:26 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 127.347
+  exclusion.robots: 0.128
+  exclusion.robots.policy: 0.113
+  cdx.remote: 0.093
+  esindex: 0.014
+  LoadShardBlock: 92.152 (3)
+  PetaboxLoader3.datanode: 89.669 (5)
+  PetaboxLoader3.resolve: 154.258 (3)
+  load_resource: 184.396 (2)
+*/
