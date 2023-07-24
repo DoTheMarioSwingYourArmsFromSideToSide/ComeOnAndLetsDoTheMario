@@ -1,0 +1,46 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+/*
+ Quantcast measurement tag
+ Copyright (c) 2008-2017, Quantcast Corp.
+*/
+(function(a,f,e){try{__qc("defaults",a,{labels:"_fp.event.Default"})}catch(k){}var h=function(a,b,c){return a?"nc"===a?!b||!c||0>b.indexOf(c):"eq"===a?b===c:"sw"===a?0===b.indexOf(c):"ew"===a?(a=b.length-c.length,b=b.lastIndexOf(c,a),-1!==b&&b===a):"c"===a?0<=b.indexOf(c):!1:!1},b=function(a,b,c){var d;if(f.top===f.self)d=e.location.href;else{d=e.referrer;var g=e.createElement("a");g.href=d;d=g.href}h(b,d,c)?a(d):a(!1)},c=function(a){return"array"==={}.toString.call(a).match(/\s([a-zA-Z]+)/)[1].toLowerCase()?
+{labels:a.join(",")}:{labels:""+a}};__qc.apply(null,["rules",[a,null,[[c,"_fp.event.Corvette-zr1 Info Page"]],[[b,"c","chevrolet.com/upcoming-vehicles/corvette-zr1"]]],[a,null,[[c,"_fp.event.Certified Pre-Owned"]],[[b,"c","chevrolet.com/certified-pre-owned"]]],[a,null,[[c,"_fp.event.Tax Deductions"]],[[b,"c","chevrolet.com/tax-deductions"]]],[a,null,[[c,"_fp.event.Build Configuration Pages"]],[[b,"c","chevrolet.com/byo-vc"]]],[a,null,[[c,"_fp.event.Sales"]],[[b,"c","hevrolet.com/sales"]]],[a,null,
+[[c,"_fp.event.Owners Center"]],[[b,"c","chevrolet.com/owners"]]],[a,null,[[c,"_fp.event.Dealer Locator Start"]],[[b,"c","chevrolet.com/dealer-locator"]]],[a,null,[[c,"_fp.event.Search Inventory Start"]],[[b,"c","chevrolet.com/search-inventory"]]],[a,null,[[c,"_fp.event.Build and Price Start"]],[[b,"c","chevrolet.com/build-your-own-chevrolet"]]],[a,null,[[c,"_fp.event.Current Deals"]],[[b,"c","chevrolet.com/current-deals"]]],[a,null,[[c,"_fp.channel.Commercial Vehicles"]],[[b,"c","chevrolet.com/commercial"]]],
+[a,null,[[c,"_fp.event.Silverado HD Info Page"]],[[b,"c","chevrolet.com/trucks/silverado-2500hd-3500hd"]]],[a,null,[[c,"_fp.event.Silverado 1500 Info Page"]],[[b,"c","chevrolet.com/trucks/silverado-1500"]]],[a,null,[[c,"_fp.event.Colorado Info Page"]],[[b,"c","chevrolet.com/trucks/colorado"]]],[a,null,[[c,"_fp.channel.Trucks"]],[[b,"c","chevrolet.com/trucks"]]],[a,null,[[c,"_fp.event.Suburban Info Page"]],[[b,"c","chevrolet.com/previous-year/suburban"]]],[a,null,[[c,"_fp.event.Tahoe Info Page"]],
+[[b,"c","chevrolet.com/previous-year/tahoe"]]],[a,null,[[c,"_fp.event.Traverse Info Page"]],[[b,"c","chevrolet.com/suvs/traverse"]]],[a,null,[[c,"_fp.event.Equinox Info Page"]],[[b,"c","chevrolet.com/suvs/equinox"]]],[a,null,[[c,"_fp.event.Trax Info Page"]],[[b,"c","chevrolet.com/suvs/trax"]]],[a,null,[[c,"_fp.channel.Crossovers and SUVs"]],[[b,"c","chevrolet.com/suvs"]]],[a,null,[[c,"_fp.subchannel.Spanish Site"]],[[b,"c","es.chevrolet.com"]]],[a,null,[[c,"_fp.event.Corvette ZO6 Info Page"]],[[b,
+"c","chevrolet.com/performance/corvette-z06"]]],[a,null,[[c,"_fp.event.Corvette Grand Sport Info Page"]],[[b,"c","chevrolet.com/performance/corvette-grand-sport"]]],[a,null,[[c,"_fp.event.Corvette Stingray Info Page"]],[[b,"c","chevrolet.com/performance/corvette-stingray"]]],[a,null,[[c,"_fp.event.SS Sedan Info Page"]],[[b,"c","chevrolet.com/ss-sports-sedan"]]],[a,null,[[c,"_fp.event.Camaro Info Page"]],[[b,"c","chevrolet.com/performance/camaro"]]],[a,null,[[c,"_fp.channel.Performance"]],[[b,"c",
+"chevrolet.com/performance"]]],[a,null,[[c,"_fp.channel.Electric Vehicles"]],[[b,"c","chevrolet.com/bolt-ev-electric"]]],[a,null,[[c,"_fp.event.Bolt Info Page"]],[[b,"c","chevrolet.com/bolt-ev-electric"]]],[a,null,[[c,"_fp.event.Volt Info Page"]],[[b,"c","chevrolet.com/electric/volt"]]],[a,null,[[c,"_fp.channel.Electric Vehicles"]],[[b,"c","chevrolet.com/electric"]]],[a,null,[[c,"_fp.event.Impala Info Page"]],[[b,"c","chevrolet.com/cars/impala"]]],[a,null,[[c,"_fp.event.Malibu Info Page"]],[[b,"c",
+"chevrolet.com/cars/malibu"]]],[a,null,[[c,"_fp.event.Cruze Info Page"]],[[b,"c","chevrolet.com/cars/cruze"]]],[a,null,[[c,"_fp.event.Sonic Info Page"]],[[b,"c","chevrolet.com/cars/sonic"]]],[a,null,[[c,"_fp.event.Spark Info Page"]],[[b,"c","chevrolet.com/cars/spark"]]],[a,null,[[c,"_fp.channel.Cars"]],[[b,"c","chevrolet.com/cars"]]],[a,null,[[c,"_fp.event.Homepage"]],[[b,"eq","https://web.archive.org/web/20180131170436/http://www.chevrolet.com/"]]]])})("p-MPeaCmPr94dQZ",window,document);
+
+}
+/*
+     FILE ARCHIVED ON 17:04:36 Jan 31, 2018 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:43:25 May 01, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 64.638
+  exclusion.robots: 0.103
+  exclusion.robots.policy: 0.093
+  RedisCDXSource: 19.533
+  esindex: 0.01
+  LoadShardBlock: 26.195 (3)
+  PetaboxLoader3.datanode: 1512.809 (6)
+  load_resource: 3762.196 (2)
+  PetaboxLoader3.resolve: 2253.61 (3)
+*/

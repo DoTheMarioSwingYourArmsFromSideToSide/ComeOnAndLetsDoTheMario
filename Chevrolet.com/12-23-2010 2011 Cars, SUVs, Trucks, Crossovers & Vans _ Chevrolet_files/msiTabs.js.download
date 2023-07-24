@@ -1,0 +1,74 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+function showSITabInfo(ClickedID)
+{
+	
+	ClassValue = $_(ClickedID).attr('class');
+
+	if (ClassValue.indexOf('msiTabOption1On') >= 0 || ClassValue.indexOf('msiTabOption1Off') >= 0){
+		//changes the class Activ if the tab clicked
+		tabOption = document.getElementById('msiTabOption1');
+		tabOption.className = 'msiTabOption1On';
+
+		//changes the class Inactive
+		tabOption = document.getElementById('msiTabOption2');
+		tabOption.className = 'msiTabOption2Off';
+
+		//show the conteiner information for each tab select
+		myObje = document.getElementById('msiTab1');
+		myObje.style.display = 'block';
+		myObje = document.getElementById('msiTab2');
+		myObje.style.display = 'none';
+	}
+
+	else if (ClassValue.indexOf('msiTabOption2On') >= 0 ||ClassValue.indexOf('msiTabOption2Off') >= 0){
+		//changes the class Activ if the tab clicked
+		tabOption = document.getElementById('msiTabOption1');
+		tabOption.className = 'msiTabOption1Off';
+
+		//changes the class Inactive
+		tabOption = document.getElementById('msiTabOption2');
+		tabOption.className = 'msiTabOption2On';
+
+		//show the conteiner information for each tab select
+		myObje = document.getElementById('msiTab1');
+		myObje.style.display = 'none';
+		myObje = document.getElementById('msiTab2');
+		myObje.style.display = 'block';
+	}
+
+}
+
+
+
+}
+/*
+     FILE ARCHIVED ON 00:51:30 Dec 25, 2010 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:50:02 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 64.922
+  exclusion.robots: 0.078
+  exclusion.robots.policy: 0.067
+  RedisCDXSource: 0.509
+  esindex: 0.006
+  LoadShardBlock: 46.821 (3)
+  PetaboxLoader3.datanode: 52.97 (4)
+  load_resource: 269.69
+  PetaboxLoader3.resolve: 161.22
+*/

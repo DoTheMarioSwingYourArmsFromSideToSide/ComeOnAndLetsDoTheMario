@@ -1,0 +1,262 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+var obj_l;
+var staticTracking;
+
+s_wds(s_account); s_ca(s_account);  
+function sendAnalyticsEvent(str){
+ns=s_account; if(str!=null)ns+=","+str;void(s_gs(ns));}  
+function sendLinkEvent(str,lnkname){
+ns=s_account; if(str!=""&&str!=null)ns+=","+str; s_linkType="o"; s_lnk=true; s_linkName=lnkname; void(s_gs(ns));}
+function clickTrack(linkName, zip) { 
+	s_prop5=linkName;
+	s_prop8="CURRENT OFFERS | " + zip;
+	sendLinkEvent('',linkName);   
+	s_prop5 = "";
+	s_prop8 = "";
+}
+
+var links = document.getElementsByTagName("a");
+for (var i=0; i < links.length; i++) {
+	if ((links[i].rel) && (links[i].rel.match("popupdinamic-"))) {
+		var name = links[i].name;
+		var id = links[i].rel.substring("popupdinamic-".length);
+		tracking[id]["s_linkName"] = tracking[id]["s_linkName"].replace("<<MODEL>>", name);
+		links[i].onclick = function (){
+			onClickTracking(this, "popupdinamic-");
+			if (this.href.match("regionLocation.jsp"))
+				superPopup({url:this.href, type:"regionDetails"}); 
+			else	
+				superPopup({url:this.href, type:"RegionLocation"}); 
+			return false;
+		}
+	}
+	if ((links[i].rel) && (links[i].rel.match("omni-"))) {
+		links[i].onclick = function (){
+			onClickTracking(this, "omni-");
+		}
+	}
+}
+
+function onClickTracking(obj, type){
+	obj_l = obj
+	var id = obj.rel.substring(obj.rel.indexOf(type) + type.length);  
+	staticTracking = true;
+	onClickTrackingById(id);
+	if (type.match("popupdinamic-"))
+		return false;
+	return true;	
+}
+
+function onClickTrackingById(id) { 
+	var account = s_account;
+	var p = "";
+	if (tracking[id]["s_pageName"]){
+		s_pageName = tracking[id]["s_pageName"];
+		s_prop1 = tracking[id]["s_prop1"];
+		s_prop2 = tracking[id]["s_prop2"];
+		s_prop3 = tracking[id]["s_prop3"];
+		s_prop5 = tracking[id]["s_prop5"];
+		s_prop11 = tracking[id]["s_prop11"];
+		s_prop12 = tracking[id]["s_prop12"];
+		s_prop13 = tracking[id]["s_prop13"];
+
+		if ((tracking[id]["s_prop14"]) && (id == "FAQCategory")){
+			staticTracking = false;
+			s_prop14 = tracking[id]["s_prop14"].replace("<<FAQ Category>>", obj_l.innerHTML.toUpperCase()).replace("&AMP;", "&");
+			s_prop15 = tracking[id]["s_prop15"].replace("<<FAQ Category>>", obj_l.innerHTML.toUpperCase()).replace("&AMP;", "&");
+			s_prop16 = tracking[id]["s_prop16"].replace("<<FAQ Category>>", obj_l.innerHTML.toUpperCase()).replace("&AMP;", "&");
+			s_prop17 = tracking[id]["s_prop17"].replace("<<FAQ Category>>", obj_l.innerHTML.toUpperCase()).replace("&AMP;", "&");
+		}		
+		if ((tracking[id]["s_prop14"]) && (id == "FAQQuestion")){
+			staticTracking = false;
+			section = document.getElementById(obj_l.className).innerHTML.toUpperCase().replace("&AMP;", "&");
+			question = "Q" + obj_l.id;
+			s_prop14 = tracking[id]["s_prop14"].replace("<<FAQ Category>>", section).replace("<<Question>>", question);
+			s_prop15 = tracking[id]["s_prop15"].replace("<<FAQ Category>>", section).replace("<<Question>>", question);
+			s_prop16 = tracking[id]["s_prop16"].replace("<<FAQ Category>>", section).replace("<<Question>>", question);
+			s_prop17 = tracking[id]["s_prop17"].replace("<<FAQ Category>>", section).replace("<<Question>>", question);
+		}
+		if((tracking[id]["s_prop1"]) && (tracking[id]["s_prop2"]) && (tracking[id]["s_prop1"] == "2008 MALIBU") && (tracking[id]["s_prop2"] == "PRELAUNCH")){
+			hackLinkMalibuPrelaunch(id);
+			staticTracking = false;
+		}
+		if (staticTracking){
+			s_prop14 = tracking[id]["s_prop14"];
+			s_prop15 = tracking[id]["s_prop15"];
+			s_prop16 = tracking[id]["s_prop16"];
+			s_prop17 = tracking[id]["s_prop17"];
+		}
+		s_prop19 = tracking[id]["s_prop19"];
+		s_prop25 = tracking[id]["s_prop25"];
+		s_lnk=false;
+		s_linkType=""; 
+	}else{
+		s_prop1 = "";
+		s_prop2 = "";
+		s_prop3 = "";
+		s_prop5 = "";
+		s_prop8 = "";
+		s_prop11 = "";
+		s_prop12 = "";
+		s_prop13 = "";
+		s_prop14 = "";
+		s_prop15 = "";
+		s_prop16 = "";
+		s_prop17 = "";
+		s_prop19 = "";
+		s_prop25 = "";
+		s_prop28 = "";
+		s_prop30 = "";
+		if ((tracking[id]["s_prop14"]) && (tracking[id]["s_prop14"] == "ONSTAR")){
+			hackOnstarLink(id)
+		}
+		else if((tracking[id]["s_prop2"]) && (tracking[id]["s_prop2"] == "HELP CENTER")){
+			hackLinkHelpCenter(id)
+		}
+		else if((tracking[id]["s_linkName"]) && (tracking[id]["s_linkName"].indexOf("GM SITES POPUP") != -1) && (tracking[id]["s_linkName"].indexOf("GLOBAL FOOTER") == -1)){
+			hackGMPopSite(id)
+		}
+		else{
+			hackDefault(id)
+		}
+	}
+   void(s_gs(account));
+   return false;
+	
+}
+
+function hackDefault(id){
+		s_linkName = tracking[id]["s_linkName"];
+		if(s_linkName.indexOf("<<SITE SECTION>>") != -1){
+			s_linkName = s_linkName.replace("<<SITE SECTION>>", GetSection()).toUpperCase()
+		}
+		s_prop5 = s_linkName;
+		s_prop14 = tracking[id]["s_prop14"];
+		s_prop28 = tracking[id]["s_prop28"];
+		s_lnk=true;
+		s_linkType="o";
+}
+function hackGMPopSite(id){
+		s_linkName = tracking[id]["s_linkName"];
+		if(s_linkName.indexOf("<<DIVISION SELECTED>>") != -1){
+			s_linkName = s_linkName.replace("<<DIVISION SELECTED>>", obj_l.id.toUpperCase())
+		}
+		if(s_linkName.indexOf("<<PRODUCT SELECTED>>") != -1){
+			s_linkName = s_linkName.replace("<<PRODUCT SELECTED>>", obj_l.id.toUpperCase())
+		}
+
+		s_prop14 = tracking[id]["s_prop14"];
+		s_prop28 = tracking[id]["s_prop28"];
+		s_prop5 = s_linkName;
+		s_lnk=true;
+		s_linkType="o"; 
+		s_pageName = "";		
+}
+function hackLinkHelpCenter(id){
+		if (id == "PrintFriendly")
+			p = s_pageName;
+		s_linkName = tracking[id]["s_linkName"];
+		if (p != "")
+			s_linkName = s_linkName.replace("<<PAGE NAME>>", p);
+		s_prop5 = s_linkName;
+		s_lnk=true;
+		s_linkType="o"; 
+		s_pageName = "";
+}
+/*HACKING ONSTAR OMNITURE*/
+function hackOnstarLink(id){
+		s_linkName = tracking[id]["s_linkName"];
+		if(s_linkName.indexOf("<<SITE SECTION>>") != -1){
+			s_linkName = s_linkName.replace("<<SITE SECTION>>", GetSection()).toUpperCase()
+		}
+		if(s_linkName.indexOf("<<ONSTAR FEATURE NAME >>") != -1){
+			s_linkName = s_linkName.replace("<<ONSTAR FEATURE NAME >>", obj_l.id.toUpperCase())
+		}
+		s_prop14 = tracking[id]["s_prop14"];
+		s_prop28 = tracking[id]["s_prop28"];
+		s_prop5 = s_linkName;
+		s_lnk=true;
+		s_linkType="o"; 
+		s_pageName = "";
+}
+
+function GetSection(){
+	var selSection = ""
+
+	var sections = new Array();
+	sections={aveo:"MODEL HOMEPAGE", cobalt:"MODEL HOMEPAGE", corvette:"MODEL HOMEPAGE", hhr:"MODEL HOMEPAGE", impala:"MODEL HOMEPAGE", malibu:"MODEL HOMEPAGE", montecarlo:"MODEL HOMEPAGE", avalanche:"MODEL HOMEPAGE", colorado:"MODEL HOMEPAGE", silverado:"MODEL HOMEPAGE", avalanche:"MODEL HOMEPAGE", equinox:"MODEL HOMEPAGE", hhr:"MODEL HOMEPAGE", suburban:"MODEL HOMEPAGE", tahoe:"MODEL HOMEPAGE", trailblazer:"MODEL HOMEPAGE", express:"MODEL HOMEPAGE", uplander:"MODEL HOMEPAGE", ssturbocharged:"MODEL HOMEPAGE", lineup:"LINEUP", cars:"LINEUP", trucks:"LINEUP", suvs:"LINEUP", vans:"LINEUP", commercial:"LINEUP", photogallery:"GALLERY", colors:"360 VIEWS", features:"FEATURES", specifications:"SPECS", warranty:"WARRANTY", accessories:"ACCESSORIES",safety:"SAFETY", trailering:"TRAILERING", warranty:"WARRANTY", build:"BYO", specialoffers:"OFFERS", senddealer:"RAQ", comparevehicle:"COMPARISON", locatevehicle:"VEHLOC", index:"REQUEST INFO", email:"EMAIL", locatedealer:"DEALOC", faq:"FAQ", newsandevents:"NEWS", worldwide:"WORLDWIDE", copyright:"COPYRIGHT", onstar:"ONSTAR", fueleconomy:"FUEL SOLUTIONS", e85:"FUEL SOLUTIONS", activemanagement:"FUEL SOLUTIONS", hybrid:"FUEL SOLUTIONS", electriccar:"FUEL SOLUTIONS", fuelcell:"FUEL SOLUTIONS", sitemap:"SITEMAP", fuelsolutions:"FUEL SOLUTIONS", mediumduty:"MEDIUM DUTY"};
+	
+	var url = window.location.toString();
+	var urlSection;
+	if(url.indexOf("?year") != -1){
+		urlSection = url.substring(0,url.indexOf("?year"))
+		urlSection = urlSection.substring(urlSection.lastIndexOf('/')+1,urlSection.lastIndexOf('.'))
+	}
+	else{
+		urlSection = url.substring(0,url.length-1)
+		urlSection = urlSection.substring(urlSection.lastIndexOf('/')+1,urlSection.length)
+	}
+	
+	if(url.substring(url.length-5,url.length-1) == ".com"){
+		selSection = "HOMEPAGE"
+	}
+	else if(urlSection == "2008malibu"){
+		selSection = "MODEL HOMEPAGE"
+	}
+	else if(selSection == ""){
+		selSection = sections[urlSection]
+	}
+	return selSection;
+}
+/* ************ HACKING ONSTAR OMNITURE ************ */
+
+/* ************ MALIBU PRELAUNCH 2008 ************ */
+function hackLinkMalibuPrelaunch(id){
+		if(tracking[id]["s_prop14"].indexOf("<<NUMBER>>") != -1){
+			var numImg = obj_l.id
+			s_prop14 = tracking[id]["s_prop14"].replace("<<NUMBER>>", numImg)
+			s_prop15 = tracking[id]["s_prop15"].replace("<<NUMBER>>", numImg)
+			s_prop16 = tracking[id]["s_prop16"].replace("<<NUMBER>>", numImg)
+			s_prop17 = tracking[id]["s_prop17"].replace("<<NUMBER>>", numImg)
+		}
+		else{
+			s_prop14 = tracking[id]["s_prop14"];
+			s_prop15 = tracking[id]["s_prop15"];
+			s_prop16 = tracking[id]["s_prop16"];
+			s_prop17 = tracking[id]["s_prop17"];
+		}
+}
+/* ************ MALIBU PRELAUNCH ************ */
+
+}
+/*
+     FILE ARCHIVED ON 04:07:10 Nov 15, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:01:48 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 288.336
+  exclusion.robots: 0.15
+  exclusion.robots.policy: 0.135
+  RedisCDXSource: 1.097
+  esindex: 0.011
+  LoadShardBlock: 268.633 (3)
+  PetaboxLoader3.datanode: 280.268 (4)
+  load_resource: 83.818
+  PetaboxLoader3.resolve: 60.14
+*/

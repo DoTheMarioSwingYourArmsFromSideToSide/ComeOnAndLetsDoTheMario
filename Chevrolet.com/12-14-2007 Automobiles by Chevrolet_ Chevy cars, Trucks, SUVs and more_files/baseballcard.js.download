@@ -1,0 +1,52 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+var priceText = "";
+
+function bbCardGetPrice(){
+	getElements('p','startingatprice','leftnav');
+	getElements('p','priceasshown','leftnav');
+}
+
+function getElements(pTag,pClass,pParent){
+	var elements = document.getElementById(pParent).getElementsByTagName(pTag);
+        for (var i = 0; i < elements.length; i++ ){
+			if(elements[i].className==pClass){
+				priceText = (pClass == 'startingatprice' ? "Starts at ":"PRICE AS SHOWN ");
+				var price = eval(elements[i].className+"_"+elements[i].innerHTML+"_flyout");
+				if (price=="")price = "See Dealer for Details";
+				elements[i].innerHTML= priceText + price;
+			}
+		}
+}
+
+}
+/*
+     FILE ARCHIVED ON 04:09:10 Nov 15, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:01:46 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 123.345
+  exclusion.robots: 0.103
+  exclusion.robots.policy: 0.093
+  cdx.remote: 0.096
+  esindex: 0.01
+  LoadShardBlock: 78.762 (3)
+  PetaboxLoader3.datanode: 103.021 (4)
+  load_resource: 89.707
+  PetaboxLoader3.resolve: 51.846
+*/

@@ -1,0 +1,631 @@
+
+#item{}
+
+#bb_aveo .asset,
+#bb_camaro-family .asset,
+#bb_cobalt .asset,
+#bb_corvette-family .asset,
+#bb_cruze .asset,
+#bb_hhr-crossover .asset,
+#bb_impala .asset,
+#bb_malibu .asset,
+#future .asset,
+#bb_volt .asset,
+#bb_avalanche .asset,
+#bb_colorado .asset,
+#bb_express .asset,
+#bb_silverado-pickups .asset,
+#bb_equinox .asset,
+#bb_suburban-suv .asset,
+#bb_tahoe-family .asset,
+#bb_traverse .asset {
+	background: url(/web/20101225005048im_/http://www.chevrolet.com/assets/en/images/global/navigation/nav_sprite.jpg) no-repeat;	
+	height: 128px;
+	width: 331px;
+}
+
+#future .volt_asset {
+	background-position: 0px -6px;
+}
+
+#bb_aveo .aveo_asset {
+	background-position: 0px -301px;	
+}
+
+#bb_camaro-family .camaro-family_asset {
+	background-position: 0px -455px;
+}
+
+#bb_cobalt .cobalt_asset {
+	background-position: 0px -594px;
+}
+
+#bb_corvette-family .corvette-family_asset {
+	background-position: 0px -901px;
+}
+
+#bb_cruze .cruze_asset {
+	background-position: 0px -1033px;
+}
+
+#bb_hhr-crossover .hhr-crossover_asset {
+	background-position: 0px -1462px;
+}
+
+#bb_impala .impala_asset {
+	background-position: 0px -1619px;
+}
+
+#bb_malibu .malibu_asset {
+	background-position: 0px -1752px;
+}
+
+#bb_volt .volt_asset {
+	background-position: 0px -6px;
+}
+
+#bb_avalanche .avalanche_asset {
+	background-position: 0px -151px;
+}
+
+#bb_colorado .colorado_asset {
+	background-position: 0px -741px;
+}
+
+#bb_express .express_asset {
+	background-position: 0px -1315px;
+}
+
+#bb_silverado-pickups .silverado-pickups_asset {
+	background-position: 0px -1900px;
+}
+
+#bb_equinox .equinox_asset {
+	background-position: 0px -1174px;
+}
+
+#bb_suburban-suv .suburban-suv_asset {
+	background-position: 0px -2060px;
+}
+
+#bb_tahoe-family .tahoe-family_asset {
+	background-position: 0px -2211px;
+}
+
+#bb_traverse .traverse_asset {
+	background-position: 0px -2354px;
+}
+
+#gMdsSubNav a {
+	color: black !important;
+	font-weight: bold !important;
+}
+
+#gMdsSubNav a:hover span {
+	color: #7CAAB9 !important;
+}
+
+#gMdsSubNav a span {
+	font-size: 10px !important;
+}
+
+#mdsNavLogo a {
+	top: 10px;
+	left: 0px;
+}
+
+#gMdsNav #mdsNavGlobal {
+	float:left;
+	height:17px;
+	position: relative;
+	top:10px;
+	width:671px;
+}
+
+#gMdsNav ul {
+	list-style:none outside none;
+	margin:0;
+	padding:0;
+	position:relative;
+	z-index:9999;
+}
+
+#gMdsNav .tools a {
+	text-transform:none !important;
+}
+
+#gMdsNav .tools a:hover {
+	color:#4e8aa7 !important;
+}
+
+.navchat {display:none;}
+
+#q1 {
+	border:1px solid #DDDDDD;
+	margin-bottom:0;
+	padding:2px;
+	width:102px;
+	color: #bdbdbd;
+}
+
+#mdsSearchSite form  {
+	font-size:11px;
+	color: #bdbdbd;
+}
+
+#mdsNavGlobal a, #mdsNavGlobal a span, #mdsNavGlobal a:visited span, #mdsNavGlobal a:hover span {
+	text-decoration: none;
+	font-size: 11px;
+	color: #a5a5a5 !important;
+}
+
+ul#subMenu li h3 {
+font-size:165%;
+font-weight:bold;
+left:-423px !important;
+margin-top:-4px;
+position:absolute;
+}
+
+#msiContent a:hover, #msiContent a:hover span,
+#mdsNavVehicles ul li a:hover, #mdsNavVehicles ul li a:hover span,
+#mdsNavPricing ul li a:hover, #mdsNavPricing ul li a:hover span,
+#mdsNavExperience ul li a:hover, #mdsNavExperience ul li a:hover span,
+#mdsNavOwners ul li a:hover, #mdsNavOwners ul li a:hover span,
+#mdsNavGlobal ul li a:hover, #mdsNavGlobal ul li a:hover span,
+#mdsNavDivision ul li a:hover, #mdsNavDivision ul li a:hover span 
+{ 
+	color: #4e8aa7 !important; 
+	font-size: 11px;
+}
+
+#mdsNavGlobal a:hover {
+	color: #4e8aa7 !important;
+}
+
+#gMdsNav #mdsNavGlobal ul li.first {
+	background-image: none !important;
+	padding-right:0;
+}
+
+#gMdsNav #mdsNavGlobal ul li.last {
+	margin-right: 5px;
+}
+
+
+
+#mdsNavGlobalFacebook span,
+#mdsNavGlobalTwitter span,
+#mdsNavGlobalYoutube span {
+	display: none;
+}
+
+a#mdsNavGlobalFacebook {
+	background: url(/web/20101225005048im_/http://www.chevrolet.com/assets/en/images/global/navigation/facebook_icon.jpg) transparent 0px -18px no-repeat;
+	width: 18px; 
+	height: 18px;
+	display:block;
+}
+
+a#mdsNavGlobalTwitter {
+	background: url(/web/20101225005048im_/http://www.chevrolet.com/assets/en/images/global/navigation/twitter_icon.jpg) transparent 0px -18px no-repeat;
+	width: 18px; 
+	height: 18px;
+	display:block;
+}
+
+a#mdsNavGlobalYoutube {
+	background: url(/web/20101225005048im_/http://www.chevrolet.com/assets/en/images/global/navigation/youtube_icon.jpg) transparent 0px -18px no-repeat;
+	width: 18px; 
+	height: 18px;
+	display:block;
+}
+
+a#mdsNavGlobalFacebook:hover {
+	background: url(/web/20101225005048im_/http://www.chevrolet.com/assets/en/images/global/navigation/facebook_icon.jpg) transparent 0px 0px no-repeat;
+}
+
+a#mdsNavGlobalTwitter:hover {
+	background: url(/web/20101225005048im_/http://www.chevrolet.com/assets/en/images/global/navigation/twitter_icon.jpg) transparent 0px 0px no-repeat;
+}
+
+a#mdsNavGlobalYoutube:hover {
+	background: url(/web/20101225005048im_/http://www.chevrolet.com/assets/en/images/global/navigation/youtube_icon.jpg) transparent 0px 0px no-repeat;
+}
+
+#gnav {
+	background-color:#4E4F50;
+	border:1px solid #EBEBEB;
+	clear:both;
+	display:block;
+	float:left;
+	position:relative;
+	top:-22px;
+	width:977px;
+	margin-bottom:-12px;
+	margin-top:2px;
+	z-index: 9999;
+}
+
+
+#gnav a {
+	text-decoration: none !important;
+}
+
+#gnav ul {
+	border:2px solid white;
+	float:left;
+	width:973px;
+}
+
+#gnav ul li.header {
+	position: relative;
+}
+
+#gnav ul li.header a {
+	display: block;
+	padding:4px 28px 4px 15px;
+	float: left;
+	color: white !important;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 13px !important;
+	text-decoration: none;
+	border-right: 1px solid #4E4F50  !important;
+	border-left: 1px solid #4E4F50 !important;
+}
+
+
+
+#gnav ul li.header .arrow {
+	color:white !important;
+	display:block;
+	float:left;
+	margin-right:25px;
+	position:absolute;
+	top:10px;
+	_top:5px;
+	right: -15px;
+}
+
+#gnav ul li.header a.headerSelected {
+	background-color: #b6b6b6;
+	border-right: 1px solid #e0e0e0 !important;
+	border-left: 1px solid #e0e0e0 !important;
+}
+
+.bb-closed,
+.sub-closed,
+.section-closed {
+	display: none !important;
+}
+
+.bb-open {
+	background-color:white;
+	border-left: 1px solid #e6e6e6;
+	min-height:237px;
+	_height: 251px;
+	position:absolute;
+	top:1px;
+	width:359px;
+	z-index: 800;
+}
+
+.bb-open sup {
+	font-family: arial;
+	font-size: 8px;
+}
+
+.bb-open .asset {
+	display:block;
+	position: absolute;
+	top:50px;
+	left: 12px;
+	width:300px;
+}
+
+.bb-open .future-asset {
+	left: 18px !important;
+}
+
+.bb-open .title {
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	font-size: 18px !important;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #4e4f50;
+	width: 300px;
+}
+
+.bb-open .sIFR-alternate {
+	display: none;
+}
+
+.bb-open .msrp {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	font-size: 17px !important;
+	font-weight: bolder;
+}
+
+.bb-open .small-msrp {
+	font-size: 9px !important;
+	position: absolute;
+	top: 8px;
+	right: 20px;
+	letter-spacing: -1px;
+}
+
+.bb-open .btn {
+	position: absolute;
+	bottom: 12px;
+	left: 10px;
+}
+
+.bb-open .btn a.learnmore {
+	background: url(/web/20101225005048im_/http://www.chevrolet.com/assets/en/images/global/navigation/learn_more_off.gif) transparent no-repeat;
+	width: 147px;
+	height: 32px;
+	display: block;
+}
+
+.bb-open .btn a.learnmore:hover {
+	background: url(/web/20101225005048im_/http://www.chevrolet.com/assets/en/images/global/navigation/learn_more_on.gif) transparent no-repeat;
+}
+
+.bb-open .btn a.models {
+	background: url(/web/20101225005048im_/http://www.chevrolet.com/assets/en/images/global/navigation/see_all_models_off.gif) transparent no-repeat;
+	width: 147px;
+	height: 32px;
+	display: block;
+}
+.bb-open .btn a.models:hover {
+	background: url(/web/20101225005048im_/http://www.chevrolet.com/assets/en/images/global/navigation/see_all_models_on.gif) transparent no-repeat;
+}
+
+.bb-open .btn a span {	
+	display: none;
+} 
+
+.bb-open .tools {
+	position: absolute;
+	bottom: 12px;
+	right: -7px;
+}
+
+.bb-open .tools ul li {
+	clear:none;
+	margin: 0;
+	padding: 0;
+}
+
+.bb-open .tools ul li a {
+	clear:none;
+	display:block;
+	float:left !important;
+	width: 100px;
+	margin: 0px !important;
+	padding: 0px !important;
+	font-size: 11px !important;
+	letter-spacing: -1px;
+	font-weight:normal;
+}
+
+
+
+.bb-open .asShown {
+	position: absolute;
+	bottom: 32px;
+	right: 8px;
+}
+
+.sub-open {
+	background-color:white;
+	border-left: 1px solid #e6e6e6;
+	border-right: 1px solid #e6e6e6;
+	border-bottom: 1px solid #e6e6e6;
+	min-height:238px;
+	_height: 252px;
+	position:absolute;
+	top:1px;
+	width:554px;
+	z-index: 900;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0){
+.bb-open {
+	min-height:234px;
+}
+.sub-open {
+	min-height:235px;
+}
+}
+
+.sub-open li.hasFlyOut a.navSelected {
+	color: white !important;
+	background: url(/web/20101225005048im_/http://www.chevrolet.com/assets/en/images/global/navigation/flyout-arrow-closed.jpg) transparent 160px 5px no-repeat;
+}
+
+.sub-open li.hasFlyOut a {
+	color: #8b9294 !important;
+	background: url(/web/20101225005048im_/http://www.chevrolet.com/assets/en/images/global/navigation/flyout-arrow-closed.jpg) transparent 160px 5px no-repeat;
+}
+
+.sub-open li.hasFlyOut a:hover {
+	color: white !important;
+}
+
+.section-open {
+	background-color:white;
+	position:absolute;
+	top:71px;
+	width:198px;
+	border-left: 1px solid #e6e6e6;
+	border-right: 1px solid #e6e6e6;
+	border-bottom: 1px solid #e6e6e6;
+	z-index: 19999;
+}
+
+.section-open li {
+	display: block;
+	clear:both;
+}
+
+.section-open li a {
+	display:block;
+	font-weight:bold;
+	margin-left:10px;
+	margin-top:4px;
+	padding:4px 0 3px 4px;
+	text-transform:capitalize;
+	width:170px;
+	font-size: 11px !important;
+}
+
+.Explorer7 .section-open li a,
+.Explorer8 .section-open li a{
+	padding-top:3px;
+}
+
+.section-open ul.toplist a.navSelected {
+	color: white !important;
+	background: url(/web/20101225005048im_/http://www.chevrolet.com/assets/en/images/global/navigation/flyout-arrow-open.jpg) transparent 160px 5px no-repeat;
+}
+
+.section-open ul.toplist a {
+	color: #4e4f50 !important;
+	background: url(/web/20101225005048im_/http://www.chevrolet.com/assets/en/images/global/navigation/flyout-arrow-closed.jpg) transparent 160px 5px no-repeat;
+}
+
+.section-open ul.toplist a:hover {
+	color: white !important;
+}
+
+.section-open ul.nonvehicle a {
+	color: #8b9294 !important;
+	background: url(/web/20101225005048im_/http://www.chevrolet.com/assets/en/images/global/navigation/link-arrow_off.gif) transparent 159px 5px no-repeat;
+	border-bottom: 1px solid #f9f9f9;
+}
+
+.section-open ul.nonvehicle a:hover {
+	color: #fff !important;
+	background: url(/web/20101225005048im_/http://www.chevrolet.com/assets/en/images/global/navigation/link-arrow_on.gif) #b6b6b6 159px 5px no-repeat;
+	border-bottom: 1px solid #f9f9f9;
+}
+
+.section-open ul.nonvehicle a.external {
+	color: #8b9294 !important;
+	background: url(/web/20101225005048im_/http://www.chevrolet.com/assets/en/images/global/navigation/link-arrow-external_off.gif) transparent 158px 3px no-repeat;
+}
+
+.section-open ul.nonvehicle a.external:hover {
+	color: #fff !important;
+	background: url(/web/20101225005048im_/http://www.chevrolet.com/assets/en/images/global/navigation/link-arrow-external_on.gif) #b6b6b6 158px 3px no-repeat;
+}
+
+
+
+a.navSelected:hover {
+	background: url(/web/20101225005048im_/http://www.chevrolet.com/assets/en/images/global/navigation/flyout-arrow-open.jpg) #b6b6b6  160px 5px no-repeat !important;
+}
+
+.navSelected {
+	background: url(/web/20101225005048im_/http://www.chevrolet.com/assets/en/images/global/navigation/flyout-arrow-open.jpg) #b6b6b6  160px 5px no-repeat !important;
+	color: white !important;
+}
+
+.bb-open .tools ul li a:hover {
+	color: #000 !important;
+}
+
+#gnav_vehicles .seperator {
+	border-top:1px solid #DEDEDE;
+	clear:both;
+	display:block;
+	height:2px;
+	left:10px;
+	margin:10px auto 0;
+	position:relative;
+	width:176px;
+} 
+
+/* ============== Subheader ================ */
+
+#gMdsSubNav {
+	background: none !important;
+}
+
+ul#subMenu {
+float:right;
+margin:0;
+text-align:right;
+left:5px;
+}
+
+#subHeader div.subnavitems {
+	right:0;
+	position:absolute;
+top:5px;
+width:750px;
+}
+
+#subHeader {
+	position:relative !important;
+	right:0 !important;
+	overflow: inherit !important;
+
+	
+	clear:both;
+float:right;
+}
+
+ul#subMenu li a span,
+ul#subMenu li a:active span,
+ul#subMenu li a:hover span,
+ul#subMenu li a:visited span,
+ul#subMenu li a,
+ul#subMenu li a:active,
+ul#subMenu li a:hover,
+ul#subMenu li a:visited,
+ul#subMenu li .clickable{
+	text-decoration:none;
+	font-size:10px !important;
+	color: #000000 !important;
+	font-weight: bold !important;
+}
+
+ul#subMenu li a:hover, ul#subMenu li a:hover span, ul#subMenu li.tabActive a, ul#subMenu li.tabActive a span {
+	color: #7caab9 !important;
+	font-weight: bold !important;
+}
+
+.Explorer6 .sub-open {
+	left:10px !important;
+}
+
+
+
+
+/*
+     FILE ARCHIVED ON 00:50:48 Dec 25, 2010 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:50:00 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 139.146
+  exclusion.robots: 0.085
+  exclusion.robots.policy: 0.075
+  RedisCDXSource: 0.641
+  esindex: 0.007
+  LoadShardBlock: 118.685 (3)
+  PetaboxLoader3.datanode: 185.483 (4)
+  PetaboxLoader3.resolve: 107.186 (2)
+  load_resource: 287.48
+*/

@@ -1,0 +1,121 @@
+body { width:7in; background-color:#fff; background-image:none; }
+
+a, a:link, a:visited, a:hover, a:focus, a:active { color:#000; text-decoration:none; }
+
+/* GENERAL STRUCTURE */
+div#utility, div#sidebar,div#submenuFake, div#footer, ul.localnav, ol.toctabs, ul#subtabs, ul#featurenav, form { display:none; }
+div#content { position: inherit;}
+div#bodyRepeater, div#content, div.fade { overflow: visible!important; margin-left:0px!important;}
+div#contentRepeat, div#contentTop,div#content{ min-height:0px!important;} 
+div.fadeFinished, div#submenu, div#modeltopnav, div#disclaimers { display:none!important;}
+div.fade p.disclaimer  { display:block!important; float:none!important; width:auto!important;}
+table tbody tr th {padding:5px 11px 5px 5px;}
+
+body div#container { width:100%; }
+body div#pagebody { width:100%; }
+body div#content { width:100%; margin:0; background:none; }
+
+/* GENERAL PRESENTATIONAL */
+.sectionhead, ul.shoppingtools, ul.nextsteps, li.featureslink { display:none; }
+body hr { height:5px; border-bottom:1px solid #000; }
+dl#masthead { display:none; }
+div#header, div#pagebody { width:780px; background: #fff; }
+
+/* HEADINGS */
+html>body .sIFR-hasFlash h1#pagetitle, html>body .sIFR-hasFlash h2.sifr, html>body .sIFR-hasFlash em.sifr, 
+html>body .sIFR-hasFlash h2.whitebgsifr, html>body .sIFR-hasFlash h2.sifr { background-color:#fff; visibility: hidden !important; }
+html>body .sIFR-replaced { visibility:visible !important; }
+ 
+/* hide for moz print, allow normal flash printing in ie */
+html>body .sIFR-flash, html>body .sIFR-flash object, html>body .sIFR-flash embed {
+display: none !important; height: 0; width: 0; position: absolute; overflow: hidden;
+}
+
+html>body span.sIFR-alternate {
+visibility: visible !important; display: block !important; position: static !important; left: auto !important; top: auto !important;
+}
+
+/* hide plain text for ie print, allow regular sifr headers */
+* html span.sIFR-alternate { visibility:hidden; }
+
+/* SPECIFIC SECTIONS */
+
+/* featurespecs */
+body.printall div#fspec div.dn { display:block!important; font-family:"Lucida Sans Unicode",verdana,sans-serif; }
+body div#fspec { width:7in; margin:0; }
+body div#fspec table {margin:0.5em 0; }
+/*body div#fspec table th { width:0.2in; }*/
+* html div#fspec table th { width:auto; }
+body div#fspec table tr { border-top:1px solid #ccc; }
+div#fspec table tr  { page-break-before: auto; }
+
+div#fspec div#engine  { page-break-after: always; }
+div#fspec div#wheels{ page-break-after: always; }
+div#fspec div#interior { page-break-after: always; }
+div#fspec div#sound  { page-break-after: always; }
+div#fspec div#exterior  { page-break-after: always; page-break-inside:auto;  }
+
+body div#fspec table caption { display:table-caption; margin-top:15px; }
+
+body div#contentRepeat, div#contentTop, div#content, div#fspec {float:left !important; min-height:0px!important; visibility:visible !important}
+body div#fspec table { margin:10px auto;}
+body h1.sIFR-replaced{display:none}
+.sIFR-flash{display:none}
+.chevyLogoMask {display:none; }
+
+td{ page-break-inside: avoid; }
+
+* html body.printall div#fspec div.dn{ display:inline;}
+
+* html div#legend{margin:0px 0px 10px 0px !important; margin-left:0px !important}
+* html .chevyLogoMask{margin:0px !important}
+* html body div#container, div#bodyRepeater{ background:none; padding:0px !important }
+
+table tbody tr td sup {position:relative !important}
+
+/* toc models */
+body.models ol.toc li { float:left; width:138px; margin:0 4px 0 0; padding:6px 0 0 0; }
+body.models ol.toc li h3, body.models ol.toc li p, body.models ol.toc li img { margin:0; padding:0; }
+body.models ol.toc li.current { border:1px solid red; background:#eee; }
+body.models .trimbox { margin-top:50px; border:1px solid #ccc; }
+body.models hr { display:none; }
+body.models div.section { border-top:1px solid #ccc; margin-left:35px; page-break-inside:avoid; clear:none; }
+body.models div.section .dn { display:block; }
+body.models div.section p strong { display:block; }
+span.tocbottom { background:none; display:none; }
+
+
+/* warranty */
+body.warranty h2 { display:block !important; margin-left:10px; font-size:14pt; } /* for print only */
+body.warranty div#fspec { margin-top:-30px; }
+body.warranty div#fspec div { page-break-after:always;}
+
+/*Help Center*/
+body h1{font-size:12px;margin:0 0 5px 0;padding: 0 0 0 10px;float:left;display:block; width:605px; text-transform:uppercase;}
+body div.hidden{display:block}
+body div.hidden dl dt{float:left;display:block; width:570px;margin:10px 0 10px 0; padding-left:30px;background:url(/web/20071115040601im_/http://www.chevrolet.com/i/pic/helpcenter/minus.jpg) no-repeat 2px 1px;}
+body div.hidden dl dd{float:left;display:block; width:570px;margin:10px 0 10px 0; padding-left:30px;line-height:15px;}
+body div.question dl dt{float:left;display:block; width:570px;margin:10px 0 10px 0; padding-left:30px;background:url(/web/20071115040601im_/http://www.chevrolet.com/i/pic/helpcenter/minus.jpg) no-repeat 2px 1px;}
+body div.question dl dd{float:left;display:block; width:570px;margin:10px 0 10px 0; padding-left:30px;line-height:15px;}
+body div#footer { display:none; }
+/*======================*/
+/*
+     FILE ARCHIVED ON 04:06:01 Nov 15, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:00:28 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 86.988
+  exclusion.robots: 0.067
+  exclusion.robots.policy: 0.057
+  cdx.remote: 0.054
+  esindex: 0.01
+  LoadShardBlock: 52.876 (3)
+  PetaboxLoader3.datanode: 54.121 (4)
+  load_resource: 57.111
+  PetaboxLoader3.resolve: 29.45
+*/

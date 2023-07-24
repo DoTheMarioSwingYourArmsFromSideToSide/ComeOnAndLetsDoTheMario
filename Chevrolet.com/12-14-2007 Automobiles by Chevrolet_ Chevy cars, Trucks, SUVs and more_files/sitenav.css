@@ -1,0 +1,309 @@
+.chevyLogoMask{
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/i/06/branding/chevylogo_en.png');
+	width:180px;
+	height:58px;
+	cursor:pointer;
+	float:left;
+	margin:10px 0px 7px 22px;
+	padding:0;
+}
+.chevyLogoMaskImg{
+	filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+	width:180px;
+	height:58px;
+}
+
+#sidebar{
+	display:block;
+	overflow:visible;
+	width:180px;
+	min-height:850px;
+	_height:890px;
+	background:url(/web/20071115040825im_/http://www.chevrolet.com/i/06/nav/left_nav_pixel.gif) repeat-y;
+}
+
+/*TITLE*/
+#leftnav h2, #leftnav h2 a{
+	background-image: url(/web/20071115040825im_/http://www.chevrolet.com/i/06/nav/bg_title.gif);
+	width:180px;
+	height:23px;
+	margin:0;
+	padding:0;
+	font-weight:bolder!important;
+}
+
+#leftnav h2, #leftnav h2 a, .navLev1 a, .navLev1 h3, navLev2 a{
+	font-family:Verdana;
+	float:none;
+	font-size:11px;
+	color:#003366;
+	text-decoration:none;
+	font-weight:normal;
+	cursor:pointer;
+}
+#leftnav h2{cursor:pointer;}
+/*title position*/
+#leftnav h2 span{
+	display:block;
+	padding:4px 0 0 10px;
+	font-size: 11px;
+}
+#leftnav h2.off, #leftnav h2#hextras{background-image: url(/web/20071115040825im_/http://www.chevrolet.com/i/06/nav/btn_title_arrow_down.gif);}
+#leftnav h2.on{background-image: url(/web/20071115040825im_/http://www.chevrolet.com/i/06/nav/btn_title_arrow_up.gif)!important;}
+
+/*First menu element*/
+
+.navLev1 a.first{
+	display:block;
+	background-image: url(/web/20071115040825im_/http://www.chevrolet.com/i/06/nav/bg_menuFirst.gif);
+	width:180px;
+	height:26px;
+	margin:0;
+	padding:0;
+}
+
+.navLev1 a.first:hover{
+	background-image: url(/web/20071115040825im_/http://www.chevrolet.com/i/06/nav/bg_menuFirst_over.gif);
+	color:#FFFFFF;
+	font-weight:bolder;
+	font-size: 11px;
+}
+
+.navLev1 a.first span{
+	display:block;
+	padding:9px 0 0 11px;
+}
+/*Menu to expand element*/
+.navLev1 h3{
+	display:block;
+	background-image: url(/web/20071115040825im_/http://www.chevrolet.com/i/06/nav/bg_menuExpand.gif);
+	width:180px;
+	height:19px;
+	margin:0;
+	padding:0;
+}
+.navLev1 h3.over{
+	background-image: url(/web/20071115040825im_/http://www.chevrolet.com/i/06/nav/bg_menuExpand_over.gif);
+	color:#FFFFFF;
+	font-weight:bolder;
+}
+
+.navLev1 h3 span{
+	display:block;
+	padding:2px 0 0 11px;
+}
+
+/*Menu to Collapse element*/
+.navLev1 h3.on{
+	display:block;
+	background-image: url(/web/20071115040825im_/http://www.chevrolet.com/i/06/nav/bg_menuCollapse.gif);
+	width:180px;
+	height:19px;
+	margin:0;
+	padding:0;
+}
+/*Menu Regular Link*/
+.navLev1 a{
+	display:block;
+	background-image: url(/web/20071115040825im_/http://www.chevrolet.com/i/06/nav/bg_menu.gif);
+	width:180px;
+	height:19px;
+	margin:0;
+	padding:0;
+}
+
+.navLev1 a:hover, .navLev1 a.over{
+	background-image: url(/web/20071115040825im_/http://www.chevrolet.com/i/06/nav/bg_menu_over.gif);
+	color:#FFFFFF;
+	font-weight:bolder;
+}
+
+.navLev1 a span{
+	display:block;
+	padding:2px 0 0 11px;
+}
+
+/*menu spacer*/
+.spacer{
+	display:block;
+	background-image: url(/web/20071115040825im_/http://www.chevrolet.com/i/06/nav/bg_space.gif);
+	width:180px;
+	height:15px;
+	margin:0;
+	padding:0;
+}
+
+/*submenu link*/
+
+.navLev2 a{
+	display:block;
+	background-image: url(/web/20071115040825im_/http://www.chevrolet.com/i/06/nav/bg_submenu.gif);
+	width:180px;
+	height:19px;
+	margin:0;
+	padding:0;
+}
+.navLev2 a:hover, .navLev2 a.over{
+	background-image: url(/web/20071115040825im_/http://www.chevrolet.com/i/06/nav/bg_submenu_over.gif);
+	color:#003366;
+	font-weight:bolder;
+	width:181px;
+}
+.navLev2 a span{
+	display:block;
+	padding:2px 0pt 0pt 20px;
+}
+
+/*Model Name Title*/
+#carActive a.over{
+	display:block;
+	background-image: url(/web/20071115040825im_/http://www.chevrolet.com/i/06/nav/bg_modelName.gif);
+	width:180px;
+	height:26px;
+	margin:0;
+	padding:0;
+	text-decoration:none;
+}
+
+#carActive a.over:hover{
+	background-image: url(/web/20071115040825im_/http://www.chevrolet.com/i/06/nav/bg_modelName.gif);
+	text-decoration:none;
+	font-weight:bolder;
+}
+
+#carActive a.over span{
+	display:block;
+	padding:7px 0pt 0pt 10px;
+	font-size: 11px;
+	font-weight:bold !important;
+	color: #003366 !important;
+	text-decoration: none !important;
+}
+#carActive a.over{
+	background-image: url(/web/20071115040825im_/http://www.chevrolet.com/i/06/nav/bg_modelName.gif);
+	text-decoration:none;
+	font-weight:bolder;
+}
+/*submenu First link*/
+
+.navLev2 a.sFirst{
+	display:block;
+	background-image: url(/web/20071115040825im_/http://www.chevrolet.com/i/06/nav/bg_submenuFirst.gif);
+	width:180px;
+	height:21px;
+	margin:0;
+	padding:0;
+	text-decoration:none;
+}
+
+.navLev2 a.sFirst:hover{
+	background-image: url(/web/20071115040825im_/http://www.chevrolet.com/i/06/nav/bg_submenuFirst_over.gif)!important;
+	color:#003366;
+	font-weight:bolder;
+}
+
+.navLev2 a.sFirst span{
+	padding:4px 0pt 0pt 20px;
+}
+
+
+/*submenu Last link*/
+
+.navLev2 a.sLast{
+	display:block;
+	background-image: url(/web/20071115040825im_/http://www.chevrolet.com/i/06/nav/bg_submenuLast.gif);
+	width:180px;
+	height:23px;
+	margin:0;
+	padding:0pt 0 0 2px;
+}
+
+.navLev2 a.sLast:hover{
+	background-image: url(/web/20071115040825im_/http://www.chevrolet.com/i/06/nav/bg_submenuLast_over.gif)!important;
+	color:#003366;
+	font-weight:bolder;
+}
+
+.navLev2 a.sLast span{
+	display:block;
+	padding:2px 0pt 0pt 18px;
+}
+
+/*Locate Dealer*/
+
+#navFindDealer{
+	display:block;
+	background-image: url(/web/20071115040825im_/http://www.chevrolet.com/i/06/nav/bg_findDealer.gif);
+	width:180px;
+	height:57px;  
+	*height:57px; !important;
+	}
+
+#navFindDealerContainer{
+	font-family:Verdana;
+	float:none;
+	font-size:11px;
+	height:57px; 
+	color:#003366;
+	text-decoration:none;
+	font-weight:normal;
+	}
+	
+	
+#ladzipcode{
+	background:transparent url(/web/20071115040825im_/http://www.chevrolet.com/i/06/bg/findDealer_zip_pixel.gif) repeat-x scroll 0% 100%;
+	margin:0pt 5px 0pt 2px;
+	padding:0pt;
+	width:75px;
+	border-color:#003366;
+	border-style:solid;
+	border-width:1px;
+	height:17px;
+}
+
+#navFindDealerContainer{
+	margin:3px 0 0 10px;
+	}
+	
+#navFindDealerContainer a{
+	background:none!important;
+	height:auto;
+	width:auto;
+	font-size:9px;
+	margin-left:1px;
+}
+#navFindDealerContainer a:hover{
+color:#003366;
+text-decoration:underline;
+}
+
+#navFindDealerContainer form#lad{
+height:20px;
+}
+#navFindDealerContainer form#lad a{margin:0; padding:0;
+_margin-top:1px; !important!;
+
+
+
+
+}
+/*
+     FILE ARCHIVED ON 04:08:25 Nov 15, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:00:23 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 74.305
+  exclusion.robots: 0.069
+  exclusion.robots.policy: 0.059
+  RedisCDXSource: 1.578
+  esindex: 0.009
+  LoadShardBlock: 49.705 (3)
+  PetaboxLoader3.datanode: 83.216 (4)
+  load_resource: 75.17
+  PetaboxLoader3.resolve: 29.778
+*/

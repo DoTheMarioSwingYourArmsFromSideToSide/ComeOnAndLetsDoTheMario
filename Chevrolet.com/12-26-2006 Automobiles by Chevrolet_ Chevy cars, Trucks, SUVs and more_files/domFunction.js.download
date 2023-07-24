@@ -1,0 +1,114 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+// DF1.1 :: domFunction 
+// *****************************************************
+// DOM scripting by brothercake -- http://www.brothercake.com/
+// GNU Lesser General Public License -- http://www.gnu.org/licenses/lgpl.html
+//******************************************************
+
+function domFunction(f, a)
+{
+	var n = 0;
+	var t = setInterval(function()
+	{
+		var c = true;
+
+		n++;
+
+		if(typeof document.getElementsByTagName != 'undefined' && (document.getElementsByTagName('body')[0] != null || document.body != null))
+		{
+			c = false;
+
+			if(typeof a == 'object')
+			{
+				for(var i in a)
+				{
+					if(	
+							(a[i] == 'class' && !checkElementByTagClass(i.split('.')[0], i.split('.')[1]))
+						||
+							(a[i] == 'id' && document.getElementById(i) == null)
+						||
+							(a[i] == 'tag' && document.getElementsByTagName(i).length < 1)
+						) 
+					{ 
+						c = true; 
+						break; 
+					}
+				}
+			}
+			if(!c) {f(); clearInterval(t); }
+		}
+		
+		if(n >= 100)
+		{
+			clearInterval(t);
+		}
+		
+	}, 250);
+};
+
+var loadFuctionArray = new Array();
+function loadFunction()
+{
+	if(typeof document.getElementsByTagName != 'undefined' && (document.getElementsByTagName('body')[0] != null || document.body != null))
+		{
+			for(var j=0; j< loadFuctionArray.length; j++){
+				c = false;
+	
+				if(typeof loadFuctionArray[j].a == 'object')
+				{	
+					var a = loadFuctionArray[j].a;
+					for(var i in a)
+					{
+						if
+						(
+							(a[i] == 'id' && document.getElementById(i) == null)
+							||
+							(a[i] == 'tag' && document.getElementsByTagName(i).length < 1)
+						) 
+						{ 
+							c = true; 
+							break; 
+						}
+					}
+				}
+				if(!c) { loadFuctionArray[j].f();  }
+			}
+	}
+}
+
+
+
+
+
+}
+/*
+     FILE ARCHIVED ON 21:52:53 Dec 26, 2006 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 21:43:43 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 110.531
+  exclusion.robots: 0.068
+  exclusion.robots.policy: 0.06
+  RedisCDXSource: 0.7
+  esindex: 0.007
+  LoadShardBlock: 87.712 (3)
+  PetaboxLoader3.datanode: 62.981 (4)
+  load_resource: 121.571
+  PetaboxLoader3.resolve: 83.279
+*/

@@ -1,0 +1,35 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+var ipDef = {"Domains":"[\"*.choicehotels.com\",\"iperceptions.com\",\"replatformqaext.choicehotels.com\"]","CustomInviteScript":null,"IntegrationScript":null,"Invites":[{"ProjectInviteTriggers":[{"ProjectInviteTriggerConditions":[{"CompanyInviteRule":null,"Id":39894,"ProjectInviteTriggerId":36986,"CompanyInviteRuleId":null,"ConditionTypeId":1,"ConditionVariableId":null,"ConditionOperationId":1,"Value":"1","Order":1,"IsAnd":true,"IsRuleCondition":false,"Parameter":"","ConditionVariable":null},{"CompanyInviteRule":null,"Id":41604,"ProjectInviteTriggerId":36986,"CompanyInviteRuleId":null,"ConditionTypeId":2,"ConditionVariableId":null,"ConditionOperationId":4,"Value":"choicehotels.com","Order":2,"IsAnd":true,"IsRuleCondition":false,"Parameter":"","ConditionVariable":null},{"CompanyInviteRule":null,"Id":46918,"ProjectInviteTriggerId":36986,"CompanyInviteRuleId":null,"ConditionTypeId":2,"ConditionVariableId":null,"ConditionOperationId":5,"Value":"vacation-rentals","Order":3,"IsAnd":true,"IsRuleCondition":false,"Parameter":"","ConditionVariable":null},{"CompanyInviteRule":null,"Id":50665,"ProjectInviteTriggerId":36986,"CompanyInviteRuleId":null,"ConditionTypeId":2,"ConditionVariableId":null,"ConditionOperationId":5,"Value":"ipetestCC","Order":4,"IsAnd":true,"IsRuleCondition":false,"Parameter":"","ConditionVariable":null}],"Id":36986,"ProjectInviteId":30341,"LanguageId":1,"InviteTypeId":1,"DesktopRate":null,"MobileRate":null,"TabletRate":null,"IsActive":true}],"TemplateId":-10,"Languages":null,"CommentCardUrl":"https://web.archive.org/web/20171223082917/https://az452423.vo.msecnd.net/custom-content-collection/CommentCard_122144_v2.js","DefaultLanguage":1,"LanguageIds":[1],"BlockIp":false,"DomainName":0,"IsEvo":true,"IsProjectActive":true,"Id":30341,"CompanyId":350,"ProjectId":122144,"ReInviteProject":0,"ReInviteOtherProject":1,"CustomScript":null},{"ProjectInviteTriggers":[{"ProjectInviteTriggerConditions":[{"CompanyInviteRule":null,"Id":45824,"ProjectInviteTriggerId":40121,"CompanyInviteRuleId":null,"ConditionTypeId":2,"ConditionVariableId":null,"ConditionOperationId":4,"Value":"vacation-rentals","Order":1,"IsAnd":false,"IsRuleCondition":false,"Parameter":"","ConditionVariable":null},{"CompanyInviteRule":null,"Id":45665,"ProjectInviteTriggerId":40121,"CompanyInviteRuleId":null,"ConditionTypeId":1,"ConditionVariableId":null,"ConditionOperationId":1,"Value":"1","Order":2,"IsAnd":true,"IsRuleCondition":false,"Parameter":"","ConditionVariable":null}],"Id":40121,"ProjectInviteId":32022,"LanguageId":1,"InviteTypeId":1,"DesktopRate":null,"MobileRate":null,"TabletRate":null,"IsActive":true}],"TemplateId":-10,"Languages":null,"CommentCardUrl":"https://web.archive.org/web/20171223082917/https://az452423.vo.msecnd.net/ius-76ebdeea04cf3415fce2e5af20c935b7/123827_636083567662888730","DefaultLanguage":1,"LanguageIds":[1],"BlockIp":false,"DomainName":0,"IsEvo":true,"IsProjectActive":true,"Id":32022,"CompanyId":350,"ProjectId":123827,"ReInviteProject":0,"ReInviteOtherProject":1,"CustomScript":null},{"ProjectInviteTriggers":[{"ProjectInviteTriggerConditions":[{"CompanyInviteRule":null,"Id":50655,"ProjectInviteTriggerId":42308,"CompanyInviteRuleId":null,"ConditionTypeId":2,"ConditionVariableId":null,"ConditionOperationId":4,"Value":"ipetestCC","Order":1,"IsAnd":true,"IsRuleCondition":false,"Parameter":"","ConditionVariable":null}],"Id":42308,"ProjectInviteId":33090,"LanguageId":1,"InviteTypeId":1,"DesktopRate":null,"MobileRate":null,"TabletRate":null,"IsActive":true}],"TemplateId":-10,"Languages":null,"CommentCardUrl":"https://web.archive.org/web/20171223082917/https://az452423.vo.msecnd.net/custom-content-collection/CommentCard124895_v6.js","DefaultLanguage":1,"LanguageIds":[1],"BlockIp":false,"DomainName":0,"IsEvo":true,"IsProjectActive":true,"Id":33090,"CompanyId":350,"ProjectId":124895,"ReInviteProject":0,"ReInviteOtherProject":1,"CustomScript":null}],"CheckMobileDomain":false}
+
+}
+/*
+     FILE ARCHIVED ON 08:29:17 Dec 23, 2017 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:46:29 May 01, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 140.632
+  exclusion.robots: 0.092
+  exclusion.robots.policy: 0.078
+  RedisCDXSource: 0.735
+  esindex: 0.012
+  LoadShardBlock: 117.514 (3)
+  PetaboxLoader3.datanode: 1223.426 (4)
+  load_resource: 1233.732
+  PetaboxLoader3.resolve: 61.879
+*/
