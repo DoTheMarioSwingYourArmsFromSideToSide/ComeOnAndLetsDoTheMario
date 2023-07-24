@@ -1,0 +1,4605 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+/*=====================================================
+   ////////////////// PGL(base class) ///////////////////
+   =====================================================*/
+var dataLayer = {}; // ADOBE ANALYTICS
+var LOCALE_DOCUMENTS = {};
+// consoleが使えない場合は空のオブジェクトを設定しておく
+if (typeof window.console === "undefined") {
+  window.console = {};
+}
+// console.logがメソッドでない場合は空のメソッドを用意する
+if (typeof window.console.log !== "function") {
+  window.console.log = function() {};
+}
+
+//ブラウザ判定処理　対象外ブラウザはすべてexpirationへ遷移
+(function(ua) {
+  // issue:0000661
+  var match = /MSIE (\d+)/.exec(ua);
+  if (match && parseInt(match[1]) < 9) {
+    if (location.pathname != "/requirement/") location = "/requirement/";
+  }
+  // if (!(/Chrome|MSIE [19]|Safari|Firefox/i).test(ua)) {
+  // if (location.pathname != '/requirement/') location = '/requirement/';
+  // }
+})(navigator.userAgent);
+
+var PGL = function() {
+  // 追加CSS読み込み
+  $(
+    '<link rel="stylesheet" type="text/css" href="/share/css/same-origin.css"/>'
+  ).prependTo(document.body);
+
+  this.loadPathDefinitions();
+  PGL.dialog = new PGL.DIALOG();
+  $(document).on("click", ".logout", PGL.UTIL.logout);
+
+  this.beforeRunHandler = function() {
+    var dfd = $.Deferred();
+    dfd.resolve();
+    return dfd.promise();
+  };
+
+  this.checkLoginStatus()
+    .then(this.embedUserInsightBeacon)
+    .then(this.loadStringResources)
+    .then(this.initializeDocument)
+    .then($.proxy(this.beforeRun, this))
+    .done(this.run);
+};
+
+PGL.prototype = {
+  startUp: function() {
+    var dfd = new Deferred();
+
+    return dfd.promise();
+  },
+
+  /**
+   * APIパス・定数読み込み
+   */
+  loadPathDefinitions: function() {
+    var envname = location.hostname.replace(
+      /(3ds)(?:-sp|-3ds)?\.pokemon-gl\.com$/,
+      "$1"
+    );
+    $('<script src="/share/js/path/' + envname + '.js"></script>').prependTo(
+      document.body
+    );
+  },
+
+  /**
+   * ログイン状態を確認
+   */
+  checkLoginStatus: function() {
+    var dfd = $.Deferred();
+    var self = this;
+
+    // 最初のgetLoginStatusのために仮の言語とTZを用意
+
+    // (A)共通言語判定（失敗時はwwwへ遷移）
+    var supposedLang = PGL.UTIL.getSelectedLanguage();
+    if (supposedLang === null) {
+      location = PGL.INFO.PATH.www;
+      dfd.reject();
+      return;
+    }
+
+    var supposedTZ = PGL.UTIL.getTimezoneFromRegion();
+
+    PGL.REQUEST.postAPI("GET_LOGIN_STATUS", {
+      languageId: supposedLang,
+      timezone: supposedTZ
+    })
+      .done(function(data) {
+        PGL.DATA.GET_LOGIN_STATUS = data;
+        PGL.DATA.SD = data.selectedSavedata;
+
+        // issue:0001839
+        switch (PGL.DATA.GET_LOGIN_STATUS.loginStatus) {
+          case "0": // 未ログイン
+            // (A)共通言語判定（失敗時はwwwへ遷移）
+            PGL.INFO.LANGUAGE_ID = PGL.UTIL.getSelectedLanguage();
+            PGL.INFO.LOCATE = PGL.INFO.TEXT.locate[PGL.INFO.LANGUAGE_ID];
+            if (PGL.INFO.LANGUAGE_ID === null) {
+              location = PGL.INFO.PATH.www;
+              dfd.reject();
+              return;
+            }
+            // (B)言語による連携先判定
+            PGL.INFO.SITE = PGL.UTIL.getSiteFromSelectedLanguage();
+            // (C) 言語によるリージョン判定
+            PGL.INFO.REGION = PGL.UTIL.getRegionFromSelectedLanguage();
+            PGL.INFO.TIME_ZONE = PGL.UTIL.getTimezoneFromRegion();
+
+            $("body")
+              .attr("id", "rom-default")
+              .addClass("not-logged-in");
+
+            var param = {
+              language_id: PGL.INFO.LANGUAGE_ID,
+              site: PGL.INFO.SITE,
+              region: PGL.INFO.REGION
+            };
+            $.cookie("NO_MEMBER_DATA", JSON.stringify(param), { path: "/" });
+
+            if (
+              /^\/(mileage|settings|register\/add|user\/\w-\d{3}-\d{4}-\w\/mileage)\/?$/.test(
+                location.pathname
+              )
+            ) {
+              location = "/login";
+              dfd.reject();
+              return;
+            } else {
+            }
+            break;
+
+          case "1": // ログイン済み、選択前
+            if ($("body").is(".linked-site-related")) {
+              // (E)ゲーム言語と連携サイトによる言語判定
+              PGL.INFO.LANGUAGE_ID = PGL.UTIL.getSiteRelatedLanguage();
+            } else {
+              // (A)共通言語判定（失敗時はwwwへ遷移）
+              PGL.INFO.LANGUAGE_ID = PGL.UTIL.getSelectedLanguage();
+            }
+            PGL.INFO.LOCATE = PGL.INFO.TEXT.locate[PGL.INFO.LANGUAGE_ID];
+            if (PGL.INFO.LANGUAGE_ID === null) {
+              location = PGL.INFO.PATH.www;
+              dfd.reject();
+              return;
+            }
+            // 連携先はAPIから
+            PGL.INFO.SITE = PGL.DATA.GET_LOGIN_STATUS.account.site;
+            // (D)連携サイトと本体リージョンによるリージョン判定
+            PGL.INFO.REGION = PGL.UTIL.getRegionFromLoginData();
+            //PGL.INFO.TIME_ZONE   = PGL.DATA.SD.timezoneAccunt;
+
+            var siteName = [null, "pdc", "com", "pki"][
+              PGL.DATA.GET_LOGIN_STATUS.account.site
+            ];
+            $("body")
+              .attr("id", "rom-default")
+              .addClass("logged-in")
+              .addClass("site-" + siteName);
+
+            if (PGL.DATA.GET_LOGIN_STATUS.savedataList.length == 0) {
+              if (
+                /^\/register\/?$/.test(location.pathname) ||
+                /^\/support/.test(location.pathname)
+              ) {
+                dfd.resolve();
+              } else {
+                location = "/register";
+                dfd.reject();
+                return;
+              }
+            } else {
+              if (
+                /^\/register\/add\/?$/.test(location.pathname) ||
+                /^\/support/.test(location.pathname)
+              ) {
+                // 通常閲覧可能
+              } else if (location.pathname == "/") {
+                // この関数の後続処理が終わったらゲームソフト選択
+                self.beforeRunHandler = function() {
+                  var dfd = $.Deferred();
+                  PGL.selectGameId(PGL.DATA.GET_LOGIN_STATUS);
+                  dfd.resolve();
+                  return dfd.promise();
+                };
+              } else {
+                location = "/";
+                dfd.reject();
+                return;
+              }
+            }
+            break;
+
+          case "2": // ログイン済みかつ選択後
+            if ($("body").is(".linked-site-related")) {
+              // (E)ゲーム言語と連携サイトによる言語判定
+              PGL.INFO.LANGUAGE_ID = PGL.UTIL.getSiteRelatedLanguage();
+            } else {
+              // ゲーム言語
+              PGL.INFO.LANGUAGE_ID = PGL.DATA.SD.languageId;
+            }
+            PGL.INFO.LOCATE = PGL.INFO.TEXT.locate[PGL.INFO.LANGUAGE_ID];
+            // 連携先はAPIから
+            PGL.INFO.SITE = PGL.DATA.GET_LOGIN_STATUS.account.site;
+            // (D)連携サイトと本体リージョンによるリージョン判定
+            PGL.INFO.REGION = PGL.UTIL.getRegionFromLoginData();
+            PGL.INFO.TIME_ZONE = PGL.DATA.SD.timezoneAccunt;
+            PGL.INFO.COUNTRY_ID = PGL.DATA.SD.countryId;
+
+            PGL.DATA.logoImage = PGL.UTIL.logoImg(PGL.DATA.SD.romId);
+            PGL.DATA.romImage = PGL.UTIL.romImg(PGL.DATA.SD.romId);
+            PGL.DATA.tranerImage = PGL.UTIL.tranerImg(PGL.DATA.SD.savedataId);
+
+            var siteName = [null, "pdc", "com", "pki"][
+              PGL.DATA.GET_LOGIN_STATUS.account.site
+            ];
+            $("body")
+              .addClass("logged-in")
+              .addClass("site-" + siteName);
+
+            switch (PGL.DATA.SD.romId) {
+              case "24":
+                $("body")
+                  .attr("id", "rom-x")
+                  .addClass("logged-in-x");
+                break;
+              case "25":
+                $("body")
+                  .attr("id", "rom-y")
+                  .addClass("logged-in-y");
+                break;
+              case "26":
+                $("body")
+                  .attr("id", "rom-as")
+                  .addClass("logged-in-as");
+                break;
+              case "27":
+                $("body")
+                  .attr("id", "rom-or")
+                  .addClass("logged-in-or");
+                break;
+              case "30":
+                $("body")
+                  .attr("id", "rom-s")
+                  .addClass("logged-in-s");
+                break;
+              case "31":
+                $("body")
+                  .attr("id", "rom-m")
+                  .addClass("logged-in-m");
+                break;
+              case "32":
+                $("body")
+                  .attr("id", "rom-us")
+                  .addClass("logged-in-us");
+                break;
+              case "33":
+                $("body")
+                  .attr("id", "rom-um")
+                  .addClass("logged-in-um");
+                break;
+              default:
+                break;
+            }
+
+            if (/^\/register\/?$/.test(location.pathname)) {
+              location = "/";
+              dfd.reject();
+              return;
+            }
+
+            break;
+
+          case "9":
+            PGL.DATA.GET_LOGIN_STATUS.loginStatus = 0;
+            var page01 = {
+              type: "noTitle",
+              id: "DIALOG_ERROR",
+              title: "",
+              detail:
+                '<p class="alingC">多重ログインされた為、ログアウトされました。</p>',
+              buttons: {
+                OK: {
+                  color: "",
+                  action: function() {
+                    location.reload();
+                  }
+                }
+              }
+            };
+            PGL.dialog.init(page01);
+            PGL.dialog.show();
+            break;
+
+          default:
+            PGL.DATA.GET_LOGIN_STATUS.loginStatus = 0;
+        }
+
+        dfd.resolve();
+      })
+      .fail(function(data) {
+        // issue:0003251
+
+        // ログアウトとして扱う
+        PGL.DATA.GET_LOGIN_STATUS = { loginStatus: "0" };
+        // (A)共通言語判定（失敗時はwwwへ遷移）
+        PGL.INFO.LANGUAGE_ID = PGL.UTIL.getSelectedLanguage();
+        PGL.INFO.LOCATE = PGL.INFO.TEXT.locate[PGL.INFO.LANGUAGE_ID];
+        if (PGL.INFO.LANGUAGE_ID === null) {
+          location = PGL.INFO.PATH.www;
+          dfd.reject();
+          return;
+        }
+        // (B)言語による連携先判定
+        PGL.INFO.SITE = PGL.UTIL.getSiteFromSelectedLanguage();
+        // (C) 言語によるリージョン判定
+        PGL.INFO.REGION = PGL.UTIL.getRegionFromSelectedLanguage();
+        PGL.INFO.TIME_ZONE = PGL.UTIL.getTimezoneFromRegion();
+
+        $("body")
+          .attr("id", "rom-default")
+          .addClass("not-logged-in");
+
+        // issue:0001751
+        // 文字列リソースを読み込み後にアラート
+        self.beforeRunHandler = function() {
+          var dfd = $.Deferred();
+          if (data.status_code == "1000" && data.error.code == "0055") {
+            var errorMessage = PGL.UTIL.getLocale(
+              "F-GL-01_MEMBER_DATA_PROCESSING"
+            );
+            if (PGL.UTIL.isSmartphoneDomain()) {
+              alert(errorMessage);
+              PGL.UTIL.logout();
+            } else {
+              // issue:0003360
+              $("<div></div>").dialog({
+                closable: false,
+                content: $("<span></span>").html(errorMessage),
+                buttons: [
+                  {
+                    text: PGL.UTIL.getLocale("GLOSSARY_LOGOUT"),
+                    click: function() {
+                      PGL.UTIL.logout();
+                    }
+                  }
+                ]
+              });
+            }
+
+            dfd.reject();
+          } else if (PGL.REQUEST.statusHandler(data.status_code)) {
+            dfd.resolve();
+          } else {
+            dfd.reject();
+          }
+          return dfd.promise();
+        };
+        dfd.resolve();
+      });
+    return dfd.promise();
+  },
+
+  /**
+   * 文字列リソースを読み込み
+   */
+  loadStringResources: function() {
+    var dfd = $.Deferred();
+    if (PGL.INFO.PAGENAME) {
+      var loadQueue = $.makeArray(PGL.INFO.PAGENAME).concat([
+        "glossary_01",
+        "glossary_02",
+        "glossary_03",
+        "glossary_04",
+        "glossary_05"
+      ]);
+
+      (function() {
+        if (loadQueue.length) {
+          $.getScript(
+            PGL.INFO.PATH.webResources +
+              "/share/locale/" +
+              PGL.INFO.LOCATE +
+              "/" +
+              loadQueue.shift() +
+              ".js",
+            arguments.callee
+          );
+        } else {
+          // issue:0002345,0002819
+          var repl = { BR: "<br/>", BR_PC: "", BR_SP: "", SHY: "\xAD" };
+          if (PGL.UTIL.isSmartphoneDomain()) {
+            repl.BR_SP = "<br/>";
+          } else {
+            repl.BR_PC = "<br/>";
+          }
+
+          $.each(LOCALE_DOCUMENTS, function(key, val) {
+            val = val.replace(/\{(BR|BR_PC|BR_SP|SHY)\}/g, function(
+              match,
+              tag
+            ) {
+              return repl[tag];
+            });
+            LOCALE_DOCUMENTS[key] = PGL.UTIL.italicizeGameTitle(val);
+          });
+
+          $("#wrapper").html($("#template").render(LOCALE_DOCUMENTS));
+          dfd.resolve();
+        }
+      })();
+    } else {
+      dfd.resolve();
+    }
+    return dfd.promise();
+  },
+
+  /**
+   * ユーザーインサイト http://ui.userlocal.jp/ の解析タグを埋め込み
+   */
+  embedUserInsightBeacon: function() {
+    var dfd = $.Deferred();
+    // issue:0003838
+    if (!$(document.body).is(".disable-tracking")) {
+      var lg_id = PGL.DATA.SD ? PGL.DATA.SD.memberSavedataIdCode : "";
+      //<!-- User Insight PCDF Code Start : pokemon-gl.com -->
+      var _uic = (window._uic = window["_uic"] || {});
+      var _uih = (window._uih = window["_uih"] || {});
+      _uih["id"] = 50033;
+      _uih["lg_id"] = lg_id;
+      _uih["fb_id"] = "";
+      _uih["tw_id"] = "";
+      _uih["uigr_1"] = "";
+      _uih["uigr_2"] = "";
+      _uih["uigr_3"] = "";
+      _uih["uigr_4"] = "";
+      _uih["uigr_5"] = "";
+      _uih["uigr_6"] = "";
+      _uih["uigr_7"] = "";
+      _uih["uigr_8"] = "";
+      _uih["uigr_9"] = "";
+      _uih["uigr_10"] = "";
+
+      /* DO NOT ALTER BELOW THIS LINE */
+      /* WITH FIRST PARTY COOKIE */
+      (function() {
+        var bi = document.createElement("scri" + "pt");
+        bi.type = "text/javascript";
+        bi.async = true;
+        bi.src =
+          ("https:" == document.location.protocol ? "https://web.archive.org/web/20200216130517/https://bs" : "http://c") +
+          ".nakanohito.jp/b3/bi.js";
+        var s = document.getElementsByTagName("scri" + "pt")[0];
+        s.parentNode.insertBefore(bi, s);
+      })();
+      //<!-- User Insight PCDF Code End : pokemon-gl.com -->
+
+      // issue:0003859
+      $(document.body).on("mousewheel", function() {
+        window.scrollBy(0, 1);
+        window.scrollBy(0, -1);
+        $(document.body).off("mousewheel");
+      });
+    }
+
+    // ADOBE ANALYTICS // PGL_M-155
+    if (PGL.INFO.REGION == PGL.ENUM.REGION.US) {
+      var langMap = {
+        1: "",
+        2: "en-us",
+        3: "fr-ca",
+        4: "it",
+        5: "de",
+        6: "es-mx"
+      };
+    } else {
+      var langMap = {
+        1: "ja",
+        2: "en-gb",
+        3: "fr",
+        4: "it",
+        5: "de",
+        6: "es",
+        7: "ko",
+        8: "zh-cn",
+        9: "zh-hk"
+      };
+    }
+    var language = langMap[PGL.INFO.LANGUAGE_ID];
+    var re = /:\/\/[^\/]*?(3ds.pokemon-gl.com\/)\//;
+    dataLayer = {
+      SiteValues: {
+        canonicalPath: location.pathname,
+        pageName: document.title,
+        siteSectionL1: document.title,
+        siteSectionL2: "",
+        siteSectionL3: "",
+        pageType: "landing",
+        businessUnit: "",
+        Language: language,
+        SiteErrorType: "",
+        "Internal/External": document.referrer.match(re)
+          ? "internal"
+          : "external",
+        website: "3ds.pokemon-gl.com"
+      },
+      ClickElements: {
+        OutboundLinkName: "",
+        link: ""
+      },
+      Social: {
+        SocialMedia: ""
+      }
+    };
+
+    dfd.resolve();
+    return dfd.promise();
+  },
+
+  /**
+   * ドキュメント初期化
+   */
+  initializeDocument: function() {
+    $(document.body)
+      .addClass("language-" + PGL.INFO.LOCATE)
+      .addClass("lang-" + PGL.INFO.LANGUAGE_ID);
+    // ヘッダー・フッターなど出し分け
+    PGL.setUserStatus(parseInt(PGL.DATA.GET_LOGIN_STATUS.loginStatus));
+
+    // リンク初期化
+    $(document.body).commonLink();
+
+    // テキスト詰め込み
+    $(".squeeze").squeeze();
+  },
+
+  /**
+   * run実行前最終処理
+   */
+  beforeRun: function() {
+    return this.beforeRunHandler();
+  }
+};
+
+/*=====================================================
+   ////////////////////// INFO /////////////////////////
+   =====================================================*/
+
+PGL.INFO = {
+  LANGUAGE_ID: "",
+  LOCATE: "",
+  SITE: "",
+  COOKIE: {},
+  API: {},
+  TEXT: {},
+  ERROR_MESSAGE: {},
+  PGL_START_DATE: new Date(2013, 9, 10),
+  ORAS_START_DATE: new Date(2014, 10, 19)
+};
+
+/*=====================================================
+   ////////////////////// DATA /////////////////////////
+   =====================================================*/
+
+PGL.DATA = {
+  APPEND_OBJ: {}
+};
+
+/*=====================================================
+   ///////////////////// REQUEST ///////////////////////
+   =====================================================*/
+
+PGL.REQUEST = {
+  isApiId: function(apiID) {
+    return PGL.INFO.API[apiID] ? true : false; //apiキーが存在するか
+  },
+
+  getAPI: function(apiID, param) {
+    if (this.isApiId(apiID)) return this.callAPI(apiID, "get", param); //get
+  },
+
+  postAPI: function(apiID, param) {
+    if (this.isApiId(apiID)) return this.callAPI(apiID, "post", param); //post
+  },
+
+  callAPI: function(apiID, method, param) {
+    var _this = this;
+    param = param == undefined ? {} : param;
+    return $.Deferred(function(defer) {
+      $.ajaxPrefilter(function(options, originalOptions, jqXHR) {
+        if (
+          originalOptions.type &&
+          originalOptions.type.toLowerCase() == "post"
+        ) {
+          options.data = jQuery.param(
+            $.extend(originalOptions.data || {}, {
+              timeStamp: new Date().getTime()
+            })
+          );
+        }
+      });
+      // if(location.href.indexOf("photo")>-1){
+      // alert(PGL.INFO.PATH.api+PGL.INFO.API[apiID].url)
+      // }
+      $.ajax({
+        type: method,
+        url: PGL.INFO.PATH.api + PGL.INFO.API[apiID].url,
+        data: param,
+        dataType: PGL.INFO.API[apiID].dataType,
+        headers: {
+          pragma: "no-cache"
+        }
+      })
+        .done(function(data, statusText, arguments) {
+          //通信成功
+          _this.data = data;
+
+          if (
+            apiID == "GET_LOGIN_STATUS" ||
+            apiID == "CHECK_FRIENDLY_COMPETITIONS_USER"
+          ) {
+            // issue:0003251
+            if (_this.data.status_code == "0000") {
+              defer.resolve.apply(this, [_this.data]);
+            } else {
+              // GET_LOGIN_STATUS以外もrejectしたいけど影響範囲が分からないため
+              defer.reject.apply(this, [_this.data]);
+            }
+          } else {
+            _this.data.apiCode = _this.statusHandler(_this.data.status_code);
+            if (_this.data.apiCode != false) {
+              defer.resolve.apply(this, [_this.data]);
+            }
+          }
+        })
+        .fail(function(statusText, error) {
+          //通信失敗
+          defer.reject.apply(this, arguments);
+        });
+    }).promise();
+  },
+
+  encodeHtmlFormData: function(data) {
+    var formData = [];
+    for (var name in data) {
+      var value = data[name];
+      var param = encodeURIComponent(name) + "=" + encodeURIComponent(value);
+      formData.push(param);
+    }
+    return formData.join("&").replace(/%20/g, "+");
+  },
+
+  getQRCode: function(api, params) {
+    return $.Deferred(function(defer) {
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", api, true);
+      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+      xhr.responseType = "arraybuffer";
+      xhr.onload = function() {
+        if (0) {
+          defer.reject.apply(this, [binaryData]);
+        } else {
+          var bytes = new Uint8Array(this.response);
+          var qrSource = window.btoa(String.fromCharCode.apply(String, bytes));
+          defer.resolve.apply(this, [qrSource]);
+        }
+      };
+      xhr.send(PGL.REQUEST.encodeHtmlFormData(params));
+    });
+  },
+
+  statusHandler: function(
+    code //StatusCodeのチェック
+  ) {
+    var _this = this;
+    // issue:0000619
+    var loggedIn =
+      PGL.DATA.GET_LOGIN_STATUS && PGL.DATA.GET_LOGIN_STATUS.loginStatus != "0";
+
+    switch (code) {
+      case "0000": //正常
+        return true;
+
+      case "1000": //準正常:続行可能なアプリケーションエラー
+        return errorApiHandler(_this.data);
+
+      case "2000": //システムエラー
+      case "3000": //DBエラー
+      case "4000":
+        var errorMessage =
+          PGL.UTIL.getLocale("GLOSSARY_SYSTEM_ERROR") + " (" + code + ")";
+
+        if (PGL.UTIL.isSmartphoneDomain()) {
+          alert(errorMessage);
+          if (location.pathname != "/") {
+            location.href = "/";
+          }
+        } else {
+          var params = {
+            type: "noClose",
+            id: "DIALOG_ERROR",
+            title: "",
+            detail: '<p class="alingC">' + errorMessage + "</p>",
+            buttons: {}
+          };
+          params.buttons[PGL.UTIL.getLocale("GLOSSARY_TO_TOPPAGE")] = {
+            color: "",
+            action: function() {
+              location = "/";
+            }
+          };
+
+          if (loggedIn) {
+            params.buttons[PGL.UTIL.getLocale("GLOSSARY_LOGOUT")] = {
+              color: "",
+              action: function() {
+                PGL.UTIL.logout();
+              }
+            };
+          }
+          PGL.dialog.init(params);
+          PGL.dialog.show();
+        }
+        return false;
+        break;
+
+      case "5000": //セッションタイムアウト
+        location.href = "/timeout";
+        return false;
+        break;
+
+      case "6000": //二重ログイン
+        location.href = "/doubleLogin";
+        return false;
+        break;
+
+      case "9000": //メンテナンス中
+        if (PGL.UTIL.isSmartphoneDomain()) {
+          alert("メンテナンス中");
+          if (location.pathname != "/") {
+            location.href = "/";
+          }
+        } else {
+          var params = {
+            type: "noClose",
+            id: "DIALOG_ERROR",
+            title: "",
+            detail: '<p class="alingC">メンテナンス中</p>',
+            buttons: {
+              トップへ戻る: {
+                color: "",
+                action: function() {
+                  location.href = "/";
+                }
+              }
+            }
+          };
+          if (loggedIn) {
+            params.buttons["ログアウト"] = {
+              color: "",
+              action: function() {
+                PGL.UTIL.logout();
+              }
+            };
+          }
+          PGL.dialog.init(params);
+          PGL.dialog.show();
+        }
+        return false;
+        break;
+
+      default:
+        return false;
+        break;
+    }
+  }
+
+  /*errorApiHandler:function(code) //APIエラー管理
+       {
+       return PGL.INFO.ERROR_MESSAGE[code][PGL.INFO.LOCATE];
+       }*/
+};
+
+/*=====================================================
+   ////////////////////// UTIL /////////////////////////
+   =====================================================*/
+PGL.UTIL = {
+  // 取得したデータを挿入
+  APPEND: function(obj) {
+    for (var p in obj) {
+      if (p.indexOf("TX") != -1) {
+        var p2 = p.slice(0, p.length - 2);
+        $("#" + p2)
+          .empty()
+          .text(obj[p]);
+      } else {
+        $("#" + p)
+          .empty()
+          .html(obj[p]);
+      }
+    }
+    //PGL.UTIL.errorImage();
+    /*setTimeout(function()
+           {
+           $("#mainLoad").hide();
+           $("#mainIn").fadeIn(500);
+           },500);*/
+  },
+
+  //通信
+  addRequest: function(api, param) {
+    param = param == undefined ? {} : param;
+    return $.Deferred(function(defer) {
+      PGL.REQUEST.postAPI(api, param)
+        .done(function(data) {
+          defer.resolve.apply(this, [data]);
+        })
+        .fail(function(data) {
+          //console.log(data,"fail");
+        });
+    }).promise();
+  },
+
+  logout: function() {
+    // issue:0002650
+    location = "/logout";
+  },
+
+  scrolltop: function() {
+    $("html,body").animate({ scrollTop: 0 }, 0);
+  },
+
+  scrollToTarget: function(id) {
+    var target = $(id).offset();
+    if (target) {
+      $("html,body").animate({ scrollTop: target.top }, 0);
+    }
+  },
+
+  /*ロム画像
+       -------------------------*/
+  romImg: function(id) {
+    return (
+      '<img src="' +
+      PGL.INFO.PATH.webResources +
+      PGL.INFO.PATH.rom +
+      "rom_" +
+      id +
+      "_" +
+      PGL.INFO.SITE +
+      '.png" height="50px" />'
+    );
+  },
+
+  /*ロゴ画像
+       -------------------------*/
+  logoImg: function(id, lang) {
+    lang = lang || PGL.INFO.LANGUAGE_ID;
+    return (
+      '<img src="' +
+      PGL.INFO.PATH.webResources +
+      PGL.INFO.PATH.logo +
+      "logo_" +
+      id +
+      "_" +
+      lang +
+      '.png" />'
+    );
+  },
+
+  /*トレーナー画像
+       -------------------------*/
+  tranerImg: function(id) {
+    // TODO: ハンドラを仕掛けているのが以下のエレメントなため
+    // HTMLで受け取った呼び出し側がしばらくその画像をDOMに追加しないと、エラー処理が空振る
+    // $('body').on('error', '.trainerIcon')とかでエラー処理したい
+
+    var alterImg = "";
+    if (PGL.UTIL.isSmartphoneDomain()) {
+      alterImg = "/sp/common/images/icon/img_no_profile.png";
+    } else {
+      alterImg = "/share/images/altemate/img_trainer.png";
+    }
+    var className = "trainerIcon" + Math.floor(Math.random() * 0xffffffff);
+    var $builder = $("<div/>")
+      .append(
+        $("<img/>")
+          .attr({
+            src: PGL.INFO.PATH.trainericon + id + ".png",
+            class: className
+          })
+          .error(function(e) {
+            $("." + className).attr({
+              src: PGL.INFO.PATH.cmsUploads + alterImg
+            });
+            return true;
+          })
+      )
+      .html();
+
+    return $builder;
+  },
+
+  addComma: function(num, isCurrency) {
+    if (isNaN(num)) return "";
+    num = parseFloat(num);
+    var r = ("" + num).split(".");
+    var small = num < 10000;
+
+    var fracSep,
+      intSep,
+      C = ",",
+      P = ".",
+      S = " ",
+      B = "";
+    switch (PGL.INFO.LANGUAGE_ID) {
+      case 1:
+        fracSep = P;
+        intSep = C;
+        break; // ja
+      case 2:
+        fracSep = P;
+        intSep = C;
+        break; // en
+      case 3:
+        fracSep = C;
+        intSep = small ? B : S;
+        break; // fr
+      case 4:
+        fracSep = C;
+        intSep = small ? B : P;
+        break; // it
+      case 5:
+        fracSep = C;
+        intSep = isCurrency ? P : S;
+        break; // de
+      case 7:
+        fracSep = C;
+        intSep = small ? B : S;
+        break; // es
+      case 8:
+        fracSep = P;
+        intSep = C;
+        break; // ko
+      case 9:
+        fracSep = P;
+        intSep = C;
+        break; // ch
+      case 10:
+        fracSep = P;
+        intSep = C;
+        break; // tw
+    }
+    r[0] = r[0].replace(/([0-9]+?)(?=(?:[0-9]{3})+(?:$|\.))/g, "$1" + intSep);
+    return r.join(fracSep);
+  },
+
+  /*モデルデータの置換
+       -------------------------*/
+  replace: function(obj, text) {
+    var items = text.match(/{(.+?)}/g) || [];
+    $.each(items, function(i, item) {
+      var m = obj[item.replace(/{|}/g, "")];
+      if (m != undefined) text = text.replace(item, m);
+    });
+    return text;
+  },
+
+  /* アイテムアイコンを取得
+       -------------------------*/
+  getItemImage: function(itemId, w) {
+    itemId = parseInt(itemId);
+    w = parseInt(w) || 40;
+    var id = 0;
+    // issue:0000647
+    //var r = (0x1000000|0x159a55e5*itemId&0xFFFFFF).toString(16).substr(1);
+    var r = (0x1000000 | ((0x159a55e5 * (itemId + id * 0x10000)) & 0xffffff))
+      .toString(16)
+      .substr(1);
+    var h = w;
+    return (markup = [
+      '<img src="' +
+        PGL.INFO.PATH.cmsUploads +
+        '/share/images/spacer.png" style="',
+      "width: " + w + "px; ",
+      "height: " + h + "px; ",
+      "background-image:url(" +
+        PGL.INFO.PATH.cmsUploads +
+        "/share/images/item/" +
+        r +
+        ".png); ",
+      "background-position:left top; ",
+      "background-repeat: no-repeat;",
+      "background-size:100%",
+      '">'
+    ].join(""));
+  },
+
+  /*トレーナー名を取得
+       -------------------------*/
+  getTranerName: function(ruby, name) {
+    return ruby == name
+      ? "<span>&nbsp;</span>" + name
+      : "<span>" + ruby + "</span>" + name;
+  },
+
+  /*トレーナー名を取得 - SP
+       -------------------------*/
+  getTranerNameSP: function(ruby, name) {
+    if (ruby == name) {
+      return [
+        '<p class="userNameRuby"></p>',
+        '<p class="userName">',
+        name,
+        "</p>"
+      ].join("");
+    } else {
+      return [
+        '<p class="userNameRuby">',
+        ruby,
+        "</p>",
+        '<p class="userName">',
+        name,
+        "</p>"
+      ].join("");
+    }
+  },
+
+  /*モデルデータを取得
+       -------------------------*/
+  getModelText: function(param) {
+    return (function() {
+      if (param != undefined) {
+        var model = PGL.INFO.TEXT[param] || {};
+
+        var result =
+          model != {} ? "getModelText SUCCESS///" : "getModelText ERROR///";
+        if (!PGL.INFO.TEXT[param]) console.log(result + param);
+        return $.unescape(model[PGL.INFO.LOCATE]) || "";
+      }
+      // console.log("getModelText ERROR///"+param);
+      return "{" + param + "}";
+    })();
+  },
+
+  /*オブジェクト型のモデルデータを取得
+       -------------------------*/
+  getModelTextObj: function(param, opt) {
+    switch (param) {
+      case "error_code":
+        return PGL.UTIL.getLocale("GLOSSARY_ERROR_CODE_" + opt);
+      case "none_message": // issue:0002321
+        if (opt == "battleteam") {
+          return PGL.UTIL.getLocale("GLOSSARY_ERROR_CODE_1019");
+        } else {
+          return PGL.UTIL.getLocale("GLOSSARY_NO_DATA");
+        }
+      case "battelteam_not_found":
+        return PGL.UTIL.getLocale("GLOSSARY_ERROR_CODE_1109");
+    }
+    //return (param!=undefined)? PGL.INFO.TEXT[param][opt][PGL.INFO.LOCATE]:"";
+    return (function() {
+      if (param != undefined) {
+        var model = PGL.INFO.TEXT[param][opt] || {};
+        return $.unescape(model[PGL.INFO.LOCATE]) || "";
+      }
+      return "{" + param + "}";
+    })();
+  },
+
+  /*翻訳データを取得
+       -------------------------*/
+  getLocale: function(param) {
+    if (param != undefined) {
+      var result = LOCALE_DOCUMENTS[param]
+        ? "getLocale SUCCESS///"
+        : "getLocale ERROR///";
+      /*
+               if (!LOCALE_DOCUMENTS[param])
+               console.log(result+param);
+             */
+      //return $.unescape(LOCALE_DOCUMENTS[param])||"{"+param+"}";
+
+      switch (LOCALE_DOCUMENTS[param]) {
+        // issue:0003070
+        case undefined:
+          // return '';
+          return ""; /*"{"+param+"}:ラベルなし";*/
+
+        case "":
+          // return '';
+          return ""; /*"{"+param+"}:原稿なし";*/
+
+        default:
+          return $.unescape(LOCALE_DOCUMENTS[param]);
+          break;
+      }
+    } else {
+      // console.log("getLocale ERROR///"+param);
+      return "";
+    }
+  },
+
+  /*日時を取得
+       -------------------------*/
+  getDateTime: function(date, suppressOldDate) {
+    if (date == null || typeof date == "undefined") return "";
+    if (!date.match(/\//) && !date.match(/:/)) return "";
+    if (!date.match(/\//)) {
+      // 年月日が設定されていない
+      return PGL.UTIL.getTime("2016/11/15 " + date); //dummyの年月日を付加
+    }
+
+    format = PGL.INFO.TEXT.formatDateTime[PGL.INFO.LOCATE];
+    if (date.length < 12) {
+      format = PGL.INFO.TEXT.formatDate[PGL.INFO.LOCATE];
+    }
+    return PGL.UTIL.date.format(date, format, suppressOldDate);
+  },
+
+  /*短縮日時を取得
+       -------------------------*/
+  getDateTimeS: function(date, suppressOldDate) {
+    return PGL.UTIL.date.format(
+      date,
+      PGL.INFO.TEXT.formatDateTimeS[PGL.INFO.LOCATE],
+      suppressOldDate
+    );
+  },
+
+  /*改行した日時を取得
+       -------------------------*/
+  getDateTimeBR: function(date, suppressOldDate) {
+    return PGL.UTIL.date.format(
+      date,
+      PGL.INFO.TEXT.formatDateTimeBR[PGL.INFO.LOCATE],
+      suppressOldDate
+    );
+  },
+  /*改行した日時を取得
+       -------------------------*/
+  getDateTimeSBR: function(date, suppressOldDate) {
+    return PGL.UTIL.date.format(
+      date,
+      PGL.INFO.TEXT.formatDateTimeSBR[PGL.INFO.LOCATE],
+      suppressOldDate
+    );
+  },
+  /*日付を取得
+       -------------------------*/
+  getDate: function(date, suppressOldDate) {
+    return PGL.UTIL.date.format(
+      date,
+      PGL.INFO.TEXT.formatDate[PGL.INFO.LOCATE],
+      suppressOldDate
+    );
+  },
+
+  /*短縮した日付を取得
+       -------------------------*/
+  getDateS: function(date, suppressOldDate) {
+    return PGL.UTIL.date.format(
+      date,
+      PGL.INFO.TEXT.formatDateS[PGL.INFO.LOCATE],
+      suppressOldDate
+    );
+  },
+
+  /*日付を取得
+       -------------------------*/
+  getDateDay: function(date, suppressOldDate) {
+    return PGL.UTIL.date.format(
+      date,
+      PGL.INFO.TEXT.formatDateDay[PGL.INFO.LOCATE],
+      suppressOldDate
+    );
+  },
+
+  /*短縮した日付を取得
+       -------------------------*/
+  getDateDayS: function(date, suppressOldDate) {
+    return PGL.UTIL.date.format(
+      date,
+      PGL.INFO.TEXT.formatDateDayS[PGL.INFO.LOCATE],
+      suppressOldDate
+    );
+  },
+
+  /*年月を取得
+       -------------------------*/
+  getMonth: function(date, suppressOldDate) {
+    return PGL.UTIL.date.format(
+      date,
+      PGL.INFO.TEXT.formatMonth[PGL.INFO.LOCATE],
+      suppressOldDate
+    );
+  },
+
+  /*時刻を取得
+       -------------------------*/
+  getTime: function(date) {
+    return PGL.UTIL.date.format(
+      date,
+      PGL.INFO.TEXT.formatTime[PGL.INFO.LOCATE],
+      false
+    );
+  },
+
+  getTimezone: function(timezone, st, ed, template) {
+    var br = 0;
+    return this.getTimezoneV2(timezone, st, ed, template, br);
+  },
+
+  getTimezoneBr: function(timezone, st, ed, template) {
+    var br = 1;
+    return this.getTimezoneV2(timezone, st, ed, template, br);
+  },
+
+  getTimezoneV1: function(timezone, st, ed, template) {
+    if (typeof template === "boolean" && template) {
+      return $("<p/>")
+        .addClass("timeZone template")
+        .append(
+          $("<span/>")
+            .addClass("zone")
+            .append($("<span/>").text(timezone)),
+          $("<span/>")
+            .addClass("time")
+            .append(
+              $("<span/>")
+                .addClass("st")
+                .text(this.getDateTime(st)),
+              $("<span/>")
+                .addClass("del")
+                .text("-"),
+              $("<span/>")
+                .addClass("ed")
+                .text(this.getDateTime(ed))
+            )
+        )
+        .get(0).outerHTML;
+    } else {
+      return $("<p/>")
+        .addClass("timeZone")
+        .append(
+          $("<span/>").text(timezone),
+          $.parseHTML(this.getDateTime(st) + "-" + this.getDateTime(ed))
+        )
+        .get(0).outerHTML;
+    }
+  },
+
+  /*日時を取得
+       -------------------------*/
+  getDateTimeV2: function(date, suppressOldDate) {
+    if (date == null || typeof date == "undefined") return "";
+    if (!date.match(/\//) && !date.match(/:/)) return "";
+    if (!date.match(/\//)) {
+      // 年月日が設定されていない
+      return PGL.UTIL.getTime("2016/11/15 " + date); //dummyの年月日を付加
+    }
+
+    format = PGL.INFO.TEXT.formatDateTimeV2[PGL.INFO.LOCATE];
+    if (date.length < 12) {
+      format = PGL.INFO.TEXT.formatDate[PGL.INFO.LOCATE];
+    }
+    return PGL.UTIL.date.format(date, format, suppressOldDate);
+  },
+
+  getTimezoneV2: function(timezone, st, ed, template, br) {
+    var br = br || 0;
+    var prefix = $("<span/>");
+    if (PGL.INFO.LOCATE == "fr") {
+      prefix.text("Du ");
+    }
+    if (typeof template === "boolean" && template) {
+      return $("<p/>")
+        .addClass("timeZone template")
+        .append(
+          $("<span/>")
+            .addClass("zone")
+            .append($("<span/>").text(timezone)),
+          $("<span/>")
+            .addClass("time")
+            .append(
+              prefix.text(),
+              $("<span/>")
+                .addClass("st")
+                .text(this.getDateTimeV2(st)),
+              $("<span/>")
+                .addClass("del")
+                .text(PGL.INFO.TEXT.formatDateDelimiter[PGL.INFO.LOCATE]),
+              $("<span/>")
+                .addClass("ed")
+                .text(this.getDateTimeV2(ed))
+            )
+        )
+        .get(0).outerHTML;
+    } else {
+      return $("<p/>")
+        .addClass("timeZone")
+        .append(
+          $("<span/>").text(timezone),
+          prefix.text(),
+          $.parseHTML(
+            this.getDateTimeV2(st) +
+              PGL.INFO.TEXT.formatDateDelimiter[PGL.INFO.LOCATE] +
+              (br === 1 ? "<br/>" : "") +
+              this.getDateTimeV2(ed)
+          )
+        )
+        .get(0).outerHTML;
+    }
+  },
+
+  getUTC: function(st, ed, template) {
+    return this.getUTCV2(st, ed, template);
+  },
+
+  getUTCV1: function(st, ed, template) {
+    if (typeof template === "boolean" && template) {
+      return $("<p/>")
+        .addClass("timeUTC template")
+        .append(
+          $("<span/>")
+            .addClass("zone")
+            .append($("<span/>").text("UTC")),
+          $("<span/>")
+            .addClass("time")
+            .append(
+              $("<span/>")
+                .addClass("st")
+                .text(this.getDateTime(st)),
+              $("<span/>")
+                .addClass("del")
+                .text("-"),
+              $("<span/>")
+                .addClass("ed")
+                .text(this.getDateTime(ed))
+            )
+        )
+        .get(0).outerHTML;
+    } else {
+      return $("<p/>")
+        .addClass("timeUTC")
+        .append(
+          $("<span/>").text("UTC"),
+          $.parseHTML(this.getDateTime(st) + "-" + this.getDateTime(ed))
+        )
+        .get(0).outerHTML;
+    }
+  },
+
+  getUTCV2: function(st, ed, template) {
+    var prefix = $("<span/>");
+    if (PGL.INFO.LOCATE == "fr") {
+      prefix.text("Du ");
+    }
+
+    if (typeof template === "boolean" && template) {
+      return $("<p/>")
+        .addClass("timeUTC template")
+        .append(
+          $("<span/>")
+            .addClass("zone")
+            .append($("<span/>").text("UTC")),
+          $("<span/>")
+            .addClass("time")
+            .append(
+              prefix.text(),
+              $("<span/>")
+                .addClass("st")
+                .text(this.getDateTimeV2(st)),
+              $("<span/>")
+                .addClass("del")
+                .text(PGL.INFO.TEXT.formatDateDelimiter[PGL.INFO.LOCATE]),
+              $("<span/>")
+                .addClass("ed")
+                .text(this.getDateTimeV2(ed))
+            )
+        )
+        .get(0).outerHTML;
+    } else {
+      return $("<p/>")
+        .addClass("timeUTC")
+        .append(
+          $("<span/>").text("UTC"),
+          prefix.text(),
+          $.parseHTML(
+            this.getDateTimeV2(st) +
+              PGL.INFO.TEXT.formatDateDelimiter[PGL.INFO.LOCATE] +
+              this.getDateTimeV2(ed)
+          )
+        )
+        .get(0).outerHTML;
+    }
+  },
+
+  getEventPeriodString: function(info) {
+    /*
+           eventSameDateFlg
+           entrySameDateFlg
+           eventStartDateHideFlg
+           eventStartTimeHideFlg
+           eventEndDateHideFlg
+           eventEndTimeHideFlg
+           entryStartDateHideFlg
+           entryStartTimeHideFlg
+           entryEndDateHideFlg
+           entryEndTimeHideFlg
+         */
+    /*
+           PGL.UTIL.getDateTime(info.entryStartDate) + ' - ' + PGL.UTIL.getDateTime(info.entryEndDate);
+           PGL.UTIL.getDateTime(info.eventStartDate) + ' - ' + PGL.UTIL.getDateTime(info.eventEndDate);
+         */
+    var eventDateString = "";
+    if (info.eventStartDateHideFlg == 1 && info.eventStartTimeHideFlg == 1) {
+      // do nothing
+    } else if (info.eventStartDateHideFlg == 1) {
+      eventDateString += PGL.UTIL.getTime(info.eventStartDate);
+    } else if (info.eventStartTimeHideFlg == 1) {
+      eventDateString += PGL.UTIL.getDate(info.eventStartDate);
+    } else {
+      eventDateString += PGL.UTIL.getDateTime(info.eventStartDate);
+    }
+    if (info.eventSameDateFlg == 0) {
+      eventDateString += " - ";
+      if (info.eventEndDateHideFlg == 1 && info.eventEndTimeHideFlg == 1) {
+        // do nothing
+      } else if (info.eventEndDateHideFlg == 1) {
+        eventDateString += PGL.UTIL.getTime(info.eventEndDate);
+      } else if (info.eventEndTimeHideFlg == 1) {
+        eventDateString += PGL.UTIL.getDate(info.eventEndDate);
+      } else {
+        eventDateString += PGL.UTIL.getDateTime(info.eventEndDate);
+      }
+    }
+
+    var entryDateString = "";
+    if (info.entryStartDateHideFlg == 1 && info.entryStartTimeHideFlg == 1) {
+      // do nothing
+    } else if (info.entryStartDateHideFlg == 1) {
+      entryDateString += PGL.UTIL.getTime(info.entryStartDate);
+    } else if (info.entryStartTimeHideFlg == 1) {
+      entryDateString += PGL.UTIL.getDate(info.entryStartDate);
+    } else {
+      entryDateString += PGL.UTIL.getDateTime(info.entryStartDate);
+    }
+    if (info.entrySameDateFlg == 0) {
+      entryDateString += " - ";
+      if (info.entryEndDateHideFlg == 1 && info.entryEndTimeHideFlg == 1) {
+        // do nothing
+      } else if (info.entryEndDateHideFlg == 1) {
+        entryDateString += PGL.UTIL.getTime(info.entryEndDate);
+      } else if (info.entryEndTimeHideFlg == 1) {
+        entryDateString += PGL.UTIL.getDate(info.entryEndDate);
+      } else {
+        entryDateString += PGL.UTIL.getDateTime(info.entryEndDate);
+      }
+    }
+
+    return [eventDateString, entryDateString];
+  },
+
+  getAge: function(birthday) {
+    var bd = new Date(birthday);
+    var now = new Date();
+    var t0 = PGL.UTIL.date.format(bd, "Ymd");
+    var t1 = PGL.UTIL.date.format(now, "Ymd");
+    var age = Math.floor((t1 - t0) / 10000);
+
+    return age;
+  },
+
+  errorImage: function() {
+    $(".trainerIcon img").error(function() {
+      $(this).attr(
+        "src",
+        PGL.INFO.PATH.cmsUploads + "/share/images/altemate/img_trainer.png"
+      );
+    });
+
+    $("#appendPhotoList img").error(function() {
+      $(this).attr(
+        "src",
+        PGL.INFO.PATH.cmsUploads + "/share/images/altemate/img_photo_thumb.gif"
+      );
+    });
+  },
+
+  getErrorCont: function(name, optClass) {
+    optClass = optClass || "";
+    return [
+      '<div class="errorMessageContainer ',
+      optClass,
+      '">',
+      "<p>",
+      PGL.UTIL.getModelTextObj("none_message", name),
+      "</p>",
+      "</div>"
+    ].join("");
+  },
+
+  getUrlParam: function() {
+    var obj = {};
+    $.each(location.search.substr(1).split("&"), function() {
+      var key = this.split("=");
+      obj[decodeURIComponent(key[0])] = decodeURIComponent(key[1]);
+    });
+    return obj;
+  },
+
+  fillZero: function(n, len) {
+    if (len == undefined) {
+      len = 2;
+    }
+    return ("000000000000000000" + n).substr(-len);
+  },
+
+  getPokemonRankingChartColor: function(index, itemLength) {
+    var colors = ["#CCC", "#AAA", "#888"];
+    if (itemLength % 3 == 1 && index + 1 == itemLength) {
+      return colors[1];
+    }
+    return colors[index % 3];
+  },
+
+  /**
+   *ポケモンランキングのチャートのロールオーバー時カラーを返す
+   * @param typeId タイプ（わざの場合のみ指定）
+   * @return typeIdが指定されていれば技に応じた色、ログインしていれば選択ロムのキーカラー、そうでなければ未ログイン時キーカラー
+   */
+  getPokemonRankingChartHoverColor: function(typeId) {
+    if (typeId) {
+      return [
+        "#B2AC8C",
+        "#934538",
+        "#F45C19",
+        "#4CACC2",
+        "#EAA317",
+        "#7E9ECF",
+        "#04A641",
+        "#967344",
+        "#8F5B98",
+        "#989001",
+        "#7A0049",
+        "#4392D5",
+        "#D7738D",
+        "#625EB3",
+        "#878052",
+        "#5563A4",
+        "#999999",
+        "#FFBBFF"
+      ][typeId - 1];
+    } else if (PGL.DATA.SD) {
+      return {
+        "24": "#006BC5",
+        "25": "#DB092A",
+        "26": "#2375C1",
+        "27": "#C63E51",
+        "30": "#F57C00",
+        "31": "#0288D1",
+        "32": "#EE5736",
+        "33": "#753FB5"
+      }[PGL.DATA.SD.romId];
+    } else {
+      return "#65A723";
+    }
+  },
+
+  getRomSeries: function() {
+    if (PGL.DATA.SD) {
+      switch (PGL.DATA.SD.romId) {
+        case "24":
+        case "25":
+          return "XY";
+        case "26":
+        case "27":
+          return "ASOR";
+        case "30":
+        case "31":
+          return "SM";
+        case "32":
+        case "33":
+          return "USUM";
+      }
+    }
+    return "USUM";
+  },
+
+  getGenerationIdBySavedata: function() {
+    if (PGL.DATA.SD) {
+      switch (PGL.DATA.SD.romId) {
+        case "24":
+        case "25":
+          return "1";
+        case "26":
+        case "27":
+          return "2";
+        case "30":
+        case "31":
+          return "3";
+        case "32":
+        case "33":
+          return "4";
+      }
+    }
+    return "4";
+  },
+
+  getMyPageRomSeries: function() {
+    if (PGL.DATA.GET_MYPAGE_COMMON) {
+      switch (PGL.DATA.GET_MYPAGE_COMMON.common.romId) {
+        case "24":
+        case "25":
+          return "XY";
+        case "26":
+        case "27":
+          return "ASOR";
+        case "30":
+        case "31":
+          return "SM";
+        case "32":
+        case "33":
+          return "USUM";
+      }
+    }
+    return "USUM";
+  },
+
+  getMyPageGenerationId: function() {
+    if (PGL.DATA.GET_MYPAGE_COMMON) {
+      switch (PGL.DATA.GET_MYPAGE_COMMON.common.romId) {
+        case "24":
+        case "25":
+          return 1;
+        case "26":
+        case "27":
+          return 2;
+        case "30":
+        case "31":
+          return 3;
+        case "32":
+        case "33":
+          return 4;
+      }
+    }
+    return 4;
+  },
+
+  getRomGlossaryLabel: function(romId) {
+    switch (parseInt(romId, 10)) {
+      case 24:
+        return "GLOSSARY_TITLE_X";
+      case 25:
+        return "GLOSSARY_TITLE_Y";
+      case 26:
+        return "GLOSSARY_TITLE_AS";
+      case 27:
+        return "GLOSSARY_TITLE_OR";
+      case 30:
+        return "GLOSSARY_TITLE_SUN";
+      case 31:
+        return "GLOSSARY_TITLE_MOON";
+      case 32:
+        return "GLOSSARY_TITLE_US";
+      case 33:
+        return "GLOSSARY_TITLE_UM";
+
+      case 35:
+        return "GLOSSARY_TITLE_RED";
+      case 36:
+        return "GLOSSARY_TITLE_GREEN";
+      case 37:
+        return "GLOSSARY_TITLE_BLUE";
+      case 38:
+        return "GLOSSARY_TITLE_YELLOW";
+      case 39:
+        return "GLOSSARY_TITLE_GOLD";
+      case 40:
+        return "GLOSSARY_TITLE_SILVER";
+      case 41:
+        return "GLOSSARY_TITLE_CRYSTAL";
+    }
+  },
+
+  getRomClassName: function(romId) {
+    switch (parseInt(romId, 10)) {
+      case 24:
+        return "rom-x";
+      case 25:
+        return "rom-y";
+      case 26:
+        return "rom-as";
+      case 27:
+        return "rom-or";
+      case 30:
+        return "rom-s";
+      case 31:
+        return "rom-m";
+      case 32:
+        return "rom-us";
+      case 33:
+        return "rom-um";
+    }
+    return "rom-all";
+  },
+
+  getRomIcons: function(romIds) {
+    var $container = $('<span class="rom-icon-container" />');
+    if (romIds && romIds.length > 0) {
+      $.each(romIds, function() {
+        var romId = this.split("-")[1] || this || 0;
+        var label = parseInt(romId)
+          ? "GLOSSARY_TARGET_ROM_" + romId
+          : "GLOSSARY_TARGET_PGL";
+        var $romIcon = $('<span class="rom-icon" />')
+          .addClass(PGL.UTIL.getRomClassName(romId))
+          .text(PGL.UTIL.getLocale(label));
+        $romIcon.appendTo($container);
+      });
+    }
+    return $container;
+  },
+
+  getSeriesTitleByRomArray: function(targetRom) {
+    var romTitle = [];
+
+    if ($.inArray("32", targetRom) >= 0 && $.inArray("33", targetRom) >= 0) {
+      romTitle.push(PGL.UTIL.getLocale("GLOSSARY_TITLE_US_UM"));
+      targetRom.splice(targetRom.indexOf("32"), 1);
+      targetRom.splice(targetRom.indexOf("33"), 1);
+    }
+    if ($.inArray("30", targetRom) >= 0 && $.inArray("31", targetRom) >= 0) {
+      romTitle.push(PGL.UTIL.getLocale("GLOSSARY_TITLE_SUN_MOON"));
+      targetRom.splice(targetRom.indexOf("30"), 1);
+      targetRom.splice(targetRom.indexOf("31"), 1);
+    }
+    if ($.inArray("26", targetRom) >= 0 && $.inArray("27", targetRom) >= 0) {
+      romTitle.push(PGL.UTIL.getLocale("GLOSSARY_TITLE_OR_AS"));
+      targetRom.splice(targetRom.indexOf("26"), 1);
+      targetRom.splice(targetRom.indexOf("27"), 1);
+    }
+    if ($.inArray("24", targetRom) >= 0 && $.inArray("25", targetRom) >= 0) {
+      romTitle.push(PGL.UTIL.getLocale("GLOSSARY_TITLE_X_Y"));
+      targetRom.splice(targetRom.indexOf("24"), 1);
+      targetRom.splice(targetRom.indexOf("25"), 1);
+    }
+
+    $(targetRom).each(function() {
+      var romId = parseInt(this);
+      romTitle.push(PGL.UTIL.getLocale(PGL.UTIL.getRomGlossaryLabel(romId)));
+    });
+
+    return romTitle;
+  },
+
+  getSeriesTitleStringByRomArray: function(targetRom, lang) {
+    switch (lang) {
+      case 1:
+        var prefix = "『";
+        var delimiter = "』『";
+        var suffix = "』";
+        break;
+      case 8:
+        var prefix = "「";
+        var delimiter = "」「";
+        var suffix = "」";
+        break;
+      case 2:
+      case 3:
+      case 9:
+      case 10:
+        var prefix = "";
+        var delimiter = " / ";
+        var suffix = "";
+        break;
+      default:
+        var prefix = "";
+        var delimiter = "/";
+        var suffix = "";
+        break;
+    }
+
+    var romTitle = [];
+
+    if ($.inArray("24", targetRom) >= 0 && $.inArray("25", targetRom) >= 0) {
+      romTitle.push(
+        [
+          "・",
+          prefix,
+          PGL.UTIL.getLocale(PGL.UTIL.getRomGlossaryLabel(24)),
+          delimiter,
+          PGL.UTIL.getLocale(PGL.UTIL.getRomGlossaryLabel(25)),
+          suffix
+        ].join("")
+      );
+      targetRom.splice(targetRom.indexOf("24"), 1);
+      targetRom.splice(targetRom.indexOf("25"), 1);
+    }
+    if ($.inArray("26", targetRom) >= 0 && $.inArray("27", targetRom) >= 0) {
+      // OR/ASの順
+      romTitle.push(
+        [
+          "・",
+          prefix,
+          PGL.UTIL.getLocale(PGL.UTIL.getRomGlossaryLabel(27)),
+          delimiter,
+          PGL.UTIL.getLocale(PGL.UTIL.getRomGlossaryLabel(26)),
+          suffix
+        ].join("")
+      );
+      targetRom.splice(targetRom.indexOf("27"), 1);
+      targetRom.splice(targetRom.indexOf("26"), 1);
+    }
+    if ($.inArray("30", targetRom) >= 0 && $.inArray("31", targetRom) >= 0) {
+      romTitle.push(
+        [
+          "・",
+          prefix,
+          PGL.UTIL.getLocale(PGL.UTIL.getRomGlossaryLabel(30)),
+          delimiter,
+          PGL.UTIL.getLocale(PGL.UTIL.getRomGlossaryLabel(31)),
+          suffix
+        ].join("")
+      );
+      targetRom.splice(targetRom.indexOf("30"), 1);
+      targetRom.splice(targetRom.indexOf("31"), 1);
+    }
+    if ($.inArray("32", targetRom) >= 0 && $.inArray("33", targetRom) >= 0) {
+      romTitle.push(
+        [
+          "・",
+          prefix,
+          PGL.UTIL.getLocale(PGL.UTIL.getRomGlossaryLabel(32)),
+          delimiter,
+          PGL.UTIL.getLocale(PGL.UTIL.getRomGlossaryLabel(33)),
+          suffix
+        ].join("")
+      );
+      targetRom.splice(targetRom.indexOf("32"), 1);
+      targetRom.splice(targetRom.indexOf("33"), 1);
+    }
+
+    if (
+      $.inArray("35", targetRom) >= 0 &&
+      $.inArray("36", targetRom) >= 0 &&
+      $.inArray("37", targetRom) >= 0 &&
+      $.inArray("38", targetRom) >= 0
+    ) {
+      romTitle.push(
+        [
+          "・",
+          prefix,
+          PGL.UTIL.getLocale(PGL.UTIL.getRomGlossaryLabel(35)),
+          delimiter,
+          PGL.UTIL.getLocale(PGL.UTIL.getRomGlossaryLabel(36)),
+          delimiter,
+          PGL.UTIL.getLocale(PGL.UTIL.getRomGlossaryLabel(37)),
+          delimiter,
+          PGL.UTIL.getLocale(PGL.UTIL.getRomGlossaryLabel(38)),
+          suffix
+        ].join("")
+      );
+      targetRom.splice(targetRom.indexOf("35"), 1);
+      targetRom.splice(targetRom.indexOf("36"), 1);
+      targetRom.splice(targetRom.indexOf("37"), 1);
+      targetRom.splice(targetRom.indexOf("38"), 1);
+    }
+
+    if ($.inArray("39", targetRom) >= 0 && $.inArray("40", targetRom) >= 0) {
+      if ($.inArray("41", targetRom) >= 0) {
+        romTitle.push(
+          [
+            "・",
+            prefix,
+            PGL.UTIL.getLocale(PGL.UTIL.getRomGlossaryLabel(39)),
+            delimiter,
+            PGL.UTIL.getLocale(PGL.UTIL.getRomGlossaryLabel(40)),
+            delimiter,
+            PGL.UTIL.getLocale(PGL.UTIL.getRomGlossaryLabel(41)),
+            suffix
+          ].join("")
+        );
+      } else {
+        romTitle.push(
+          [
+            "・",
+            prefix,
+            PGL.UTIL.getLocale(PGL.UTIL.getRomGlossaryLabel(39)),
+            delimiter,
+            PGL.UTIL.getLocale(PGL.UTIL.getRomGlossaryLabel(40)),
+            suffix
+          ].join("")
+        );
+      }
+      targetRom.splice(targetRom.indexOf("39"), 1);
+      targetRom.splice(targetRom.indexOf("40"), 1);
+      targetRom.splice(targetRom.indexOf("41"), 1);
+    }
+
+    $(targetRom).each(function() {
+      var romId = parseInt(this);
+      romTitle.push([
+        "・",
+        prefix,
+        PGL.UTIL.getLocale(PGL.UTIL.getRomGlossaryLabel(romId)),
+        suffix
+      ]);
+    });
+
+    return romTitle;
+  },
+
+  detectGenerationByURL: function() {
+    var seasonId;
+    var generationId;
+    var romSeries;
+
+    var match = location.pathname
+      .replace("%20", "")
+      .match(/^\/[a-z0-9_-]*\/((old)\/?)?((xy|oras|sm|usum)\/?)?((\d+)\/?)?/);
+    if (match) {
+      if (match[4]) {
+        romSeries = match[4];
+      } else {
+        romSeries = null;
+      }
+      switch (romSeries) {
+        case "xy":
+          generationId = 1;
+          break;
+        case "oras":
+          generationId = 2;
+          break;
+        case "sm":
+          generationId = 3;
+          break;
+        case "usum":
+          generationId = 4;
+          break;
+        default:
+          generationId = 4;
+          break;
+      }
+      if (match[6]) seasonId = parseInt(match[6]);
+    }
+
+    return {
+      romSeries: romSeries,
+      generationId: generationId,
+      seasonId: seasonId
+    };
+  },
+
+  countChar: function(text) {
+    var len = 0;
+    var n = text.length;
+    for (var i = 0; i < n; i++) {
+      var chCode = text.charCodeAt(i);
+      /* || (chCode >= 0xff61 && chCode <= 0xff9f) */
+      if (chCode < 256) {
+        len++;
+      } else {
+        len = len + 2;
+      }
+    }
+    return len;
+  }
+};
+
+(function() {
+  var LANG = { ja: 1, en: 2, fr: 3, it: 4, de: 5, es: 7, ko: 8, ch: 9, tw: 10 };
+  var SITE = { pdc: 1, com: 2, pki: 3 };
+  var REGION = { JP: 0, US: 1, EU: 2, CN: 4, KR: 5, HK: 6 };
+  var PGL_COUNTRY = {
+    JP: 999,
+    GB: 175,
+    FR: 60,
+    IT: 82,
+    DE: 63,
+    ES: 154,
+    KR: 88,
+    US: 176,
+    CA: 31,
+    MX: 106,
+    CH: 75,
+    HK: 75
+  };
+
+  PGL.ENUM = PGL.ENUM || {};
+  $.extend(PGL.ENUM, { LANG: LANG, SITE: SITE, REGION: REGION });
+
+  $.extend(PGL.UTIL, {
+    getLanguageCode: function(langId) {
+      var code = null;
+      $.each(PGL.ENUM.LANG, function(k, v) {
+        if (langId == v) {
+          code = k;
+          return false;
+        }
+      });
+      return code;
+    },
+
+    /**
+     * (A)共通言語判定
+     * @return {Number} 言語を表す1～8の数値、または失敗を表すnull
+     */
+    getSelectedLanguage: function() {
+      if ($.cookie("language_id")) {
+        return parseInt($.cookie("language_id"));
+      } else {
+        var match = (
+          navigator.browserLanguage ||
+          navigator.language ||
+          navigator.userLanguage ||
+          ""
+        ).match(/ja|en|fr|it|de|es|ko/);
+        if (match) {
+          return LANG[match[0]];
+        } else {
+          return null;
+        }
+      }
+    },
+
+    /**
+     * (B)言語による連携先判定
+     * @return {Number} 連携サイトを表す1～3の数値
+     */
+    getSiteFromSelectedLanguage: function() {
+      switch (this.getSelectedLanguage()) {
+        case LANG.ja:
+          return SITE.pdc;
+        case LANG.ko:
+          return SITE.pki;
+        default:
+          return SITE.com;
+      }
+    },
+
+    /**
+     * (C)言語によるリージョン判定
+     * @return {Number} リージョンを表す数値
+     */
+    getRegionFromSelectedLanguage: function() {
+      var regions = [
+        PGL.ENUM.REGION.JP,
+        PGL.ENUM.REGION.US,
+        PGL.ENUM.REGION.EU,
+        PGL.ENUM.REGION.KR
+      ];
+      if ($.inArray(parseInt($.cookie("region")), regions) != -1) {
+        return parseInt($.cookie("region"));
+      } else {
+        var locale = (
+          navigator.browserLanguage ||
+          navigator.language ||
+          navigator.userLanguage ||
+          ""
+        ).split("-");
+        // TODO: 2文字のリストを用意する必要がある
+        if ($.inArray(locale[1], PGL.INFO.TEXT.northAmerica) != -1) {
+          return REGION.US;
+        } else {
+          switch (this.getSelectedLanguage()) {
+            case LANG.ja:
+              return REGION.JP;
+            case LANG.ko:
+              return REGION.KR;
+            default:
+              return REGION.EU;
+          }
+        }
+      }
+    },
+
+    /**
+     * (D)連携サイトと本体リージョンによるリージョン判定
+     * @return {Number} リージョンを表す数値
+     */
+    getRegionFromLoginData: function() {
+      switch (PGL.DATA.GET_LOGIN_STATUS.account.site) {
+        case SITE.pdc:
+          return REGION.JP;
+        case SITE.pki:
+          return REGION.KR;
+        default:
+          if (PGL.DATA.SD) {
+            return parseInt(PGL.DATA.SD.regionId) == REGION.US
+              ? REGION.US
+              : REGION.EU;
+          } else {
+            // TODO: 確認
+            var usCountries = [
+              33,
+              36,
+              38,
+              42,
+              49,
+              50,
+              51,
+              53,
+              67,
+              69,
+              72,
+              73,
+              74,
+              83,
+              100,
+              106,
+              119,
+              126,
+              128,
+              129,
+              137,
+              138,
+              139,
+              143,
+              148,
+              156,
+              168,
+              174,
+              176,
+              177,
+              180,
+              183,
+              192,
+              194,
+              200,
+              201,
+              207
+            ];
+            return $.inArray(
+              PGL.DATA.GET_LOGIN_STATUS.account.countryCooperationId,
+              usCountries
+            ) != -1
+              ? REGION.US
+              : REGION.EU;
+          }
+      }
+    },
+
+    /**
+     * (E)ゲーム言語と連携サイトによる言語判定
+     * @return {Number} 言語を表す1～8の数値
+     */
+    getSiteRelatedLanguage: function() {
+      switch (PGL.DATA.GET_LOGIN_STATUS.account.site) {
+        case SITE.pdc:
+          return LANG.ja;
+        case SITE.pki:
+          return LANG.ko;
+        default:
+          if (PGL.DATA.SD) {
+            var lang = parseInt(PGL.DATA.SD.languageId);
+          } else {
+            var lang = this.getSelectedLanguage();
+          }
+          return $.inArray(lang, [
+            LANG.en,
+            LANG.fr,
+            LANG.it,
+            LANG.de,
+            LANG.es
+          ]) != -1
+            ? lang
+            : LANG.en;
+      }
+    },
+
+    /**
+     * (F)言語・リージョンによる国判定
+     * @return {Number} 連携先の国を表す数値
+     */
+    getCountryFromRegionAndLanguage: function() {
+      if (PGL.UTIL.getRegionFromSelectedLanguage() == REGION.US) {
+        switch (PGL.UTIL.getSelectedLanguage()) {
+          case LANG.en:
+            return PGL_COUNTRY.US;
+          case LANG.fr:
+            return PGL_COUNTRY.CA;
+          case LANG.es:
+            return PGL_COUNTRY.MX;
+        }
+      } else {
+        switch (PGL.UTIL.getSelectedLanguage()) {
+          case LANG.ja:
+            return PGL_COUNTRY.JP;
+          case LANG.en:
+            return PGL_COUNTRY.GB;
+          case LANG.fr:
+            return PGL_COUNTRY.FR;
+          case LANG.it:
+            return PGL_COUNTRY.IT;
+          case LANG.de:
+            return PGL_COUNTRY.DE;
+          case LANG.es:
+            return PGL_COUNTRY.ES;
+          case LANG.ko:
+            return PGL_COUNTRY.KR;
+          case LANG.ch:
+            return PGL_COUNTRY.CH;
+          case LANG.tw:
+            return PGL_COUNTRY.HK;
+        }
+      }
+
+      // ここに到達するのであればgetRegionFromSelectedLanguageの不具合
+      alert("言語判定に失敗しました");
+    },
+
+    getTimezoneFromRegion: function() {
+      switch (PGL.UTIL.getRegionFromSelectedLanguage()) {
+        case REGION.JP:
+          return "Asia/Tokyo";
+        case REGION.KR:
+          return "Asia/Seoul";
+        case REGION.US:
+          return "America/New_York";
+        default:
+          if (PGL.UTIL.getSelectedLanguage() == LANG.en) {
+            return "Europe/London";
+          } else {
+            return "Europe/Rome";
+          }
+      }
+    },
+
+    isLinkableRegion: function(region, site) {
+      switch (site) {
+        case SITE.pdc:
+          return region == REGION.JP;
+        case SITE.com:
+          return region != REGION.JP && region != REGION.KR;
+        case SITE.pki:
+          return region == REGION.KR;
+      }
+    },
+
+    isSmartphoneDomain: function() {
+      return /-sp\.pokemon-gl\.com$/.test(location.hostname);
+    },
+
+    isDeviceMustNew3DS: function() {
+      return /New Nintendo 3DS/i.test(navigator.userAgent);
+    },
+
+    isDeviceMust3DS: function() {
+      return /Nintendo 3DS/i.test(navigator.userAgent);
+    },
+
+    isDeviceMustSP: function() {
+      return /iPhone|iPod|Xperia|Galaxy(?! Tab)/i.test(navigator.userAgent);
+    },
+
+    isDeviceMaySP: function() {
+      return /Phone|Mobile|Android|Windows Phone/i.test(navigator.userAgent);
+    },
+
+    isDeviceMustPC: function() {
+      // lookbehindが無いため
+      return (
+        !/like Mac OS/i.test(navigator.userAgent) &&
+        /Windows(?! Phone)|Mac OS/i.test(navigator.userAgent)
+      );
+    },
+
+    isDeviceMayPC: function() {
+      return (
+        !PGL.UTIL.isDeviceMust3DS() &&
+        !PGL.UTIL.isDeviceMustSP() &&
+        !PGL.UTIL.isDeviceMaySP()
+      );
+    },
+
+    /**
+     * 日時を表す文字列とタイムゾーンを表す文字列を結合して返す
+     * @param  {String} dateString 日時を表す文字列（"2013/10/23"など）
+     * @param  {String} tzName     標準時を表す文字列（"UTC", "JST"など）またはタイムゾーンを表す文字列（"Asia/Tokyo"など）
+     * @return {String}            両者を結合した文字列
+     * @see jQuery.fn.time
+     */
+    concatDateAndTZ: function(dateString, tzName) {
+      return (dateString || "") + " " + (tzName || "");
+    },
+
+    getMedalImage: function(medalId) {
+      var special = {
+        "M-011-1": "famitsu-cup-2014",
+        "M-012-1": "japan-cup-2014",
+        "M2-011-1": "japan-cup-2015"
+      };
+      if (special[medalId]) {
+        return (
+          PGL.INFO.PATH.cmsUploads +
+          "/share/images/medal/" +
+          special[medalId] +
+          ".png"
+        );
+      }
+
+      var n = medalId.split("-")[2] || parseInt(medalId.charAt(6));
+      var level =
+        {
+          /* XY */
+          "A-006-1": 3,
+          "A-007-1": 3,
+          "A-008-1": 3,
+          "A-009-1": 3,
+          "A-010-1": 3,
+          "A-011-1": 3,
+          "A-012-1": 3,
+          "A-013-1": 3,
+          "A-014-1": 3,
+          "A-015-1": 3,
+          "A-016-1": 3,
+          "A-017-1": 3,
+          "A-018-1": 3,
+          "A-019-1": 3,
+          "A-020-1": 3,
+          "A-021-1": 3,
+          "A-022-1": 3,
+          "A-023-1": 3,
+          "A-024-1": 4,
+          "A-025-1": 4,
+          "A-026-1": 4,
+          "A-027-1": 4,
+          "A-028-1": 5,
+          "A-029-1": 3,
+          "A-031-1": 2,
+          "A-032-1": 3,
+          "A-035-1": 2,
+          "A-040-1": 3,
+          "A-043-1": 2,
+          "B-003-1": 3,
+          "B-004-1": 3,
+          "B-007-1": 3,
+          "B-008-1": 3,
+          "B-009-1": 3,
+          "B-010-1": 3,
+          "B-011-1": 3,
+          "B-015-1": 5,
+          "B-016-1": 4,
+          "B-017-1": 3,
+          "B-018-1": 3,
+          "B-020-1": 3,
+          "B-020-2": 4,
+          "B-020-3": 5,
+          "B-021-1": 3,
+          "B-021-2": 4,
+          "B-021-3": 5,
+          "B-022-1": 3,
+          "B-022-2": 4,
+          "B-022-3": 5,
+          "B-023-1": 3,
+          "B-023-2": 4,
+          "B-023-3": 5,
+          "B-024-1": 3,
+          "B-024-2": 4,
+          "B-024-3": 5,
+          "E-002-4": 5,
+          "E-003-1": 3,
+          "E-009-1": 3,
+          "E-010-1": 3,
+          "E-011-1": 3,
+          "E-016-1": 4,
+          "E-022-1": 5,
+          "E-023-1": 5,
+          "E-024-1": 5,
+          "E-025-1": 5,
+          "E-026-1": 5,
+          "E-027-1": 5,
+          "E-028-1": 5,
+          "M-101-2": 3,
+          "M-101-3": 5,
+          "M-102-2": 3,
+          "M-102-3": 5,
+          "M-103-2": 3,
+          "M-103-3": 5,
+          "M-104-2": 3,
+          "M-104-3": 5,
+          "M-105-1": 5,
+          "M-106-2": 3,
+          "M-106-3": 5,
+          /* ORAS */
+          "A2-006-1": 3,
+          "A2-007-1": 3,
+          "A2-008-1": 3,
+          "A2-009-1": 3,
+          "A2-010-1": 3,
+          "A2-011-1": 3,
+          "A2-012-1": 3,
+          "A2-013-1": 3,
+          "A2-014-1": 3,
+          "A2-015-1": 3,
+          "A2-016-1": 3,
+          "A2-017-1": 3,
+          "A2-018-1": 3,
+          "A2-019-1": 3,
+          "A2-020-1": 3,
+          "A2-021-1": 3,
+          "A2-022-1": 3,
+          "A2-023-1": 3,
+          "A2-024-1": 4,
+          "A2-025-1": 5,
+          "A2-026-1": 3,
+          "A2-028-1": 2,
+          "A2-029-1": 3,
+          "A2-032-1": 2,
+          "A2-037-1": 3,
+          "A2-040-1": 2,
+          "A2-042-1": 3,
+          "A2-043-1": 4,
+          "A2-044-1": 3,
+          "A2-045-1": 2,
+          "A2-047-1": 5,
+          "A2-048-1": 4,
+          "B2-003-1": 3,
+          "B2-004-1": 3,
+          "B2-007-1": 3,
+          "B2-008-1": 3,
+          "B2-009-1": 3,
+          "B2-010-1": 3,
+          "B2-011-1": 3,
+          "B2-014-1": 5,
+          "B2-015-1": 4,
+          "B2-016-1": 3,
+          "B2-018-1": 3,
+          "B2-018-2": 4,
+          "B2-018-3": 5,
+          "B2-019-1": 3,
+          "B2-019-2": 4,
+          "B2-019-3": 5,
+          "B2-020-1": 3,
+          "B2-020-2": 4,
+          "B2-020-3": 5,
+          "B2-021-1": 3,
+          "B2-021-2": 4,
+          "B2-021-3": 5,
+          "B2-022-1": 3,
+          "B2-022-2": 4,
+          "B2-022-3": 5,
+          "E2-002-4": 5,
+          "E2-004-1": 3,
+          "E2-005-1": 3,
+          "E2-006-1": 3,
+          "E2-009-1": 4,
+          "E2-015-1": 5
+        }[medalId] || n;
+      return (
+        PGL.INFO.PATH.cmsUploads +
+        "/share/images/medal/" +
+        medalId.charAt(0) +
+        "-" +
+        level +
+        ".png"
+      );
+    },
+
+    /**
+     * 二つの国が同じかどうかを返します。
+     * countryAが持っているID（countryIdまたはcountryCooperationId）を用いて比較するため
+     * countryAには正しい国を渡す必要がありますが
+     * countryBにはPGL.DATA.SDのように曖昧な値を渡すことができます。
+     * @param  {Object}  countryA 比較する国1（必須）
+     * @param  {Object}  countryB 比較する国2（nullやPGL.DATA.SDを与えても良い）
+     * @return {Boolean}          二つの国が同じIDを持っていれば真
+     */
+    isSameCountry: function(countryA, countryB) {
+      if (!countryA || !countryB) {
+        return false;
+      } else if (countryA.countryId) {
+        return countryA.countryId == countryB.countryId;
+      } else {
+        return countryA.countryCooperationId == countryB.countryCooperationId;
+      }
+    },
+
+    // issue:0001038,0001037
+    sortCountries: function(countries, ownCountry) {
+      return countries.sort(function(a, b) {
+        return filter(a) > filter(b) ? 1 : -1;
+      });
+      function filter(country) {
+        return (
+          (PGL.UTIL.isSameCountry(country, ownCountry) ? "a" : "b") +
+          country.countryName
+            .replace(/^É/, "E")
+            .replace(/^Î/, "I")
+            .replace(/^Ä/, "A")
+            .replace(/^Ö/, "O")
+            .replace(/[áàäã]/g, "a")
+            .replace(/[ç]/g, "c")
+            .replace(/[éèë]/g, "e")
+            .replace(/[íï]/g, "i")
+            .replace(/[ñ]/g, "n")
+            .replace(/[óö]/g, "o")
+            .replace(/[úùü]/g, "u")
+            .replace(/^英領/, "エイリョウ")
+            .replace(/^韓国/, "カンコク")
+            .replace(/^赤道/, "セキドウ")
+            .replace(/^台湾/, "タイワン")
+            .replace(/^中央/, "チュウオウ")
+            .replace(/^中国/, "チュウゴク")
+            .replace(/^日本/, "ニホン")
+            .replace(/^米領/, "ベイリョウ")
+            .replace(/^南/, "ミナミ")
+        );
+      }
+    },
+
+    /**
+     * テキスト中のゲームタイトルを斜体化する
+     * @param  {String} text 対象のテキスト
+     * @return {String}      ゲームタイトルが<i></i>で囲まれたHTMLテキスト
+     */
+    italicizeGameTitle: function(text) {
+      return (
+        (text + "")
+          .replace(/Pokémon [XY](?![a-zA-Z0-9])/g, "<i>$&</i>")
+          .replace(/Pokémon (?:White|Black) Version(?: 2)?/g, "<i>$&</i>")
+          .replace(/Pokémon Version (?:Blanche|Noire)(?: 2)?/g, "<i>$&</i>")
+          .replace(/Pokémon Versione (?:Bianca|Nera)(?: 2)?/g, "<i>$&</i>")
+          .replace(/Pokémon (?:Weiße|Schwarze) Edition(?: 2)?/g, "<i>$&</i>")
+          .replace(/Pokémon Edición (?:Blanca|Negra)(?: 2)?/g, "<i>$&</i>")
+          .replace(/Pokémon Omega Ruby/g, "<i>$&</i>")
+          .replace(/Pokémon Rubis Oméga/g, "<i>$&</i>")
+          .replace(/Pokémon Rubino Omega/g, "<i>$&</i>")
+          .replace(/Pokémon Omega Rubin/g, "<i>$&</i>")
+          .replace(/Pokémon Rubí Omega/g, "<i>$&</i>")
+          .replace(/Pokémon Alpha Sapphire/g, "<i>$&</i>")
+          .replace(/Pokémon Saphir Alpha/g, "<i>$&</i>")
+          .replace(/Pokémon Zaffiro Alpha/g, "<i>$&</i>")
+          .replace(/Pokémon Alpha Saphir/g, "<i>$&</i>")
+          .replace(/Pokémon Zafiro Alfa/g, "<i>$&</i>")
+          .replace(/Pokémon (?:Sun|Soleil|Sole|Sonne|Sol)/g, "<i>$&</i>")
+          .replace(/Pokémon (?:Moon|Lune|Luna|Mond|Luna)/g, "<i>$&</i>")
+
+          // PGL_M-178
+          .replace(/Pokémon Ultra(?: Sun|-Soleil|sole|sonne|sol)/g, "<i>$&</i>")
+          .replace(/Pokémon Ultra(?: Moon|-Lune|lune|mond|luna)/g, "<i>$&</i>")
+
+          .replace(/et (Saphir Alpha)/g, "et <i>$1</i>")
+          .replace(/et (Ultra-Lune)/g, "et <i>$1</i>")
+          .replace(/et (Lune)/g, "et <i>$1</i>")
+          //
+          .replace(
+            /Pokémon (?:Red|Blue|Yellow|Gold|Silver|Crystal) Version/g,
+            "<i>$&</i>"
+          )
+          .replace(/: Special Pikachu Edition/g, "<i>$&</i>")
+          .replace(
+            /Pokémon Version (?:Rouge|Bleue|Jaune|Or|Argent|Cristal)/g,
+            "<i>$&</i>"
+          )
+          .replace(
+            /Pokémon Versione (?:Rossa|Blu|Gialla|Oro|Argento|Cristallo)/g,
+            "<i>$&</i>"
+          )
+          .replace(
+            /Pokémon (?:Rote|Blaue|Gelbe|Goldene|Silberne|Kristall-)( )?Edition/g,
+            "<i>$&</i>"
+          )
+          .replace(
+            /Pokémon Edición (?:Roja|Azul|Amarilla|Oro|Plata|Cristal)/g,
+            "<i>$&</i>"
+          )
+
+          .replace(/Pokémon Bank/g, "<i>$&</i>")
+          .replace(/(?:Banque|Banca|Banco de) Pokémon/g, "<i>$&</i>")
+          .replace(/Poké (?:Transporter|Transfert|Trasladador)/g, "<i>$&</i>")
+          .replace(/Pokétrasferitore/g, "<i>$&</i>")
+          .replace(/PokéMover/g, "<i>$&</i>")
+      );
+    },
+
+    toUTCDate: function(date) {
+      function zpad(number) {
+        if (number < 10) {
+          return "0" + number;
+        }
+        return number;
+      }
+
+      return (
+        [
+          date.getUTCFullYear(),
+          zpad(date.getUTCMonth() + 1),
+          zpad(date.getUTCDate())
+        ].join("/") +
+        " " +
+        [
+          zpad(date.getUTCHours()),
+          zpad(date.getUTCMinutes()),
+          zpad(date.getUTCSeconds())
+        ].join(":")
+      );
+    }
+  });
+})();
+
+/*=====================================================
+   ////////////////////// UTIL /////////////////////////
+   =====================================================*/
+PGL.AUTO_PAGE = function(apiID, target, total, count, fn) {
+  var _this = this;
+  _this.apiID = apiID;
+  _this.target = target;
+  _this.total = total;
+  _this.count = count;
+  _this.page = 2;
+  _this.maxPage = Math.ceil(total / count);
+  _this.fn = fn;
+  _this.timer = 1000;
+  _this.loadImage = $("#loading")
+    .text(PGL.UTIL.getLocale("GLOSSARY_LOADING"))
+    .prepend("<span></span>");
+  _this.loadImageSpan = $("span", _this.loadImage).prepend(
+    $("<img />").attr(
+      "src",
+      PGL.INFO.PATH.cmsUploads + "/share/images/loader.gif"
+    )
+  );
+
+  _this.init();
+};
+
+PGL.AUTO_PAGE.prototype = {
+  init: function() {
+    // issue:0000745
+    if (this.maxPage >= this.page)
+      this.checkScrollPosInterval = setInterval($.proxy(this.get, this), 50);
+  },
+
+  get: function() {
+    var _this = this;
+    if (this.maxPage < this.page) return false;
+
+    var pos =
+      _this.target.offset().top + _this.target.height() - $(window).height();
+    if ($(window).scrollTop() > pos) {
+      clearInterval(this.checkScrollPosInterval);
+      _this.loadImage.show();
+      _this.set();
+    }
+  },
+
+  set: function(e) {
+    var _this = this;
+    PGL.REQUEST.postAPI(
+      _this.apiID,
+      $.extend(PGL.DATA.INPUT_OBJ, { page: _this.page, count: _this.count })
+    ).done(function(data) {
+      _this.setTime = setTimeout(function() {
+        _this.loadImage.hide();
+        _this.target.append(_this.fn(data));
+        _this.page++;
+        if (_this.maxPage >= _this.page)
+          _this.checkScrollPosInterval = setInterval(
+            $.proxy(_this.get, _this),
+            50
+          );
+
+        PGL.DATA.TAB_CHANGE = false;
+        PGL.UTIL.errorImage();
+      }, _this.timer);
+    });
+  },
+
+  del: function() {
+    // issue:0001512
+    var _this = this;
+    $("#loading>span").empty();
+    clearInterval(this.checkScrollPosInterval);
+    clearTimeout(_this.setTime);
+  }
+};
+
+/*=====================================================
+   ///////////////////// CONFIRM ///////////////////////
+   =====================================================*/
+
+/*
+ * var page01 = {
+   "type"    : "",
+   "id"      : "",
+   "title"   : ,
+   "detail"  : ,
+   "buttons" :
+   };
+ */
+
+PGL.DIALOG = function() {
+  var _this = this;
+  _this.stack = [];
+  _this.subStack = [];
+};
+
+PGL.DIALOG.prototype = {
+  init: function(params) {
+    this.stack.push(params);
+  },
+
+  show: function() {
+    var p = this.stack[this.stack.length - 1];
+    var buttons = [];
+    $.each(p.buttons, function(k, v) {
+      buttons.push({
+        text: k,
+        click: v.action,
+        primary: v.color,
+        className: "confButton"
+      });
+    });
+    var width = { DIALOG_GAME: 650, DIALOG_ERROR: 650, DIALOG_FESTA: 600 }[
+      p.id
+    ];
+    if (typeof p.width != "undefined" && p.width > 0) width = p.width;
+    p.$dialog = $('<div id="confirmWindow" class="clearFix"></div>').dialog({
+      title: p.title,
+      content: $('<div class="contentBox clearFix"></div>').html(p.detail),
+      buttons: buttons,
+      closable: p.type != "noClose",
+      width: width
+    });
+    p.$dialog.find(".bodyBox").attr({ id: p.id });
+    if ($.isFunction(p.open)) {
+      p.open.apply(p.$dialog);
+    }
+  },
+
+  hide: function() {
+    var p = this.stack.pop();
+    p.$dialog.dialog("remove");
+  },
+
+  change: function(params) {
+    var p = this.stack[this.stack.length - 1];
+    p.$dialog.dialog("remove");
+    this.init(params);
+    this.show();
+  },
+
+  prev: function() {
+    this.hide();
+    this.show();
+  },
+
+  showSub: function(obj) {
+    var p = obj;
+    var buttons = [];
+    $.each(p.buttons, function(k, v) {
+      buttons.push({
+        text: k,
+        click: v.action,
+        primary: v.color,
+        className: "confButton"
+      });
+    });
+    var $sub = $('<div id="subLayer"></div>').dialog({
+      title: p.title,
+      content: $("<div></div>").html(p.detail),
+      buttons: buttons,
+      closable: p.type != "noClose",
+      width: 450
+    });
+    this.subStack.push($sub);
+  },
+
+  hideSub: function() {
+    this.subStack.pop().dialog("remove");
+  }
+};
+
+/*=====================================================
+   /////////////////////// CACHE ///////////////////////
+   =====================================================*/
+
+PGL.CACHE = {
+  request: {}, //リクエスト格納用
+  response: {}, //レスポンス格納用
+
+  //リクエストURLとパラメータからキャッシュキーを生成
+  getCacheKey: function(requestParams) {
+    return $.param(requestParams);
+  },
+  //レスポンスキャッシュする
+  setResponse: function(cacheKey, response) {
+    if (!this.response[cacheKey]) {
+      this.response[cacheKey] = response;
+    }
+  },
+  //レスポンスキャッシュを取得
+  getResponse: function(cacheKey) {
+    return this.response[cacheKey];
+  },
+  //レスポンスキャッシュキーが既に存在するか
+  isResponse: function(cacheKey) {
+    return this.response[cacheKey] != undefined;
+  },
+  //レスポンスキャッシュをクリアする
+  clearResponse: function(cacheKey) {
+    if (this.isResponse(cacheKey)) {
+      this.response[cacheKey] = undefined;
+      delete this.response[cacheKey];
+    }
+  },
+  //全てのレスポンスキャッシュをクリアする
+  clearAllResponse: function() {
+    for (var cacheKey in this.response) {
+      this.response[cacheKey] = undefined;
+      delete this.response[cacheKey];
+    }
+  },
+  //リクエストをキャッシュする
+  setRequest: function(cacheKey, request) {
+    if (!this.request[cacheKey]) {
+      this.request[cacheKey] = request;
+    }
+  },
+  //リクエストキャッシュを取得する
+  getRequest: function(cacheKey) {
+    return this.request[cacheKey];
+  },
+  //リクエストキャッシュキーが既に存在するか
+  isRequest: function(cacheKey) {
+    return this.request[cacheKey] != undefined;
+  },
+  //リクエストキャッシュをクリアする
+  clearRequest: function(cacheKey) {
+    if (this.isRequest(cacheKey)) {
+      this.request[cacheKey] = undefined;
+      delete this.request[cacheKey];
+    }
+  }
+};
+
+/*=====================================================
+   ///////////////////// POKEMONS //////////////////////
+   =====================================================*/
+PGL.POKEMON = {
+  Obfuscated: function(n, id, w, dil) {
+    //乱数生成
+    n = parseInt(n);
+    id = parseInt(id) || 0;
+    w = parseInt(w);
+    var r = (0x1000000 | ((0x159a55e5 * (n + id * 0x10000)) & 0xffffff))
+      .toString(16)
+      .substr(1);
+    var h = w;
+    return {
+      width: w,
+      height: h,
+      backgroundImage:
+        "url(" +
+        PGL.INFO.PATH.cmsUploads +
+        "/share/images/pokemon/" +
+        dil +
+        "/" +
+        r +
+        ".png)",
+      backgroundPosition: w / 2 + "px " + h / 2 + "px",
+      backgroundRepeat: "repeat"
+    };
+  },
+
+  getImage: function(n, id, w) {
+    //戻り値:Imgエレメント
+    var ele = $("<img />");
+    return ele
+      .attr("src", PGL.INFO.PATH.cmsUploads + "/share/images/spacer.png")
+      .css(this.Obfuscated(n, id, w));
+  },
+
+  getString: function(n, id, w, scale) {
+    var dil = w;
+    scale = scale || 1;
+    w = w * scale;
+    var obj = this.Obfuscated(n, id, w, dil);
+    return (markup = [
+      '<img src="',
+      PGL.INFO.PATH.cmsUploads,
+      '/share/images/spacer.png" style="',
+      "width: " + obj.width + "px; ",
+      "height: " + obj.height + "px; ",
+      "background-image: " + obj.backgroundImage + "; ",
+      "background-position: " + obj.backgroundPosition + "; ",
+      "background-repeat: repeat; ",
+      "background-size: 100%",
+      '">'
+    ].join(""));
+  },
+
+  getTokikakeString: function(n, id, w, scale) {
+    var dil = "tokikake";
+    scale = scale || 1;
+    w = w * scale;
+    var obj = this.Obfuscated(n, id, w, dil);
+    return (markup = [
+      '<img src="',
+      PGL.INFO.PATH.cmsUploads,
+      '/share/images/spacer.png" style="',
+      "width: " + obj.width + "px; ",
+      "height: " + obj.height + "px; ",
+      "background-image: " + obj.backgroundImage + "; ",
+      "background-position: " + obj.backgroundPosition + "; ",
+      "background-repeat: repeat; ",
+      "background-size:100%",
+      '">'
+    ].join(""));
+  }
+
+  /* PKM様のポリシー上の問題により機能削除
+       getStyle:function(n,id,s){ //戻り値：Divタグ
+       return '<div class="POKEMON_'+this.Obfuscated(n,id)+'_'+s+'"></div>';
+       }*/
+};
+
+/*=====================================================
+   ///////////////////// ONLOAD ///////////////////////
+   =====================================================*/
+$(function() {
+  new PGL();
+});
+
+/*=====================================================
+   ///////////////////// EXTEND ///////////////////////
+   =====================================================*/
+$.extend({
+  replace: function(obj) {
+    for (var key in obj) {
+      var items = obj[key].match(/{(.+?)}/g) || [];
+      $.each(items, function(i, item) {
+        if (PGL.INFO.TEXT[item.replace(/{|}/g, "")] != undefined) {
+          var m = PGL.INFO.TEXT[item.replace(/{|}/g, "")][PGL.INFO.LOCATE];
+          obj[key] = obj[key].replace(
+            item,
+            m === undefined ? "{" + key + "}" : m
+          );
+        }
+      });
+    }
+    return obj;
+  },
+
+  blankText: function(text) {
+    return text == null ? "-" : text;
+  },
+
+  /*ダブルクォート、シングルクォートをエスケープ
+       ---------------------------------------------------*/
+  escape: function(val) {
+    //return $("<div>").html(val).text();
+    if ($.type(val) == "string") {
+      val = val.replace(/\\/g, "\\\\");
+      val = val.replace(/&/g, "&amp;");
+      //val = val.replace(/"/g,"\\&quot;");
+      val = val.replace(/'/g, "&#039;");
+      val = val.replace(/</g, "&lt;");
+      val = val.replace(/>/g, "&gt;");
+    }
+    return val;
+  },
+
+  unescape: function(val) {
+    if ($.type(val) == "string") {
+      val = val.replace(/&quot;/g, '"');
+      val = val.replace(/&lt;/g, "<");
+      val = val.replace(/&gt;/g, ">");
+      val = val.replace(/&#39;/g, "'");
+      val = val.replace(/&amp;/g, "&");
+      val = val.replace(/‚/g, ",");
+    }
+    return val;
+  },
+
+  escapeObj: function(obj) {
+    for (var i in obj) {
+      obj[i] = $("<div>")
+        .html(obj[i])
+        .text();
+    }
+    return obj;
+  },
+
+  headZero: function(num) {
+    if (num < 10) {
+      num = "0" + String(num);
+    }
+
+    return num;
+  }
+});
+
+$.fn.extend({
+  render: function(data) {
+    var tmpl = this.html();
+    var result = "";
+    var create = function(tmpl, data) {
+      var items = tmpl.match(/{{(.+?)}}/g) || [];
+      var source = tmpl;
+      $.each(items, function(i, item) {
+        var v = data[item.replace(/{|}/g, "")];
+        var re = "";
+        switch (v) {
+          // issue:0003070
+          case undefined:
+            /*re = item+"：ラベルなし";*/ break;
+          case "":
+            /*re = item+"：原稿なし";*/ break;
+          /*
+                               case undefined: re = ''; break;
+                               case '': re = ''; break;
+                             */
+          default:
+            re = v;
+            break;
+        }
+        source = source.replace(item, re);
+
+        var result = v === undefined ? "Render ERROR///" : "Render SUCCESS///";
+        /*
+                       if (v === undefined)
+                       console.log(result+item);
+                     */
+      });
+      return source;
+    };
+    //dataがundefindeだった場合
+    if (data === undefined) {
+      return $(tmpl.replace(/{{(.+?)}}/g, ""));
+    }
+    //dataが配列じゃなかった場合
+    if (!(data instanceof Array)) {
+      return create(tmpl, data);
+    }
+    //dataが配列だった場合
+    $.each(data, function(i, o) {
+      result += create(tmpl, o);
+    });
+    return result;
+  },
+  center: function(ignoreScrollLeft) {
+    var $window = $(window);
+    var zoomStr = $("html").css("zoom");
+    var result = zoomStr.match(/^[-+]?(\d+(\.\d*)?|\.\d+)?/);
+    var zoomNum = result[0] ? parseFloat(result[0]) : 1;
+    //console.log(zoomNum);
+
+    //var top = ($window.height()-this.height())/2+$window.scrollTop();
+    //var left = ($window.width()-this.width())/2+$window.scrollLeft();
+
+    //var top = (($window.height()/zoomNum-this.height())/2+$window.scrollTop()/zoomNum);
+    //var left = (($window.width()/zoomNum-this.width())/2+$window.scrollLeft()/zoomNum);
+
+    var top =
+        (($window.height() + 2 * $window.scrollTop()) / zoomNum -
+          this.height()) /
+        2,
+      left = 0;
+    if (typeof ignoreScrollLeft === "boolean" && ignoreScrollLeft) {
+      left = ($window.width() / zoomNum - this.width()) / 2;
+    } else {
+      left =
+        (($window.width() + 2 * $window.scrollLeft()) / zoomNum -
+          this.width()) /
+        2;
+    }
+
+    if (top < 5) {
+      top = 5;
+    }
+    this.css({
+      position: "absolute",
+      top: top + "px",
+      left: left + "px"
+    });
+    return this;
+  },
+
+  /**
+   * PGL.UTIL.replace代替です
+   * 置換部分と非置換部分をCSSで区別できなかったため
+   * 別途作成しました
+   * @deprecated 改行を取り扱えないため、cmsTextを使ってください
+   * @param  {String} tmpl テキスト
+   * @param  {Object} vars テキスト中のタグを置換するコンテキスト
+   */
+  template: function(tmpl, vars) {
+    var $this = this.empty();
+    tmpl = tmpl.replace(/(.*?)\{(\w+)\}/g, function(
+      match,
+      g1,
+      g2,
+      pos,
+      source
+    ) {
+      $('<span class="templateLabel"></span>')
+        .text(g1)
+        .appendTo($this);
+      $("<span></span>")
+        .addClass("templateValue template-" + g2)
+        .text(vars[g2] !== undefined ? vars[g2] : "")
+        .appendTo($this);
+      return "";
+    });
+    $('<span class="templateLabel"></span>')
+      .text(tmpl)
+      .appendTo($this);
+    return this;
+  },
+
+  /**
+   * テキスト管理画面で入力したテキストを表示する（推奨）
+   * @param  {String} textId  テキストID
+   * @param  {Object} context テキスト中のタグを置換するコンテキスト
+   */
+  cmsText: function(textId, context) {
+    return this.each(function(index, element) {
+      $(element).empty();
+      var label = PGL.UTIL.getLocale(textId);
+      if (context) {
+        label = label.replace(/(.*?)\{(\w+)\}/g, function(
+          match,
+          label,
+          varName,
+          pos,
+          source
+        ) {
+          if (label) {
+            createSpan(label)
+              .addClass("templateLabel")
+              .appendTo(element);
+          }
+          createSpan(
+            context[varName] !== undefined
+              ? PGL.UTIL.italicizeGameTitle(context[varName])
+              : ""
+          )
+            .addClass("templateValue template-" + varName)
+            .appendTo(element);
+          return "";
+        });
+      }
+      if (label) {
+        createSpan(label)
+          .addClass("templateLabel")
+          .appendTo(element);
+      }
+    });
+    function createSpan(text) {
+      var $t = $("<span/>").text(text);
+      $t.html($t.html().replace(/&lt;(br ?\/?|i|\/i)&gt;/g, "<$1>"));
+      return $t;
+    }
+  },
+
+  /**
+   * テキスト管理画面で入力したテキストを、API経由で取得し表示する
+   * @param  {String} labelValue テキスト
+   * @param  {Object} context テキスト中のタグを置換するコンテキスト
+   */
+  apiText: function(labelValue, context) {
+    // issue:0002345,0002819
+    var repl = { BR: "<br/>", BR_PC: "", BR_SP: "", SHY: "\xAD" };
+    if (PGL.UTIL.isSmartphoneDomain()) {
+      repl.BR_SP = "<br/>";
+    } else {
+      repl.BR_PC = "<br/>";
+    }
+
+    return this.each(function(index, element) {
+      $(element).empty();
+
+      labelValue =
+        typeof labelValue === "string"
+          ? $("<div/>")
+              .text(labelValue)
+              .text()
+          : "";
+      var label = labelValue.replace(/\{(BR|BR_PC|BR_SP|SHY)\}/g, function(
+        match,
+        tag
+      ) {
+        return repl[tag];
+      });
+      label = PGL.UTIL.italicizeGameTitle(label);
+      if (context) {
+        label = label.replace(/(.*?)\{(\w+)\}/g, function(
+          match,
+          label,
+          varName,
+          pos,
+          source
+        ) {
+          if (label) {
+            createSpan(label)
+              .addClass("templateLabel")
+              .appendTo(element);
+          }
+          createSpan(
+            context[varName] !== undefined
+              ? PGL.UTIL.italicizeGameTitle(context[varName])
+              : ""
+          )
+            .addClass("templateValue template-" + varName)
+            .appendTo(element);
+          return "";
+        });
+      }
+      if (label) {
+        createSpan(label)
+          .addClass("templateLabel")
+          .appendTo(element);
+      }
+    });
+    function createSpan(text) {
+      var $t = $("<span/>").text(text);
+      $t.html($t.text().replace(/&lt;(br ?\/?|i|\/i)&gt;/g, "<$1>"));
+      return $t;
+    }
+  },
+
+  /**
+   * 日時とタイムゾーンを表示する
+   * @param  {String} dateString 日時を表す文字列（"2013/10/23"など）
+   * @param  {String} tzName     標準時を表す文字列（"UTC", "JST"など）またはタイムゾーンを表す文字列（"Asia/Tokyo"など）
+   * @return jQueryオブジェクト
+   * @see concatDateAndTZ
+   */
+  time: function(dateString, tzName) {
+    return this.each(function(index, element) {
+      $(element)
+        .empty()
+        .addClass("time");
+      $('<span class="clock"/>')
+        .text(dateString || "")
+        .appendTo(element);
+      $('<span class="zone"/>')
+        .text(tzName || "")
+        .appendTo(element);
+    });
+  },
+
+  /**
+   * {BR}を含む複数行テキストを<p></p>で区切って出力
+   */
+  multiline: function(text) {
+    return this.each(function(index, element) {
+      $.each(text.split(/\{BR\}/), function(index, line) {
+        $("<p></p>")
+          .text(line)
+          .appendTo(element);
+      });
+    });
+  },
+
+  /**
+   * この要素の*子孫*で、指定されたクラスを持つ<a>の@hrefを自動設定
+   * 初期化フローで自動的にbody以下に実行しますが、
+   * 動的に追加した要素に上記の<a>がある場合は手動で呼び出してください。
+   *
+   * 対応するクラス
+   * linked-site-login - 連携先サイトのログイン
+   * privacy-policy - プライバシーポリシー
+   * support - サポートへのリンク（data-support で manual/manual_membership/signing-up/ 等を指定してください）
+   */
+  commonLink: function() {
+    if (PGL.DATA.GET_LOGIN_STATUS.loginStatus == 0) {
+      // (A)共通言語判定
+      var support_lang = PGL.UTIL.getSelectedLanguage();
+    } else {
+      // (E)ゲーム言語と連携サイトによる言語判定
+      var support_lang = PGL.UTIL.getSiteRelatedLanguage();
+    }
+    support_lang = {
+      "1": "ja",
+      "2": "en",
+      "3": "fr",
+      "4": "it",
+      "5": "de",
+      "7": "es",
+      "8": "ko",
+      "9": "en",
+      "10": "en"
+    }[support_lang];
+    this.find("a.support").each(function(index, link) {
+      $(link).attr({
+        href: [
+          "/support",
+          PGL.INFO.SITE,
+          support_lang,
+          $(link).data("support")
+        ].join("/"),
+        target: "_blank"
+      });
+    });
+
+    switch (PGL.INFO.SITE) {
+      case 1:
+        this.find("a.linked-site-login").attr({
+          href: PGL.INFO.PATH.pdc + "mypage/"
+        });
+        this.find("a.privacy-policy").attr({
+          target: "_blank",
+          href: "https://web.archive.org/web/20200216130517/http://www.pokemon.co.jp/privacy/"
+        });
+        break;
+      case 2:
+        var lang =
+          PGL.DATA.GET_LOGIN_STATUS.loginStatus == 0
+            ? PGL.UTIL.getSelectedLanguage()
+            : PGL.UTIL.getSiteRelatedLanguage();
+        var urlMap = {
+          "2": "us/pokemon-trainer-club/connect-a-game/",
+          "3": "fr/club-des-dresseurs-pokemon/connecter-partie/",
+          "4": "it/club-allenatori-di-pokemon/registra-gioco/",
+          "5": "de/pokemon-trainer-club/spielverbindung/",
+          "7": "es/club-de-entrenadores-pokemon/conectar-un-juego/"
+        };
+        this.find("a.linked-site-login").attr({
+          href: PGL.INFO.PATH.com + (urlMap[lang] || urlMap["2"])
+        });
+        break;
+      case 3:
+        this.find("a.linked-site-login").attr({
+          href: PGL.INFO.PATH.pki + "member/mypage"
+        });
+        this.find("a.privacy-policy").attr({
+          target: "_blank",
+          href: PGL.INFO.PATH.pki + "3ds_pgl/footer/privacy.asp"
+        });
+        break;
+    }
+    return this;
+  }
+});
+
+$.extend({
+  numericInput: function(min, max) {
+    if ($('<input type="number"/>').get(0).type == "number") {
+      return $('<input type="number"/>').attr({ min: min, max: max });
+    } else {
+      var $input = $("<select/>");
+      $.each(new Array(max - min + 1), function(index) {
+        $("<option/>")
+          .text(min + index)
+          .appendTo($input);
+      });
+      return $input;
+    }
+  }
+});
+
+(function() {
+  var squeezeInterval;
+  $.fn.extend({
+    squeeze: function(text, targetWidth) {
+      if (this.length > 1) {
+        $.each(this, function() {
+          $(this).squeeze(text, targetWidth);
+        });
+      } else if (this.length == 1) {
+        if (arguments.length > 0) {
+          this.text(text);
+        }
+        if (this.is(":hidden")) {
+          this.addClass("squeeze-pending");
+          if (!squeezeInterval) {
+            squeezeInterval = setInterval(function() {
+              $(".squeeze-pending")
+                .filter(":visible")
+                .squeeze();
+            }, 50);
+          }
+        } else {
+          this.removeClass("squeeze-pending").addClass("squeezed");
+          if (targetWidth == undefined) {
+            targetWidth = this.width();
+          }
+
+          this.css({ "white-space": "nowrap" });
+          var $modifier = this.wrapInner(
+            '<span class="squeeze-modifier"></span>'
+          )
+            .children()
+            .eq(0);
+          var $checker = $('<span class="squeeze-checker"></span>');
+          $modifier.wrap($checker);
+          $checker = this.children(".squeeze-checker:first");
+
+          if (targetWidth < $checker.width()) {
+            var s = document.body.style;
+            if (
+              s.transform !== undefined ||
+              s.WebkitTransform !== undefined ||
+              s.MozTransform !== undefined ||
+              s.MsTransform !== undefined ||
+              s.OTransform !== undefined
+            ) {
+              var sx = targetWidth / $checker.width();
+              if (sx < 1) {
+                $modifier.css({
+                  display: "inline-block",
+                  "transform-origin": "0 0",
+                  transform: "scale(" + sx + ", 1)"
+                });
+              }
+            } else {
+              for (
+                var ls = parseInt(this.css("letter-spacing")) || 0;
+                ls >= 1 && targetWidth < $checker.width();
+                ls--
+              ) {
+                $modifier.css({ "letter-spacing": ls });
+              }
+
+              for (
+                var fs = parseInt(this.css("font-size")) || 12;
+                fs >= 10 && targetWidth < $checker.width();
+                fs--
+              ) {
+                $modifier.css({ "font-size": fs });
+              }
+              for (; ls >= -1 && targetWidth < $checker.width(); ls--) {
+                $modifier.css({ "letter-spacing": ls });
+              }
+            }
+            $modifier.unwrap(); // remove checker
+          } else {
+            // issue:0003393
+            // this.css({ 'white-space':'' });
+            $modifier.unwrap(); // remove checker
+            $modifier.contents().unwrap(); // remove modifier
+          }
+        }
+      }
+      return this;
+    }
+  });
+})();
+
+// getFooter start
+(function() {
+  var footers = {
+    SM: {
+      JP: {
+        ja: {
+          badges: [
+            { type: "nintendo", url: "https://web.archive.org/web/20200216130517/http://www.nintendo.co.jp/" },
+            { type: "pokemon", url: "https://web.archive.org/web/20200216130517/http://www.pokemon.co.jp/" },
+            { type: "pdc", url: "https://web.archive.org/web/20200216130517/http://www.pokemon.jp/" }
+          ],
+          copyright:
+            "©2019 Pokémon.\n ©1995-2019 Nintendo/Creatures Inc. /GAME FREAK inc.\nポケットモンスター・ポケモン・Pokémonは任天堂・クリーチャーズ・ゲームフリークの登録商標です。",
+          links: [
+            { label: "お約束", type: "notice", url: "/notice/" },
+            { label: "利用規約", type: "terms-of-use", url: "/terms-of-use/" },
+            {
+              label: "メンテナンス情報",
+              type: "maintenance",
+              url: "/maintenance/"
+            },
+            { label: "動作確認環境", type: "requirements", url: "/browser/" },
+            {
+              label: "プライバシーポリシー",
+              type: "privacy-policy",
+              url: "/privacy/"
+            },
+            { label: "コピーライト", type: "legal-info", url: "/copyright/" }
+          ],
+          network_status: {
+            label: "ネットワークメンテナンス情報・稼働状況",
+            type: "network-status",
+            url: "https://web.archive.org/web/20200216130517/http://www.nintendo.co.jp/netinfo/ja_JP/index.html"
+          }
+        }
+      },
+      US: {
+        en: {
+          badges: [
+            { type: "tpc", url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/" },
+            { type: "nintendo", url: "https://web.archive.org/web/20200216130517/http://www.nintendo.com/" },
+            { type: "3ds", url: "https://web.archive.org/web/20200216130517/http://www.nintendo.com/" },
+            {
+              type: "nintendo-network",
+              url: "https://web.archive.org/web/20200216130517/http://www.nintendo.com/?country=US&lang=en"
+            },
+            { type: "esrb-rating", url: "https://web.archive.org/web/20200216130517/http://www.esrb.org/index-js.jsp" }
+          ],
+          copyright:
+            "© 2019 Pokémon.\n © 1995-2019 Nintendo/Creatures Inc./GAME FREAK inc.\nPokémon, Pokémon character names and Nintendo 3DS are trademarks of Nintendo.\nNotice: If you click on “Maintenance and Network Status Info” above or on any of the logos below, you will be leaving a site operated by The Pokémon Company International. The Pokémon Company International is not responsible for the content of any linked website that is not operated by The Pokémon Company International. Please note that these websites' privacy policies and security practices may differ from The Pokémon Company International's standards.",
+          links: [
+            {
+              label: "Terms of Use",
+              type: "terms-of-use",
+              url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/us/terms-of-use/"
+            },
+            { label: "Maintenance", type: "maintenance", url: "/maintenance/" },
+            {
+              label: "Verified System Requirements",
+              type: "requirements",
+              url: "/browser/"
+            },
+            {
+              label: "Privacy Notice",
+              type: "privacy-policy",
+              url: "https://web.archive.org/web/20200216130517/https://www.pokemon.com/us/privacy-notice/"
+            },
+            {
+              label: "Legal Info",
+              type: "legal-info",
+              url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/us/legal/"
+            }
+          ],
+          network_status: {
+            label: "Maintenance and Network Status Info",
+            type: "network-status",
+            url:
+              "https://web.archive.org/web/20200216130517/http://www.nintendo.com/consumer/network/en_na/network_status.jsp"
+          }
+        },
+        fr: {
+          badges: [
+            { type: "tpc", url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/fr/" },
+            { type: "nintendo", url: "https://web.archive.org/web/20200216130517/http://www.nintendo.fr/" },
+            { type: "3ds", url: "https://web.archive.org/web/20200216130517/http://www.nintendo.fr/" },
+            { type: "nintendo-network", url: "https://web.archive.org/web/20200216130517/http://www.nintendo.fr/" },
+            { type: "esrb-rating", url: "https://web.archive.org/web/20200216130517/http://www.esrb.org/index-js.jsp" }
+          ],
+          copyright:
+            "© 2019 Pokémon.\n © 1995 - 2019 Nintendo/Creatures Inc./GAME FREAK inc.\nPokémon, les noms des personnages Pokémon et Nintendo 3DS sont des marques de Nintendo.\nAttention : si vous cliquez sur « Informations de maintenance en ligne/État opérationnel » ci-dessus ou sur les logos ci-dessous, vous quitterez un site géré par The Pokémon Company International. The Pokémon Company International décline toute responsabilité quant au contenu des sites Web vers lesquels des liens sont proposés et qu’elle ne gère pas. Veuillez noter que les politiques de sécurité et de protection de la vie privée de ces sites Web peuvent différer des normes appliquées par The Pokémon Company International.",
+          links: [
+            {
+              label: "Conditions d'utilisation",
+              type: "terms-of-use",
+              url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/fr/conditions-d-utilisation/"
+            },
+            { label: "Maintenance", type: "maintenance", url: "/maintenance/" },
+            {
+              label: "Configuration requise",
+              type: "requirements",
+              url: "/browser/"
+            },
+            {
+              label: "Avis de confidentialité ",
+              type: "privacy-policy",
+              url: "https://web.archive.org/web/20200216130517/https://www.pokemon.com/fr/avis-de-confidentialite/"
+            },
+            {
+              label: "Infos juridiques",
+              type: "legal-info",
+              url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/fr/juridique/"
+            }
+          ],
+          network_status: {
+            label: "Informations de maintenance en ligne/État opérationnel",
+            type: "network-status",
+            url:
+              "https://web.archive.org/web/20200216130517/http://www.nintendo.com/consumer/network/fr_na/network_status.jsp"
+          }
+        },
+        it: {
+          badges: [
+            { type: "tpc", url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/it/" },
+            { type: "nintendo", url: "https://web.archive.org/web/20200216130517/http://www.nintendo.it/" },
+            { type: "3ds", url: "https://web.archive.org/web/20200216130517/http://www.nintendo.it/" },
+            { type: "nintendo-network", url: "https://web.archive.org/web/20200216130517/http://www.nintendo.it/" },
+            { type: "esrb-rating", url: "https://web.archive.org/web/20200216130517/http://www.esrb.org/index-js.jsp" }
+          ],
+          copyright:
+            "© 2019 Pokémon.\n © 1995-2019 Nintendo/Creatures Inc./GAME FREAK inc.\nPokémon, Pokémon character names and Nintendo 3DS are trademarks of Nintendo.\nNotice: If you click on “Maintenance and Network Status Info” above or on any of the logos below, you will be leaving a site operated by The Pokémon Company International. The Pokémon Company International is not responsible for the content of any linked website that is not operated by The Pokémon Company International. Please note that these websites' privacy policies and security practices may differ from The Pokémon Company International's standards.",
+          links: [
+            {
+              label: "Termini di utilizzo",
+              type: "terms-of-use",
+              url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/it/termini-di-utilizzo/"
+            },
+            {
+              label: "Manutenzione",
+              type: "maintenance",
+              url: "/maintenance/"
+            },
+            {
+              label: "Requisiti di sistema",
+              type: "requirements",
+              url: "/browser/"
+            },
+            {
+              label: "Informativa sulla privacy ",
+              type: "privacy-policy",
+              url: "https://web.archive.org/web/20200216130517/https://www.pokemon.com/it/informativa-sulla-privacy/"
+            },
+            {
+              label: "Informazioni legali",
+              type: "legal-info",
+              url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/it/informazioni-legali/"
+            }
+          ],
+          network_status: {
+            label:
+              "Informazioni sulla manutenzione della rete e sullo stato operativo",
+            type: "network-status",
+            url:
+              "https://web.archive.org/web/20200216130517/http://www.nintendo.com/consumer/network/en_na/network_status.jsp"
+          }
+        },
+        de: {
+          badges: [
+            { type: "tpc", url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/de/" },
+            { type: "nintendo", url: "https://web.archive.org/web/20200216130517/http://www.nintendo.de/" },
+            { type: "3ds", url: "https://web.archive.org/web/20200216130517/http://www.nintendo.de/" },
+            { type: "nintendo-network", url: "https://web.archive.org/web/20200216130517/http://www.nintendo.de/" },
+            { type: "esrb-rating", url: "https://web.archive.org/web/20200216130517/http://www.esrb.org/index-js.jsp" }
+          ],
+          copyright:
+            "© 2019 Pokémon.\n © 1995-2019 Nintendo/Creatures Inc./GAME FREAK inc.\nPokémon, Pokémon character names and Nintendo 3DS are trademarks of Nintendo.\nNotice: If you click on “Maintenance and Network Status Info” above or on any of the logos below, you will be leaving a site operated by The Pokémon Company International. The Pokémon Company International is not responsible for the content of any linked website that is not operated by The Pokémon Company International. Please note that these websites' privacy policies and security practices may differ from The Pokémon Company International's standards.",
+          links: [
+            {
+              label: "Nutzungsbedingungen",
+              type: "terms-of-use",
+              url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/de/nutzungsbedingungen/"
+            },
+            {
+              label: "Wartungsarbeiten",
+              type: "maintenance",
+              url: "/maintenance/"
+            },
+            {
+              label: "Systemvoraussetzungen",
+              type: "requirements",
+              url: "/browser/"
+            },
+            {
+              label: "Datenschutzerklaerung",
+              type: "privacy-policy",
+              url: "https://web.archive.org/web/20200216130517/https://www.pokemon.com/de/datenschutzerklaerung/"
+            },
+            {
+              label: "Rechtl. Hinweise",
+              type: "legal-info",
+              url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/de/rechtlich/"
+            }
+          ],
+          network_status: {
+            label: "Informationen zu Netzwerkwartung/Betriebsstatus",
+            type: "network-status",
+            url:
+              "https://web.archive.org/web/20200216130517/http://www.nintendo.com/consumer/network/en_na/network_status.jsp"
+          }
+        },
+        es: {
+          badges: [
+            { type: "tpc", url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/es/" },
+            { type: "nintendo", url: "https://web.archive.org/web/20200216130517/http://www.nintendo.es/" },
+            { type: "3ds", url: "https://web.archive.org/web/20200216130517/http://www.nintendo.es/" },
+            { type: "nintendo-network", url: "https://web.archive.org/web/20200216130517/http://www.nintendo.es/" },
+            { type: "esrb-rating", url: "https://web.archive.org/web/20200216130517/http://www.esrb.org/index-js.jsp" }
+          ],
+          copyright:
+            "© 2019 Pokémon.\n © 1995-2019 Nintendo/Creatures Inc./GAME FREAK inc.\nPokémon, Pokémon character names and Nintendo 3DS are trademarks of Nintendo.\nAviso: Si haces clic en «Información sobre mantenimiento y estado de la red» arriba o en cualquiera de los logos abajo, saldrás del sitio web administrado por The Pokémon Company International. The Pokémon Company International no se responsabiliza del contenido de ningún sitio web vinculado que no esté administrado por The Pokémon Company International. Las políticas de privacidad y las prácticas de seguridad de estos sitios web pueden no seguir las normas de The Pokémon Company International.",
+          links: [
+            {
+              label: "Condiciones de uso",
+              type: "terms-of-use",
+              url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/es/condiciones-de-uso/"
+            },
+            {
+              label: "Acerca del mantenimiento",
+              type: "maintenance",
+              url: "/maintenance/"
+            },
+            {
+              label: "Requisitos del sistema",
+              type: "requirements",
+              url: "/browser/"
+            },
+            {
+              label: "Aviso de privacidad",
+              type: "privacy-policy",
+              url: "https://web.archive.org/web/20200216130517/https://www.pokemon.com/es/aviso-de-privacidad/"
+            },
+            {
+              label: "Información legal",
+              type: "legal-info",
+              url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/es/legal/"
+            }
+          ],
+          network_status: {
+            label: "Información sobre mantenimiento y estado de la red",
+            type: "network-status",
+            url:
+              "https://web.archive.org/web/20200216130517/http://www.nintendo.com/consumer/network/es_na/network_status.jsp"
+          }
+        }
+      },
+      EU: {
+        en: {
+          badges: [
+            { type: "tpc", url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/" },
+            { type: "nintendo", url: "https://web.archive.org/web/20200216130517/http://www.nintendo.co.uk/" },
+            { type: "3ds", url: "https://web.archive.org/web/20200216130517/http://www.nintendo.co.uk/" },
+            { type: "nintendo-network", url: "https://web.archive.org/web/20200216130517/http://www.nintendo.co.uk/" },
+            { type: "pegi-rating", url: "https://web.archive.org/web/20200216130517/http://www.pegi.info" },
+            { type: "tw-rating", url: "" },
+            {
+              type: "australian-clasification-pg",
+              url: "https://web.archive.org/web/20200216130517/http://www.classification.gov.au/"
+            },
+            { type: "usk-rating", url: "https://web.archive.org/web/20200216130517/http://www.usk.de/en/" }
+          ],
+          copyright:
+            "© 2019 Pokémon.\n © 1995-2019 Nintendo/Creatures Inc./GAME FREAK inc.\nPokémon, Pokémon character names and Nintendo 3DS are trademarks of Nintendo.",
+          links: [
+            {
+              label: "Terms of Use",
+              type: "terms-of-use",
+              url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/uk/terms-of-use/"
+            },
+            { label: "Maintenance", type: "maintenance", url: "/maintenance/" },
+            {
+              label: "Verified System Requirements",
+              type: "requirements",
+              url: "/browser/"
+            },
+            {
+              label: "Privacy Notice",
+              type: "privacy-policy",
+              url: "https://web.archive.org/web/20200216130517/https://www.pokemon.com/uk/privacy-notice/"
+            },
+            {
+              label: "Legal Info",
+              type: "legal-info",
+              url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/uk/legal/"
+            }
+          ],
+          network_status: {
+            label: "Maintenance and Network Status Info",
+            type: "network-status",
+            url: "https://web.archive.org/web/20200216130517/http://www.nintendo.co.jp/netinfo/en_GB/index.html"
+          }
+        },
+        fr: {
+          badges: [
+            { type: "tpc", url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/fr/" },
+            { type: "nintendo", url: "https://web.archive.org/web/20200216130517/http://www.nintendo.fr/" },
+            { type: "3ds", url: "https://web.archive.org/web/20200216130517/http://www.nintendo.fr/" },
+            { type: "nintendo-network", url: "https://web.archive.org/web/20200216130517/http://www.nintendo.fr/" },
+            { type: "pegi-rating", url: "https://web.archive.org/web/20200216130517/http://www.pegi.info" },
+            { type: "tw-rating", url: "" },
+            {
+              type: "australian-clasification-pg",
+              url: "https://web.archive.org/web/20200216130517/http://www.classification.gov.au/"
+            },
+            { type: "usk-rating", url: "https://web.archive.org/web/20200216130517/http://www.usk.de/" }
+          ],
+          copyright:
+            "© 2019 Pokémon.\n © 1995 - 2019 Nintendo/Creatures Inc./GAME FREAK inc.\nPokémon, les noms des personnages Pokémon et Nintendo 3DS sont des marques de Nintendo.",
+          links: [
+            {
+              label: "Conditions d'utilisation",
+              type: "terms-of-use",
+              url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/fr/conditions-d-utilisation/"
+            },
+            { label: "Maintenance", type: "maintenance", url: "/maintenance/" },
+            {
+              label: "Configuration requise",
+              type: "requirements",
+              url: "/browser/"
+            },
+            {
+              label: "Avis de confidentialité ",
+              type: "privacy-policy",
+              url: "https://web.archive.org/web/20200216130517/https://www.pokemon.com/fr/avis-de-confidentialite/"
+            },
+            {
+              label: "Infos juridiques",
+              type: "legal-info",
+              url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/fr/juridique/"
+            }
+          ],
+          network_status: {
+            label: "Informations de maintenance en ligne/État opérationnel",
+            type: "network-status",
+            url: "https://web.archive.org/web/20200216130517/http://www.nintendo.co.jp/netinfo/fr_FR/index.html"
+          }
+        },
+        it: {
+          badges: [
+            { type: "tpc", url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/it/" },
+            { type: "nintendo", url: "https://web.archive.org/web/20200216130517/http://www.nintendo.it/" },
+            { type: "3ds", url: "https://web.archive.org/web/20200216130517/http://www.nintendo.it/" },
+            { type: "nintendo-network", url: "https://web.archive.org/web/20200216130517/http://www.nintendo.it/" },
+            { type: "pegi-rating", url: "https://web.archive.org/web/20200216130517/http://www.pegi.info" },
+            { type: "tw-rating", url: "" },
+            {
+              type: "australian-clasification-pg",
+              url: "https://web.archive.org/web/20200216130517/http://www.classification.gov.au/"
+            },
+            { type: "usk-rating", url: "https://web.archive.org/web/20200216130517/http://www.usk.de/" }
+          ],
+          copyright:
+            "© 2019 Pokémon.\n © 1995-2019 Nintendo/Creatures Inc./GAME FREAK inc.\nPokémon, Pokémon character names and Nintendo 3DS are trademarks of Nintendo.",
+          links: [
+            {
+              label: "Termini di utilizzo",
+              type: "terms-of-use",
+              url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/it/termini-di-utilizzo/"
+            },
+            {
+              label: "Manutenzione",
+              type: "maintenance",
+              url: "/maintenance/"
+            },
+            {
+              label: "Requisiti di sistema",
+              type: "requirements",
+              url: "/browser/"
+            },
+            {
+              label: "Informativa sulla privacy ",
+              type: "privacy-policy",
+              url: "https://web.archive.org/web/20200216130517/https://www.pokemon.com/it/informativa-sulla-privacy/"
+            },
+            {
+              label: "Informazioni legali",
+              type: "legal-info",
+              url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/it/informazioni-legali/"
+            }
+          ],
+          network_status: {
+            label:
+              "Informazioni sulla manutenzione della rete e sullo stato operativo",
+            type: "network-status",
+            url: "https://web.archive.org/web/20200216130517/http://www.nintendo.co.jp/netinfo/it_IT/index.html"
+          }
+        },
+        de: {
+          badges: [
+            { type: "tpc", url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/de/" },
+            { type: "nintendo", url: "https://web.archive.org/web/20200216130517/http://www.nintendo.de/" },
+            { type: "3ds", url: "https://web.archive.org/web/20200216130517/http://www.nintendo.de/" },
+            { type: "nintendo-network", url: "https://web.archive.org/web/20200216130517/http://www.nintendo.de/" },
+            { type: "pegi-rating", url: "https://web.archive.org/web/20200216130517/http://www.pegi.info" },
+            { type: "tw-rating", url: "" },
+            {
+              type: "australian-clasification-pg",
+              url: "https://web.archive.org/web/20200216130517/http://www.classification.gov.au/"
+            },
+            { type: "usk-rating", url: "https://web.archive.org/web/20200216130517/http://www.usk.de/" }
+          ],
+          copyright:
+            "© 2019 Pokémon.\n © 1995-2019 Nintendo/Creatures Inc./GAME FREAK inc.\nPokémon, Pokémon character names and Nintendo 3DS are trademarks of Nintendo.",
+          links: [
+            {
+              label: "Nutzungsbedingungen",
+              type: "terms-of-use",
+              url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/de/nutzungsbedingungen/"
+            },
+            {
+              label: "Wartungsarbeiten",
+              type: "maintenance",
+              url: "/maintenance/"
+            },
+            {
+              label: "Systemvoraussetzungen",
+              type: "requirements",
+              url: "/browser/"
+            },
+            {
+              label: "Datenschutzerklaerung",
+              type: "privacy-policy",
+              url: "https://web.archive.org/web/20200216130517/https://www.pokemon.com/de/datenschutzerklaerung/"
+            },
+            {
+              label: "Rechtl. Hinweise",
+              type: "legal-info",
+              url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/de/rechtlich/"
+            }
+          ],
+          network_status: {
+            label: "Informationen zu Netzwerkwartung/Betriebsstatus",
+            type: "network-status",
+            url: "https://web.archive.org/web/20200216130517/http://www.nintendo.co.jp/netinfo/de_DE/index.html"
+          }
+        },
+        es: {
+          badges: [
+            { type: "tpc", url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/es/" },
+            { type: "nintendo", url: "https://web.archive.org/web/20200216130517/http://www.nintendo.es/" },
+            { type: "3ds", url: "https://web.archive.org/web/20200216130517/http://www.nintendo.es/" },
+            { type: "nintendo-network", url: "https://web.archive.org/web/20200216130517/http://www.nintendo.es/" },
+            { type: "pegi-rating", url: "https://web.archive.org/web/20200216130517/http://www.pegi.info" },
+            { type: "tw-rating", url: "" },
+            {
+              type: "australian-clasification-pg",
+              url: "https://web.archive.org/web/20200216130517/http://www.classification.gov.au/"
+            },
+            { type: "usk-rating", url: "https://web.archive.org/web/20200216130517/http://www.usk.de/" }
+          ],
+          copyright:
+            "© 2019 Pokémon.\n © 1995-2019 Nintendo/Creatures Inc./GAME FREAK inc.\nPokémon, Pokémon character names and Nintendo 3DS are trademarks of Nintendo.",
+          links: [
+            {
+              label: "Condiciones de uso",
+              type: "terms-of-use",
+              url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/es/condiciones-de-uso/"
+            },
+            {
+              label: "Acerca del mantenimiento",
+              type: "maintenance",
+              url: "/maintenance/"
+            },
+            {
+              label: "Requisitos del sistema",
+              type: "requirements",
+              url: "/browser/"
+            },
+            {
+              label: "Aviso de privacidad",
+              type: "privacy-policy",
+              url: "https://web.archive.org/web/20200216130517/https://www.pokemon.com/es/aviso-de-privacidad/"
+            },
+            {
+              label: "Información legal",
+              type: "legal-info",
+              url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/es/legal/"
+            }
+          ],
+          network_status: {
+            label: "Información sobre mantenimiento y estado de la red",
+            type: "network-status",
+            url: "https://web.archive.org/web/20200216130517/http://www.nintendo.co.jp/netinfo/es_ES/index.html"
+          }
+        }
+      },
+      KR: {
+        ko: {
+          badges: [
+            { type: "pki", url: "https://web.archive.org/web/20200216130517/http://pokemonkorea.co.kr" },
+            {
+              type: "nintendo",
+              url: "https://web.archive.org/web/20200216130517/http://nintendo.co.kr"
+            } /*,
+                                                                        {type:"nintendo-network",url:"https://web.archive.org/web/20200216130517/http://www.nintendo.co.kr/DS/soft/wifi/wifi_connection.php"}*/
+          ],
+          copyright:
+            "©2019 Pokémon.\n ©1995-2019 Nintendo / Creatures Inc. / GAME FREAK inc.\n\n포켓몬스터, 포켓몬, Pokémon은 Nintendo의 상표입니다. \nTrademarks are property of their respective owners.  \nNintendo 3DS is a trademark of Nintendo.",
+          links: [
+            { label: "약속", type: "notice", url: "/notice/" },
+            { label: "이용약관", type: "terms-of-use", url: "/terms-of-use/" },
+            { label: "점검 정보", type: "maintenance", url: "/maintenance/" },
+            { label: "권장사양", type: "requirements", url: "/browser/" },
+            {
+              label: "개인정보 취급방침",
+              type: "privacy-policy",
+              url: "https://web.archive.org/web/20200216130517/http://pokemonkorea.co.kr/fp/privacy"
+            },
+            {
+              label: "저작권",
+              type: "legal-info",
+              url: "https://web.archive.org/web/20200216130517/http://pokemonkorea.co.kr/fp/copyright"
+            }
+          ]
+        }
+      }
+    },
+
+    USUM: {
+      JP: {
+        ja: {
+          badges: [
+            { type: "nintendo", url: "https://web.archive.org/web/20200216130517/http://www.nintendo.co.jp/" },
+            { type: "pokemon", url: "https://web.archive.org/web/20200216130517/http://www.pokemon.co.jp/" },
+            { type: "pdc", url: "https://web.archive.org/web/20200216130517/http://www.pokemon.jp/" }
+          ],
+          copyright:
+            "©2019 Pokémon.\n ©1995-2019 Nintendo/Creatures Inc. /GAME FREAK inc.\nポケットモンスター・ポケモン・Pokémonは任天堂・クリーチャーズ・ゲームフリークの登録商標です。",
+          links: [
+            { label: "お約束", type: "notice", url: "/notice/" },
+            { label: "利用規約", type: "terms-of-use", url: "/terms-of-use/" },
+            {
+              label: "メンテナンス情報",
+              type: "maintenance",
+              url: "/maintenance/"
+            },
+            { label: "動作確認環境", type: "requirements", url: "/browser/" },
+            {
+              label: "プライバシーポリシー",
+              type: "privacy-policy",
+              url: "/privacy/"
+            },
+            { label: "コピーライト", type: "legal-info", url: "/copyright/" }
+          ],
+          network_status: {
+            label: "ネットワークメンテナンス情報・稼働状況",
+            type: "network-status",
+            url: "https://web.archive.org/web/20200216130517/http://www.nintendo.co.jp/netinfo/ja_JP/index.html"
+          }
+        }
+      },
+      US: {
+        en: {
+          badges: [
+            { type: "tpc", url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/" },
+            { type: "nintendo", url: "https://web.archive.org/web/20200216130517/http://www.nintendo.com/" },
+            { type: "3ds", url: "https://web.archive.org/web/20200216130517/http://www.nintendo.com/" },
+            {
+              type: "nintendo-network",
+              url: "https://web.archive.org/web/20200216130517/http://www.nintendo.com/?country=US&lang=en"
+            },
+            { type: "esrb-rating", url: "https://web.archive.org/web/20200216130517/http://www.esrb.org/index-js.jsp" }
+          ],
+          copyright:
+            "© 2019 Pokémon.\n © 1995-2019 Nintendo/Creatures Inc./GAME FREAK inc.\nPokémon, Pokémon character names and Nintendo 3DS are trademarks of Nintendo.\nNotice: If you click on “Maintenance and Network Status Info” above or on any of the logos below, you will be leaving a site operated by The Pokémon Company International. The Pokémon Company International is not responsible for the content of any linked website that is not operated by The Pokémon Company International. Please note that these websites' privacy policies and security practices may differ from The Pokémon Company International's standards.",
+          links: [
+            {
+              label: "Terms of Use",
+              type: "terms-of-use",
+              url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/us/terms-of-use/"
+            },
+            { label: "Maintenance", type: "maintenance", url: "/maintenance/" },
+            {
+              label: "Verified System Requirements",
+              type: "requirements",
+              url: "/browser/"
+            },
+            {
+              label: "Privacy Notice",
+              type: "privacy-policy",
+              url: "https://web.archive.org/web/20200216130517/https://www.pokemon.com/us/privacy-notice/"
+            },
+            {
+              label: "Legal Info",
+              type: "legal-info",
+              url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/us/legal/"
+            }
+          ],
+          network_status: {
+            label: "Maintenance and Network Status Info",
+            type: "network-status",
+            url:
+              "https://web.archive.org/web/20200216130517/http://www.nintendo.com/consumer/network/en_na/network_status.jsp"
+          }
+        },
+        fr: {
+          badges: [
+            { type: "tpc", url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/fr/" },
+            { type: "nintendo", url: "https://web.archive.org/web/20200216130517/http://www.nintendo.fr/" },
+            { type: "3ds", url: "https://web.archive.org/web/20200216130517/http://www.nintendo.fr/" },
+            { type: "nintendo-network", url: "https://web.archive.org/web/20200216130517/http://www.nintendo.fr/" },
+            { type: "esrb-rating", url: "https://web.archive.org/web/20200216130517/http://www.esrb.org/index-js.jsp" }
+          ],
+          copyright:
+            "© 2019 Pokémon.\n © 1995 - 2019 Nintendo/Creatures Inc./GAME FREAK inc.\nPokémon, les noms des personnages Pokémon et Nintendo 3DS sont des marques de Nintendo.\nAttention : si vous cliquez sur « Informations de maintenance en ligne/État opérationnel » ci-dessus ou sur les logos ci-dessous, vous quitterez un site géré par The Pokémon Company International. The Pokémon Company International décline toute responsabilité quant au contenu des sites Web vers lesquels des liens sont proposés et qu’elle ne gère pas. Veuillez noter que les politiques de sécurité et de protection de la vie privée de ces sites Web peuvent différer des normes appliquées par The Pokémon Company International.",
+          links: [
+            {
+              label: "Conditions d'utilisation",
+              type: "terms-of-use",
+              url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/fr/conditions-d-utilisation/"
+            },
+            { label: "Maintenance", type: "maintenance", url: "/maintenance/" },
+            {
+              label: "Configuration requise",
+              type: "requirements",
+              url: "/browser/"
+            },
+            {
+              label: "Avis de confidentialité ",
+              type: "privacy-policy",
+              url: "https://web.archive.org/web/20200216130517/https://www.pokemon.com/fr/avis-de-confidentialite/"
+            },
+            {
+              label: "Infos juridiques",
+              type: "legal-info",
+              url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/fr/juridique/"
+            }
+          ],
+          network_status: {
+            label: "Informations de maintenance en ligne/État opérationnel",
+            type: "network-status",
+            url:
+              "https://web.archive.org/web/20200216130517/http://www.nintendo.com/consumer/network/fr_na/network_status.jsp"
+          }
+        },
+        it: {
+          badges: [
+            { type: "tpc", url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/it/" },
+            { type: "nintendo", url: "https://web.archive.org/web/20200216130517/http://www.nintendo.it/" },
+            { type: "3ds", url: "https://web.archive.org/web/20200216130517/http://www.nintendo.it/" },
+            { type: "nintendo-network", url: "https://web.archive.org/web/20200216130517/http://www.nintendo.it/" },
+            { type: "esrb-rating", url: "https://web.archive.org/web/20200216130517/http://www.esrb.org/index-js.jsp" }
+          ],
+          copyright:
+            "© 2019 Pokémon.\n © 1995-2019 Nintendo/Creatures Inc./GAME FREAK inc.\nPokémon, Pokémon character names and Nintendo 3DS are trademarks of Nintendo.\nNotice: If you click on “Maintenance and Network Status Info” above or on any of the logos below, you will be leaving a site operated by The Pokémon Company International. The Pokémon Company International is not responsible for the content of any linked website that is not operated by The Pokémon Company International. Please note that these websites' privacy policies and security practices may differ from The Pokémon Company International's standards.",
+          links: [
+            {
+              label: "Termini di utilizzo",
+              type: "terms-of-use",
+              url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/it/termini-di-utilizzo/"
+            },
+            {
+              label: "Manutenzione",
+              type: "maintenance",
+              url: "/maintenance/"
+            },
+            {
+              label: "Requisiti di sistema",
+              type: "requirements",
+              url: "/browser/"
+            },
+            {
+              label: "Informativa sulla privacy ",
+              type: "privacy-policy",
+              url: "https://web.archive.org/web/20200216130517/https://www.pokemon.com/it/informativa-sulla-privacy/"
+            },
+            {
+              label: "Informazioni legali",
+              type: "legal-info",
+              url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/it/informazioni-legali/"
+            }
+          ],
+          network_status: {
+            label:
+              "Informazioni sulla manutenzione della rete e sullo stato operativo",
+            type: "network-status",
+            url:
+              "https://web.archive.org/web/20200216130517/http://www.nintendo.com/consumer/network/en_na/network_status.jsp"
+          }
+        },
+        de: {
+          badges: [
+            { type: "tpc", url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/de/" },
+            { type: "nintendo", url: "https://web.archive.org/web/20200216130517/http://www.nintendo.de/" },
+            { type: "3ds", url: "https://web.archive.org/web/20200216130517/http://www.nintendo.de/" },
+            { type: "nintendo-network", url: "https://web.archive.org/web/20200216130517/http://www.nintendo.de/" },
+            { type: "esrb-rating", url: "https://web.archive.org/web/20200216130517/http://www.esrb.org/index-js.jsp" }
+          ],
+          copyright:
+            "© 2019 Pokémon.\n © 1995-2019 Nintendo/Creatures Inc./GAME FREAK inc.\nPokémon, Pokémon character names and Nintendo 3DS are trademarks of Nintendo.\nNotice: If you click on “Maintenance and Network Status Info” above or on any of the logos below, you will be leaving a site operated by The Pokémon Company International. The Pokémon Company International is not responsible for the content of any linked website that is not operated by The Pokémon Company International. Please note that these websites' privacy policies and security practices may differ from The Pokémon Company International's standards.",
+          links: [
+            {
+              label: "Nutzungsbedingungen",
+              type: "terms-of-use",
+              url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/de/nutzungsbedingungen/"
+            },
+            {
+              label: "Wartungsarbeiten",
+              type: "maintenance",
+              url: "/maintenance/"
+            },
+            {
+              label: "Systemvoraussetzungen",
+              type: "requirements",
+              url: "/browser/"
+            },
+            {
+              label: "Datenschutzerklaerung",
+              type: "privacy-policy",
+              url: "https://web.archive.org/web/20200216130517/https://www.pokemon.com/de/datenschutzerklaerung/"
+            },
+            {
+              label: "Rechtl. Hinweise",
+              type: "legal-info",
+              url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/de/rechtlich/"
+            }
+          ],
+          network_status: {
+            label: "Informationen zu Netzwerkwartung/Betriebsstatus",
+            type: "network-status",
+            url:
+              "https://web.archive.org/web/20200216130517/http://www.nintendo.com/consumer/network/en_na/network_status.jsp"
+          }
+        },
+        es: {
+          badges: [
+            { type: "tpc", url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/es/" },
+            { type: "nintendo", url: "https://web.archive.org/web/20200216130517/http://www.nintendo.es/" },
+            { type: "3ds", url: "https://web.archive.org/web/20200216130517/http://www.nintendo.es/" },
+            { type: "nintendo-network", url: "https://web.archive.org/web/20200216130517/http://www.nintendo.es/" },
+            { type: "esrb-rating", url: "https://web.archive.org/web/20200216130517/http://www.esrb.org/index-js.jsp" }
+          ],
+          copyright:
+            "© 2019 Pokémon.\n © 1995-2019 Nintendo/Creatures Inc./GAME FREAK inc.\nPokémon, Pokémon character names and Nintendo 3DS are trademarks of Nintendo.\nAviso: Si haces clic en «Información sobre mantenimiento y estado de la red» arriba o en cualquiera de los logos abajo, saldrás del sitio web administrado por The Pokémon Company International. The Pokémon Company International no se responsabiliza del contenido de ningún sitio web vinculado que no esté administrado por The Pokémon Company International. Las políticas de privacidad y las prácticas de seguridad de estos sitios web pueden no seguir las normas de The Pokémon Company International.",
+          links: [
+            {
+              label: "Condiciones de uso",
+              type: "terms-of-use",
+              url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/es/condiciones-de-uso/"
+            },
+            {
+              label: "Acerca del mantenimiento",
+              type: "maintenance",
+              url: "/maintenance/"
+            },
+            {
+              label: "Requisitos del sistema",
+              type: "requirements",
+              url: "/browser/"
+            },
+            {
+              label: "Aviso de privacidad",
+              type: "privacy-policy",
+              url: "https://web.archive.org/web/20200216130517/https://www.pokemon.com/es/aviso-de-privacidad/"
+            },
+            {
+              label: "Información legal",
+              type: "legal-info",
+              url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/es/legal/"
+            }
+          ],
+          network_status: {
+            label: "Información sobre mantenimiento y estado de la red",
+            type: "network-status",
+            url:
+              "https://web.archive.org/web/20200216130517/http://www.nintendo.com/consumer/network/es_na/network_status.jsp"
+          }
+        }
+      },
+      EU: {
+        en: {
+          badges: [
+            { type: "tpc", url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/" },
+            { type: "nintendo", url: "https://web.archive.org/web/20200216130517/http://www.nintendo.co.uk/" },
+            { type: "3ds", url: "https://web.archive.org/web/20200216130517/http://www.nintendo.co.uk/" },
+            { type: "nintendo-network", url: "https://web.archive.org/web/20200216130517/http://www.nintendo.co.uk/" },
+            { type: "pegi-rating", url: "https://web.archive.org/web/20200216130517/http://www.pegi.info" },
+            { type: "tw-rating", url: "" },
+            {
+              type: "australian-clasification-pg",
+              url: "https://web.archive.org/web/20200216130517/http://www.classification.gov.au/"
+            },
+            { type: "usk-rating", url: "https://web.archive.org/web/20200216130517/http://www.usk.de/en/" }
+          ],
+          copyright:
+            "© 2019 Pokémon.\n © 1995-2019 Nintendo/Creatures Inc./GAME FREAK inc.\nPokémon, Pokémon character names and Nintendo 3DS are trademarks of Nintendo.",
+          links: [
+            {
+              label: "Terms of Use",
+              type: "terms-of-use",
+              url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/uk/terms-of-use/"
+            },
+            { label: "Maintenance", type: "maintenance", url: "/maintenance/" },
+            {
+              label: "Verified System Requirements",
+              type: "requirements",
+              url: "/browser/"
+            },
+            {
+              label: "Privacy Notice",
+              type: "privacy-policy",
+              url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/uk/privacy-notice/"
+            },
+            {
+              label: "Legal Info",
+              type: "legal-info",
+              url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/uk/legal/"
+            }
+          ],
+          network_status: {
+            label: "Maintenance and Network Status Info",
+            type: "network-status",
+            url: "https://web.archive.org/web/20200216130517/http://www.nintendo.co.jp/netinfo/en_GB/index.html"
+          }
+        },
+        fr: {
+          badges: [
+            { type: "tpc", url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/fr/" },
+            { type: "nintendo", url: "https://web.archive.org/web/20200216130517/http://www.nintendo.fr/" },
+            { type: "3ds", url: "https://web.archive.org/web/20200216130517/http://www.nintendo.fr/" },
+            { type: "nintendo-network", url: "https://web.archive.org/web/20200216130517/http://www.nintendo.fr/" },
+            { type: "pegi-rating", url: "https://web.archive.org/web/20200216130517/http://www.pegi.info" },
+            { type: "tw-rating", url: "" },
+            {
+              type: "australian-clasification-pg",
+              url: "https://web.archive.org/web/20200216130517/http://www.classification.gov.au/"
+            },
+            { type: "usk-rating", url: "https://web.archive.org/web/20200216130517/http://www.usk.de/" }
+          ],
+          copyright:
+            "© 2019 Pokémon.\n © 1995 - 2019 Nintendo/Creatures Inc./GAME FREAK inc.\nPokémon, les noms des personnages Pokémon et Nintendo 3DS sont des marques de Nintendo.",
+          links: [
+            {
+              label: "Conditions d'utilisation",
+              type: "terms-of-use",
+              url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/fr/conditions-d-utilisation/"
+            },
+            { label: "Maintenance", type: "maintenance", url: "/maintenance/" },
+            {
+              label: "Configuration requise",
+              type: "requirements",
+              url: "/browser/"
+            },
+            {
+              label: "Avis de confidentialité ",
+              type: "privacy-policy",
+              url: "https://web.archive.org/web/20200216130517/https://www.pokemon.com/fr/avis-de-confidentialite/"
+            },
+            {
+              label: "Infos juridiques",
+              type: "legal-info",
+              url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/fr/juridique/"
+            }
+          ],
+          network_status: {
+            label: "Informations de maintenance en ligne/État opérationnel",
+            type: "network-status",
+            url: "https://web.archive.org/web/20200216130517/http://www.nintendo.co.jp/netinfo/fr_FR/index.html"
+          }
+        },
+        it: {
+          badges: [
+            { type: "tpc", url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/it/" },
+            { type: "nintendo", url: "https://web.archive.org/web/20200216130517/http://www.nintendo.it/" },
+            { type: "3ds", url: "https://web.archive.org/web/20200216130517/http://www.nintendo.it/" },
+            { type: "nintendo-network", url: "https://web.archive.org/web/20200216130517/http://www.nintendo.it/" },
+            { type: "pegi-rating", url: "https://web.archive.org/web/20200216130517/http://www.pegi.info" },
+            { type: "tw-rating", url: "" },
+            {
+              type: "australian-clasification-pg",
+              url: "https://web.archive.org/web/20200216130517/http://www.classification.gov.au/"
+            },
+            { type: "usk-rating", url: "https://web.archive.org/web/20200216130517/http://www.usk.de/" }
+          ],
+          copyright:
+            "© 2019 Pokémon.\n © 1995-2019 Nintendo/Creatures Inc./GAME FREAK inc.\nPokémon, Pokémon character names and Nintendo 3DS are trademarks of Nintendo.",
+          links: [
+            {
+              label: "Termini di utilizzo",
+              type: "terms-of-use",
+              url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/it/termini-di-utilizzo/"
+            },
+            {
+              label: "Manutenzione",
+              type: "maintenance",
+              url: "/maintenance/"
+            },
+            {
+              label: "Requisiti di sistema",
+              type: "requirements",
+              url: "/browser/"
+            },
+            {
+              label: "Informativa sulla privacy ",
+              type: "privacy-policy",
+              url: "https://web.archive.org/web/20200216130517/https://www.pokemon.com/it/informativa-sulla-privacy/"
+            },
+            {
+              label: "Informazioni legali",
+              type: "legal-info",
+              url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/it/informazioni-legali/"
+            }
+          ],
+          network_status: {
+            label:
+              "Informazioni sulla manutenzione della rete e sullo stato operativo",
+            type: "network-status",
+            url: "https://web.archive.org/web/20200216130517/http://www.nintendo.co.jp/netinfo/it_IT/index.html"
+          }
+        },
+        de: {
+          badges: [
+            { type: "tpc", url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/de/" },
+            { type: "nintendo", url: "https://web.archive.org/web/20200216130517/http://www.nintendo.de/" },
+            { type: "3ds", url: "https://web.archive.org/web/20200216130517/http://www.nintendo.de/" },
+            { type: "nintendo-network", url: "https://web.archive.org/web/20200216130517/http://www.nintendo.de/" },
+            { type: "pegi-rating", url: "https://web.archive.org/web/20200216130517/http://www.pegi.info" },
+            { type: "tw-rating", url: "" },
+            {
+              type: "australian-clasification-pg",
+              url: "https://web.archive.org/web/20200216130517/http://www.classification.gov.au/"
+            },
+            { type: "usk-rating", url: "https://web.archive.org/web/20200216130517/http://www.usk.de/" }
+          ],
+          copyright:
+            "© 2019 Pokémon.\n © 1995-2019 Nintendo/Creatures Inc./GAME FREAK inc.\nPokémon, Pokémon character names and Nintendo 3DS are trademarks of Nintendo.",
+          links: [
+            {
+              label: "Nutzungsbedingungen",
+              type: "terms-of-use",
+              url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/de/nutzungsbedingungen/"
+            },
+            {
+              label: "Wartungsarbeiten",
+              type: "maintenance",
+              url: "/maintenance/"
+            },
+            {
+              label: "Systemvoraussetzungen",
+              type: "requirements",
+              url: "/browser/"
+            },
+            {
+              label: "Datenschutzerklaerung",
+              type: "privacy-policy",
+              url: "https://web.archive.org/web/20200216130517/https://www.pokemon.com/de/datenschutzerklaerung/"
+            },
+            {
+              label: "Rechtl. Hinweise",
+              type: "legal-info",
+              url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/de/rechtlich/"
+            }
+          ],
+          network_status: {
+            label: "Informationen zu Netzwerkwartung/Betriebsstatus",
+            type: "network-status",
+            url: "https://web.archive.org/web/20200216130517/http://www.nintendo.co.jp/netinfo/de_DE/index.html"
+          }
+        },
+        es: {
+          badges: [
+            { type: "tpc", url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/es/" },
+            { type: "nintendo", url: "https://web.archive.org/web/20200216130517/http://www.nintendo.es/" },
+            { type: "3ds", url: "https://web.archive.org/web/20200216130517/http://www.nintendo.es/" },
+            { type: "nintendo-network", url: "https://web.archive.org/web/20200216130517/http://www.nintendo.es/" },
+            { type: "pegi-rating", url: "https://web.archive.org/web/20200216130517/http://www.pegi.info" },
+            { type: "tw-rating", url: "" },
+            {
+              type: "australian-clasification-pg",
+              url: "https://web.archive.org/web/20200216130517/http://www.classification.gov.au/"
+            },
+            { type: "usk-rating", url: "https://web.archive.org/web/20200216130517/http://www.usk.de/" }
+          ],
+          copyright:
+            "© 2019 Pokémon.\n © 1995-2019 Nintendo/Creatures Inc./GAME FREAK inc.\nPokémon, Pokémon character names and Nintendo 3DS are trademarks of Nintendo.",
+          links: [
+            {
+              label: "Condiciones de uso",
+              type: "terms-of-use",
+              url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/es/condiciones-de-uso/"
+            },
+            {
+              label: "Acerca del mantenimiento",
+              type: "maintenance",
+              url: "/maintenance/"
+            },
+            {
+              label: "Requisitos del sistema",
+              type: "requirements",
+              url: "/browser/"
+            },
+            {
+              label: "Aviso de privacidad",
+              type: "privacy-policy",
+              url: "https://web.archive.org/web/20200216130517/https://www.pokemon.com/es/aviso-de-privacidad/"
+            },
+            {
+              label: "Información legal",
+              type: "legal-info",
+              url: "https://web.archive.org/web/20200216130517/http://www.pokemon.com/es/legal/"
+            }
+          ],
+          network_status: {
+            label: "Información sobre mantenimiento y estado de la red",
+            type: "network-status",
+            url: "https://web.archive.org/web/20200216130517/http://www.nintendo.co.jp/netinfo/es_ES/index.html"
+          }
+        }
+      },
+      KR: {
+        ko: {
+          badges: [
+            { type: "pki", url: "https://web.archive.org/web/20200216130517/http://pokemonkorea.co.kr" },
+            {
+              type: "nintendo",
+              url: "https://web.archive.org/web/20200216130517/http://nintendo.co.kr"
+            } /*,
+                                                                        {type:"nintendo-network",url:"https://web.archive.org/web/20200216130517/http://www.nintendo.co.kr/DS/soft/wifi/wifi_connection.php"}*/
+          ],
+          copyright:
+            "©2019 Pokémon.\n ©1995-2019 Nintendo / Creatures Inc. / GAME FREAK inc.\n\n포켓몬스터, 포켓몬, Pokémon은 Nintendo의 상표입니다. \nTrademarks are property of their respective owners.  \nNintendo 3DS is a trademark of Nintendo.",
+          links: [
+            { label: "약속", type: "notice", url: "/notice/" },
+            { label: "이용약관", type: "terms-of-use", url: "/terms-of-use/" },
+            { label: "점검 정보", type: "maintenance", url: "/maintenance/" },
+            { label: "권장사양", type: "requirements", url: "/browser/" },
+            {
+              label: "개인정보 취급방침",
+              type: "privacy-policy",
+              url: "https://web.archive.org/web/20200216130517/http://pokemonkorea.co.kr/fp/privacy"
+            },
+            {
+              label: "저작권",
+              type: "legal-info",
+              url: "https://web.archive.org/web/20200216130517/http://pokemonkorea.co.kr/fp/copyright"
+            }
+          ]
+        }
+      }
+    }
+  };
+
+  PGL.UTIL.getFooter = function() {
+    if (PGL.DATA.GET_LOGIN_STATUS.loginStatus == 0) {
+      // (C)言語によるリージョン判定
+      var region = PGL.UTIL.getRegionFromSelectedLanguage();
+      // (A)共通言語判定
+      var lang = PGL.UTIL.getSelectedLanguage();
+    } else {
+      // (D)連携サイトと本体リージョンによるリージョン判定
+      var region = PGL.UTIL.getRegionFromLoginData();
+      // (E)ゲーム言語と連携サイトによる言語判定
+      var lang = PGL.UTIL.getSiteRelatedLanguage();
+    }
+    var romSeries = PGL.UTIL.getRomSeries();
+
+    var regionName;
+    switch (region) {
+      case PGL.ENUM.REGION.JP:
+        regionName = "JP";
+        break;
+      case PGL.ENUM.REGION.US:
+        regionName = "US";
+        break;
+      case PGL.ENUM.REGION.KR:
+        regionName = "KR";
+        break;
+      default:
+        regionName = "EU";
+    }
+
+    var langCode = PGL.UTIL.getLanguageCode(lang);
+    if ($.inArray(langCode, ["ch", "tw"]) !== -1) {
+      langCode = "en";
+      regionName = "EU";
+    }
+
+    var result = footers[romSeries][regionName][langCode];
+    // PGL_S-796
+    $.each(result.links, function(index, link) {
+      if (link.url.indexOf("https://web.archive.org/web/20200216130517/http://pokemonkorea.co.kr/") == 0) {
+        link.url =
+          PGL.INFO.PATH.pki +
+          link.url.substr("https://web.archive.org/web/20200216130517/http://pokemonkorea.co.kr/".length);
+      }
+    });
+    return result;
+  };
+})();
+
+// getFooter end
+
+// Google Analytics
+(function(i, s, o, g, r, a, m) {
+  i["GoogleAnalyticsObject"] = r;
+  (i[r] =
+    i[r] ||
+    function() {
+      (i[r].q = i[r].q || []).push(arguments);
+    }),
+    (i[r].l = 1 * new Date());
+  (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
+  a.async = 1;
+  a.src = g;
+  m.parentNode.insertBefore(a, m);
+})(window, document, "script", "//web.archive.org/web/20200216130517/https://www.google-analytics.com/analytics.js", "ga");
+
+ga("create", "UA-17682532-2", "auto");
+ga("send", "pageview");
+// Google Analytics
+
+// Adobe Analytics
+// Adobe Analytics
+
+
+}
+/*
+     FILE ARCHIVED ON 13:05:17 Feb 16, 2020 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 02:53:47 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 183.998
+  exclusion.robots: 0.076
+  exclusion.robots.policy: 0.067
+  cdx.remote: 0.051
+  esindex: 0.008
+  LoadShardBlock: 141.308 (3)
+  PetaboxLoader3.datanode: 99.136 (5)
+  PetaboxLoader3.resolve: 160.759 (4)
+  load_resource: 125.609 (2)
+*/

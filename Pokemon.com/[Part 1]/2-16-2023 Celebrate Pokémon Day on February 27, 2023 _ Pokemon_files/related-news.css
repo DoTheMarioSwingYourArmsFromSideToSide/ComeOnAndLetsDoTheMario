@@ -1,0 +1,94 @@
+.news-list-featured {
+    clear: both;
+    position: relative;
+    overflow: hidden;
+    display: block;
+    margin: 0 auto;
+    max-width: 1024px;
+    width: 100%;
+    background: transparent url(/web/20230216071526im_/https://www.pokemon.com/static-assets/app/static3/img/chrome/content_bg.png) left top;
+    background-size: 100% 1px;
+}
+.news-list-featured li {
+    padding: 4px;
+    vertical-align: top;
+    display: inline-block;
+    width: 280px
+}
+.news-list-featured .content-block-full {
+    width: 280px;
+}
+
+.news-list-featured .news-article .news-wrapper h3 {
+    font-size: 110%;
+}
+
+.news-list-featured .news-article .news-wrapper p {
+    font-size: 86%;
+    clear: both;
+}
+
+.content-block img {
+    border-radius: 5px;
+}
+
+.content-block .news-article img {
+    width: 100%;
+    margin-bottom: 1em;
+}
+
+.news-article {
+    background-color: #ffffff;
+}
+
+.news-article img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.news-article .news-wrapper {
+    float: none;
+    /* height: auto; */
+    width: 100%;
+    clear: both;
+}
+
+.news-article .news-wrapper .date-and-tags .date {
+    margin: 0 0 0.05em 0.5em;
+}
+
+.news-article .news-wrapper .date-and-tags .tags {
+    margin: 0.05em 0 10px 0.5em;
+    clear: left;
+}
+
+@media (min-width: 1px) and (max-width: 960px) {
+    .news-article .news-wrapper .date-and-tags .date {
+        margin: 0 0 0.05em 0;
+    }
+
+    .news-article .news-wrapper .date-and-tags .tags {
+        margin: 0.05em 0 0 0;
+        clear: left;
+    }
+}
+/*
+     FILE ARCHIVED ON 07:15:26 Feb 16, 2023 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 20:04:28 May 01, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 99.26
+  exclusion.robots: 0.108
+  exclusion.robots.policy: 0.098
+  RedisCDXSource: 0.553
+  esindex: 0.008
+  LoadShardBlock: 72.852 (3)
+  PetaboxLoader3.datanode: 141.62 (5)
+  load_resource: 1035.903 (2)
+  PetaboxLoader3.resolve: 885.96 (2)
+*/

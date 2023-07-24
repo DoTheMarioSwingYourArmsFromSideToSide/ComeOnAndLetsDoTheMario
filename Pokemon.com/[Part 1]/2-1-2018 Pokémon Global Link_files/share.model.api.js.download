@@ -1,0 +1,202 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+// JavaScript Document
+
+
+/*=====================================================
+ ////////////////////// MAIN /////////////////////////
+=====================================================*/
+
+PGL.INFO.API = {
+	  "GBU_GET_SEASON_POKEMON_DETAIL": {url: "gbu/getSeasonPokemonDetail", dataType: "json"},
+	  "GET_LOGIN_STATUS"       : {url: "getLoginStatus", dataType: "json"},
+	  "GET_SENT_ITEM_LIST"     : {url: "getSentItemList", dataType: "json"},
+	  "GET_MEMBER_TOP_COMMON"  : {url: "getMemberTopCommon", dataType: "json"},
+	  "GET_TOP_RANKING"        : {url: "getTopRanking", dataType: "json"},
+	  "GET_TOP_POKEMON_RANKING": {url: "getTopPokemonRanking", dataType: "json"},
+	  "GET_TOP_TIMELINE"       : {url: "getMemberTopTimeline", dataType: "json"},
+	  "GET_TOP_PHOTO"          : {url: "getMemberTopPhoto", dataType: "json"},
+	  "GET_BIG_BANNER"         : {url: "getBigBanner", dataType: "json"},
+    "GET_GLOBAL_REPORT"      : {url: "getGlobalReport", dataType: "json"},
+	  "GET_REPORT"             : {url: "report/getReport", dataType: "json"},
+	  "GET_SEASON_RANKING_ALL" : {url: "gbu/getSeasonRankingAll", dataType: "json"},
+	  "GBU_GET_SEASON"         : {url: "gbu/getSeason", dataType: "json"},
+	  "GBU_GET_SEASON_POKEMON" : {url: "gbu/getSeasonPokemon", dataType: "json"},
+	  "GBU_GET_SEASON_RANKING" : {url: "gbu/getSeasonRanking", dataType: "json"},
+	  "GET_COUNTRY"            : {url: "master/getCountry", dataType: "json"},
+	  "GET_COUNTRY_COOPERATION": {url: "master/getCountryCooperation", dataType: "json"},
+	  "GET_ADDRESS"            : {url: "master/getAddress", dataType: "json"},
+	  "GET_SNS"                : {url: "master/getSns", dataType: "json"},
+	  "GET_POKEMON"            : {url: "master/getPokemon", dataType: "json"},
+	  "GET_ATTRACTION"         : {url: "attraction/getAttraction", dataType: "json"},
+    "GET_INTERNET_MATCHUP"   : {url: "matchup/getInternetMatchup", dataType: "json"},
+	  "GET_ACCOUNT_SET"        : {url: "mypage/getAccountSet", dataType: "json"},
+	  "GET_ACCOUNT_PUBLISH"    : {url: "mypage/getAccountPublish", dataType: "json"},
+	  "GET_ACQUAINTED_LIST"    : {url: "mypage/getAcquaintedList", dataType: "json"},
+	  "GET_COMPETITIONS"       : {url: "mypage/getCompetitions", dataType: "json"},
+	  "GET_FAVORITE_LIST"      : {url: "mypage/getFavoriteList", dataType: "json"},
+	  "GET_FRIEND_LIST"        : {url: "mypage/getFriendList", dataType: "json"},
+	  "GET_GAME_SOFT_LIST"     : {url: "mypage/getGameSoftList", dataType: "json"},
+	  "GET_GBU_BATTLE_LIST"    : {url: "mypage/getGbuBattleList", dataType: "json"},
+	  "GET_MATCHUP_BATTLE_LIST": {url: "mypage/getMatchupBattleList", dataType:"json"},
+	  "GET_GTS_DEPOSIT"        : {url: "mypage/getGtsDeposit", dataType: "json"},
+	  "GET_GTS_TRADE_LIST"     : {url: "mypage/getGtsTradeList", dataType: "json"},
+	  "GET_MEDAL_LIST"         : {url: "mypage/getMedalList", dataType: "json"},
+	  "GET_MYPAGE_COMMON"      : {url: "mypage/getMypageCommon", dataType: "json"},
+	  "GET_MYPAGE_SOFT"        : {url: "mypage/getMypageSoft", dataType: "json"},
+	  "GET_NOT_SENT_ITEM_LIST" : {url: "mypage/getNotSentItemList", dataType: "json"},
+	  "GET_POINT_HISTORY"      : {url: "mypage/getPointHistory", dataType: "json"},
+	  "GET_SEASON_RANKING_LIST": {url: "mypage/getSeasonRankingList", dataType: "json"},
+	  "GSIDC_REGISTER"         : {url: "mypage/gsidcRegister", dataType: "json"},
+	  "GSIDC_REGISTER_CONFIRM" : {url: "mypage/gsidcRegisterConfirm", dataType: "json"},
+	  "UPDATE_PUBLISH"         : {url: "mypage/updatePublish", dataType: "json"},
+	  "RELEASE_GAME_SYNC_ID"   : {url: "mypage/releaseGameSyncID", dataType: "json"},
+	  "RELEASE_CANCEL"         : {url: "mypage/releaseCancel", dataType: "json"},
+	  "SELECT_G_SIDC"          : {url: "mypage/selectGsidc", dataType: "json"},
+	  "GET_PHOTO_DETAIL"       : {url: "mypage/getPhotoDetail", dataType: "json"},
+	  "GET_PHOTO_LIST"         : {url: "mypage/getPhotoList", dataType: "json"},
+	  "LOCK_PHOTO"             : {url: "mypage/lockPhoto", dataType: "json"},
+	  "UNLOCK_PHOTO"           : {url: "mypage/unlockPhoto", dataType: "json"},
+	  "DELETE_PHOTO"           : {url: "mypage/deletePhoto", dataType: "json"},
+	  "DOWNLOAD_PHOTO"         : {url: "mypage/downloadPhoto", dataType: "json"},
+	  "MOVE_POINT"             : {url: "mypage/movePoint", dataType: "json"},
+	  "SET_PHOTO_STATUS"       : {url: "mypage/setPhotoStatus", dataType: "json"},
+	  "GET_INTERNET_MATCHUP_DETAIL"  : {url: "matchup/getInternetMatchupDetail", dataType: "json"},
+	  "GET_INTERNET_MATCHUP_ENTRY"   : {url: "matchup/getInternetMatchupEntry", dataType: "json"},
+	  "GET_INTERNET_MATCHUP_RANKING" : {url: "matchup/getInternetMatchupRanking", dataType: "json"},
+	  "GET_INTERNET_MATCHUP_POKEMON_RANKING" : {url: "matchup/getInternetMatchupPokemonRanking", dataType: "json"},
+	  "GET_INTERNET_MATCHUP_POKEMON_DETAIL" : {url: "matchup/getInternetMatchupPokemonDetail", dataType: "json"},
+	  "GET_INTERNET_MATCHUP_BATTLE_VIDEO_RANKING": {url: "matchup/getInternetMatchupBattleVideoRanking", dataType: "json"},
+	  "GET_INTERNET_MATCHUP_BEST_BATTLES" : {url: "matchup/getInternetMatchupBestBattles", dataType: "json"},
+	  "GET_INFORMATION": {url: "information/getInformation", dataType: "json"},
+	  "GET_INFORMATION_USER": {url: "information/getInformationUser", dataType: "json"},
+	  "GET_INFORMATION_USER_READ": {url: "information/getInformationUserRead", dataType: "json"},
+	  "GET_INFORMATION_DETAIL": {url: "information/getInformationDetail", dataType: "json"},
+	  "GET_INFORMATION_USER_DETAIL": {url: "information/getInformationUserDetail", dataType: "json"},
+	  "GET_ATTRACTION_LEVEL": {url: "attraction/getAttractionLevel", dataType: "json"},
+	  "GET_ATTRACTION_GAMESTART": {url: "attraction/getAttractionGameStart", dataType: "json"},
+	  "GET_ATTRACTION_ITEM": {url: "attraction/getAttractionItem", dataType: "json"},
+	  "GET_ATTRACTION_ITEM_HISTORY": {url: "attraction/getAttractionItemHistory", dataType: "json"},
+	  "GET_ATTRACTION_ITEM_REGIST": {url: "attraction/getAttractionItemRegist", dataType: "json"},
+	  "GET_ATTRACTION_SHOP_ITEM_REGIST": {url: "attraction/getAttractionShopItemRegist", dataType: "json"},
+	  "GET_GBU_REGULATION_TOP": {url: "gbu/getSeasonRegulationTop", dataType: "json"},
+	  "GET_GBU_REGULATION_WAZA": {url: "gbu/getSeasonRegulationWazaItem", dataType: "json"},
+	  "GET_GBU_REGULATION_OTHER": {url: "gbu/getSeasonRegulationOther", dataType: "json"},
+    "GET_GBU_REGULATION_POKEMON": {url: "gbu/getSeasonRegulationPokemon", dataType: "json"},
+	  "GET_GBU_REGULATION_POKEMON_WCS": {url: "gbu/getSeasonWcsRegulationPokemon", dataType: "json"},
+	  "GET_MATCHUP_REGULATION_TOP": {url: "matchup/getInternetMatchupRegulationTop", dataType: "json"},
+	  "GET_MATCHUP_REGULATION_WAZA": {url: "matchup/getInternetMatchupRegulationWazaItem", dataType: "json"},
+	  "GET_MATCHUP_REGULATION_OTHER": {url: "matchup/getInternetMatchupRegulationOther", dataType: "json"},
+	  "GET_MATCHUP_REGULATION_POKEMON": {url: "matchup/getInternetMatchupRegulationPokemon", dataType: "json"},
+
+    /** ---------------------
+     * NIJI
+     ** --------------------- */
+    // master
+    "GET_POKEMON_WAZA": {url: "master/getPokemonWaza", dataType: "json"},
+    "GET_POKEMON_WAZA_CATEGORY": {url: "master/getPokemonWazaCategory", dataType: "json"},
+    "GET_POKEMON_TOKUSEI": {url: "master/getPokemonTokusei", dataType: "json"},
+    "GET_ITEM_LIST": {url: "master/getItemList", dataType: "json"},
+    "GET_ITEM_CATEGORY": {url: "master/getItemCategory", dataType: "json"},
+
+    // battleteam
+    "GET_TOP_BATTLETEAM_RANKING"  : {url: "battleTeam/getTopBattleTeamRanking", dataType: "json"},
+
+    "GET_MYPAGE_BATTLETEAM":{url: "mypage/getBattleTeamList", dataType: "json"},
+    "GET_MYPAGE_BATTLETEAM_POKEMON_LIST": {url: "mypage/getBattleTeamPokemonList", dataType: "json"},
+    "REGISTER_BATTLETEAM": {url: "mypage/battleTeamRegister", dataType: "json"},
+    "REGISTER_BATTLETEAM_CONFIRM": {url: "mypage/battleTeamRegisterConfirm", dataType: "json"},
+	  "DELETE_BATTLETEAM": {url: "mypage/deleteBattleTeam", dataType: "json"},
+    "GET_BATTLETEAM_BOX":{url: "mypage/getBattleTeamBoxList", dataType: "json"},
+    "GET_BATTLETEAM_DETAIL": {url: "battleTeam/getBattleTeamDetail", dataType: "json"},
+    "GET_BATTLETEAM_RANKING": {url: "battleTeam/getBattleTeamRanking", dataType: "json"},
+    "GET_BATTLETEAM_SEASON_RANKING": {url: "battleTeam/getBattleTeamSeasonRanking", dataType: "json"},
+    "GET_BATTLETEAM_USE_TRAINER_RANKING": {url: "battleTeam/getBattleTeamUseTrainerRanking", dataType: "json"},
+    "GET_BATTLETEAM_SEASON_USE_TRAINER_RANKING": {url: "battleTeam/getBattleTeamSeasonUseTrainerRanking", dataType: "json"},
+    "GET_BATTLETEAM_RATING_RANKING": {url: "battleTeam/getBattleTeamRatingRanking", dataType: "json"},
+    "SEARCH_BATTLETEAM": {url: "battleTeam/searchBattleTeam", dataType: "json"},
+    "GET_BATTLETEAM_QRCODE": {url: "battleTeam/getQr", dataType: "json"},
+
+    // friendly competitions
+    "GET_MYPAGE_RECENT_FRIENDLY_COMPETITIONS": {url: "mypage/getRecentFriendlyCompetitions", dataType: "json"},
+    "GET_MYPAGE_FRIENDLY_COMPETITIONS_HISTORY": {url: "mypage/getFriendlyCompetitionsHistory", dataType: "json"},
+    "GET_MYPAGE_FRIENDLY_COMPETITIONS_OPEN_HISTORY": {url: "mypage/getFriendlyCompetitionsOpenHistory", dataType: "json"},
+    "GET_MYPAGE_FRIENDLY_COMPETITIONS_USER": {url: "mypage/getFriendlyCompetitionsUser", dataType: "json"},
+    "GET_MYPAGE_FRIENDLY_COMPETITIONS_ENTRY_USER": {url: "mypage/addFriendlyCompetitionsEntryUser", dataType: "json"},
+    "GET_FRIENDLY_COMPETITIONS": {url: "friendlyCompetitions/getFriendlyCompetitions", dataType: "json"},
+    "GET_FRIENDLY_COMPETITIONS_OPENABLE": {url: "friendlyCompetitions/getFriendlyCompetitionsOpenableFlag", dataType: "json"},
+    "CREATE_FRIENDLY_COMPETITIONS": {url: "friendlyCompetitions/createFriendlyCompetitions", dataType: "json"},
+    "CREATE_FRIENDLY_COMPETITIONS_CONFIRM": {url: "friendlyCompetitions/friendlyCompetitionsAddConfirm", dataType: "json"},
+    "CHECK_FRIENDLY_COMPETITIONS_USER": {url: "friendlyCompetitions/checkFriendlyCompetitionsUser", dataType: "json"},
+    "GET_FRIENDLY_COMPETITIONS_TIMEZONE": {url: "friendlyCompetitions/getFriendlyComptitionsTimezone", dataType: "json"},
+    "GET_FRIENDLY_COMPETITIONS_REGULATION_POKEMON": {url: "friendlyCompetitions/getInternetRegulationPokemon", dataType: "json"},
+    "GET_LIVE_COMPETITIONS_REGULATION_POKEMON": {url: "friendlyCompetitions/getLiveRegulationPokemon", dataType: "json"},
+    "ENTRY_FRIENDLY_COMPETITIONS": {url: "friendlyCompetitions/entryFriendlyCompetitions", dataType: "json"},
+    "GET_FRIENDLY_COMPETITIONS_DETAIL": {url: "friendlyCompetitions/getFriendlyCompetitionsDetail", dataType: "json"},
+    "GET_FRIENDLY_COMPETITIONS_QRCODE": {url: "friendlyCompetitions/getFriendlyCompetitionsQRCode", dataType: "json"},
+    "GET_FRIENDLY_COMPETITIONS_RANKING": {url: "friendlyCompetitions/getFriendlyCompetitionsRanking", dataType: "json"},
+    "GET_FRIENDLY_COMPETITIONS_POKEMON_RANKING": {url: "friendlyCompetitions/getFriendlyCompetitionsPokemonRanking", dataType: "json"},
+    "GET_FRIENDLY_COMPETITIONS_POKEMON_DETAIL": {url: "friendlyCompetitions/getFriendlyCompetitionsPokemonDetail", dataType: "json"},
+    "CREATE_LIVE_COMPETITIONS": {url: "friendlyCompetitions/createLiveCompetitions", dataType: "json"},
+    "CREATE_LIVE_COMPETITIONS_COMFIRM": {url: "friendlyCompetitions/liveCompetitionsAddConfirm", dataType: "json"},
+    "GET_LIVE_COMPETITIONS": {url: "friendlyCompetitions/getLiveCompetitions", dataType: "json"},
+    "GET_LIVE_COMPETITIONS_QRCODE": {url: "friendlyCompetitions/getLiveCompetitionsQRCode", dataType: "json"},
+    "GET_NEARNESS_FRIENDLY_COMPETITIONS"  : {url: "getNearnessFriendlyCompetitions", dataType: "json"},
+
+	  "GET_PAST_INTERNET_MATCHUP_DETAIL"  : {url: "matchup/past/getInternetMatchupDetail", dataType: "json"},
+	  "GET_PAST_INTERNET_MATCHUP_RANKING" : {url: "matchup/past/getInternetMatchupRanking", dataType: "json"},
+	  "GET_PAST_INTERNET_MATCHUP_POKEMON_RANKING" : {url: "matchup/past/getInternetMatchupPokemonRanking", dataType: "json"},
+	  "GET_PAST_INTERNET_MATCHUP_POKEMON_DETAIL" : {url: "matchup/past/getInternetMatchupPokemonDetail", dataType: "json"},
+
+    "GET_DL_REGULATION" :        {url: "deliveryRegulation/getRegulation", dataType: "json"},
+	  "GET_DL_REGULATION_DETAIL":  {url: "deliveryRegulation/getDeliveryRegulationDetail", dataType: "json"},
+	  "GET_DL_REGULATION_WAZA":    {url: "deliveryRegulation/getDeliveryRegulationWazaItem", dataType: "json"},
+	  "GET_DL_REGULATION_POKEMON": {url: "deliveryRegulation/getDeliveryRegulationPokemon", dataType: "json"},
+    //
+	  "GET_MYPAGE_TIMELINE_USER": {url: "mypage/getTimelineUser", dataType: "json"},
+	  "GET_MYPAGE_TIMELINE_USER_DETAIL": {url: "mypage/getTimelineUserDetail", dataType: "json"},
+	  "GET_MYPAGE_TIMELINE_USER_ARCHIVE": {url: "mypage/getTimelineUserArchive", dataType: "json"},
+	  "GET_MYPAGE_TIMELINE_USER_ARCHIVE_PERIOD": {url: "mypage/getTimelineUserArchivePeriod", dataType: "json"},
+	  "GET_MYPAGE_TIMELINE_USER_ARCHIVE_DETAIL": {url: "mypage/getTimelineUserArchiveDetail", dataType: "json"},
+	  "GET_MYPAGE_TIMELINE_USER_DELETE": {url: "mypage/getTimelineUserDelete", dataType: "json"},
+	  "GET_MYPAGE_TIMELINE_USER_LIKE_REGIST": {url: "mypage/getTimelineUserLikeRegist", dataType: "json"},
+	  "GET_MYPAGE_TIMELINE_USER_LIKE_DELETE": {url: "mypage/getTimelineUserLikeDelete", dataType: "json"},
+	  "GET_MYPAGE_TIMELINE_LIKE_USER": {url: "mypage/getTimelineLikeUser", dataType: "json"},
+    "GET_TIMELINE_GAME_CHARA": {url: "timeline/getTimelineGameChara", dataType: "json"},
+	  "GET_TIMELINE_GAME_CHARA_DETAIL": {url: "timeline/getTimelineGameCharaDetail", dataType: "json"},
+	  "GET_ATTRACTION_RECOVERY": { url:'attraction/getAttractionRecovery', dataType:'json' },
+    "GET_MYPAGE_SECRETBASE":{url: "mypage/getSecretBase", dataType: "json"}
+};
+
+
+}
+/*
+     FILE ARCHIVED ON 17:33:23 Oct 16, 2018 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 02:50:05 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 120.975
+  exclusion.robots: 0.097
+  exclusion.robots.policy: 0.085
+  cdx.remote: 0.068
+  esindex: 0.011
+  LoadShardBlock: 33.037 (3)
+  PetaboxLoader3.datanode: 38.893 (4)
+  load_resource: 35.414
+  PetaboxLoader3.resolve: 23.104
+*/

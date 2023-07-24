@@ -1,0 +1,2254 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+/*=====================================================
+   /////////////ダイアログ：公開範囲の設定 //////////////
+   =====================================================*/
+(function () {
+    // issue:0002790
+    var callingApi = false;
+
+    PGL.DIALOG.accountPublish = function ()
+    {
+        if (callingApi || $('#DIALOG_PUBLISH').length) {
+            return;
+        }
+        callingApi = true;
+
+        PGL.REQUEST.postAPI("GET_ACCOUNT_PUBLISH",{}).done(function(data)
+            {
+                callingApi = false;
+
+                var trObj = new Object();
+                PGL.DATA.GET_ACCOUNT_PUBLISH = data;
+                var page1Tags = function()
+                {
+                    var data = PGL.DATA.GET_ACCOUNT_PUBLISH;
+                    var count = 0;
+                    for(var n in data.publish){
+                        var opt = [];
+                        $.each(PGL.DATA.options,function(i){
+                            if(parseInt(data.publish[n])==i){
+                                opt.push('<option value="'+i+'" selected="selected">'+this+'</option>');
+                            }
+                            else{
+                                opt.push('<option value="'+i+'">'+this+'</option>');
+                            }
+                        });
+                        var tr = [
+                            '<th class="centerBox">',PGL.DATA.categories[n],'</th>',
+                            '<td class="rightBox">',
+                            '<select id="range',count,'">',opt.join(""),'</select>',
+                            '</td>',
+                            '</tr>'
+                        ];
+                        trObj[n] = tr.join("");
+                        count++;
+                    }
+
+                    var sdata = PGL.DATA.GET_LOGIN_STATUS.selectedSavedata;
+                    var romId = sdata.romId;
+                    // issue:0000703
+                    var markup =
+                        [
+                            '<p class="page-help">',
+                            '<a class="iconHelp_or support" data-support="manual/manual_membership/privacy-settings/">',PGL.UTIL.getLocale("GLOSSARY_ABOUT_PRIVACY_SETTINGS"),'</a>',
+                            '</p>',
+                            '<div class="frameContainer noScroll borderNone pt00">',
+                            '<div class="publishBox">',
+                            '<div class="tableTypeDefault">',
+                            '<table width="100%" border="0" cellspacing="0" cellpadding="0">',
+                            '<tr>',
+                            '<td class="leftBox">',
+                            '<dl class="allPublish">',
+                            '<dt>',PGL.UTIL.getLocale("GLOSSARY_BASE_PRIVACY_SETTINGS"),'</dt>',
+                            '<dd>',PGL.UTIL.getLocale("GLOSSARY_BASE_PRIVACY_SETTINGS_NOTE"),'</dd>',
+                            '</dl>',
+                            '</td>',trObj.profile,
+                            '</table>',
+                            '</div>',
+                            '</div>',
+                            '<div class="publishBox">',
+                            '<div class="tableTypeDefault">',
+                            '<table width="100%" border="0" cellspacing="0" cellpadding="0">',
+                            '<tr class="userPageSettings">',
+                            '<td rowspan="8" class="leftBox">',
+                            '<dl class="allPublish">',
+                            '<dt>',PGL.UTIL.getLocale("GLOSSARY_MYPAGE_PRIVACY_SETTINGS"),'</dt>',
+                            '<dd>',PGL.UTIL.getLocale("GLOSSARY_MYPAGE_PRIVACY_SETTINGS_NOTE"),'</dd>',
+                            '</dl>',
+                            '</td>',trObj.gameSoft,
+                            '<tr>',trObj.gbu,
+                            '<tr>',trObj.battleTeam,
+                            '<tr>',trObj.internetMatchup,
+                            '<tr>',trObj.friendlyCompetitions,
+                            '<tr>',trObj.gts,
+                            '<tr>',trObj.medal,
+                            '<tr>',trObj.friend].join("") +
+                        //            ((romId == 26 || romId == 27) ? '<tr>' + trObj.secretbase : '') +
+             ['</table>','</div>','</div>','</div>','</div>'].join("");
+
+                    var $content = $(markup).commonLink();
+                    $('<div></div>').savedataBox(sdata, { vertical:true }).appendTo($content.find('.userPageSettings td:first'));
+
+                    // issue:0001971,0002847
+                    if (PGL.DATA.GET_LOGIN_STATUS.account.site == 2) {
+                        var $target = $content.find('.rightBox:first');
+                        $('<span></span>').text($target.find('select option:selected').text()).appendTo($target);
+                        $('<div class="checkComProfile"></div>').append(
+                            $('<a></a>').text(PGL.UTIL.getLocale('GLOSSARY_ACTION_TO_PTC')).addClass('linked-site-login')
+                        ).appendTo($target).commonLink();
+                        $target.find('select').hide();
+                    }
+
+                    return $content;
+                }
+
+                /*var pubData = data.publish;
+                   var saveData = data.savedata;
+                   var isCom = data.account.site === '2' ? true : false;
+                   var allAuth = pubData.profile;*/
+
+                var page01Btn = {};
+                page01Btn[PGL.UTIL.getLocale("GLOSSARY_ACTION_SAVE_SETTINGS")] = {"color": true, "action": function(){
+
+                    var selects = $.map($('select[id*="range"]','#confirmWindow'),function(item, index){
+                        return $(item).children(':selected').attr('value');
+                    });
+                    var currSelectStatus = {
+                        savedataId:PGL.DATA.SD.savedataId,
+                        "profile" : selects[0],
+                        "gameSoft": selects[1],
+                        "gbu":selects[2],
+                        "battleTeam":selects[3],
+                        "internetMatchup":selects[4],
+                        "friendlyCompetitions":selects[5],
+                        "gts":selects[6],
+                        "friend": selects[7],
+                    };
+                    PGL.REQUEST.postAPI("UPDATE_PUBLISH",currSelectStatus).done(function(data){
+                        if(location.href.indexOf("register")!=-1){
+                            location.href = "/";
+                        }else{
+                            location.reload();
+                        }
+                        //PGL.dialog.change(page02);
+                    });
+                }}
+
+                var page01 = {
+                    "type"    : "",
+                    "id"      : "DIALOG_PUBLISH",
+                    "title"   : PGL.UTIL.getLocale("GLOSSARY_PRIVACY_SETTINGS"),
+                    "detail"  : page1Tags,
+                    "buttons" : page01Btn
+                };
+
+                PGL.dialog.init(page01);
+                PGL.dialog.show();
+
+                var page02 = PGL.DIALOG.modelClose(PGL.UTIL.getLocale("GLOSSARY_PRIVACY_SETTINGS"),PGL.UTIL.getLocale("GLOSSARY_PRIVACY_SETTINGS_COMPLETED"));
+
+                //公開範囲の設定プルダウン動作
+                //$('select[id*="range"]','#confirmWindow').privateRangeUI({'list':PGL.INFO.TEXT.mypage_publish});
+
+                // issue:0000760
+                $('select[id*="range"]:first').on('change', function () {
+                    var base = $(this).val();
+                    $('select[id*="range"]:gt(0)').each(function (index, select) {
+                        $(select).val(Math.min($(select).val(), base));
+                        $(select).children('option').attr({ disabled:false }).filter(':gt(' + base + ')').attr({ disabled:true });
+                    });
+                }).change();
+            });
+        return false;
+    };
+
+})();
+
+/*=====================================================
+   ////////// ゲームソフトの登録解除申請 ///////////////
+   =====================================================*/
+PGL.DIALOG.releaseGame = function(data)
+{
+    var steps = ['GLOSSARY_CAUTION_TITLE', 'GLOSSARY_CHECK', 'GLOSSARY_FIN'];
+
+    /*
+     * page1
+     */
+    var page1Tags = function()
+    {
+        // issue:0001091
+        var markup =
+            [
+                '<div class="mb10">',
+                '<ul class="steps"></ul>','</div>',
+                '<ul class="clearFix">',
+                '<li class="floatL iconCaution font12 fontB">',PGL.UTIL.getLocale('GLOSSARY_FOR_CHILDREN'),'</li>',
+                '<li class="floatR font12 fontB"><a class="iconHelp_or support" data-support="manual/manual_membership/removing/">',PGL.UTIL.getLocale("F-AC-01-06_ABOUT_LINK"),'</a></li>',
+                '</ul>',
+                '<div class="frameContainer">',
+                '<ul class="mb10 indent">',
+                '<li>',PGL.UTIL.getLocale("F-AC-01-06_ATTENTION_TXT1"),'</li>',
+                '<li>',PGL.UTIL.getLocale("F-AC-01-06_ATTENTION_TXT2"),'</li>',
+                '<li>',PGL.UTIL.getLocale("F-AC-01-06_ATTENTION_TXT3"),'</li>',
+                '</ul>',
+                '<h4 class="important"><span>',PGL.UTIL.getLocale("F-AC-01-06_IMPORTANT_LABEL"),'</span>',PGL.UTIL.getLocale("F-AC-01-06_ATTENTION_TITLE2"),'</h4>',
+                '<p>',PGL.UTIL.getLocale("F-AC-01-06_ATTENTION_TXT4"),'</p>',
+                '<p class="mb10">',PGL.UTIL.getLocale("F-AC-01-06_ATTENTION_UNREGISTER_NOTE"),'</p>',
+
+                '<div class="checkContainer">',
+                '<p><input type="checkbox" name="release1" id="release1-1" /></p>',
+                '<label for="release1-1"><dl>',
+                '<dt>',PGL.UTIL.getLocale("F-AC-01-06_CHECK1_TITLE"),'</dt>',
+                '<dd>',PGL.UTIL.getLocale("F-AC-01-06_CHECK1_TXT"),'</dd>',
+                '</dl></label>','</div>',
+                '<div class="checkContainer">',
+                '<p><input type="checkbox" name="release1" id="release1-2" /></p>',
+                '<label for="release1-2"><dl>',
+                '<dt>',PGL.UTIL.getLocale("F-AC-01-06_CHECK2_TITLE"),'</dt>',
+                '<dd>',PGL.UTIL.getLocale("F-AC-01-06_CHECK2_TXT"),'</dd>',
+                '</dl></label>','</div>',
+                '<div class="checkContainer">',
+                '<p><input type="checkbox" name="release1" id="release1-3" /></p>',
+                '<label for="release1-3"><dl>',
+                '<dt>',PGL.UTIL.getLocale("F-AC-01-06_CHECK3_TITLE"),'</dt>',
+                '<dd>',PGL.UTIL.getLocale("F-AC-01-06_CHECK3_TXT"),'</dd>',
+                '</dl></label>','</div>','</div>','</div>'
+            ].join("");
+
+        var $markup = $(markup).commonLink();
+        $markup.find('.steps').stepList(steps, 0, true);
+
+        $markup.on("click","input[name=release1]",function(){
+            if ($("input[name=release1]:checked").length == 3) {
+                $(".confButton:eq(1)").removeClass("disabled").on("click", funcPage01);
+            } else {
+                $(".confButton:eq(1)").addClass("disabled").off("click");
+            }
+        });
+
+        return $markup;
+    }
+
+    var funcPage01 = function(){
+        PGL.dialog.change(page02);
+        $(".confButton:eq(1)").addClass("disabled").off("click");
+
+        $('input').on('change', function () {
+            if ($('input[name="release2"]').is(':checked') && $('input[name="reason"]').is(':checked')) {
+                $(".confButton:eq(1)").removeClass("disabled").off("click").on("click", funcPage02);
+            } else {
+                $(".confButton:eq(1)").addClass("disabled").off("click");
+            }
+            $('.reasonText>textarea').attr({ disabled:$('input[name=reason]:checked').val() != 99 });
+        });
+    }
+
+    var page01Btn = {};
+    page01Btn[PGL.UTIL.getLocale('F-AC-01-06_BTN_CANCEL')] = {color:false,action:function(){ PGL.dialog.hide()}};
+    page01Btn[PGL.UTIL.getLocale('GLOSSARY_ACTION_NEXT')] = {color:true,action:funcPage01};
+
+    var page01 = {
+        "type"    : "",
+        "id"      : "DIALOG_RELEASE",
+        "title"   : PGL.UTIL.getLocale("GLOSSARY_REGISTRATION_RELEASE"),
+        "detail"  : page1Tags,
+        "buttons" : page01Btn
+    };
+
+    /*
+     * page2
+     */
+    var page2Tags = function()
+    {
+        // issue:0001292,0001324,0001325
+        var markup =
+            [
+                '<div class="mb10">',
+                '<ul class="steps"></ul>','</div>',
+                '<ul class="clearFix">',
+                '<li class="iconCaution font12 fontB">',PGL.UTIL.getLocale("F-AC-01-06_ATTENTION_TXT"),'</li>',
+                '</ul>',
+                '<div class="frameContainer noScroll">',
+                '<ul class="mb10">',
+                '<li>',PGL.UTIL.getLocale("F-AC-01-06_UNREGISTER_ATTENTION_TXT"),'</li>',
+                '</ul>',
+                '<div class="pointChangeBox">',
+                '<div>',
+
+                '</div>',
+                '</div>',
+                '<div class="releaseContainer">',
+                '<div class="grayBox">',
+                '<p class="font13"><input type="checkbox" name="release2" id="release" /><label for="release">',PGL.UTIL.getLocale("F-AC-01-06_CHECK_UNREGISTER_LABEL"),'</label></p>',
+                '</div>',
+                '<div class="grayBox">',
+                '<dl>',
+                '<dt>',PGL.UTIL.getLocale("F-AC-01-06_REASON_LABEL"),'</dt>',
+                '<dd><label><input type="radio" name="reason" value="1" />',PGL.UTIL.getLocale("F-AC-01-06_REASON1_TXT"),'</label></dd>',
+                '<dd><label><input type="radio" name="reason" value="2" />',PGL.UTIL.getLocale("F-AC-01-06_REASON2_TXT"),'</label></dd>',
+                '<dd><label><input type="radio" name="reason" value="3" />',PGL.UTIL.getLocale("F-AC-01-06_REASON3_TXT"),'</label></dd>',
+                '<dd><label><input type="radio" name="reason" value="99" />',PGL.UTIL.getLocale("F-AC-01-06_REASON4_TXT"),'</label></dd>',
+                '<dd class="reasonText"><textarea rows="4" disabled="disabled"></textarea></dd>',
+                '</dl>','</div>','</div>','</div>'
+            ].join("");
+
+        var $markup = $(markup);
+        $markup.find('.steps').stepList(steps, 1, true);
+        $('<div></div>').savedataBox(data, { vertical:true }).appendTo($markup.find('.pointChangeBox>div'));
+
+        return $markup;
+    }
+
+
+    var funcPage02 = function(){
+        var $checked = $("input[name=reason]:checked");
+        var sr = $checked.val();
+        var rt = (sr==99)? $(".reasonText>textarea").val():"";
+        PGL.REQUEST.postAPI("RELEASE_GAME_SYNC_ID",{"savedataId":data.savedataId,reason:sr,reasonText:rt})
+           .done(function(){
+               PGL.dialog.change(page03);
+           });
+        return false;
+    }
+    var page02Btn = {};
+    page02Btn[PGL.UTIL.getLocale("GLOSSARY_ACTION_PREV")] = {color:false,action:function(){ PGL.dialog.prev();$("input[name=release1]").val(['on']) }};
+    page02Btn[PGL.UTIL.getLocale("F-AC-01-06_BTN_APPLY")] = {color:true,action:funcPage02};
+
+    var page02 = {
+        "type"    : "",
+        "id"      : "DIALOG_RELEASE",
+        "title"   : PGL.UTIL.getLocale("GLOSSARY_REGISTRATION_RELEASE"),
+        "detail"  : page2Tags,
+        "buttons" : page02Btn
+    };
+
+    /*
+     * page3
+     */
+    var page3Tags = function()
+    {
+        // issue:0001292,0001325
+        var markup =
+            [
+                '<div class="mb10">',
+                '<ul class="steps"></ul>',
+                '</div>',
+                '<ul class="clearFix">',
+                '<li class="iconCaution font12 fontB">',PGL.UTIL.getLocale("F-AC-01-06_ATTENTION_TXT"),'</li>',
+                '</ul>',
+                '<div class="frameContainer noScroll">',
+                '<ul class="mb10">',
+                '<li>&nbsp;</li>',
+                '</ul>',
+                '<div class="pointChangeBox">',
+                '<div>',
+                /*
+                   '<p class="currentPointTitle">',PGL.UTIL.getLocale("F-AC-01-06_POKEMILE_DELPOINT_LABEL"),'</p>',
+                   '<p class="currentPointDate">',PGL.UTIL.getDateTime(data.mileLastUpdateDate),'</p>',
+                   '<p class="movePoint font-face-1">',PGL.UTIL.addComma(data.mile, true),'</p>',
+                 */
+
+                '</div>','</div>',
+                '<div class="releaseContainer">',
+                '<p class="cancelTitle">',PGL.UTIL.getLocale("F-AC-01-06_COMPLETE_TXT"),'</p>',
+                '<div class="cancelBox">',
+                '<dl>',
+                '<dt>',PGL.UTIL.getLocale("F-AC-01-06_ABOUT_UNREGISTER_LABEL"),'</dt>',
+                '<dd>',PGL.UTIL.getLocale("F-AC-01-06_ABOUT_UNREGISTER1_TXT"),'</dd>',
+                '<dd>',PGL.UTIL.getLocale("F-AC-01-06_ABOUT_UNREGISTER2_TXT"),'</dd>',
+                '</dl>','</div>','</div>','</div>'
+            ].join("");
+
+        var $markup = $(markup);
+        $markup.find('.steps').stepList(steps, 2, true);
+        $('<div></div>').savedataBox(data, { vertical:true }).appendTo($markup.find('.pointChangeBox>div'));
+
+        return $markup;
+    }
+
+    var page03Btn = {}
+    page03Btn[PGL.UTIL.getLocale("GLOSSARY_ACTION_RETURN_TO_SETTINGS")] = {color:false,action:function(){location.reload()}}
+    var page03 = {
+        "type"    : "noClose",
+        "id"      : "DIALOG_RELEASE",
+        "title"   : PGL.UTIL.getLocale("GLOSSARY_REGISTRATION_RELEASE"),
+        "detail"  : page3Tags,
+        "buttons" : page03Btn
+    };
+
+    PGL.dialog.init(page01);
+    PGL.dialog.show();
+    $(".confButton:eq(1)").addClass("disabled").off('click');
+
+    return false;
+};
+
+
+
+/*=====================================================
+   ////////// ゲームソフトの登録解除キャンセル //////////
+   =====================================================*/
+PGL.DIALOG.releaseCancel = function(data)
+{
+    var steps = ['GLOSSARY_CHECK', 'GLOSSARY_FIN'];
+
+    var page1Tags = function()
+    {
+        var markup =
+            [
+                '<div>',
+                '<div class="mb10">',
+                '<ul class="steps"></ul>',
+                '</div>',
+                '<p class="mb20 font15 alingC"><strong>',PGL.UTIL.getLocale("F-AC-01-07_ALERT_TXT1"),'</strong></p>',
+                '<div class="savedataList">',
+
+
+                '</div>',
+                '</div>'
+            ].join("");
+
+        var $markup = $(markup);
+        $markup.find('.steps').stepList(steps, 0, true);
+        $('<div></div>').savedataBox(data).appendTo($markup.find('.savedataList'));
+
+        return $markup;
+    }
+
+    var page2Tags = function()
+    {
+        var markup =
+            [
+                '<div>',
+                '<div class="mb10">',
+                '<ul class="steps"></ul>',
+                '</div>',
+                '<p class="mb20 font15 alingC"><strong>',PGL.UTIL.getLocale("F-AC-01-07_ALERT_TXT2"),'</strong></p>',
+                '<div class="savedataList">',
+
+
+                '</div>',
+                '</div>'
+            ].join("");
+
+        var $markup = $(markup);
+        $markup.find('.steps').stepList(steps, 1, true);
+        $('<div></div>').savedataBox(data).appendTo($markup.find('.savedataList'));
+
+        return $markup;
+    }
+
+    var page01Btn = {};
+    page01Btn[PGL.UTIL.getLocale("F-AC-01-07_BTN_NO")] = {color:false,action:function(){PGL.dialog.hide()}}
+    page01Btn[PGL.UTIL.getLocale("F-AC-01-07_BTN_YES")] = {color:true,action:function(){
+        PGL.REQUEST.postAPI("RELEASE_CANCEL",{savedataId:data.savedataId}).done(function(){
+            PGL.dialog.change(page02)
+        })
+    }}
+
+    var page01 = {
+        "type"    : "",
+        "id"      : "DIALOG_RELEASE_CANCEL",
+        "title"   : PGL.UTIL.getLocale("F-AC-01-07_WIN_TITLE"),
+        "detail"  : page1Tags,
+        "buttons" : page01Btn
+    };
+
+    var page02Btn = {}
+    page02Btn[PGL.UTIL.getLocale("GLOSSARY_ACTION_RETURN_TO_SETTINGS")] = {color:false,action:function(){location.reload()}}
+    var page02 = {
+        "type"    : "noClose", // issue:0000322
+        "id"      : "DIALOG_RELEASE_CANCEL",
+        "title"   : PGL.UTIL.getLocale("F-AC-01-07_WIN_TITLE"),
+        "detail"  : page2Tags,
+        "buttons" : page02Btn
+    }
+
+    PGL.dialog.init(page01);
+    PGL.dialog.show();
+};
+
+
+/*=====================================================
+   ////////// ゲームソフトの切り替え確認 ///////////////
+   =====================================================*/
+PGL.DIALOG.selectGsidc = function(data)
+{
+    var page1Tags = function()
+    {
+        var changeText = PGL.UTIL.getLocale("F-AC-01-05_CONTENTS_DESCRIPT");
+        var markup =
+            [
+                '<div class="savedataList">',
+                '<p class="mb30 mt30 font15"><strong>',changeText,'</strong></p>',
+                '</div>'
+            ].join("");
+
+        var $panel = $(markup).css({ 'text-align':'center' });
+        $('<div></div>').savedataBox(data).appendTo($panel);
+
+        return $panel;
+    };
+
+    var page01Btn = {};
+    page01Btn[PGL.UTIL.getLocale("F-AC-01-05_BTN_NO")] = {"color": false, "action": function(){PGL.dialog.hide();}};
+    page01Btn[PGL.UTIL.getLocale("F-AC-01-05_BTN_YES")] = {"color": true, "action": function(){
+        PGL.REQUEST.postAPI("SELECT_G_SIDC",{"savedataId":data.savedataId}).done(function(data){
+            location.href = "/";
+        });
+    }};
+
+    var page01= {
+        "type"    : "",
+        "id"      : "DIALOG_SELECT_SOFT",
+        "title"   : PGL.UTIL.getLocale("F-AC-01-05_WIN_TITLE"),
+        "detail"  : page1Tags,
+        "buttons" : page01Btn
+    };
+
+    PGL.dialog.init(page01);
+    PGL.dialog.show();
+
+};
+
+/*=====================================================
+   //////////////// ゲームソフトの選択 //////////////////
+   =====================================================*/
+
+PGL.DIALOG.selectGameId = function(data)
+{
+    var page1Tags = function()
+    {
+        var $builder = $('<div></div>');
+        var btn = (data.savedataList.length<4)
+                ? [
+                    '<p class="alingC mt20"><a href="/register/add/" class="btnGrLarge">',
+                    PGL.UTIL.getLocale("GLOSSARY_ACTION_ADD_GAME_CARD"),
+                    '</a></p>',
+                    '<p class="alingC mt20">',PGL.UTIL.getLocale("F-GL-01_GS_ADD_INLINE_HELP"),'</p>',
+                    ''].join("")
+                : "";
+
+        var romIds = [30,31,32,33];
+        $.each(data.savedataList,function(i, savedata)
+            {
+                var idx = romIds.indexOf(parseInt(this.romId,10));
+                romIds.splice(idx, 1, null);
+                var ch = (i==0)? ' selected':"";
+                // issue:0000936,0001360
+                var rel = [
+                    '<div class="releaseMessage">',
+                    '<span class="title">',PGL.UTIL.getLocale('GLOSSARY_RELEASE_REQUESTING'),'</span>',
+                    '<span class="body">',PGL.UTIL.getLocale('F-GL-01_GS_NOTICE'),'</span>',
+                    '</div>'
+                ].join("");
+                var cont =
+                    [
+                        '<div class="accountContainer">',
+                        /*'<div class="panelAccountlist clearFix',ch,'">',*/
+                        '<div class="panelAccountlist clearFix" data-role="',this.savedataId,'">',
+                        '<div class="checkBox">',
+                        '<dl>','<dt>',
+                        '<div class="" data-role="',this.savedataId,'" id="roundedOne',i,'">',
+                        //'<input type="radio" value="None" id="roundedOne',i,'" name="check" ',ch,' />',
+                        //'<label for="roundedOne',i,'"></label>',
+                        '</div>','</dt>','</dl>',
+                        '</div>',
+                        this.applyFlg == 1 ? rel : '',
+                        '</div>',
+                        '</div>'
+                    ].join("");
+
+                var $panel = $(cont);
+                $('<div></div>').savedataBox(savedata).insertAfter($panel.find('.checkBox')).css({});
+                $builder.append($panel);
+            });
+
+        $builder.prepend($('<p class="font15 fontB mb10">' + PGL.UTIL.getLocale("F-GL-01_GS_SELECT_GAME_CARD") + '</p>'));
+        $builder.append(btn);
+
+        var logoImages = $('<ul class="rom-logo-container"/>');
+        $.each(romIds, function(){
+            var romId = parseInt(this,10);
+            if (romId > 0) {
+                var logo = PGL.INFO.PATH.cmsUploads + PGL.INFO.PATH.logo + 'logo_' + romId + '_' + PGL.INFO.LANGUAGE_ID + '.png';
+                $('<li id="rom-logo' + romId + '" />').css({backgroundImage:'url('+logo+')'}).appendTo(logoImages);
+            }
+        });
+        if (logoImages.children().length > 0) $builder.append(logoImages);
+
+        return $builder;
+    }
+
+    var page01Btn = {};
+    page01Btn[PGL.UTIL.getLocale("GLOSSARY_LOGOUT")] = {"color": false, "action": function(){PGL.UTIL.logout();}};
+    /*
+       page01Btn[PGL.UTIL.getLocale("F-GL-01_GS_BTN_GAME_PLAY")] = {"color": true, "action": function(){
+       // issue:0000223
+       var code = $('.selected').find('.roundedOne').data("role");
+       PGL.REQUEST.postAPI("SELECT_G_SIDC",{"savedataId":code}).done(function(data){
+       window.location.reload();
+       });
+       }};
+     */
+
+    var page01= {
+        "type"    : "noClose",
+        "id"      : "",
+        "title"   : PGL.UTIL.getLocale("F-GL-01_GS_TITLE"),
+        "detail"  : page1Tags,
+        "buttons" : page01Btn,
+        "width" : 720
+    };
+
+    PGL.dialog.init(page01);
+    PGL.dialog.show();
+
+    // issue:0000223
+    $('#confirmWindow').on('click', '.panelAccountlist', function () {
+        $('.accountContainer .selected').removeClass('selected');
+        $(this).addClass('selected');
+        // PGL.DATA.SELECT_CODE = $(this).data("role")
+        // var code = $('.selected').find('.roundedOne').data("role");
+        var code = $(this).data("role");
+        PGL.REQUEST.postAPI("SELECT_G_SIDC",{"savedataId":code}).done(function(data){
+            window.location.reload();
+        });
+    })
+}
+
+
+
+/*=====================================================
+   /////////////////// ポイントの移動 //////////////////
+   =====================================================*/
+PGL.DIALOG.movePoint = function(data)
+{
+    var steps = ['F-MY-01-10-01_STEP00', 'F-MY-01-10-01_STEP01', 'F-MY-01-10-01_STEP02', 'F-MY-01-10-01_STEP03'];
+    var targetRomIdArray = [];
+    var targetSaveDataArray = [];
+    var targetSaveDataArrayPos = 0;
+    var targetRomId = 0;
+    var targetSaveDataId = '';
+
+    /* STEP0
+       ----------------------------------------------------------------------------------------*/
+    var page0Tags = function()
+    {
+        var selectGame;
+        var noSelectGame = [];
+        PGL.DATA.SELECT_ROM;
+        $.each(data.savedataList,function()
+            {
+                var romClassName = PGL.UTIL.getRomClassName(this.romId);
+                var tags =
+                    [
+                        '<div class="romBox ',romClassName,' romSelector" id="move',this.romId,'">',
+                        $('<div></div>').append($('<div></div>').savedataBox(this, { vertical:true })).html(),
+                        '</div>'
+                    ].join("");
+                if (this.selected=="1") {
+                    selectGame = tags
+                    PGL.DATA.SELECT_ROM = this.romId;
+                    PGL.DATA.FROM_SAVEDATA = this.savedataId;
+                } else {
+                    /* PGL.DATA.TO_SAVEDATA = this.savedataId; */
+                    targetRomIdArray.push(this.romId);
+                    targetSaveDataArray.push(this.savedataId);
+                    noSelectGame.push(tags);
+                }
+            });
+
+        var markup =
+            [
+                '<p class="alingR mb05"><a class="icon-question colorText02 support" data-support="manual/manual_mileage/transfer-poke-miles/">',PGL.UTIL.getLocale("F-MY-01-10-01_BTN_DETAIL"),'</a></p>',
+                '<div class="contentBox step1">',
+                '<div><ul class="steps"></ul></div>',
+                '<p class="caution01 point-transform-alert">',PGL.UTIL.getLocale('F-MY-01-10-01_ANNOTATION'),'</p>',
+                '<div class="milePointStatus clearFix">',
+                '<div class="half">',
+                '<p>',PGL.UTIL.getLocale("F-MY-01-10-01_SELECT_SAVEDATA"),'</p>',
+                '</div>',
+                '<div class="half">',
+                '</div>','</div>',
+                '<div class="pointChangeBox targetRomSelect clearFix">',
+                /*      '<div class="romSelect romSelectPrev"></div>',*/
+                /*      '<div class="romSelect romSelectNext"></div>',*/
+                /*'<div class="romContainer">',selectGame,'</div>',*/
+                '<div class="romContainer-horizontal romTargetContainer">',noSelectGame.join(''),'</div>',
+                '</div>',
+                '</div>'
+            ].join("");
+
+        var $markup = $(markup).commonLink();
+        $markup.find('.steps').stepList(steps, 0, false);
+        $markup.find('.romBox').click(function(){
+            targetRomId = this.id.substr(4,2);
+            PGL.dialog.change(page01);
+        });
+        return $markup;
+    }
+    var page0Btn = {}
+
+    var page00 = {
+        "type"    : "",
+        "id"      : "DIALOG_POINT",
+        "title"   : PGL.UTIL.getLocale("F-MY-01-10-01_WIN_TITLE"),
+        "detail"  : page0Tags,
+        "buttons" :page0Btn,
+        open: function () {
+            /*
+               $('.confButton:eq(0)').addClass('disabled');
+               $('#inputMilePoint').on('change keydown keyup', function () {
+               $('.confButton:eq(0)').toggleClass('disabled', !isSendablePmpValue($(this).val()));
+               });
+             */
+        }
+    }
+
+
+    /* STEP1
+       ----------------------------------------------------------------------------------------*/
+    var page1Tags = function()
+    {
+        var selectGame;
+        var noSelectGame = [];
+        PGL.DATA.SELECT_ROM;
+        $.each(data.savedataList,function()
+            {
+                var romClassName = PGL.UTIL.getRomClassName(this.romId);
+                var tags =
+                    [
+                        '<div class="romBox ',romClassName,'" id="move',this.romId,'">',
+                        $('<div></div>').append($('<div></div>').savedataBox(this, { vertical:true })).html(),
+                        '</div>'
+                    ].join("");
+                if (this.selected=="1") {
+                    selectGame = tags;
+                    PGL.DATA.SELECT_ROM = this.romId;
+                    PGL.DATA.FROM_SAVEDATA = this.savedataId;
+                } else {
+                    /* PGL.DATA.TO_SAVEDATA = this.savedataId; */
+                    if (targetRomId == this.romId) {
+                        targetRomIdArray.push(this.romId);
+                        targetSaveDataArray.push(this.savedataId);
+                        noSelectGame.push(tags);
+                    }
+                }
+            });
+
+        var markup =
+            [
+                '<p class="alingR mb05"><a class="icon-question colorText02 support" data-support="manual/manual_mileage/transfer-poke-miles/">',PGL.UTIL.getLocale("F-MY-01-10-01_BTN_DETAIL"),'</a></p>',
+                '<div class="contentBox step1">',
+                '<div><ul class="steps"></ul></div>',
+                '<p class="caution01 point-transform-alert">',PGL.UTIL.getLocale('F-MY-01-10-01_ANNOTATION'),'</p>',
+                '<div class="milePointStatus clearFix">',
+                '<div class="half">',
+                '<p>',PGL.UTIL.getLocale("F-MY-01-10-01_INPUT_POINT"),'</p>',
+                '</div>',
+                '<div class="half">',
+                '<input type="text" value="" name="" id="inputMilePoint">',
+                '</div>','</div>',
+                '<div class="pointChangeBox clearFix">',
+                /*      '<div class="romSelect romSelectPrev"></div>',*/
+                /*      '<div class="romSelect romSelectNext"></div>',*/
+                '<div class="romContainer">',selectGame,'</div>',
+                '<div class="romContainer romTargetContainer">',noSelectGame.join(''),'</div>',
+                '</div>',
+                '</div>'
+            ].join("");
+
+        var $markup = $(markup).commonLink();
+        $markup.find('.steps').stepList(steps, 1, false);
+        return $markup;
+    }
+
+    var page1Btn = {}
+    page1Btn[PGL.UTIL.getLocale('GLOSSARY_ACTION_PREV')] = { color:false, action:function () {
+        // issue:0003168
+        var $dialog = $(this);
+        if ($dialog.hasClass('disabled')) {
+            return;
+        }
+        PGL.dialog.prev();
+        $("#inputMilePoint2").removeClass("error");
+    }}
+    page1Btn[PGL.UTIL.getLocale("F-MY-01-10-01_BTN_MOVE")] = {"color": true, "action": function()
+        {
+            // issue:0000764
+            if (!$('#confirmWindow .confButton:first').is('.disabled')) {
+                // PGL.DATA.POINT = parseInt($("#inputMilePoint").val());
+                // issue:0001704
+                // if (isSendablePmpValue(PGL.DATA.POINT)) {
+                PGL.dialog.change(page02);
+                // }
+            }
+        }}
+
+    var page01 = {
+        "type"    : "",
+        "id"      : "DIALOG_POINT",
+        "title"   : PGL.UTIL.getLocale("F-MY-01-10-01_WIN_TITLE"),
+        "detail"  : page1Tags,
+        "buttons" :page1Btn,
+        open: function () {
+            $('.confButton:eq(1)').addClass('disabled');
+            /*
+               $('#inputMilePoint').on('change keydown keyup', function () {
+               $('.confButton:eq(1)').toggleClass('disabled', !isSendablePmpValue($(this).val()));
+               });
+             */
+            /*
+               $('.romTargetContainer').bxSlider({
+               slideSelector: '.romBox',
+               mode: 'vertical',
+               slideMargin: 0,
+               pager: false,
+               touchEnabled:false,
+               nextText:'next',
+               prevText:'prev',
+               nextSelector:'.romSelectNext',
+               prevSelector:'.romSelectPrev',
+               onSliderLoad:function(currentIndex){
+               targetSaveDataArrayPos = currentIndex;
+               },
+               onSlideAfter:function($slideElement, oldIndex, newIndex){
+               targetSaveDataArrayPos = newIndex;
+               }
+               });
+             */
+        }
+    }
+
+    /* STEP2
+       ----------------------------------------------------------------------------------------*/
+    var page2Tags = function()
+    {
+        var selectGame;
+        var noSelectGame = [];
+        $.each(data.savedataList,function()
+            {
+                var point = (this.selected=="1")
+                          ? parseInt(this.mile) - PGL.DATA.POINT
+                          : parseInt(this.mile) + PGL.DATA.POINT;
+                var romClassName = PGL.UTIL.getRomClassName(this.romId);
+                var tags =
+                    [
+                        '<div class="romBox ',romClassName,'" id="move',this.romId,'">',
+                        '<p class="currentPointTitle">',PGL.UTIL.getLocale("F-MY-01-10-01_STEP02_POINT_FROM"),'</p>',
+                        '<p class="noCurrentPointDate">&nbsp;</p>',
+                        '<p class="movePoint font-face-1">',PGL.UTIL.addComma(point, true),'</p>',
+                        $('<div></div>').append($('<div></div>').savedataBox(this, { vertical:true })).html(),
+                        '</div>'
+                    ].join("");
+                if (this.selected=="1") {
+                    selectGame = tags;
+                    PGL.DATA.SELECT_ROM = this.romId;
+                    PGL.DATA.FROM_SAVEDATA = this.savedataId;
+                } else {
+                    /* PGL.DATA.TO_SAVEDATA = this.savedataId; */
+                    if (targetRomId == this.romId) {
+                        targetSaveDataId = this.savedataId;
+                        noSelectGame.push(tags);
+                    }
+                }
+            });
+
+        // issue:0001500
+        var markup =
+            [
+                '<p class="alingR mb05"><a href="" class="icon-question colorText02 support" data-support="manual/manual_mileage/transfer-poke-miles/">',PGL.UTIL.getLocale("F-MY-01-10-01_BTN_DETAIL"),'</a></p>',
+                '<div class="contentBox step2">',
+                '<div><ul class="steps"></ul></div>',
+                '<p class="caution01 point-transform-alert">',PGL.UTIL.getLocale('F-MY-01-10-01_ANNOTATION'),'</p>',
+                '<div class="milePointStatus clearFix">',
+                '<div class="half">',
+                '<p>',PGL.UTIL.getLocale("F-MY-01-10-01_CONFIRM"),'</p>',
+                '</div>',
+                '<div class="half">',
+                '<div id="inputMilePoint2" class="font-face-1">',PGL.UTIL.addComma(PGL.DATA.POINT, true),'</div>',
+                '</div>','</div>',
+                '<div class="pointChangeBox clearFix">',
+                '<div class="romContainer">',selectGame,'</div>',
+                '<div class="romContainer romTargetContainer">',noSelectGame[targetSaveDataArrayPos],'</div>',
+                '</div>','</div>'
+            ].join("");
+
+        var $markup = $(markup).commonLink();
+        $markup.find('.steps').stepList(steps, 2, false);
+        return $markup;
+    }
+
+    var page2Btn = {};
+    page2Btn[PGL.UTIL.getLocale('GLOSSARY_ACTION_PREV')] = { color:false, action:function () {
+        // issue:0003168
+        var $dialog = $(this);
+        if ($dialog.hasClass('disabled')) {
+            return;
+        }
+        PGL.dialog.prev();
+        $("#inputMilePoint2").removeClass("error");
+    }}
+    page2Btn[PGL.UTIL.getLocale("GLOSSARY_ACTION_APPLY")] = { color:true, action:function () {
+        // issue:0003168
+        var $dialog = $(this);
+        if ($dialog.hasClass('disabled')) {
+            return;
+        }
+        $dialog.addClass('disabled');
+
+        $('.milePointStatus>div>p>#errorCodeMessage').remove();
+        // issue:0001558
+        PGL.DATA.TO_SAVEDATA = targetSaveDataId;
+        var params = {
+            'savedataIdFrom': PGL.DATA.FROM_SAVEDATA,
+            'savedataIdTo' : PGL.DATA.TO_SAVEDATA,
+            'point': PGL.DATA.POINT
+        };
+
+        PGL.REQUEST.postAPI('MOVE_POINT', params).done(function (data) {
+            $dialog.removeClass('disabled');
+
+            if(data.status_code != "1000"){
+                /*var noSelectRom = targetRomIdArray[targetSaveDataArrayPos];*/
+                var romName = { 24:PGL.UTIL.getLocale('GLOSSARY_TITLE_X'),
+                                25:PGL.UTIL.getLocale('GLOSSARY_TITLE_Y'),
+                                26:PGL.UTIL.getLocale('GLOSSARY_TITLE_AS'),
+                                27:PGL.UTIL.getLocale('GLOSSARY_TITLE_OR')
+                }
+                var obj = {
+                    TITLE_FROM:romName[PGL.DATA.SELECT_ROM],
+                    TITLE_TO:romName[targetRomId],
+                }
+                PGL.DATA.STEP3_MES = PGL.UTIL.replace(obj,PGL.UTIL.getLocale("F-MY-01-10-01_COMPLETE"));
+
+                $("#inputMilePoint2").removeClass("error");
+                PGL.dialog.change(page03);
+            }else{
+                PGL.ERROR_HANDLER(data)
+            }
+        })
+    }}
+
+    var page02 = {
+        "type"    : "",
+        "id"      : "DIALOG_POINT",
+        "title"   : PGL.UTIL.getLocale("F-MY-01-10-01_WIN_TITLE"),
+        "detail"  : page2Tags,
+        "buttons" :page2Btn
+    }
+
+
+    /* STEP3
+       ----------------------------------------------------------------------------------------*/
+    var page3Tags = function()
+    {
+        var selectGame;
+        var noSelectGame = [];
+        $.each(data.savedataList,function()
+            {
+                var point = (this.selected=="1")? parseInt(this.mile)-PGL.DATA.POINT:parseInt(this.mile)+PGL.DATA.POINT;
+                var romClassName = PGL.UTIL.getRomClassName(this.romId);
+                var tags =
+                    [
+                        '<div class="romBox ',romClassName,'" id="move',this.romId,'">',
+                        '<p class="currentPointTitle">',PGL.UTIL.getLocale("F-MY-01-10-01_STEP03_POINT_FROM"),'</p>',
+                        '<p class="noCurrentPointDate">&nbsp;</p>',
+                        '<p class="movePoint font-face-1">',PGL.UTIL.addComma(point, true),'</p>',
+                        $('<div></div>').append($('<div></div>').savedataBox(this, { vertical:true })).html(),
+                        '</div>'
+                    ].join("");
+                if (this.selected=="1") {
+                    selectGame = tags;
+                    PGL.DATA.SELECT_ROM = this.romId;
+                    PGL.DATA.FROM_SAVEDATA = this.savedataId;
+                } else {
+                    /* PGL.DATA.TO_SAVEDATA = this.savedataId; */
+                    if (targetRomId == this.romId) {
+                        targetRomIdArray.push(this.romId);
+                        targetSaveDataArray.push(this.savedataId);
+                        noSelectGame.push(tags);
+                    }
+                }
+            });
+
+        var markup =
+            [
+                '<p class="alingR mb05"><a href="" class="icon-question colorText02 support" data-support="manual/manual_mileage/transfer-poke-miles/">',PGL.UTIL.getLocale("F-MY-01-10-01_BTN_DETAIL"),'</a></p>',
+                '<div class="contentBox step3">',
+                '<div><ul class="steps"></ul></div>',
+                '<p class="caution01 point-transform-alert">',PGL.UTIL.getLocale('F-MY-01-10-01_ANNOTATION'),'</p>',
+                '<div class="milePointStatus step3 clearFix">',
+                //'<p>kujiraからkujira2へポケマイルポイント<span class="movePoint font-face-1">',PGL.UTIL.addComma(PGL.DATA.POINT, true),'</span>の移動が完了しました。</p>',
+                '<p>',PGL.DATA.STEP3_MES,'</p>',
+                '</div>',
+                '<div class="pointChangeBox clearFix">',
+                '<div class="romContainer">',selectGame,'</div>',
+                '<div class="romContainer romTargetContainer">',noSelectGame[targetSaveDataArrayPos],'</div>',
+                '</div>','</div>'].join("");
+
+        var $markup = $(markup).commonLink();
+        $markup.find('.steps').stepList(steps, 3, false);
+        return $markup;
+    }
+
+    var page3Btn = {}
+    page3Btn[PGL.UTIL.getLocale("GLOSSARY_ACTION_CLOSE")] = {"color": false, "action": function(){ location.reload()}}
+
+    var page03 = {
+        "type"    : "noClose",
+        "id"      : "DIALOG_POINT",
+        "title"   : PGL.UTIL.getLocale("F-MY-01-10-01_WIN_TITLE"),
+        "detail"  : page3Tags,
+        "buttons" :page3Btn
+    }
+
+    // init
+    PGL.dialog.init(page00);
+    PGL.dialog.show();
+    /*
+       // issue:0000764,0001704
+       var isSendablePmpValue = (function (currentPmp) {
+       return function (value) {
+       return /^[1-9]\d*$/.test(value) && parseInt(value) <= currentPmp;
+       };
+       })($.grep(data.savedataList, function (s) { return s.selected == '1'; })[0].mile);
+     */
+}
+
+
+/*=====================================================
+   ////////// バトルチーム登録 //////////
+   =====================================================*/
+PGL.DIALOG.registerBattleTeam = function(record)
+{
+    var name;
+    var message;
+    var battleType;
+    var hasIllegalChar = true;
+
+    var page1Tags = function()
+    {
+        var markup = [
+            '<div>',
+            '<div class="mb10">',
+            '<ul class="steps"></ul>',
+            '</div>',
+            '<div class="formBox">','<div class="form01 mb20">',
+            '<div class="helpBox">',
+            '<p class="page-help floatR"><a class="iconHelp_or support" data-support="manual/manual_qr-rental-teams/public/">',PGL.UTIL.getLocale('F-MY-01-13_BATTLETEAM_ABOUT_PUBLISH'),'</a></p>',
+            '</div>',
+            '<div class="tableTypeDefault">',
+            '<table width="100%" border="0" cellspacing="0" cellpadding="0">',
+            '<tr>',
+            '<th class="leftBox" style="width:195px;">',PGL.UTIL.getLocale('F-MY-01-13_BATTLETEAM_NAME'),'</th>',
+            '<td class="rightBox">','<input type="text" class="input01  text-count" id="registerBattleTeamName" maxlength="" placeholder="',PGL.UTIL.getLocale('F-MY-01-13_BATTLETEAM_INPUT_NAME'),'" value="', name ,'" data-max="50" data-counter=".counter-name">',
+            '<span class="counter counter-name"></span>',
+            '</td>',
+            '</tr>','<tr>',
+            '<th class="leftBox" style="width:195px;">',PGL.UTIL.getLocale('F-MY-01-13_BATTLETEAM_COMMENT'),'</th>',
+            '<td class="rightBox">','<textarea class="textarea01 text-count" id="registerBattleTeamMessage" maxlength="" placeholder="',PGL.UTIL.getLocale('F-MY-01-13_BATTLETEAM_INPUT_COMMENT'),'" data-max="136" data-counter=".counter-comment">',message,'</textarea>',
+            '<span class="counter counter-comment"></span>', '</td>',
+            '</tr>','<tr>',
+            '<th class="leftBox" style="width:195px;">',PGL.UTIL.getLocale('GLOSSARY_BATTLE_FORMAT'),'</th>',
+            '<td class="rightBox">', '<ul class="inlineTab battleType" id="battleType">',
+            '<li class="single active" data-value="1">',PGL.UTIL.getLocale('GLOSSARY_BATTLETEAM_FOR_SINGLE'),'</li><li class="double" data-value="2">',PGL.UTIL.getLocale('GLOSSARY_BATTLETEAM_FOR_DOUBLE'),'</li>',
+            '</ul>', '</td>',
+            '</tr>',
+            '</table>',
+            '</div>','</div>',
+            '<div class="battleteam">',
+            '</div>',
+            '<p class="caption caution01">',PGL.UTIL.getLocale('F-MY-01-13_BATTLETEAM_PUBLISH_NOTE'),'</p>',
+            '</div>'
+        ].join("");
+
+        var $markup = $(markup).commonLink();
+        $markup.find(".inlineTab li").on('click', function() {
+            $(".inlineTab li").removeClass("active");
+            $(this).addClass("active");
+        });
+
+        var timer = null;
+        $markup.find('.text-count').focus(function() {
+            var $self = $(this);
+            var max = $(this).data('max');
+            var counterSelector = $(this).data('counter');
+            var remain = max - PGL.UTIL.countChar($(this).val());
+            if ($.inArray(PGL.INFO.LANGUAGE_ID,[1,8]) >= 0) remain = Math.floor(remain/2);
+            timer = setInterval(function() {
+                $self.trigger('keyup');
+            }, 100);
+            $(counterSelector).show().text(remain);
+        }).blur(function() {
+            if (timer) clearInterval(timer);
+            var counterSelector = $(this).data('counter');
+            $(counterSelector).hide();
+        }).keyup(function() {
+            var max = $(this).data('max');
+            var counterSelector = $(this).data('counter');
+            var remain = max - PGL.UTIL.countChar($(this).val());
+            if ($.inArray(PGL.INFO.LANGUAGE_ID,[1,8]) >= 0) remain = Math.floor(remain/2);
+            if (remain<0) {
+                $(counterSelector).addClass('burst');
+            } else {
+                $(counterSelector).removeClass('burst');
+            }
+            $(counterSelector).show().text(remain);
+        });
+        $markup.find('.text-count').on('paste', function() {
+            var $self = $(this);
+            $self.trigger('focus');
+            setTimeout(function() {
+                $self.trigger('keyup');
+            }, 10);
+        });
+
+        if (battleType == 2) {
+            $markup.find(".inlineTab li").removeClass("active");
+            $markup.find(".inlineTab li.double").addClass("active");
+        }
+        var $content = $('<div/>').addClass("clearFix");
+
+        var age = PGL.UTIL.getAge(PGL.DATA.GET_LOGIN_STATUS.account.birthday);
+        if (age <= 12) {
+            $markup.find("#registerBattleTeamName").addClass('readonly').attr("readonly", true);
+            $markup.find("#registerBattleTeamMessage").addClass('readonly').attr("readonly", true);
+            $markup.find("#registerBattleTeamName").attr('value', PGL.UTIL.getLocale('F-MY-01-13_BATTLETEAM_INPUT_NAME_U12').replace(/{trainerName}/g, PGL.DATA.GET_LOGIN_STATUS.selectedSavedata.trainerName));
+            $markup.find("#registerBattleTeamMessage").text(PGL.UTIL.getLocale('F-MY-01-13_BATTLETEAM_INPUT_COMMENT_U12').replace(/{trainerName}/g, PGL.DATA.GET_LOGIN_STATUS.selectedSavedata.trainerName).replace("<br/>", "\n"));
+        }
+
+        var api = '/frontendApi/mypage/getBattleTeamPokemonList';
+        var params = {
+            accountId      : USERS_ACCOUNT_ID,
+            savedataId     : USERS_SAVEDATA_ID,
+            boxNo          : record.boxNo,
+            languageId     : PGL.INFO.LANGUAGE_ID
+        };
+
+        PGL.V2.callAPI(api, $.extend({}, params)).done(function (data) {
+            $.each(data.pokemonList || [], function(index, pokemon) {
+                $('<div/>').battleboxPokemon(pokemon, true).appendTo($content);
+            });
+        });
+        $markup.find(".battleteam").append($content);
+
+        return $markup;
+    }
+
+    var funcPage01 = function() {
+        //
+        if ($('.dialog ').find('.btnCrLarge').hasClass('disabled')) return;
+        $('.dialog ').find('.btnCrLarge').addClass('disabled').prop('disabled', true);
+        //
+        name = $("#registerBattleTeamName").val();
+        message = $("#registerBattleTeamMessage").val();
+        battleType = $("#battleType").find('li.active').data('value');
+
+        var params = {
+            accountId      : USERS_ACCOUNT_ID,
+            savedataId     : USERS_SAVEDATA_ID,
+            battleType     : battleType,
+            boxNo          : record.boxNo,
+            battleName     : name,
+            message        : message,
+            languageId     : PGL.INFO.LANGUAGE_ID
+        };
+        //
+        var apiConfirm  = '/frontendApi/mypage/battleTeamRegisterConfirm';
+        PGL.V2.callAPI(apiConfirm, $.extend({}, params), { override:'friendlyCompetitionsAddConfirm' }).done(function (result, context) {
+            if (context.overridden) return;
+            if (result.status_code == '0000') {
+                if (result.hasIllegalChar == 1) {
+                    hasIllegalChar = true;
+                }
+                name = result.battleName;
+                message = result.message;
+                PGL.dialog.change(page03);
+            } else {
+                $('.dialog ').find('.btnCrLarge').removeClass('disabled').prop('disabled', false);
+            }
+        }).fail(function(result) {
+            PGL.V2.defaultErrorHandler(result);
+            setTimeout(function() {
+                $('.dialog ').find('.btnCrLarge').removeClass('disabled').prop('disabled', false);
+            }, 100);
+        });
+    }
+
+    var page01Btn = {};
+    page01Btn[PGL.UTIL.getLocale('GLOSSARY_CANCEL')] = {color:false,action:function(){ PGL.dialog.hide() }};
+    page01Btn[PGL.UTIL.getLocale('GLOSSARY_CHECK')] = {color:true,action:funcPage01};
+
+    var page01 = {
+        "type"    : "",
+        "id"      : "DIALOG_REGISTER_BATTLETEAM",
+        "title"   : PGL.UTIL.getLocale('F-MY-01-13_BATTLETEAM_PUBLISH'),
+        "detail"  : page1Tags,
+        "buttons" : page01Btn,
+        "width"   : 760,
+        "height"  : 500
+    };
+
+    // 確認
+    var page2Tags = function()
+    {
+        var markup = [
+            '<div>',
+            '<div class="mb10">',
+            '<ul class="steps"></ul>',
+            '</div>',
+            '<div class="formBox">','<div class="form01 mb20">',
+            '<div class="helpBox">',
+            '<p class="page-help floatR"><a class="iconHelp_or support" data-support="manual/manual_qr-rental-teams/public/">',PGL.UTIL.getLocale('F-MY-01-13_BATTLETEAM_ABOUT_PUBLISH'),'</a></p>',
+            '</div>',
+            '<div class="tableTypeDefault">',
+            '<form id="gsid">',
+            '<table width="100%" border="0" cellspacing="0" cellpadding="0">',
+            '<tr>',
+            '<th class="leftBox" style="width:35%">',PGL.UTIL.getLocale('F-MY-01-13_BATTLETEAM_NAME'),'</th>',
+            '<td class="rightBox" style="width:65%">','<input type="text" class="input01" id="registerBattleTeamName" maxlength="" placeholder="',PGL.UTIL.getLocale('F-MY-01-13_BATTLETEAM_INPUT_NAME'),'" value="',name,'">',
+            '</td>',
+            '</tr>','<tr>',
+            '<th class="leftBox">',PGL.UTIL.getLocale('F-MY-01-13_BATTLETEAM_COMMENT'),'</th>',
+            '<td class="rightBox">','<textarea class="textarea01" id="registerBattleTeamMessage" maxlength="" placeholder="',PGL.UTIL.getLocale('F-MY-01-13_BATTLETEAM_INPUT_COMMENT'),'">',message,'</textarea>','</td>',
+            '</tr>','<tr>',
+            '<th class="leftBox">',PGL.UTIL.getLocale('GLOSSARY_BATTLE_FORMAT'),'</th>',
+            '<td class="rightBox">', '<ul class="inlineTab battleType" id="battleType">',
+            '<li class="single active" data-value="1">',PGL.UTIL.getLocale('GLOSSARY_BATTLETEAM_FOR_SINGLE'),'</li><li class="double" data-value="2">',PGL.UTIL.getLocale('GLOSSARY_BATTLETEAM_FOR_DOUBLE'),'</li>',
+            '</ul>', '</td>',
+            '</tr>',
+            '</table>',
+            '</form>',
+            '</div>','</div>',
+            '<div class="mb20">',
+            '<p>','{{error message}}','</p>',
+            '</div>',
+            '<div class="battleteam">',
+            '</div>',
+            '<p class="caption caution01">',PGL.UTIL.getLocale('F-MY-01-13_BATTLETEAM_PUBLISH_NOTE'),'</p>',
+            '</div>'
+        ].join("");
+
+        var $markup = $(markup).commonLink();
+        if (!hasIllegalChar) $markup.find('register-alert').hide();
+        var $content = $('<div/>').addClass("clearFix");
+        var api = '/frontendApi/mypage/getBattleTeamPokemonList';
+        var params = {
+            accountId      : USERS_ACCOUNT_ID,
+            savedataId     : USERS_SAVEDATA_ID,
+            boxNo          : record.boxNo,
+            languageId     : PGL.INFO.LANGUAGE_ID
+        };
+        PGL.V2.callAPI(api, $.extend({}, params)).done(function (data) {
+            $.each(data.pokemonList || [], function(index, pokemon) {
+                $('<div/>').battleboxPokemon(pokemon, true).appendTo($content);
+            });
+        });
+        $markup.find(".battleteam").append($content);
+
+        return $markup;
+    }
+
+    var funcPage02 = function() {
+    }
+
+    var page02Btn = {};
+    page02Btn[PGL.UTIL.getLocale('GLOSSARY_ACTION_PREV')] = {color:false,action:function(){ PGL.dialog.change(page01); }};
+    page02Btn[PGL.UTIL.getLocale('GLOSSARY_ACTION_APPLY')] = {color:true,action:funcPage01};
+
+    var page02 = {
+        "type"    : "",
+        "id"      : "DIALOG_REGISTER_BATTLETEAM",
+        "title"   : PGL.UTIL.getLocale('F-MY-01-13_BATTLETEAM_PUBLISH'),
+        "detail"  : page2Tags,
+        "buttons" : page02Btn,
+        "width"   : 760
+    };
+
+    // 完了
+    var page3Tags = function()
+    {
+        if (battleType == 1) {
+            var battleTypeLabel = 'GLOSSARY_BATTLETEAM_FOR_SINGLE';
+        } else {
+            var battleTypeLabel = 'GLOSSARY_BATTLETEAM_FOR_DOUBLE';
+        }
+        var markup = [
+            '<div>',
+            '<div class="mb10">',
+            '<ul class="steps"></ul>',
+            '</div>',
+            '<div class="formBox">','<div class="form01 mb20">',
+            '<div class="helpBox">',
+            '<p class="page-help floatR"><a class="iconHelp_or support" data-support="manual/manual_qr-rental-teams/public/">',PGL.UTIL.getLocale('F-MY-01-13_BATTLETEAM_ABOUT_PUBLISH'),'</a></p>',
+            '</div>',
+            '<div class="tableTypeDefault">',
+            '<form id="gsid">',
+            '<table width="100%" border="0" cellspacing="0" cellpadding="0">',
+            '<tr>',
+            '<th class="leftBox" style="width:35%">',PGL.UTIL.getLocale('F-MY-01-13_BATTLETEAM_NAME'),'</th>',
+            '<td class="rightBox" style="width:65%">','<input type="hidden" class="input01" id="registerBattleTeamName" maxlength="" placeholder="" value="',name,'">',name,
+            '</td>',
+            '</tr>','<tr>',
+            '<th class="leftBox">',PGL.UTIL.getLocale('F-MY-01-13_BATTLETEAM_COMMENT'),'</th>',
+            '<td class="rightBox">','<input type="hidden" class="input01" id="registerBattleTeamMessage" maxlength="" placeholder="" value="',message,'">',message,'</td>',
+            '</tr>','<tr>',
+            '<th class="leftBox">',PGL.UTIL.getLocale('GLOSSARY_BATTLE_FORMAT'),'</th>',
+            '<td class="rightBox"><span class="battleType battleType',battleType,'"></span>', PGL.UTIL.getLocale(battleTypeLabel) ,'</td>',
+            '</tr>',
+            '</table>',
+            '</form>',
+            '</div>','</div>',
+            '<div class="mb20">',
+            '</div>',
+            '<div class="battleteam">',
+            '</div>',
+            '<p class="caption caution01">',PGL.UTIL.getLocale('F-MY-01-13_BATTLETEAM_PUBLISH_NOTE'),'</p>',
+            '</div>'
+        ].join("");
+
+        var $markup = $(markup).commonLink();
+        if (!hasIllegalChar) $markup.find('register-alert').hide();
+        var $content = $('<div/>').addClass("clearFix");
+        var api = '/frontendApi/mypage/getBattleTeamPokemonList';
+        var params = {
+            accountId      : USERS_ACCOUNT_ID,
+            savedataId     : USERS_SAVEDATA_ID,
+            battleType     : battleType,
+            boxNo          : record.boxNo,
+            languageId     : PGL.INFO.LANGUAGE_ID
+        };
+        PGL.V2.callAPI(api, $.extend({}, params)).done(function (data) {
+            $.each(data.pokemonList || [], function(index, pokemon) {
+                $('<div/>').battleboxPokemon(pokemon).appendTo($content);
+            });
+        });
+        $markup.find(".battleteam").append($content);
+
+        return $markup;
+    }
+
+    var funcPage03 = function() {
+        name = $("#registerBattleTeamName").val();
+        message = $("#registerBattleTeamMessage").val();
+        //
+        if ($('.dialog ').find('.btnCrLarge').hasClass('disabled')) return;
+        $('.dialog ').find('.btnCrLarge').prop('disabled', true).addClass('disabled');
+        //
+        var age = PGL.UTIL.getAge(PGL.DATA.GET_LOGIN_STATUS.account.birthday);
+        if (age <= 12) {
+            name = PGL.UTIL.getLocale('F-MY-01-13_BATTLETEAM_INPUT_NAME_U12').replace(/{trainerName}/g, PGL.DATA.GET_LOGIN_STATUS.selectedSavedata.trainerName);
+            message = PGL.UTIL.getLocale('F-MY-01-13_BATTLETEAM_INPUT_COMMENT_U12').replace(/{trainerName}/g, PGL.DATA.GET_LOGIN_STATUS.selectedSavedata.trainerName).replace("<br/>", "\n");
+        }
+        var params = {
+            accountId      : USERS_ACCOUNT_ID,
+            savedataId     : USERS_SAVEDATA_ID,
+            battleType     : battleType,
+            boxNo          : record.boxNo,
+            battleName     : name,
+            message        : message,
+            languageId     : PGL.INFO.LANGUAGE_ID
+        };
+        //
+        var apiConfirm  = '/frontendApi/mypage/battleTeamRegisterConfirm';
+        var apiRegister = '/frontendApi/mypage/battleTeamRegister';
+        PGL.V2.callAPI(apiConfirm, $.extend({}, params), { override:'friendlyCompetitionsAddConfirm' }).done(function (result, context) {
+            if (context.overridden) return;
+            if (result.status_code == '0000') {
+
+                PGL.V2.callAPI(apiRegister, $.extend({}, params), { override:'friendlyCompetitionsAddConfirm' }).done(function (result, context) {
+                    if (context.overridden) return;
+                    window.location.href = window.location.pathname + '#list';
+                    window.location.reload();
+                }).fail(PGL.V2.defaultErrorHandler);
+                /*
+                   if (result.hasIllegalChar == 1) {
+                   PGL.dialog.change(page02);
+                   } else {
+                   // PGL.dialog.change(page03);/
+                   PGL.V2.callAPI(apiRegister, $.extend({}, params)).done(function (result) {
+                   window.location.href = window.location.pathname + '#list';
+                   window.location.reload();
+                   });
+                   }
+                 */
+            }
+        }).fail(PGL.V2.defaultErrorHandler);
+    }
+
+    var page03Btn = {}
+    page03Btn[PGL.UTIL.getLocale('GLOSSARY_ACTION_PREV')] = {color:false,action:function(){ PGL.dialog.change(page01); }};
+    page03Btn[PGL.UTIL.getLocale('GLOSSARY_ACTION_PUBLISH')] = {color:true,action:funcPage03};
+
+    var page03 = {
+        "type"    : "",
+        "id"      : "",
+        "title"   : PGL.UTIL.getLocale('F-MY-01-13_BATTLETEAM_PUBLISH'),
+        "detail"  : page3Tags,
+        "buttons" : page03Btn,
+        "width"   : 760
+    }
+
+    PGL.dialog.init(page01);
+    PGL.dialog.show();
+};
+
+
+
+/*=====================================================
+   ////////// バトルチーム閲覧 //////////
+   =====================================================*/
+PGL.DIALOG.showBattleTeam = function(record)
+{
+    var name;
+    var message;
+
+    // 確認
+    var page1Tags = function()
+    {
+        var markup = [
+            '<div>',
+            '<div class="mb10">',
+            '<ul class="steps"></ul>',
+            '</div>',
+            '<div class="mb20">',
+            '</div>',
+            '<div class="battleteam">',
+            '</div>',
+            '</div>'
+        ].join("");
+
+        var $markup = $(markup);
+        var $content = $('<div/>').addClass("clearFix");
+        var api = '/frontendApi/mypage/getBattleTeamPokemonList';
+        var params = {
+            accountId      : USERS_ACCOUNT_ID,
+            savedataId     : USERS_SAVEDATA_ID,
+            battleType     : record.battleType,
+            battleDateUTC  : record.battleDateUTC,
+            gbuId          : record.gbuId,
+            languageId     : PGL.INFO.LANGUAGE_ID
+        };
+        PGL.V2.callAPI(api, $.extend({}, params)).done(function (data) {
+            $.each(data.pokemonList || [], function(index, pokemon) {
+                $('<div/>').battleboxPokemon(pokemon).appendTo($content);
+            });
+        });
+        $markup.find(".battleteam").append($content);
+
+        return $markup;
+    }
+
+    var funcPage02 = function() {
+    }
+
+    var page01Btn = {};
+
+    var page01 = {
+        "type"    : "",
+        "id"      : "DIALOG_SHOW_BATTLETEAM",
+        "title"   : PGL.UTIL.getLocale('F-MY-01-13_BATTLETEAM_QR_RENTAL_TEAM'),
+        "detail"  : page1Tags,
+        "buttons" : page01Btn,
+        "width"   : 760
+    };
+
+    PGL.dialog.init(page01);
+    PGL.dialog.show();
+};
+
+
+/*=====================================================
+   ////////// バトルチーム削除 //////////
+   =====================================================*/
+PGL.DIALOG.deleteBattleTeam = function(record)
+{
+    var page1Tags = function()
+    {
+        var markup = [
+            '<div>',
+            '<div class="mb10">',
+            '<ul class="steps"></ul>',
+            '</div>',
+            '<div class="battleteam">',
+            '<p class="font15 alingC mb10 dialog-battleteam-name">',record.battleTeamName,'</p>',
+            '<p class="font13 alingC mb20">',PGL.UTIL.getLocale('F-MY-01-13_BATTLETEAM_DELETE_CAUTION_TITLE'),'</p>',
+            '<p>',PGL.UTIL.getLocale('F-MY-01-13_BATTLETEAM_DELETE_CAUTION_TEXT'),'</p>',
+            '</div>',
+            '</div>'
+        ].join("");
+
+        var $markup = $(markup);
+        var $content = $('<div/>').addClass("clearFix");
+        $markup.find(".battleteam").append($content);
+
+        return $markup;
+    }
+
+    var funcPage01 = function() {
+        var params = {
+            accountId    : PGL.DATA.GET_LOGIN_STATUS.selectedSavedata.accountId,
+            savedataId   : PGL.DATA.GET_LOGIN_STATUS.selectedSavedata.savedataId,
+            battleTeamCd : record.battleTeamCd
+        };
+        var api = '/frontendApi/mypage/deleteBattleTeam';
+        PGL.V2.callAPI(api, $.extend({}, params), { override:'deleteBattleTeam' }).done(function (data, context) {
+            if (context.overridden) return;
+            if (location.pathname.match(/\/user\//)) {
+                $('#btlist-' + record.battleTeamCd).hide();
+                PGL.dialog.hide();
+                Main('battleteam');
+            } else {
+                window.location.href = '/rentalteam/';
+            }
+            // PGL.dialog.change(page02);
+        }).fail(PGL.V2.defaultErrorHandler);
+    }
+
+    var page01Btn = {};
+    page01Btn[PGL.UTIL.getLocale('GLOSSARY_CANCEL')] = {color:false,action:function(){ PGL.dialog.hide()}};
+    page01Btn[PGL.UTIL.getLocale('GLOSSARY_ACTION_DELETE')] = {color:true,action:funcPage01};
+
+    var page01 = {
+        "type"    : "",
+        "id"      : "",
+        "title"   : "",
+        "detail"  : page1Tags,
+        "buttons" : page01Btn,
+        "width"   : 400
+    };
+
+    var page2Tags = function()
+    {
+        var markup = [
+            '<div>',
+            '<div class="mb10">',
+            '<ul class="steps"></ul>',
+            '</div>',
+            '<p class="mb20 font15 alingC"><strong>','{{削除しました}}','</strong></p>',
+            '<div class="savedataList">',
+            '</div>',
+            '</div>'
+        ].join("");
+
+        var $markup = $(markup);
+        return $markup;
+    }
+
+    var page02Btn = {}
+    var page02 = {
+        "type"    : "", // issue:0000322
+        "id"      : "",
+        "title"   : "",
+        "detail"  : page2Tags,
+        "buttons" : page02Btn,
+        "width"   : 400
+    }
+
+    PGL.dialog.init(page01);
+    PGL.dialog.show();
+};
+
+
+/*=====================================================
+   ////////// バトルチームQRコード //////////
+   =====================================================*/
+PGL.DIALOG.battleteamQRCode = function(record, official)
+{
+    var official = official || false;
+    var page1Tags = function()
+    {
+        var markup = [
+            '<p class="page-help alingR mb20">',
+            '<a class="iconHelp_or support" data-support="manual/manual_qr-rental-teams/battle/">',PGL.UTIL.getLocale("F-BT-04-02_ABOUT_QRCODE"),'</a>',
+            '</p>',
+            '<div>',
+            '<div class="battleteam-qrcode"></div>',
+            '<p class="font15 fontB mb20">',PGL.UTIL.getLocale('F-BT-04-02_READ_QRCODE'),'</p>',
+            '<p style="margin-left:210px;">',PGL.UTIL.getLocale('F-BT-04-02_DESCRIPTION_BATTLETEAM_QRCODE'),'</p>',
+            '<p class="caption dialog-caution red">',PGL.UTIL.getLocale('F-BT-04-02_BATTLETEAM_QRCODE_CAUTION'),'</p>',
+            '</div>'
+        ].join("");
+
+        var $markup = $(markup).commonLink();
+        var data = PGL.DATA.GET_LOGIN_STATUS.selectedSavedata;
+        var params = {
+            savedataId : data.savedataId,
+            battleTeamCd : record.battleTeamCd
+        }
+
+        if (official) {
+            var api = '/frontendApi/battleTeam/getOfficialQr';
+        } else {
+            var api = '/frontendApi/battleTeam/getQr';
+        }
+
+        PGL.REQUEST.getQRCode(api, params).done(function(data) {
+            var $img = $('<img/>').attr('src', 'data:image/png;base64,'+data);
+            $markup.find(".battleteam-qrcode").prepend($img);
+        });
+
+        return $markup;
+    }
+
+    var page01 = {
+        "type"    : "",
+        "id"      : "",
+        "title"   : record.battleTeamName,
+        "detail"  : page1Tags,
+        "buttons" : "",
+        "width"   : 680
+    };
+
+    PGL.dialog.init(page01);
+    PGL.dialog.show();
+};
+
+
+/*=====================================================
+   ////////// なかま大会QRコード //////////
+   =====================================================*/
+PGL.DIALOG.friendlyCompetitionsQRCode = function(record, mode)
+{
+    var page1Tags = function()
+    {
+        if (mode == 'internet') {
+            var qrDescLabel = 'F-FC-05-01_DESCRIPTION_INTERNET_COMPETITIONS_QRCODE';
+            var supportPath = 'online-format';
+        } else {
+            var qrDescLabel = 'F-FC-05-02_DESCRIPTION_LIVE_COMPETITIONS_QRCODE';
+            var supportPath = 'live-format';
+        }
+        var markup = [
+            '<p class="page-help alingR mb20">',
+            '<a class="iconHelp_or support" data-support="manual/manual_friendly-competitions/',supportPath,'/">',PGL.UTIL.getLocale("F-FC-05-01_ABOUT_QRCODE"),'</a>',
+            '</p>',
+            '<div>',
+            '<div class="fc-qrcode"></div>',
+            '<p class="font15 fontB mb20">',PGL.UTIL.getLocale('F-FC-05-01_READ_QRCODE'),'</p>',
+            '<p style="margin-left:210px;">',PGL.UTIL.getLocale(qrDescLabel),'</p>',
+            ((record.friendlyCompetitionsId)
+           ? ['<p class="caption dialog-caution red">',PGL.UTIL.getLocale('F-FC-05-01_INTERNET_QRCODE_CAUTION'),'</p>'].join('')
+           : ''),
+            '</div>'
+        ].join("");
+
+        var $markup = $(markup).commonLink();
+        var data = PGL.DATA.GET_LOGIN_STATUS.selectedSavedata;
+        if (record.friendlyCompetitionsId) {
+            var params = {
+                generationId : PGL.DATA.URL_INFO.generationId,
+                accountId  : data.accountId,
+                savedataId : data.savedataId,
+                friendlyCompetitionsId : record.friendlyCompetitionsId
+            }
+            var api = '/frontendApi/friendlyCompetitions/getFriendlyCompetitionsQRCode';
+        } else {
+            var params = {
+                generationId : PGL.DATA.URL_INFO.generationId,
+                liveCompetitionsId : record.liveCompetitionsId
+            }
+            if (data) {
+                params = $.extend(params, {
+                    accountId  : data.accountId,
+                    savedataId : data.savedataId
+                });
+            }
+            var api = '/frontendApi/friendlyCompetitions/getLiveCompetitionsQRCode';
+        }
+
+        PGL.REQUEST.getQRCode(api, params).done(function(data) {
+            var $img = $('<img/>').attr('src', 'data:image/png;base64,'+data);
+            $markup.find(".fc-qrcode").prepend($img);
+        });
+
+        return $markup;
+    }
+
+    var page01 = {
+        "type"    : "",
+        "id"      : "",
+        "title"   : (record.friendlyCompetitionsName || record.liveCompetitionsName),
+        "detail"  : page1Tags,
+        "buttons" : "",
+        "width"   : 680
+    };
+
+    PGL.dialog.init(page01);
+    PGL.dialog.show();
+};
+
+
+
+
+
+/*=====================================================
+   ////////// なかま大会、指定ユーザ //////////
+   =====================================================*/
+PGL.DIALOG.fcAssignUser = function()
+{
+    var page1Tags = function()
+    {
+        var markup = [
+            '<div>',
+            '<div class="mb10">',
+            '<ul class="steps"></ul>',
+            '</div>',
+            '<p class="alingR mb10 font12 fontB"><a class="iconHelp_or support" data-support="manual/manual_friendly-competitions/create/">',PGL.UTIL.getLocale("F-FC-03-02_ABOUT_ASSIGN_TRAINER"),'</a></p>',
+            '<p class="mb10 font12">',PGL.UTIL.getLocale('F-FC-03-02_DESCRIPTION_ASSIGN_TRAINER'),'</p>',
+            '<div class="formBox"><div class="form01"><form id="savedataId">',
+            '<input type="text" class="input01" maxlength="1" size="1" id="sdid0"><span>─</span>',
+            '<input type="text" class="input01" maxlength="3" size="3" id="sdid1"><span>─</span>',
+            '<input type="text" class="input01" maxlength="4" size="4" id="sdid2"><span>─</span>',
+            '<input type="text" class="input01" maxlength="1" size="1" id="sdid3"> &nbsp; ',
+            '<a href="javascript:void(0);" class="btnCrSmall" id="registerSaveDataIdCode">',PGL.UTIL.getLocale("F-FC-03-02_REGISTER_SAVEDATA_ID"),'</a>',
+            '</form>','<p class="formError">','</p>','</div></div>',
+
+            '<div class="tableTypeDefault dialog-assign-user-container">',
+            '<table width="100%" border="0" cellspacing="0" cellpadding="0" id="assignedUsers">',
+            '</table>',
+            '</div>',
+
+            '</div>'
+        ].join("");
+
+
+        var buildRow = function(data) {
+            var num = $markup.find("#assignedUsers").find("tr").length;
+            var $tr  = $("<tr/>").data('userdata', data);
+            var seq  = $("<th/>").text(num+1).appendTo($tr);
+            var sdid = $("<td/>").addClass('savedataIdCode').text(data.savedataIdCode).appendTo($tr);
+            var tbox = $('<div/>').trainerBox(data);
+            var user = $("<td/>").append(tbox).appendTo($tr);
+            deleteButton = $('<button class="deleteButton"></button>').attr({id:data.savedataIdCode}).on('click', function() {
+                var id = $(this).attr('id');
+                /*delete assignedUser[id];*/
+                $(this).parents('tr').remove();
+                var i = 1;
+                $("#assignedUsers").find("tr").each(function(){
+                    $(this).find("th:first-child").text(i++);
+                });
+                /*
+                   var num = $markup.find("#assignedUsers").find("tr").length;
+                   $(".userCount").text(num);
+                 */
+                if (num >= MAX_USERS) {
+                    $("#registerSaveDataIdCode").addClass('disabled');
+                } else {
+                    $("#registerSaveDataIdCode").removeClass('disabled');
+                }
+                $('.footerBox').find('.btnCrLarge').removeClass('disabled');
+            });
+            var del  = $("<td/>").append(deleteButton).appendTo($tr);
+            return $tr;
+        }
+
+        var $markup = $(markup).commonLink();
+        var $content = $('<div/>').addClass("clearFix");
+
+        if ($("#userCount").data('user-list')) {
+            assignedUser = $("#userCount").data('user-list');
+            $.each(assignedUser, function(idx, data) {
+                $tr = buildRow(data);
+                $markup.find("#assignedUsers").append($tr);
+            });
+            var num = $markup.find("#assignedUsers").find("tr").length;
+            if (num >= MAX_USERS) {
+                $markup.find("#registerSaveDataIdCode").addClass('disabled');
+            } else {
+                $markup.find("#registerSaveDataIdCode").removeClass('disabled');
+            }
+        }
+
+        var isAlreadyAssigned = function(sdidCode) {
+            var flg = false;
+            $("#assignedUsers").find("tr").each(function(index) {
+                var data = $(this).data('userdata');
+                if (data.savedataIdCode == sdidCode) flg = true;
+            });
+            return flg;
+        }
+
+        $markup.find(".content").append($content);
+        $markup.saveDataIdcInput();
+        $markup.find("#registerSaveDataIdCode").on('click', function() {
+            var num = $markup.find("#assignedUsers").find("tr").length;
+            if (num >= MAX_USERS) return;
+
+            var data = PGL.DATA.GET_LOGIN_STATUS.selectedSavedata;
+            var sdidCode = $('#sdid0').val() + '-' + $('#sdid1').val() + '-' + $('#sdid2').val() + '-' + $('#sdid3').val();
+            var params = {
+                accountId  : data.accountId,
+                savedataId : data.savedataId,
+                savedataIdCode : sdidCode
+            };
+            if (isAlreadyAssigned(sdidCode)) {
+                $("#sdid0").attr({maxlength: 1})/*.val('')*/;
+                $("#sdid1").attr({maxlength: 3})/*.val('')*/;
+                $("#sdid2").attr({maxlength: 4})/*.val('')*/;
+                $("#sdid3").attr({maxlength: 1})/*.val('')*/;
+                $markup.saveDataIdcInput();
+                $('#savedataId').find('input[type="text"]').addClass('invalid');
+                $('.formError').cmsText('F-FC-03-02_ALREADY_REGISTERED').show();
+            } else {
+                var api = '/frontendApi/friendlyCompetitions/checkFriendlyCompetitionsUser';
+                PGL.V2.callAPI(api, $.extend({}, params)).done(function (data) {
+                    if (data.status_code == '0000') {
+                        $tr = buildRow(data);
+                        $("#assignedUsers").append($tr);
+                        $('.footerBox').find('.btnCrLarge').removeClass('disabled');
+                        /*assignedUser[data.savedataIdCode] = data;*/
+                        $('.formError').hide();
+                        $('#savedataId').find('input[type="text"]').removeClass('invalid');
+                        if ($('.dialog-assign-user-container').length) {
+                            $('.dialog-assign-user-container').scrollTop($('.dialog-assign-user-container').offset().top);
+                        }
+                        $("#sdid0").attr({maxlength: 1}).val('');
+                        $("#sdid1").attr({maxlength: 3}).val('');
+                        $("#sdid2").attr({maxlength: 4}).val('');
+                        $("#sdid3").attr({maxlength: 1}).val('');
+                    } else {
+                        $('#savedataId').find('input[type="text"]').addClass('invalid');
+                        if (data.error.code == "1146") {
+                            $('.formError').cmsText('F-FC-03-02_REJECT_SAVEDATA_ID').show();
+                        } else {
+                            $('.formError').cmsText('F-FC-03-02_NOT_EXISTS_SAVEDATA_ID').show();
+                        }
+                        $("#sdid0").attr({maxlength: 1})/*.val('')*/;
+                        $("#sdid1").attr({maxlength: 3})/*.val('')*/;
+                        $("#sdid2").attr({maxlength: 4})/*.val('')*/;
+                        $("#sdid3").attr({maxlength: 1})/*.val('')*/;
+                    }
+
+                    var num = $("#assignedUsers").find("tr").length;
+                    if (num >= MAX_USERS) {
+                        $markup.find("#registerSaveDataIdCode").addClass('disabled');
+                    }
+
+                    $markup.saveDataIdcInput();
+                });
+            }
+        });
+
+        return $markup;
+    }
+
+    var funcPage01 = function() {
+        if ($('.footerBox').find('.btnCrLarge').hasClass('disabled')) {
+            return;
+        }
+        var userList = {};
+        $("#assignedUsers").find("tr").each(function(index) {
+            var data = $(this).data('userdata');
+            userList[data.savedataIdCode] = data;
+        });
+        $("#userCount").data('user-list', userList);
+        var num = $("#assignedUsers").find("tr").length;
+        $(".userCount").text(num);
+        $(".userCount").show();
+        PGL.dialog.hide();
+    }
+
+    var page01Btn = {};
+    page01Btn[PGL.UTIL.getLocale('GLOSSARY_CANCEL')] = {color:false,action:function(){ PGL.dialog.hide()}};
+    page01Btn[PGL.UTIL.getLocale('GLOSSARY_ACCOUNT_RGIST')] = {color:true,action:funcPage01};
+
+    var page01 = {
+        "type"    : "",
+        "id"      : "FC_ASSIGN_TRAINER",
+        "title"   : PGL.UTIL.getLocale("F-FC-03-02_ASSIGN_TRAINER"),
+        "detail"  : page1Tags,
+        "buttons" : page01Btn,
+        "width"   : 540
+    };
+
+    var page2Tags = function()
+    {
+        var markup = [
+            '<div>',
+            '<div class="mb10">',
+            '<ul class="steps"></ul>',
+            '</div>',
+            '<p class="mb20 font15 alingC"><strong>',PGL.UTIL.getLocale("F-AC-01-07_ALERT_TXT2"),'</strong></p>',
+            '<div class="savedataList">',
+            '</div>',
+            '</div>'
+        ].join("");
+
+        var $markup = $(markup);
+        return $markup;
+    }
+
+    var page02Btn = {}
+    var page02 = {
+        "type"    : "", // issue:0000322
+        "id"      : "FC_ASSIGN_TRAINER",
+        "title"   : PGL.UTIL.getLocale("F-FC-03-02_ASSIGN_TRAINER"),
+        "detail"  : page2Tags,
+        "buttons" : page02Btn,
+        "width"   : 540
+    }
+
+    PGL.dialog.init(page01);
+    PGL.dialog.show();
+};
+
+
+
+/*=====================================================
+   ////////// なかま大会、指定ユーザ //////////
+   =====================================================*/
+PGL.DIALOG.fcEditAssignUser = function(data)
+{
+    var fc = data.fc;
+    var assignedUser = {};
+    var assignedUserAlready = {};
+
+    var t0 = new Date(fc.endDate);
+    var t1 = new Date();
+    var isEnd = (fc.startedFlg == 1);
+
+    var page1Tags = function()
+    {
+        var markup = [
+            '<div style="min-height:250px;">',
+            '<div class="mb10">',
+            '<ul class="steps"></ul>',
+            '</div>',
+            '<p class="alingR mb10 font12 fontB"><a class="iconHelp_or support" data-support="manual/manual_friendly-competitions/create/">',PGL.UTIL.getLocale("F-FC-03-02_ABOUT_ASSIGN_TRAINER"),'</a></p>',
+            '<p class="mb10 font12">',PGL.UTIL.getLocale('F-FC-03-02_DESCRIPTION_ASSIGN_TRAINER'),'</p>',
+            '<div class="formBox"><div class="form01"><form id="savedataId">',
+            '<input type="text" class="input01" maxlength="1" size="1" id="sdid0"><span>─</span>',
+            '<input type="text" class="input01" maxlength="3" size="3" id="sdid1"><span>─</span>',
+            '<input type="text" class="input01" maxlength="4" size="4" id="sdid2"><span>─</span>',
+            '<input type="text" class="input01" maxlength="1" size="1" id="sdid3"> &nbsp; ',
+            '<a href="javascript:void(0);" class="btnCrSmall" id="registerSaveDataIdCode">',PGL.UTIL.getLocale("F-FC-03-02_REGISTER_SAVEDATA_ID"),'</a>',
+            '</form>','<p class="formError">',/*PGL.UTIL.getLocale('F-FC-03-02_NOT_EXISTS_SAVEDATA_ID')*/,'</p>','</div></div>',
+
+            '<div class="tableTypeDefault dialog-assign-user-container">',
+            '<table width="100%" border="0" cellspacing="0" cellpadding="0" id="assignedUsers">',
+            '</table>',
+            '</div>',
+
+            '</div>'
+        ].join("");
+
+        var $markup = $(markup).commonLink();
+        var $content = $('<div/>').addClass("clearFix");
+        $markup.find(".content").append($content);
+        if (isEnd) $markup.find('.formBox').remove();
+        if (isEnd) $markup.find('p').remove();
+
+        var data = PGL.DATA.GET_LOGIN_STATUS.selectedSavedata;
+        var api = '/frontendApi/mypage/getFriendlyCompetitionsUser';
+        var params = {
+            accountId  : data.accountId,
+            savedataId : data.savedataId,
+            friendlyCompetitionsId : fc.friendlyCompetitionsId
+        };
+        PGL.V2.callAPI(api, $.extend({}, params), { override:'getFriendlyCompetitionsUser' }).done(function (data1, context) {
+            if (context.overridden) return;
+
+            if (data1.status_code == '0000') {
+                if (isEnd && data1.permitSavedataIdCodeList.length == 0) {
+                    $markup.css('height', '250px').prepend(PGL.UTIL.getErrorCont());
+                    $markup.find("#assignedUsers").remove();
+                } else {
+                    $.each(data1.permitSavedataIdCodeList, function(index, data){
+                        var sdidCode = data.savedataIdCode;
+                        var num = $("#assignedUsers").find("tr").length;
+                        var $tr  = $("<tr/>");
+                        if (!isEnd) $tr.addClass('already');
+                        var seq  = $("<th/>").text(num+1).appendTo($tr);
+                        var sdid = $("<td/>").addClass('savedataIdCode').text(sdidCode).appendTo($tr);
+                        var tbox = $('<div/>').trainerBox(data);
+                        var user = $("<td/>").append(tbox).appendTo($tr);
+                        /*
+                           deleteButton = $('<button class="deleteButton"></button>').attr({id:data.savedataIdCode}).on('click', function() {
+                           var id = $(this).data('id');
+                           delete assignedUser[id];
+                           $(this).parents('tr').remove();
+                           var num = $("#assignedUsers").find("tr").length;
+                           $("#userCount").text(num);
+                           });
+                         */
+                        $('.formError').hide();
+                        $('#savedataId').find('input[type="text"]').removeClass('invalid');
+                        var del  = $("<td/>")/*.append(deleteButton)*/.appendTo($tr);
+                        $markup.find("#assignedUsers").append($tr);
+                        assignedUserAlready[sdidCode] = data;
+                    });
+                    var num = data1.permitSavedataIdCodeList.length;
+                    if (num >= MAX_USERS) {
+                        $markup.find("#registerSaveDataIdCode").addClass('disabled');
+                        $('.footerBox').find('.btnCrLarge').addClass('disabled');
+                    } else {
+                        $markup.find("#registerSaveDataIdCode").removeClass('disabled');
+                        $('.footerBox').find('.btnCrLarge').removeClass('disabled');
+                    }
+                }
+                $('.footerBox').find('.btnCrLarge').addClass('disabled');
+            }
+        }).fail(PGL.V2.defaultErrorHandler);
+
+        $markup.saveDataIdcInput();
+        $markup.find("#registerSaveDataIdCode").on('click', function() {
+            var num = $markup.find("#assignedUsers").find("tr").length;
+            if (num >= MAX_USERS) return;
+
+            var sdidCode = $('#sdid0').val() + '-' + $('#sdid1').val() + '-' + $('#sdid2').val() + '-' + $('#sdid3').val();
+            var params = {
+                accountId  : data.accountId,
+                savedataId : data.savedataId,
+                savedataIdCode : sdidCode
+            };
+            if (assignedUser[sdidCode] || assignedUserAlready[sdidCode]) {
+                $("#sdid0").attr({maxlength: 1})/*.val('')*/;
+                $("#sdid1").attr({maxlength: 3})/*.val('')*/;
+                $("#sdid2").attr({maxlength: 4})/*.val('')*/;
+                $("#sdid3").attr({maxlength: 1})/*.val('')*/;
+                $markup.saveDataIdcInput();
+                $('#savedataId').find('input[type="text"]').addClass('invalid');
+                $('.formError').cmsText('F-FC-03-02_ALREADY_REGISTERED').show();
+            } else {
+                var api = '/frontendApi/friendlyCompetitions/checkFriendlyCompetitionsUser';
+                PGL.V2.callAPI(api, $.extend({}, params)).done(function (data) {
+                    if (data.status_code == '0000') {
+                        var num = $("#assignedUsers").find("tr").length;
+                        var $tr  = $("<tr/>");
+                        var seq  = $("<th/>").text(num+1).appendTo($tr);
+                        var sdid = $("<td/>").addClass('savedataIdCode').text(sdidCode).appendTo($tr);
+                        var tbox = $('<div/>').trainerBox(data);
+                        var user = $("<td/>").append(tbox).appendTo($tr);
+                        deleteButton = $('<button class="deleteButton"></button>').attr({id:data.savedataIdCode}).on('click', function() {
+                            var id = $(this).attr('id');
+                            delete assignedUser[id];
+                            $(this).parents('tr').remove();
+                            var num = $("#assignedUsers").find("tr").length;
+                            $("#userCount").text(num);
+                            var numNew = $markup.find("#assignedUsers").find("tr:not(.already)").length;
+                            if (numNew <= 0) {
+                                $('.footerBox').find('.btnCrLarge').addClass('disabled');
+                            }
+                        });
+                        var del  = $("<td/>").append(deleteButton).appendTo($tr);
+                        $("#assignedUsers").append($tr);
+                        $('.formError').hide();
+                        $('#savedataId').find('input[type="text"]').removeClass('invalid');
+                        $('.dialog-assign-user-container').scrollTop($('.dialog-assign-user-container').offset().top);
+                        $('.footerBox').find('.btnCrLarge').removeClass('disabled');
+                        assignedUser[sdidCode] = sdidCode;
+
+                        $("#sdid0").attr({maxlength: 1}).val('');
+                        $("#sdid1").attr({maxlength: 3}).val('');
+                        $("#sdid2").attr({maxlength: 4}).val('');
+                        $("#sdid3").attr({maxlength: 1}).val('');
+                    } else {
+                        $('#savedataId').find('input[type="text"]').addClass('invalid');
+                        if (data.error.code == "1146") {
+                            $('.formError').cmsText('F-FC-03-02_REJECT_SAVEDATA_ID').show();
+                        } else {
+                            $('.formError').cmsText('F-FC-03-02_NOT_EXISTS_SAVEDATA_ID').show();
+                        }
+                        $("#sdid0").attr({maxlength: 1})/*.val('')*/;
+                        $("#sdid1").attr({maxlength: 3})/*.val('')*/;
+                        $("#sdid2").attr({maxlength: 4})/*.val('')*/;
+                        $("#sdid3").attr({maxlength: 1})/*.val('')*/;
+                    }
+
+                    $markup.saveDataIdcInput();
+                });
+            }
+            var num = $markup.find("#assignedUsers").find("tr").length;
+            if (num >= MAX_USERS) {
+                $markup.find("#registerSaveDataIdCode").addClass('disabled');
+            } else {
+                $markup.find("#registerSaveDataIdCode").removeClass('disabled');
+            }
+        });
+
+        return $markup;
+    }
+
+    var funcPage01 = function() {
+        if ($('.footerBox').find('.btnCrLarge').hasClass('disabled')) {
+            return;
+        }
+        /*
+           var num = $("#assignedUsers").find("tr").length;
+           $("#userCount").text(num);
+           $("#userCount").show();
+           $("#userCount").data('user-list', assignedUser);
+         */
+        var data = PGL.DATA.GET_LOGIN_STATUS.selectedSavedata;
+        var users = [];
+        $.each(assignedUser, function(index, value){
+            users.push(value);
+        });
+        if (users.length > 0) {
+            var params = {
+                accountId  : data.accountId,
+                savedataId : data.savedataId,
+                friendlyCompetitionsId : fc.friendlyCompetitionsId,
+                permitSavedataIdCodeList : users.join(',')
+            };
+            var api = '/frontendApi/mypage/addFriendlyCompetitionsEntryUser';
+            PGL.V2.callAPI(api, $.extend({}, params), { override:'addFriendlyCompetitionsEntryUser' }).done(function (data, context) {
+                if (context.overridden) return;
+                if (data.status_code == '0000') {
+                    PGL.dialog.hide();
+                } else {
+                }
+            }).fail(PGL.V2.defaultErrorHandler);
+        }
+        PGL.dialog.hide();
+    }
+
+    var page01Btn = {};
+    if (!isEnd) {
+        page01Btn[PGL.UTIL.getLocale('GLOSSARY_CANCEL')] = {color:false,action:function(){ PGL.dialog.hide()}};
+        page01Btn[PGL.UTIL.getLocale('GLOSSARY_ACCOUNT_RGIST')] = {color:true,action:funcPage01};
+    }
+
+    var page01 = {
+        "type"    : "",
+        "id"      : "",
+        "title"   : PGL.UTIL.getLocale("F-FC-03-02_ASSIGN_TRAINER"),
+        "detail"  : page1Tags,
+        "buttons" : page01Btn,
+        "width"   : 540
+    };
+
+    var page2Tags = function()
+    {
+        var markup = [
+            '<div>',
+            '<div class="mb10">',
+            '<ul class="steps"></ul>',
+            '</div>',
+            '<p class="mb20 font15 alingC"><strong>',PGL.UTIL.getLocale("F-AC-01-07_ALERT_TXT2"),'</strong></p>',
+            '<div class="savedataList">',
+            '</div>',
+            '</div>'
+        ].join("");
+
+        var $markup = $(markup);
+        return $markup;
+    }
+
+    var page02Btn = {}
+    var page02 = {
+        "type"    : "", // issue:0000322
+        "id"      : "",
+        "title"   : PGL.UTIL.getLocale("F-FC-03-02_ASSIGN_TRAINER"),
+        "detail"  : page2Tags,
+        "buttons" : page02Btn,
+        "width"   : 540
+    }
+
+    PGL.dialog.init(page01);
+    PGL.dialog.show();
+};
+
+
+
+
+
+
+
+/*=====================================================
+   //////////////// ダイアログを閉じる //////////////////
+   =====================================================*/
+PGL.DIALOG.modelClose = function(title,message)
+{
+    var pageBtn = {}
+    pageBtn[PGL.UTIL.getLocale("GLOSSARY_ACTION_CLOSE")] = function(){
+        PGL.dialog.hide()
+    }
+
+    return {
+        "type"    : "",
+        "title"   : title,
+        "detail"  : message,
+        "buttons" : pageBtn
+    }
+}
+
+
+/*=====================================================
+   //////////////// ダイアログ（更新） //////////////////
+   =====================================================*/
+PGL.DIALOG.modelReload = function(title,message)
+{
+    var pageBtn = {}
+    pageBtn[PGL.UTIL.getLocale("GLOSSARY_ACTION_CLOSE")] = function(){
+        location.reload()
+    }
+    return {
+        "type"    : "",
+        "title"   : title,
+        "detail"  : message,
+        "buttons" : pageBtn
+    }
+}
+
+
+/*=====================================================
+   //////////////// エラー分岐処理 //////////////////
+   =====================================================*/
+
+PGL.ERROR_HANDLER = function(data){
+
+    switch(data.error.code){
+
+        case "0020":
+        case "0021":
+            // issue:0001558
+            $('.milePointStatus>div>p>#errorCodeMessage').remove();
+            var message = [
+                '<span id="errorCodeMessage">',
+                PGL.UTIL.getModelTextObj("error_code",data.error.code),
+                '</span>'
+            ].join("")
+            // issue:0001838
+            $(".step2 .milePointStatus>div>p").append(message);
+            $("#inputMilePoint2").addClass("error");
+            break;
+    }
+}
+
+
+}
+/*
+     FILE ARCHIVED ON 18:35:51 Feb 05, 2019 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 02:49:11 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 126.645
+  exclusion.robots: 0.075
+  exclusion.robots.policy: 0.066
+  cdx.remote: 0.075
+  esindex: 0.009
+  LoadShardBlock: 83.007 (3)
+  PetaboxLoader3.datanode: 121.175 (5)
+  load_resource: 167.328 (2)
+  PetaboxLoader3.resolve: 106.844 (2)
+*/

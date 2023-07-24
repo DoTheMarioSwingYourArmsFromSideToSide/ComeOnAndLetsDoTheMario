@@ -1,0 +1,70 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+// JavaScript Document
+
+
+/*=====================================================
+ ////////////////////// MAIN /////////////////////////
+=====================================================*/
+
+PGL.INFO.PATH = 
+{
+		photo:"https://web.archive.org/web/20190205183551/https://dvg7rwb00cnlr.cloudfront.net/",
+		trainericon:"https://web.archive.org/web/20190205183551/https://n-3ds1-pgl-trainericon.pokemon-gl.com/",
+		cmsUploads:"https://web.archive.org/web/20190205183551/https://n-3ds-pgl-contents.pokemon-gl.com",
+    webResources:"https://web.archive.org/web/20190205183551/https://n-3ds-pgl-contents.pokemon-gl.com",
+		secretbase:"https://web.archive.org/web/20190205183551/http://s3-ap-northeast-1.amazonaws.com/3ds1-pgl-secretbase/",
+		rom:"/share/images/game_rom/",
+		logo:"/share/images/game_logo/",
+		api:"/frontendApi/",
+		pc:"https://web.archive.org/web/20190205183551/http://3ds.pokemon-gl.com",
+		sp:"https://web.archive.org/web/20190205183551/http://3ds-sp.pokemon-gl.com",
+		www:"https://web.archive.org/web/20190205183551/http://www.pokemon-gl.com/",
+		pdcCheckImage:'https://web.archive.org/web/20190205183551/https://member.pokemon-gl.com/check_3dspgl.gif',
+		comCheckImage:'https://web.archive.org/web/20190205183551/https://www.pokemon.com/pglcheck',
+		pkiCheckImage:'https://web.archive.org/web/20190205183551/https://pokemonkorea.co.kr/3ds_pgl/chkoperation.gif',
+		pdcLogin:"https://web.archive.org/web/20190205183551/https://member.pokemon-gl.com/login/pgl_n.php",
+		comLogin:"https://web.archive.org/web/20190205183551/https://sso.pokemon.com/sso/login?service=https://club.pokemon.com/{COUNTRY}/pokemon-trainer-club/pgllogin2&locale={LANGUAGE}&renew=true",
+		pkiLogin:"https://web.archive.org/web/20190205183551/https://pokemonkorea.co.kr/?inc=3ds_pgl-login_pgl",
+		pdcLogin_sp:"https://web.archive.org/web/20190205183551/https://member.pokemon-gl.com/login/pgl_n_sp.php",
+		comLogin_sp:"https://web.archive.org/web/20190205183551/https://sso.pokemon.com/sso/login?service=https://club.pokemon.com/{COUNTRY}/pokemon-trainer-club/pgllogin2/mobile&locale={LANGUAGE}&renew=true",
+		pkiLogin_sp:"https://web.archive.org/web/20190205183551/https://pokemonkorea.co.kr/?inc=3ds_pgl-login_pgl",
+		pdc:"https://web.archive.org/web/20190205183551/https://member.pokemon-gl.com/",
+		com:"https://web.archive.org/web/20190205183551/https://www.pokemon.com/",
+		pki:"https://web.archive.org/web/20190205183551/http://pokemonkorea.co.kr/",
+		support:"https://web.archive.org/web/20190205183551/http://www.pokemon.co.jp",
+    gusApi:"https://web.archive.org/web/20190205183551/https://www.pokemon.com/api/gus/"
+};
+
+
+}
+/*
+     FILE ARCHIVED ON 18:35:51 Feb 05, 2019 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 02:49:10 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 115.269
+  exclusion.robots: 0.103
+  exclusion.robots.policy: 0.092
+  RedisCDXSource: 0.663
+  esindex: 0.009
+  LoadShardBlock: 83.236 (3)
+  PetaboxLoader3.datanode: 120.431 (5)
+  load_resource: 426.408 (2)
+  PetaboxLoader3.resolve: 304.476 (2)
+*/

@@ -1,0 +1,79 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+// JavaScript Document
+
+PGL.INFO.ERROR_MESSAGE = {
+	"0001":{ de:'',en:'',es:'',fr:'', it:'',ja:'メンバーIDを入力してください',ko:''},
+	"0002":{ de:'',en:'',es:'',fr:'', it:'',ja:'ログインしてからゲームソフトを選択してください',ko:''},
+	"0003":{ de:'',en:'',es:'',fr:'', it:'',ja:'年齢制限があります。',ko:''},
+	"0004":{ de:'',en:'',es:'',fr:'', it:'',ja:'ゲームシンクIDコードを入力してください。',ko:''},
+	"0005":{ de:'',en:'',es:'',fr:'', it:'',ja:'ゲームシンクIDコードを半角英数字とハイフンで入力してください。',ko:''},
+	"0006":{ de:'',en:'',es:'',fr:'', it:'',ja:'ゲームシンクIDコードを19文字で入力してください。',ko:''},
+	"0007":{ de:'',en:'',es:'',fr:'', it:'',ja:'ログインしてください。',ko:''},
+	"0008":{ de:'',en:'',es:'',fr:'', it:'',ja:'ゲームシンクIDコードが間違っています。',ko:''},
+	"0009":{ de:'',en:'',es:'',fr:'', it:'',ja:'ゲームシンクIDコードが解除申請中です。',ko:''},
+	"0010":{ de:'',en:'',es:'',fr:'', it:'',ja:'ゲームシンクIDコードが既に使用されています。',ko:''},
+	"0011":{ de:'',en:'',es:'',fr:'', it:'',ja:'連携サイト別に設定された地域とは異なっています。',ko:''},
+	"0012":{ de:'',en:'',es:'',fr:'', it:'',ja:'マイページ表示できません',ko:''},
+	"0013":{ de:'',en:'',es:'',fr:'', it:'',ja:'マイページ表示できません',ko:''},
+	"0014":{ de:'',en:'',es:'',fr:'', it:'',ja:'未ログイン',ko:''},
+	"0015":{ de:'',en:'',es:'',fr:'', it:'',ja:'公開されてないため閲覧できません',ko:''},
+	"0016":{ de:'',en:'',es:'',fr:'', it:'',ja:'写真が存在しません',ko:''},
+	"0017":{ de:'',en:'',es:'',fr:'', it:'',ja:'この写真をロックできません',ko:''},
+	"0018":{ de:'',en:'',es:'',fr:'', it:'',ja:'この写真はロックされています。削除できません。',ko:''},
+	"0019":{ de:'',en:'',es:'',fr:'', it:'',ja:'有効なセーブデータIDではありません',ko:''},
+	"0020":{ de:'',en:'',es:'',fr:'', it:'',ja:'０以降残ポイントを超えないポイントを入力してください。',ko:''},
+	"0021":{ de:'',en:'',es:'',fr:'', it:'',ja:'ポイントを半角数字で入力してください。',ko:''},
+	"0022":{ de:'',en:'',es:'',fr:'', it:'',ja:'このソフトに切り替えできません',ko:''},
+	"0023":{ de:'',en:'',es:'',fr:'', it:'',ja:'解除できるソフトではありません',ko:''},
+	"0024":{ de:'',en:'',es:'',fr:'', it:'',ja:'解除の取消ができるソフトではありません',ko:''},
+	"0025":{ de:'',en:'',es:'',fr:'', it:'',ja:'現在ポケモンフェスタで遊べるゲーム、お店はありません',ko:''},
+	"0026":{ de:'',en:'',es:'',fr:'', it:'',ja:'未送信の獲得アイテムはありません',ko:''},
+	"0027":{ de:'',en:'',es:'',fr:'', it:'',ja:'未送信の獲得アイテムが20件を超えています',ko:''},
+	"0028":{ de:'',en:'',es:'',fr:'', it:'',ja:'アトラクションは終了しました',ko:''},
+	"0029":{ de:'',en:'',es:'',fr:'', it:'',ja:'このゲームで遊ぶにはメダル枚数が足りません',ko:''},
+	"0030":{ de:'',en:'',es:'',fr:'', it:'',ja:'ポイントが不足しています',ko:''},
+	"0031":{ de:'',en:'',es:'',fr:'', it:'',ja:'未送信アイテム履歴情報はありません',ko:''},
+	"0032":{ de:'',en:'',es:'',fr:'', it:'',ja:'大会にはエントリーできません',ko:''},
+	"0033":{ de:'',en:'',es:'',fr:'', it:'',ja:'既にエントリー済みです',ko:''},
+	"0034":{ de:'',en:'',es:'',fr:'', it:'',ja:'参加人数が一杯のためエントリーできません',ko:''},
+	"0035":{ de:'',en:'',es:'',fr:'', it:'',ja:'開催中の大会はありません',ko:''},
+	"0036":{ de:'',en:'',es:'',fr:'', it:'',ja:'大会結果のデータは存在しません',ko:''},
+	"0037":{ de:'',en:'',es:'',fr:'', it:'',ja:'該当ロムのソフトは既に登録されています。',ko:''},
+	"0040":{ de:'',en:'',es:'',fr:'', it:'',ja:'前回のゲームが正しく終了されませんでした。あと｛時間（mi:ss）｝お待ちください。',ko:''},
+	"0044":{ de:'',en:'',es:'',fr:'', it:'',ja:'自分の写真ではない場合',ko:''},
+	"0047":{ de:'',en:'',es:'',fr:'', it:'',ja:'全体の公開範囲に満たなかった',ko:''},
+	"0055":{ de:'',en:'',es:'',fr:'', it:'',ja:'会員情報の処理中です。しばらく経ってから再度アクセスをお試し下さい。数時間経ってもこのメッセージが出る場合は、ポケモンだいすきクラブまでお問い合わせ下さい。',ko:''}
+};
+
+}
+/*
+     FILE ARCHIVED ON 13:05:17 Feb 16, 2020 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 02:53:48 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 254.376
+  exclusion.robots: 0.091
+  exclusion.robots.policy: 0.08
+  cdx.remote: 0.067
+  esindex: 0.009
+  LoadShardBlock: 224.278 (3)
+  PetaboxLoader3.datanode: 246.792 (5)
+  load_resource: 685.223 (2)
+  PetaboxLoader3.resolve: 630.802 (2)
+*/

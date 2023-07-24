@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+  /* font-face
+  ------------------------------------------------*/
+  
+@font-face { font-family: helvetica; src: url(/web/20190205183553im_/https://3ds.pokemon-gl.com/share/font/HelveticaCdBd.ttf);}
+.helvetica{ font-family:helvetica;}
+
+@font-face { font-family: hiragino; src: url(/web/20190205183553im_/https://3ds.pokemon-gl.com/share/font/dshirkg7.ttf);}
+.hiragino{ font-family:hiragino;}
+
+@font-face {
+  font-family: "webfont";
+  src: url(/web/20190205183553im_/https://3ds.pokemon-gl.com/share/fonts/PGLDings.woff?rev=3) format('woff'),
+  url(/web/20190205183553im_/https://3ds.pokemon-gl.com/share/fonts/PGLDings.ttf?rev=3) format('truetype');
+  /* issue:0001698,0003143 */
+  unicode-range: U+25A1-266A, U+E07F, U+E081-E0A8, U+FF65;
+}
+
+body,textarea {
+  font-family: "webfont","メイリオ", Meiryo, sans-serif;
+}
+/*
+     FILE ARCHIVED ON 18:35:53 Feb 05, 2019 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 02:49:15 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 172.069
+  exclusion.robots: 0.082
+  exclusion.robots.policy: 0.072
+  RedisCDXSource: 1.187
+  esindex: 0.012
+  LoadShardBlock: 148.704 (3)
+  PetaboxLoader3.datanode: 171.823 (5)
+  load_resource: 206.873 (2)
+  PetaboxLoader3.resolve: 146.635 (2)
+*/

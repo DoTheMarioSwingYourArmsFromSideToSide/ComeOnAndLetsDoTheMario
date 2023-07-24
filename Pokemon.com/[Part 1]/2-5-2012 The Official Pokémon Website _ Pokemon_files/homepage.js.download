@@ -1,0 +1,181 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+var polls = (function() {
+
+    var pollsBox = $("#pollsBox");
+    var pollsBoxText = $("#pollsBoxText");
+    var pollOption = $("li", pollsBoxText);
+    var signInLink = localized_urls['account/login'] + '?_rd=/';
+
+    var queuedClick = null;
+
+    function showPollResults(data) {
+        if (data && data.results) {
+            var numOptions = $("li", pollsBoxText).length;
+            for (i = 0; i < data.results.length; i++) {
+                var index            = i + 1;
+                var result           = data.results[i];
+                $("li.pollOption" + index).append('<span class="pollResult'+index+' pollResult"><span class="pollBarContainer"><span class="pollbar'+index+' pollBar" style="width: ' + result[2] + '%"></span></span><span class="pollText'+index+' pollText">'+result[1]+'%</span></span>');
+                if (data.vote === index) {
+                    $("li.pollOption" + index).addClass('selected');
+                }
+            }
+            $(".pollResult, .pollOptionText", pollsBoxText).animate({ "opacity" : "1" }, 600 );
+        }
+    }
+
+    function pageNotReadyClick(e) {
+        e.preventDefault();
+        if (!queuedClick) {
+            pollsBoxText.addClass('loading');
+            queuedClick = this;
+        }
+    }
+
+    function userLoggedInClick(e) {
+        e.preventDefault();
+
+        var clicked			= $(this);
+        var clickedSiblings = $("li a:not(this)", pollsBoxText);
+
+        if (clicked.hasClass("selected") == false) { clicked.addClass("selected"); }
+        if (pollsBoxText.hasClass("voted") == false) { pollsBoxText.addClass("pollsBoxTextVoted"); }
+
+        // begin sliding animation
+        clicked.animate({ backgroundPosition: '-224px -240px' }, 600);
+        clicked.queue(function() {
+            $(this)
+                .css("background","none")
+                .parent().addClass("selected");
+            clickedSiblings.fadeOut(200); // fade out siblings
+            $(this).dequeue();
+        });
+
+        clicked.fadeOut(600, "linear"); // fade out clicked item, with distinction
+
+        clicked.queue(function() {
+            $("a", pollsBoxText).each(function() {
+				var pollOptionStr = $(this).text();
+				var $newContent = $("<span class=\"pollOptionText\">" + pollOptionStr + "</span>");
+				$newContent.attr('title', pollOptionStr);
+                $(this).replaceWith($newContent);
+            });
+            $.ajax({
+                type: 'post',
+                url: clicked.attr('href'),
+                data: { response_id: clicked.attr('data-option') },
+                dataType: 'json',
+                context: $("#pollsBoxText"),
+                success: showPollResults,
+                error: function() {
+                    pollsBoxText.append("<p>" + gettext("Sorry, an error occurred.") + "</p>");
+                }
+            });
+            $(this).dequeue();
+        });
+    }
+
+    function userNotLoggedInClick(e) {
+        e.preventDefault();
+
+        if ($(this).hasClass("selected") == false) { $(this).addClass("selected"); }
+        if (pollsBoxText.hasClass("voted") == false) { pollsBoxText.addClass("pollsBoxTextNotLoggedIn"); }
+
+        $(this).replaceWith("<span class=\"pollDisabledNotify\">" + gettext("You need to <a href=\"%s\">sign in</a> to vote!").replace("%s", signInLink ) + "</span>");
+
+        $("#pollsBoxText li a:not(.pollDisabledNotify a)").each(function(){
+            $(this).replaceWith("<span class=\"pollDisabled\">" + $(this).text() + "</span>");
+        });
+    }
+
+    function userNotLoggedIn() {
+        pollsBoxText.removeClass('loading');
+        $("a", pollsBoxText).unbind('click', pageNotReadyClick);
+        $("a", pollsBoxText).bind('click', userNotLoggedInClick);
+        if (queuedClick) {
+            queuedClick.click();
+        }
+    }
+
+    function userLoggedIn() {
+        $.ajax({
+            type: 'get',
+            url: pollsBox.attr('data-url'),
+            cache: false,
+            dataType: 'json',
+            context: $("#pollsBoxText"),
+            success: function(data) {
+                pollsBoxText.removeClass('loading');
+                if (data && data.results) {
+                    pollsBoxText.addClass("pollsBoxTextVoted");
+                    $("a", pollsBoxText).each(function() {
+						var pollOptionStr = $(this).text();
+						var $newContent = $("<span class=\"pollOptionText\">" + pollOptionStr + "</span>");
+						$newContent.attr('title', pollOptionStr);
+						$(this).replaceWith($newContent);
+                    });
+                    showPollResults(data)
+                } else {
+                    $("a", pollsBoxText).unbind('click', pageNotReadyClick);
+                    $("a", pollsBoxText).bind('click', userLoggedInClick);
+                    if (queuedClick) {
+                        queuedClick.click();
+                    }
+                }
+            },
+            error: function() {
+                pollsBoxText.removeClass('loading');
+                pollsBoxText.append("<p>" + gettext("Sorry, an error occurred.") + "</p>");
+            }
+        });
+    }
+
+    function authenticationComplete(data) {
+        if (data.is_authenticated) {
+            userLoggedIn();
+        }
+    }
+
+    function initialize() {
+        $("a", pollsBoxText).bind('click', pageNotReadyClick);
+    }
+
+    return {
+        userNotLoggedIn: userNotLoggedIn,
+        userLoggedIn: userLoggedIn,
+        initialize: initialize
+    }
+})();
+
+
+}
+/*
+     FILE ARCHIVED ON 15:35:03 Feb 05, 2012 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 02:09:50 Apr 29, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 241.06
+  exclusion.robots: 0.083
+  exclusion.robots.policy: 0.073
+  RedisCDXSource: 161.678
+  esindex: 0.007
+  LoadShardBlock: 56.254 (3)
+  PetaboxLoader3.datanode: 66.533 (4)
+  load_resource: 322.205
+  PetaboxLoader3.resolve: 297.04
+*/

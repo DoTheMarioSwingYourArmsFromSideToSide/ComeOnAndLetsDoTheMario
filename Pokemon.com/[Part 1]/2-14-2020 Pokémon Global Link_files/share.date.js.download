@@ -1,0 +1,162 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+/**
+ * Date format class.
+ *
+ * init arguments. (Constructor)
+ * - date	:日時 (string or object)
+ *
+ * format arguments.
+ * - format	:フォーマット文字列 (PHPフォーマット文字に一部準拠 >> http://php.net/manual/ja/function.date.php)
+ *
+ * format characters.
+ * - Y: 年。4桁の数字。
+ * - y: 年。2桁の数字。
+ * - m: 月。数字。先頭にゼロをつける。
+ * - n: 月。数字。先頭にゼロをつけない。
+ * - d: 日。二桁の数字（先頭にゼロがつく場合も）
+ * - j: 日。先頭にゼロをつけない。
+ * - g: 時。12時間単位。先頭にゼロを付けない。
+ * - G: 時。24時間単位。先頭にゼロを付けない。
+ * - h: 時。数字。12 時間単位。
+ * - H: 時。数字。24 時間単位。
+ * - i: 分。先頭にゼロをつける。
+ * - s: 秒。先頭にゼロをつける。
+ * - A: 午前または午後（大文字）
+ * - w: 曜日。数値。
+ * - D: 曜日。日本語表記。（独自仕様）
+ */
+
+PGL.UTIL.date = function() {
+	  this.init.apply(this, arguments);
+};
+
+/**
+ * 日時をフォーマットして返す
+ * @param  {Date}    date            対象のDateオブジェクト
+ * @param  {String}  format          フォーマット文字列
+ * @param  {Boolean} suppressOldDate 1970/01/01以前の日時を伏せ字にするか。デフォルトはtrue
+ * @return {String}                  フォーマットされた日時文字列
+ */
+PGL.UTIL.date.format = function(date, format, suppressOldDate) {
+	  if(date==null||date==undefined||date=="") return "-";
+	  if (typeof suppressOldDate === 'undefined') suppressOldDate = true;
+	  var t = new PGL.UTIL.date(date);
+	  // issue:0001305,0000937
+	  if (suppressOldDate && t.date.getTime() < 24*60*60*1000) return '-';
+	  return t.format(format);
+};
+
+PGL.UTIL.date.prototype = {
+	  date: null,
+	  init: function(date) {
+		    var type = typeof date;
+		    if ('string' === type) {
+			      // issue:0004209, 0004287
+			      var m = date.split(/\D/);
+			      this.date = new Date(parseInt(m[0], 10), parseInt(m[1], 10) - 1, parseInt(m[2], 10), (parseInt(m[3], 10) || 0), (parseInt(m[4], 10) || 0), (parseInt(m[5], 10) || 0));
+		    }
+		    else if ('object' === type) {
+			      this.date = date;
+		    }
+		    else {
+			      throw new TypeError('arguments is undefined');
+		    }
+	  },
+	  format: function(format) {
+		    var self = this;
+		    return format.replace(/[YymndjgGhHisAwD]/g, function (m) {
+			      return self['_' + m]();
+		    });
+	  },
+	  _paddingByZero: function(value, digit) {
+		    return ((function(v, d) {
+			      var r = '';
+			      while (d) {
+				        if (d & 1) r += v;
+				        v += v;
+				        d = d >> 1;
+			      }
+			      return r;
+		    })('0', digit) + value).slice(-digit);
+	  },
+	  _Y: function() {
+		    return this._paddingByZero(this.date.getFullYear(), 4);
+	  },
+	  _y: function() {
+		    return this._paddingByZero(this.date.getYear(), 2);
+	  },
+	  _m: function() {
+		    return this._paddingByZero(this.date.getMonth() + 1, 2);
+	  },
+	  _n: function() {
+		    return this.date.getMonth() + 1;
+	  },
+	  _d: function() {
+		    return this._paddingByZero(this.date.getDate(), 2);
+	  },
+	  _j: function() {
+		    return this.date.getDate();
+	  },
+	  _g: function() {
+		    return this.date.getHours() % 12;
+	  },
+	  _G: function() {
+		    return this.date.getHours();
+	  },
+	  _h: function() {
+		    return this._paddingByZero(this.date.getHours() % 12 || 12, 2); // 1～12
+	  },
+	  _H: function() {
+		    return this._paddingByZero(this.date.getHours(), 2);
+	  },
+	  _i: function() {
+		    return this._paddingByZero(this.date.getMinutes(), 2);
+	  },
+	  _s: function() {
+		    return this._paddingByZero(this.date.getSeconds(), 2);
+	  },
+	  _A: function() {
+		    return this.date.getHours() < 12 ? 'AM' : 'PM';
+	  },
+	  _w: function() {
+		    return this.date.getDay();
+	  },
+	  _D: function() {
+		    var days = PGL.INFO.TEXT.dayOfWeek[PGL.INFO.LOCATE];
+		    return days[this.date.getDay()];
+	  }
+};
+
+
+}
+/*
+     FILE ARCHIVED ON 13:05:17 Feb 16, 2020 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 02:53:47 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 92.872
+  exclusion.robots: 0.088
+  exclusion.robots.policy: 0.08
+  cdx.remote: 0.054
+  esindex: 0.007
+  LoadShardBlock: 63.392 (3)
+  PetaboxLoader3.datanode: 98.695 (5)
+  load_resource: 177.28 (2)
+  PetaboxLoader3.resolve: 132.662 (2)
+*/
