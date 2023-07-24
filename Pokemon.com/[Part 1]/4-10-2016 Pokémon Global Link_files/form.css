@@ -1,0 +1,37 @@
+@charset "UTF-8";
+/* CSS Document */
+
+select{
+  padding:5px;
+  border-radius:3px;
+  border:1px solid #C8C9CE;
+  font-weight: normal;
+  background: -moz-linear-gradient(top, rgba(249,249,249,1) 0%, rgba(240,240,240,1) 100%);
+  background: -webkit-linear-gradient(top, rgba(249,249,249,1) 0%, rgba(240,240,240,1) 100%); 
+  background: -ms-linear-gradient(top, rgba(249,249,249,1) 0%,rgba(240,240,240,1) 100%);
+}
+
+select.season{ min-width:450px; padding-bottom:7px; border-radius:1px; padding-top:7px;}
+select>option{ line-height:120%; padding:0px 0;}
+select,  x:-moz-any-link  { padding: 2px;}
+
+/*
+     FILE ARCHIVED ON 17:06:56 Mar 31, 2016 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 02:53:15 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 132.985
+  exclusion.robots: 0.078
+  exclusion.robots.policy: 0.07
+  RedisCDXSource: 0.629
+  esindex: 0.008
+  LoadShardBlock: 114.404 (3)
+  PetaboxLoader3.resolve: 88.704 (2)
+  PetaboxLoader3.datanode: 76.748 (4)
+  load_resource: 60.464
+*/

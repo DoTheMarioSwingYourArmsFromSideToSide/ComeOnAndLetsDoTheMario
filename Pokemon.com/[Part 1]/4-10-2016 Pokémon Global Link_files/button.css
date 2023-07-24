@@ -1,0 +1,194 @@
+@charset "UTF-8";
+
+a.btnCrMini,
+a.btnCrSmall, 
+a.btnCrLarge,
+a.btnGrMini,
+a.btnGrSmall,
+a.btnGrLarge {
+	display: inline-block;
+	text-align: center;
+	border-radius: 5px;
+	margin-right: 5px;
+	font-size: 14px;
+	box-shadow: 0px 2px 3px rgba(0,0,0,0.2);
+	cursor: pointer;
+}
+a.btnCrMini,
+a.btnGrMini {
+	font-size: 10px;
+}
+
+a.btnCrMini, 
+a.btnCrSmall, 
+a.btnCrLarge {
+	color: #FFF;
+	background: #D35336;
+	box-shadow: 0px 2px 3px rgba(0,0,0,0.2), 2px 2px 0 #E08773 inset;
+}
+a.btnCrMini:hover, 
+a.btnCrSmall:hover, 
+a.btnCrLarge:hover {
+	color: #FFF;
+	background: #F28E38;
+	box-shadow: 0px 2px 3px rgba(0,0,0,0.2), 2px 2px 0 #FBC49B inset;
+}
+
+a.btnGrMini,
+a.btnGrSmall,
+a.btnGrLarge {
+	color: #D35336;
+	background: #F9F9F9; /* Old browsers */
+	background: -moz-linear-gradient(top, #F9F9F9 0%, #F0F0F0 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#F9F9F9), color-stop(100%,#F0F0F0)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #F9F9F9 0%,#F0F0F0 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #F9F9F9 0%,#F0F0F0 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #F9F9F9 0%,#F0F0F0 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #F9F9F9 0%,#F0F0F0 100%); /* W3C */
+	border: #C8C9CE 1px solid;
+	box-shadow: 0px 2px 3px rgba(0,0,0,0.07), 0 0 0 1px #FFF inset;
+}
+a.btnGrMini:hover,
+a.btnGrSmall:hover,
+a.btnGrLarge:hover {
+	color: #F28E38; 
+	background: #FFF;
+}
+
+
+/* バナーサイズ極小 */
+a.btnCrMini {
+	min-width: 80px;
+	padding: 1px 9px;
+}
+
+/* バナーサイズ小 */
+a.btnCrSmall {
+	min-width: 110px;
+	padding: 5px 10px;
+}
+
+/* バナーサイズ大 */
+a.btnCrLarge {
+	min-width: 180px;
+	padding: 8px 10px;
+}
+
+/* グレーバナーサイズ極小 */
+a.btnGrMini {
+	min-width: 80px;
+	padding: 0px 9px;
+}
+
+/* グレーバナーサイズ小 */
+a.btnGrSmall {
+	min-width: 80px;
+	padding: 3px 10px 1px;
+}
+
+/* グレーバナーサイズ大 */
+a.btnGrLarge {
+	min-width: 120px;
+	padding: 7px 10px;
+}
+
+/* グレーバナーサイズ大_矢印 */
+span[class*="arrow"]{
+	background:url(/web/20160331170646im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/parts/bg_arrow_01.gif) no-repeat right 3px; cursor:default;
+	padding:0 10px 0 0;
+}
+
+
+
+/* 非アクティブ */
+a.btnCrMini.disabled,
+a.btnCrSmall.disabled,
+a.btnCrLarge.disabled,
+a.btnCrMini.disabled:hover,
+a.btnCrSmall.disabled:hover,
+a.btnCrLarge.disabled:hover {
+	background: #DFDFDF;
+	box-shadow: none;
+	cursor: default;
+	box-shadow: 0 0 0 1px #CBCCD1 inset;
+}
+
+a.btnGrMini.disabled,
+a.btnGrSmall.disabled,
+a.btnGrLarge.disabled,
+a.btnGrMini.disabled:hover,
+a.btnGrSmall.disabled:hover,
+a.btnGrLarge.disabled:hover {
+	color: #FFF;
+	border-style: none;
+	background: #DFDFDF;
+	box-shadow: none;
+	cursor: default;
+	box-shadow: 0 0 0 1px #CBCCD1 inset;
+}
+a.btnGrMini.disabled,
+a.btnGrMini.disabled:hover {
+	padding: 1px 11px;
+}
+a.btnGrSmall.disabled,
+a.btnGrSmall.disabled:hover {
+	padding: 4px 11px 2px;
+}
+a.btnGrLarge.disabled,
+a.btnGrLarge.disabled:hover {
+	padding: 8px 11px;
+}
+
+
+.btnArrowLeft,
+.btnArrowRight{ width:16px; height:18px; cursor:pointer;}
+
+
+
+.btnArrowLeftL,
+.btnArrowRightL{ width:25px; height:30px; cursor:pointer;}
+
+
+.snsButtons li {
+	display: inline;
+	margin-right: 7px;
+}
+.snsButtons li:last-child {
+	margin-right: 0;
+}
+.snsButtons li a {
+	display: inline-block;
+	width: 25px;
+	height: 24px;
+	cursor: pointer;
+	background-repeat: no-repeat;
+}
+.snsButtons li.sns-0 a {
+	background-image: url(/web/20160331170646im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/icon/icon_fb.png);
+}
+.snsButtons li.sns-1 a {
+	background-image: url(/web/20160331170646im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/icon/icon_tw.png);
+}
+
+
+
+/*
+     FILE ARCHIVED ON 17:06:46 Mar 31, 2016 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 02:53:15 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 117.132
+  exclusion.robots: 0.066
+  exclusion.robots.policy: 0.057
+  cdx.remote: 0.053
+  esindex: 0.007
+  LoadShardBlock: 82.567 (3)
+  PetaboxLoader3.datanode: 95.44 (4)
+  load_resource: 72.602
+  PetaboxLoader3.resolve: 53.526
+*/

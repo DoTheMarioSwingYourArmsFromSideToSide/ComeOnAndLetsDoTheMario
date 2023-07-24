@@ -1,0 +1,959 @@
+@charset "UTF-8";
+
+.panelFriendlist{
+	width:659px;
+	height:66px;
+	padding:9px 0 0 0;
+	background:url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/parts/bg_panel_friendlist.png) no-repeat left top;
+}
+
+.panelFriendlist div{ display:inline-block;}
+.panelFriendlist .trainerIcon{
+	width:40px;
+	height:40px;
+	margin:0 30px 0px 28px;
+	display:inline-block;
+	vertical-align:middle;
+	text-align:center;
+}
+.panelFriendlist dl{ width:205px; display:inline-block; vertical-align:middle; height:50px; padding:4px 0;}
+.panelFriendlist dl dt span{ display:block; min-height: 1.3em; line-height:100%; font-size:10px;}
+.panelFriendlist dl dt{ font-size:14px; margin-bottom:3px; line-height:1em;}
+.panelFriendlist dl dd{ color:#333333;}
+.panelFriendlist .countryCode{
+	width:90px;
+	text-align:center;
+	display:inline-block;
+	vertical-align:middle;
+	margin-right:20px;
+	color:#333333;
+}
+.panelFriendlist>p{ display:inline-block; vertical-align:middle; width:225px; color:#333333;}
+
+
+/* �z�o�[ */
+a>.panelFriendlist:hover{
+	background:url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/parts/bg_panel_friendlist_hover.png) no-repeat left top;
+	text-decoration:none !important;
+}
+
+/* ��A�N�e�B�u a*/
+.panelFriendlist[class*="disabled"] {
+	background:url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/parts/bg_panel_friendlist_disabled.png) no-repeat left top;
+}
+.panelFriendlist[class*="disabled"] dl dt{margin-top:5px;}
+
+.panelKaiseki {
+	width:648px;
+	height:66px;
+	margin: 5px 0 10px;
+	background:url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/parts/bg_panel_friendlist_kaiseki.png) no-repeat left top;
+	text-align: center;
+}
+
+.panelKaiseki p {
+	display: inline-block;
+	margin-top: 20px;
+	padding: 4px 7px;
+	border-radius: 5px;
+	color: #FFFFFF;
+	vertical-align: middle;
+	line-height: 1.1;
+	}
+	
+.panelTrainer {
+	padding: 8px;
+	background: #EBEBEB;
+	border-radius: 9px;
+	border: 1px solid #D9D9D9;
+}
+
+.panelTrainer .noUserData{
+	padding-right: 0px !important;
+	width: 150px !important;
+	border: none;
+	font-size: 10px;
+	background: #637A96;
+	color: #fff;
+	padding: 0 5px !important;
+	border-radius: 3px;
+}
+	
+a>.panelTrainer {
+	padding: 8px;
+	background: #F5F5F5;
+	border-radius: 3px;
+	border: 2px solid #FFFFFF;
+	box-shadow: 1px 1px 1px rgba(153,153,153,0.4), -1px 0px 1px rgba(153,153,153,0.4), 0 2px 1px rgba(0,0,0,0.2);
+	-moz-box-shadow: 1px 1px 1px rgba(153,153,153,0.4), -1px 0px 1px rgba(153,153,153,0.4), 0 2px 1px rgba(0,0,0,0.2);
+	-webkit-box-shadow: 1px 1px 1px rgba(153,153,153,0.4), -1px 0px 1px rgba(153,153,153,0.4), 0 2px 1px rgba(0,0,0,0.2);
+}
+
+a>.panelTrainer:hover {
+	background: #fff;
+}
+
+.panelTrainer li {
+	float: left;		
+}
+
+.panelTrainer li:nth-child(1) {
+	vertical-align: middle;
+	width:40px;
+	height:40px;
+	border-radius:2px;
+	margin-right:10px;
+}
+
+.panelTrainer li:nth-child(2) {
+	border-right: #D0D0D0 1px solid;		
+}
+
+.panelTrainer dl dt span{ display:block; min-height: 1.0em; line-height:100%; font-size:10px;}
+.panelTrainer dl dt{ font-size:11px; text-align: left;}
+.panelTrainer dl dd{ color:#333333; text-align: left;}
+.panelTrainer li.countryCode {
+	padding-top: 10px;
+}
+.panelTrainer li:nth-child(3) {
+	border-left: #FFFFFF 1px solid;		
+}
+
+
+/* トレーナーランキング */
+
+
+
+.panelTrainerRanking{ 
+	width:400px;
+	height:65px;
+	letter-spacing: -.40em;
+	position:relative;
+	margin-bottom:15px;
+}
+
+
+.battleTypeAll .panelTrainerRanking{ background:url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/parts/bg_panel_trainerRanking_all.png) no-repeat left top;}
+.battleTypeSingle .panelTrainerRanking{ background:url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/parts/bg_panel_trainerRanking_single.png) no-repeat left top;}
+.battleTypeDouble .panelTrainerRanking{ background:url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/parts/bg_panel_trainerRanking_double.png) no-repeat left top;}
+.battleTypeTriple .panelTrainerRanking{ background:url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/parts/bg_panel_trainerRanking_triple.png) no-repeat left top;}
+.battleTypeRotation .panelTrainerRanking{ background:url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/parts/bg_panel_trainerRanking_rotation.png) no-repeat left top;}
+.battleTypeSpecial .panelTrainerRanking{ background:url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/parts/bg_panel_trainerRanking_special.png) no-repeat left top;}
+.battleTypeMatchup .panelTrainerRanking{ background:url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/parts/bg_panel_trainerRanking_matchup.png) no-repeat left top;}
+
+
+.battleTypeAll a>.panelTrainerRanking:hover{ text-decoration:none !important; background:url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/parts/bg_panel_trainerRanking_all_hover.png) no-repeat left top;}
+.battleTypeSingle a>.panelTrainerRanking:hover{ text-decoration:none !important; background:url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/parts/bg_panel_trainerRanking_single_hover.png) no-repeat left top;}
+.battleTypeDouble a>.panelTrainerRanking:hover{ text-decoration:none !important; background:url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/parts/bg_panel_trainerRanking_double_hover.png) no-repeat left top;}
+.battleTypeTriple a>.panelTrainerRanking:hover{ text-decoration:none !important; background:url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/parts/bg_panel_trainerRanking_triple_hover.png) no-repeat left top;}
+.battleTypeRotation a>.panelTrainerRanking:hover{ text-decoration:none !important; background:url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/parts/bg_panel_trainerRanking_rotation_hover.png) no-repeat left top;}
+.battleTypeSpecial a>.panelTrainerRanking:hover{ text-decoration:none !important; background:url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/parts/bg_panel_trainerRanking_special_hover.png) no-repeat left top;}
+.battleTypeMatchup a>.panelTrainerRanking:hover{ text-decoration:none !important;  background:url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/parts/bg_panel_trainerRanking_matchup_hover.png) no-repeat left top;}
+
+
+.panelTrainerRanking>dl{ 
+	display:inline-block; 
+	width:100px;
+	margin:10px 10px 0 0; 
+	vertical-align:top;
+	letter-spacing: normal;
+	text-align:center;
+	color:#333333;
+}
+
+.panelTrainerRanking>[class*="rank"]{
+	display:block;
+	width:34px;
+	height:34px;
+	position:absolute;
+	left:-10px;
+	top:-10px;
+}
+.panelTrainerRanking>.rankGold{	background:url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/icon/icon_ranking_gold.png) no-repeat left top;}
+.panelTrainerRanking>.rankSilver{	background:url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/icon/icon_ranking_silver.png) no-repeat left top;}
+.panelTrainerRanking>.rankBronze{	background:url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/icon/icon_ranking_bronze.png) no-repeat left top;}
+
+.panelTrainerRanking>dl>dt{ font-size:18px; font-weight:bold;}
+.panelTrainerRanking>dl>dd{ font-weight:bold; color:#444;}
+.panelTrainerRanking .trainerIcon{
+	width:45px;
+	height:36px;
+	display:inline-block;
+	letter-spacing: normal;
+	vertical-align:top;
+	text-align:center;
+	margin-top:5px;
+}
+.panelTrainerRanking div{
+	width:290px;
+	display:inline-block; 
+	letter-spacing: -.40em;
+	vertical-align:top;
+	margin-top:5px;
+}
+.panelTrainerRanking div dl{ 
+	width:140px;
+	margin-right:15px;
+	display:inline-block; 
+	vertical-align:top;
+	padding:5px 0 0;
+	letter-spacing: normal;
+}
+.panelTrainerRanking div dl dt span{ display:block; min-height: 1.3em; line-height:100%; font-size:10px;}
+.panelTrainerRanking div dl dt{ margin-bottom:0px; line-height:1em;}
+.panelTrainerRanking div dl dd{ color:#333333; font-size:10px;}
+.panelTrainerRanking .countryCode{
+	text-align:center;
+	display:inline-block;
+	vertical-align:top;
+	color:#333333;
+	text-align:left;
+	width:37px;
+	margin:14px 5px 0 0;
+	letter-spacing: normal;
+	padding-top:3px;
+	background-position:0px 4px !important;
+}
+
+.panelTrainerRanking .rate{ display:inline-block; vertical-align:top; letter-spacing: normal; width:30px; text-align:center;margin-top: 12px;}
+
+
+/* ポケモンランキング */
+
+.panelPokemonRanking{ position:relative; display:inline-block; margin-bottom:10px; cursor:pointer; vertical-align:bottom;}
+
+.panelPokemonRanking:nth-child(3),
+.panelPokemonRanking:nth-child(7),
+.panelPokemonRanking:nth-child(12) { margin-right:0 !important}
+.panelPokemonRanking>[class*="rank"]{
+	display:block;
+	width:34px;
+	height:34px;
+	position:absolute;
+	left:-10px;
+	top:-10px;
+	z-index:2;
+}
+.panelPokemonRanking>.rankGold{	background:url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/icon/icon_ranking_gold.png) no-repeat left top;}
+.panelPokemonRanking>.rankSilver{	background:url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/icon/icon_ranking_silver.png) no-repeat left top;}
+.panelPokemonRanking>.rankBronze{	background:url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/icon/icon_ranking_bronze.png) no-repeat left top;}
+
+
+[class*="panelPokemonRanking"] .number{ position:absolute; top:0; left:0;}
+[class*="panelPokemonRanking"]:nth-child(1n+10) .number{ letter-spacing:-3px; left:3px !important; text-indent:-6px;}
+[class*="panelPokemonRanking"] dl{ position:absolute;}
+[class*="panelPokemonRanking"] dl dt{ font-weight:bold;}
+[class*="panelPokemonRanking"] .images{ position:absolute;}
+[class*="panelPokemonRanking"] .number span{ font-weight:bold; color:#454545;}
+
+/* size L */
+[class*="panelPokemonRanking"][class*="sizeL"]{
+	background:url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/parts/bg_panel_pokemonRanking_l.png) no-repeat left top;
+	width:345px;
+	height:417px;
+	margin-right:15px;
+}
+
+[class*="panelPokemonRanking"][class*="sizeL"] .number{ 
+	font-size:32px !important;
+	width:80px;
+	height:63px;
+}
+[class*="panelPokemonRanking"][class*="sizeL"] .number span{ position:absolute; top:22px; left:22px;}
+[class*="panelPokemonRanking"][class*="sizeL"] dl{ left:95px; top:15px;}
+[class*="panelPokemonRanking"][class*="sizeL"] dl dt{ font-size:16px; font-weight:bold; margin-bottom:15px;}
+[class*="panelPokemonRanking"][class*="sizeL"] .images{ top:108px; left:50%; margin-left: -126px; }
+
+
+/* sizeM */
+[class*="panelPokemonRanking"][class*="sizeM"]{
+	background:url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/parts/bg_panel_pokemonRanking_m.png) no-repeat left top;
+	width:229px;
+	height:365px;
+	margin-right:15px;
+}
+[class*="panelPokemonRanking"][class*="sizeM"] .number{ 
+	font-size:30px !important; 
+	width:80px;
+	height:63px;
+}
+[class*="panelPokemonRanking"][class*="sizeM"] .number span{ position:absolute; top:23px; left:24px;}
+[class*="panelPokemonRanking"][class*="sizeM"] dl{ left:90px; top:15px;}
+[class*="panelPokemonRanking"][class*="sizeM"] dl dt{ font-size:16px; font-weight:bold; margin-bottom:10px;}
+[class*="panelPokemonRanking"][class*="sizeM"] .images{ top:115px; left:50%; margin-left: -87px; }
+
+
+/* size S */
+[class*="panelPokemonRanking"][class*="sizeS"]{
+	background:url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/parts/bg_panel_pokemonRanking_s.png) no-repeat left top;
+	width:197px;
+	height:243px;
+	margin-right:14px;
+}
+
+[class*="panelPokemonRanking"][class*="sizeS"]:last-child {margin-right:0;}
+[class*="panelPokemonRanking"][class*="sizeS"] .number{ 
+	font-size:30px !important; 
+	width:69px;
+	height:53px;
+}
+
+[class*="panelPokemonRanking"][class*="sizeS"] .number span{ position:absolute; top:17px; left:17px;}
+[class*="panelPokemonRanking"][class*="sizeS"] dl{ left:75px; top:10px;}
+[class*="panelPokemonRanking"][class*="sizeS"] dl dt{ font-size:16px; font-weight:bold; margin-bottom:10px;}
+[class*="panelPokemonRanking"][class*="sizeS"] .images{ top:80px; left:50%; margin-left: -67px; }
+
+
+/* size SS */
+[class*="panelPokemonRanking"][class*="sizeSS"]{
+	background:url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/parts/bg_panel_pokemonRanking_ss.png) no-repeat left top;
+	width:159px;
+	height:203px;
+	margin-right:8px;
+}
+
+[class*="panelPokemonRanking"][class*="sizeSS"]:last-child {margin-right:0;}
+[class*="panelPokemonRanking"][class*="sizeSS"] .number{ 
+	font-size:18px !important; 
+	width:40px;
+	height:32px;
+}
+[class*="panelPokemonRanking"][class*="sizeSS"] .number span{ 
+	position:absolute;
+	top:6px;
+	left:1px;
+	width:28px;
+	display:inline-block;
+	text-align:center;
+}
+[class*="panelPokemonRanking"][class*="sizeSS"] dl{ left:45px; top:10px;}
+[class*="panelPokemonRanking"][class*="sizeSS"] dl dt{ font-size:13px; font-weight:bold; margin-bottom:10px;}
+[class*="panelPokemonRanking"][class*="sizeSS"] .images{ top:70px; left:50%; margin-left: -57px; }
+
+
+/* hover */
+
+[class*="panelPokemonRanking"][class*="sizeL"]:hover{
+	background:url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/parts/bg_panel_pokemonRanking_l_hover.png) no-repeat left top;
+}
+
+[class*="panelPokemonRanking"][class*="sizeM"]:hover{
+	background:url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/parts/bg_panel_pokemonRanking_m_hover.png) no-repeat left top;
+}
+
+[class*="panelPokemonRanking"][class*="sizeS"]:hover{
+	background:url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/parts/bg_panel_pokemonRanking_s_hover.png) no-repeat left top;
+}
+
+[class*="panelPokemonRanking"][class*="sizeSS"]:hover{
+	background:url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/parts/bg_panel_pokemonRanking_ss_hover.png) no-repeat left top;
+}
+
+/* disabled*/
+
+.disabled[class*="panelPokemonRanking"][class*="sizeL"]:hover{
+	background:url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/parts/bg_panel_pokemonRanking_l.png) no-repeat left top;
+	cursor:default;
+}
+
+.disabled[class*="panelPokemonRanking"][class*="sizeM"]:hover{
+	background:url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/parts/bg_panel_pokemonRanking_m.png) no-repeat left top;
+	cursor:default;
+}
+
+.disabled[class*="panelPokemonRanking"][class*="sizeS"]:hover{
+	background:url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/parts/bg_panel_pokemonRanking_s.png) no-repeat left top;
+	cursor:default;
+}
+
+.disabled[class*="panelPokemonRanking"][class*="sizeSS"]:hover{
+	background:url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/parts/bg_panel_pokemonRanking_ss.png) no-repeat left top;
+	cursor:default;
+}
+
+
+
+/* battleType */
+.battleTypeAll [class*="panelPokemonRanking"][class*="sizeL"] .number{ background:url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/parts/bg_runkNum_l_all.png) no-repeat left top;}
+.battleTypeAll [class*="panelPokemonRanking"][class*="sizeM"] .number{ background:url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/parts/bg_runkNum_l_all.png) no-repeat left top;}
+.battleTypeAll [class*="panelPokemonRanking"][class*="sizeS"] .number{ background:url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/parts/bg_runkNum_s_all.png) no-repeat left top;}
+.battleTypeAll [class*="panelPokemonRanking"][class*="sizeSS"] .number{ background:url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/parts/bg_runkNum_ss_all.png) no-repeat left top;}
+
+
+.battleTypeSingle [class*="panelPokemonRanking"][class*="sizeL"] .number{ background:url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/parts/bg_runkNum_l_single.png) no-repeat left top;}
+.battleTypeSingle [class*="panelPokemonRanking"][class*="sizeM"] .number{ background:url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/parts/bg_runkNum_l_single.png) no-repeat left top;}
+.battleTypeSingle [class*="panelPokemonRanking"][class*="sizeS"] .number{ background:url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/parts/bg_runkNum_s_single.png) no-repeat left top;}
+.battleTypeSingle [class*="panelPokemonRanking"][class*="sizeSS"] .number{ background:url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/parts/bg_runkNum_ss_single.png) no-repeat left top;}
+
+
+.battleTypeDouble [class*="panelPokemonRanking"][class*="sizeL"] .number{ background:url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/parts/bg_runkNum_l_double.png) no-repeat left top;}
+.battleTypeDouble [class*="panelPokemonRanking"][class*="sizeM"] .number{ background:url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/parts/bg_runkNum_l_double.png) no-repeat left top;}
+.battleTypeDouble [class*="panelPokemonRanking"][class*="sizeS"] .number{ background:url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/parts/bg_runkNum_s_double.png) no-repeat left top;}
+.battleTypeDouble [class*="panelPokemonRanking"][class*="sizeSS"] .number{ background:url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/parts/bg_runkNum_ss_double.png) no-repeat left top;}
+
+
+.battleTypeTriple [class*="panelPokemonRanking"][class*="sizeL"] .number{ background:url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/parts/bg_runkNum_l_triple.png) no-repeat left top;}
+.battleTypeTriple [class*="panelPokemonRanking"][class*="sizeM"] .number{ background:url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/parts/bg_runkNum_l_triple.png) no-repeat left top;}
+.battleTypeTriple [class*="panelPokemonRanking"][class*="sizeS"] .number{ background:url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/parts/bg_runkNum_s_triple.png) no-repeat left top;}
+.battleTypeTriple [class*="panelPokemonRanking"][class*="sizeSS"] .number{ background:url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/parts/bg_runkNum_ss_triple.png) no-repeat left top;}
+
+
+.battleTypeRotation [class*="panelPokemonRanking"][class*="sizeL"] .number{ background:url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/parts/bg_runkNum_l_rotation.png) no-repeat left top;}
+.battleTypeRotation [class*="panelPokemonRanking"][class*="sizeM"] .number{ background:url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/parts/bg_runkNum_l_rotation.png) no-repeat left top;}
+.battleTypeRotation [class*="panelPokemonRanking"][class*="sizeS"] .number{ background:url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/parts/bg_runkNum_s_rotation.png) no-repeat left top;}
+.battleTypeRotation [class*="panelPokemonRanking"][class*="sizeSS"] .number{ background:url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/parts/bg_runkNum_ss_rotation.png) no-repeat left top;}
+
+
+.battleTypeSpecial [class*="panelPokemonRanking"][class*="sizeL"] .number{ background:url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/parts/bg_runkNum_l_special.png) no-repeat left top;}
+.battleTypeSpecial [class*="panelPokemonRanking"][class*="sizeM"] .number{ background:url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/parts/bg_runkNum_l_special.png) no-repeat left top;}
+.battleTypeSpecial [class*="panelPokemonRanking"][class*="sizeS"] .number{ background:url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/parts/bg_runkNum_s_special.png) no-repeat left top;}
+.battleTypeSpecial [class*="panelPokemonRanking"][class*="sizeSS"] .number{ background:url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/parts/bg_runkNum_ss_special.png) no-repeat left top;}
+
+
+/* ------------------選択ボタン仮 ------------------*/
+
+.panelAccountlist input[type=checkbox],
+.panelAccountlist input[type=radio] {
+	visibility: hidden;
+}
+
+.roundedOne {
+	background: #FFF;
+	width: 16px;
+	height: 16px;
+	border-radius: 12px;
+	border: 4px solid #FFF;
+	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.8), 0 1px 3px rgba(0, 0, 0, 0.5) inset;
+	
+	margin: 20px auto 0;
+}
+
+/* issue:0000223 */
+.panelAccountlist:hover .roundedOne {
+	background: #CCC;
+}
+.selected .roundedOne,
+.selected:hover .roundedOne {
+	background: #666;
+}
+.panelAccountlist {
+	cursor: pointer;
+}
+.panelAccountlist.selected {
+	cursor: auto;
+}
+
+/*
+.roundedOne label {
+	cursor: pointer;
+	position: absolute;
+	width: 16px;
+	height: 16px;
+	-webkit-border-radius: 50px;
+	-moz-border-radius: 50px;
+	border-radius: 50px;
+	left: 12px;
+	top: 12px;
+	-webkit-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,1);
+	-moz-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,1);
+	box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,1);
+	background: -webkit-linear-gradient(top, #D8D8D8 0%, #D8D8D8 100%);
+	background: -moz-linear-gradient(top, #D8D8D8 0%, #D8D8D8 100%);
+	background: -o-linear-gradient(top, #D8D8D8 0%, #D8D8D8 100%);
+	background: -ms-linear-gradient(top, #D8D8D8 0%, #D8D8D8 100%);
+	background: linear-gradient(top, #D8D8D8 0%, #D8D8D8 100%);
+}
+
+.roundedOne label:after {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	filter: alpha(opacity=0);
+	opacity: 0;
+	content: '';
+	position: absolute;
+	width: 16px;
+	height: 16px;
+	background: #45484;
+	background: -webkit-linear-gradient(top, #222 0%, #45484d 100%);
+	background: -moz-linear-gradient(top, #222 0%, #45484d 100%);
+	background: -o-linear-gradient(top, #222 0%, #45484d 100%);
+	background: -ms-linear-gradient(top, #222 0%, #45484d 100%);
+	background: linear-gradient(top, #222 0%, #45484d 100%);
+	-webkit-border-radius: 50px;
+	-moz-border-radius: 50px;
+	border-radius: 50px;
+	top: 0px;
+	left: 0px;
+	-webkit-box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
+	-moz-box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
+	box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
+}
+
+.roundedOne label:hover::after {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+	filter: alpha(opacity=30);
+	opacity: 0.3;
+}
+
+.roundedOne input[type=checkbox]:checked + label:after,
+.roundedOne input[type=radio]:checked + label:after {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+	filter: alpha(opacity=100);
+	opacity: 1;
+}*/
+
+
+
+/*
+  ご利用登録、登録解除申請、ポイント移動等で使う
+  ソフトロゴや最終ゲームシンク日時を含むボックスです
+ */
+.savedataBox {
+	position: relative;
+	border-radius: 2px;
+	border: #CCC 1px solid;
+	background: #FFF;
+	background-repeat: no-repeat;
+	background-size: 135px 58px;
+}
+.savedataBox .trainerName {
+	color: #333;
+}
+.savedataBox .gameInfo {
+	font-size: 10px;
+	margin: 0 0 15px 15px;
+}
+.savedataBox .gameInfo .label {
+	display: inline-block;
+	color: #999;
+	min-width: 115px;
+}
+.savedataBox .gameInfo .value {
+	display: inline-block;
+	color: #666;
+}
+
+
+/* 横長デザイン（アカウント設定やゲームソフト選択など） */
+.savedataBox.horizontal {
+	background-position: 50px 14px;
+	height: 108px;
+}
+.savedataBox.horizontal .trainerBox {
+	position: absolute;
+	width: 284px;
+	right: 18px;
+	top: 8px;
+	border-radius: 4px;
+}
+.savedataBox.horizontal .gameInfo {
+	position: absolute;
+	top: 81px;
+	left: 10px;
+	right: 10px;
+}
+.savedataBox.horizontal .gameSyncIdCode,
+.savedataBox.horizontal .lastGameSyncDate {
+	display: inline;
+}
+.savedataBox.horizontal .gameSyncIdCode {
+	margin-right: 30px;
+}
+
+/* 縦長デザイン（ポイント移動など） */
+.savedataBox.vertical {
+	padding: 85px 10px 10px;
+	background-position: center 10px;
+}
+
+
+/*
+  savedataBoxやランキング等で使われるトレーナー情報です
+ */
+.trainerBox {
+	position: relative;
+	height: 42px;
+	padding: 8px;
+	background: #ECECEC;
+	border-radius: 2px;
+	border: 2px solid #FFF;
+	text-align: left;
+}
+.trainerBox:after {
+	content: "";
+	position: absolute;
+	right: 64px;
+	top: 8px;
+	bottom: 8px;
+	width: 1px;
+	background: #DDD;
+	border-left: 1px solid #FFF;
+}
+.trainerBox .trainerIcon {
+	float: left;
+	vertical-align: middle;
+	width: 40px;
+	height: 40px;
+	border-radius: 2px;
+	margin-right: 10px;
+}
+.trainerBox .trainerNameRuby,
+.trainerBox .trainerName,
+.trainerBox .savedataIdCode {
+	margin-left: 50px;
+	margin-right: 62px;
+	line-height: 14px;
+}
+.trainerBox .trainerName {
+	margin-top: 13px;
+}
+.trainerBoxLinked .trainerName {
+	margin-top: 5px;
+}
+.trainerBox .trainerNameRuby {
+	margin-top: 5px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.trainerBoxLinked .trainerNameRuby {
+	margin-top: 0px;
+}
+.trainerBox .trainerNameRuby + .trainerName {
+	margin-top: 0px;
+}
+.trainerBox .savedataIdCode {
+	color: #999;
+	font-size: 10px;
+	margin-top: 3px;
+}
+.trainerBox .savedataIdCode:before {
+	content: "";
+	display: inline-block;
+	width: 16px;
+	height: 11px;
+	margin-right: 3px;
+	background: url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/icon/common_icons.png) 0px -34px no-repeat;
+	vertical-align: text-top;
+}
+.trainerBoxLinked .savedataIdCode {
+	margin-top: 0px;
+}
+.trainerBox .countryCode {
+	float: right;
+	width: 47px;
+	font-size: 11px;
+	margin-top: 12px;
+}
+.trainerBox .countryCode:before {
+	content: "";
+	display: inline-block;
+	width: 10px;
+	height: 15px;
+	margin-right: 4px;
+	background: url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/icon/common_icons.png) -17px -34px no-repeat;
+	vertical-align: sub;
+}
+#contents .trainerBox {
+	color: #333;
+}
+#contents .trainerBox .savedataIdCode {
+	color: #999;
+}
+
+
+/* step */
+.stepBox ul {
+  display: table;
+	width: 100%;
+	table-layout: fixed;
+}
+.stepBox li {
+	display: table-cell;
+}
+.stepBox li p {
+	position: relative;
+	background: #CCC;
+	color: #FFF;
+	padding: 12px 18px;
+	padding-left: 36px;
+	line-height: 1.2;
+	margin-left: 4px !important;
+}
+.stepBox li p:before {
+	content: "";
+	position: absolute;
+	width: 20px;
+	height: 62px;
+	left: 0;
+	top: 0;
+	background: url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/parts/step_box_cap.png) -20px center;
+	z-index: 1;
+}
+.stepBox li p:after {
+	content: "";
+	position: absolute;
+	width: 20px;
+	height: 62px;
+	right: -20px;
+	top: 0;
+	background: url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/parts/step_box_cap.png) -60px center;
+	z-index: 2;
+}
+.stepBox li:first-child {
+	margin-left: 0;
+}
+.stepBox li:first-child p {
+	border-radius: 5px 0 0 5px;
+	padding-left: 18px;
+}
+.stepBox li:first-child p:before {
+	display: none;
+}
+.stepBox li:last-child p {
+	border-radius: 0 5px 5px 0;
+}
+.stepBox li:last-child p:after {
+	display: none;
+}
+.stepBox li span {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+#rom-x .stepBox p.font_bule,
+#rom-x .stepBox p.font_or {
+	color: #FFF !important;
+	background-color: #6790B8;
+}
+#rom-x .stepBox p.font_bule:after,
+#rom-x .stepBox p.font_or:after {
+	background-position: -100px center;
+}
+#rom-y .stepBox p.font_bule,
+#rom-y .stepBox p.font_or {
+	color: #FFF !important;
+	background-color: #C7727D;
+}
+#rom-y .stepBox p.font_bule:after,
+#rom-y .stepBox p.font_or:after {
+	background-position: -140px center;
+}
+#rom-default .stepBox p.font_bule,
+#rom-default .stepBox p.font_or {
+	color: #FFF !important;
+	background-color: #FEB174;
+}
+#rom-default .stepBox p.font_bule:after,
+#rom-default .stepBox p.font_or:after {
+	background-position: -180px center;
+}
+
+
+/* steps */
+.steps {
+  display: table;
+	width: 100%;
+	table-layout: fixed;
+}
+.steps li {
+	display: table-cell;
+	position: relative;
+	background: #CCC;
+	color: #FFF;
+	padding: 12px 12px;
+	padding-left: 28px;
+	line-height: 1.2;
+	border-left: 4px solid #FFF;
+}
+.steps li:before {
+	content: "";
+	position: absolute;
+	width: 20px;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	background: url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/parts/step_box_cap.png) -20px center;
+	z-index: 1;
+}
+.steps li:after {
+	content: "";
+	position: absolute;
+	width: 20px;
+	right: -20px;
+	top: 0;
+	bottom: 0;
+	background: url(/web/20160331170656im_/https://d1q0mq3xgst30d.cloudfront.net/pc/common/images/parts/step_box_cap.png) -60px center;
+	z-index: 2;
+}
+.steps li:first-child {
+	border-left-style: none;
+	border-radius: 5px 0 0 5px;
+	padding-left: 18px;
+}
+.steps li:first-child:before {
+	display: none;
+}
+.steps li:last-child {
+	border-radius: 0 5px 5px 0;
+}
+.steps li:last-child:after {
+	display: none;
+}
+.steps li .name {
+	display: block;
+	font-size: 20px;
+	font-weight: bold;
+}
+.steps li .summary {
+	display: block;
+	font-size: 12px;
+}
+.steps-inline li {
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
+.steps-inline li .name,
+.steps-inline li .summary {
+	display: inline;
+}
+.steps-inline li .summary {
+	margin-left: 3px;
+}
+
+#rom-x .steps .active {
+	background-color: #6790B8;
+}
+#rom-x .steps .active:after {
+	background-position: -100px center;
+}
+#rom-y .steps .active {
+	background-color: #C7727D;
+}
+#rom-y .steps .active:after {
+	background-position: -140px center;
+}
+#rom-as .steps .active {
+/*	background-color: #96ABC0;*/
+	background-color: #6790B8;
+}
+#rom-as .steps .active:after {
+	background-position: -100px center;
+}
+#rom-or .steps .active {
+/*	background-color: #CB9FA4;*/
+	background-color: #C7727D;
+}
+#rom-or .steps .active:after {
+	background-position: -140px center;
+}
+#rom-default .steps .active {
+	background-color: #FEB174;
+}
+#rom-default .steps .active:after {
+	background-position: -180px center;
+}
+
+
+.indicatorPanel {
+	position: relative;
+	height: 80px;
+	background: -webkit-linear-gradient(top, #FFFFFF 0%, #F5F5F5 100%);
+	background: linear-gradient(to bottom, #FFFFFF 0%, #F5F5F5 100%);
+	box-shadow: 0 1px 1px rgba(0,0,0,0.3) inset;
+	border-radius: 10px;
+	overflow: hidden;
+}
+.indicatorPanel .indicatorPanelRow {
+	display: table;
+	color: #999;
+	font-size: 16px;
+	margin: 14px auto 0;
+}
+.indicatorPanel .indicatorPanelRow>* {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+.indicatorPanel .indicatorPanelRow>.title,
+.indicatorPanel .indicatorPanelRow>.templateLabel {
+	padding: 0 4px;
+  height:52px;
+  line-height:58px;
+}
+.indicatorPanel .indicator {
+	display:block;
+  float:left;
+  height:52px;
+  line-height:52px;
+	background:#FFF;
+	border-radius:4px;
+	box-shadow:0 1px 1px rgba(0,0,0,0.3) inset;
+}
+.indicatorPanel .indicatorPanelRow>.indicator {
+	padding: 0;
+}
+.indicatorPanel .indicator .digit,
+.indicatorPanel .indicator .delimiter {
+	display:inline-block;
+	height:44px;
+  line-height:44px;
+  padding:4px 2px;
+	text-align:center;
+	border-left:1px dotted #B6B6B6;
+	color:#333;
+	font-size:42px;
+	font-family:Verdana,sans-serif;
+  font-weight:bold;
+	text-shadow:0 4px 4px rgba(0,0,0,0.2);
+}
+.indicatorPanel .indicator .digit:first-child,
+.indicatorPanel .indicator .delimiter:first-child {
+	border-left-style: none;
+}
+.indicatorPanel .indicator .digit {
+	width:55px;
+}
+.indicatorPanel .indicator .delimiter {
+	width:35px;
+}
+
+
+ul.rom-logo-container { 
+    display:block;
+    width:100%;
+    margin:10px auto;
+    height:72px;
+    line-height:72px;
+    color:#fff;
+    text-align:center;
+}
+ul.rom-logo-container > li { 
+    display:inline-block;
+    margin:0 8px;
+    width:150px;
+    height:72px;
+    background-size:contain;
+    background-position:50% 50%;
+    background-repeat:no-repeat;
+    text-indent:-9999px;
+}
+
+/*
+     FILE ARCHIVED ON 17:06:56 Mar 31, 2016 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 02:53:15 Apr 30, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 209.324
+  exclusion.robots: 0.066
+  exclusion.robots.policy: 0.057
+  RedisCDXSource: 5.37
+  esindex: 0.008
+  LoadShardBlock: 184.392 (3)
+  PetaboxLoader3.resolve: 150.992 (3)
+  PetaboxLoader3.datanode: 139.67 (4)
+  load_resource: 111.885
+*/
